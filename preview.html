@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>全球大事记 - 世界事件永久存档</title>
+  <style>
+/* ===== 全球事件收集网站 - 主样式 ===== */
+* { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --primary: #185FA5; --primary-light: #E6F1FB;
+  --bg: #F1EFE8; --card-bg: #FFFFFF;
+  --text: #2C2C2A; --text-secondary: #5F5E5A;
+  --border: #D3D1C7; --shadow: 0 1px 4px rgba(0,0,0,0.08);
+  --radius: 10px;
+}
+body { font-family: -apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; background: var(--bg); color: var(--text); line-height:1.7; min-height:100vh; }
+.navbar { background:var(--card-bg); border-bottom:1px solid var(--border); padding:0 24px; position:sticky; top:0; z-index:100; box-shadow:var(--shadow); }
+.nav-inner { max-width:1100px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; height:56px; }
+.nav-logo { font-size:18px; font-weight:700; color:var(--primary); text-decoration:none; }
+.nav-links { display:flex; gap:6px; }
+.nav-links a { text-decoration:none; color:var(--text-secondary); font-size:14px; padding:6px 14px; border-radius:6px; transition:background 0.2s; }
+.nav-links a:hover, .nav-links a.active { background:var(--primary-light); color:var(--primary); font-weight:600; }
+.container { max-width:1100px; margin:0 auto; padding:24px 20px; }
+.page-title { font-size:26px; font-weight:700; margin-bottom:6px; }
+.page-subtitle { font-size:14px; color:var(--text-secondary); }
+.filter-bar { display:flex; gap:10px; flex-wrap:wrap; margin:20px 0; }
+.search-box { flex:1; min-width:200px; padding:9px 14px; border:1px solid var(--border); border-radius:var(--radius); font-size:14px; outline:none; }
+.search-box:focus { border-color:var(--primary); }
+.filter-select { padding:9px 14px; border:1px solid var(--border); border-radius:var(--radius); font-size:14px; background:var(--card-bg); color:var(--text); outline:none; cursor:pointer; }
+.timeline { position:relative; padding-left:28px; }
+.timeline::before { content:''; position:absolute; left:8px; top:0; bottom:0; width:2px; background:var(--border); }
+.timeline-item { position:relative; margin-bottom:24px; background:var(--card-bg); border-radius:var(--radius); border:1px solid var(--border); padding:18px 20px; box-shadow:var(--shadow); cursor:pointer; text-decoration:none; display:block; color:inherit; transition:box-shadow 0.2s; }
+.timeline-item:hover { box-shadow:0 3px 12px rgba(0,0,0,0.12); }
+.timeline-dot { position:absolute; left:-24px; top:22px; width:12px; height:12px; border-radius:50%; background:var(--primary); border:2px solid var(--card-bg); box-shadow:0 0 0 2px var(--primary); }
+.timeline-date { font-size:12px; color:var(--text-secondary); margin-bottom:6px; display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+.timeline-category { display:inline-block; font-size:11px; padding:2px 8px; border-radius:4px; background:var(--primary-light); color:var(--primary); font-weight:600; }
+.timeline-title { font-size:17px; font-weight:700; color:var(--text); margin:8px 0; line-height:1.5; }
+.timeline-summary { font-size:14px; color:var(--text-secondary); line-height:1.7; margin-bottom:10px; }
+.timeline-meta { display:flex; gap:12px; font-size:12px; color:var(--text-secondary); flex-wrap:wrap; }
+.timeline-tag { display:inline-block; font-size:11px; padding:2px 8px; border-radius:4px; background:var(--bg); color:var(--text-secondary); margin-right:4px; }
+.stats-row { display:grid; grid-template-columns:repeat(auto-fit, minmax(160px,1fr)); gap:12px; margin-bottom:24px; }
+.stat-card { background:var(--card-bg); border-radius:var(--radius); padding:16px 18px; box-shadow:var(--shadow); border:1px solid var(--border); }
+.stat-num { font-size:28px; font-weight:700; color:var(--primary); }
+.stat-label { font-size:12px; color:var(--text-secondary); margin-top:2px; }
+.btn { padding:9px 18px; border:none; border-radius:var(--radius); font-size:14px; cursor:pointer; transition:opacity 0.2s; text-decoration:none; display:inline-flex; align-items:center; gap:6px; background:var(--primary); color:white; }
+.footer { text-align:center; padding:28px 20px; font-size:12px; color:var(--text-secondary); border-top:1px solid var(--border); margin-top:40px; }
+.empty-state { text-align:center; padding:60px 20px; color:var(--text-secondary); }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">🌍 全球大事记</a>
+    <div class="nav-links">
+      <a href="#" class="active">时间线</a>
+      <a href="#">管理后台</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+  <div style="margin-bottom:28px">
+    <h1 class="page-title">全球大事时间线</h1>
+    <p class="page-subtitle">自动收集 · 永久存档 · 不被删除</p>
+  </div>
+
+  <div class="stats-row" id="stats-row"></div>
+
+  <div class="filter-bar">
+    <input type="text" class="search-box" id="search-input" placeholder="搜索事件关键词…">
+    <select class="filter-select" id="cat-filter">
+      <option value="">全部分类</option>
+    </select>
+    <select class="filter-select" id="region-filter">
+      <option value="">全部地区</option>
+    </select>
+  </div>
+
+  <div class="timeline" id="timeline-list">
+    <p style="text-align:center;color:var(--text-secondary);padding:40px 0">加载中…</p>
+  </div>
+
+</div>
+
+<div class="footer">
+  全球大事记 · 数据永久存档 · 最后更新：<span id="update-date"></span>
+</div>
+
+<script>
+// ===== 内嵌数据（预览版）=====
+const EVENTS = [
+  {
+    "id": "evt-001",
+    "title": "日本突发7.1级地震，九州地区发布海啸预警",
+    "date": "2026-05-21",
+    "category": "自然灾害",
+    "country": "日本",
+    "region": "亚洲",
+    "summary": "日本九州地区发生里氏7.1级地震，气象厅发布海啸预警，部分地区震感强烈，暂无人员伤亡报告。",
+    "content": "据日本气象厅消息，当地时间5月21日上午10时43分，九州地区发生里氏7.1级地震，震源深度约30公里。\n\n多个县市震感强烈，部分铁路线路暂时停运。气象厅已发布海啸预警，提醒沿海居民注意安全。",
+    "image": "",
+    "videoUrl": "",
+    "source": "NHK、路透社",
+    "sourceUrl": "https://www.nhk.or.jp",
+    "tags": ["地震", "海啸", "日本", "自然灾害"]
+  },
+  {
+    "id": "evt-002",
+    "title": "欧盟宣布新一轮对俄制裁方案，涉及能源与金融领域",
+    "date": "2026-05-20",
+    "category": "国际政治",
+    "country": "比利时",
+    "region": "欧洲",
+    "summary": "欧盟委员会在布鲁塞尔宣布第15轮对俄制裁方案，重点针对能源出口限制与金融交易监管，新措施预计下月生效。",
+    "content": "欧盟委员会当地时间5月20日在布鲁塞尔宣布第15轮对俄制裁方案。\n\n本轮制裁重点包括：进一步限制俄罗斯能源出口价格上限；新增30家金融机构列入制裁名单；扩大对俄罗斯钻石与原材料的进口禁令。",
+    "image": "",
+    "videoUrl": "",
+    "source": "BBC、路透社",
+    "sourceUrl": "https://www.bbc.com",
+    "tags": ["欧盟", "制裁", "俄罗斯", "国际关系"]
+  },
+  {
+    "id": "evt-003",
+    "title": "印度成功发射载人航天任务，成为第四个独立送人上天的国家",
+    "date": "2026-05-18",
+    "category": "科技",
+    "country": "印度",
+    "region": "亚洲",
+    "summary": "印度空间研究组织（ISRO）成功发射载人航天任务Gaganyaan-1，两名宇航员进入预定轨道，印度成为继美、俄、中之后第四个独立实现载人航天的国家。",
+    "content": "当地时间5月18日10时30分，印度安得拉邦萨蒂什·达万航天中心，搭载两名宇航员的GSLV Mk III运载火箭成功升空。\n\n约16分钟后，飞船成功进入预定轨道。印度总理莫迪在现场观看发射后表示，这是印度航天史上的里程碑时刻。",
+    "image": "",
+    "videoUrl": "",
+    "source": "ISRO官网、新华社",
+    "sourceUrl": "https://www.isro.gov.in",
+    "tags": ["航天", "印度", "载人航天", "科技"]
+  },
+  {
+    "id": "evt-004",
+    "title": "OpenAI发布GPT-5，多模态能力大幅提升",
+    "date": "2026-05-15",
+    "category": "科技",
+    "country": "美国",
+    "region": "北美洲",
+
+    "summary": "OpenAI正式发布GPT-5大模型，在推理、多模态理解与代码生成方面取得突破性进展，API价格较GPT-4下降60%。",
+    "content": "旧金山时间5月15日，OpenAI在春季发布会上正式推出GPT-5大模型。\n\n主要升级包括：原生支持100万token上下文窗口；图像、音频、视频多模态理解能力大幅提升；推理能力接近人类专家水平；API调用成本较GPT-4下降60%。",
+    "image": "",
+    "videoUrl": "",
+    "source": "OpenAI官网、TechCrunch",
+    "sourceUrl": "https://openai.com",
+    "tags": ["AI", "OpenAI", "GPT-5", "科技"]
+  },
+  {
+    "id": "evt-005",
+    "title": "巴西亚马逊雨林砍伐面积创20年新低，环保政策见效",
+    "date": "2026-05-17",
+    "category": "环境",
+    "country": "巴西",
+    "region": "南美洲",
+    "summary": "巴西国家空间研究所发布数据，过去12个月亚马逊雨林砍伐面积同比下降38%，创2006年以来最低水平。",
+    "content": "巴西国家空间研究所（INPE）最新卫星监测数据显示，2025年8月至2026年4月，亚马逊雨林砍伐面积为3500平方公里，较去年同期下降38%。\n\n挪威与德国政府宣布，将向巴西热带雨林保护基金追加5亿美元捐款。",
+    "image": "",
+    "videoUrl": "",
+    "source": "INPE、BBC",
+    "sourceUrl": "https://www.gov.br",
+    "tags": ["环保", "亚马逊", "巴西", "气候变化"]
+  }
+];
+
+// ===== 颜色工具 =====
+function getCategoryColor(cat) {
+  const map = {'自然灾害':'#185FA5','国际政治':'#534AB7','科技':'#0C447C','环境':'#3B6D11','体育':'#BA7517','经济':'#854F0B','社会':'#A32D2D','其他':'#5F5E5A'};
+  return map[cat] || '#5F5E5A';
+}
+function getCategoryBg(cat) {
+  const map = {'自然灾害':'#E6F1FB','国际政治':'#EEEDFE','科技':'#E6F1FB','环境':'#EAF3DE','体育':'#FAEEDA','经济':'#FAEEDA','社会':'#FCEBEB','其他':'#F1EFE8'};
+  return map[cat] || '#F1EFE8';
+}
+function formatDate(dateStr) {
+  const d = new Date(dateStr); return d.toLocaleDateString('zh-CN', {year:'numeric',month:'long',day:'numeric'});
+}
+
+// ===== 渲染 =====
+function renderTimeline(events) {
+  const list = document.getElementById('timeline-list');
+  events.sort((a,b) => b.date.localeCompare(a.date));
+  list.innerHTML = events.map(ev => `
+    <div class="timeline-item" onclick="alert('详情页开发中，事件ID：'+ev.id)">
+      <div class="timeline-dot" style="background:${getCategoryColor(ev.category)};box-shadow:0 0 0 2px ${getCategoryColor(ev.category)}"></div>
+      <div class="timeline-date">
+        <span class="timeline-category" style="background:${getCategoryBg(ev.category)};color:${getCategoryColor(ev.category)}">${ev.category}</span>
+        ${formatDate(ev.date)} · ${ev.country}
+      </div>
+      <div class="timeline-title">${ev.title}</div>
+      <div class="timeline-summary">${ev.summary}</div>
+      <div class="timeline-meta">${ev.tags.map(t=>`<span class="timeline-tag">#${t}</span>`).join('')}</div>
+    </div>`).join('');
+}
+
+function initFilters() {
+  const searchInput = document.getElementById('search-input');
+  const catSelect = document.getElementById('cat-filter');
+  const regionSelect = document.getElementById('region-filter');
+  const cats = [...new Set(EVENTS.map(e=>e.category))].sort();
+  const regions = [...new Set(EVENTS.map(e=>e.region))].sort();
+  cats.forEach(c => { catSelect.innerHTML += `<option value="${c}">${c}</option>`; });
+  regions.forEach(r => { regionSelect.innerHTML += `<option value="${r}">${r}</option>`; });
+
+  const doFilter = () => {
+    const kw = searchInput.value.trim().toLowerCase();
+    const catVal = catSelect.value;
+    const regVal = regionSelect.value;
+    const filtered = EVENTS.filter(ev => {
+      if (catVal && ev.category !== catVal) return false;
+      if (regVal && ev.region !== regVal) return false;
+      if (kw) { const hay = [ev.title,ev.summary,ev.content,ev.country,ev.region,...(ev.tags||[])].join(' ').toLowerCase(); return hay.includes(kw); }
+      return true;
+    });
+    renderTimeline(filtered);
+  };
+  searchInput.addEventListener('input', doFilter);
+  catSelect.addEventListener('change', doFilter);
+  regionSelect.addEventListener('change', doFilter);
+}
+
+// ===== 初始化 =====
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('update-date').textContent = new Date().toLocaleDateString('zh-CN');
+  // 统计
+  const cats = {};
+  EVENTS.forEach(ev => { cats[ev.category] = (cats[ev.category]||0) + 1; });
+  document.getElementById('stats-row').innerHTML = `
+    <div class="stat-card"><div class="stat-num">${EVENTS.length}</div><div class="stat-label">事件总数</div></div>
+    <div class="stat-card"><div class="stat-num">${Object.keys(cats).length}</div><div class="stat-label">事件分类</div></div>
+    <div class="stat-card"><div class="stat-num">${[...new Set(EVENTS.map(e=>e.region))].length}</div><div class="stat-label">涉及地区</div></div>`;
+  renderTimeline(EVENTS);
+  initFilters();
+});
+</script>
+</body>
+</html>
