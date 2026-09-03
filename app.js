@@ -254,8 +254,20 @@ async function renderEventDetail() {
   // 内容段落
   const contentHtml = (ev.content || '').split('\n').filter(l => l.trim()).map(l => `<p>${l.trim()}</p>`).join('');
 
+  // AI 一分钟速览（aiSummary 字段由 AI 生成写入 events.json）
+  let aiBox = '';
+  if (ev.aiSummary && ev.aiSummary.trim()) {
+    aiBox = `
+      <div style="background:linear-gradient(135deg,#EAF3FB,#F0FDF6);border:1px solid #BFDBFE;border-left:4px solid #2563EB;border-radius:10px;padding:16px 18px;margin-bottom:18px">
+        <div style="font-size:13px;font-weight:700;color:#1D4ED8;margin-bottom:8px">⚡ 一分钟速览（AI 提炼）</div>
+        <div style="font-size:15px;line-height:1.9;color:#1F2937">${ev.aiSummary}</div>
+        <div style="font-size:12px;color:#6B7280;margin-top:8px">基于新闻正文开头提炼 · 完整报道请见文末"查看原文"</div>
+      </div>`;
+  }
+
   container.innerHTML = `
     ${imgHtml}
+    ${aiBox}
     <div class="event-meta">
       <span class="timeline-category" style="background:${getCategoryBg(ev.category)};color:${getCategoryColor(ev.category)}">${ev.category}</span>
       <span class="event-meta-item">📅 ${formatDate(ev.date)}</span>
