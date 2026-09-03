@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{MONTH_TITLE}} · 世界事件永久存档</title>
+<link rel="stylesheet" href="./style.css">
+<style>
+  .month-nav{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
+  .month-nav a{padding:6px 14px;border:1px solid var(--border);border-radius:20px;text-decoration:none;color:var(--text-primary);font-size:14px;transition:all .15s}
+  .month-nav a:hover{border-color:var(--primary);color:var(--primary)}
+  .month-nav a.current{background:var(--primary);color:#fff;border-color:var(--primary)}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="page-header">
+    <h1 class="page-title">{{MONTH_TITLE}}</h1>
+    <p class="page-subtitle">月度归档 · 共 {{MONTH_COUNT}} 条 · 自动收集 · 永久存档</p>
+  </div>
+
+  <div class="month-nav">{{MONTH_NAV}}</div>
+
+  <!-- 时间线列表 -->
+  <div class="timeline" id="timeline-list">
+<!-- TIMELINE_START -->
+<!-- TIMELINE_END -->
+  </div>
+
+  <div class="month-nav" style="margin-top:24px">{{MONTH_NAV}}</div>
+
+  <p style="text-align:center;margin:24px 0">
+    <a href="./index.html" style="color:var(--primary);text-decoration:none">← 返回最新事件</a>
+  </p>
+</div>
+</body>
+</html>

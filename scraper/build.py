@@ -4,9 +4,12 @@
 
 为什么需要它：
 线上用户的浏览器可能加载不出 app.js、也可能 fetch 不到 JSON（国内网络访问
-境外沙箱域名时常被卡住）。本脚本做两件事：
-  1. 把事件列表直接渲染成静态 HTML 塞进页面 → 即使 JS 完全加载不了，内容照样显示
-  2. 同时内嵌一份 JSON 数据 → JS 加载成功时用它实现搜索/筛选等增强功能
+境外沙箱域名时常被卡住）。本脚本做几件事：
+  1. index.html：静态渲染最近 50 条 + 内嵌最近 300 条（JS 搜索增强），
+     更多历史通过"按月归档"页面浏览
+  2. archive-YYYY-MM.html：每个月一个静态归档页（全部该月事件）
+  3. event.html：内嵌全量 JSON（详情页按 id 查找任意事件）
+  4. admin.html：静态渲染全量列表 + 内嵌数据
 
 用法（每次抓取新闻后运行一次）：
     python build.py
@@ -18,6 +21,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).parent.parent
 EVENTS_FILE = ROOT / "data" / "events.json"
+TEMPLATE_FILE = ROOT / "archive_template.html"
+INDEX_STATIC_COUNT = 50   # 首页静态渲染条数
+INDEX_EMBED_COUNT = 300   # 首页内嵌 JSON 条数（供搜索/筛选）
 
 START = "<!-- EMBED_EVENTS_START -->"
 END = "<!-- EMBED_EVENTS_END -->"
@@ -27,6 +33,8 @@ T_START = "<!-- TIMELINE_START -->"
 T_END = "<!-- TIMELINE_END -->"
 A_START = "<!-- ADMINLIST_START -->"
 A_END = "<!-- ADMINLIST_END -->"
+M_START = "<!-- MONTHNAV_START -->"
+M_END = "<!-- MONTHNAV_END -->"
 
 CAT_COLOR = {
     "自然灾害": "#185FA5", "国际政治": "#534AB7", "科技": "#0C447C",
@@ -81,7 +89,7 @@ def render_timeline(events):
       <div class="timeline-dot" style="background:{color(cat)};box-shadow:0 0 0 2px {color(cat)}"></div>
       <div class="timeline-date">
         <span class="timeline-category" style="background:{bg(cat)};color:{color(cat)}">{esc(cat)}</span>
-        {esc(ev.get("date", ""))} · {esc(ev.get("country", ""))}
+        {esc(ev.get("date", ""))} · {esc(ev.get("region", ""))}
       </div>
       <div class="timeline-title">{esc(ev.get("title", ""))}</div>
       <div class="timeline-summary">{esc(ev.get("summary", ""))}</div>
@@ -112,35 +120,80 @@ def replace_between(html_text, start, end, replacement, label):
     return new_html, n
 
 
+def month_label(ym):
+    y, m = ym.split("-")
+    return f"{y}年{int(m)}月"
+
+
+def render_month_nav(months, current=None):
+    links = []
+    for ym in months:
+        cls = ' class="current"' if ym == current else ""
+        links.append(f'<a href="./archive-{ym}.html"{cls}>{month_label(ym)}</a>')
+    links.append('<a href="./index.html">最新事件</a>')
+    return "\n".join(links)
+
+
 def main():
     with open(EVENTS_FILE, "r", encoding="utf-8") as f:
         events = json.load(f)
+    events_sorted = sort_events(events)
 
-    # 防止新闻内容里的 </script> 把 script 标签提前截断
-    payload = json.dumps(events, ensure_ascii=False).replace("</", "<\\/")
-    embed_snippet = f"<script>window.__EMBEDDED_EVENTS__ = {payload};</script>"
+    months = sorted({e.get("date", "")[:7] for e in events if e.get("date")})
 
-    # 1) index.html：静态时间线 + 统计 + 内嵌数据
+    # 1) index.html：最近 50 条静态 + 最近 300 条内嵌 + 月份导航
     idx = ROOT / "index.html"
     h = idx.read_text(encoding="utf-8")
     h, _ = replace_between(h, S_START, S_END, render_stats(events), "index 统计")
-    h, _ = replace_between(h, T_START, T_END, render_timeline(events), "index 时间线")
+    h, _ = replace_between(h, T_START, T_END,
+                           render_timeline(events_sorted[:INDEX_STATIC_COUNT]),
+                           "index 时间线")
+    h, _ = replace_between(h, M_START, M_END, render_month_nav(months), "index 月份导航")
+    embed_latest = events_sorted[:INDEX_EMBED_COUNT]
+    payload = json.dumps(embed_latest, ensure_ascii=False).replace("</", "<\\/")
+    embed_snippet = (f"<script>window.__TOTAL_EVENTS__ = {len(events)}; "
+                     f"window.__EMBEDDED_EVENTS__ = {payload};</script>")
     h, _ = replace_between(h, START, END, embed_snippet, "index 内嵌数据")
     idx.write_text(h, encoding="utf-8")
-    print(f"  ✅ index.html 已静态渲染 {len(events)} 条事件")
+    print(f"  ✅ index.html：静态渲染 {min(INDEX_STATIC_COUNT, len(events))} 条，"
+          f"内嵌 {len(embed_latest)} 条（总 {len(events)} 条），月份导航 {len(months)} 个月")
 
-    # 2) event.html：内嵌数据（供详情页 JS 读取）
+    # 2) archive-YYYY-MM.html：每个月一个静态归档页
+    template = TEMPLATE_FILE.read_text(encoding="utf-8")
+    for ym in months:
+        month_events = [e for e in events_sorted if e.get("date", "")[:7] == ym]
+        page = template.replace("{{MONTH_TITLE}}", f"{month_label(ym)} · 世界大事记")
+        page = page.replace("{{MONTH_COUNT}}", str(len(month_events)))
+        page = page.replace("{{MONTH_NAV}}", render_month_nav(months, current=ym))
+        page, n1 = replace_between(page, T_START, T_END,
+                                   render_timeline(month_events), f"{ym} 时间线")
+        out = ROOT / f"archive-{ym}.html"
+        out.write_text(page, encoding="utf-8")
+        print(f"  ✅ archive-{ym}.html：{len(month_events)} 条")
+    # 清理不再有数据的旧归档页
+    for old in ROOT.glob("archive-*.html"):
+        ym = old.stem.replace("archive-", "")
+        if ym not in months:
+            old.unlink()
+            print(f"  🗑️ 删除过期归档页 {old.name}")
+
+    # 3) event.html：内嵌全量数据（详情页按 id 查找）
     ev_page = ROOT / "event.html"
     h = ev_page.read_text(encoding="utf-8")
-    h, _ = replace_between(h, START, END, embed_snippet, "event 内嵌数据")
+    payload = json.dumps(events, ensure_ascii=False).replace("</", "<\\/")
+    h, _ = replace_between(h, START, END,
+                           f"<script>window.__EMBEDDED_EVENTS__ = {payload};</script>",
+                           "event 内嵌数据")
     ev_page.write_text(h, encoding="utf-8")
-    print("  ✅ event.html 已内嵌数据")
+    print(f"  ✅ event.html 已内嵌全量数据（{len(events)} 条）")
 
-    # 3) admin.html：静态列表 + 内嵌数据
+    # 4) admin.html：静态全量列表 + 内嵌数据
     adm = ROOT / "admin.html"
     h = adm.read_text(encoding="utf-8")
     h, _ = replace_between(h, A_START, A_END, render_admin_list(events), "admin 列表")
-    h, _ = replace_between(h, START, END, embed_snippet, "admin 内嵌数据")
+    h, _ = replace_between(h, START, END,
+                           f"<script>window.__EMBEDDED_EVENTS__ = {payload};</script>",
+                           "admin 内嵌数据")
     adm.write_text(h, encoding="utf-8")
     print(f"  ✅ admin.html 已静态渲染 {len(events)} 条")
 

@@ -35,6 +35,29 @@ function getCategoryBg(cat) {
 }
 
 // ===== 加载事件数据 =====
+let __fullEvents = null; // 全量数据缓存（搜索时按需加载）
+
+async function getFullEvents() {
+  // 全量数据：首页内嵌的只是最近 300 条，搜索/筛选时需要全部历史
+  if (__fullEvents) return __fullEvents;
+  const embedded = window.__EMBEDDED_EVENTS__ || [];
+  if (!window.__TOTAL_EVENTS__ || embedded.length >= window.__TOTAL_EVENTS__) {
+    return embedded;
+  }
+  try {
+    const resp = await fetch('./data/events.json?t=' + Date.now());
+    if (!resp.ok) throw new Error('HTTP ' + resp.status);
+    const data = JSON.parse(await resp.text());
+    if (Array.isArray(data) && data.length > 0) {
+      __fullEvents = data;
+      return data;
+    }
+  } catch (e) {
+    console.warn('加载全量数据失败，降级使用内嵌数据:', e.message);
+  }
+  return embedded;
+}
+
 async function loadEvents() {
   // 优先使用内嵌数据（build.py 注入），完全不依赖网络请求，免疫缓存问题
   if (window.__EMBEDDED_EVENTS__ && Array.isArray(window.__EMBEDDED_EVENTS__) && window.__EMBEDDED_EVENTS__.length > 0) {
@@ -50,6 +73,16 @@ async function loadEvents() {
     console.warn('加载 events.json 失败，使用空数据:', e.message);
     return [];
   }
+}
+
+// 地区选项展示顺序（具体在前，大洲在后）
+const REGION_ORDER = ['中国', '美国', '俄罗斯', '乌克兰', '欧盟', '印度', '东南亚', '中东', '苏丹',
+                      '亚洲', '欧洲', '非洲', '北美洲', '南美洲', '大洋洲', '全球'];
+function sortRegions(regions) {
+  return regions.sort((a, b) => {
+    const ia = REGION_ORDER.indexOf(a), ib = REGION_ORDER.indexOf(b);
+    return (ia === -1 ? 999 : ia) - (ib === -1 ? 999 : ib);
+  });
 }
 
 // 错误提示（不再让页面卡在"加载中"）
@@ -69,14 +102,15 @@ async function renderTimeline() {
   try {
   const events = await loadEvents();
 
-  // 统计
+  // 统计（用全量数据计算，与静态版一致）
   if (statsEl) {
+    const all = await getFullEvents();
     const cats = {};
-    events.forEach(ev => { cats[ev.category] = (cats[ev.category]||0) + 1; });
+    all.forEach(ev => { cats[ev.category] = (cats[ev.category]||0) + 1; });
     statsEl.innerHTML = `
-      <div class="stat-card"><div class="stat-num">${events.length}</div><div class="stat-label">事件总数</div></div>
+      <div class="stat-card"><div class="stat-num">${all.length}</div><div class="stat-label">事件总数</div></div>
       <div class="stat-card"><div class="stat-num">${Object.keys(cats).length}</div><div class="stat-label">事件分类</div></div>
-      <div class="stat-card"><div class="stat-num">${[...new Set(events.map(e=>e.region))].length}</div><div class="stat-label">涉及地区</div></div>
+      <div class="stat-card"><div class="stat-num">${[...new Set(all.map(e=>e.region))].length}</div><div class="stat-label">涉及地区</div></div>
     `;
   }
 
@@ -97,15 +131,19 @@ async function renderTimeline() {
       <div class="timeline-dot" style="background:${getCategoryColor(ev.category)};box-shadow:0 0 0 2px ${getCategoryColor(ev.category)}"></div>
       <div class="timeline-date">
         <span class="timeline-category" style="background:${getCategoryBg(ev.category)};color:${getCategoryColor(ev.category)}">${ev.category}</span>
-        ${formatDate(ev.date)} · ${ev.country}
+        ${formatDate(ev.date)} · ${ev.region || ''}
       </div>
       <div class="timeline-title">${ev.title}</div>
       <div class="timeline-summary">${ev.summary}</div>
       <div class="timeline-meta">
-        ${ev.tags.map(t => `<span class="timeline-tag">#${t}</span>`).join('')}
+        ${(ev.tags||[]).map(t => `<span class="timeline-tag">#${t}</span>`).join('')}
       </div>
     </a>
-  `).join('');
+  `).join('') + (
+    window.__TOTAL_EVENTS__ && events.length < window.__TOTAL_EVENTS__
+      ? `<div class="load-more-tip">📄 已显示最近 ${events.length} 条，更早的历史请用上方“月份归档”浏览</div>`
+      : ''
+  );
   } catch (err) {
     console.error('渲染时间线出错:', err);
     showError('页面渲染出错：' + err.message);
@@ -120,10 +158,10 @@ function initFilters() {
 
   if (!searchInput) return;
 
-  // 填充分类和地区选项
-  loadEvents().then(events => {
+  // 填充分类和地区选项（地区用固定顺序）
+  getFullEvents().then(events => {
     const cats = [...new Set(events.map(e => e.category))].sort();
-    const regions = [...new Set(events.map(e => e.region))].sort();
+    const regions = sortRegions([...new Set(events.map(e => e.region))]);
     if (catSelect) {
       cats.forEach(c => { catSelect.innerHTML += `<option value="${c}">${c}</option>`; });
     }
@@ -136,7 +174,7 @@ function initFilters() {
     const keyword = searchInput.value.trim().toLowerCase();
     const catVal = catSelect ? catSelect.value : '';
     const regionVal = regionSelect ? regionSelect.value : '';
-    const events = await loadEvents();
+    const events = await getFullEvents();
 
     const filtered = events.filter(ev => {
       if (catVal && ev.category !== catVal) return false;
@@ -160,12 +198,12 @@ function initFilters() {
         <div class="timeline-dot" style="background:${getCategoryColor(ev.category)};box-shadow:0 0 0 2px ${getCategoryColor(ev.category)}"></div>
         <div class="timeline-date">
           <span class="timeline-category" style="background:${getCategoryBg(ev.category)};color:${getCategoryColor(ev.category)}">${ev.category}</span>
-          ${formatDate(ev.date)} · ${ev.country}
+          ${formatDate(ev.date)} · ${ev.region || ''}
         </div>
         <div class="timeline-title">${ev.title}</div>
         <div class="timeline-summary">${ev.summary}</div>
         <div class="timeline-meta">
-          ${ev.tags.map(t => `<span class="timeline-tag">#${t}</span>`).join('')}
+          ${(ev.tags||[]).map(t => `<span class="timeline-tag">#${t}</span>`).join('')}
         </div>
       </a>
     `).join('');
