@@ -293,7 +293,7 @@ async function renderEventDetail() {
   // AI 一分钟速览（aiSummary 字段由 AI 生成写入 events.json；summaryFull=true 表示基于原文全文提炼）
   let aiBox = '';
   if (ev.aiSummary && ev.aiSummary.trim()) {
-    const aiNote = ev.summaryFull ? '基于新闻全文提炼' : '基于新闻正文开头提炼';
+    const aiNote = ev.summaryFull ? '基于全文总结提炼' : '基于正文开头提炼';
     const aiBadge = ev.summaryFull ? '<span style="background:#2563EB;color:#fff;font-size:11px;font-weight:600;border-radius:4px;padding:1px 6px;margin-left:6px;vertical-align:1px">全文版</span>' : '';
     aiBox = `
       <div style="background:linear-gradient(135deg,#EAF3FB,#F0FDF6);border:1px solid #BFDBFE;border-left:4px solid #2563EB;border-radius:10px;padding:16px 18px;margin-bottom:18px">
