@@ -94,6 +94,44 @@ function showError(msg) {
 }
 
 // ===== 首页：渲染时间线 =====
+
+// HTML 转义（防注入，也保证高亮标记安全）
+function escapeHtml(s) {
+  return (s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+// 关键词高亮：先转义再包 mark 标签
+function highlight(text, kw) {
+  const esc = escapeHtml(text);
+  if (!kw) return esc;
+  const safeKw = escapeHtml(kw).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  try {
+    return esc.replace(new RegExp(safeKw, 'gi'), m => `<mark style="background:#FEF08A;color:#713F12;border-radius:3px;padding:0 1px">${m}</mark>`);
+  } catch (e) {
+    return esc;
+  }
+}
+
+// 渲染单张时间线卡片（kw 非空时高亮命中关键词）
+function renderEventCard(ev, kw) {
+  return `
+    <a class="timeline-item" href="./event.html?id=${ev.id}">
+      <div class="timeline-dot" style="background:${getCategoryColor(ev.category)};box-shadow:0 0 0 2px ${getCategoryColor(ev.category)}"></div>
+      <div class="timeline-date">
+        <span class="timeline-category" style="background:${getCategoryBg(ev.category)};color:${getCategoryColor(ev.category)}">${ev.category}</span>
+        ${formatDate(ev.date)} · ${ev.region || ''}
+      </div>
+      <div class="timeline-title">${highlight(ev.title, kw)}</div>
+      <div class="timeline-summary">${highlight(ev.summary, kw)}</div>
+      <div class="timeline-meta">
+        ${(ev.tags||[]).map(t => `<span class="timeline-tag">#${escapeHtml(t)}</span>`).join('')}
+      </div>
+    </a>`;
+}
+
+// 搜索结果单次最多渲染条数（保证大数据量下响应迅速）
+const SEARCH_RENDER_LIMIT = 200;
+
 async function renderTimeline() {
   const list = document.getElementById('timeline-list');
   const statsEl = document.getElementById('stats-row');
@@ -126,20 +164,7 @@ async function renderTimeline() {
   // 按日期降序
   events.sort((a, b) => b.date.localeCompare(a.date));
 
-  list.innerHTML = events.map(ev => `
-    <a class="timeline-item" href="./event.html?id=${ev.id}">
-      <div class="timeline-dot" style="background:${getCategoryColor(ev.category)};box-shadow:0 0 0 2px ${getCategoryColor(ev.category)}"></div>
-      <div class="timeline-date">
-        <span class="timeline-category" style="background:${getCategoryBg(ev.category)};color:${getCategoryColor(ev.category)}">${ev.category}</span>
-        ${formatDate(ev.date)} · ${ev.region || ''}
-      </div>
-      <div class="timeline-title">${ev.title}</div>
-      <div class="timeline-summary">${ev.summary}</div>
-      <div class="timeline-meta">
-        ${(ev.tags||[]).map(t => `<span class="timeline-tag">#${t}</span>`).join('')}
-      </div>
-    </a>
-  `).join('') + (
+  list.innerHTML = events.map(ev => renderEventCard(ev, '')).join('') + (
     window.__TOTAL_EVENTS__ && events.length < window.__TOTAL_EVENTS__
       ? `<div class="load-more-tip">📄 已显示最近 ${events.length} 条，更早的历史请用上方“月份归档”浏览</div>`
       : ''
@@ -170,6 +195,8 @@ function initFilters() {
     }
   });
 
+  // 输入防抖：避免全量数据频繁重渲染
+  let debounceTimer = null;
   const doFilter = async () => {
     const keyword = searchInput.value.trim().toLowerCase();
     const catVal = catSelect ? catSelect.value : '';
@@ -180,7 +207,7 @@ function initFilters() {
       if (catVal && ev.category !== catVal) return false;
       if (regionVal && ev.region !== regionVal) return false;
       if (keyword) {
-        const hay = [ev.title, ev.summary, ev.content, ev.country, ev.region, ...(ev.tags||[])].join(' ').toLowerCase();
+        const hay = [ev.title, ev.summary, ev.content, ev.aiSummary, ev.country, ev.region, ...(ev.tags||[])].join(' ').toLowerCase();
         return hay.includes(keyword);
       }
       return true;
@@ -190,26 +217,35 @@ function initFilters() {
     const list = document.getElementById('timeline-list');
     if (!list) return;
     if (filtered.length === 0) {
-      list.innerHTML = '<div class="empty-state"><p>没有找到匹配的事件</p></div>';
+      list.innerHTML = `
+        <div class="empty-state">
+          <p>🔍 没有找到与“${escapeHtml(searchInput.value.trim())}”相关的新闻</p>
+          <p style="margin-top:6px;font-size:13px;color:var(--text-secondary)">试试更换关键词，或检查分类/地区筛选条件</p>
+          <button onclick="clearSearch()" class="btn btn-primary" style="margin-top:14px">✕ 一键清空搜索，恢复完整列表</button>
+        </div>`;
       return;
     }
-    list.innerHTML = filtered.map(ev => `
-      <a class="timeline-item" href="./event.html?id=${ev.id}">
-        <div class="timeline-dot" style="background:${getCategoryColor(ev.category)};box-shadow:0 0 0 2px ${getCategoryColor(ev.category)}"></div>
-        <div class="timeline-date">
-          <span class="timeline-category" style="background:${getCategoryBg(ev.category)};color:${getCategoryColor(ev.category)}">${ev.category}</span>
-          ${formatDate(ev.date)} · ${ev.region || ''}
-        </div>
-        <div class="timeline-title">${ev.title}</div>
-        <div class="timeline-summary">${ev.summary}</div>
-        <div class="timeline-meta">
-          ${(ev.tags||[]).map(t => `<span class="timeline-tag">#${t}</span>`).join('')}
-        </div>
-      </a>
-    `).join('');
+    const kw = searchInput.value.trim();
+    const shown = filtered.slice(0, SEARCH_RENDER_LIMIT);
+    list.innerHTML = shown.map(ev => renderEventCard(ev, kw)).join('') + (
+      filtered.length > SEARCH_RENDER_LIMIT
+        ? `<div class="load-more-tip">🔍 共命中 ${filtered.length} 条，已显示前 ${SEARCH_RENDER_LIMIT} 条（按日期排序），可继续缩小关键词范围</div>`
+        : (keyword && filtered.length > 0 ? `<div class="load-more-tip">🔍 共命中 ${filtered.length} 条</div>` : '')
+    );
   };
 
-  if (searchInput) searchInput.addEventListener('input', doFilter);
+  // 一键清空搜索：重置输入框与筛选器，恢复完整列表
+  window.clearSearch = function() {
+    searchInput.value = '';
+    if (catSelect) catSelect.value = '';
+    if (regionSelect) regionSelect.value = '';
+    doFilter();
+  };
+
+  if (searchInput) searchInput.addEventListener('input', () => {
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(doFilter, 250);
+  });
   if (catSelect) catSelect.addEventListener('change', doFilter);
   if (regionSelect) regionSelect.addEventListener('change', doFilter);
 }
@@ -254,14 +290,16 @@ async function renderEventDetail() {
   // 内容段落
   const contentHtml = (ev.content || '').split('\n').filter(l => l.trim()).map(l => `<p>${l.trim()}</p>`).join('');
 
-  // AI 一分钟速览（aiSummary 字段由 AI 生成写入 events.json）
+  // AI 一分钟速览（aiSummary 字段由 AI 生成写入 events.json；summaryFull=true 表示基于原文全文提炼）
   let aiBox = '';
   if (ev.aiSummary && ev.aiSummary.trim()) {
+    const aiNote = ev.summaryFull ? '基于新闻全文提炼' : '基于新闻正文开头提炼';
+    const aiBadge = ev.summaryFull ? '<span style="background:#2563EB;color:#fff;font-size:11px;font-weight:600;border-radius:4px;padding:1px 6px;margin-left:6px;vertical-align:1px">全文版</span>' : '';
     aiBox = `
       <div style="background:linear-gradient(135deg,#EAF3FB,#F0FDF6);border:1px solid #BFDBFE;border-left:4px solid #2563EB;border-radius:10px;padding:16px 18px;margin-bottom:18px">
-        <div style="font-size:13px;font-weight:700;color:#1D4ED8;margin-bottom:8px">⚡ 一分钟速览（AI 提炼）</div>
+        <div style="font-size:13px;font-weight:700;color:#1D4ED8;margin-bottom:8px">⚡ 一分钟速览（AI 提炼）${aiBadge}</div>
         <div style="font-size:15px;line-height:1.9;color:#1F2937">${ev.aiSummary}</div>
-        <div style="font-size:12px;color:#6B7280;margin-top:8px">基于新闻正文开头提炼 · 完整报道请见文末"查看原文"</div>
+        <div style="font-size:12px;color:#6B7280;margin-top:8px">${aiNote} · 完整报道请见文末"查看原文"</div>
       </div>`;
   }
 
