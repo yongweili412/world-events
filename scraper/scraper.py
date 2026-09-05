@@ -223,6 +223,87 @@ RSS_SOURCES = [
 #   2026-09-06 复测：央视网 news.cctv.com/data/index.json 是 2019 年旧数据(巴哈马"多里安")，
 #   中国日报/CNN RSS 仍为死存档；可用新增源已加入上方（新华网国际/时政、环球时报英文、NHK World、韩联社、RT）
 
+# HTML 直抓源（无可用 RSS 的权威媒体，直接解析列表页→文章页；2026-09-06 实测可用）
+# 每源配置：列表页 url、文章链接正则（捕获组 1 = 完整或相对链接）、日期提取（优先 meta/JSON-LD，date_url 为 URL 内日期模式兜底）
+HTML_SOURCES = [
+    {
+        "name": "央视网国际",
+        "url": "https://news.cctv.com/world/",
+        "link_pattern": r'href="(https://news\.cctv\.com/20\d{2}/\d{2}/\d{2}/[A-Za-z0-9]+\.shtml)"',
+        "date_url": r'/20(\d{2})/(\d{2})/(\d{2})/',
+        "category": "国际政治",
+        "region": "全球",
+        "lang": "zh",
+    },
+    {
+        "name": "联合早报国际",
+        "url": "https://www.zaobao.com.sg/realtime/world",
+        "link_pattern": r'href="(/news/(?:world|china)/story\d{8}-\d+)"',
+        "url_prefix": "https://www.zaobao.com.sg",
+        "date_url": r'story(20\d{6})',
+        "category": "国际政治",
+        "region": "东南亚",
+        "lang": "zh",
+    },
+    {
+        "name": "凤凰网国际",
+        "url": "https://news.ifeng.com/listpage/11502/0/1/rtlist.shtml",
+        "link_pattern": r'href="(https?://news\.ifeng\.com/c/[0-9a-zA-Z]+)"',
+        "category": "国际政治",
+        "region": "全球",
+        "lang": "zh",
+    },
+    {
+        "name": "澎湃新闻",
+        "url": "https://www.thepaper.cn/",
+        "link_pattern": r'href="(/newsDetail_forward_\d+)"',
+        "url_prefix": "https://www.thepaper.cn",
+        "category": "社会",
+        "region": "中国",
+        "lang": "zh",
+    },
+    {
+        "name": "界面新闻国际",
+        "url": "https://www.jiemian.com/lists/2.html",
+        "link_pattern": r'href="(https?://www\.jiemian\.com/article/\d+\.html)"',
+        "category": "国际政治",
+        "region": "全球",
+        "lang": "zh",
+    },
+    {
+        "name": "国际在线",
+        "url": "https://news.cri.cn/world",
+        "link_pattern": r'href="(/20\d{6}/[0-9a-f\-]+\.html)"',
+        "url_prefix": "https://news.cri.cn",
+        "date_url": r'/(20\d{2})(\d{2})(\d{2})/',
+        "category": "国际政治",
+        "region": "全球",
+        "lang": "zh",
+    },
+    {
+        "name": "AP News",
+        "url": "https://apnews.com/hub/ap-top-news",
+        "link_pattern": r'href="(https?://apnews\.com/article/[0-9a-z\-]+)"',
+        "category": "国际政治",
+        "region": "全球",
+        "lang": "en",
+    },
+    {
+        "name": "共同社英文",
+        "url": "https://english.kyodonews.net/news/world",
+        "link_pattern": r'href="(/articles/-/\d+)"',
+        "url_prefix": "https://english.kyodonews.net",
+        "category": "国际政治",
+        "region": "亚洲",
+        "lang": "en",
+    },
+]
+# 注：HTML 直抓不可用的站点（勿反复重试）：
+#   Reuters —— www.reuters.com 返回 HTTP 401（反爬封锁，无 cookie 无法访问）
+#   VOA —— 国内网络无法直连
+#   参考消息 / 环球网 —— 前端渲染 SPA，列表页 HTML 无文章链接
+#   大公文汇 —— 可抓但为繁体中文，与全站简体不一致，暂不接入
+
 # 关键词 → 分类映射（用于自动分类）
 # 英文关键词用词边界匹配（避免 tech 误匹配 technology news 之外的词）
 # 中文关键词用子串匹配
@@ -374,7 +455,7 @@ def guess_country(title: str, summary: str) -> str:
 
 # 关键词 → 国家映射（用于 location.country；与 guess_region 同样的匹配规则）
 COUNTRY_KEYWORDS = {
-    "中国": ["中国", "中方", "北京", "上海", "台涹", "香港", "澳门",
+    "中国": ["中国", "中方", "北京", "上海", "台湾", "香港", "澳门",
             "china", "chinese", "beijing", "shanghai", "taiwan", "hong kong"],
     "美国": ["美国", "美方", "美军", "华盛顿", "白宫", "纽约", "五角大楼",
             "usa", "u.s.", "america", "american", "washington", "white house", "new york", "pentagon"],
@@ -679,6 +760,140 @@ def merge_into_events(events: list, new_items: list) -> list:
     return touched
 
 
+def _html_date(url: str, html: str, date_url_pat: str) -> str:
+    """文章日期：JSON-LD / og meta / publishTime 优先，URL 模式兜底，最后今天"""
+    # 1. JSON-LD datePublished / og:published_time / publishTime / pubdate
+    for pat in (
+        r'"datePublished"\s*:\s*"([^"]+)"',
+        r'property="og:published_time"\s+content="([^"]+)"',
+        r'content="([^"]+)"\s+property="og:published_time"',
+        r'"publishTime"\s*:\s*"?(\d{4}[-/]\d{2}[-/]\d{2})',
+        r'"pubDate"\s*:\s*"([^"]+)"',
+        r'(20\d{2}-\d{2}-\d{2}[ T]\d{2}:\d{2})',
+    ):
+        m = re.search(pat, html)
+        if m:
+            d = m.group(1)[:10].replace("/", "-")
+            if re.fullmatch(r"20\d{2}-\d{2}-\d{2}", d):
+                return d
+    # 2. URL 内嵌日期（如 story20260905-xxx / /2026/09/05/ / /20260905/）
+    if date_url_pat:
+        m = re.search(date_url_pat, url)
+        if m:
+            try:
+                parts = m.groups()
+                if len(parts) == 1:  # story20260905 → YYYYMMDD
+                    s = parts[0]
+                    return f"{s[:4]}-{s[4:6]}-{s[6:8]}"
+                if len(parts) == 3:  # /2026/09/05/ 或 /20260905 分组
+                    y, mo, d = parts
+                    if len(y) == 2:
+                        y = "20" + y
+                    return f"{y}-{mo}-{d}"
+            except Exception:
+                pass
+    return datetime.date.today().isoformat()
+
+
+def fetch_html(source: dict) -> list[dict]:
+    """HTML 直抓：列表页 → 文章链接 → 逐篇抓取标题/正文/日期"""
+    print(f"📰 正在直抓：{source['name']}")
+    try:
+        resp = requests.get(source["url"], headers=HEADERS, timeout=15)
+        if resp.status_code != 200:
+            print(f"   ❌ 列表页 HTTP {resp.status_code}")
+            return []
+        resp.encoding = resp.apparent_encoding
+        page = resp.text
+    except Exception as e:
+        print(f"   ❌ 抓取失败：{e}")
+        return []
+
+    raw_links = re.findall(source["link_pattern"], page)
+    prefix = source.get("url_prefix", "")
+    links, seen = [], set()
+    for l in raw_links:
+        full = l if l.startswith("http") else prefix + l
+        if full in seen:
+            continue
+        seen.add(full)
+        links.append(full)
+    links = links[:8]  # 每源每次最多 8 篇
+    if not links:
+        print("   ⚠️ 列表页未命中文章链接（页面结构可能已变化）")
+        return []
+
+    items = []
+    for url in links:
+        try:
+            ar = requests.get(url, headers=HEADERS, timeout=15)
+            if ar.status_code != 200:
+                continue
+            ar.encoding = ar.apparent_encoding
+            art = ar.text
+        except Exception:
+            continue
+        m = re.search(r"<title[^>]*>([^<]+)</title>", art)
+        if not m:
+            continue
+        title = clean_text(m.group(1))
+        # 迭代剥掉标题尾部站点/频道名（"xx_运动家_澎湃新闻" "xx - 联合早报" "xx_新闻频道" 等）
+        _SUFFIXES = {"联合早报", "凤凰网", "凤凰网资讯", "国际在线", "澎湃新闻", "The Paper",
+                     "界面新闻", "新闻频道", "央视网(cctv.com)", "央视网", "澎湃新闻-The Paper"}
+        while True:
+            m2 = re.search(r"[-_|｜_]([^_|｜]+)$", title)
+            if m2 and m2.group(1).strip() in _SUFFIXES:
+                title = title[: m2.start()].strip()
+                title = re.sub(r"[-_|｜_\s]+$", "", title)
+            else:
+                break
+        if len(title) < 8:
+            continue
+        # 正文：取前 8 个较长的 <p> 段落
+        paras = re.findall(r"<p[^>]*>([\s\S]{40,600}?)</p>", art)
+        body = clean_text(" ".join(paras[:8]))[:1200]
+        if len(body) < 40:
+            continue
+        date_str = _html_date(url, art, source.get("date_url"))
+        # 时效过滤：HTML 列表页可能混有旧文，7 天前的直接丢弃
+        try:
+            if datetime.date.fromisoformat(date_str) < datetime.date.today() - datetime.timedelta(days=7):
+                continue
+        except Exception:
+            pass
+
+        category = guess_category(title, body)
+        region = guess_region(title, body)
+        country = guess_country(title, body) or ("中国" if source.get("lang") == "zh" and region == "中国" else "")
+
+        translated = False
+        if source.get("lang") == "en" and TRANSLATE_ENABLED:
+            orig_title = title
+            title = translate_text(title)
+            if body:
+                body = translate_text(body)
+            translated = (title != orig_title)
+
+        items.append({
+            "id": make_id(title + url),
+            "title": title[:120],
+            "date": date_str,
+            "category": category,
+            "country": country,
+            "region": region,
+            "summary": body[:200] if body else title[:200],
+            "content": body if body else title,
+            "image": "",
+            "videoUrl": "",
+            "source": source["name"],
+            "sourceUrl": url,
+            "tags": [category, source["name"].split()[0]],
+            "translated": translated,
+        })
+    print(f"   ✅ 抓到 {len(items)} 篇文章")
+    return items
+
+
 def main():
     print("🌍 全球事件自动抓取开始…")
     print(f"📅 {datetime.date.today().isoformat()}\n")
@@ -693,6 +908,11 @@ def main():
     all_new = []
     for source in RSS_SOURCES:
         items = fetch_rss(source)
+        all_new.extend(items)
+
+    # HTML 直抓源（无 RSS 的权威媒体）
+    for source in HTML_SOURCES:
+        items = fetch_html(source)
         all_new.extend(items)
 
     _save_translate_cache()

@@ -203,9 +203,9 @@ def main():
             old.unlink()
             print(f"  🗑️ 删除过期归档页 {old.name}")
 
-    # 3) event.html + country.html：内嵌全量数据
+    # 3) event.html + country.html + map.html：内嵌全量数据
     payload = json.dumps(events, ensure_ascii=False).replace("</", "<\\/")
-    for name, label in (("event.html", "event 内嵌数据"), ("country.html", "country 内嵌数据")):
+    for name, label in (("event.html", "event 内嵌数据"), ("country.html", "country 内嵌数据"), ("map.html", "map 内嵌数据")):
         pg = ROOT / name
         h = pg.read_text(encoding="utf-8")
         h, _ = replace_between(h, START, END,

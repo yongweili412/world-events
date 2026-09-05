@@ -509,6 +509,168 @@ function showError(msg) {
   if (list) list.innerHTML = `<div class="empty-state"><p>⚠️ ${msg}</p><p style="margin-top:8px;font-size:13px">请尝试强制刷新（Ctrl+F5）</p></div>`;
 }
 
+// ===== 世界地图页 =====
+// 中文国名 → world.json(echarts) 英文名（覆盖 guess_country 词表及常见国家）
+const WORLD_NAME_MAP = {
+  '中国': 'China', '美国': 'United States', '俄罗斯': 'Russia', '乌克兰': 'Ukraine',
+  '日本': 'Japan', '韩国': 'Korea', '朝鲜': 'Dem. Rep. Korea', '印度': 'India',
+  '巴基斯坦': 'Pakistan', '阿富汗': 'Afghanistan', '英国': 'United Kingdom', '法国': 'France',
+  '德国': 'Germany', '意大利': 'Italy', '西班牙': 'Spain', '波兰': 'Poland',
+  '荷兰': 'Netherlands', '瑞典': 'Sweden', '瑞士': 'Switzerland', '土耳其': 'Turkey',
+  '以色列': 'Israel', '伊朗': 'Iran', '沙特阿拉伯': 'Saudi Arabia', '阿联酋': 'United Arab Emirates',
+  '伊拉克': 'Iraq', '叙利亚': 'Syria', '黎巴嫩': 'Lebanon', '也门': 'Yemen',
+  '卡塔尔': 'Qatar', '埃及': 'Egypt', '苏丹': 'Sudan', '埃塞俄比亚': 'Ethiopia',
+  '尼日利亚': 'Nigeria', '肯尼亚': 'Kenya', '南非': 'South Africa', '刚果（金）': 'Dem. Rep. Congo',
+  '澳大利亚': 'Australia', '新西兰': 'New Zealand', '加拿大': 'Canada', '墨西哥': 'Mexico',
+  '巴西': 'Brazil', '阿根廷': 'Argentina', '智利': 'Chile', '委内瑞拉': 'Venezuela',
+  '哥伦比亚': 'Colombia', '秘鲁': 'Peru', '新加坡': 'Singapore', '印度尼西亚': 'Indonesia',
+  '越南': 'Vietnam', '泰国': 'Thailand', '菲律宾': 'Philippines', '马来西亚': 'Malaysia',
+  '缅甸': 'Myanmar', '柬埔寨': 'Cambodia', '老挝': 'Laos', '尼泊尔': 'Nepal',
+  '斯里兰卡': 'Sri Lanka', '孟加拉国': 'Bangladesh', '哈萨克斯坦': 'Kazakhstan', '比利时': 'Belgium',
+  '匈牙利': 'Hungary', '捷克': 'Czech Rep.', '希腊': 'Greece', '葡萄牙': 'Portugal',
+  '奥地利': 'Austria', '爱尔兰': 'Ireland', '芬兰': 'Finland', '挪威': 'Norway',
+  '丹麦': 'Denmark', '罗马尼亚': 'Romania', '摩洛哥': 'Morocco', '阿尔及利亚': 'Algeria',
+  '利比亚': 'Libya', '突尼斯': 'Tunisia', '加纳': 'Ghana', '坦桑尼亚': 'Tanzania',
+  '乌干达': 'Uganda', '索马里': 'Somalia', '津巴布韦': 'Zimbabwe', '赞比亚': 'Zambia',
+  '古巴': 'Cuba', '牙买加': 'Jamaica', '巴拿马': 'Panama', '厄瓜多尔': 'Ecuador',
+  '玻利维亚': 'Bolivia', '巴拉圭': 'Paraguay', '乌拉圭': 'Uruguay', '蒙古': 'Mongolia',
+  '孟加拉': 'Bangladesh', '捷克共和国': 'Czech Rep.', '阿曼': 'Oman', '科威特': 'Kuwait',
+  '巴林': 'Bahrain', '约旦': 'Jordan', '突尼斯': 'Tunisia', '卢森堡': 'Luxembourg'
+};
+const WORLD_EN2CN = {};
+Object.keys(WORLD_NAME_MAP).forEach(cn => {
+  const en = WORLD_NAME_MAP[cn];
+  if (!(en in WORLD_EN2CN)) WORLD_EN2CN[en] = cn;
+});
+
+// 南海诸岛：十段线示意（虚线，走向参照公开版图资料）
+const NINE_DASH_SEGMENTS = [
+  [[112.10, 21.60], [112.72, 20.63]],
+  [[112.35, 19.95], [113.35, 18.65]],
+  [[113.55, 18.20], [114.55, 17.30]],
+  [[114.75, 16.85], [115.05, 15.85]],
+  [[115.35, 14.95], [116.25, 14.05]],
+  [[116.70, 13.55], [117.55, 12.55]],
+  [[117.85, 11.65], [118.85, 10.75]],
+  [[119.25, 9.95], [120.35, 9.05]],
+  [[110.55, 17.35], [111.00, 16.40]],
+  [[111.35, 15.60], [111.95, 14.55]],
+  [[112.30, 10.95], [113.65, 10.25]],
+  [[114.05, 9.55], [115.45, 8.85]],
+  [[116.25, 8.35], [117.85, 7.65]],
+  [[122.70, 9.45], [123.95, 8.65]],
+  [[121.95, 12.45], [123.25, 11.70]]
+];
+
+let __mapChart = null;
+
+async function initMapPage() {
+  const events = getFullEvents();
+  const dom = document.getElementById('map-echarts');
+  if (!dom || typeof echarts === 'undefined') return;
+
+  // 统计各国事件数
+  const eventsByCountry = {};
+  const counts = {};
+  events.forEach(ev => {
+    const cn = (ev.location && ev.location.country) || '';
+    if (!cn) return;
+    eventsByCountry[cn] = eventsByCountry[cn] || [];
+    eventsByCountry[cn].push(ev);
+    const en = WORLD_NAME_MAP[cn];
+    if (en) counts[en] = (counts[en] || 0) + 1;
+  });
+  const maxCount = Math.max(1, ...Object.values(counts));
+
+  try {
+    const res = await fetch('./assets/world.json');
+    const worldJson = await res.json();
+    echarts.registerMap('world', worldJson);
+  } catch (e) {
+    dom.innerHTML = '<p style="text-align:center;padding:80px 20px;color:#888">地图数据加载失败，请刷新重试</p>';
+    return;
+  }
+
+  __mapChart = echarts.init(dom);
+  __mapChart.setOption({
+    tooltip: {
+      trigger: 'item',
+      formatter: p => {
+        const cn = WORLD_EN2CN[p.name];
+        if (!cn) return p.name;
+        const n = counts[p.name] || 0;
+        return `<b>${cn}</b><br>${n} 个事件（点击查看）`;
+      }
+    },
+    visualMap: {
+      min: 0, max: maxCount, left: 8, bottom: 8,
+      text: ['事件多', '少'], calculable: false,
+      inRange: { color: ['#dbe7f7', '#9dbbe8', '#5c8fdd', '#2f63b5', '#17407e'] },
+      textStyle: { color: '#666', fontSize: 12 }
+    },
+    geo: {
+      map: 'world', roam: true, top: 4, bottom: 20,
+      itemStyle: { areaColor: '#eef1f6', borderColor: '#b9c4d4', borderWidth: 0.5 },
+      emphasis: { label: { show: true, color: '#333', fontSize: 11 }, itemStyle: { areaColor: '#ffd66b' } }
+    },
+    series: [
+      {
+        type: 'map', geoIndex: 0, name: '事件数',
+        data: Object.entries(counts).map(([en, v]) => ({ name: en, value: v }))
+      },
+      {
+        type: 'lines', coordinateSystem: 'geo', zlevel: 3, silent: true,
+        lineStyle: { type: 'dashed', color: '#c0392b', width: 1.2, opacity: 0.85 },
+        data: NINE_DASH_SEGMENTS.map(seg => ({ coords: seg }))
+      },
+      {
+        type: 'scatter', coordinateSystem: 'geo', zlevel: 3, silent: true,
+        symbolSize: 0.1,
+        data: [{ value: [114.8, 12.5], name: '南海诸岛',
+                 label: { show: true, formatter: '南海诸岛', color: '#c0392b', fontSize: 11 } }]
+      }
+    ]
+  });
+
+  __mapChart.on('click', params => {
+    if (params.seriesType !== 'map') return;
+    const cn = WORLD_EN2CN[params.name];
+    if (cn) showMapCountry(cn);
+  });
+
+  window.addEventListener('resize', () => __mapChart && __mapChart.resize());
+}
+
+function showMapCountry(cnName) {
+  const panel = document.getElementById('map-country-panel');
+  if (!panel) return;
+  const events = getFullEvents().filter(ev => (ev.location && ev.location.country) === cnName)
+    .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+  panel.style.display = 'block';
+  document.getElementById('map-country-name').textContent = `📍 ${cnName}`;
+  document.getElementById('map-country-count').textContent = `${events.length} 个事件`;
+  const box = document.getElementById('map-events');
+  if (!events.length) {
+    box.innerHTML = '<div class="empty-state"><p>暂无该事件记录</p><p style="margin-top:8px;font-size:13px">该国家的事件可能归入了所在地区，试试「地区档案」页</p></div>';
+    return;
+  }
+  const shown = events.slice(0, 100);
+  box.innerHTML = shown.map(ev => {
+    const cat = (ev.category && ev.category[0]) || '新闻';
+    const nSrc = (ev.sources || []).length;
+    return `<div class="evt-item">
+      <a href="./event.html?id=${encodeURIComponent(ev.id)}">${escapeHtml(ev.title || '无标题')}</a>
+      <div class="evt-meta">${ev.date || ''} · ${escapeHtml(cat)} · ${nSrc} 个来源</div>
+    </div>`;
+  }).join('') + (events.length > shown.length ? `<p class="load-more-tip">已显示最近 ${shown.length} 条，共 ${events.length} 条</p>` : '');
+  panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function clearMapCountry() {
+  const panel = document.getElementById('map-country-panel');
+  if (panel) panel.style.display = 'none';
+}
+
 // ===== 页面初始化 =====
 document.addEventListener('DOMContentLoaded', () => {
   const page = location.pathname.split('/').pop() || 'index.html';
@@ -519,6 +681,8 @@ document.addEventListener('DOMContentLoaded', () => {
     renderEventDetail();
   } else if (page === 'country.html') {
     renderCountry();
+  } else if (page === 'map.html') {
+    initMapPage();
   } else if (page === 'admin.html') {
     renderAdminList();
     const form = document.getElementById('event-form');
