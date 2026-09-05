@@ -15,6 +15,7 @@
 """
 
 import json
+import difflib
 import os
 import re
 import time
@@ -402,21 +403,92 @@ def fetch_rss(source: dict) -> list[dict]:
     return items
 
 
-def deduplicate(existing: list, new_items: list) -> list:
-    """去重：根据 ID 和标题去重"""
-    existing_ids = {e.get("id", "") for e in existing}
-    existing_titles = {e.get("title", "").lower() for e in existing}
-    added = []
+def _norm(t: str) -> str:
+    return re.sub(r"[^0-9a-z\u4e00-\u9fff]", "", (t or "").lower())
+
+
+def _find_event(events: list, item: dict):
+    """在事件库中查找该报道所属的事件（标题相似 + 日期相近）"""
+    nt = _norm(item["title"])
+    from datetime import date as _d
+
+    def _ord(s):
+        y, m, dd = map(int, s.split("-"))
+        return _d(y, m, dd).toordinal()
+
+    for ev in events:
+        if _norm(ev["title"])[:22] == nt[:22]:
+            return ev
+    for ev in events:
+        try:
+            gap = abs(_ord(ev["date"]) - _ord(item["date"]))
+        except Exception:
+            continue
+        if gap <= 3 and difflib.SequenceMatcher(None, _norm(ev["title"]), nt).ratio() > 0.68:
+            return ev
+    return None
+
+
+def merge_into_events(events: list, new_items: list) -> list:
+    """v2 事件模型：新报道合并进已有事件（追加 source/timeline），否则新建事件。
+
+    返回受影响的事件列表。URL 相同的报道直接跳过（同一篇报道不重复收录）。
+    """
+    seen_urls = {s.get("url") for e in events for s in (e.get("sources") or []) if s.get("url")}
+    touched = []
     for item in new_items:
-        if item["id"] in existing_ids:
+        url = item.get("sourceUrl") or ""
+        if url and url in seen_urls:
             continue
-        if item["title"].lower() in existing_titles:
-            continue
-        existing.append(item)
-        existing_ids.add(item["id"])
-        existing_titles.add(item["title"].lower())
-        added.append(item)
-    return added
+        if url:
+            seen_urls.add(url)
+        ev = _find_event(events, item)
+        snippet = re.sub(r"\s+", " ", (item.get("summary") or item.get("content") or "")).strip()[:120]
+        src_entry = {
+            "name": item.get("source") or "",
+            "url": url,
+            "date": item["date"],
+            "title": item["title"],
+            "snippet": snippet,
+        }
+        if ev is None:
+            ymd = item["date"].replace("-", "")
+            n = sum(1 for e in events if e["id"].startswith(f"evt_{ymd}")) + 1
+            eid = f"evt_{ymd}_{n:03d}"
+            while any(e["id"] == eid for e in events):
+                n += 1
+                eid = f"evt_{ymd}_{n:03d}"
+            cat = item.get("category") or "其他"
+            country = item.get("country") or "未知"
+            region = item.get("region") or "全球"
+            ev = {
+                "id": eid,
+                "legacyIds": [],
+                "title": item["title"],
+                "summary": snippet[:200] or item["title"],
+                "description": snippet,
+                "date": item["date"],
+                "time": "",
+                "location": {"country": country, "countryCode": "", "region": region, "city": ""},
+                "category": [cat],
+                "tags": item.get("tags") or [],
+                "status": "closed",
+                "sources": [src_entry],
+                "timeline": [{"date": item["date"], "text": snippet[:90] or item["title"][:90]}],
+                "relatedEvents": [],
+            }
+            events.append(ev)
+        else:
+            if src_entry not in (ev.get("sources") or []):
+                ev.setdefault("sources", []).append(src_entry)
+            ev.setdefault("timeline", []).append({"date": item["date"], "text": snippet[:90] or item["title"][:90]})
+            if item["date"] < ev["date"]:
+                ev["date"] = item["date"]
+            dates = {s["date"] for s in ev["sources"]}
+            ev["status"] = "ongoing" if len(dates) > 1 else ev.get("status", "closed")
+        if ev not in touched:
+            touched.append(ev)
+    return touched
 
 
 def main():
@@ -437,17 +509,17 @@ def main():
 
     _save_translate_cache()
 
-    # 去重并追加
-    added = deduplicate(events, all_new)
-    print(f"\n🆕 新增事件：{len(added)} 条")
-    for item in added:
-        flag = "译" if item.get("translated") else "  "
-        print(f"   + [{flag}] {item['date']} | {item['category']} | {item['title'][:50]}")
+    # 合并进事件模型（一事件多来源）
+    touched = merge_into_events(events, all_new)
+    n_new = sum(1 for e in touched if len(e.get("sources") or []) == 1)
+    print(f"\n🆕 新建事件 {n_new} 个，更新已有事件 {len(touched) - n_new} 个")
+    for ev in touched:
+        print(f"   · {ev['date']} | {ev['title'][:50]} ({len(ev.get('sources') or [])} 来源)")
 
     # 保存
-    if added:
+    if touched:
         save_events(events)
-        print(f"\n✅ 完成！当前共 {len(events)} 条事件")
+        print(f"\n✅ 完成！当前共 {len(events)} 个事件")
     else:
         print("\n✅ 没有新事件需要添加")
 
