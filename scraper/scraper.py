@@ -335,6 +335,36 @@ CATEGORY_KEYWORDS = {
              "学校", "医院", "警方", "法院", "移民", "难民", "罢工"],
 }
 
+# 主题标签 → 关键词（标签多元化：一篇新闻可同时命中多个主题标签）
+TAG_KEYWORDS = {
+    "俄乌冲突": ["俄乌", "乌军", "俄军", "泽连斯基", "顿巴斯", "ukraine", "zelensky", "kyiv"],
+    "巴以冲突": ["加沙", "巴勒斯坦", "哈马斯", "约旦河西岸", "gaza", "palestin", "hamas"],
+    "中东局势": ["伊朗", "黎巴嫩", "真主党", "胡塞", "叙利亚", "也门", "iran", "hezbollah", "houthi"],
+    "关税贸易": ["关税", "贸易战", "贸易争端", "出口管制", "tariff", "trade war"],
+    "大选": ["大选", "选举", "投票站", "election", "ballot", "polls"],
+    "航天": ["航天", "太空", "火箭", "卫星", "空间站", "探测器", "rocket", "satellite", "spacecraft", "telescope"],
+    "人工智能": ["人工智能", "大模型", "openai", "chatgpt", "算法", "artificial intelligence", " ai "],
+    "气候环境": ["气候", "全球变暖", "碳排放", "climate", "warming", "emission"],
+    "地震": ["地震", "earthquake", "quake"],
+    "洪涝": ["洪水", "暴雨", "洪灾", "flood"],
+    "台风飓风": ["台风", "飓风", "气旋", "typhoon", "hurricane", "cyclone"],
+    "山火": ["山火", "野火", "wildfire"],
+    "地质灾害": ["山体滑坡", "泥石流", "滑坡", "landslide", "mudslide"],
+    "央行利率": ["央行", "美联储", "加息", "降息", "利率", "central bank", "interest rate"],
+    "制裁": ["制裁", "sanctions"],
+    "军事演习": ["军演", "军事演习", "联合演习", "military exercise", "drill"],
+    "难民移民": ["难民", "移民", "偷渡", "refugee", "migrant"],
+    "能源": ["石油", "天然气", "油价", "核电站", "输电", "oil", "nuclear plant", "pipeline"],
+    "体育赛事": ["奥运", "世界杯", "联赛", "锦标赛", "olympics", "world cup", "league", "championship"],
+    "卫生疫情": ["疫情", "世卫", "疫苗", "world health organization", "pandemic", "vaccine", "outbreak"],
+    "航空事故": ["坠机", "空难", "plane crash"],
+    "罢工": ["罢工", "strike action", "walkout"],
+    "峰会外交": ["峰会", "会晤", "国事访问", "summit"],
+    "科技芯片": ["芯片", "半导体", "晶圆", "chip", "semiconductor"],
+    "司法案件": ["法院", "判决", "庭审", "起诉", "court", "trial", "verdict"],
+    "网络安全": ["黑客", "网络攻击", "数据泄露", "cyber", "hack"],
+}
+
 # User-Agent（部分 RSS 源需要）
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (compatible; WorldEventsBot/1.0)"
@@ -582,6 +612,25 @@ def guess_region(title: str, summary: str) -> str:
     return "全球"
 
 
+def guess_tags(title: str, summary: str, category: str = "") -> list:
+    """多元化标签：分类 + 命中的多个主题标签（可叠加）"""
+    text = (title + " " + (summary or "")).lower()
+    tags = []
+    if category:
+        tags.append(category)
+    for tag, kws in TAG_KEYWORDS.items():
+        for kw in kws:
+            if _is_chinese(kw):
+                if kw in text:
+                    tags.append(tag)
+                    break
+            else:
+                if re.search(r"\b" + re.escape(kw.lower()) + r"\b", text):
+                    tags.append(tag)
+                    break
+    return tags
+
+
 def clean_text(text: str) -> str:
     """清理 HTML 标签和多余空白"""
     text = re.sub(r"<[^>]+>", "", text or "")
@@ -662,7 +711,7 @@ def fetch_rss(source: dict) -> list[dict]:
             "videoUrl": "",
             "source": source["name"],
             "sourceUrl": link,
-            "tags": [category, source["name"].split()[0]],
+            "tags": guess_tags(title, summary if summary else title, category) + [source["name"]],
             "translated": translated,
         })
 
@@ -730,6 +779,7 @@ def merge_into_events(events: list, new_items: list) -> list:
             cat = item.get("category") or "其他"
             country = item.get("country") or ""
             region = item.get("region") or "全球"
+            tags = list(dict.fromkeys((item.get("tags") or []) + ([country] if country else [])))[:12]
             ev = {
                 "id": eid,
                 "legacyIds": [],
@@ -740,17 +790,33 @@ def merge_into_events(events: list, new_items: list) -> list:
                 "time": "",
                 "location": {"country": country, "countryCode": "", "region": region, "city": ""},
                 "category": [cat],
-                "tags": item.get("tags") or [],
+                "tags": tags,
                 "status": "closed",
                 "sources": [src_entry],
-                "timeline": [{"date": item["date"], "text": snippet[:90] or item["title"][:90]}],
+                "timeline": [{"date": item["date"], "text": f'{src_entry["name"]}｜{snippet[:80] or item["title"][:80]}'}],
                 "relatedEvents": [],
             }
             events.append(ev)
         else:
             if src_entry not in (ev.get("sources") or []):
                 ev.setdefault("sources", []).append(src_entry)
-            ev.setdefault("timeline", []).append({"date": item["date"], "text": snippet[:90] or item["title"][:90]})
+            # 标签合并（保留原有 + 新报道的主题标签 + 国家），去重限量
+            merged_tags = list(dict.fromkeys(
+                (ev.get("tags") or []) + (item.get("tags") or []) + ([ev["location"].get("country")] if (ev.get("location") or {}).get("country") else [])
+            ))[:12]
+            ev["tags"] = merged_tags
+            # 时间线串联：每条进展注明来源，按日期排序、去重
+            ev.setdefault("timeline", []).append({"date": item["date"], "text": f'{src_entry["name"]}｜{snippet[:80] or item["title"][:80]}'})
+            seen_tl = set()
+            dedup_tl = []
+            for t in ev["timeline"]:
+                key = (t.get("date", ""), t.get("text", ""))
+                if key in seen_tl:
+                    continue
+                seen_tl.add(key)
+                dedup_tl.append(t)
+            dedup_tl.sort(key=lambda t: t.get("date", ""))
+            ev["timeline"] = dedup_tl
             if item["date"] < ev["date"]:
                 ev["date"] = item["date"]
             dates = {s["date"] for s in ev["sources"]}
@@ -887,7 +953,7 @@ def fetch_html(source: dict) -> list[dict]:
             "videoUrl": "",
             "source": source["name"],
             "sourceUrl": url,
-            "tags": [category, source["name"].split()[0]],
+            "tags": guess_tags(title, body if body else title, category) + [source["name"]],
             "translated": translated,
         })
     print(f"   ✅ 抓到 {len(items)} 篇文章")
