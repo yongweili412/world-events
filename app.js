@@ -372,7 +372,7 @@ async function renderEventDetail() {
       <span class="timeline-category" style="background:${getCategoryBg(cat)};color:${getCategoryColor(cat)}">${escapeHtml(cat)}</span>
       ${statusBadge}
       <span class="event-meta-item">📅 ${formatDate(ev.date)}</span>
-      ${country ? `<span class="event-meta-item">📍 ${escapeHtml(country)}（${escapeHtml(region)}）</span>` : ''}
+      ${(country || region) ? `<span class="event-meta-item">📍 ${escapeHtml(country ? (country + '（' + region + '）') : region)}</span>` : ''}
       ${nSrc > 1 ? `<span class="event-meta-item">📎 ${nSrc} 个来源</span>` : ''}
     </div>
     <h1 style="font-size:24px;font-weight:700;margin-bottom:12px;line-height:1.5">${escapeHtml(ev.title)}</h1>

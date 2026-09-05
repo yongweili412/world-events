@@ -36,6 +36,48 @@ EVENTS_FILE = Path(__file__).parent.parent / "data" / "events.json"
 
 # RSS 新闻源配置（可自由增删）
 RSS_SOURCES = [
+    # ↓↓↓ 国内权威媒体 ↓↓↓
+    {
+        "name": "人民网国际",
+        "url": "http://www.people.com.cn/rss/world.xml",
+        "category": "国际政治",
+        "region": "全球",
+        "country": "中国",
+        "lang": "zh",
+    },
+    {
+        "name": "中新网即时新闻",
+        "url": "http://www.chinanews.com.cn/rss/scroll-news.xml",
+        "category": "社会",
+        "region": "亚洲",
+        "country": "中国",
+        "lang": "zh",
+    },
+    {
+        "name": "新华网国际",
+        "url": "http://www.xinhuanet.com/world/news_world.xml",
+        "category": "国际政治",
+        "region": "全球",
+        "country": "中国",
+        "lang": "zh",
+    },
+    {
+        "name": "新华网时政",
+        "url": "http://www.news.cn/politics/news_politics.xml",
+        "category": "国际政治",
+        "region": "中国",
+        "country": "中国",
+        "lang": "zh",
+    },
+    {
+        "name": "环球时报英文版",
+        "url": "https://www.globaltimes.cn/rss/outbrain.xml",
+        "category": "国际政治",
+        "region": "全球",
+        "country": "中国",
+        "lang": "en",
+    },
+    # ↓↓↓ 国际权威媒体 ↓↓↓
     {
         "name": "BBC World News",
         "url": "https://feeds.bbci.co.uk/news/world/rss.xml",
@@ -53,6 +95,38 @@ RSS_SOURCES = [
         "lang": "en",
     },
     {
+        "name": "Sky News World",
+        "url": "https://feeds.skynews.com/feeds/rss/world.xml",
+        "category": "国际政治",
+        "region": "全球",
+        "country": "英国",
+        "lang": "en",
+    },
+    {
+        "name": "DW 德国之声",
+        "url": "https://rss.dw.com/rdf/rss-en-all",
+        "category": "国际政治",
+        "region": "欧洲",
+        "country": "德国",
+        "lang": "en",
+    },
+    {
+        "name": "France24",
+        "url": "https://www.france24.com/en/rss",
+        "category": "国际政治",
+        "region": "欧洲",
+        "country": "法国",
+        "lang": "en",
+    },
+    {
+        "name": "Euronews",
+        "url": "https://www.euronews.com/rss?level=theme&name=news",
+        "category": "国际政治",
+        "region": "欧洲",
+        "country": "法国",
+        "lang": "en",
+    },
+    {
         "name": "Al Jazeera",
         "url": "https://www.aljazeera.com/xml/rss/all.xml",
         "category": "国际政治",
@@ -60,6 +134,63 @@ RSS_SOURCES = [
         "country": "卡塔尔",
         "lang": "en",
     },
+    {
+        "name": "CNA 亚洲新闻台",
+        "url": "https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml",
+        "category": "国际政治",
+        "region": "东南亚",
+        "country": "新加坡",
+        "lang": "en",
+    },
+    {
+        "name": "ABC 澳大利亚",
+        "url": "https://www.abc.net.au/news/feed/51120/rss.xml",
+        "category": "国际政治",
+        "region": "大洋洲",
+        "country": "澳大利亚",
+        "lang": "en",
+    },
+    {
+        "name": "Times of India",
+        "url": "https://timesofindia.indiatimes.com/rssfeeds/296589292.cms",
+        "category": "国际政治",
+        "region": "印度",
+        "country": "印度",
+        "lang": "en",
+    },
+    {
+        "name": "The Hindu 国际",
+        "url": "https://www.thehindu.com/news/international/feeder/default.rss",
+        "category": "国际政治",
+        "region": "印度",
+        "country": "印度",
+        "lang": "en",
+    },
+    {
+        "name": "NHK World 日本",
+        "url": "https://www3.nhk.or.jp/rss/news/cat0.xml",
+        "category": "国际政治",
+        "region": "亚洲",
+        "country": "日本",
+        "lang": "en",
+    },
+    {
+        "name": "韩联社 Yonhap",
+        "url": "https://en.yna.co.kr/RSS/news.xml",
+        "category": "国际政治",
+        "region": "亚洲",
+        "country": "韩国",
+        "lang": "en",
+    },
+    {
+        "name": "RT 今日俄罗斯",
+        "url": "https://www.rt.com/rss/news/",
+        "category": "国际政治",
+        "region": "全球",
+        "country": "俄罗斯",
+        "lang": "en",
+    },
+    # ↓↓↓ 科技/机构源 ↓↓↓
     {
         "name": "NASA News",
         "url": "https://www.nasa.gov/rss/dyn/breaking_news.rss",
@@ -84,39 +215,13 @@ RSS_SOURCES = [
         "country": "美国",
         "lang": "en",
     },
-    # ↓↓↓ 国内可直接访问的中文源（lang=zh，无需翻译）↓↓↓
-    {
-        "name": "人民网国际",
-        "url": "http://www.people.com.cn/rss/world.xml",
-        "category": "国际政治",
-        "region": "全球",
-        "country": "中国",
-        "lang": "zh",
-    },
-    {
-        "name": "中新网即时新闻",
-        "url": "http://www.chinanews.com.cn/rss/scroll-news.xml",
-        "category": "社会",
-        "region": "亚洲",
-        "country": "中国",
-        "lang": "zh",
-    },
 ]
-
-# 中文新闻源（需要能访问对应的 RSS）
-CHINESE_SOURCES = [
-    {
-        "name": "新华社",
-        "url": "http://www.xinhuanet.com/world/rss.xml",
-        "category": "国际政治",
-        "region": "亚洲",
-        "country": "中国",
-        "lang": "zh",
-    },
-    # 以下 RSS 地址仅供参考，实际可用性需要测试
-    # {"name": "BBC中文", "url": "https://www.bbc.com/zhongwen/simp/index.xml",
-    #  "category": "国际政治", "region": "全球", "country": "英国", "lang": "zh"},
-]
+# 注：以下源已实测不可用，勿加回：
+#   新华网英文 worldrss.xml / 中国日报 world_rss.xml / CNN edition_world.rss ——
+#   RSS 均为多年前的死存档（返回 2017-2023 旧文），不是新闻
+#   新华社中文 rss、央视、联合早报、NHK World —— RSS 404 不存在
+#   2026-09-06 复测：央视网 news.cctv.com/data/index.json 是 2019 年旧数据(巴哈马"多里安")，
+#   中国日报/CNN RSS 仍为死存档；可用新增源已加入上方（新华网国际/时政、环球时报英文、NHK World、韩联社、RT）
 
 # 关键词 → 分类映射（用于自动分类）
 # 英文关键词用词边界匹配（避免 tech 误匹配 technology news 之外的词）
@@ -252,6 +357,88 @@ def _is_chinese(s: str) -> bool:
     return any('\u4e00' <= ch <= '\u9fff' for ch in s)
 
 
+def guess_country(title: str, summary: str) -> str:
+    """根据内容判断事发国家（避免把媒体所属国误当成事发地）；识别不出返回空字符串"""
+    text = (title + " " + summary).lower()
+    for country, keywords in COUNTRY_KEYWORDS.items():
+        for kw in keywords:
+            if _is_chinese(kw):
+                if kw in text:
+                    return country
+            else:
+                pattern = r"\b" + re.escape(kw) + (r"" if kw.endswith((" ", ".")) else r"\b")
+                if re.search(pattern, text):
+                    return country
+    return ""
+
+
+# 关键词 → 国家映射（用于 location.country；与 guess_region 同样的匹配规则）
+COUNTRY_KEYWORDS = {
+    "中国": ["中国", "中方", "北京", "上海", "台涹", "香港", "澳门",
+            "china", "chinese", "beijing", "shanghai", "taiwan", "hong kong"],
+    "美国": ["美国", "美方", "美军", "华盛顿", "白宫", "纽约", "五角大楼",
+            "usa", "u.s.", "america", "american", "washington", "white house", "new york", "pentagon"],
+    "俄罗斯": ["俄罗斯", "俄军", "俄方", "莫斯科", "普京", "克里姆林",
+             "russia", "russian", "moscow", "putin", "kremlin"],
+    "乌克兰": ["乌克兰", "乌军", "乌方", "基辅", "泽连斯基",
+             "ukraine", "ukrainian", "kyiv", "zelensky"],
+    "日本": ["日本", "东京", "日方", "japan", "japanese", "tokyo"],
+    "韩国": ["韩国", "首尔", "韩方", "south korea", "seoul"],
+    "朝鲜": ["朝鲜", "平壤", "north korea", "pyongyang"],
+    "印度": ["印度", "新德里", "莫迪", "india", "indian", "delhi", "modi"],
+    "巴基斯坦": ["巴基斯坦", "伊斯兰堡", "pakistan", "islamabad"],
+    "阿富汗": ["阿富汗", "喀布尔", "afghanistan", "kabul", "taliban", "塔利班"],
+    "英国": ["英国", "伦敦", "英方", "uk ", "britain", "british", "london", "england", "scotland"],
+    "法国": ["法国", "巴黎", "法方", "france", "french", "paris"],
+    "德国": ["德国", "柏林", "德方", "germany", "german", "berlin"],
+    "意大利": ["意大利", "罗马", "italy", "italian", "rome"],
+    "西班牙": ["西班牙", "马德里", "spain", "spanish", "madrid"],
+    "波兰": ["波兰", "华沙", "poland", "polish", "warsaw"],
+    "荷兰": ["荷兰", "阿姆斯特丹", "netherlands", "dutch", "amsterdam"],
+    "瑞典": ["瑞典", "斯德哥尔摩", "sweden", "swedish", "stockholm"],
+    "瑞士": ["瑞士", "苏黎世", "switzerland", "swiss", "zurich"],
+    "土耳其": ["土耳其", "安卡拉", "伊斯坦布尔", "turkey", "turkish", "ankara", "istanbul"],
+    "以色列": ["以色列", "特拉维夫", "耶路撒冷", "israel", "israeli", "tel aviv", "jerusalem"],
+    "伊朗": ["伊朗", "德黑兰", "iran", "iranian", "tehran"],
+    "沙特阿拉伯": ["沙特", "利雅得", "saudi", "riyadh"],
+    "阿联酋": ["阿联酋", "迪拜", "uae", "dubai", "emirati"],
+    "伊拉克": ["伊拉克", "巴格达", "iraq", "iraqi", "baghdad"],
+    "叙利亚": ["叙利亚", "大马士革", "syria", "syrian", "damascus"],
+    "黎巴嫩": ["黎巴嫩", "贝鲁特", "lebanon", "beirut"],
+    "也门": ["也门", "yemen", "houthi", "胡塞"],
+    "卡塔尔": ["卡塔尔", "多哈", "qatar", "doha"],
+    "埃及": ["埃及", "开罗", "egypt", "egyptian", "cairo"],
+    "苏丹": ["苏丹", "喀土穆", "sudan", "khartoum"],
+    "埃塞俄比亚": ["埃塞俄比亚", "亚的斯亚贝巴", "ethiopia", "addis"],
+    "尼日利亚": ["尼日利亚", "拉各斯", "nigeria", "lagos"],
+    "肯尼亚": ["肯尼亚", "内罗毕", "kenya", "nairobi"],
+    "南非": ["南非", "约翰内斯堡", "south africa", "johannesburg"],
+    "刚果（金）": ["刚果", "congo"],
+    "澳大利亚": ["澳大利亚", "悉尼", "澳方", "australia", "australian", "sydney", "canberra"],
+    "新西兰": ["新西兰", "惠灵顿", "new zealand", "wellington"],
+    "加拿大": ["加拿大", "渥太华", "多伦多", "canada", "canadian", "ottawa", "toronto"],
+    "墨西哥": ["墨西哥", "mexico", "mexican"],
+    "巴西": ["巴西", "巴西利亚", "brazil", "brazilian", "brasilia"],
+    "阿根廷": ["阿根廷", "布宜诺斯艾利斯", "argentina", "buenos aires"],
+    "智利": ["智利", "圣地亚哥", "chile", "chilean", "santiago"],
+    "委内瑞拉": ["委内瑞拉", "加拉加斯", "venezuela", "caracas"],
+    "哥伦比亚": ["哥伦比亚", "colombia", "colombian"],
+    "秘鲁": ["秘鲁", "利马", "peru", "lima"],
+    "越南": ["越南", "河内", "vietnam", "viet nam", "hanoi"],
+    "泰国": ["泰国", "曼谷", "thailand", "bangkok"],
+    "菲律宾": ["菲律宾", "马尼拉", "philippines", "manila"],
+    "印度尼西亚": ["印尼", "印度尼西亚", "雅加达", "indonesia", "jakarta"],
+    "马来西亚": ["马来西亚", "吉隆坡", "malaysia", "kuala lumpur"],
+    "新加坡": ["新加坡", "singapore", "singaporean"],
+    "缅甸": ["缅甸", "myanmar", "burma"],
+    "柬埔寨": ["柬埔寨", "金边", "cambodia", "phnom penh"],
+    "尼泊尔": ["尼泊尔", "加德满都", "nepal", "kathmandu"],
+    "斯里兰卡": ["斯里兰卡", "科伦坡", "sri lanka", "colombo"],
+    "孟加拉国": ["孟加拉", "达卡", "bangladesh", "dhaka"],
+    "哈萨克斯坦": ["哈萨克斯坦", "阿斯塔纳", "kazakhstan", "astana"],
+}
+
+
 def guess_region(title: str, summary: str) -> str:
     """判断地区：具体国家/地区优先于大洲（英文用词边界匹配，中文子串匹配）"""
     text = (title + " " + summary).lower()
@@ -367,9 +554,10 @@ def fetch_rss(source: dict) -> list[dict]:
         except Exception:
             pass
 
-        # 自动分类
+        # 自动分类 + 地区/国家判定（国家从内容判断，避免误用媒体所属国）
         category = guess_category(title, summary)
         region = guess_region(title, summary)
+        country = guess_country(title, summary) or ("中国" if source.get("lang") == "zh" and region == "中国" else "")
 
         # 英文源 → 自动翻译为中文（中文源跳过）
         translated = False
@@ -385,7 +573,7 @@ def fetch_rss(source: dict) -> list[dict]:
             "title": title[:120],  # 标题截断
             "date": date_str,
             "category": category,
-            "country": source.get("country", "未知"),
+            "country": country,
             "region": region,
             "summary": summary[:200] if summary else title[:200],
             "content": summary if summary else title,
@@ -459,7 +647,7 @@ def merge_into_events(events: list, new_items: list) -> list:
                 n += 1
                 eid = f"evt_{ymd}_{n:03d}"
             cat = item.get("category") or "其他"
-            country = item.get("country") or "未知"
+            country = item.get("country") or ""
             region = item.get("region") or "全球"
             ev = {
                 "id": eid,
