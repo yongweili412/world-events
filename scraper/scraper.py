@@ -725,6 +725,91 @@ def _norm(t: str) -> str:
     return re.sub(r"[^0-9a-z\u4e00-\u9fff]", "", (t or "").lower())
 
 
+# ---------------- 语言无关指纹（2026-09-09 新增） ----------------
+# 背景：英文源文章机翻入库后，同一篇文章再抓时标题（中/英）匹配不上，会重复建事件。
+# 方案：URL 规范化去重 + 基于"URL slug 词集 ∪ 标题拉丁词"的语言无关指纹匹配。
+
+# 英文停用词：slug 与标题中的虚词，不参与指纹
+_FP_STOP = set("""
+the a an of and or to in on for is are was were be been being with as at by from
+new how why what when where who whom which whose will would should could may might
+can must its his her their this that these those there here it he she they we you i
+after before over under amid into out up down about more most than then all any each
+not no nor so if but because while during against between through above below again
+further once do does did doing have has had having says said say report reports
+update updates live news video watch photos top best vs via get got one two first
+second third day days year years amid amid s t d b
+feed view story stories article articles post posts page pages item items
+detail details content node entry entries section category topic amp
+""".split())
+
+
+def _url_norm(u: str) -> str:
+    """URL 规范化：统一协议/域名/跟踪参数/amp/语言前缀，用于跨版本去重"""
+    u = (u or "").strip().lower()
+    if not u:
+        return ""
+    u = re.sub(r"^https?://", "", u)
+    u = re.sub(r"^www\.", "", u)
+    u = u.split("#")[0]
+    parts = u.split("?", 1)
+    if len(parts) == 2:
+        q = [p for p in parts[1].split("&")
+             if p and not p.split("=")[0].startswith(("utm_", "fbclid", "gclid", "spm", "ref", "from", "share", "sharetoken"))]
+        u = parts[0] + ("?" + "&".join(q) if q else "")
+    u = re.sub(r"/amp(/|$)", r"\1", u)
+    u = re.sub(r"/index\.(html?|shtml|php)$", "", u)
+    u = re.sub(r"/+$", "", u)
+    seg = u.split("/")
+    # 去域名后的语言前缀段：/en/ /zh-cn/ /jp/ 等
+    if len(seg) > 1 and re.fullmatch(r"(en|zh|jp|ko|fr|de|es|ru|ar|pt|it)(-[a-z]{2,4})?", seg[1]):
+        u = "/".join([seg[0]] + seg[2:])
+    return u
+
+
+def _latin_words(s: str) -> set:
+    """提取文本中的拉丁词（≥3 字符），去停用词——标题翻译后仍保留的英文专名会留在这里"""
+    return {w for w in re.findall(r"[a-z][a-z0-9]{2,}", (s or "").lower()) if w not in _FP_STOP}
+
+
+def _url_words(u: str) -> set:
+    """从 URL 路径提取 slug 词（≥3 字符），去停用词——slug 几乎总是英文原词，与语言无关"""
+    u = re.sub(r"^https?://[^/]+/", "", (u or "").lower())
+    u = re.sub(r"\.(s?html?|php|aspx?|jsp)([/?].*)?$", r"\1", u)
+    u = re.sub(r"[0-9]{4}[/-][0-9]{1,2}[/-][0-9]{1,2}", " ", u)  # 去路径日期
+    return {w for w in re.findall(r"[a-z][a-z0-9]{2,}", u) if w not in _FP_STOP}
+
+
+def _event_fp_words(ev: dict) -> set:
+    """事件的语言无关特征词：标题拉丁词 ∪ 全部来源 URL 的 slug 词"""
+    w = _latin_words(ev.get("title", ""))
+    for s in (ev.get("sources") or []):
+        w |= _url_words(s.get("url") or "")
+    return w
+
+
+def _item_fp_words(item: dict) -> set:
+    return _latin_words(item.get("title", "")) | _url_words(item.get("sourceUrl") or "")
+
+
+def _fp_match(item_words: set, ev_fp: dict, ev_order: list):
+    """语言无关指纹匹配：新报道词集与事件词集交集 >=3 且占较小方一半以上 → 同一篇文章。
+    采用保守阈值，宁漏勿错（误合并比重复入库危害更大）。返回事件 id 或 None。"""
+    fw = {w for w in item_words if w not in _FP_STOP}
+    if len(fw) < 3:
+        return None
+    best, best_common = None, 0
+    for eid in ev_order:
+        ew = ev_fp.get(eid)
+        if not ew:
+            continue
+        common = fw & ew
+        n = len(common)
+        if n >= 3 and n / min(len(fw), len(ew)) >= 0.5 and n > best_common:
+            best, best_common = eid, n
+    return best
+
+
 def _find_event(events: list, item: dict):
     """在事件库中查找该报道所属的事件（标题相似 + 日期相近）"""
     nt = _norm(item["title"])
@@ -750,17 +835,31 @@ def _find_event(events: list, item: dict):
 def merge_into_events(events: list, new_items: list) -> list:
     """v2 事件模型：新报道合并进已有事件（追加 source/timeline），否则新建事件。
 
-    返回受影响的事件列表。URL 相同的报道直接跳过（同一篇报道不重复收录）。
+    返回受影响的事件列表。
+    去重三层防线（2026-09-09 增强）：
+      1. 规范化 URL 精确去重（同文章不同参数/amp/语言前缀版本）
+      2. 语言无关指纹（URL slug 词 + 标题拉丁词），跨语言也能认出同一篇文章
+      3. 原有标题相似度匹配
     """
-    seen_urls = {s.get("url") for e in events for s in (e.get("sources") or []) if s.get("url")}
+    seen_urls = {_url_norm(s.get("url")) for e in events for s in (e.get("sources") or []) if s.get("url")}
+    seen_urls.discard("")
+    # 预计算事件指纹词集（新建事件时增量维护）
+    ev_fp = {e["id"]: _event_fp_words(e) for e in events}
+    ev_order = [e["id"] for e in events]
+    by_id = {e["id"]: e for e in events}
     touched = []
     for item in new_items:
         url = item.get("sourceUrl") or ""
-        if url and url in seen_urls:
+        nu = _url_norm(url)
+        if nu and nu in seen_urls:
             continue
-        if url:
-            seen_urls.add(url)
-        ev = _find_event(events, item)
+        if nu:
+            seen_urls.add(nu)
+        # 语言无关指纹优先，其次标题相似度
+        fp_hit = _fp_match(_item_fp_words(item), ev_fp, ev_order)
+        ev = by_id.get(fp_hit) if fp_hit else None
+        if ev is None:
+            ev = _find_event(events, item)
         snippet = re.sub(r"\s+", " ", (item.get("summary") or item.get("content") or "")).strip()[:120]
         src_entry = {
             "name": item.get("source") or "",
@@ -797,9 +896,15 @@ def merge_into_events(events: list, new_items: list) -> list:
                 "relatedEvents": [],
             }
             events.append(ev)
+            # 增量维护指纹缓存
+            ev_fp[eid] = _event_fp_words(ev)
+            ev_order.append(eid)
+            by_id[eid] = ev
         else:
             if src_entry not in (ev.get("sources") or []):
                 ev.setdefault("sources", []).append(src_entry)
+                # 新来源 slug 词并入事件指纹
+                ev_fp[ev["id"]] = ev_fp.get(ev["id"], set()) | _url_words(url)
             # 标签合并（保留原有 + 新报道的主题标签 + 国家），去重限量
             merged_tags = list(dict.fromkeys(
                 (ev.get("tags") or []) + (item.get("tags") or []) + ([ev["location"].get("country")] if (ev.get("location") or {}).get("country") else [])
