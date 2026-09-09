@@ -373,7 +373,9 @@ HEADERS = {
 # ===== 自动翻译配置 =====
 # 使用 MyMemory 免费翻译接口（无需注册、国内可直连）
 # 匿名额度约每天 5000 字符；填邮箱可提升到 50000 字符/天
-TRANSLATE_ENABLED = True
+# 环境变量 SKIP_TRANSLATE=1 可整体关闭翻译（GitHub Actions 云端用：
+# 英文原文直接入库，由本地 WorkBuddy 定时任务做 AI 精修）
+TRANSLATE_ENABLED = os.environ.get("SKIP_TRANSLATE") != "1"
 TRANSLATE_TARGET = "zh-CN"
 TRANSLATE_EMAIL = ""          # 可选：填入邮箱可提升免费额度
 TRANSLATE_CACHE_FILE = Path(__file__).parent / "translate_cache.json"
@@ -638,6 +640,12 @@ def clean_text(text: str) -> str:
     return text
 
 
+def _today_cn():
+    """北京时间（UTC+8）的今天。GitHub Actions 服务器是 UTC，
+    北京 0-8 点运行时 _today_cn() 会算成前一天，导致新事件日期错一天。"""
+    return (datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8))).date())
+
+
 def load_events() -> list:
     """加载已有事件"""
     if EVENTS_FILE.exists():
@@ -672,7 +680,7 @@ def fetch_rss(source: dict) -> list[dict]:
         link = getattr(entry, "link", "")
         published = getattr(entry, "published", "")
         # 解析日期
-        date_str = datetime.date.today().isoformat()
+        date_str = _today_cn().isoformat()
         try:
             import email.utils
             if published:
@@ -963,7 +971,7 @@ def _html_date(url: str, html: str, date_url_pat: str) -> str:
                     return f"{y}-{mo}-{d}"
             except Exception:
                 pass
-    return datetime.date.today().isoformat()
+    return _today_cn().isoformat()
 
 
 def fetch_html(source: dict) -> list[dict]:
@@ -1028,7 +1036,7 @@ def fetch_html(source: dict) -> list[dict]:
         date_str = _html_date(url, art, source.get("date_url"))
         # 时效过滤：HTML 列表页可能混有旧文，7 天前的直接丢弃
         try:
-            if datetime.date.fromisoformat(date_str) < datetime.date.today() - datetime.timedelta(days=7):
+            if datetime.date.fromisoformat(date_str) < _today_cn() - datetime.timedelta(days=7):
                 continue
         except Exception:
             pass
@@ -1067,7 +1075,7 @@ def fetch_html(source: dict) -> list[dict]:
 
 def main():
     print("🌍 全球事件自动抓取开始…")
-    print(f"📅 {datetime.date.today().isoformat()}\n")
+    print(f"📅 {_today_cn().isoformat()}\n")
 
     _load_translate_cache()
 
