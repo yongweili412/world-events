@@ -11,6 +11,11 @@ on:
 permissions:
   contents: write
 
+# 与历史回填 workflow 互斥，防止两个任务同时写 events.json
+concurrency:
+  group: world-events-update
+  cancel-in-progress: false
+
 jobs:
   scrape:
     runs-on: ubuntu-latest
