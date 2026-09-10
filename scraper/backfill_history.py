@@ -170,7 +170,7 @@ def llm_translate(year: int, items: list) -> list:
     model = os.environ.get("LLM_MODEL", "glm-4.5-flash")
 
     out = []
-    BATCH = 20
+    BATCH = 10
     for i in range(0, len(items), BATCH):
         batch = items[i:i + BATCH]
         payload_events = [{"idx": j, "date": it["date"], "event_en": it["text_en"]} for j, it in enumerate(batch)]
@@ -182,23 +182,32 @@ category 只能从这些里选：{json.dumps(CATEGORIES, ensure_ascii=False)}
 
 条目列表：
 {json.dumps(payload_events, ensure_ascii=False)}"""
-        resp = requests.post(
-            f"{base}/chat/completions",
-            headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
-            json={
-                "model": model,
-                "messages": [{"role": "user", "content": prompt}],
-                "temperature": 0.3,
-                "max_tokens": 8000,
-            },
-            timeout=300,
-        )
-        resp.raise_for_status()
-        content = resp.json()["choices"][0]["message"]["content"]
+        resp = None
+        content = None
+        for attempt in (1, 2):  # 失败重试 1 次
+            resp = requests.post(
+                f"{base}/chat/completions",
+                headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
+                json={
+                    "model": model,
+                    "messages": [{"role": "user", "content": prompt}],
+                    "temperature": 0.3,
+                    "thinking": {"type": "disabled"},
+                },
+                timeout=300,
+            )
+            if resp.status_code == 200:
+                break
+            print(f"  ⚠️ 批次请求 HTTP {resp.status_code}（第 {attempt} 次）: {resp.text[:200]}")
+            time.sleep(5)
+        if resp is None or resp.status_code != 200:
+            print(f"  ❌ 第 {i//BATCH+1} 批请求失败，跳过 {len(batch)} 条")
+            continue
+        content = resp.json()["choices"][0]["message"].get("content") or ""
         # 容错解析 JSON
         jm = re.search(r"\[.*\]", content, re.S)
         if not jm:
-            print(f"  ⚠️ 第 {i//BATCH+1} 批 JSON 解析失败，跳过 {len(batch)} 条")
+            print(f"  ⚠️ 第 {i//BATCH+1} 批 JSON 解析失败，跳过 {len(batch)} 条 | content头: {content[:120]!r}")
             continue
         try:
             arr = json.loads(jm.group(0))
