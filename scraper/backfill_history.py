@@ -262,9 +262,10 @@ def stage_merge(years):
         new_items = []
         for c in cn:
             country = c.get("country") or ""
-            region = sp.guess_region(c["title"] + c.get("summary", "")) or ("全球" if not country else "全球")
+            summary = c.get("summary") or c["title"]
+            region = sp.guess_region(c["title"], summary) or "全球"
             if country and len(country) <= 6:
-                r2 = sp.guess_region(country)
+                r2 = sp.guess_region(country, country)
                 if r2:
                     region = r2
             new_items.append({
