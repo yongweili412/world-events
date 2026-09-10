@@ -240,7 +240,30 @@ category 只能从这些里选：{json.dumps(CATEGORIES, ensure_ascii=False)}
             time.sleep(5)
         if resp is not None and resp.status_code == 200:
             got = _parse_batch(resp.json(), batch, f"批次 {i//BATCH+1}/{n_batches}")
-            out += got
+            if got:
+                out += got
+            elif len(batch) > 1:
+                # JSON 无效/为空（多为输出截断）→ 对半拆分重试，输出减半可大幅提高成功率
+                def _split_retry(b, pe, depth=0):
+                    if not b:
+                        return []
+                    print(f"    ↘️ 拆半重试（{len(b)} 条，深度 {depth}）")
+                    try:
+                        r = _call(_build_prompt(pe))
+                    except Exception as e:
+                        print(f"      ⚠️ 网络异常: {type(e).__name__}")
+                        return []
+                    if r.status_code != 200:
+                        print(f"      ⚠️ HTTP {r.status_code}")
+                        return []
+                    got = _parse_batch(r.json(), b, f"拆半{depth}")
+                    if got:
+                        return got
+                    if len(b) == 1:
+                        return []
+                    mid = len(b) // 2
+                    return _split_retry(b[:mid], pe[:mid], depth + 1) + _split_retry(b[mid:], pe[mid:], depth + 1)
+                out += _split_retry(batch, payload_events)
         elif resp is not None and "1301" in resp.text:
             # 内容安全过滤拦截整批 → 拆单条重试，只丢真正敏感的单条
             print(f"  ✂️ 批次 {i//BATCH+1}/{n_batches} 触发内容过滤，拆单条重试")
