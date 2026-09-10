@@ -913,7 +913,7 @@ def _find_event(events: list, item: dict):
     return None
 
 
-def merge_into_events(events: list, new_items: list) -> list:
+def merge_into_events(events: list, new_items: list, dedupe_url: bool = True) -> list:
     """v2 事件模型：新报道合并进已有事件（追加 source/timeline），否则新建事件。
 
     返回受影响的事件列表。
@@ -921,6 +921,8 @@ def merge_into_events(events: list, new_items: list) -> list:
       1. 规范化 URL 精确去重（同文章不同参数/amp/语言前缀版本）
       2. 语言无关指纹（URL slug 词 + 标题拉丁词），跨语言也能认出同一篇文章
       3. 原有标题相似度匹配
+    dedupe_url=False 供历史回填使用：维基年表等聚合源所有条目共用同一 URL，
+    URL 去重会把首条之后的条目全部误跳过。
     """
     seen_urls = {_url_norm(s.get("url")) for e in events for s in (e.get("sources") or []) if s.get("url")}
     seen_urls.discard("")
@@ -932,10 +934,11 @@ def merge_into_events(events: list, new_items: list) -> list:
     for item in new_items:
         url = item.get("sourceUrl") or ""
         nu = _url_norm(url)
-        if nu and nu in seen_urls:
-            continue
-        if nu:
-            seen_urls.add(nu)
+        if dedupe_url:
+            if nu and nu in seen_urls:
+                continue
+            if nu:
+                seen_urls.add(nu)
         # 语言无关指纹优先，其次标题相似度
         fp_hit = _fp_match(_item_fp_words(item), ev_fp, ev_order)
         ev = by_id.get(fp_hit) if fp_hit else None

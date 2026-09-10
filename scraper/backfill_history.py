@@ -171,63 +171,93 @@ def llm_translate(year: int, items: list) -> list:
 
     out = []
     BATCH = 10
-    for i in range(0, len(items), BATCH):
-        batch = items[i:i + BATCH]
-        payload_events = [{"idx": j, "date": it["date"], "event_en": it["text_en"]} for j, it in enumerate(batch)]
-        prompt = f"""你是新闻编辑，正在为"世界事件档案"网站整理 {year} 年的历史大事。
+
+    def _build_prompt(batch_events):
+        return f"""你是新闻编辑，正在为"世界事件档案"网站整理 {year} 年的历史大事。
 下面是英文维基百科的 {year} 年大事条目（idx 为序号）。请把每条改写成中文新闻事件，输出严格的 JSON 数组，每个元素：
 {{"idx": 序号, "title": "30字内中文新闻标题", "summary": "60-100字中文摘要，补充背景与影响", "category": "类别", "country": "主要相关国家中文名，如美国/俄罗斯/中国/伊拉克，跨国用'多国'，无明确国家用''"}}
 category 只能从这些里选：{json.dumps(CATEGORIES, ensure_ascii=False)}
 要求：新闻体、专有名词用中文规范译名；标题陈述事实；不要输出 JSON 以外的任何文字。
 
 条目列表：
-{json.dumps(payload_events, ensure_ascii=False)}"""
-        resp = None
-        content = None
-        for attempt in (1, 2):  # 失败重试 1 次
-            resp = requests.post(
-                f"{base}/chat/completions",
-                headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
-                json={
-                    "model": model,
-                    "messages": [{"role": "user", "content": prompt}],
-                    "temperature": 0.3,
-                    "thinking": {"type": "disabled"},
-                },
-                timeout=300,
-            )
-            if resp.status_code == 200:
-                break
-            print(f"  ⚠️ 批次请求 HTTP {resp.status_code}（第 {attempt} 次）: {resp.text[:200]}")
-            time.sleep(5)
-        if resp is None or resp.status_code != 200:
-            print(f"  ❌ 第 {i//BATCH+1} 批请求失败，跳过 {len(batch)} 条")
-            continue
-        content = resp.json()["choices"][0]["message"].get("content") or ""
-        # 容错解析 JSON
+{json.dumps(batch_events, ensure_ascii=False)}"""
+
+    def _call(prompt, timeout=300):
+        return requests.post(
+            f"{base}/chat/completions",
+            headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
+            json={
+                "model": model,
+                "messages": [{"role": "user", "content": prompt}],
+                "temperature": 0.3,
+                "thinking": {"type": "disabled"},
+            },
+            timeout=timeout,
+        )
+
+    def _parse_batch(resp_json, batch, tag):
+        content = resp_json["choices"][0]["message"].get("content") or ""
         jm = re.search(r"\[.*\]", content, re.S)
         if not jm:
-            print(f"  ⚠️ 第 {i//BATCH+1} 批 JSON 解析失败，跳过 {len(batch)} 条 | content头: {content[:120]!r}")
-            continue
+            print(f"    ⚠️ {tag} JSON 解析失败 | content头: {content[:120]!r}")
+            return []
         try:
             arr = json.loads(jm.group(0))
         except Exception:
-            arr = []
-            print(f"  ⚠️ 第 {i//BATCH+1} 批 JSON 无效，跳过")
-            continue
+            print(f"    ⚠️ {tag} JSON 无效 | content头: {content[:120]!r}")
+            return []
+        res = []
         by_idx = {a.get("idx"): a for a in arr if isinstance(a, dict)}
         for j, it in enumerate(batch):
             a = by_idx.get(j)
             if not a or not a.get("title"):
                 continue
-            out.append({
+            res.append({
                 "date": it["date"],
                 "title": str(a["title"]).strip(),
                 "summary": str(a.get("summary", "")).strip(),
                 "category": a.get("category") if a.get("category") in CATEGORIES else "其他",
                 "country": str(a.get("country", "")).strip(),
             })
-        print(f"  ✈️ 批次 {i//BATCH+1}/{(len(items)+BATCH-1)//BATCH}: 累计翻译 {len(out)} 条")
+        return res
+
+    n_batches = (len(items) + BATCH - 1) // BATCH
+    for i in range(0, len(items), BATCH):
+        batch = items[i:i + BATCH]
+        payload_events = [{"idx": j, "date": it["date"], "event_en": it["text_en"]} for j, it in enumerate(batch)]
+        prompt = _build_prompt(payload_events)
+        resp = None
+        for attempt in (1, 2):  # 失败重试 1 次
+            try:
+                resp = _call(prompt)
+            except Exception as e:
+                print(f"  ⚠️ 批次网络异常（第 {attempt} 次）: {type(e).__name__}: {str(e)[:80]}")
+                resp = None
+            if resp is not None and resp.status_code == 200:
+                break
+            if resp is not None:
+                print(f"  ⚠️ 批次请求 HTTP {resp.status_code}（第 {attempt} 次）: {resp.text[:200]}")
+            time.sleep(5)
+        if resp is not None and resp.status_code == 200:
+            got = _parse_batch(resp.json(), batch, f"批次 {i//BATCH+1}/{n_batches}")
+            out += got
+        elif resp is not None and "1301" in resp.text:
+            # 内容安全过滤拦截整批 → 拆单条重试，只丢真正敏感的单条
+            print(f"  ✂️ 批次 {i//BATCH+1}/{n_batches} 触发内容过滤，拆单条重试")
+            for j, pe in enumerate(payload_events):
+                try:
+                    r2 = _call(_build_prompt([pe]), timeout=120)
+                except Exception:
+                    continue
+                if r2.status_code == 200:
+                    out += _parse_batch(r2.json(), [batch[j]], f"单条 {j}")
+                elif "1301" in r2.text:
+                    print(f"    ✂️ 单条被过滤丢弃: {pe['event_en'][:50]!r}")
+                else:
+                    print(f"    ⚠️ 单条重试 HTTP {r2.status_code}")
+        else:
+            print(f"  ❌ 批次 {i//BATCH+1}/{n_batches} 请求失败，跳过 {len(batch)} 条")
+        print(f"  ✈️ 批次 {i//BATCH+1}/{n_batches}: 累计翻译 {len(out)} 条")
         time.sleep(2)
     return out
 
@@ -281,7 +311,7 @@ def stage_merge(years):
                 "tags": [c["category"]] + ([country] if country and country != "多国" else []),
             })
         before = len(events)
-        sp.merge_into_events(events, new_items)
+        sp.merge_into_events(events, new_items, dedupe_url=False)
         sp.save_events(events)
         after = len(events)
         p["merged"].append(y)
