@@ -156,7 +156,7 @@ def stage_fetch(years):
         json.dump(items, open(RAW_FILE.format(year=y), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
         p["fetched"].append(y)
         save_progress(p)
-        print(f"  ✅ {y}: {len(items)} 条大事 → {RAW_FILE.format(year=y).name}")
+        print(f"  ✅ {y}: {len(items)} 条大事 → {y}_raw.json")
         time.sleep(2)
 
 
