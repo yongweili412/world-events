@@ -28,7 +28,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 SCRAPER_DIR = Path(__file__).parent
 BACKFILL_DIR = SCRAPER_DIR.parent / "data" / "backfill"
 PROGRESS_FILE = SCRAPER_DIR / "backfill_progress.json"
-RAW_FILE = BACKFILL_DIR / "{year}_raw.json"
+RAW_FILE = str(BACKFILL_DIR / "{year}_raw.json")
 
 ALL_YEARS = list(range(1997, 2026))  # 1997-2025 共 29 年（2026 年已有逐日数据）
 YEARS_PER_RUN = 2                    # auto 模式每次处理的年份数
@@ -228,7 +228,7 @@ def stage_merge(years):
     p = load_progress()
     events = sp.load_events()
     for y in years:
-        raw_file = RAW_FILE.format(year=y)
+        raw_file = Path(RAW_FILE.format(year=y))
         if y in p["merged"]:
             print(f"✓ {y} 已合并入库，跳过")
             continue
