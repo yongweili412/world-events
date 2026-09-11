@@ -335,6 +335,12 @@ def stage_merge(years):
             })
         before = len(events)
         sp.merge_into_events(events, new_items, dedupe_url=False)
+        # 新建事件的 aiSummary 直接用翻译摘要（历史条目无原文全文可抓）
+        for e in events:
+            if not e.get("aiSummary") and (e.get("sources") or [{}])[0].get("name", "").startswith("Wikipedia"):
+                s = (e.get("summary") or "").strip()
+                if s:
+                    e["aiSummary"] = s
         sp.save_events(events)
         after = len(events)
         p["merged"].append(y)

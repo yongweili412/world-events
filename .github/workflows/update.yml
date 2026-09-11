@@ -32,10 +32,17 @@ jobs:
       - name: 安装依赖
         run: pip install --quiet feedparser requests
 
-      - name: 抓取并合并事件（云端跳过翻译，英文原文入库）
+      - name: 抓取并合并事件（云端跳过机翻，英文原文入库）
         env:
           SKIP_TRANSLATE: '1'
         run: python scraper/scraper.py
+
+      - name: LLM 翻译库中英文事件（智谱 glm-4.5-flash）
+        env:
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          LLM_BASE_URL: ${{ secrets.LLM_BASE_URL }}
+          LLM_MODEL: ${{ secrets.LLM_MODEL }}
+        run: python scraper/translate_cloud.py
 
       - name: 构建静态页面
         run: python scraper/build.py
