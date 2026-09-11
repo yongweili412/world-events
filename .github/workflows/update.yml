@@ -10,6 +10,7 @@ on:
 
 permissions:
   contents: write
+  issues: write
 
 # 与历史回填 workflow 互斥，防止两个任务同时写 events.json
 concurrency:
@@ -58,3 +59,26 @@ jobs:
             git commit -m "云端自动抓取: $(TZ=Asia/Shanghai date '+%Y-%m-%d %H:%M') 北京时间"
             git push
           fi
+
+      - name: 失败时创建 Issue 通知
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          EXISTING=$(gh issue list --repo ${{ github.repository }} --state open --search "自动化失败 in:title" --limit 1 --json number --jq 'length')
+          if [ "${EXISTING}" = "0" ]; then
+            gh issue create --repo ${{ github.repository }} \
+              --title "自动化失败: ${{ github.workflow }} $(TZ=Asia/Shanghai date '+%m-%d %H:%M') 北京时间" \
+              --body "云端自动任务失败了，请检查日志：${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" || echo "issue create failed"
+          else
+            echo "已有未关闭的失败 Issue，跳过重复创建"
+          fi
+
+      - name: 成功时关闭旧的失败 Issue
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue list --repo ${{ github.repository }} --state open --search "自动化失败 in:title" --json number --jq '.[].number' | while read n; do
+            gh issue close "$n" --repo ${{ github.repository }} --comment "本次运行已成功，自动关闭。" || true
+          done
