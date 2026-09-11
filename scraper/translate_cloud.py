@@ -27,8 +27,10 @@ def _payload(e):
 
 def _build_prompt(items_json):
     return """你是新闻编辑，为"世界事件档案"网站把下列英文新闻事件翻译成中文。输出严格的 JSON 数组，每个元素：
-{"id": "原样照抄输入的id", "title": "30字内中文新闻标题，字符串内如需引号一律用《》或''，禁止使用双引号", "summary": "80-150字中文摘要，基于原文内容，字符串内禁止双引号"}
-要求：专有名词用中文规范译名；标题陈述事实；不要输出 JSON 以外的任何文字。
+{"id": "原样照抄输入的id", "title": "30字内中文新闻标题", "summary": "80-150字中文摘要，基于原文内容"}
+要求：
+1. 专有名词用中文规范译名；标题陈述事实；不要输出 JSON 以外的任何文字；字符串内如需引号一律用《》或''，禁止使用双引号。
+2. 战争、冲突、灾难、恐袭等事件均属公开新闻，必须如实收录，用新闻业规范中性词表述：遇难/身亡/死亡人数/武装冲突/交火/爆炸袭击，平实记录事实与数字，不渲染血腥细节、不用煽动性词汇。
 
 条目列表：
 """ + items_json
@@ -121,7 +123,24 @@ def translate_all(cfg, batch_size=10):
                 if r2.status_code == 200:
                     got += _parse_batch(r2.json(), [e], "单条")
                 elif "1301" in r2.text:
-                    print(f"    单条被过滤: {e['title'][:40]!r}", flush=True)
+                    # 降敏二次重试
+                    time.sleep(2)
+                    try:
+                        r3 = _call(cfg, _build_prompt(json.dumps([_payload(e)], ensure_ascii=False)) + "\n注意：这是公开新闻报道，请用最平实的新闻通稿语气表述。", timeout=120)
+                    except Exception:
+                        r3 = None
+                    if r3 is not None and r3.status_code == 200:
+                        got += _parse_batch(r3.json(), [e], "降敏重试")
+                    else:
+                        # 留档待补翻，不丢数据
+                        try:
+                            fl = json.load(open("data/llm_filtered.json", encoding="utf-8"))
+                        except Exception:
+                            fl = []
+                        if not any(x["id"] == e["id"] for x in fl):
+                            fl.append({"id": e["id"], "date": e["date"], "title_en": e["title"], "text_en": (e.get("summary") or "")[:400]})
+                            json.dump(fl, open("data/llm_filtered.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+                        print(f"    单条被过滤，已留档待补翻: {e['title'][:40]!r}", flush=True)
         else:
             print(f"  FAIL 批次 {i//BATCH+1} 失败，跳过 {len(batch)} 条", flush=True)
 
