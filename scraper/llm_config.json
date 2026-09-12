@@ -12,8 +12,13 @@
       "历史回填翻译（backfill.yml → backfill_history.py）",
       "历史回填缺漏补翻（update.yml → backfill_gaps.py）",
       "全文速览生成（update.yml → full_summary_batch.py）",
-      "本机 7:00/23:00 定时任务：速览/聚合/精修"
+      "本机 7:00/23:00 定时任务：速览/聚合/精修",
+      "字段级中文化（update.yml → field_translate.py，2026-09-12 新增）"
     ]
   },
-  "rule": "今后新增的每日自动化任务默认沿用 daily_automation.model，无需重复设置；如需更换模型只改此文件 + GitHub Secrets 的 LLM_MODEL 两处。"
+  "rules": [
+    "规定一：每天云端后台自动执行的任务（GitHub Actions workflows 全部 LLM 环节：抓取后翻译/回填翻译/缺漏补翻/全文速览/字段级中文化）统一使用 flash 模型 glm-4.5-flash，不得擅自升级更高级模型（2026-09-12 用户指定）。",
+    "规定二：今后新增的每日自动化任务默认沿用 daily_automation.model，无需重复设置；如需更换模型只改此文件 + GitHub Secrets 的 LLM_MODEL 两处。",
+    "规定三：此配置仅约束每日自动化任务；手动执行、临时对话任务不受约束，可按需选用模型。"
+  ]
 }
