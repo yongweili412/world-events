@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 """全文速览批量推进：取 N 条无 summaryFull 的事件，抓原文全文，LLM 基于全文生成速览"""
-import json, re, time, sys, requests
+import json, re, time, sys, os, requests
 
-KEY = "995611b2762144e88e023c856da104eb.d68AuncjSy9Qrd0O"
+KEY = os.environ.get("LLM_API_KEY", "995611b2762144e88e023c856da104eb.d68AuncjSy9Qrd0O").strip()
+ALL_SOURCES = os.environ.get("ALL_SOURCES") == "1"  # 云端网络畅通可抓外文源，本机默认仅国内源
 LIMIT = int(sys.argv[1]) if len(sys.argv) > 1 else 30
 UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36"}
 
@@ -63,10 +64,10 @@ def main():
         u = (e.get("sources") or [{}])[0].get("url") or ""
         return any(h in u for h in CN_HOSTS)
     targets = sorted(
-        [e for e in ev if not e.get("summaryFull") and (e.get("sources") or [{}])[0].get("url") and is_cn(e)],
+        [e for e in ev if not e.get("summaryFull") and (e.get("sources") or [{}])[0].get("url") and (ALL_SOURCES or is_cn(e))],
         key=lambda e: e["date"], reverse=True,
     )[:LIMIT]
-    print("本轮推进全文速览:", len(targets), "条（仅国内可达源）", flush=True)
+    print("本轮推进全文速览:", len(targets), "条" + ("" if ALL_SOURCES else "（仅国内可达源）"), flush=True)
     ok, skip = 0, 0
     for i, e in enumerate(targets):
         url = e["sources"][0]["url"]

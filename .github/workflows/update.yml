@@ -20,7 +20,7 @@ concurrency:
 jobs:
   scrape:
     runs-on: ubuntu-latest
-    timeout-minutes: 50
+    timeout-minutes: 60
     steps:
       - name: 检出仓库
         uses: actions/checkout@v4
@@ -38,12 +38,27 @@ jobs:
           SKIP_TRANSLATE: '1'
         run: python scraper/scraper.py
 
-      - name: LLM 翻译库中英文事件（智谱 glm-4.5-flash）
+      - name: LLM 翻译库中英文事件（flash 模型，配置见 scraper/llm_config.json）
         env:
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
           LLM_BASE_URL: ${{ secrets.LLM_BASE_URL }}
           LLM_MODEL: ${{ secrets.LLM_MODEL }}
         run: python scraper/translate_cloud.py
+
+      - name: 历史回填缺漏补翻（backfill_gaps 自动检测缺失并收敛清零）
+        env:
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          LLM_BASE_URL: ${{ secrets.LLM_BASE_URL }}
+          LLM_MODEL: ${{ secrets.LLM_MODEL }}
+        run: python scraper/backfill_gaps.py
+
+      - name: 全文速览推进 30 条（云端抓外文源 + flash 模型生成）
+        env:
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          LLM_BASE_URL: ${{ secrets.LLM_BASE_URL }}
+          LLM_MODEL: ${{ secrets.LLM_MODEL }}
+          ALL_SOURCES: '1'
+        run: python scraper/full_summary_batch.py 30
 
       - name: 构建静态页面
         run: python scraper/build.py

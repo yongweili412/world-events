@@ -60,7 +60,10 @@ def parse(resp_json, batch):
 def main():
     ev = json.load(open("data/events.json", encoding="utf-8"))
     todo = []  # (year, raw_item)
-    for year in (1997, 1998):
+    import glob
+    raw_files = sorted(glob.glob("data/backfill/[0-9]" * 4 + "_raw.json"))
+    years_all = [int(re.search(r"(\d{4})_raw", f).group(1)) for f in raw_files]
+    for year in years_all:
         raw = json.load(open(f"data/backfill/{year}_raw.json", encoding="utf-8"))
         wiki_days = set()
         for e in ev:
@@ -128,7 +131,7 @@ def main():
         print("被拦条目已留档 data/backfill/filtered_pending.json")
 
     # 入库（缺失日期整缺，零重复风险）
-    for year in (1997, 1998):
+    for year in sorted(set(c["date"][:4] for c in cn)):
         items = [c for c in cn if c["date"].startswith(str(year))]
         if not items:
             continue

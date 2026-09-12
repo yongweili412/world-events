@@ -1,0 +1,19 @@
+{
+  "_comment": "world-events LLM 模型配置（单一事实源）。scope=每日自动化任务：云端 GitHub Actions workflows（update.yml / backfill.yml 的全部 LLM 步骤）与今后新增的每日自动化任务；手动执行、临时对话任务不受此配置约束，可按需选用模型。",
+  "daily_automation": {
+    "provider": "zhipu",
+    "model": "glm-4.5-flash",
+    "base_url": "https://open.bigmodel.cn/api/paas/v4",
+    "cost_tier": "flash 高性价比档",
+    "applied_at": "2026-09-12",
+    "env_var": "LLM_MODEL（GitHub Secrets，值=glm-4.5-flash）",
+    "steps": [
+      "日常抓取后英文事件翻译（update.yml → translate_cloud.py）",
+      "历史回填翻译（backfill.yml → backfill_history.py）",
+      "历史回填缺漏补翻（update.yml → backfill_gaps.py）",
+      "全文速览生成（update.yml → full_summary_batch.py）",
+      "本机 7:00/23:00 定时任务：速览/聚合/精修"
+    ]
+  },
+  "rule": "今后新增的每日自动化任务默认沿用 daily_automation.model，无需重复设置；如需更换模型只改此文件 + GitHub Secrets 的 LLM_MODEL 两处。"
+}
