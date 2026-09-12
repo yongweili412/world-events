@@ -45,6 +45,13 @@ jobs:
           LLM_MODEL: ${{ secrets.LLM_MODEL }}
         run: python scraper/translate_cloud.py
 
+      - name: 字段级中文化（sources 标题/导语、时间线、description 的英文残留）
+        env:
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          LLM_BASE_URL: ${{ secrets.LLM_BASE_URL }}
+          LLM_MODEL: ${{ secrets.LLM_MODEL }}
+        run: python scraper/field_translate.py
+
       - name: 历史回填缺漏补翻（backfill_gaps 自动检测缺失并收敛清零）
         env:
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
