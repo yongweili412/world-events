@@ -714,7 +714,7 @@ def clean_text(text: str) -> str:
 
 
 # 无效图片特征（站点 logo、图标、占位图、追踪像素等）
-_BAD_IMG = re.compile(r"logo|icon|avatar|sprite|blank|placeholder|pixel|qrcode|/share|spacer|1x1|default\.(gif|png)", re.I)
+_BAD_IMG = re.compile(r"logo|icon|avatar|sprite|blank|placeholder|pixel|qrcode|share|spacer|1x1|default\.(gif|png)|templet|/common/", re.I)
 
 
 def extract_og_image(html: str, base_url: str = "") -> str:
