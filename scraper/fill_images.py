@@ -49,5 +49,25 @@ def main():
     total = len([e for e in ev if e.get("image")])
     print(f"DONE: 补图 {ok}，全库有图事件 {total}/{len(ev)}")
 
+
+def clean_duplicate_images():
+    """清理站点默认图：同一图片 URL 被 ≥3 条不同事件共用 → 判定为占位/默认图，清空。"""
+    import collections
+    ev = json.load(open("data/events.json", encoding="utf-8"))
+    cnt = collections.Counter(e["image"] for e in ev if e.get("image"))
+    dups = {u for u, c in cnt.items() if c >= 3}
+    if not dups:
+        print("默认图清理: 无需处理")
+        return
+    n = 0
+    for e in ev:
+        if e.get("image") in dups:
+            e["image"] = ""
+            n += 1
+    json.dump(ev, open("data/events.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    print(f"默认图清理: 移除 {n} 条（{len(dups)} 个重复 URL）")
+
+
 if __name__ == "__main__":
     main()
+    clean_duplicate_images()
