@@ -67,6 +67,11 @@ jobs:
           ALL_SOURCES: '1'
         run: python scraper/full_summary_batch.py 30
 
+      - name: 事件主图回填 60 条（抓来源页 og:image，全源）
+        env:
+          ALL_SOURCES: '1'
+        run: python scraper/fill_images.py 60
+
       - name: 构建静态页面
         run: python scraper/build.py
 

@@ -111,18 +111,35 @@ function renderEventCard(ev, kw) {
   let extra = '';
   if (ev.status === 'ongoing') extra += ' <span style="color:#B45309;font-size:12px">● 持续发展</span>';
   if (nSrc > 1) extra += ` <span style="color:var(--text-secondary);font-size:12px">📎 ${nSrc} 个来源</span>`;
+  const thumb = (ev.image && /^https?:\/\//.test(ev.image))
+    ? `<img src="${escapeHtml(ev.image)}" alt="" loading="lazy" referrerpolicy="no-referrer"
+           style="width:112px;height:78px;object-fit:cover;border-radius:8px;border:1px solid var(--border);background:#F1F5F9;flex-shrink:0"
+           onerror="this.style.display='none'">`
+    : '';
+  const main = `
+      <div style="min-width:0;flex:1">
+        <div class="timeline-date">
+          <span class="timeline-category" style="background:${getCategoryBg(cat)};color:${getCategoryColor(cat)}">${escapeHtml(cat)}</span>
+          ${formatDate(ev.date)} · ${escapeHtml(region)}${extra}
+        </div>
+        <div class="timeline-title">${highlight(ev.title, kw)}</div>
+        <div class="timeline-summary">${highlight(ev.summary, kw)}</div>
+        <div class="timeline-meta">
+          ${(ev.tags || []).map(t => `<span class="timeline-tag">#${escapeHtml(t)}</span>`).join('')}
+        </div>
+      </div>`;
+  if (thumb) {
+    return `
+    <a class="timeline-item" href="./event.html?id=${escapeHtml(ev.id)}" style="display:flex;gap:12px;align-items:flex-start">
+      <div class="timeline-dot" style="background:${getCategoryColor(cat)};box-shadow:0 0 0 2px ${getCategoryColor(cat)}"></div>
+      ${thumb}
+      ${main}
+    </a>`;
+  }
   return `
     <a class="timeline-item" href="./event.html?id=${escapeHtml(ev.id)}">
       <div class="timeline-dot" style="background:${getCategoryColor(cat)};box-shadow:0 0 0 2px ${getCategoryColor(cat)}"></div>
-      <div class="timeline-date">
-        <span class="timeline-category" style="background:${getCategoryBg(cat)};color:${getCategoryColor(cat)}">${escapeHtml(cat)}</span>
-        ${formatDate(ev.date)} · ${escapeHtml(region)}${extra}
-      </div>
-      <div class="timeline-title">${highlight(ev.title, kw)}</div>
-      <div class="timeline-summary">${highlight(ev.summary, kw)}</div>
-      <div class="timeline-meta">
-        ${(ev.tags || []).map(t => `<span class="timeline-tag">#${escapeHtml(t)}</span>`).join('')}
-      </div>
+      ${main}
     </a>`;
 }
 
@@ -367,6 +384,19 @@ async function renderEventDetail() {
         </a>`).join('')}`;
   }
 
+  // 事件主图（来源原文配图，外链展示，版权归原媒体）
+  let imgBox = '';
+  if (ev.image && /^https?:\/\//.test(ev.image)) {
+    const srcName = (ev.sources && ev.sources[0] && ev.sources[0].name) || '';
+    imgBox = `
+      <figure style="margin:0 0 18px">
+        <img src="${escapeHtml(ev.image)}" alt="${escapeHtml(ev.title)}" loading="lazy" referrerpolicy="no-referrer"
+             style="width:100%;max-height:430px;object-fit:cover;border-radius:10px;border:1px solid var(--border);background:#F1F5F9"
+             onerror="this.closest('figure').style.display='none'">
+        <figcaption style="font-size:12px;color:var(--text-secondary);margin-top:6px">图片来自：${escapeHtml(srcName || '原文报道')}（版权归原媒体所有）</figcaption>
+      </figure>`;
+  }
+
   container.innerHTML = `
     <div class="event-meta" style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:14px">
       <span class="timeline-category" style="background:${getCategoryBg(cat)};color:${getCategoryColor(cat)}">${escapeHtml(cat)}</span>
@@ -376,6 +406,7 @@ async function renderEventDetail() {
       ${nSrc > 1 ? `<span class="event-meta-item">📎 ${nSrc} 个来源</span>` : ''}
     </div>
     <h1 style="font-size:24px;font-weight:700;margin-bottom:12px;line-height:1.5">${escapeHtml(ev.title)}</h1>
+    ${imgBox}
     ${aiBox}
     <div class="event-content" style="margin-bottom:8px">
       <p style="font-size:15px;line-height:1.9">${escapeHtml(ev.summary || '')}</p>

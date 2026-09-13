@@ -713,6 +713,43 @@ def clean_text(text: str) -> str:
     return text
 
 
+# 无效图片特征（站点 logo、图标、占位图、追踪像素等）
+_BAD_IMG = re.compile(r"logo|icon|avatar|sprite|blank|placeholder|pixel|qrcode|/share|spacer|1x1|default\.(gif|png)", re.I)
+
+
+def extract_og_image(html: str, base_url: str = "") -> str:
+    """从文章页提取主图：og:image → twitter:image → 正文首个较大 <img>。返回绝对 URL 或 ''。"""
+    if not html:
+        return ""
+    from urllib.parse import urljoin, urlparse
+    cands = []
+    for pat in (
+        r'<meta[^>]+property=["\']og:image(?::secure_url)?["\'][^>]+content=["\']([^"\']+)["\']',
+        r'<meta[^>]+content=["\']([^"\']+)["\'][^>]+property=["\']og:image(?::secure_url)?["\']',
+        r'<meta[^>]+name=["\']twitter:image["\'][^>]+content=["\']([^"\']+)["\']',
+        r'<meta[^>]+content=["\']([^"\']+)["\'][^>]+name=["\']twitter:image["\']',
+        r'<link[^>]+rel=["\']image_src["\'][^>]+href=["\']([^"\']+)["\']',
+    ):
+        m = re.search(pat, html, re.I)
+        if m:
+            cands.append(m.group(1).strip())
+    # 正文首个 img
+    for m in re.finditer(r'<img[^>]+src=["\']([^"\']+)["\']', html, re.I):
+        src = m.group(1).strip()
+        if re.search(r"\.(jpe?g|png|webp|gif)", src, re.I):
+            cands.append(src)
+            break
+    for c in cands:
+        if not c or c.startswith("data:"):
+            continue
+        if _BAD_IMG.search(c):
+            continue
+        url = urljoin(base_url, c) if base_url else c
+        if urlparse(url).scheme in ("http", "https"):
+            return url[:500]
+    return ""
+
+
 def _today_cn():
     """北京时间（UTC+8）的今天。GitHub Actions 服务器是 UTC，
     北京 0-8 点运行时 _today_cn() 会算成前一天，导致新事件日期错一天。"""
@@ -1120,6 +1157,7 @@ def fetch_html(source: dict) -> list[dict]:
         category = guess_category(title, body)
         region = guess_region(title, body)
         country = guess_country(title, body) or ("中国" if source.get("lang") == "zh" and region == "中国" else "")
+        image = extract_og_image(art, url)
 
         translated = False
         if source.get("lang") == "en" and TRANSLATE_ENABLED:
@@ -1138,7 +1176,7 @@ def fetch_html(source: dict) -> list[dict]:
             "region": region,
             "summary": body[:200] if body else title[:200],
             "content": body if body else title,
-            "image": "",
+            "image": image,
             "videoUrl": "",
             "source": source["name"],
             "sourceUrl": url,
