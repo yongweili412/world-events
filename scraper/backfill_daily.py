@@ -233,7 +233,7 @@ def main():
                 "tags": [category] + ([country] if country and country != "多国" else []),
             })
         before = len(ev)
-        sp.merge_into_events(ev, new_items, dedupe_url=False)
+        sp.merge_into_events(ev, new_items, dedupe_url=False, use_fp=False)
         after = len(ev)
         for e in ev:
             if not e.get("aiSummary") and (e.get("sources") or [{}])[0].get("name", "").startswith("Wikipedia"):

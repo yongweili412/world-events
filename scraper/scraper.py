@@ -950,7 +950,7 @@ def _find_event(events: list, item: dict):
     return None
 
 
-def merge_into_events(events: list, new_items: list, dedupe_url: bool = True) -> list:
+def merge_into_events(events: list, new_items: list, dedupe_url: bool = True, use_fp: bool = True) -> list:
     """v2 事件模型：新报道合并进已有事件（追加 source/timeline），否则新建事件。
 
     返回受影响的事件列表。
@@ -977,7 +977,9 @@ def merge_into_events(events: list, new_items: list, dedupe_url: bool = True) ->
             if nu:
                 seen_urls.add(nu)
         # 语言无关指纹优先，其次标题相似度
-        fp_hit = _fp_match(_item_fp_words(item), ev_fp, ev_order)
+        # use_fp=False 用于聚合源回填（维基年表/逐日页等所有条目共用同一 URL，
+        # 指纹会完全相同导致后续条目全部误并入首条）——此时只靠标题相似度匹配
+        fp_hit = _fp_match(_item_fp_words(item), ev_fp, ev_order) if use_fp else None
         ev = by_id.get(fp_hit) if fp_hit else None
         if ev is None:
             ev = _find_event(events, item)
