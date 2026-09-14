@@ -189,7 +189,15 @@ def main():
     months = []
     if args[0] == "auto":
         n = int(args[1]) if len(args) > 1 else 1
-        allm = [f"{y}-{m:02d}" for y in range(1997, 2026) for m in range(1, 13)]
+        years = list(range(1997, 2026))
+        try:
+            cfg = json.load(open("data/backfill_daily_targets.json", encoding="utf-8"))
+            if cfg.get("years"):
+                years = [int(y) for y in cfg["years"]]
+        except Exception:
+            pass
+        print("auto 目标年份:", years, flush=True)
+        allm = [f"{y}-{m:02d}" for y in years for m in range(1, 13)]
         months = [m for m in allm if m not in p["done_months"]][:n]
     else:
         months = args

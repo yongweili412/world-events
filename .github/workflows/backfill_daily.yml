@@ -3,8 +3,12 @@ name: 逐日存档回填（重点年份细节）
 # 抓维基百科 Portal:Current_events 逐日页（每天 5-20 条当时新闻），
 # 比年度大事年表细得多。用法：
 #   months 填 "2008-01 2008-02" 指定月份；留空则 auto 模式按 count 取未完成月份。
+#   auto 模式的目标年份范围见 data/backfill_daily_targets.json（跑完自动停止）。
+# cron 每天北京 04:00 自动推进 per_run 个月（公开仓库 Actions 免费，无额度约束）。
 # 全部 LLM 环节统一 flash 模型（配置见 scraper/llm_config.json）。
 on:
+  schedule:
+    - cron: '0 20 * * *'   # = 北京 04:00，避开云端抓取（1/5/11/17 点）与年表回填（2/14 点）
   workflow_dispatch:
     inputs:
       months:
@@ -14,7 +18,7 @@ on:
       count:
         description: 'auto 模式处理月份数'
         required: false
-        default: '1'
+        default: '3'
 
 permissions:
   contents: write
@@ -47,7 +51,7 @@ jobs:
           LLM_MODEL: ${{ secrets.LLM_MODEL }}
         run: |
           if [ -z "${{ github.event.inputs.months }}" ]; then
-            python scraper/backfill_daily.py auto ${{ github.event.inputs.count || '1' }}
+            python scraper/backfill_daily.py auto ${{ github.event.inputs.count || '3' }}
           else
             python scraper/backfill_daily.py ${{ github.event.inputs.months }}
           fi
