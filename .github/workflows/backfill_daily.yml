@@ -55,17 +55,34 @@ jobs:
       - name: 构建静态页面
         run: python scraper/build.py
 
-      - name: 提交并推送
+      - name: 提交并推送（被拒自动合并重推，保住长任务成果）
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
           if git diff --cached --quiet; then
             echo "本次无新内容，跳过提交"
-          else
-            git commit -m "逐日存档回填: $(TZ=Asia/Shanghai date '+%Y-%m-%d %H:%M') 北京时间"
-            git push
+            exit 0
           fi
+          git commit -m "逐日存档回填: $(TZ=Asia/Shanghai date '+%Y-%m-%d %H:%M') 北京时间"
+          for i in 1 2 3 4; do
+            if git push; then
+              echo "PUSH_OK（第 ${i} 次尝试）"
+              exit 0
+            fi
+            echo "push 被拒（第 ${i} 次），合并远程变更后重推…"
+            git fetch origin main
+            git merge --no-rebase -X ours origin/main -m "merge: 保留回填成果（events.json 本地优先）" || true
+            # 若仍有冲突（-X ours 一般能自动解决），统一取本地版保住回填成果
+            for f in $(git diff --name-only --diff-filter=U); do
+              git checkout --ours "$f" 2>/dev/null || true
+              git add "$f" 2>/dev/null || true
+            done
+            git commit -m "merge: 保留回填成果" 2>/dev/null || true
+            sleep 5
+          done
+          echo "PUSH_FAILED：4 次重试后仍失败"
+          exit 1
 
       - name: 失败时创建 Issue 通知
         if: failure()
