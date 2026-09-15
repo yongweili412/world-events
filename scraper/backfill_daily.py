@@ -180,6 +180,33 @@ def _parse(resp_json, batch):
     return out
 
 
+def translate_all(rows, workers=6):
+    """并发翻译整月条目（每 BATCH 条一个任务，6 路并发 → 比串行快约 5 倍）"""
+    from concurrent.futures import ThreadPoolExecutor, as_completed
+    chunks = [(i, rows[i:i + BATCH]) for i in range(0, len(rows), BATCH)]
+    results = {}
+    done = 0
+    with ThreadPoolExecutor(max_workers=workers) as ex:
+        futs = {}
+        for start, chunk in chunks:
+            payload = [{"idx": j, "date": c[0], "text": c[2]} for j, c in enumerate(chunk)]
+            futs[ex.submit(translate_batch, payload)] = (start, chunk)
+        for f in as_completed(futs):
+            start, chunk = futs[f]
+            try:
+                got = f.result()
+            except Exception as ex2:
+                print(f"    任务异常: {type(ex2).__name__}", flush=True)
+                got = []
+            for j, title, summary, category, country in got:
+                if j < len(chunk):
+                    results[start + j] = (chunk[j][0], title, summary, category, country)
+            done += 1
+            if done % 5 == 0:
+                print(f"    并发进度 {done}/{len(chunks)} 块，已翻 {len(results)} 条", flush=True)
+    return [results[k] for k in sorted(results)]
+
+
 def main():
     args = sys.argv[1:]
     if not args:
@@ -216,18 +243,9 @@ def main():
             save_progress(p)
             continue
 
-        # 批量翻译（10 条/批）
-        batch_size = 10
-        cn = []
-        for i in range(0, len(rows), batch_size):
-            chunk = rows[i:i + batch_size]
-            payload = [{"idx": j, "date": c[0], "text": c[2]} for j, c in enumerate(chunk)]
-            got = translate_batch(payload)
-            for j, title, summary, category, country in got:
-                cn.append((chunk[j][0], title, summary, category, country))
-            if i % (batch_size * 5) == 0:
-                print(f"    翻译进度 {i//batch_size+1}/{(len(rows)+batch_size-1)//batch_size}: {len(cn)}", flush=True)
-            time.sleep(2)
+        # 并发翻译（6 路并发，约 5 倍提速）
+        cn = translate_all(rows, workers=6)
+        print(f"    翻译完成 {len(cn)}/{len(rows)} 条", flush=True)
 
         # 入库
         new_items = []
