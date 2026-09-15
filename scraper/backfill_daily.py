@@ -183,6 +183,7 @@ def _parse(resp_json, batch):
 def translate_all(rows, workers=6):
     """并发翻译整月条目（每 BATCH 条一个任务，6 路并发 → 比串行快约 5 倍）"""
     from concurrent.futures import ThreadPoolExecutor, as_completed
+    BATCH = 10  # 每批条目数（本地常量，勿改名）
     chunks = [(i, rows[i:i + BATCH]) for i in range(0, len(rows), BATCH)]
     results = {}
     done = 0
