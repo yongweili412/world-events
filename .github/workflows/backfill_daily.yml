@@ -58,6 +58,9 @@ jobs:
             python scraper/backfill_daily.py ${{ github.event.inputs.months }}
           fi
 
+      - name: 产出验收（各月条数达标检查，不达标即告警失败）
+        run: python scraper/verify_daily_backfill.py
+
       - name: 构建静态页面
         run: python scraper/build.py
 
