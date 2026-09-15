@@ -21,6 +21,7 @@ import time
 import datetime
 import requests
 from pathlib import Path
+from llm_guard import resolve_model  # 模型守卫：flash 优先，禁用 GLM-5.3/KIMI K3
 
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
 sys.path.insert(0, str(Path(__file__).parent))
@@ -167,7 +168,7 @@ def llm_translate(year: int, items: list) -> list:
     if not api_key:
         raise RuntimeError("未配置 LLM_API_KEY，跳过翻译阶段")
     base = os.environ.get("LLM_BASE_URL", "https://open.bigmodel.cn/api/paas/v4").rstrip("/")
-    model = os.environ.get("LLM_MODEL", "glm-4.5-flash")
+    model = resolve_model()
 
     out = []
     BATCH = 10

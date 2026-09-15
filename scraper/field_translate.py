@@ -2,6 +2,7 @@
 """字段级中文化：翻译事件内 sources[].title/snippet、timeline[].text、description 的英文残留。
 全中文红线工具——每日流水线在云端/本机运行，多跑几轮自动收敛。"""
 import json, re, time, os, requests
+from llm_guard import resolve_model  # 模型守卫：flash 优先，禁用 GLM-5.3/KIMI K3
 
 KEY = os.environ.get("LLM_API_KEY", "995611b2762144e88e023c856da104eb.d68AuncjSy9Qrd0O").strip()
 BATCH = 12
@@ -14,7 +15,7 @@ def call(prompt, timeout=120):
         "https://open.bigmodel.cn/api/paas/v4/chat/completions",
         headers={"Authorization": "Bearer " + KEY, "Content-Type": "application/json"},
         json={
-            "model": os.environ.get("LLM_MODEL", "glm-4.5-flash"),
+            "model": resolve_model(),
             "messages": [{"role": "user", "content": prompt}],
             "temperature": 0.2,
             "thinking": {"type": "disabled"},

@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """全文速览批量推进：取 N 条无 summaryFull 的事件，抓原文全文，LLM 基于全文生成速览"""
 import json, re, time, sys, os, requests
+from llm_guard import resolve_model  # 模型守卫：flash 优先，禁用 GLM-5.3/KIMI K3
 
 KEY = os.environ.get("LLM_API_KEY", "995611b2762144e88e023c856da104eb.d68AuncjSy9Qrd0O").strip()
 ALL_SOURCES = os.environ.get("ALL_SOURCES") == "1"  # 云端网络畅通可抓外文源，本机默认仅国内源
@@ -50,7 +51,7 @@ def gen_full_summary(title, text, date):
             "https://open.bigmodel.cn/api/paas/v4/chat/completions",
             headers={"Authorization": "Bearer " + KEY, "Content-Type": "application/json"},
             json={
-                "model": "glm-4.5-flash",
+                "model": resolve_model(),
                 "messages": [{"role": "user", "content": prompt}],
                 "temperature": 0.3,
                 "thinking": {"type": "disabled"},

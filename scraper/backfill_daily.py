@@ -5,6 +5,7 @@
 数据源：https://en.wikipedia.org/wiki/Portal:Current_events/2008_January_1（逐日页，wikitext）
 说明：本机访问维基被墙，须在云端 GitHub Actions 运行。"""
 import json, re, sys, time, os, datetime, requests
+from llm_guard import resolve_model  # 模型守卫：flash 优先，禁用 GLM-5.3/KIMI K3
 
 API = "https://en.wikipedia.org/w/index.php"
 UA = {"User-Agent": "WorldEventsBot/1.0 (education archive; contact via github.com/yongweili412/world-events)"}
@@ -117,7 +118,7 @@ def fetch_month(year, month, max_days=31):
 def call_llm(prompt, timeout=240):
     key = os.environ.get("LLM_API_KEY", "").strip()
     base = os.environ.get("LLM_BASE_URL", "https://open.bigmodel.cn/api/paas/v4").rstrip("/")
-    model = os.environ.get("LLM_MODEL", "glm-4.5-flash")
+    model = resolve_model()
     return requests.post(
         f"{base}/chat/completions",
         headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"},
@@ -178,6 +179,34 @@ def _parse(resp_json, batch):
                     a.get("category") if a.get("category") in CATEGORIES else "其他",
                     str(a.get("country", "")).strip()))
     return out
+
+
+def git_save_and_push(ym):
+    """每月跑完立即提交推送（长任务最后才 push 会因冲突/超时全丢，增量保存只丢最后一个月）"""
+    import subprocess
+    def run(args):
+        try:
+            return subprocess.run(args, capture_output=True, text=True, timeout=300)
+        except Exception:
+            return None
+    run(["git", "config", "user.name", "github-actions[bot]"])
+    run(["git", "config", "user.email", "41898282+github-actions[bot]@users.noreply.github.com"])
+    run(["git", "add", "-A"])
+    run(["git", "commit", "-m", f"逐日存档回填: {ym}"])
+    for _ in range(4):
+        r = run(["git", "push"])
+        if r is not None and r.returncode == 0:
+            print(f"    💾 {ym} 已增量保存并推送", flush=True)
+            return True
+        run(["git", "fetch", "origin", "main"])
+        r2 = run(["git", "merge", "-X", "ours", "origin/main", "-m", "merge: 保留回填成果"])
+        if r2 is None or r2.returncode != 0:
+            run(["git", "checkout", "--ours", "."])
+            run(["git", "add", "-A"])
+            run(["git", "commit", "-m", "merge: 保留回填成果（冲突取本地）"])
+        time.sleep(4)
+    print(f"    ⚠️ {ym} 增量推送失败（后续月份会继续尝试）", flush=True)
+    return False
 
 
 def translate_all(rows, workers=6):
@@ -271,6 +300,7 @@ def main():
         p["done_months"].append(ym)
         save_progress(p)
         print(f"  ✅ {ym}: 翻译 {len(cn)}/{len(rows)} 条 → 新建 {after - before} | 库总量 {after}", flush=True)
+        git_save_and_push(ym)
         time.sleep(2)
 
     print("DONE")

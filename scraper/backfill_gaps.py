@@ -3,6 +3,7 @@
 import json, re, time, sys, requests
 sys.path.insert(0, "scraper")
 import scraper as sp
+from llm_guard import resolve_model  # 模型守卫：flash 优先，禁用 GLM-5.3/KIMI K3
 
 KEY = "995611b2762144e88e023c856da104eb.d68AuncjSy9Qrd0O"
 CATEGORIES = ["政治", "军事", "经济", "科技", "灾难", "社会", "文化", "体育", "国际关系"]
@@ -13,7 +14,7 @@ def call(prompt, timeout=180):
         "https://open.bigmodel.cn/api/paas/v4/chat/completions",
         headers={"Authorization": "Bearer " + KEY, "Content-Type": "application/json"},
         json={
-            "model": "glm-4.5-flash",
+            "model": resolve_model(),
             "messages": [{"role": "user", "content": prompt}],
             "temperature": 0.2,
             "thinking": {"type": "disabled"},

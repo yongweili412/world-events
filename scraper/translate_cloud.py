@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """积压清理第二步：批量翻译库中英文事件（智谱 glm-4.5-flash，云端/本机通用）"""
 import json, re, time, requests
+from llm_guard import resolve_model  # 模型守卫：flash 优先，禁用 GLM-5.3/KIMI K3
 
 def has_latin(t):
     w = re.findall(r"[A-Za-z]{3,}", t or "")
@@ -12,7 +13,7 @@ def _call(cfg, prompt, timeout=300):
         cfg["base"] + "/chat/completions",
         headers={"Authorization": "Bearer " + cfg["key"], "Content-Type": "application/json"},
         json={
-            "model": cfg["model"],
+            "model": resolve_model(),
             "messages": [{"role": "user", "content": prompt}],
             "temperature": 0.3,
             "thinking": {"type": "disabled"},
@@ -172,7 +173,7 @@ def main():
     cfg = {
         "key": os.environ.get("LLM_API_KEY", "").strip(),
         "base": os.environ.get("LLM_BASE_URL", "https://open.bigmodel.cn/api/paas/v4").rstrip("/"),
-        "model": os.environ.get("LLM_MODEL", "glm-4.5-flash"),
+        "model": resolve_model(),
     }
     if not cfg["key"]:
         print("未配置 LLM_API_KEY，跳过")
