@@ -141,17 +141,40 @@ category 只能从这些里选：{json.dumps(CATEGORIES, ensure_ascii=False)}
 {json.dumps(batch, ensure_ascii=False)}"""
 
 
+def call_llm_retry(prompt, timeout=240, max_retries=4):
+    """带 429 退避重试的调用。免费 flash 账户速率限制约 2-3 次/分钟，
+    并发会触发 1302（速率限制），因此必须串行 + 退避重试。"""
+    r = None
+    for attempt in range(max_retries):
+        try:
+            r = call_llm(prompt, timeout=timeout)
+        except Exception as ex:
+            print(f"    调用异常({type(ex).__name__})，重试", flush=True)
+            r = None
+        if r is not None and r.status_code == 200:
+            return r
+        if r is not None and r.status_code == 429:
+            wait = 6 * (attempt + 1)   # 6/12/18/24 秒退避
+            print(f"    429 速率限制，等待 {wait}s 后重试（{attempt+1}/{max_retries}）", flush=True)
+            time.sleep(wait)
+            continue
+        if r is not None and "1301" in r.text:   # 内容过滤，交给上层拆条处理
+            return r
+        time.sleep(3)
+    return r
+
+
 def translate_batch(batch):
     """batch: [{"idx":i,"date":..,"text":en}] → [(idx, title, summary, category, country)]"""
     if not batch:
         return []
-    r = call_llm(build_prompt(batch, "", ""))
+    r = call_llm_retry(build_prompt(batch, "", ""))
     if r.status_code != 200:
         if "1301" in r.text and len(batch) > 1:
             # 拆单条
             out = []
             for b in batch:
-                rr = call_llm(build_prompt([b], "", ""), timeout=120)
+                rr = call_llm_retry(build_prompt([b], "", ""), timeout=120)
                 if rr.status_code == 200:
                     out += _parse(rr.json(), [b])
                 time.sleep(1.5)
@@ -209,31 +232,27 @@ def git_save_and_push(ym):
     return False
 
 
-def translate_all(rows, workers=6):
-    """并发翻译整月条目（每 BATCH 条一个任务，6 路并发 → 比串行快约 5 倍）"""
-    from concurrent.futures import ThreadPoolExecutor, as_completed
-    BATCH = 10  # 每批条目数（本地常量，勿改名）
-    chunks = [(i, rows[i:i + BATCH]) for i in range(0, len(rows), BATCH)]
+def translate_all(rows, workers=1):
+    """串行翻译整月条目（免费 flash 账户速率限制约 2-3 次/分钟，并发 100% 触发 1302 限流，
+    故必须串行；每批间隔 2 秒，429 由 call_llm_retry 退避重试）。"""
+    BATCH = 10  # 每批条目数
     results = {}
-    done = 0
-    with ThreadPoolExecutor(max_workers=workers) as ex:
-        futs = {}
-        for start, chunk in chunks:
-            payload = [{"idx": j, "date": c[0], "text": c[2]} for j, c in enumerate(chunk)]
-            futs[ex.submit(translate_batch, payload)] = (start, chunk)
-        for f in as_completed(futs):
-            start, chunk = futs[f]
-            try:
-                got = f.result()
-            except Exception as ex2:
-                print(f"    任务异常: {type(ex2).__name__}", flush=True)
-                got = []
-            for j, title, summary, category, country in got:
-                if j < len(chunk):
-                    results[start + j] = (chunk[j][0], title, summary, category, country)
-            done += 1
-            if done % 5 == 0:
-                print(f"    并发进度 {done}/{len(chunks)} 块，已翻 {len(results)} 条", flush=True)
+    total = (len(rows) + BATCH - 1) // BATCH
+    for i in range(0, len(rows), BATCH):
+        chunk = rows[i:i + BATCH]
+        payload = [{"idx": j, "date": c[0], "text": c[2]} for j, c in enumerate(chunk)]
+        try:
+            got = translate_batch(payload)
+        except Exception as ex2:
+            print(f"    批次异常: {type(ex2).__name__}", flush=True)
+            got = []
+        for j, title, summary, category, country in got:
+            if j < len(chunk):
+                results[i + j] = (chunk[j][0], title, summary, category, country)
+        n = i // BATCH + 1
+        if n % 5 == 0 or n == total:
+            print(f"    串行进度 {n}/{total} 批，已翻 {len(results)} 条", flush=True)
+        time.sleep(2)
     return [results[k] for k in sorted(results)]
 
 
@@ -274,7 +293,7 @@ def main():
             continue
 
         # 并发翻译（6 路并发，约 5 倍提速）
-        cn = translate_all(rows, workers=6)
+        cn = translate_all(rows, workers=1)
         print(f"    翻译完成 {len(cn)}/{len(rows)} 条", flush=True)
 
         # 入库
