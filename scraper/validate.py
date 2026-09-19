@@ -92,6 +92,9 @@ def main() -> int:
     print(f"事件总数 {len(evs)} | summaryFull(true) {sum(1 for e in evs if e.get('summaryFull') is True)} "
           f"| 无速览 {len(no_sum)} | 问题项 {len(problems)}")
     if not quiet:
+        with_excerpt = sum(1 for e in evs if e.get("sourceExcerpt"))
+        print(f"  ℹ 速览带原文留档(sourceExcerpt)：{with_excerpt} 条（新生成的会自动留档，历史条目无）")
+    if not quiet:
         for p in problems:
             print("  ✗", p)
     if problems:

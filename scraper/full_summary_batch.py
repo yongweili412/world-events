@@ -86,6 +86,10 @@ def main():
             # 修正：全文速览写入 aiSummary，summaryFull 只作"基于全文"的布尔标记
             e["aiSummary"] = s
             e["summaryFull"] = True
+            # 留档：速览所依据的原文片段（供事后核验数字/事实，避免"无法追溯"）
+            e["sourceExcerpt"] = re.sub(r"\s+", " ", text)[:400]
+            e["summaryBasedOn"] = (e.get("sources") or [{}])[0].get("url", "")
+            e["summaryAt"] = time.strftime("%Y-%m-%d")
             ok += 1
             print(f"  [{i+1}/{len(targets)}] ✓ {e['title'][:40]}", flush=True)
         else:
