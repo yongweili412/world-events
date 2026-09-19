@@ -35,8 +35,17 @@ def _load_config(config_path: str = None) -> dict:
 
 def _active_free(cfg: dict) -> dict:
     """返回当前时段生效的第一个限时免费模型条目（无则返回空 dict）。"""
+    chain = active_free_chain(cfg)
+    return chain[0] if chain else {}
+
+
+def active_free_chain(cfg: dict) -> list:
+    """返回当前时段全部生效的限时免费模型条目（按登记顺序），已剔除禁用名单。"""
     entries = ((cfg.get("daily_automation") or {}).get("free_models")) or []
     today = datetime.date.today().isoformat()
+    out = []
+    if _free_disabled(cfg):
+        return out
     for ent in entries:
         if not isinstance(ent, dict):
             continue
@@ -49,8 +58,23 @@ def _active_free(cfg: dict) -> dict:
             continue
         if end and today > end:
             continue
-        return ent
-    return {}
+        if _is_forbidden(model, (cfg.get("daily_automation") or {}).get("forbidden_models")):
+            continue
+        out.append(ent)
+    return out
+
+
+def _free_disabled(cfg: dict) -> bool:
+    """限时免费优先总开关：daily_automation.use_free_models 设为 false 时关闭（应急用）。"""
+    da = cfg.get("daily_automation") or {}
+    return da.get("use_free_models") is False
+
+
+def _is_forbidden(model: str, cfg_forbidden: list) -> bool:
+    forbidden = {_norm(f) for f in FORBIDDEN if f}
+    forbidden |= {_norm(f) for f in (cfg_forbidden or []) if f}
+    nm = _norm(model)
+    return any(nf and (nf == nm or nf in nm) for nf in forbidden)
 
 
 def _check_forbidden(model: str, cfg_forbidden: list, source: str) -> str:
@@ -100,6 +124,27 @@ def resolve_endpoint(config_path: str = None):
 def resolve_model(config_path: str = None) -> str:
     """解析并校验当前应使用的模型。命中禁用名单直接抛错，阻止任务继续（宁可失败也不用违规模型）。"""
     return resolve_endpoint(config_path)[0]
+
+
+def resolve_model_chain(config_path: str = None) -> list:
+    """返回按优先级排列的候选模型列表，供脚本在限流/失败时自动换档重试。
+
+    顺序：时段内限时免费模型（可多条）→ 回退 flash（glm-4.5-flash）。
+    禁用名单中的模型一律被剔除；人工显式指定的非 flash 模型存在时，只返回该模型。
+    """
+    cfg = _load_config(config_path)
+    da = cfg.get("daily_automation", {}) or {}
+    cfg_forbidden = da.get("forbidden_models", []) or []
+    env_model = os.environ.get("LLM_MODEL", "").strip()
+    cfg_model = (da.get("model") or "").strip()
+    explicit = env_model or cfg_model
+    if explicit and _norm(explicit) != _norm(DEFAULT_MODEL):
+        return [_check_forbidden(explicit, cfg_forbidden, "人工显式指定")]
+    chain = [ent["model"].strip() for ent in active_free_chain(cfg)]
+    fallback = explicit or DEFAULT_MODEL
+    if fallback not in chain:
+        chain.append(fallback)
+    return chain
 
 
 if __name__ == "__main__":

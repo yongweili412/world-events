@@ -23,13 +23,29 @@
   "priority": "限时免费优先，其次 flash：先看 free_models 中当前时段生效的限时免费模型，没有则回退到 glm-4.5-flash",
   "free_models": [
    {
-    "_comment": "限时免费模型登记表（用户 2026-09-19 指定）。有时段内的限时免费模型就填在这里：model=模型名，from/until=生效与失效日期（YYYY-MM-DD，可留空表示不限），provider/base_url=可选。多条目时取第一条当前生效的；列表为空或全部过期时自动回退到上层 model（glm-4.5-flash）。",
-    "model": "",
-    "provider": "",
+    "_comment": "限时免费模型登记表（用户 2026-09-19 指定）。有时段内的限时免费模型就填在这里：model=模型名，from/until=生效与失效日期（YYYY-MM-DD，可留空表示不限），provider/base_url=可选。多条时按顺序取第一条当前生效的；列表为空或全部过期时回退到上层 model（glm-4.5-flash）。下表为 2026-09-19 实测结果：glm-4.7 / glm-4.7-flash / glm-4.5-air 可调用，glm-4.5、glm-4.6、glm-5~5.2 均返回“余额不足或无可用资源包”。",
+    "model": "glm-4.7",
+    "provider": "zhipu",
     "base_url": "",
     "from": "",
     "until": "",
-    "note": "示例：{\"model\":\"glm-4.6-flash\",\"from\":\"2026-09-20\",\"until\":\"2026-09-30\",\"note\":\"限时免费活动\"}"
+    "note": "2026-09-19 实测可调用、无额度限制（疑为当期限时免费档）；翻译质量与速度均优于 flash（实测 3.5s vs 8.5s）。如确认活动结束请删除本条目。"
+   },
+   {
+    "model": "glm-4.7-flash",
+    "provider": "zhipu",
+    "base_url": "",
+    "from": "",
+    "until": "",
+    "note": "flash 档免费模型，可调用但高峰常返回 429（访问量过大），作为 glm-4.7 的后备档。"
+   },
+   {
+    "model": "glm-4.5-air",
+    "provider": "zhipu",
+    "base_url": "",
+    "from": "",
+    "until": "",
+    "note": "2026-09-19 实测可调用，作为备用免费档。"
    }
   ]
  },
@@ -40,6 +56,7 @@
   "规定四：今后新增的自动化任务默认沿用 daily_automation.model，无需重复设置；如需更换模型只改此文件 + GitHub Secrets 的 LLM_MODEL 两处。",
   "规定五：此配置仅约束自动任务；手动执行、临时对话任务不受约束，可按需选用模型。",
   "规定六（2026-09-19 用户指定，限时免费优先）：时段内存在限时免费的模型时，优先使用该限时免费模型；没有可用的限时免费模型时，使用 flash 档模型 glm-4.5-flash。限时免费模型登记在 daily_automation.free_models（含 from/until 生效区间），过期自动回退 flash，无需改代码。",
-  "规定七：free_models 中的模型同样受禁用名单约束；限时免费模型不得绕过规定二（GLM-5.3 / KIMI K3 一律禁用）。"
+  "规定七：free_models 中的模型同样受禁用名单约束；限时免费模型不得绕过规定二（GLM-5.3 / KIMI K3 一律禁用）。",
+  "规定八（2026-09-19 补充）：限时免费模型若因高峰限流（429）失败，脚本可调用 llm_guard.resolve_model_chain() 按候选链自动换档重试（限时免费模型 → glm-4.5-flash）；链中已剔除禁用名单。需要临时关闭限时免费优先时，把 daily_automation.use_free_models 设为 false 即可。"
  ]
 }
