@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """字段级中文化：翻译事件内 sources[].title/snippet、timeline[].text、description 的英文残留。
 全中文红线工具——每日流水线在云端/本机运行，多跑几轮自动收敛。"""
-import json, re, time, os, requests
+import json, re, time, os, sys, requests
 from llm_guard import resolve_model, chat_raw  # 模型守卫：限时免费优先，其次 flash；禁用 GLM-5.3/KIMI K3
 
 KEY = os.environ.get("LLM_API_KEY", "995611b2762144e88e023c856da104eb.d68AuncjSy9Qrd0O").strip()
@@ -41,6 +41,13 @@ def main():
     if not blocks:
         print("NOTHING")
         return
+
+    # 防超时限量：每轮最多处理 N 块（可传参覆盖，默认 240），新事件优先，多轮自然收敛
+    cap = int(sys.argv[1]) if len(sys.argv) > 1 else 240
+    if len(blocks) > cap:
+        blocks.sort(key=lambda b: ev[b[0]].get("date", ""), reverse=True)
+        blocks = blocks[:cap]
+        print(f"每轮限量 {cap} 块，新事件优先（本轮处理），其余留待后续轮次", flush=True)
 
     n_ok = 0
     n_batches = (len(blocks) + BATCH - 1) // BATCH
