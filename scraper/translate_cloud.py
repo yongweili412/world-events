@@ -1,7 +1,16 @@
 # -*- coding: utf-8 -*-
-"""积压清理第二步：批量翻译库中英文事件（智谱 glm-4.5-flash，云端/本机通用）"""
+"""积压清理第二步：批量翻译库中英文事件（智谱 glm-4.5-flash，云端/本机通用）
+
+省 token 优化（2026-09-19，第 3/9 条）：
+  · 事件级结果缓存：同一事件的 (title, summary) 组合翻译过就不再调 LLM（跨轮次/跨本机与云端共享）。
+  · max_tokens 封顶：批量输出限 3000 tokens，避免超长输出。
+"""
 import json, re, time, requests
 from llm_guard import resolve_model, chat_raw  # 模型守卫：限时免费优先，其次 flash；禁用 GLM-5.3/KIMI K3
+from llm_cache import cache_get, cache_set, cache_save, stats as cache_stats
+
+TASK = "cloud_translate"   # 缓存任务名
+MAX_TOKENS = 3000          # 批量翻译输出上限（10 条 × ~250 tokens）
 
 def has_latin(t):
     w = re.findall(r"[A-Za-z]{3,}", t or "")
@@ -10,11 +19,16 @@ def has_latin(t):
 
 def _call(cfg, prompt, timeout=300):
     # 限时免费模型优先，遇 429/5xx 自动换档（glm-4.7 → 4.7-flash → 4.5-air → 4.5-flash）
-    return chat_raw(prompt, key=cfg["key"], base=cfg["base"], timeout=timeout)
+    return chat_raw(prompt, key=cfg["key"], base=cfg["base"], timeout=timeout, max_tokens=MAX_TOKENS)
 
 
 def _payload(e):
     return {"id": e["id"], "title_en": e["title"], "summary_en": (e.get("summary") or "")[:300]}
+
+
+def _cache_key(e):
+    """事件级缓存键：同一事件原文（标题+摘要）不变则复用译文。"""
+    return json.dumps(_payload(e), ensure_ascii=False, sort_keys=True)
 
 
 def _build_prompt(items_json):
@@ -64,10 +78,28 @@ def translate_all(cfg, batch_size=10):
     if not targets:
         return 0, 0
 
-    n_batches = (len(targets) + BATCH - 1) // BATCH
+    # 第 3/9 条：先查缓存，命中直接采用（零 token），只对未命中的调 LLM
     results = []
-    for i in range(0, len(targets), BATCH):
-        batch = targets[i:i + BATCH]
+    n_cache = 0
+    todo = []
+    for e in targets:
+        hit = cache_get(TASK, _cache_key(e))
+        if hit:
+            try:
+                arr = json.loads(hit)
+                results.append((e, str(arr.get("title", "")).strip(), str(arr.get("summary", "")).strip()))
+                n_cache += 1
+                continue
+            except Exception:
+                pass  # 缓存值损坏 → 当未命中处理
+        todo.append(e)
+    if n_cache:
+        print(f"缓存命中 {n_cache} 条，待调用 LLM {len(todo)} 条", flush=True)
+
+    BATCH = batch_size
+    n_batches = (len(todo) + BATCH - 1) // BATCH
+    for i in range(0, len(todo), BATCH):
+        batch = todo[i:i + BATCH]
         prompt = _build_prompt(json.dumps([_payload(e) for e in batch], ensure_ascii=False))
         resp = None
         for attempt in (1, 2):
@@ -137,8 +169,13 @@ def translate_all(cfg, batch_size=10):
             print(f"  FAIL 批次 {i//BATCH+1} 失败，跳过 {len(batch)} 条", flush=True)
 
         results.extend(got)
+        # 第 3 条：成功的译文写入缓存（键为事件原文），下次同事件零 token 复用
+        for _e, _t, _s in got:
+            cache_set(TASK, _cache_key(_e), json.dumps({"title": _t, "summary": _s}, ensure_ascii=False))
         print(f"  批次 {i//BATCH+1}/{n_batches}: 累计 {len(results)}", flush=True)
         time.sleep(2)
+
+    cache_save()
 
     # 统一写库
     by_id = {e["id"]: e for e in ev}
@@ -155,7 +192,8 @@ def translate_all(cfg, batch_size=10):
         n += 1
     json.dump(ev, open("data/events.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     left = len(_pending(ev))
-    print(f"DONE: 翻译成功 {len(results)}，写入 {n}，剩余英文 {left}")
+    print(f"DONE: 翻译成功 {len(results)}（缓存复用 {n_cache}），写入 {n}，剩余英文 {left}")
+    print(f"缓存: {cache_stats()}")
     return n, left
 
 

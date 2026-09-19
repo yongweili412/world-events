@@ -118,8 +118,8 @@ def fetch_month(year, month, max_days=31):
 def call_llm(prompt, timeout=240):
     key = os.environ.get("LLM_API_KEY", "").strip()
     base = os.environ.get("LLM_BASE_URL", "https://open.bigmodel.cn/api/paas/v4").rstrip("/")
-    # 限时免费模型优先，遇 429/5xx 自动换档
-    return chat_raw(prompt, key=key, base=base, timeout=timeout, temperature=0.2)
+    # 限时免费模型优先，遇 429/5xx 自动换档；输出封顶（每批 ~10 条 × ~400 tokens）
+    return chat_raw(prompt, key=key, base=base, timeout=timeout, temperature=0.2, max_tokens=4000)
 
 
 def build_prompt(batch, year, month):
