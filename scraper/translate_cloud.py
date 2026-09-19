@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """积压清理第二步：批量翻译库中英文事件（智谱 glm-4.5-flash，云端/本机通用）"""
 import json, re, time, requests
-from llm_guard import resolve_model  # 模型守卫：flash 优先，禁用 GLM-5.3/KIMI K3
+from llm_guard import resolve_model, chat_raw  # 模型守卫：限时免费优先，其次 flash；禁用 GLM-5.3/KIMI K3
 
 def has_latin(t):
     w = re.findall(r"[A-Za-z]{3,}", t or "")
@@ -9,17 +9,8 @@ def has_latin(t):
 
 
 def _call(cfg, prompt, timeout=300):
-    return requests.post(
-        cfg["base"] + "/chat/completions",
-        headers={"Authorization": "Bearer " + cfg["key"], "Content-Type": "application/json"},
-        json={
-            "model": resolve_model(),
-            "messages": [{"role": "user", "content": prompt}],
-            "temperature": 0.3,
-            "thinking": {"type": "disabled"},
-        },
-        timeout=timeout,
-    )
+    # 限时免费模型优先，遇 429/5xx 自动换档（glm-4.7 → 4.7-flash → 4.5-air → 4.5-flash）
+    return chat_raw(prompt, key=cfg["key"], base=cfg["base"], timeout=timeout)
 
 
 def _payload(e):

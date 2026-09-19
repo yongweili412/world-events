@@ -3,24 +3,15 @@
 import json, re, time, sys, requests
 sys.path.insert(0, "scraper")
 import scraper as sp
-from llm_guard import resolve_model  # 模型守卫：flash 优先，禁用 GLM-5.3/KIMI K3
+from llm_guard import resolve_model, chat_raw  # 模型守卫：限时免费优先，其次 flash；禁用 GLM-5.3/KIMI K3
 
 KEY = "995611b2762144e88e023c856da104eb.d68AuncjSy9Qrd0O"
 CATEGORIES = ["政治", "军事", "经济", "科技", "灾难", "社会", "文化", "体育", "国际关系"]
 BATCH = 10
 
 def call(prompt, timeout=180):
-    return requests.post(
-        "https://open.bigmodel.cn/api/paas/v4/chat/completions",
-        headers={"Authorization": "Bearer " + KEY, "Content-Type": "application/json"},
-        json={
-            "model": resolve_model(),
-            "messages": [{"role": "user", "content": prompt}],
-            "temperature": 0.2,
-            "thinking": {"type": "disabled"},
-        },
-        timeout=timeout,
-    )
+    # 限时免费模型优先，遇 429/5xx 自动换档
+    return chat_raw(prompt, key=KEY, timeout=timeout, temperature=0.2)
 
 def build_prompt(year, batch_events):
     return f"""你是新闻编辑，正在为"世界事件档案"网站整理 {year} 年的历史大事。

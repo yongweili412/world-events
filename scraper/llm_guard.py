@@ -15,6 +15,9 @@
 import datetime
 import json
 import os
+import time
+
+import requests
 
 DEFAULT_MODEL = "glm-4.5-flash"
 DEFAULT_BASE_URL = "https://open.bigmodel.cn/api/paas/v4"
@@ -119,6 +122,62 @@ def resolve_endpoint(config_path: str = None):
     # 3) 回退 flash
     model = explicit or DEFAULT_MODEL
     return _check_forbidden(model, cfg_forbidden, "默认 flash"), cfg_base, "fallback_flash"
+
+
+def chat_raw(prompt, key: str = None, base: str = None, timeout: int = 300, temperature: float = 0.3,
+             max_tokens: int = None, thinking: str = "disabled", extra: dict = None, models: list = None):
+    """按候选链依次调用 chat/completions，遇限流(429)/5xx/超时自动换下一档。
+
+    返回最后一次的 response 对象（成功即返回该响应），调用方可照常读 .status_code / .json()。
+    """
+    key = (key or os.environ.get("LLM_API_KEY", "")).strip()
+    base = (base or os.environ.get("LLM_BASE_URL") or DEFAULT_BASE_URL).rstrip("/")
+    chain = models or resolve_model_chain()
+    retryable = {429, 500, 502, 503, 504}
+    last = None
+    for idx, m in enumerate(chain):
+        body = {"model": m, "messages": [{"role": "user", "content": prompt}], "temperature": temperature}
+        if max_tokens:
+            body["max_tokens"] = max_tokens
+        if thinking:
+            body["thinking"] = {"type": thinking}
+        if extra:
+            body.update(extra)
+        try:
+            r = requests.post(base + "/chat/completions",
+                              headers={"Authorization": "Bearer " + key, "Content-Type": "application/json"},
+                              json=body, timeout=timeout)
+        except Exception as ex:
+            print(f"[llm] {m} 请求异常({type(ex).__name__})，切换到下一档", flush=True)
+            continue
+        if r.status_code == 200:
+            if idx > 0:
+                print(f"[llm] 已自动换档到 {m} 调用成功", flush=True)
+            return r
+        last = r
+        if _is_retryable(r) and idx + 1 < len(chain):
+            print(f"[llm] {m} 返回 {r.status_code}（限流/额度/服务不可用），切换到 {chain[idx + 1]}", flush=True)
+            time.sleep(1.5)
+            continue
+        print(f"[llm] {m} 返回 {r.status_code}，不再换档", flush=True)
+        return r
+    return last
+
+
+def _is_retryable(r) -> bool:
+    """判断是否应换下一档：HTTP 限流/5xx，或智谱业务码 1113(无额度)/1302,1305(限流)。"""
+    if r is None:
+        return False
+    if r.status_code in (429, 500, 502, 503, 504):
+        return True
+    try:
+        txt = r.text or ""
+    except Exception:
+        return False
+    for flag in ("余额不足", "无可用资源包", '"1113"', "1113", '"1302"', '"1305"', "访问量过大", "请稍后再试"):
+        if flag in txt:
+            return True
+    return False
 
 
 def resolve_model(config_path: str = None) -> str:

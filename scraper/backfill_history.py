@@ -186,17 +186,8 @@ category 只能从这些里选：{json.dumps(CATEGORIES, ensure_ascii=False)}
 {json.dumps(batch_events, ensure_ascii=False)}"""
 
     def _call(prompt, timeout=300):
-        return requests.post(
-            f"{base}/chat/completions",
-            headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
-            json={
-                "model": model,
-                "messages": [{"role": "user", "content": prompt}],
-                "temperature": 0.3,
-                "thinking": {"type": "disabled"},
-            },
-            timeout=timeout,
-        )
+        # 限时免费模型优先，遇 429/5xx 自动换档
+        return chat_raw(prompt, key=api_key, base=base, timeout=timeout, temperature=0.3)
 
     def _parse_batch(resp_json, batch, tag):
         content = resp_json["choices"][0]["message"].get("content") or ""

@@ -5,7 +5,7 @@
 数据源：https://en.wikipedia.org/wiki/Portal:Current_events/2008_January_1（逐日页，wikitext）
 说明：本机访问维基被墙，须在云端 GitHub Actions 运行。"""
 import json, re, sys, time, os, datetime, requests
-from llm_guard import resolve_model  # 模型守卫：flash 优先，禁用 GLM-5.3/KIMI K3
+from llm_guard import resolve_model, chat_raw  # 模型守卫：限时免费优先，其次 flash；禁用 GLM-5.3/KIMI K3
 
 API = "https://en.wikipedia.org/w/index.php"
 UA = {"User-Agent": "WorldEventsBot/1.0 (education archive; contact via github.com/yongweili412/world-events)"}
@@ -118,14 +118,8 @@ def fetch_month(year, month, max_days=31):
 def call_llm(prompt, timeout=240):
     key = os.environ.get("LLM_API_KEY", "").strip()
     base = os.environ.get("LLM_BASE_URL", "https://open.bigmodel.cn/api/paas/v4").rstrip("/")
-    model = resolve_model()
-    return requests.post(
-        f"{base}/chat/completions",
-        headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"},
-        json={"model": model, "messages": [{"role": "user", "content": prompt}],
-              "temperature": 0.2, "thinking": {"type": "disabled"}},
-        timeout=timeout,
-    )
+    # 限时免费模型优先，遇 429/5xx 自动换档
+    return chat_raw(prompt, key=key, base=base, timeout=timeout, temperature=0.2)
 
 
 def build_prompt(batch, year, month):

@@ -2,7 +2,7 @@
 """字段级中文化：翻译事件内 sources[].title/snippet、timeline[].text、description 的英文残留。
 全中文红线工具——每日流水线在云端/本机运行，多跑几轮自动收敛。"""
 import json, re, time, os, requests
-from llm_guard import resolve_model  # 模型守卫：flash 优先，禁用 GLM-5.3/KIMI K3
+from llm_guard import resolve_model, chat_raw  # 模型守卫：限时免费优先，其次 flash；禁用 GLM-5.3/KIMI K3
 
 KEY = os.environ.get("LLM_API_KEY", "995611b2762144e88e023c856da104eb.d68AuncjSy9Qrd0O").strip()
 BATCH = 12
@@ -11,17 +11,8 @@ def has_en(t):
     return len(re.findall(r"[A-Za-z]{4,}", t or "")) >= 3
 
 def call(prompt, timeout=120):
-    return requests.post(
-        "https://open.bigmodel.cn/api/paas/v4/chat/completions",
-        headers={"Authorization": "Bearer " + KEY, "Content-Type": "application/json"},
-        json={
-            "model": resolve_model(),
-            "messages": [{"role": "user", "content": prompt}],
-            "temperature": 0.2,
-            "thinking": {"type": "disabled"},
-        },
-        timeout=timeout,
-    )
+    # 限时免费模型优先，遇 429/5xx 自动换档
+    return chat_raw(prompt, key=KEY, timeout=timeout, temperature=0.2)
 
 PROMPT_HEAD = """你是新闻编辑，把下列英文新闻文本翻译成简体中文（用于"世界事件档案"资料库）。
 要求：规范中文新闻译名；战争冲突灾难用中性词（遇难/身亡/死亡人数/武装冲突/爆炸袭击），平实陈述；专有名词/品牌名可保留英文；字符串内禁止双引号。输出严格 JSON 数组：[{"i":序号,"zh":"译文"}]，不要输出 JSON 以外文字。
