@@ -16,6 +16,7 @@
 """
 import html as html_mod
 import json
+import os
 import re
 from pathlib import Path
 
@@ -206,25 +207,30 @@ def main():
             old.unlink()
             print(f"  🗑️ 删除过期归档页 {old.name}")
 
-    # 3) event.html + country.html + map.html：内嵌全量数据
+    # 3) 全量数据抽成独立 data/events.js（浏览器可缓存复用，避免三个 29MB 巨型页面）
+    data_dir = ROOT / "data"
+    data_dir.mkdir(exist_ok=True)
     payload = json.dumps(events, ensure_ascii=False).replace("</", "<\\/")
-    for name, label in (("event.html", "event 内嵌数据"), ("country.html", "country 内嵌数据"), ("map.html", "map 内嵌数据")):
+    (data_dir / "events.js").write_text(
+        f"window.__EMBEDDED_EVENTS__ = {payload};", encoding="utf-8")
+    print(f"  ✅ data/events.js 已生成（{len(events)} 个事件，{os.path.getsize(data_dir / 'events.js')//1024//1024}MB）")
+
+    # 4) event.html + country.html + map.html：改为引用独立数据文件
+    script_tag = '<script src="./data/events.js"></script>'
+    for name in ("event.html", "country.html", "map.html"):
         pg = ROOT / name
         h = pg.read_text(encoding="utf-8")
-        h, _ = replace_between(h, START, END,
-                               f"<script>window.__EMBEDDED_EVENTS__ = {payload};</script>", label)
+        h, _ = replace_between(h, START, END, script_tag, f"{name} 数据引用")
         pg.write_text(h, encoding="utf-8")
-        print(f"  ✅ {name} 已内嵌全量数据（{len(events)} 个事件）")
+        print(f"  ✅ {name} 已改为引用 data/events.js")
 
-    # 4) admin.html：静态全量列表 + 内嵌数据
+    # 5) admin.html：静态全量列表 + 引用独立数据
     adm = ROOT / "admin.html"
     h = adm.read_text(encoding="utf-8")
     h, _ = replace_between(h, A_START, A_END, render_admin_list(events), "admin 列表")
-    h, _ = replace_between(h, START, END,
-                           f"<script>window.__EMBEDDED_EVENTS__ = {payload};</script>",
-                           "admin 内嵌数据")
+    h, _ = replace_between(h, START, END, script_tag, "admin 数据引用")
     adm.write_text(h, encoding="utf-8")
-    print(f"  ✅ admin.html 已静态渲染 {len(events)} 条")
+    print(f"  ✅ admin.html 已静态渲染 {len(events)} 条 + 引用 data/events.js")
 
     print("✨ 构建完成")
 
