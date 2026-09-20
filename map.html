@@ -22,7 +22,7 @@
 <!-- 导航栏 -->
 <nav class="navbar">
   <div class="nav-inner">
-    <a href="./index.html" class="nav-logo">🌍 全球大事记</a>
+    <a href="./index.html" class="nav-logo"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> 全球大事记</a>
     <div class="nav-links">
       <a href="./index.html">今日世界</a>
       <a href="./map.html" class="active">世界地图</a>
@@ -42,14 +42,14 @@
 
   <!-- 地图容器 -->
   <div id="map-echarts"></div>
-  <p class="map-hint">🗺️ 点击地图上的国家，下方将列出该国全部事件（含历史存档）。地图仅作国家位置示意，相关边界以国家主管部门审定的标准地图为准。</p>
+  <p class="map-hint"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg> 点击地图上的国家，下方将列出该国全部事件（含历史存档）。地图仅作国家位置示意，相关边界以国家主管部门审定的标准地图为准。</p>
 
   <!-- 选中国家的信息与事件列表 -->
   <div id="map-country-panel" style="display:none">
     <div class="map-country-bar">
       <h2 id="map-country-name"></h2>
       <span class="cnt" id="map-country-count"></span>
-      <a href="javascript:void(0)" onclick="clearMapCountry()" style="font-size:13px;margin-left:auto">✕ 显示全部国家</a>
+      <a href="javascript:void(0)" onclick="clearMapCountry()" style="font-size:13px;margin-left:auto"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> 显示全部国家</a>
     </div>
     <div class="timeline" id="map-events"></div>
   </div>

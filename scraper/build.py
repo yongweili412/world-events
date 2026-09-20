@@ -54,6 +54,20 @@ def esc(s):
     return html_mod.escape(str(s or ""), quote=True)
 
 
+# 统一 SVG 图标（描边风格，随字号缩放）—— 替代原先的 emoji 功能图标（P0 规则）
+# 语义：多来源 / 新闻出处
+ICON_SOURCES = (
+    '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" '
+    'stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" '
+    'style="width:12px;height:12px;vertical-align:-2px">'
+    '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>'
+    '<polyline points="14 2 14 8 20 8"/>'
+    '<line x1="16" y1="13" x2="8" y2="13"/>'
+    '<line x1="16" y1="17" x2="8" y2="17"/>'
+    '<polyline points="10 9 9 9 8 9"/></svg>'
+)
+
+
 def cat_of(ev):
     """主分类：v2 模型 category 是数组，取第一个；兼容 v1 字符串"""
     c = ev.get("category")
@@ -108,7 +122,7 @@ def render_timeline(events):
         if ev.get("status") == "ongoing":
             extra += ' <span style="color:#B45309;font-size:12px">● 持续发展</span>'
         if n_src > 1:
-            extra += f' <span style="color:var(--text-secondary);font-size:12px">📎 {n_src} 个来源</span>'
+            extra += f' <span style="color:var(--text-secondary);font-size:12px">{ICON_SOURCES} {n_src} 个来源</span>'
         tags = "".join(
             f'<span class="timeline-tag">#{esc(t)}</span>' for t in (ev.get("tags") or [])
         )
@@ -205,7 +219,7 @@ def main():
         ym = old.stem.replace("archive-", "")
         if ym not in months:
             old.unlink()
-            print(f"  🗑️ 删除过期归档页 {old.name}")
+            print(f"  删除过期归档页 {old.name}")
 
     # 3) 全量数据抽成独立 data/events.js（浏览器可缓存复用，避免三个 29MB 巨型页面）
     data_dir = ROOT / "data"

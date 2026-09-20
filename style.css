@@ -59,6 +59,14 @@ body {
   gap: 8px;
 }
 
+/* 统一 SVG 图标（描边风格，随字号缩放） */
+.icon {
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+  vertical-align: -0.125em;
+}
+
 .nav-links {
   display: flex;
   gap: 6px;

@@ -5,6 +5,24 @@ function escapeHtml(s) {
   return (s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
+// ===== 统一 SVG 图标（描边风格，随字号缩放）—— 替代 emoji 功能图标（P0 规则）=====
+const ICONS = {
+  globe:    '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>',
+  map:      '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>',
+  sources:  '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>',
+  search:   '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>',
+  x:        '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>',
+  zap:      '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>',
+  calendar: '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="1" y1="10" x2="23" y2="10"/></svg>',
+  pin:      '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>',
+  edit:     '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></svg>',
+  save:     '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>',
+  clipboard:'<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="15" y2="16"/></svg>',
+  info:     '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>',
+  alert:    '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>',
+};
+function icon(name) { return ICONS[name] || ''; }
+
 function highlight(text, kw) {
   const esc = escapeHtml(text);
   if (!kw) return esc;
@@ -118,7 +136,7 @@ function renderEventCard(ev, kw) {
   const region = regionOf(ev);
   let extra = '';
   if (ev.status === 'ongoing') extra += ' <span style="color:#B45309;font-size:12px">● 持续发展</span>';
-  if (nSrc > 1) extra += ` <span style="color:var(--text-secondary);font-size:12px">📎 ${nSrc} 个来源</span>`;
+  if (nSrc > 1) extra += ` <span style="color:var(--text-secondary);font-size:12px">${ICONS.sources} ${nSrc} 个来源</span>`;
   const thumb = (ev.image && /^https?:\/\//.test(ev.image))
     ? `<img src="${escapeHtml(ev.image)}" alt="" loading="lazy" referrerpolicy="no-referrer"
            style="width:112px;height:78px;object-fit:cover;border-radius:8px;border:1px solid var(--border);background:#F1F5F9;flex-shrink:0"
@@ -266,16 +284,16 @@ function initFilters() {
     if (filtered.length === 0) {
       list.innerHTML = `
         <div class="empty-state">
-          <p>🔍 没有找到与“${escapeHtml(searchInput.value.trim())}”相关的事件</p>
+          <p>没有找到与“${escapeHtml(searchInput.value.trim())}”相关的事件</p>
           <p style="margin-top:6px;font-size:13px;color:var(--text-secondary)">试试更换关键词，或调整分类/地区/日期范围</p>
-          <button onclick="clearSearch()" class="btn btn-primary" style="margin-top:14px">✕ 一键清空搜索，回到今日事件</button>
+          <button onclick="clearSearch()" class="btn btn-primary" style="margin-top:14px">${ICONS.x} 一键清空搜索，回到今日事件</button>
         </div>`;
       return;
     }
     const kw = searchInput.value.trim();
     const shown = filtered.slice(0, SEARCH_RENDER_LIMIT);
     list.innerHTML = `
-      <div class="load-more-tip">🔍 共命中 ${filtered.length} 个事件（按日期排序）</div>` +
+      <div class="load-more-tip">${ICONS.search} 共命中 ${filtered.length} 个事件（按日期排序）</div>` +
       shown.map(ev => renderEventCard(ev, kw)).join('') +
       (filtered.length > SEARCH_RENDER_LIMIT
         ? `<div class="load-more-tip">已显示前 ${SEARCH_RENDER_LIMIT} 条，可继续缩小范围</div>` : '');
@@ -335,7 +353,7 @@ async function renderEventDetail() {
     const aiBadge = ev.summaryFull ? '<span style="background:#2563EB;color:#fff;font-size:11px;font-weight:600;border-radius:4px;padding:1px 6px;margin-left:6px;vertical-align:1px">全文版</span>' : '';
     aiBox = `
       <div style="background:linear-gradient(135deg,#EAF3FB,#F0FDF6);border:1px solid #BFDBFE;border-left:4px solid #2563EB;border-radius:10px;padding:16px 18px;margin-bottom:18px">
-        <div style="font-size:13px;font-weight:700;color:#1D4ED8;margin-bottom:8px">⚡ 一分钟速览（AI 提炼）${aiBadge}</div>
+        <div style="font-size:13px;font-weight:700;color:#1D4ED8;margin-bottom:8px">${ICONS.zap} 一分钟速览（AI 提炼）${aiBadge}</div>
         <div style="font-size:15px;line-height:1.9;color:#1F2937">${escapeHtml(ev.aiSummary)}</div>
         <div style="font-size:12px;color:#6B7280;margin-top:8px">${aiNote} · 原始报道见下方"新闻来源"</div>
       </div>`;
@@ -409,9 +427,9 @@ async function renderEventDetail() {
     <div class="event-meta" style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:14px">
       <span class="timeline-category" style="background:${getCategoryBg(cat)};color:${getCategoryColor(cat)}">${escapeHtml(cat)}</span>
       ${statusBadge}
-      <span class="event-meta-item">📅 ${formatDate(ev.date)}</span>
-      ${(country || region) ? `<span class="event-meta-item">📍 ${escapeHtml(country ? (country + '（' + region + '）') : region)}</span>` : ''}
-      ${nSrc > 1 ? `<span class="event-meta-item">📎 ${nSrc} 个来源</span>` : ''}
+      <span class="event-meta-item">${ICONS.calendar} ${formatDate(ev.date)}</span>
+      ${(country || region) ? `<span class="event-meta-item">${ICONS.pin} ${escapeHtml(country ? (country + '（' + region + '）') : region)}</span>` : ''}
+      ${nSrc > 1 ? `<span class="event-meta-item">${ICONS.sources} ${nSrc} 个来源</span>` : ''}
     </div>
     <h1 style="font-size:24px;font-weight:700;margin-bottom:12px;line-height:1.5">${escapeHtml(ev.title)}</h1>
     ${imgBox}
@@ -511,7 +529,7 @@ async function saveEvent(formData) {
   };
   events.push(newEv);
   await saveEventsFile(events);
-  showToast('✅ 事件已保存！');
+  showToast('事件已保存！');
   setTimeout(() => location.reload(), 800);
 }
 
@@ -519,7 +537,7 @@ async function deleteEvent(id) {
   if (!confirm('确定要删除这个事件吗？')) return;
   const events = await loadEvents();
   await saveEventsFile(events.filter(e => e.id !== id));
-  showToast('🗑️ 已删除');
+  showToast('已删除');
   setTimeout(() => location.reload(), 800);
 }
 
@@ -530,7 +548,7 @@ async function saveEventsFile(events) {
   const a = document.createElement('a');
   a.href = url; a.download = 'events.json'; a.click();
   URL.revokeObjectURL(url);
-  showToast('📥 events.json 已下载，请放入 data/ 文件夹覆盖原文件');
+  showToast('events.json 已下载，请放入 data/ 文件夹覆盖原文件');
 }
 
 function showToast(msg) {
@@ -545,7 +563,7 @@ function showToast(msg) {
 
 function showError(msg) {
   const list = document.getElementById('timeline-list');
-  if (list) list.innerHTML = `<div class="empty-state"><p>⚠️ ${msg}</p><p style="margin-top:8px;font-size:13px">请尝试强制刷新（Ctrl+F5）</p></div>`;
+  if (list) list.innerHTML = `<div class="empty-state"><p>${ICONS.alert} ${msg}</p><p style="margin-top:8px;font-size:13px">请尝试强制刷新（Ctrl+F5）</p></div>`;
 }
 
 // ===== 世界地图页 =====
@@ -686,7 +704,7 @@ function showMapCountry(cnName) {
   const events = getFullEvents().filter(ev => (ev.location && ev.location.country) === cnName)
     .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
   panel.style.display = 'block';
-  document.getElementById('map-country-name').textContent = `📍 ${cnName}`;
+  document.getElementById('map-country-name').textContent = `${cnName}`;
   document.getElementById('map-country-count').textContent = `${events.length} 个事件`;
   const box = document.getElementById('map-events');
   if (!events.length) {

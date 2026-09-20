@@ -17,7 +17,8 @@
 body { font-family: -apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; background: var(--bg); color: var(--text); line-height:1.7; min-height:100vh; }
 .navbar { background:var(--card-bg); border-bottom:1px solid var(--border); padding:0 24px; position:sticky; top:0; z-index:100; box-shadow:var(--shadow); }
 .nav-inner { max-width:1100px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; height:56px; }
-.nav-logo { font-size:18px; font-weight:700; color:var(--primary); text-decoration:none; }
+.nav-logo { font-size:18px; font-weight:700; color:var(--primary); text-decoration:none; display:flex; align-items:center; gap:8px; }
+.icon { width:1em; height:1em; flex-shrink:0; vertical-align:-0.125em; }
 .nav-links { display:flex; gap:6px; }
 .nav-links a { text-decoration:none; color:var(--text-secondary); font-size:14px; padding:6px 14px; border-radius:6px; transition:background 0.2s; }
 .nav-links a:hover, .nav-links a.active { background:var(--primary-light); color:var(--primary); font-weight:600; }
@@ -52,7 +53,7 @@ body { font-family: -apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",san
 
 <nav class="navbar">
   <div class="nav-inner">
-    <a href="#" class="nav-logo">🌍 全球大事记</a>
+    <a href="#" class="nav-logo"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> 全球大事记</a>
     <div class="nav-links">
       <a href="#" class="active">时间线</a>
       <a href="#">管理后台</a>
