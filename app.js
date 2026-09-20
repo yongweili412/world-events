@@ -29,17 +29,25 @@ function countryOf(ev) {
 
 function getCategoryColor(cat) {
   const map = {
-    '自然灾害': '#185FA5', '国际政治': '#534AB7', '科技': '#0C447C',
-    '环境': '#3B6D11', '体育': '#BA7517', '经济': '#854F0B',
-    '社会': '#A32D2D', '其他': '#5F5E5A'
+    '政治': '#534AB7', '灾难': '#185FA5', '军事': '#8B2E2E',
+    '科技': '#0C447C', '经济': '#854F0B', '国际关系': '#3A6EA5',
+    '社会': '#A32D2D', '体育': '#BA7517', '文化': '#7A4E9E',
+    '环境': '#3B6D11', '其他': '#5F5E5A',
+    // 兼容旧值
+    '自然灾害': '#185FA5', '国际政治': '#534AB7', '灾难事故': '#185FA5',
+    '军事冲突': '#8B2E2E', '经济金融': '#854F0B'
   };
   return map[cat] || '#5F5E5A';
 }
 function getCategoryBg(cat) {
   const map = {
-    '自然灾害': '#E6F1FB', '国际政治': '#EEEDFE', '科技': '#E6F1FB',
-    '环境': '#EAF3DE', '体育': '#FAEEDA', '经济': '#FAEEDA',
-    '社会': '#FCEBEB', '其他': '#F1EFE8'
+    '政治': '#EEEDFE', '灾难': '#E6F1FB', '军事': '#FBE9E9',
+    '科技': '#E6F1FB', '经济': '#FAEEDA', '国际关系': '#E7F0F9',
+    '社会': '#FCEBEB', '体育': '#FAEEDA', '文化': '#F2EBF9',
+    '环境': '#EAF3DE', '其他': '#F1EFE8',
+    // 兼容旧值
+    '自然灾害': '#E6F1FB', '国际政治': '#EEEDFE', '灾难事故': '#E6F1FB',
+    '军事冲突': '#FBE9E9', '经济金融': '#FAEEDA'
   };
   return map[cat] || '#F1EFE8';
 }
