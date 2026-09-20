@@ -301,9 +301,6 @@ RSS_SOURCES = [
         "region": "全球",
         "country": "美国",
         "lang": "en",
-    }
-        "country": "澳大利亚",
-        "lang": "en",
     },
     {
         "name": "Times of India",
