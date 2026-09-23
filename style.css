@@ -213,7 +213,7 @@ body {
   border: 1px solid var(--border);
   padding: 18px 20px;
   box-shadow: var(--shadow);
-  transition: box-shadow 0.2s;
+  transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
   cursor: pointer;
   text-decoration: none;
   display: block;
@@ -221,7 +221,9 @@ body {
 }
 
 .timeline-item:hover {
-  box-shadow: 0 3px 12px rgba(0,0,0,0.12);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.14);
+  transform: translateY(-2px);
+  border-color: #c4d3e8;
 }
 
 .timeline-dot {
@@ -481,4 +483,32 @@ body {
   font-size: 12px;
   color: var(--text-secondary);
   margin-top: 2px;
+}
+
+/* ===== UI 细节优化（2026-09-19） ===== */
+/* 元信息行图标与文字对齐（统一 SVG 图标随字号缩放） */
+.timeline-date .icon,
+.event-meta-item .icon {
+  margin-right: 4px;
+}
+
+/* 卡片"全文速览"徽标（与详情页"全文版"徽标同色，指示该事件已基于原文全文深度总结） */
+.full-pill {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  color: #fff;
+  background: #2563EB;
+  border-radius: 4px;
+  padding: 1px 6px;
+  margin-left: 6px;
+  vertical-align: 1px;
+}
+
+/* 搜索/筛选命中数量提示条 */
+.load-more-tip {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 13px;
+  padding: 16px 0;
 }

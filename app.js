@@ -136,6 +136,7 @@ function renderEventCard(ev, kw) {
   const region = regionOf(ev);
   let extra = '';
   if (ev.status === 'ongoing') extra += ' <span style="color:#B45309;font-size:12px">● 持续发展</span>';
+  if (ev.summaryFull === true) extra += ' <span class="full-pill">全文速览</span>';
   if (nSrc > 1) extra += ` <span style="color:var(--text-secondary);font-size:12px">${ICONS.sources} ${nSrc} 个来源</span>`;
   const thumb = (ev.image && /^https?:\/\//.test(ev.image))
     ? `<img src="${escapeHtml(ev.image)}" alt="" loading="lazy" referrerpolicy="no-referrer"

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>管理后台 - 全球大事记</title>
-  <link rel="stylesheet" href="./style.css?v=4">
+  <link rel="stylesheet" href="./style.css?v=5">
 </head>
 <body>
 
@@ -115,6 +115,42 @@
     <h2 style="font-size:17px;font-weight:600;margin-bottom:16px;color:var(--text)"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="15" y2="16"/></svg> 已收录事件</h2>
     <div id="admin-list">
 <!-- ADMINLIST_START -->
+    <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);flex-wrap:wrap">
+      <span style="color:var(--text-secondary);font-size:13px;min-width:90px">2026-09-24</span>
+      <span style="flex:1;font-size:14px">从意外的A和F到大量的C：全部30支MLB球队完整常规赛评分</span>
+      <span class="timeline-category" style="background:#F1EFE8;color:#5F5E5A">其他</span>
+      <button onclick="deleteEvent('evt_20260924_001')" class="btn btn-danger" style="font-size:12px;padding:4px 10px">删除</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);flex-wrap:wrap">
+      <span style="color:var(--text-secondary);font-size:13px;min-width:90px">2026-09-24</span>
+      <span style="flex:1;font-size:14px">小球市成功还是反面教材？教士队为何契合MLB劳资辩论双方观点</span>
+      <span class="timeline-category" style="background:#F1EFE8;color:#5F5E5A">其他</span>
+      <button onclick="deleteEvent('evt_20260924_002')" class="btn btn-danger" style="font-size:12px;padding:4px 10px">删除</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);flex-wrap:wrap">
+      <span style="color:var(--text-secondary);font-size:13px;min-width:90px">2026-09-24</span>
+      <span style="flex:1;font-size:14px">Colts将外接手Pierce列入伤病储备名单以康复脚跟伤势</span>
+      <span class="timeline-category" style="background:#F1EFE8;color:#5F5E5A">其他</span>
+      <button onclick="deleteEvent('evt_20260924_003')" class="btn btn-danger" style="font-size:12px;padding:4px 10px">删除</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);flex-wrap:wrap">
+      <span style="color:var(--text-secondary);font-size:13px;min-width:90px">2026-09-24</span>
+      <span style="flex:1;font-size:14px">库里称未定合同不会影响比赛与勇士</span>
+      <span class="timeline-category" style="background:#F1EFE8;color:#5F5E5A">其他</span>
+      <button onclick="deleteEvent('evt_20260924_004')" class="btn btn-danger" style="font-size:12px;padding:4px 10px">删除</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);flex-wrap:wrap">
+      <span style="color:var(--text-secondary);font-size:13px;min-width:90px">2026-09-24</span>
+      <span style="flex:1;font-size:14px">科学家发现干细胞与儿童脑肿瘤间意外关联</span>
+      <span class="timeline-category" style="background:#F1EFE8;color:#5F5E5A">其他</span>
+      <button onclick="deleteEvent('evt_20260924_005')" class="btn btn-danger" style="font-size:12px;padding:4px 10px">删除</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);flex-wrap:wrap">
+      <span style="color:var(--text-secondary);font-size:13px;min-width:90px">2026-09-24</span>
+      <span style="flex:1;font-size:14px">贝森特本周第二次与何立峰会面 为习特会作准备 | 联合早报网</span>
+      <span class="timeline-category" style="background:#E6F1FB;color:#0C447C">科技</span>
+      <button onclick="deleteEvent('evt_20260924_006')" class="btn btn-danger" style="font-size:12px;padding:4px 10px">删除</button>
+    </div>
     <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);flex-wrap:wrap">
       <span style="color:var(--text-secondary);font-size:13px;min-width:90px">2026-09-23</span>
       <span style="flex:1;font-size:14px">西藏农牧民人均收入增速13年间居中国首位</span>
@@ -822,6 +858,216 @@
       <span style="flex:1;font-size:14px">82岁知名画家夏葆元辞世，陈逸飞曾说“我们所有人都学他”_艺术评论</span>
       <span class="timeline-category" style="background:#FCEBEB;color:#A32D2D">社会</span>
       <button onclick="deleteEvent('evt_20260923_128')" class="btn btn-danger" style="font-size:12px;padding:4px 10px">删除</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);flex-wrap:wrap">
+      <span style="color:var(--text-secondary);font-size:13px;min-width:90px">2026-09-23</span>
+      <span style="flex:1;font-size:14px">中国科学院院士傅伯杰荣获2026年沃尔沃环境奖</span>
+      <span class="timeline-category" style="background:#F1EFE8;color:#5F5E5A">其他</span>
+      <button onclick="deleteEvent('evt_20260923_125')" class="btn btn-danger" style="font-size:12px;padding:4px 10px">删除</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);flex-wrap:wrap">
+      <span style="color:var(--text-secondary);font-size:13px;min-width:90px">2026-09-23</span>
+      <span style="flex:1;font-size:14px">广西壮族自治区贵港市政协副主席黄星荣接受审查调查</span>
+      <span class="timeline-category" style="background:#F1EFE8;color:#5F5E5A">其他</span>
+      <button onclick="deleteEvent('evt_20260923_129')" class="btn btn-danger" style="font-size:12px;padding:4px 10px">删除</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);flex-wrap:wrap">
+      <span style="color:var(--text-secondary);font-size:13px;min-width:90px">2026-09-23</span>
+      <span style="flex:1;font-size:14px">原重庆新华书店集团一级专务肖陵被开除党籍</span>
+      <span class="timeline-category" style="background:#F1EFE8;color:#5F5E5A">其他</span>
+      <button onclick="deleteEvent('evt_20260923_130')" class="btn btn-danger" style="font-size:12px;padding:4px 10px">删除</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);flex-wrap:wrap">
+      <span style="color:var(--text-secondary);font-size:13px;min-width:90px">2026-09-23</span>
+      <span style="flex:1;font-size:14px">甘肃省兰州市政协原党组成员、副主席芮文刚被&quot;双开&quot;</span>
+      <span class="timeline-category" style="background:#F1EFE8;color:#5F5E5A">其他</span>
+      <button onclick="deleteEvent('evt_20260923_131')" class="btn btn-danger" style="font-size:12px;padding:4px 10px">删除</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);flex-wrap:wrap">
+      <span style="color:var(--text-secondary);font-size:13px;min-width:90px">2026-09-23</span>
+      <span style="flex:1;font-size:14px">海南热带海洋学院原副院长吴清江接受审查调查</span>
+      <span class="timeline-category" style="background:#F1EFE8;color:#5F5E5A">其他</span>
+      <button onclick="deleteEvent('evt_20260923_132')" class="btn btn-danger" style="font-size:12px;padding:4px 10px">删除</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);flex-wrap:wrap">
+      <span style="color:var(--text-secondary);font-size:13px;min-width:90px">2026-09-23</span>
+      <span style="flex:1;font-size:14px">南北剧种同台竞艳 十四位“梅花奖”名家齐聚合肥</span>
+      <span class="timeline-category" style="background:#F1EFE8;color:#5F5E5A">其他</span>
+      <button onclick="deleteEvent('evt_20260923_133')" class="btn btn-danger" style="font-size:12px;padding:4px 10px">删除</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);flex-wrap:wrap">
+      <span style="color:var(--text-secondary);font-size:13px;min-width:90px">2026-09-23</span>
+      <span style="flex:1;font-size:14px">七千柿树结硕果 杭州西溪火柿映秋吸引游人</span>
+      <span class="timeline-category" style="background:#F1EFE8;color:#5F5E5A">其他</span>
+      <button onclick="deleteEvent('evt_20260923_134')" class="btn btn-danger" style="font-size:12px;padding:4px 10px">删除</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);flex-wrap:wrap">
+      <span style="color:var(--text-secondary);font-size:13px;min-width:90px">2026-09-23</span>
+      <span style="flex:1;font-size:14px">贵州黔西：丰收节里丰收忙</span>
+      <span class="timeline-category" style="background:#E6F1FB;color:#185FA5">自然灾害</span>
+      <button onclick="deleteEvent('evt_20260923_135')" class="btn btn-danger" style="font-size:12px;padding:4px 10px">删除</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);flex-wrap:wrap">
+      <span style="color:var(--text-secondary);font-size:13px;min-width:90px">2026-09-23</span>
+      <span style="flex:1;font-size:14px">河南安阳：中秋临近酥皮月饼走俏市场</span>
+      <span class="timeline-category" style="background:#F1EFE8;color:#5F5E5A">其他</span>
+      <button onclick="deleteEvent('evt_20260923_136')" class="btn btn-danger" style="font-size:12px;padding:4px 10px">删除</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);flex-wrap:wrap">
+      <span style="color:var(--text-secondary);font-size:13px;min-width:90px">2026-09-23</span>
+      <span style="flex:1;font-size:14px">Harvey Weinstein因2006年性侵案被判处15年监禁</span>
+      <span class="timeline-category" style="background:#F1EFE8;color:#5F5E5A">其他</span>
+      <button onclick="deleteEvent('evt_20260923_137')" class="btn btn-danger" style="font-size:12px;padding:4px 10px">删除</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);flex-wrap:wrap">
+      <span style="color:var(--text-secondary);font-size:13px;min-width:90px">2026-09-23</span>
+      <span style="flex:1;font-size:14px">佩泽什基安在联合国发表战时强硬讲话：伊朗绝不屈膝</span>
+      <span class="timeline-category" style="background:#EEEDFE;color:#534AB7">国际政治</span>
+      <button onclick="deleteEvent('evt_20260923_138')" class="btn btn-danger" style="font-size:12px;padding:4px 10px">删除</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);flex-wrap:wrap">
+      <span style="color:var(--text-secondary);font-size:13px;min-width:90px">2026-09-23</span>
+      <span style="flex:1;font-size:14px">智能眼镜引发抵制声浪加剧</span>
+      <span class="timeline-category" style="background:#F1EFE8;color:#5F5E5A">其他</span>
+      <button onclick="deleteEvent('evt_20260923_139')" class="btn btn-danger" style="font-size:12px;padding:4px 10px">删除</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);flex-wrap:wrap">
+      <span style="color:var(--text-secondary);font-size:13px;min-width:90px">2026-09-23</span>
+      <span style="flex:1;font-size:14px">教皇利奥十四世访问法国，追溯法国血统与精神根源</span>
+      <span class="timeline-category" style="background:#F1EFE8;color:#5F5E5A">其他</span>
+      <button onclick="deleteEvent('evt_20260923_140')" class="btn btn-danger" style="font-size:12px;padding:4px 10px">删除</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);flex-wrap:wrap">
+      <span style="color:var(--text-secondary);font-size:13px;min-width:90px">2026-09-23</span>
+      <span style="flex:1;font-size:14px">厄尔尼诺：气候科学家警告出现“哥斯拉级”气候事件</span>
+      <span class="timeline-category" style="background:#EAF3DE;color:#3B6D11">环境</span>
+      <button onclick="deleteEvent('evt_20260923_141')" class="btn btn-danger" style="font-size:12px;padding:4px 10px">删除</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);flex-wrap:wrap">
+      <span style="color:var(--text-secondary);font-size:13px;min-width:90px">2026-09-23</span>
+      <span style="flex:1;font-size:14px">Eastspring：日本陡峭的收益率曲线开启“反向套息”交易机会</span>
+      <span class="timeline-category" style="background:#F1EFE8;color:#5F5E5A">其他</span>
+      <button onclick="deleteEvent('evt_20260923_142')" class="btn btn-danger" style="font-size:12px;padding:4px 10px">删除</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);flex-wrap:wrap">
+      <span style="color:var(--text-secondary);font-size:13px;min-width:90px">2026-09-23</span>
+      <span style="flex:1;font-size:14px">OVHcloud CEO称欧盟对AI超级工厂的公共承诺太小</span>
+      <span class="timeline-category" style="background:#E6F1FB;color:#0C447C">科技</span>
+      <button onclick="deleteEvent('evt_20260923_143')" class="btn btn-danger" style="font-size:12px;padding:4px 10px">删除</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);flex-wrap:wrap">
+      <span style="color:var(--text-secondary);font-size:13px;min-width:90px">2026-09-23</span>
+      <span style="flex:1;font-size:14px">国际刑事法院判定中非共和国武装组织首领有罪</span>
+      <span class="timeline-category" style="background:#F1EFE8;color:#5F5E5A">其他</span>
+      <button onclick="deleteEvent('evt_20260923_144')" class="btn btn-danger" style="font-size:12px;padding:4px 10px">删除</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);flex-wrap:wrap">
+      <span style="color:var(--text-secondary);font-size:13px;min-width:90px">2026-09-23</span>
+      <span style="flex:1;font-size:14px">在武吉班让组屋遗弃71只猫的男子被判监16周</span>
+      <span class="timeline-category" style="background:#F1EFE8;color:#5F5E5A">其他</span>
+      <button onclick="deleteEvent('evt_20260923_145')" class="btn btn-danger" style="font-size:12px;padding:4px 10px">删除</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);flex-wrap:wrap">
+      <span style="color:var(--text-secondary);font-size:13px;min-width:90px">2026-09-23</span>
+      <span style="flex:1;font-size:14px">孟加拉国拟再购11架Boeing客机以寻求密切对美贸易关系</span>
+      <span class="timeline-category" style="background:#F1EFE8;color:#5F5E5A">其他</span>
+      <button onclick="deleteEvent('evt_20260923_146')" class="btn btn-danger" style="font-size:12px;padding:4px 10px">删除</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);flex-wrap:wrap">
+      <span style="color:var(--text-secondary);font-size:13px;min-width:90px">2026-09-23</span>
+      <span style="flex:1;font-size:14px">10年期美国国债收益率触及2007年以来最高，美股下跌</span>
+      <span class="timeline-category" style="background:#F1EFE8;color:#5F5E5A">其他</span>
+      <button onclick="deleteEvent('evt_20260923_147')" class="btn btn-danger" style="font-size:12px;padding:4px 10px">删除</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);flex-wrap:wrap">
+      <span style="color:var(--text-secondary);font-size:13px;min-width:90px">2026-09-23</span>
+      <span style="flex:1;font-size:14px">数月来首次美伊会谈提振进展希望，尽管未作让步</span>
+      <span class="timeline-category" style="background:#EEEDFE;color:#534AB7">国际政治</span>
+      <button onclick="deleteEvent('evt_20260923_148')" class="btn btn-danger" style="font-size:12px;padding:4px 10px">删除</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);flex-wrap:wrap">
+      <span style="color:var(--text-secondary);font-size:13px;min-width:90px">2026-09-23</span>
+      <span style="flex:1;font-size:14px">YouTube在年度活动上推出AI创作者工具及购物功能</span>
+      <span class="timeline-category" style="background:#E6F1FB;color:#0C447C">科技</span>
+      <button onclick="deleteEvent('evt_20260923_149')" class="btn btn-danger" style="font-size:12px;padding:4px 10px">删除</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);flex-wrap:wrap">
+      <span style="color:var(--text-secondary);font-size:13px;min-width:90px">2026-09-23</span>
+      <span style="flex:1;font-size:14px">沃尔夫斯堡与埃里克森协商一致解除合同</span>
+      <span class="timeline-category" style="background:#F1EFE8;color:#5F5E5A">其他</span>
+      <button onclick="deleteEvent('evt_20260923_150')" class="btn btn-danger" style="font-size:12px;padding:4px 10px">删除</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);flex-wrap:wrap">
+      <span style="color:var(--text-secondary);font-size:13px;min-width:90px">2026-09-23</span>
+      <span style="flex:1;font-size:14px">亚运会 体操女子团体 日本获得银牌</span>
+      <span class="timeline-category" style="background:#F1EFE8;color:#5F5E5A">其他</span>
+      <button onclick="deleteEvent('evt_20260923_151')" class="btn btn-danger" style="font-size:12px;padding:4px 10px">删除</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);flex-wrap:wrap">
+      <span style="color:var(--text-secondary);font-size:13px;min-width:90px">2026-09-23</span>
+      <span style="flex:1;font-size:14px">JR货物员工被捕 涉在业务发包中谋取便利作为回报收受贿赂</span>
+      <span class="timeline-category" style="background:#F1EFE8;color:#5F5E5A">其他</span>
+      <button onclick="deleteEvent('evt_20260923_152')" class="btn btn-danger" style="font-size:12px;padding:4px 10px">删除</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);flex-wrap:wrap">
+      <span style="color:var(--text-secondary);font-size:13px;min-width:90px">2026-09-23</span>
+      <span style="flex:1;font-size:14px">FFA 2026 Hyperwall Schedule</span>
+      <span class="timeline-category" style="background:#F1EFE8;color:#5F5E5A">其他</span>
+      <button onclick="deleteEvent('evt_20260923_153')" class="btn btn-danger" style="font-size:12px;padding:4px 10px">删除</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);flex-wrap:wrap">
+      <span style="color:var(--text-secondary);font-size:13px;min-width:90px">2026-09-23</span>
+      <span style="flex:1;font-size:14px">李在明承诺5年内将芯片产量翻倍，建设不受中断的AI供应链</span>
+      <span class="timeline-category" style="background:#E6F1FB;color:#0C447C">科技</span>
+      <button onclick="deleteEvent('evt_20260923_154')" class="btn btn-danger" style="font-size:12px;padding:4px 10px">删除</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);flex-wrap:wrap">
+      <span style="color:var(--text-secondary);font-size:13px;min-width:90px">2026-09-23</span>
+      <span style="flex:1;font-size:14px">叙利亚开启‘复兴新阶段’，总统阿尔-沙拉在联合国大会表示</span>
+      <span class="timeline-category" style="background:#EEEDFE;color:#534AB7">国际政治</span>
+      <button onclick="deleteEvent('evt_20260923_155')" class="btn btn-danger" style="font-size:12px;padding:4px 10px">删除</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);flex-wrap:wrap">
+      <span style="color:var(--text-secondary);font-size:13px;min-width:90px">2026-09-23</span>
+      <span style="flex:1;font-size:14px">发展权：未兑现承诺的蓝图</span>
+      <span class="timeline-category" style="background:#E6F1FB;color:#0C447C">科技</span>
+      <button onclick="deleteEvent('evt_20260923_156')" class="btn btn-danger" style="font-size:12px;padding:4px 10px">删除</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);flex-wrap:wrap">
+      <span style="color:var(--text-secondary);font-size:13px;min-width:90px">2026-09-23</span>
+      <span style="flex:1;font-size:14px">AI可在确诊前5年检测出隐匿的膀胱癌预警信号</span>
+      <span class="timeline-category" style="background:#E6F1FB;color:#0C447C">科技</span>
+      <button onclick="deleteEvent('evt_20260923_157')" class="btn btn-danger" style="font-size:12px;padding:4px 10px">删除</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);flex-wrap:wrap">
+      <span style="color:var(--text-secondary);font-size:13px;min-width:90px">2026-09-23</span>
+      <span style="flex:1;font-size:14px">世卫组织：埃博拉疫情仍未受控，刚果医护人员短缺</span>
+      <span class="timeline-category" style="background:#FCEBEB;color:#A32D2D">社会</span>
+      <button onclick="deleteEvent('evt_20260923_158')" class="btn btn-danger" style="font-size:12px;padding:4px 10px">删除</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);flex-wrap:wrap">
+      <span style="color:var(--text-secondary);font-size:13px;min-width:90px">2026-09-23</span>
+      <span style="flex:1;font-size:14px">鲁比奥：特朗普将在APEC和G20会议再与中方进行交流 | 联合早报网</span>
+      <span class="timeline-category" style="background:#FAEEDA;color:#854F0B">经济</span>
+      <button onclick="deleteEvent('evt_20260923_159')" class="btn btn-danger" style="font-size:12px;padding:4px 10px">删除</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);flex-wrap:wrap">
+      <span style="color:var(--text-secondary);font-size:13px;min-width:90px">2026-09-23</span>
+      <span style="flex:1;font-size:14px">高市吁删除《联合国宪章》中“前敌国条款” 摆脱北京施压 | 联合早报网</span>
+      <span class="timeline-category" style="background:#FAEEDA;color:#854F0B">经济</span>
+      <button onclick="deleteEvent('evt_20260923_160')" class="btn btn-danger" style="font-size:12px;padding:4px 10px">删除</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);flex-wrap:wrap">
+      <span style="color:var(--text-secondary);font-size:13px;min-width:90px">2026-09-23</span>
+      <span style="flex:1;font-size:14px">李在明特朗普纽约“惊喜会谈” 重申推动朝美对话意愿 | 联合早报网</span>
+      <span class="timeline-category" style="background:#F1EFE8;color:#5F5E5A">冲突</span>
+      <button onclick="deleteEvent('evt_20260923_161')" class="btn btn-danger" style="font-size:12px;padding:4px 10px">删除</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);flex-wrap:wrap">
+      <span style="color:var(--text-secondary);font-size:13px;min-width:90px">2026-09-23</span>
+      <span style="flex:1;font-size:14px">泽连斯基：乌克兰准备推动黑海休战协议 | 联合早报网</span>
+      <span class="timeline-category" style="background:#F1EFE8;color:#5F5E5A">冲突</span>
+      <button onclick="deleteEvent('evt_20260923_162')" class="btn btn-danger" style="font-size:12px;padding:4px 10px">删除</button>
     </div>
     <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);flex-wrap:wrap">
       <span style="color:var(--text-secondary);font-size:13px;min-width:90px">2026-09-22</span>
@@ -2979,7 +3225,7 @@
     </div>
     <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);flex-wrap:wrap">
       <span style="color:var(--text-secondary);font-size:13px;min-width:90px">2026-09-14</span>
-      <span style="flex:1;font-size:14px">日本本土近半世纪首次无熊猫 铁杆粉丝赴华探望“香香”</span>
+      <span style="flex:1;font-size:14px">日本本土近半世纪首次无熊猫 铁杆粉丝赴华探望香香</span>
       <span class="timeline-category" style="background:#F1EFE8;color:#5F5E5A">其他</span>
       <button onclick="deleteEvent('evt_20260914_088')" class="btn btn-danger" style="font-size:12px;padding:4px 10px">删除</button>
     </div>
@@ -15717,43 +15963,43 @@
     </div>
     <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);flex-wrap:wrap">
       <span style="color:var(--text-secondary);font-size:13px;min-width:90px">2026-08-08</span>
-      <span style="flex:1;font-size:14px">イチローさん マリナーズOBのホームラン競争でファンわかせる</span>
+      <span style="flex:1;font-size:14px">一郎在Mariners名宿本垒打大赛中点燃粉丝热情</span>
       <span class="timeline-category" style="background:#F1EFE8;color:#5F5E5A">其他</span>
       <button onclick="deleteEvent('evt_20260808_013')" class="btn btn-danger" style="font-size:12px;padding:4px 10px">删除</button>
     </div>
     <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);flex-wrap:wrap">
       <span style="color:var(--text-secondary);font-size:13px;min-width:90px">2026-08-08</span>
-      <span style="flex:1;font-size:14px">「韓国サッカー協会が外国人審判員に性的接待」韓国メディア</span>
+      <span style="flex:1;font-size:14px">韩国媒体：韩国足协向外籍裁判提供性接待</span>
       <span class="timeline-category" style="background:#F1EFE8;color:#5F5E5A">其他</span>
       <button onclick="deleteEvent('evt_20260808_012')" class="btn btn-danger" style="font-size:12px;padding:4px 10px">删除</button>
     </div>
     <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);flex-wrap:wrap">
       <span style="color:var(--text-secondary);font-size:13px;min-width:90px">2026-08-08</span>
-      <span style="flex:1;font-size:14px">ラグビーリーグワン フィジー出身選手が死亡 熱中症疑いで搬送</span>
+      <span style="flex:1;font-size:14px">Rugby League One 斐济出身选手死亡 疑似中暑被送医</span>
       <span class="timeline-category" style="background:#F1EFE8;color:#5F5E5A">其他</span>
       <button onclick="deleteEvent('evt_20260808_011')" class="btn btn-danger" style="font-size:12px;padding:4px 10px">删除</button>
     </div>
     <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);flex-wrap:wrap">
       <span style="color:var(--text-secondary);font-size:13px;min-width:90px">2026-08-08</span>
-      <span style="flex:1;font-size:14px">熊本地震 10年前の地震と隣り合う領域で発生か 専門家分析</span>
+      <span style="flex:1;font-size:14px">熊本地震 或发生于与10年前地震相邻区域 专家分析</span>
       <span class="timeline-category" style="background:#F1EFE8;color:#5F5E5A">灾难</span>
       <button onclick="deleteEvent('evt_20260808_010')" class="btn btn-danger" style="font-size:12px;padding:4px 10px">删除</button>
     </div>
     <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);flex-wrap:wrap">
       <span style="color:var(--text-secondary);font-size:13px;min-width:90px">2026-08-08</span>
-      <span style="flex:1;font-size:14px">愛知県内で水難事故相次ぐ 2人死亡</span>
+      <span style="flex:1;font-size:14px">爱知县内相继发生水上事故 2人死亡</span>
       <span class="timeline-category" style="background:#F1EFE8;color:#5F5E5A">其他</span>
       <button onclick="deleteEvent('evt_20260808_009')" class="btn btn-danger" style="font-size:12px;padding:4px 10px">删除</button>
     </div>
     <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);flex-wrap:wrap">
       <span style="color:var(--text-secondary);font-size:13px;min-width:90px">2026-08-08</span>
-      <span style="flex:1;font-size:14px">北日本と東日本中心 9日も大気の状態が非常に不安定の見込み</span>
+      <span style="flex:1;font-size:14px">以北日本和东日本为主 9日大气状态预计仍将非常不稳定</span>
       <span class="timeline-category" style="background:#F1EFE8;color:#5F5E5A">其他</span>
       <button onclick="deleteEvent('evt_20260808_008')" class="btn btn-danger" style="font-size:12px;padding:4px 10px">删除</button>
     </div>
     <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);flex-wrap:wrap">
       <span style="color:var(--text-secondary);font-size:13px;min-width:90px">2026-08-08</span>
-      <span style="flex:1;font-size:14px">台風13号 影響は長時間続く 警戒を 台風15号の動きは?</span>
+      <span style="flex:1;font-size:14px">台风13号 影响长时间持续 需警戒 台风15号的动向?</span>
       <span class="timeline-category" style="background:#F1EFE8;color:#5F5E5A">其他</span>
       <button onclick="deleteEvent('evt_20260808_007')" class="btn btn-danger" style="font-size:12px;padding:4px 10px">删除</button>
     </div>
@@ -119909,7 +120155,7 @@
 <!-- EMBED_EVENTS_START -->
 <script src="./data/events.js"></script>
 <!-- EMBED_EVENTS_END -->
-<script src="./app.js?v=6"></script>
+<script src="./app.js?v=7"></script>
 <script>
   // 自动填今天日期
   document.getElementById('form-date').value = new Date().toISOString().slice(0,10);

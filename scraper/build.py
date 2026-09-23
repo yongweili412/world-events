@@ -121,6 +121,8 @@ def render_timeline(events):
         extra = ""
         if ev.get("status") == "ongoing":
             extra += ' <span style="color:#B45309;font-size:12px">● 持续发展</span>'
+        if ev.get("summaryFull") is True:
+            extra += ' <span class="full-pill">全文速览</span>'
         if n_src > 1:
             extra += f' <span style="color:var(--text-secondary);font-size:12px">{ICON_SOURCES} {n_src} 个来源</span>'
         tags = "".join(

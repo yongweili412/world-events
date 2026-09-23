@@ -15,7 +15,7 @@ from llm_cache import cache_get, cache_set, cache_save, stats as cache_stats
 
 KEY = os.environ.get("LLM_API_KEY", "995611b2762144e88e023c856da104eb.d68AuncjSy9Qrd0O").strip()
 ALL_SOURCES = os.environ.get("ALL_SOURCES") == "1"  # 云端网络畅通可抓外文源，本机默认仅国内源
-LIMIT = int(sys.argv[1]) if len(sys.argv) > 1 else 30
+LIMIT = int(sys.argv[1]) if len(sys.argv) > 1 else 100
 UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36"}
 
 TASK = "ft_summary"        # 缓存任务名
