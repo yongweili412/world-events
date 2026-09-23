@@ -2546,5 +2546,19 @@
     <a href="./index.html" style="color:var(--primary);text-decoration:none">← 返回最新事件</a>
   </p>
 </div>
+<script>
+/* 回到顶部（归档页为纯静态、不加载 app.js，故内置一份） */
+(function () {
+  var b = document.createElement('button');
+  b.id = 'back-top'; b.className = 'back-top'; b.type = 'button';
+  b.setAttribute('aria-label', '回到顶部'); b.title = '回到顶部';
+  b.innerHTML = '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>';
+  b.onclick = function () { window.scrollTo({ top: 0, behavior: 'smooth' }); };
+  document.body.appendChild(b);
+  var sync = function () { b.classList.toggle('show', window.scrollY > 400); };
+  window.addEventListener('scroll', sync, { passive: true });
+  sync();
+})();
+</script>
 </body>
 </html>

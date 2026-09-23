@@ -755,8 +755,26 @@ function clearMapCountry() {
   if (panel) panel.style.display = 'none';
 }
 
+// ===== 回到顶部悬浮按钮（长列表页面用） =====
+function initBackTop() {
+  if (document.getElementById('back-top')) return;
+  const btn = document.createElement('button');
+  btn.id = 'back-top';
+  btn.className = 'back-top';
+  btn.type = 'button';
+  btn.setAttribute('aria-label', '回到顶部');
+  btn.title = '回到顶部';
+  btn.innerHTML = '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>';
+  btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  document.body.appendChild(btn);
+  const sync = () => btn.classList.toggle('show', window.scrollY > 400);
+  window.addEventListener('scroll', sync, { passive: true });
+  sync();
+}
+
 // ===== 页面初始化 =====
 document.addEventListener('DOMContentLoaded', () => {
+  initBackTop();
   const page = location.pathname.split('/').pop() || 'index.html';
   if (page === 'index.html' || page === '') {
     initDateView();

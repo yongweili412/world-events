@@ -270,6 +270,11 @@ body {
   color: var(--text-secondary);
   line-height: 1.7;
   margin-bottom: 10px;
+  /* 摘要最多 2 行，卡片高度更整齐 */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .timeline-meta {
@@ -503,6 +508,43 @@ body {
   padding: 1px 6px;
   margin-left: 6px;
   vertical-align: 1px;
+}
+
+/* 回到顶部悬浮按钮（归档页等长列表翻到底后快速回顶） */
+.back-top {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  color: var(--primary);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity .2s, transform .2s, visibility .2s, background .2s, color .2s;
+  z-index: 200;
+}
+.back-top.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.back-top:hover {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+@media (max-width: 600px) {
+  .back-top { right: 14px; bottom: 14px; width: 40px; height: 40px; }
 }
 
 /* 搜索/筛选命中数量提示条 */
