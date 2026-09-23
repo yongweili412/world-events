@@ -97,7 +97,7 @@ def render_stats(events):
     cats = {cat_of(e) for e in events}
     regions = {region_of(e) for e in events}
     n_multi = sum(1 for e in events if len(e.get("sources") or []) > 1)
-    n_translated = sum(1 for e in events if e.get("translated"))
+    n_full = sum(1 for e in events if e.get("summaryFull") is True)
     return (
         f'<div class="stat-card"><div class="stat-num">{len(events)}</div>'
         f'<div class="stat-label">事件总数</div></div>'
@@ -107,8 +107,8 @@ def render_stats(events):
         f'<div class="stat-label">涉及地区</div></div>'
         f'<div class="stat-card"><div class="stat-num">{n_multi}</div>'
         f'<div class="stat-label">多来源事件</div></div>'
-        f'<div class="stat-card"><div class="stat-num">{n_translated}</div>'
-        f'<div class="stat-label">已翻译</div></div>'
+        f'<div class="stat-card"><div class="stat-num">{n_full}</div>'
+        f'<div class="stat-label">全文速览</div></div>'
     )
 
 

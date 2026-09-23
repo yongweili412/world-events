@@ -171,6 +171,7 @@ function renderEventCard(ev, kw) {
 }
 
 const SEARCH_RENDER_LIMIT = 200;
+let __searchState = { results: [], kw: '', shown: 0 };
 
 // ===== 首页：日期中心视图（"今天世界发生了什么"） =====
 async function initDateView() {
@@ -292,12 +293,37 @@ function initFilters() {
       return;
     }
     const kw = searchInput.value.trim();
-    const shown = filtered.slice(0, SEARCH_RENDER_LIMIT);
+    __searchState = { results: filtered, kw: kw, shown: 0 };
+    const first = Math.min(SEARCH_RENDER_LIMIT, filtered.length);
     list.innerHTML = `
-      <div class="load-more-tip">${ICONS.search} 共命中 ${filtered.length} 个事件（按日期排序）</div>` +
-      shown.map(ev => renderEventCard(ev, kw)).join('') +
-      (filtered.length > SEARCH_RENDER_LIMIT
-        ? `<div class="load-more-tip">已显示前 ${SEARCH_RENDER_LIMIT} 条，可继续缩小范围</div>` : '');
+      <div class="load-more-tip">${ICONS.search} 共命中 ${filtered.length} 个事件（按日期排序）</div>
+      <div id="search-results">` +
+      filtered.slice(0, first).map(ev => renderEventCard(ev, kw)).join('') +
+      `</div><div id="search-more"></div>`;
+    __searchState.shown = first;
+    renderSearchFooter();
+  };
+
+  function renderSearchFooter() {
+    const st = __searchState;
+    const footer = document.getElementById('search-more');
+    if (!footer) return;
+    if (st.shown < st.results.length) {
+      const remain = st.results.length - st.shown;
+      footer.innerHTML = `<div class="load-more-tip"><button class="btn btn-secondary" onclick="loadMoreSearch()">${ICONS.search} 加载更多（还有 ${remain} 条）</button></div>`;
+    } else {
+      footer.innerHTML = `<div class="load-more-tip">已显示全部 ${st.results.length} 条</div>`;
+    }
+  }
+
+  window.loadMoreSearch = function () {
+    const st = __searchState;
+    const box = document.getElementById('search-results');
+    if (!box) return;
+    const next = Math.min(st.shown + SEARCH_RENDER_LIMIT, st.results.length);
+    box.insertAdjacentHTML('beforeend', st.results.slice(st.shown, next).map(ev => renderEventCard(ev, st.kw)).join(''));
+    st.shown = next;
+    renderSearchFooter();
   };
 
   window.clearSearch = function () {
