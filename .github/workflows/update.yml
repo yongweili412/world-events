@@ -1,0 +1,127 @@
+name: 云端自动抓取
+
+# 世界标准时间 (UTC) 15:05 = 北京时间 23:05（每天一次）
+on:
+  schedule:
+    - cron: '5 15 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+# 与历史回填 workflow 互斥，防止两个任务同时写 events.json
+concurrency:
+  group: world-events-update
+  cancel-in-progress: false
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - name: 检出仓库
+        uses: actions/checkout@v4
+
+      - name: 安装 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: 安装依赖
+        run: pip install --quiet feedparser requests
+
+      - name: 抓取并合并事件（云端跳过机翻，英文原文入库）
+        env:
+          SKIP_TRANSLATE: '1'
+        run: python scraper/scraper.py
+
+      - name: LLM 翻译库中英文事件（flash 模型，配置见 scraper/llm_config.json）
+        env:
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          LLM_BASE_URL: ${{ secrets.LLM_BASE_URL }}
+          LLM_MODEL: ${{ secrets.LLM_MODEL }}
+        run: python scraper/translate_cloud.py
+
+      - name: 字段级中文化（sources 标题/导语、时间线、description 的英文残留）
+        env:
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          LLM_BASE_URL: ${{ secrets.LLM_BASE_URL }}
+          LLM_MODEL: ${{ secrets.LLM_MODEL }}
+        run: python scraper/field_translate.py
+
+      - name: 历史回填缺漏补翻（backfill_gaps 自动检测缺失并收敛清零）
+        env:
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          LLM_BASE_URL: ${{ secrets.LLM_BASE_URL }}
+          LLM_MODEL: ${{ secrets.LLM_MODEL }}
+        run: python scraper/backfill_gaps.py
+
+      - name: 全文速览推进 30 条（云端抓外文源 + flash 模型生成）
+        env:
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          LLM_BASE_URL: ${{ secrets.LLM_BASE_URL }}
+          LLM_MODEL: ${{ secrets.LLM_MODEL }}
+          ALL_SOURCES: '1'
+        run: python scraper/full_summary_batch.py 30
+
+      - name: 事件主图回填 60 条（抓来源页 og:image，全源）
+        env:
+          ALL_SOURCES: '1'
+        run: python scraper/fill_images.py 60
+
+      - name: 构建静态页面
+        run: python scraper/build.py
+
+      - name: 提交并推送（被拒自动合并重推，保住抓取成果）
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "本次无新内容，跳过提交"
+            exit 0
+          fi
+          git commit -m "云端自动抓取: $(TZ=Asia/Shanghai date '+%Y-%m-%d %H:%M') 北京时间"
+          for i in 1 2 3 4; do
+            if git push; then
+              echo "PUSH_OK（第 ${i} 次尝试）"
+              exit 0
+            fi
+            echo "push 被拒（第 ${i} 次），合并远程变更后重推…"
+            git fetch origin main || true
+            if ! git merge -X ours origin/main -m "merge: 保留抓取成果（本次抓取优先）"; then
+              echo "merge 有冲突，冲突文件统一取本地版（保住本次抓取成果）"
+              for f in $(git diff --name-only --diff-filter=U); do
+                git checkout --ours "$f" 2>/dev/null || true
+                git add "$f" 2>/dev/null || true
+              done
+              git commit -m "merge: 保留抓取成果（冲突取本地）" 2>/dev/null || true
+            fi
+            sleep 5
+          done
+          echo "PUSH_FAILED：4 次重试后仍失败"
+          exit 1
+
+      - name: 失败时创建 Issue 通知
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          EXISTING=$(gh issue list --repo ${{ github.repository }} --state open --search "自动化失败 in:title" --limit 1 --json number --jq 'length')
+          if [ "${EXISTING}" = "0" ]; then
+            gh issue create --repo ${{ github.repository }} \
+              --title "自动化失败: ${{ github.workflow }} $(TZ=Asia/Shanghai date '+%m-%d %H:%M') 北京时间" \
+              --body "云端自动任务失败了，请检查日志：${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" || echo "issue create failed"
+          else
+            echo "已有未关闭的失败 Issue，跳过重复创建"
+          fi
+
+      - name: 成功时关闭旧的失败 Issue
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue list --repo ${{ github.repository }} --state open --search "自动化失败 in:title" --json number --jq '.[].number' | while read n; do
+            gh issue close "$n" --repo ${{ github.repository }} --comment "本次运行已成功，自动关闭。" || true
+          done

@@ -1,0 +1,54 @@
+{
+ "_comment": "world-events LLM 模型配置（单一事实源）。scope=【一切自动任务】：云端 GitHub Actions workflows 全部 LLM 环节 （update.yml / backfill.yml / backfill_daily.yml）+ 本机 7:00/23:00 定时任务 + 今后新增的任何自动化任务。原则：一切自动任务优先使用 flash 档模型 glm-4.5-flash；禁止使用 GLM-5.3 与 KIMI K3（除非用户明确指定）。手动执行、临时对话任务不受此配置约束，可按需选用模型。",
+ "daily_automation": {
+  "provider": "zhipu",
+  "model": "glm-4.5-flash",
+  "base_url": "https://open.bigmodel.cn/api/paas/v4",
+  "cost_tier": "flash 高性价比档",
+  "applied_at": "2026-09-12",
+  "env_var": "LLM_MODEL（GitHub Secrets，值=glm-4.5-flash）",
+  "steps": [
+   "日常抓取后英文事件翻译（update.yml → translate_cloud.py）",
+   "历史回填翻译（backfill.yml → backfill_history.py）",
+   "历史回填缺漏补翻（update.yml → backfill_gaps.py）",
+   "全文速览生成（update.yml → full_summary_batch.py）",
+   "本机 7:00/23:00 定时任务：速览/聚合/精修",
+   "字段级中文化（update.yml → field_translate.py，2026-09-12 新增）"
+  ],
+  "forbidden_models": [
+   "glm-5.3",
+   "kimi-k3"
+  ],
+  "scope": "all_automation（云端 workflows + 本机定时任务 + 今后新增的自动化）",
+  "priority": "限时免费优先，其次 flash：先看 free_models 中当前时段生效的限时免费模型，没有则回退到 glm-4.5-flash",
+  "free_models": [
+   {
+    "_comment": "限时免费模型登记表（用户 2026-09-19 指定）。有时段内的限时免费模型就填在这里：model=模型名，from/until=生效与失效日期（YYYY-MM-DD，可留空表示不限），provider/base_url=可选。多条时按顺序取第一条当前生效的；列表为空或全部过期时回退到上层 model（glm-4.5-flash）。下表为 2026-09-19 实测结果：glm-4.7 / glm-4.7-flash / glm-4.5-air 可调用，glm-4.5、glm-4.6、glm-5~5.2 均返回“余额不足或无可用资源包”。",
+    "model": "glm-4.7",
+    "provider": "zhipu",
+    "base_url": "",
+    "from": "",
+    "until": "",
+    "note": "2026-09-19 实测可调用、无额度限制（疑为当期限时免费档）；翻译质量与速度均优于 flash（实测 3.5s vs 8.5s）。如确认活动结束请删除本条目。"
+   },
+   {
+    "model": "glm-4.7-flash",
+    "provider": "zhipu",
+    "base_url": "",
+    "from": "",
+    "until": "",
+    "note": "flash 档免费模型；2026-09-20 实测高峰 429（访问量过大），作为 glm-4.7 的后备档。"
+   }
+  ]
+ },
+ "rules": [
+  "规定一（2026-09-12 用户指定）：所有自动任务（云端 GitHub Actions workflows 全部 LLM 环节 + 本机定时任务 + 今后新增的自动化）统一使用 flash 模型 glm-4.5-flash，不得擅自升级更高级模型。",
+  "规定二（2026-09-15 用户指定）：一切自动任务（含云端与本机定时任务）禁止使用 GLM-5.3 和 KIMI K3 模型——仅在用户明确指定时才可使用，其他任何情况一概不使用（含自动降级/重试/临时改动）。",
+  "规定三（2026-09-15 用户指定，flash 优先原则）：一切自动任务优先使用 flash 档模型，模型选择、重试、降级等任何环节都以 flash 为先。",
+  "规定四：今后新增的自动化任务默认沿用 daily_automation.model，无需重复设置；如需更换模型只改此文件 + GitHub Secrets 的 LLM_MODEL 两处。",
+  "规定五：此配置仅约束自动任务；手动执行、临时对话任务不受约束，可按需选用模型。",
+  "规定六（2026-09-19 用户指定，限时免费优先）：时段内存在限时免费的模型时，优先使用该限时免费模型；没有可用的限时免费模型时，使用 flash 档模型 glm-4.5-flash。限时免费模型登记在 daily_automation.free_models（含 from/until 生效区间），过期自动回退 flash，无需改代码。",
+  "规定七：free_models 中的模型同样受禁用名单约束；限时免费模型不得绕过规定二（GLM-5.3 / KIMI K3 一律禁用）。",
+  "规定八（2026-09-19 补充）：限时免费模型若因高峰限流（429）失败，脚本可调用 llm_guard.resolve_model_chain() 按候选链自动换档重试（限时免费模型 → glm-4.5-flash）；链中已剔除禁用名单。需要临时关闭限时免费优先时，把 daily_automation.use_free_models 设为 false 即可。"
+ ]
+}

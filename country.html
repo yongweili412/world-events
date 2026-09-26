@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23185FA5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cline x1='2' y1='12' x2='22' y2='12'/%3E%3Cpath d='M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z'/%3E%3C/svg%3E">
+  <title>地区档案 - 世界事件永久存档</title>
+  <link rel="stylesheet" href="./style.css?v=6">
+  <style>
+    .load-more-tip{text-align:center;color:var(--text-secondary);font-size:13px;padding:16px 0}
+    .region-select{padding:8px 14px;border:1px solid var(--border);border-radius:8px;font-size:15px}
+  </style>
+</head>
+<body>
+
+<!-- 导航栏 -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="./index.html" class="nav-logo"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> 全球大事记</a>
+    <div class="nav-links">
+      <a href="./index.html">今日世界</a>
+      <a href="./country.html" class="active">地区档案</a>
+      <a href="./admin.html">管理后台</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+  <!-- 页面标题 -->
+  <div class="page-header">
+    <h1 class="page-title">地区档案</h1>
+    <p class="page-subtitle">按国家/地区回溯历史事件，而不是"国家新闻频道"</p>
+  </div>
+
+  <!-- 地区选择 -->
+  <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:16px 0">
+    <label for="region-select" style="font-size:15px;font-weight:600">选择国家/地区：</label>
+    <select id="region-select" class="region-select">
+      <option value="">加载中…</option>
+    </select>
+    <span id="region-count" style="color:var(--text-secondary);font-size:13px"></span>
+  </div>
+
+  <!-- 事件列表（按月分组，JS 渲染） -->
+  <div class="timeline" id="country-detail">
+    <p style="text-align:center;color:var(--text-secondary);padding:40px 0">加载中…</p>
+  </div>
+
+</div>
+
+<!-- 页脚 -->
+<div class="footer">
+  全球大事记 · 数据永久存档
+</div>
+
+<!-- EMBED_EVENTS_START -->
+<script src="./data/events.js"></script>
+<!-- EMBED_EVENTS_END -->
+
+<script src="./app.js?v=9"></script>
+</body>
+</html>
