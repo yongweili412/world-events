@@ -40,7 +40,7 @@
         "note": "flash 档免费模型；2026-09-20 实测高峰 429（访问量过大），作为 glm-4.7 的后备档。"
       }
     ],
-    "use_free_models": false
+    "use_free_models": true
   },
   "rules": [
     "规定一（2026-09-12 用户指定）：所有自动任务（云端 GitHub Actions workflows 全部 LLM 环节 + 本机定时任务 + 今后新增的自动化）统一使用 flash 模型 glm-4.5-flash，不得擅自升级更高级模型。",
