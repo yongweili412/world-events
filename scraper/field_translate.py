@@ -12,7 +12,7 @@ import json, re, time, os, sys, requests
 from llm_guard import resolve_model, chat_raw  # 模型守卫：限时免费优先，其次 flash；禁用 GLM-5.3/KIMI K3
 from llm_cache import cache_get, cache_set, cache_save, stats as cache_stats
 
-KEY = os.environ.get("LLM_API_KEY", "995611b2762144e88e023c856da104eb.d68AuncjSy9Qrd0O").strip()
+KEY = (os.environ.get("LLM_API_KEY") or "").strip()   # 安全：不内置兜底密钥（公开仓库会泄露）
 BATCH = 12
 TASK = "ft_translate"      # 缓存任务名（隔离不同任务的缓存）
 MAX_TOKENS = 3000          # 翻译输出上限（12 条 × ~250 tokens，留足余量防截断）

@@ -6,13 +6,15 @@ import scraper as sp
 from llm_guard import resolve_model, chat_raw  # 模型守卫：限时免费优先，其次 flash；禁用 GLM-5.3/KIMI K3
 
 # 密钥优先读环境变量（GitHub Secrets / 本机 shell），兜底用内置默认值
-KEY = os.environ.get("LLM_API_KEY", "995611b2762144e88e023c856da104eb.d68AuncjSy9Qrd0O").strip()
+KEY = (os.environ.get("LLM_API_KEY") or "").strip()   # 安全：不内置兜底密钥（公开仓库会泄露）
 CATEGORIES = ["政治", "军事", "经济", "科技", "灾难", "社会", "文化", "体育", "国际关系"]
 BATCH = 10
 MAX_TOKENS = 4000          # 批量补翻输出上限（10 条 × ~400 tokens）
 
 def call(prompt, timeout=180):
     # 限时免费模型优先，遇 429/5xx 自动换档；输出封顶
+    if not KEY:
+        raise RuntimeError("缺少 LLM_API_KEY 环境变量：已移除内置兜底密钥，请在 GitHub Secrets / 本机环境变量配置")
     return chat_raw(prompt, key=KEY, timeout=timeout, temperature=0.2, max_tokens=MAX_TOKENS)
 
 def build_prompt(year, batch_events):
