@@ -1,0 +1,132 @@
+{
+  "_comment": "档案价值评分的黄金用例。前 4 条来自用户明确指定的判例，必须长期保持通过；后 3 条覆盖三类档案与弱证据场景。校验口径：expectLayer 决定走哪层（boundary=交 LLM），expectDecision 只在规则层直接拍板时才断言，expectArchiveMin 校验综合分是否达到该范应有的量级。",
+  "cases": [
+    {
+      "id": "case_commercial_car_launch",
+      "_expect": "普通商业信息 → 规则层直接 DROP（不建立事件）",
+      "expectDecision": "DROP",
+      "expectLayer": "rules_drop",
+      "expectArchiveMax": 40,
+      "expectEventType": null,
+      "event": {
+        "id": "evt_case_001",
+        "title": "某汽车品牌发布新款中型SUV 售价18.98万元起",
+        "summary": "新车搭载2.0T发动机，配备全景天窗与L2级辅助驾驶，即日起开启预售。",
+        "date": "2026-09-01",
+        "category": ["经济"],
+        "tags": ["汽车"],
+        "sources": [{"name": "汽车媒体", "url": "https://auto.example.com/news/12345", "date": "2026-09-01", "title": "新款中型SUV发布", "snippet": "售价18.98万元起"}]
+      }
+    },
+    {
+      "id": "case_industry_tipping_point",
+      "_expect": "产业转型意义 → archiveValue 达 60+ 并交 LLM 终判（用户判例：应建立事件，economicImpact=82 为突出维度）",
+      "expectDecision": null,
+      "expectLayer": "boundary",
+      "expectArchiveMin": 60,
+      "expectEventType": "society_culture",
+      "event": {
+        "id": "evt_case_002",
+        "title": "某电动汽车品牌季度销量首次超过传统燃油车巨头",
+        "summary": "该品牌单季交付量首次超越老牌车企，标志着汽车产业动力路线出现历史性转折点。",
+        "date": "2026-09-02",
+        "category": ["经济"],
+        "tags": ["汽车", "产业"],
+        "sources": [
+          {"name": "财经日报", "url": "https://finance.example.com/a/999", "date": "2026-09-02", "title": "电动车销量首超传统巨头", "snippet": "产业转折点"}
+        ]
+      }
+    },
+    {
+      "id": "case_ordinary_funny_video",
+      "_expect": "普通内容 → 规则层直接 DROP（不建立事件）。注意标题含'转发'等弱传播词，不得被误升级为互联网候选",
+      "expectDecision": "DROP",
+      "expectLayer": "rules_drop",
+      "expectArchiveMax": 40,
+      "expectEventType": null,
+      "event": {
+        "id": "evt_case_003",
+        "title": "网友发布一段猫咪搞笑视频",
+        "summary": "一名用户上传了自家猫咪的趣味短片，获得亲友转发。",
+        "date": "2026-09-03",
+        "category": ["其他"],
+        "tags": ["宠物"],
+        "sources": [{"name": "短视频平台", "url": "https://video.example.com/v/777", "date": "2026-09-03", "title": "猫咪视频", "snippet": "趣味短片"}]
+      }
+    },
+    {
+      "id": "case_viral_phenomenon",
+      "_expect": "跨平台现象级 → archiveValue 达 70+ 且归为 internet_trends（用户判例：应建立事件）",
+      "expectDecision": null,
+      "expectLayer": "boundary",
+      "expectArchiveMin": 70,
+      "expectEventType": "internet_trends",
+      "event": {
+        "id": "evt_case_004",
+        "title": "一段舞蹈视频在多个平台刷屏 引发全民模仿",
+        "summary": "该视频一周内跨平台播放量破亿，衍生大量二创与模仿，成为年度网络现象级内容，多家媒体跟进报道。",
+        "date": "2026-09-04",
+        "category": ["文化"],
+        "tags": ["网络", "爆红"],
+        "sources": [
+          {"name": "媒体A", "url": "https://news-a.example.com/x/1", "date": "2026-09-04", "title": "舞蹈视频刷屏", "snippet": "跨平台传播"},
+          {"name": "媒体B", "url": "https://news-b.example.org/y/2", "date": "2026-09-05", "title": "全民模仿潮", "snippet": "二创大量涌现"}
+        ]
+      }
+    },
+    {
+      "id": "case_major_war",
+      "_expect": "world 类重大事件 → 规则层直接 KEEP（archiveValue 80，globalImpact=100）",
+      "expectDecision": "KEEP",
+      "expectLayer": "rules_keep",
+      "expectArchiveMin": 70,
+      "expectEventType": "world",
+      "event": {
+        "id": "evt_case_005",
+        "title": "俄罗斯对乌克兰发动全面军事行动 多国宣布制裁",
+        "summary": "俄军多路进入乌克兰境内，联合国召开紧急会议，欧美宣布大规模制裁，引发二战以来欧洲最大难民危机。",
+        "date": "2022-02-24",
+        "category": ["军事"],
+        "tags": ["俄乌冲突", "战争"],
+        "sources": [
+          {"name": "联合早报国际", "url": "https://www.zaobao.com.sg/news/world/story1", "date": "2022-02-24", "title": "俄乌开战", "snippet": "全面军事行动"},
+          {"name": "半岛电视台", "url": "https://www.aljazeera.com/news/2022/2/24/x", "date": "2022-02-24", "title": "Russia attacks Ukraine", "snippet": "invasion"}
+        ]
+      }
+    },
+    {
+      "id": "case_weak_evidence_history",
+      "_expect": "只有维基月度存档页 → 进 weak_evidence 层判 REVIEW，不得凭常识判 KEEP",
+      "expectDecision": "REVIEW",
+      "expectLayer": "weak_evidence",
+      "expectEventType": null,
+      "event": {
+        "id": "evt_case_006",
+        "title": "某国举行议会选举 执政党赢得多数席位",
+        "summary": "官方公布计票结果，执政党获得议会过半席位。",
+        "date": "2021-06-15",
+        "category": ["政治"],
+        "tags": ["选举"],
+        "sources": [{"name": "Wikipedia 当日新闻存档 2021-06", "url": "https://en.wikipedia.org/wiki/Portal:Current_events/2021_June", "date": "2021-06-15", "title": "Portal:Current events/2021 June", "snippet": ""}]
+      }
+    },
+    {
+      "id": "case_sports_culture",
+      "_expect": "体育文化类 → 归为 society_culture",
+      "expectDecision": null,
+      "expectLayer": "boundary",
+      "expectEventType": "society_culture",
+      "event": {
+        "id": "evt_case_007",
+        "title": "国家队夺得世界杯冠军 全国欢庆",
+        "summary": "球队在决赛中取胜，首次捧起大力神杯，全国多地举行庆祝活动。",
+        "date": "2026-07-15",
+        "category": ["体育"],
+        "tags": ["世界杯", "冠军"],
+        "sources": [
+          {"name": "体育报", "url": "https://sports.example.com/w/1", "date": "2026-07-15", "title": "世界杯夺冠", "snippet": "全国欢庆"}
+        ]
+      }
+    }
+  ]
+}

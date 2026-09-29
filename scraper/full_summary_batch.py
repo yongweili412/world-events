@@ -13,7 +13,7 @@ import json, re, time, sys, os, requests
 from llm_guard import resolve_model, chat_raw  # 模型守卫：限时免费优先，其次 flash；禁用 GLM-5.3/KIMI K3
 from llm_cache import cache_get, cache_set, cache_save, stats as cache_stats
 
-KEY = os.environ.get("LLM_API_KEY", "995611b2762144e88e023c856da104eb.d68AuncjSy9Qrd0O").strip()
+KEY = (os.environ.get("LLM_API_KEY") or "").strip()   # 安全：不内置兜底密钥（公开仓库会泄露）
 ALL_SOURCES = os.environ.get("ALL_SOURCES") == "1"  # 云端网络畅通可抓外文源，本机默认仅国内源
 LIMIT = int(sys.argv[1]) if len(sys.argv) > 1 else 100
 UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36"}
@@ -97,6 +97,10 @@ def gen_full_summary(title, text, date, important=True):
 事件：{title}（{date}）
 原文：
 {text}"""
+    if not KEY:
+        # 与代码库既有约定一致（translate_cloud / backfill_history）：缺 Key 时跳过而非中断夜跑
+        print("⚠️ 未配置 LLM_API_KEY，跳过（已移除内置兜底密钥，请在 GitHub Secrets / 本机环境变量配置）")
+        return None
     try:
         r = chat_raw(prompt, key=KEY, timeout=120, max_tokens=MAX_TOKENS)
         if r.status_code != 200:

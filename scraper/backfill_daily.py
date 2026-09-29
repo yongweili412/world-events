@@ -57,8 +57,52 @@ def clean_wiki(text):
     return t
 
 
+def _urls_from(blob):
+    """从 cite 模板 / ref 正文里抓真实出处链接（优先 url=，跳过 archive-url= 归档副本）"""
+    out = []
+    for m in re.finditer(r"(?<![a-z-])url\s*=\s*(https?://[^\s|}\]]+)", blob):
+        out.append(m.group(1))
+    return out
+
+
+def extract_refs(text):
+    """从 wikitext 条目里抽出引用 URL —— 必须在 clean_wiki 之前调用。
+
+    背景：clean_wiki 会把 <ref>…</ref> 与外链整段删除，导致历史事件入库后只剩下
+    维基月度存档页这一个聚合链接（实测 84.7%、1997-2024 独占直链率 0%），
+    证据等级被判为 weak，无法验证文化/记忆价值。这里先把引用抢救出来。
+    """
+    urls = []
+    for m in re.finditer(r"<ref[^>]*>([\s\S]*?)</ref>", text):
+        urls += _urls_from(m.group(1))
+        urls += [u for u in re.findall(r"https?://[^\s|}\<]+", m.group(1))]
+    for m in re.finditer(r"\{\{cite[^{}]*\}\}", text, re.I):
+        urls += _urls_from(m.group(0))
+    for m in re.finditer(r"\[(https?://[^\s\]]+)", text):
+        urls.append(m.group(1))
+
+    seen, out = set(), []
+    for u in urls:
+        u = u.rstrip(".,);")
+        if not u or u in seen:
+            continue
+        # 剔除维基自身链接（内部链接不构成独立佐证）与归档副本
+        if re.match(r"https?://(?:[a-z]+\.)?wikipedia\.org", u, re.I):
+            continue
+        if "web.archive.org" in u or "archive.today" in u:
+            continue
+        seen.add(u)
+        out.append(u)
+    return out[:3]
+
+
+def domain_of(url):
+    m = re.match(r"https?://(?:www\.)?([^/]+)", url or "")
+    return m.group(1) if m else ""
+
+
 def parse_day(wikitext):
-    """解析单日页 → [{"text": en_text, "category_hint": 章节名}]"""
+    """解析单日页 → [{"text": en_text, "category_hint": 章节名, "refs": [引用URL]}]"""
     if not wikitext:
         return []
     items = []
@@ -78,7 +122,9 @@ def parse_day(wikitext):
             cur_cat = clean_wiki(s)
             continue
         if s.startswith("*"):
-            body = clean_wiki(s.lstrip("*# ").strip())
+            raw_bullet = s.lstrip("*# ").strip()
+            refs = extract_refs(raw_bullet)      # 先抢救引用，再清洗（clean_wiki 会删掉 <ref>）
+            body = clean_wiki(raw_bullet)
             # 过滤导航/元信息残留
             if len(body) < 30:
                 continue
@@ -86,7 +132,7 @@ def parse_day(wikitext):
                 continue
             if re.search(r"https?://", body) and len(body) < 80:
                 continue
-            items.append({"text": body, "category_hint": cur_cat})
+            items.append({"text": body, "category_hint": cur_cat, "refs": refs})
     return items
 
 
@@ -109,7 +155,7 @@ def fetch_month(year, month, max_days=31):
             got_days += 1
             d = f"{year:04d}-{month:02d}-{day:02d}"
             for it in items:
-                out.append((d, it["category_hint"], it["text"]))
+                out.append((d, it["category_hint"], it["text"], it.get("refs") or []))
         time.sleep(0.4)
     print(f"  📅 抓到 {got_days} 天 / {len(out)} 条（{year}-{month:02d}）", flush=True)
     return out
@@ -242,7 +288,8 @@ def translate_all(rows, workers=1):
             got = []
         for j, title, summary, category, country in got:
             if j < len(chunk):
-                results[i + j] = (chunk[j][0], title, summary, category, country)
+                refs = chunk[j][3] if len(chunk[j]) > 3 else []
+                results[i + j] = (chunk[j][0], title, summary, category, country, refs)
         n = i // BATCH + 1
         if n % 5 == 0 or n == total:
             print(f"    串行进度 {n}/{total} 批，已翻 {len(results)} 条", flush=True)
@@ -292,12 +339,23 @@ def main():
 
         # 入库
         new_items = []
-        for date, title, summary, category, country in cn:
+        n_with_refs = 0
+        for row in cn:
+            date, title, summary, category, country = row[0], row[1], row[2], row[3], row[4]
+            refs = row[5] if len(row) > 5 else []
             region = sp.guess_region(title, summary) or "全球"
+            # 有独立引用时用它作主来源（可溯源到单篇报道），否则才退回月度存档页
+            if refs:
+                n_with_refs += 1
+                src_url = refs[0]
+                src_name = domain_of(src_url) or f"Wikipedia 当日新闻存档 {ym}"
+            else:
+                src_url = f"https://en.wikipedia.org/wiki/Portal:Current_events/{y}_{MONTHS[mo-1]}"
+                src_name = f"Wikipedia 当日新闻存档 {ym}"
             new_items.append({
                 "title": title, "summary": summary, "content": summary, "date": date,
-                "source": f"Wikipedia 当日新闻存档 {ym}",
-                "sourceUrl": f"https://en.wikipedia.org/wiki/Portal:Current_events/{y}_{MONTHS[mo-1]}",
+                "source": src_name,
+                "sourceUrl": src_url,
                 "category": category, "region": region, "country": country,
                 "tags": [category] + ([country] if country and country != "多国" else []),
             })
@@ -312,7 +370,8 @@ def main():
         sp.save_events(ev)
         p["done_months"].append(ym)
         save_progress(p)
-        print(f"  ✅ {ym}: 翻译 {len(cn)}/{len(rows)} 条 → 新建 {after - before} | 库总量 {after}", flush=True)
+        print(f"  ✅ {ym}: 翻译 {len(cn)}/{len(rows)} 条 → 新建 {after - before} | 库总量 {after}"
+              f" | 带独立引用 {n_with_refs}/{len(cn)}", flush=True)
         git_save_and_push(ym)
         time.sleep(2)
 
