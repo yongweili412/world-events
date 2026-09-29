@@ -98,7 +98,9 @@
 
   "evidence": {
     "_note": "证据质量与事件价值分开存：evidenceStatus 表示'我们有多确定'，价值分表示'若事实成立是否值得保存'。弱证据不得成为 DROP 的理由，只进 REVIEW。",
-    "archiveUrlPatterns": ["Portal:Current_events", "/wiki/20", "wikipedia.org/wiki/Portal"],
+    "archiveUrlPatterns": ["Portal:Current_events", "wikipedia.org/wiki/Portal"],
+    "archiveUrlRegexes": ["^https?://[a-z]+\\.wikipedia\\.org/wiki/\\d{4}$"],
+    "_patternNote": "只认两类聚合页：①Portal:Current_events 月度/逐日存档 ②纯年份页（如 /wiki/2020）。不能用 /wiki/20 这种子串匹配——会把真实条目（如 /wiki/2020_Beirut_explosion）误判为存档页。",
     "strong": {"minIndependentDomains": 2},
     "medium": {"minIndependentDomains": 1},
     "weak":   {"maxConfidence": 55, "needsEvidence": true}

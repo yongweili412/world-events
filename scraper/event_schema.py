@@ -97,6 +97,21 @@ def decide(archive_value, scores=None, event_type=None, evidence_status="medium"
     return "REVIEW"
 
 
+def _is_archive_url(url):
+    """判断是否为"聚合/索引页"（不构成独立佐证）。
+
+    只认两类：① Portal:Current_events 月度/逐日存档 ② 纯年份页（如 /wiki/2020）。
+    注意不能用 /wiki/20 这种子串匹配——会把真实条目（如 /wiki/2020_Beirut_explosion）误判成存档页。
+    """
+    ev = CFG["evidence"]
+    if any(p in url for p in ev.get("archiveUrlPatterns", [])):
+        return True
+    for rx in ev.get("archiveUrlRegexes", []):
+        if re.search(rx, url):
+            return True
+    return False
+
+
 def assess_evidence(sources):
     """证据质量评级：strong / medium / weak。
 
@@ -104,7 +119,6 @@ def assess_evidence(sources):
     这类聚合页不能计作"独立来源"，只能算 weak。
     """
     ev = CFG["evidence"]
-    patterns = ev["archiveUrlPatterns"]
     srcs = sources or []
     if not srcs:
         return "weak", 0
@@ -115,7 +129,7 @@ def assess_evidence(sources):
         url = (s.get("url") or "").strip()
         if not url:
             continue
-        if any(p in url for p in patterns):
+        if _is_archive_url(url):
             continue
         archive_only = False
         m = re.match(r"https?://([^/]+)", url)
