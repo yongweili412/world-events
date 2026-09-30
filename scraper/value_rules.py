@@ -26,6 +26,19 @@ RESCUE = CFG["rescueKeywords"]["words"]
 WORLD_CATS = ("军事", "政治", "国际关系", "国际政治", "灾难", "自然灾害", "冲突")
 CULTURE_CATS = ("文化", "体育")
 
+# 安全网关键词：标题/摘要/来源里出现这些词，说明是真实世界/冲突/灾难/人道事件，
+# 绝不自动 DROP（只进 REVIEW 等人工/补证）。防止商业噪声词误杀真正重要的事件。
+SAFE_KEYWORDS = (
+    "战争", "战事", "冲突", "武装", "空袭", "导弹", "袭击", "爆炸", "恐怖", "伤亡",
+    "遇难", "难民", "危机", "制裁", "北约", "联合国", "安理会", "停火", "政变", "戒严",
+    "封锁", "地震", "海啸", "台风", "洪灾", "洪水", "干旱", "饥荒", "疫情", "核",
+    "撤军", "宣战", "斡旋", "维和", "人道主义", "流离失所", "交火", "战乱", "内战",
+    "军演", "试射", "边境", "紧急会议", "霍乱", "麻疹", "空难", "坠机", "坍塌",
+    "矿难", "沉船", "罢工", "骚乱", "示威", "抗议", "战区", "前线", "攻势", "沦陷",
+    "总统", "总理", "外交", "使馆", "贸易战", "关税", "加息", "降息", "破产", "裁员",
+    "分歧", "谴责", "抗议", "停战",
+)
+
 
 def build_text(ev):
     """参与关键词匹配的文本：标题 + 摘要 + 标签 + 来源标题。"""
@@ -76,7 +89,10 @@ def score_dimensions(ev):
     # 商业噪声惩罚：普通发布/评测/促销类信息整体降权
     is_noise = _hits(text, NOISE["patterns"]) > 0 or _hits(text, NOISE["weakPatterns"]) > 0
     rescued = _hits(text, RESCUE) > 0
-    if is_noise and not rescued:
+    # 商业噪声惩罚只针对「普通商业/日常信息」，绝不应施加于世界/外交/军事类事件——
+    # 这类事件常含"合作/任命/发布"等词，若被降权会误杀真正的战争、外交、政治事件。
+    is_world = bool(set(ev.get("category") or []) & set(WORLD_CATS))
+    if is_noise and not rescued and not is_world:
         for d in ES.DIMENSIONS:
             scores[d] = ES.clamp(int(scores[d] * 0.60))
     return scores, is_noise, rescued
@@ -131,6 +147,9 @@ def layer_of(ev, scores, event_type, archive_value, evidence_status, is_noise, r
         return "rules_keep"
 
     if archive_value < lay["rulesDropScore"] and is_noise and peak < t["keepMinDim"]:
+        # 安全网：含世界/冲突/灾难/人道关键词的事件绝不自动 DROP，改进 REVIEW 等人工/补证
+        if _hits(text, SAFE_KEYWORDS) > 0:
+            return "weak_evidence"
         return "rules_drop"
 
     return "boundary"

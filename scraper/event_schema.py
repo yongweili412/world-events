@@ -178,14 +178,17 @@ def apply_scores(ev, scores, event_type=None, method="rules", confidence=None,
     ev["archiveValue"] = compute_archive_value(scores)
 
     status, _n = assess_evidence(ev.get("sources"))
-    ev["eventType"] = event_type
-    ev["decision"] = decide(ev["archiveValue"], scores, event_type, status)
-    ev["decisionReason"] = reason
-
     if confidence is None:
         confidence = {"rules": 60, "llm": 85, "hybrid": 80, "manual": 100}.get(method, 60)
     if status == "weak":
         confidence = min(confidence, CFG["evidence"]["weak"]["maxConfidence"])
+
+    ev["eventType"] = event_type
+    # 关键修复：必须把真实 confidence 传给 decide()，否则 decide 默认按 80 处理
+    # （conf=None → dropMinConfidence=80），会把所有低分且无突出维度的事件都判 DROP，
+    # 导致存量清洗误删近半。修复后只有 rules_drop（conf>=80 且低分无峰）才 DROP。
+    ev["decision"] = decide(ev["archiveValue"], scores, event_type, status, confidence)
+    ev["decisionReason"] = reason
 
     ev["assessment"] = build_assessment(
         method=method,

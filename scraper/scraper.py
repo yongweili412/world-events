@@ -1171,6 +1171,16 @@ def merge_into_events(events: list, new_items: list, dedupe_url: bool = True, us
                 "relatedEvents": [],
             }
             events.append(ev)
+            # 新建事件时写入价值评分（若该候选在闸门中被判定过）
+            _v = item.get("_value")
+            if isinstance(_v, dict):
+                try:
+                    import event_schema as _ES
+                    _ES.apply_scores(ev, _v.get("scores") or {}, _v.get("eventType"),
+                                     method=_v.get("method") or "rules",
+                                     reason=_v.get("reason") or "")
+                except Exception:
+                    pass
             # 增量维护指纹缓存
             ev_fp[eid] = _event_fp_words(ev)
             ev_order.append(eid)
@@ -1363,6 +1373,16 @@ def main():
         all_new.extend(items)
 
     _save_translate_cache()
+
+    # 价值闸门：新闻是候选，过闸门才允许成为事件
+    # 默认 INGEST_MODE=off 不启用（线上行为不变）；shadow 只统计观察，enforce 才真拦截
+    try:
+        from candidate_pipeline import gate_items, print_report, mode as _gate_mode
+        if _gate_mode() in ("shadow", "enforce"):
+            all_new, _gate_report = gate_items(all_new, events)
+            print_report(_gate_report)
+    except Exception as _ge:
+        print(f"⚠️ 价值闸门异常 {type(_ge).__name__}，本次放行全部候选（不丢数据）")
 
     # 合并进事件模型（一事件多来源）
     touched = merge_into_events(events, all_new)

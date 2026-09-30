@@ -34,6 +34,12 @@ jobs:
       - name: 抓取并合并事件（云端跳过机翻，英文原文入库）
         env:
           SKIP_TRANSLATE: '1'
+          # 价值闸门：shadow = 只统计"如果开闸门会拦下什么"，不实际拦截、不改行为。
+          # 观察几轮确认误杀率可接受后，再把这里改成 enforce 正式启用。
+          INGEST_MODE: 'shadow'
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          LLM_BASE_URL: ${{ secrets.LLM_BASE_URL }}
+          LLM_MODEL: ${{ secrets.LLM_MODEL }}
         run: python scraper/scraper.py
 
       - name: LLM 翻译库中英文事件（flash 模型，配置见 scraper/llm_config.json）
