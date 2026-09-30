@@ -1,0 +1,58 @@
+{
+  "year": null,
+  "dry_run": false,
+  "total": 30982,
+  "layerCounts": {
+    "boundary": 6694,
+    "rules_keep": 2634,
+    "weak_evidence": 21651,
+    "rules_drop": 3
+  },
+  "decisionCounts": {
+    "REVIEW": 28142,
+    "KEEP": 2837,
+    "DROP": 3
+  },
+  "typeCounts": {
+    "society_culture": 12261,
+    "world": 18479,
+    "internet_trends": 242
+  },
+  "droppedCount": 3,
+  "droppedRate": 0.01,
+  "droppedSample": [
+    {
+      "id": "evt_20250605_010",
+      "date": "2025-06-05",
+      "title": "2025第九届中国（印尼）出口品牌联展暨印尼雅加达国际工业联展开幕",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 15,
+      "reason": "疑似普通商业/日常信息（综合15，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20250605_007",
+      "date": "2025-06-05",
+      "title": "中日气候变化问题专家交流会在东京举行",
+      "category": [
+        "科技"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 34,
+      "reason": "疑似普通商业/日常信息（综合34，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20250605_005",
+      "date": "2025-06-05",
+      "title": "来自神舟二十号的“太空问候”！中国航天员为世博会中国馆送祝福",
+      "category": [
+        "科技"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 37,
+      "reason": "疑似普通商业/日常信息（综合37，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    }
+  ]
+}
