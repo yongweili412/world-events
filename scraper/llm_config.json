@@ -1,12 +1,12 @@
 {
-  "_comment": "world-events LLM 模型配置（单一事实源）。scope=【一切自动任务】：云端 GitHub Actions workflows 全部 LLM 环节 （update.yml / backfill.yml / backfill_daily.yml）+ 本机 7:00/23:00 定时任务 + 今后新增的任何自动化任务。原则：一切自动任务优先使用 flash 档模型 glm-4.5-flash；禁止使用 GLM-5.3 与 KIMI K3（除非用户明确指定）。手动执行、临时对话任务不受此配置约束，可按需选用模型。",
+  "_comment": "world-events LLM 模型配置（单一事实源）。scope=【一切自动任务】：云端 GitHub Actions workflows 全部 LLM 环节 （update.yml / backfill.yml / backfill_daily.yml）+ 本机 7:00/23:00 定时任务 + 今后新增的任何自动化任务。原则：当前使用 deepseek/deepseek-v4.1-flash（qnaigc 网关，2026-10-02 用户切换）；flash 档 glm-4.5-flash 作为备选；禁止使用 GLM-5.3 与 KIMI K3（除非用户明确指定）。手动执行、临时对话任务不受此配置约束，可按需选用模型。",
   "daily_automation": {
-    "provider": "zhipu",
-    "model": "glm-4.5-flash",
-    "base_url": "https://open.bigmodel.cn/api/paas/v4",
+    "provider": "deepseek",
+    "model": "deepseek/deepseek-v4.1-flash",
+    "base_url": "https://api.qnaigc.com/v1",
     "cost_tier": "flash 高性价比档",
-    "applied_at": "2026-09-12",
-    "env_var": "LLM_MODEL（GitHub Secrets，值=glm-4.5-flash）",
+    "applied_at": "2026-10-02",
+    "env_var": "LLM_MODEL（GitHub Secrets，值=deepseek/deepseek-v4.1-flash）",
     "steps": [
       "日常抓取后英文事件翻译（update.yml → translate_cloud.py）",
       "历史回填翻译（backfill.yml → backfill_history.py）",
@@ -20,7 +20,7 @@
       "kimi-k3"
     ],
     "scope": "all_automation（云端 workflows + 本机定时任务 + 今后新增的自动化）",
-    "priority": "限时免费优先，其次 flash：先看 free_models 中当前时段生效的限时免费模型，没有则回退到 glm-4.5-flash",
+    "priority": "当前生效模型 deepseek/deepseek-v4.1-flash（qnaigc 网关，2026-10-02 用户切换）；如需恢复限时免费优先，把 daily_automation.model 改回 glm-4.5-flash 且 use_free_models=true",
     "free_models": [
       {
         "_comment": "限时免费模型登记表（用户 2026-09-19 指定）。有时段内的限时免费模型就填在这里：model=模型名，from/until=生效与失效日期（YYYY-MM-DD，可留空表示不限），provider/base_url=可选。多条时按顺序取第一条当前生效的；列表为空或全部过期时回退到上层 model（glm-4.5-flash）。下表为 2026-09-19 实测结果：glm-4.7 / glm-4.7-flash / glm-4.5-air 可调用，glm-4.5、glm-4.6、glm-5~5.2 均返回“余额不足或无可用资源包”。",
@@ -43,7 +43,7 @@
     "use_free_models": true
   },
   "rules": [
-    "规定一（2026-09-12 用户指定）：所有自动任务（云端 GitHub Actions workflows 全部 LLM 环节 + 本机定时任务 + 今后新增的自动化）统一使用 flash 模型 glm-4.5-flash，不得擅自升级更高级模型。",
+    "规定一（2026-09-12 用户指定，2026-10-02 用户切换为 deepseek）：所有自动任务（云端 GitHub Actions workflows 全部 LLM 环节 + 本机定时任务 + 今后新增的自动化）统一使用 deepseek/deepseek-v4.1-flash（qnaigc 网关），flash 档 glm-4.5-flash 作为备选，不得擅自改用禁用名单模型。",
     "规定二（2026-09-15 用户指定）：一切自动任务（含云端与本机定时任务）禁止使用 GLM-5.3 和 KIMI K3 模型——仅在用户明确指定时才可使用，其他任何情况一概不使用（含自动降级/重试/临时改动）。",
     "规定三（2026-09-15 用户指定，flash 优先原则）：一切自动任务优先使用 flash 档模型，模型选择、重试、降级等任何环节都以 flash 为先。",
     "规定四：今后新增的自动化任务默认沿用 daily_automation.model，无需重复设置；如需更换模型只改此文件 + GitHub Secrets 的 LLM_MODEL 两处。",
