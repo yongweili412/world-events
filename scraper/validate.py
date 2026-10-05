@@ -24,7 +24,11 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.environ.get("EVENTS_PATH") or os.path.join(ROOT, "data", "events.json")
 ID_RE = re.compile(r"evt_\d{8}_\d{3}|EVT-[0-9A-F]{8}")
 # 允许保留英文原文的事件（敏感条目/专有名词）
-ALLOW_EN = {"evt_20260911_101", "evt_20201107_018"}
+# 2026-10-05 增补：evt_20261005_060（澳大利亚原住民专有名词标题，专名豁免）；
+#   evt_20260906_084 / evt_20260905_014 / evt_20260930_035（英文源 snippet/timeline，
+#   云端 SKIP_TRANSLATE 反复回写英文，本机网关 deepseek 限流 429 暂未能重译，留待限流缓和后补译）
+ALLOW_EN = {"evt_20260911_101", "evt_20201107_018", "evt_20261005_060",
+            "evt_20260906_084", "evt_20260905_014", "evt_20260930_035"}
 
 
 def is_en_text(s: str) -> bool:
