@@ -70,7 +70,12 @@ def load_events():
 
 
 def split(events=None):
-    """events.json → 按年份分片。保持原数组相对顺序，保证幂等。"""
+    """events.json → 按年份分片。保持原数组相对顺序，保证幂等。
+
+    原子性（重要）：先全部写成 *.json.tmp，全部成功后才统一改名替换旧分片。
+    任何一步失败，旧分片原样保留，绝不出现"删了旧的、新的没写完"的半成品状态。
+    （曾因非原子流程丢失 18 个分片且被静默提交，教训见 2026-10-06 日志。）
+    """
     if events is None:
         events = load_events()
     if events is None:
@@ -84,18 +89,34 @@ def split(events=None):
     for e in events:
         buckets.setdefault(_shard_key(e, monthly_years), []).append(e)
 
-    # 清理上一次的旧分片，避免"年分片"与"月分片"并存造成 merge 重复
-    for p in SHARD_DIR.glob("*.json"):
-        if p.name != "index.json":
-            p.unlink()
-
     SHARD_DIR.mkdir(parents=True, exist_ok=True)
-    total_bytes = 0
-    for key, items in sorted(buckets.items()):
+    # 阶段一：全部写 .tmp（不动现有分片）
+    tmp_files = {}
+    for key, items in buckets.items():
         p = SHARD_DIR / f"{key}.json"
-        _atomic_write_json(p, items)
+        tmp = p.with_suffix(".json.tmp")
+        with open(tmp, "w", encoding="utf-8") as f:
+            json.dump(items, f, ensure_ascii=False, indent=2)
+        tmp_files[key] = (tmp, p)
+
+    # 阶段二：清理上一轮分片（此时新数据已在手里，删旧的不再有风险）。
+    # 注意只删"本轮不再使用"的旧分片，避免年/月粒度并存造成 merge 重复。
+    removed = 0
+    for p in SHARD_DIR.glob("*.json"):
+        key = p.name[:-5]  # 去掉 .json
+        if key not in buckets:
+            p.unlink()
+            removed += 1
+
+    # 阶段三：统一改名落位 + 打印
+    total_bytes = 0
+    for key in sorted(tmp_files):
+        tmp, p = tmp_files[key]
+        tmp.replace(p)
         total_bytes += p.stat().st_size
-        print(f"  {key}.json  {len(items):>6} 条  {p.stat().st_size/1024/1024:.2f} MB")
+        print(f"  {key}.json  {len(buckets[key]):>6} 条  {p.stat().st_size/1024/1024:.2f} MB")
+    if removed:
+        print(f"  清理过时分片 {removed} 个（年/月粒度切换或数据消失的月份）")
 
     _atomic_write_json(INDEX_FILE, {
         "version": "events-shards-v1",
