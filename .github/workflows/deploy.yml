@@ -1,0 +1,83 @@
+name: 部署站点（GitHub Pages）
+
+# 为什么需要这个工作流：
+#   data/events.js 是构建产物（70MB+），已加入 .gitignore 不入库，避免撑爆 git 历史。
+#   本工作流在部署时运行 build.py 现场生成它，再发布到 Pages——站点照常可用，
+#   但 git 仓库里不再存放这个巨型生成物。
+#
+# 触发说明（重要）：
+#   - push：本地/PAT 推送会触发；但云端工作流用 GITHUB_TOKEN 推送【不会】触发 push 工作流
+#     （GitHub 防死循环机制），所以下面额外用 workflow_run 监听数据类工作流。
+#   - workflow_run：4 个数据工作流跑完后触发部署（仅成功时）。
+#   - schedule：每 6 小时兜底，防止漏触发。
+#   - workflow_dispatch：手动触发。
+
+on:
+  push:
+    branches: [main]
+  workflow_run:
+    workflows:
+      - 云端自动抓取
+      - 历史回填（1997-2025 大事年表）
+      - 逐日存档回填（重点年份细节）
+      - 证据补证（弱证据事件补抓独立来源）
+    types: [completed]
+  schedule:
+    - cron: '40 */6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages-deploy
+  cancel-in-progress: false
+
+jobs:
+  build:
+    # workflow_run 只在源工作流成功时才部署；其他触发方式一律执行
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: 检出仓库
+        uses: actions/checkout@v4
+
+      - name: 安装 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: 生成静态站点（含 data/events.js）
+        run: python scraper/build.py
+
+      - name: 组装发布目录
+        run: |
+          mkdir -p dist/data
+          cp index.html admin.html country.html event.html map.html preview.html dist/ 2>/dev/null || true
+          cp app.js style.css dist/ 2>/dev/null || true
+          if [ -d assets ]; then cp -r assets dist/; fi
+          cp archive-*.html dist/ || true
+          cp data/events.js dist/data/events.js
+          echo "--- 发布目录概览 ---"
+          ls -1 dist | head -15
+          echo "归档页数量: $(ls -1 dist/archive-*.html 2>/dev/null | wc -l)"
+          du -sh dist
+
+      - name: 上传 Pages 产物
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: 部署到 GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

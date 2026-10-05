@@ -1,2 +1,6 @@
 # 临时工作文件（脚本/日志/对比文件，不入库）
 _*
+
+# 构建产物：data/events.js 由部署时 build.py 现场生成（70MB+），
+# 不入库以免每次提交都往 git 历史里塞一个巨型 blob。
+data/events.js
