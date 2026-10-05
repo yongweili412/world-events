@@ -177,6 +177,43 @@ def render_month_nav(months, current=None):
     return "\n".join(links)
 
 
+def render_month_nav_grouped(months, current=None, recent=12):
+    """首页归档导航：最近 N 个月平铺，更早的按年份折叠（<details>，无 JS 依赖）。
+
+    为什么：1997-2026 共 350+ 个月份链接一次性平铺在首页，视觉噪音太大，
+    会把核心内容（时间线）推到很深的位置。折叠后首屏只看到 12 个最近月份。
+    """
+    recent_months = months[-recent:]
+    older = months[:-recent]
+    parts = ['<div class="archive-head">',
+             '<h2>浏览全部档案</h2>',
+             f'<span class="archive-range">{month_label(months[0])} – '
+             f'{month_label(months[-1])} · 共 {len(months)} 个月</span>',
+             '</div>',
+             '<div class="month-nav month-nav-recent">']
+    for ym in recent_months:
+        cls = ' class="current"' if ym == current else ""
+        parts.append(f'<a href="./archive-{ym}.html"{cls}>{month_label(ym)}</a>')
+    parts.append('</div>')
+    if older:
+        by_year = {}
+        for ym in older:
+            by_year.setdefault(ym[:4], []).append(ym)
+        parts.append('<div class="year-fold-list">')
+        for y in sorted(by_year, reverse=True):
+            yms = by_year[y]
+            inner = "".join(
+                f'<a href="./archive-{ym}.html">{month_label(ym)}</a>' for ym in yms
+            )
+            parts.append(
+                f'<details class="year-fold"><summary><span>{y} 年</span>'
+                f'<span class="year-count">{len(yms)} 个月</span></summary>'
+                f'<div class="month-nav">{inner}</div></details>'
+            )
+        parts.append('</div>')
+    return "\n".join(parts)
+
+
 def main():
     with open(EVENTS_FILE, "r", encoding="utf-8") as f:
         events = json.load(f)
@@ -193,7 +230,7 @@ def main():
     h, _ = replace_between(h, T_START, T_END,
                            render_timeline(today_events),
                            "index 今日事件")
-    h, _ = replace_between(h, M_START, M_END, render_month_nav(months), "index 月份导航")
+    h, _ = replace_between(h, M_START, M_END, render_month_nav_grouped(months), "index 归档导航")
     embed_latest = events_sorted[:INDEX_EMBED_COUNT]
     payload = json.dumps(embed_latest, ensure_ascii=False).replace("</", "<\\/")
     embed_snippet = (f"<script>window.__TOTAL_EVENTS__ = {len(events)}; "
@@ -202,7 +239,7 @@ def main():
     h, _ = replace_between(h, START, END, embed_snippet, "index 内嵌数据")
     idx.write_text(h, encoding="utf-8")
     print(f"  ✅ index.html：今日({latest_date}) {len(today_events)} 个事件，"
-          f"内嵌 {len(embed_latest)} 条（总 {len(events)} 事件），月份导航 {len(months)} 个月")
+          f"内嵌 {len(embed_latest)} 条（总 {len(events)} 事件），归档导航 {len(months)} 个月（折叠式）")
 
     # 2) archive-YYYY-MM.html：每个月一个静态归档页
     template = TEMPLATE_FILE.read_text(encoding="utf-8")

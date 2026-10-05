@@ -29,6 +29,9 @@ jobs:
       - name: 检出仓库
         uses: actions/checkout@v4
 
+      - name: 从分片重建工作副本（data/events.json 不入库，真源是 data/events/*.json）
+        run: python scraper/shard_events.py ensure
+
       - name: 安装 Python
         uses: actions/setup-python@v5
         with:
@@ -46,6 +49,9 @@ jobs:
 
       - name: 构建静态页面
         run: python scraper/build.py
+
+      - name: 分片写回（data/events/*.json 为入库真源，工作副本不入库）
+        run: python scraper/shard_events.py split
 
       - name: 提交并推送（被拒自动合并重推，保住长任务成果）
         run: |

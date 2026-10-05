@@ -4,3 +4,8 @@ _*
 # 构建产物：data/events.js 由部署时 build.py 现场生成（70MB+），
 # 不入库以免每次提交都往 git 历史里塞一个巨型 blob。
 data/events.js
+
+# 数据工作副本：data/events.json 是 79MB 单行 JSON，任何改动＝整文件重写，
+# 不入库（git rm --cached 已移除跟踪）。入库真源是 data/events/*.json 按年份/月份分片，
+# 由 scraper/shard_events.py 在 split（入库）/ merge（出库）时双向同步。
+data/events.json
