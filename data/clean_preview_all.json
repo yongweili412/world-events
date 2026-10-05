@@ -1,29 +1,959 @@
 {
   "year": null,
-  "dry_run": false,
-  "total": 30982,
+  "dry_run": true,
+  "total": 37823,
   "layerCounts": {
-    "boundary": 6694,
-    "rules_keep": 2634,
-    "weak_evidence": 21651,
-    "rules_drop": 3
+    "boundary": 18715,
+    "weak_evidence": 14950,
+    "rules_keep": 3870,
+    "rules_drop": 288
   },
   "decisionCounts": {
-    "REVIEW": 28142,
-    "KEEP": 2837,
-    "DROP": 3
+    "REVIEW": 33345,
+    "KEEP": 4190,
+    "DROP": 288
   },
   "typeCounts": {
-    "society_culture": 12261,
-    "world": 18479,
-    "internet_trends": 242
+    "society_culture": 14343,
+    "world": 23220,
+    "internet_trends": 260
   },
-  "droppedCount": 3,
-  "droppedRate": 0.01,
+  "droppedCount": 288,
+  "droppedRate": 0.76,
   "droppedSample": [
     {
-      "id": "evt_20250605_010",
+      "id": "evt_20261005_079",
+      "date": "2026-10-05",
+      "title": "欧米茄推出新邦德腕表，尽管暂无新007电影",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 19,
+      "reason": "疑似普通商业/日常信息（综合19，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261005_017",
+      "date": "2026-10-05",
+      "title": "一周新车盘点｜智界RX刷新国产量产SUV浙赛纪录 全新宝马3系燃油版首发|界面新闻 · 汽车",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 25,
+      "reason": "疑似普通商业/日常信息（综合25，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261005_023",
+      "date": "2026-10-05",
+      "title": "国庆假期三亚大东海引中外游客乐享椰风海韵",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 11,
+      "reason": "疑似普通商业/日常信息（综合11，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261005_050",
+      "date": "2026-10-05",
+      "title": "马尼拉与圣地亚哥教堂为宠物祈福",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 11,
+      "reason": "疑似普通商业/日常信息（综合11，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261005_144",
+      "date": "2026-10-05",
+      "title": "菲律宾一教堂举行圣方济各节宠物祈福活动",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 11,
+      "reason": "疑似普通商业/日常信息（综合11，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261005_061",
+      "date": "2026-10-05",
+      "title": "西澳州长在5.43亿管道升级中改口海水淡化厂计划",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 11,
+      "reason": "疑似普通商业/日常信息（综合11，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261005_075",
+      "date": "2026-10-05",
+      "title": "每日简报：AI人气悖论与EmTech Future 2026",
+      "category": [
+        "科技"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 36,
+      "reason": "疑似普通商业/日常信息（综合36，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261005_013",
+      "date": "2026-10-05",
+      "title": "日本濑户内海推出邮轮游 瞄准富裕游客",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 16,
+      "reason": "疑似普通商业/日常信息（综合16，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261005_045",
+      "date": "2026-10-05",
+      "title": "数千朝圣者连夜前往卢汉 迎接教皇利奥到访",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 11,
+      "reason": "疑似普通商业/日常信息（综合11，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261005_078",
+      "date": "2026-10-05",
+      "title": "Withings BodyScan 2评测：物有所值",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 11,
+      "reason": "疑似普通商业/日常信息（综合11，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261005_081",
+      "date": "2026-10-05",
+      "title": "Staples打印与营销服务评测：快速制作节日礼物",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 11,
+      "reason": "疑似普通商业/日常信息（综合11，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261005_072",
+      "date": "2026-10-05",
+      "title": "马达加斯加的月球般地貌",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 25,
+      "reason": "疑似普通商业/日常信息（综合25，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261005_130",
+      "date": "2026-10-05",
+      "title": "诺贝尔医学奖授予光遗传学技术突破者",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 20,
+      "reason": "疑似普通商业/日常信息（综合20，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261005_039",
+      "date": "2026-10-05",
+      "title": "德国和美国科学家因大脑活动研究获得诺贝尔医学奖",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 20,
+      "reason": "疑似普通商业/日常信息（综合20，无突出维度）；命中商业噪声词，已整体降权；2 个独立来源域名"
+    },
+    {
+      "id": "evt_20261005_113",
+      "date": "2026-10-05",
+      "title": "三人因光遗传学研究获诺贝尔医学奖",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 20,
+      "reason": "疑似普通商业/日常信息（综合20，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261004_074",
+      "date": "2026-10-04",
+      "title": "乡村数据中心将获联邦大幅税收优惠",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 11,
+      "reason": "疑似普通商业/日常信息（综合11，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261004_095",
+      "date": "2026-10-04",
+      "title": "英国格拉斯顿伯里音乐节门票45分钟售罄",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 19,
+      "reason": "疑似普通商业/日常信息（综合19，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261004_070",
+      "date": "2026-10-04",
+      "title": "2026年最佳办公椅：测试70款后精选15款",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 11,
+      "reason": "疑似普通商业/日常信息（综合11，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261004_091",
+      "date": "2026-10-04",
+      "title": "研究：并非所有运动都护脑，某类运动或增痴呆风险",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 13,
+      "reason": "疑似普通商业/日常信息（综合13，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261004_072",
+      "date": "2026-10-04",
+      "title": "Meta眼镜Nova第三代评测：新意不多",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 23,
+      "reason": "疑似普通商业/日常信息（综合23，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261004_089",
+      "date": "2026-10-04",
+      "title": "研究：抑郁症或存在五种不同脑活动模式",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 16,
+      "reason": "疑似普通商业/日常信息（综合16，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261004_020",
+      "date": "2026-10-04",
+      "title": "越南第三季度经济增长9.95% 创四年最快",
+      "category": [
+        "经济"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 37,
+      "reason": "疑似普通商业/日常信息（综合37，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261003_050",
+      "date": "2026-10-03",
+      "title": "Hoka优惠码：2026年10月享30%折扣",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 11,
+      "reason": "疑似普通商业/日常信息（综合11，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261003_027",
+      "date": "2026-10-03",
+      "title": "国际能源署：已释放约3.25亿桶战略石油储备",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 15,
+      "reason": "疑似普通商业/日常信息（综合15，无突出维度）；命中商业噪声词，已整体降权；3 个独立来源域名"
+    },
+    {
+      "id": "evt_20261003_098",
+      "date": "2026-10-03",
+      "title": "纪录片《NAZA》引争议 以色列军方发表声明",
+      "category": [
+        "文体",
+        "时政",
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 24,
+      "reason": "疑似普通商业/日常信息（综合24，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261003_085",
+      "date": "2026-10-03",
+      "title": "东航再通报“空姐下跪道歉”事件：已向公安机关报案_直击现场",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 11,
+      "reason": "疑似普通商业/日常信息（综合11，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261003_032",
+      "date": "2026-10-03",
+      "title": "美国咖啡品牌新疆开店受欢迎",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 11,
+      "reason": "疑似普通商业/日常信息（综合11，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261003_037",
+      "date": "2026-10-03",
+      "title": "今年秋季熊出没情况如何？橡子收成调查",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 11,
+      "reason": "疑似普通商业/日常信息（综合11，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261003_111",
+      "date": "2026-10-03",
+      "title": "爱尔兰足球媒体发布会因以记者提问陷入混乱",
+      "category": [
+        "体育"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 34,
+      "reason": "疑似普通商业/日常信息（综合34，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261003_044",
+      "date": "2026-10-03",
+      "title": "美国航天局宇航员克里斯蒂娜·科赫将在费城与职业橄榄球大联盟球迷互动",
+      "category": [
+        "科技"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 36,
+      "reason": "疑似普通商业/日常信息（综合36，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261003_130",
+      "date": "2026-10-03",
+      "title": "青少年涉嫌驾车冲撞纽卡斯尔骑士队球迷被起诉",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 26,
+      "reason": "疑似普通商业/日常信息（综合26，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261003_010",
+      "date": "2026-10-03",
+      "title": "布鲁克林1840年代联排别墅翻新后挂牌1275万美元",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 16,
+      "reason": "疑似普通商业/日常信息（综合16，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261003_084",
+      "date": "2026-10-03",
+      "title": "10月3日全国多处景区发布限流公告_直击现场",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 19,
+      "reason": "疑似普通商业/日常信息（综合19，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261003_089",
+      "date": "2026-10-03",
+      "title": "OpenAI安全系统团队负责人辞职",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 22,
+      "reason": "疑似普通商业/日常信息（综合22，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261002_249",
+      "date": "2026-10-02",
+      "title": "评论：中国向10万名美国学生敞开大门 美国须加紧行动",
+      "category": [
+        "时政",
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 30,
+      "reason": "疑似普通商业/日常信息（综合30，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261002_052",
+      "date": "2026-10-02",
+      "title": "接连曝出丑闻后更换社长的尼得科 能否维持上市成焦点",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 16,
+      "reason": "疑似普通商业/日常信息（综合16，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261002_138",
+      "date": "2026-10-02",
+      "title": "瑞士冰川五年消融近五分之一 | 联合早报网",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 15,
+      "reason": "疑似普通商业/日常信息（综合15，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261002_145",
+      "date": "2026-10-02",
+      "title": "上海生育医疗费用个人“无自付”新政落地，部分住院分娩孕产妇已获益_浦江头条",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 34,
+      "reason": "疑似普通商业/日常信息（综合34，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261002_017",
+      "date": "2026-10-02",
+      "title": "日本造船业复兴基金带动民间投资",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 11,
+      "reason": "疑似普通商业/日常信息（综合11，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261002_207",
+      "date": "2026-10-02",
+      "title": "鞋履品牌与兄弟会合拍广告引发争议",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 11,
+      "reason": "疑似普通商业/日常信息（综合11，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261002_014",
+      "date": "2026-10-02",
+      "title": "越捷泰国计划2028年营收翻倍",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 16,
+      "reason": "疑似普通商业/日常信息（综合16，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261002_063",
+      "date": "2026-10-02",
+      "title": "现代汽车在纽约发布全新途胜",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 11,
+      "reason": "疑似普通商业/日常信息（综合11，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261002_086",
+      "date": "2026-10-02",
+      "title": "“跟着功夫游大陆”主题展亮相高雄旅展",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 11,
+      "reason": "疑似普通商业/日常信息（综合11，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261002_208",
+      "date": "2026-10-02",
+      "title": "NHL推出言情风格音频故事遭吐槽",
+      "category": [
+        "体育"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 34,
+      "reason": "疑似普通商业/日常信息（综合34，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261002_058",
+      "date": "2026-10-02",
+      "title": "斯蒂芬·金基金会帮助缅因州家庭供暖，电台募捐活动为居民筹集241,820美元",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 11,
+      "reason": "疑似普通商业/日常信息（综合11，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261002_147",
+      "date": "2026-10-02",
+      "title": "1年内在12315平台累计举报1520次，市监部门：具牟利性职业索赔特征_直击现场",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 19,
+      "reason": "疑似普通商业/日常信息（综合19，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261002_178",
+      "date": "2026-10-02",
+      "title": "五千架无人机点亮南昌夜空庆国庆",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 17,
+      "reason": "疑似普通商业/日常信息（综合17，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261002_151",
+      "date": "2026-10-02",
+      "title": "汽车业前三季度成绩单：新势力格局重排，销冠之争再生悬念|界面新闻 · 汽车",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 18,
+      "reason": "疑似普通商业/日常信息（综合18，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261002_222",
+      "date": "2026-10-02",
+      "title": "阿根廷沿岸幼鲸大量死亡 科学家展开调查",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 13,
+      "reason": "疑似普通商业/日常信息（综合13，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261002_235",
+      "date": "2026-10-02",
+      "title": "阿尔及利亚议会推动扩大死刑适用范围",
+      "category": [
+        "时政",
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 22,
+      "reason": "疑似普通商业/日常信息（综合22，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261002_232",
+      "date": "2026-10-02",
+      "title": "94岁犹太裔大律师因支持\"巴勒斯坦行动\"在英国被捕",
+      "category": [
+        "时政",
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 22,
+      "reason": "疑似普通商业/日常信息（综合22，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261002_223",
+      "date": "2026-10-02",
+      "title": "博茨瓦纳大象数量过多 批准猎杀23头用于独立庆典",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 15,
+      "reason": "疑似普通商业/日常信息（综合15，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261001_140",
+      "date": "2026-10-01",
+      "title": "香港“国庆赛马日”人气旺 游客盼香江发展如万马奔腾",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 11,
+      "reason": "疑似普通商业/日常信息（综合11，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261001_052",
+      "date": "2026-10-01",
+      "title": "Tractive Cat 6 Mini评测：属于猫咪的运动手环",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 11,
+      "reason": "疑似普通商业/日常信息（综合11，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261001_209",
+      "date": "2026-10-01",
+      "title": "日本央行短观调查：大型制造业信心连续六个季度改善",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 18,
+      "reason": "疑似普通商业/日常信息（综合18，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261001_011",
+      "date": "2026-10-01",
+      "title": "今年前三季度吴哥古迹接待国际游客逾51万人次",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 15,
+      "reason": "疑似普通商业/日常信息（综合15，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261001_264",
+      "date": "2026-10-01",
+      "title": "欧洲燃料价格上涨加剧家庭预算压力并挑战各国政府",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 28,
+      "reason": "疑似普通商业/日常信息（综合28，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261001_203",
+      "date": "2026-10-01",
+      "title": "尼得科新社长承认激进扩张与逐利酿成巨额减记",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 17,
+      "reason": "疑似普通商业/日常信息（综合17，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261001_078",
+      "date": "2026-10-01",
+      "title": "记忆力衰退或比科学家原先认为的更早开始",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 13,
+      "reason": "疑似普通商业/日常信息（综合13，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261001_261",
+      "date": "2026-10-01",
+      "title": "新研究称棘龙可能大部分时间生活在水下",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 16,
+      "reason": "疑似普通商业/日常信息（综合16，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261001_082",
+      "date": "2026-10-01",
+      "title": "塞尔维亚咖啡馆里的非日常体验：与羊驼相伴品咖啡",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 11,
+      "reason": "疑似普通商业/日常信息（综合11，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261001_046",
+      "date": "2026-10-01",
+      "title": "亚马逊Kindle、Paperwhite与Colorsoft 2026：规格、价格与上市日期",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 16,
+      "reason": "疑似普通商业/日常信息（综合16，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261001_047",
+      "date": "2026-10-01",
+      "title": "会员大促日前夕：最值得买（与最不值得买）的亚马逊Echo早期优惠",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 11,
+      "reason": "疑似普通商业/日常信息（综合11，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261001_033",
+      "date": "2026-10-01",
+      "title": "美国《时代》杂志“下一代百人”榜单 京都八幡市长入选",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 19,
+      "reason": "疑似普通商业/日常信息（综合19，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261001_077",
+      "date": "2026-10-01",
+      "title": "地球磁场是否在暗中影响我们的衰老？",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 11,
+      "reason": "疑似普通商业/日常信息（综合11，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261001_035",
+      "date": "2026-10-01",
+      "title": "每日天文图：2026年10月1日——丰收月与正在喷发的埃特纳火山",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 17,
+      "reason": "疑似普通商业/日常信息（综合17，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261001_185",
+      "date": "2026-10-01",
+      "title": "秘藏50年的12幅名画将亮相纽约拍卖 估值近4.5亿美元",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 16,
+      "reason": "疑似普通商业/日常信息（综合16，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261001_141",
+      "date": "2026-10-01",
+      "title": "【逝者】恒安联合创办人施文博：卫生巾普及的推动者",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 21,
+      "reason": "疑似普通商业/日常信息（综合21，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261001_076",
+      "date": "2026-10-01",
+      "title": "当眼睛误导你时 大脑会寻找共识",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 13,
+      "reason": "疑似普通商业/日常信息（综合13，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261001_026",
+      "date": "2026-10-01",
+      "title": "狩猎大厅：法国乡村力量的背后",
+      "category": [
+        "体育"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 25,
+      "reason": "疑似普通商业/日常信息（综合25，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261001_279",
+      "date": "2026-10-01",
+      "title": "欧盟内部微软Teams替代品被批\"烂透了\"",
+      "category": [
+        "科技",
+        "时政"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 27,
+      "reason": "疑似普通商业/日常信息（综合27，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261001_101",
+      "date": "2026-10-01",
+      "title": "云南石林终止青桔美团电动车运营，两公司曾就落选提出异议",
+      "category": [
+        "科技"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 27,
+      "reason": "疑似普通商业/日常信息（综合27，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261001_007",
+      "date": "2026-10-01",
+      "title": "北京警方护航国庆假期旅游市场安全有序",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 23,
+      "reason": "疑似普通商业/日常信息（综合23，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20260930_081",
+      "date": "2026-09-30",
+      "title": "2026年最佳游戏路由器评测",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 19,
+      "reason": "疑似普通商业/日常信息（综合19，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20260930_083",
+      "date": "2026-09-30",
+      "title": "2026年儿童最佳床垫推荐",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 11,
+      "reason": "疑似普通商业/日常信息（综合11，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20260930_142",
+      "date": "2026-09-30",
+      "title": "“广西龙超”吸引逾190支队伍参赛 留学生体验划桨逐浪",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 11,
+      "reason": "疑似普通商业/日常信息（综合11，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20260930_087",
+      "date": "2026-09-30",
+      "title": "日本成立首个国家级情报机构",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 17,
+      "reason": "疑似普通商业/日常信息（综合17，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20260930_084",
+      "date": "2026-09-30",
+      "title": "2026年六款最佳笔记本扩展坞",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 11,
+      "reason": "疑似普通商业/日常信息（综合11，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20260930_119",
+      "date": "2026-09-30",
+      "title": "宝马高管：欧洲车企须迎战中国对手降价压力",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 18,
+      "reason": "疑似普通商业/日常信息（综合18，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20260930_070",
+      "date": "2026-09-30",
+      "title": "外国人在留许可手续费自10月1日起上调",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 11,
+      "reason": "疑似普通商业/日常信息（综合11，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20260928_083",
+      "date": "2026-09-28",
+      "title": "2026年最佳Apple Watch推荐",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 11,
+      "reason": "疑似普通商业/日常信息（综合11，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20260926_025",
+      "date": "2026-09-26",
+      "title": "汽车早报｜比亚迪提前完成闪充高速站年度建设目标 宾利推出首款纯电车型|界面新闻 · 汽车",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 24,
+      "reason": "疑似普通商业/日常信息（综合24，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20251014_001",
+      "date": "2025-10-14",
+      "title": "微软停止支持Windows 10系统",
+      "category": [
+        "科技"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 26,
+      "reason": "疑似普通商业/日常信息（综合26，无突出维度）；命中商业噪声词，已整体降权；2 个独立来源域名"
+    },
+    {
+      "id": "evt_20261001_001",
       "date": "2025-06-05",
+      "title": "来自神舟二十号的“太空问候”！中国航天员为世博会中国馆送祝福",
+      "category": [
+        "科技"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 37,
+      "reason": "疑似普通商业/日常信息（综合37，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261001_003",
+      "date": "2025-06-04",
       "title": "2025第九届中国（印尼）出口品牌联展暨印尼雅加达国际工业联展开幕",
       "category": [
         "其他"
@@ -33,26 +963,1269 @@
       "reason": "疑似普通商业/日常信息（综合15，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
     },
     {
-      "id": "evt_20250605_007",
-      "date": "2025-06-05",
-      "title": "中日气候变化问题专家交流会在东京举行",
+      "id": "evt_20240628_014",
+      "date": "2024-06-28",
+      "title": "印尼逮捕103名涉嫌网络犯罪的台湾人",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 22,
+      "reason": "疑似普通商业/日常信息（综合22，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20240620_019",
+      "date": "2024-06-20",
+      "title": "环保人士喷涂私人飞机后被捕",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 22,
+      "reason": "疑似普通商业/日常信息（综合22，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20240620_024",
+      "date": "2024-06-20",
+      "title": "2024年主龙类古生物学研究进展",
       "category": [
         "科技"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 35,
+      "reason": "疑似普通商业/日常信息（综合35，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20240620_018",
+      "date": "2024-06-20",
+      "title": "巨石阵橙色粉末涂料被清除未见损坏",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 22,
+      "reason": "疑似普通商业/日常信息（综合22，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20240619_020",
+      "date": "2024-06-19",
+      "title": "人权观察称中国更改维吾尔村庄名称",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 22,
+      "reason": "疑似普通商业/日常信息（综合22，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20240618_018",
+      "date": "2024-06-18",
+      "title": "哈萨克斯坦反对派人士在基辅遭枪击",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 23,
+      "reason": "疑似普通商业/日常信息（综合23，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20240616_009",
+      "date": "2024-06-16",
+      "title": "沙特朝觐期间至少19名朝圣者身亡",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 22,
+      "reason": "疑似普通商业/日常信息（综合22，无突出维度）；命中商业噪声词，已整体降权；2 个独立来源域名"
+    },
+    {
+      "id": "evt_20240615_011",
+      "date": "2024-06-15",
+      "title": "中国海警新规允许拘留非法入境外国人",
+      "category": [
+        "政治"
+      ],
+      "eventType": "world",
+      "archiveValue": 39,
+      "reason": "疑似普通商业/日常信息（综合39，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20240615_017",
+      "date": "2024-06-15",
+      "title": "美国得州六月节庆祝活动枪击致2死14伤",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 23,
+      "reason": "疑似普通商业/日常信息（综合23，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20240612_037",
+      "date": "2024-06-12",
+      "title": "亚美尼亚签署《阿耳忒弥斯协定》",
+      "category": [
+        "科技"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 27,
+      "reason": "疑似普通商业/日常信息（综合27，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20240610_025",
+      "date": "2024-06-10",
+      "title": "苹果举行2024年全球开发者大会",
+      "category": [
+        "科技"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 27,
+      "reason": "疑似普通商业/日常信息（综合27，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20240605_014",
+      "date": "2024-06-05",
+      "title": "耶路撒冷日数千以色列极右翼人士游行",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 22,
+      "reason": "疑似普通商业/日常信息（综合22，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20240603_015",
+      "date": "2024-06-03",
+      "title": "中国国安部逮捕并起诉一对涉嫌为英国MI6从事间谍活动的夫妇",
+      "category": [
+        "政治"
+      ],
+      "eventType": "world",
+      "archiveValue": 39,
+      "reason": "疑似普通商业/日常信息（综合39，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20240528_016",
+      "date": "2024-05-28",
+      "title": "哥伦比亚参议院通过决议禁止斗牛",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 22,
+      "reason": "疑似普通商业/日常信息（综合22，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20240524_003",
+      "date": "2024-05-24",
+      "title": "两名美国传教士和海地牧师在海地遭伏击身亡",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 22,
+      "reason": "疑似普通商业/日常信息（综合22，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20240522_018",
+      "date": "2024-05-22",
+      "title": "德国选择党禁止克拉赫继续参与竞选活动",
+      "category": [
+        "政治"
+      ],
+      "eventType": "world",
+      "archiveValue": 39,
+      "reason": "疑似普通商业/日常信息（综合39，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20240517_016",
+      "date": "2024-05-17",
+      "title": "法国鲁昂一男子试图纵火焚烧犹太教堂被击毙",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 23,
+      "reason": "疑似普通商业/日常信息（综合23，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20240513_020",
+      "date": "2024-05-13",
+      "title": "OpenAI发布新模型GPT-4o",
+      "category": [
+        "科技"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 36,
+      "reason": "疑似普通商业/日常信息（综合36，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20240510_015",
+      "date": "2024-05-10",
+      "title": "印度最高法院准予凯杰里瓦尔21天临时保释以参加竞选",
+      "category": [
+        "政治"
+      ],
+      "eventType": "world",
+      "archiveValue": 39,
+      "reason": "疑似普通商业/日常信息（综合39，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20240506_019",
+      "date": "2024-05-06",
+      "title": "比利时与荷兰学生举行声援露营并占领校园",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 22,
+      "reason": "疑似普通商业/日常信息（综合22，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20240506_018",
+      "date": "2024-05-06",
+      "title": "日本多所大学学生举行声援露营活动",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 22,
+      "reason": "疑似普通商业/日常信息（综合22，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20240428_006",
+      "date": "2024-04-28",
+      "title": "菲律宾因极端热浪宣布所有学校停课两天",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 22,
+      "reason": "疑似普通商业/日常信息（综合22，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20240416_006",
+      "date": "2024-04-16",
+      "title": "以色列定居者在阿克拉巴杀害两名巴勒斯坦人",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 22,
+      "reason": "疑似普通商业/日常信息（综合22，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20240412_014",
+      "date": "2024-04-12",
+      "title": "马里军政府禁止媒体报道政党活动",
+      "category": [
+        "政治"
+      ],
+      "eventType": "world",
+      "archiveValue": 39,
+      "reason": "疑似普通商业/日常信息（综合39，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20240404_018",
+      "date": "2024-04-04",
+      "title": "研究人员发布迄今最大宇宙三维地图",
+      "category": [
+        "科技"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 35,
+      "reason": "疑似普通商业/日常信息（综合35，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20240402_009",
+      "date": "2024-04-02",
+      "title": "墨西哥瓜纳华托州塞拉亚市长候选人遭暗杀",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 22,
+      "reason": "疑似普通商业/日常信息（综合22，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20240318_007",
+      "date": "2024-03-18",
+      "title": "南苏丹因极端高温全面停课",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 23,
+      "reason": "疑似普通商业/日常信息（综合23，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20240316_003",
+      "date": "2024-03-16",
+      "title": "香港法院判处12名冲击立法会人士监禁",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 22,
+      "reason": "疑似普通商业/日常信息（综合22，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20240316_002",
+      "date": "2024-03-16",
+      "title": "香港立法会综合大楼冲击案宣判",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 22,
+      "reason": "疑似普通商业/日常信息（综合22，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20240302_011",
+      "date": "2024-03-02",
+      "title": "美国北卡州公寓枪击案致2死4伤",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 23,
+      "reason": "疑似普通商业/日常信息（综合23，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20240301_012",
+      "date": "2024-03-01",
+      "title": "纳瓦尔尼葬礼在莫斯科举行",
+      "category": [
+        "政治"
+      ],
+      "eventType": "world",
+      "archiveValue": 39,
+      "reason": "疑似普通商业/日常信息（综合39，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20240228_008",
+      "date": "2024-02-28",
+      "title": "加拿大报告称两名被解雇科学家与华 covert 合作",
+      "category": [
+        "政治"
+      ],
+      "eventType": "world",
+      "archiveValue": 39,
+      "reason": "疑似普通商业/日常信息（综合39，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20240226_005",
+      "date": "2024-02-26",
+      "title": "墨西哥普埃布拉州三名护林员遭杀害",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 22,
+      "reason": "疑似普通商业/日常信息（综合22，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20240225_013",
+      "date": "2024-02-25",
+      "title": "白俄罗斯举行国民会议代表院及地方委员会选举",
+      "category": [
+        "政治"
+      ],
+      "eventType": "world",
+      "archiveValue": 39,
+      "reason": "疑似普通商业/日常信息（综合39，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20240215_002",
+      "date": "2024-02-15",
+      "title": "英国经济连续两季度萎缩陷入技术性衰退",
+      "category": [
+        "经济"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 38,
+      "reason": "疑似普通商业/日常信息（综合38，无突出维度）；命中商业噪声词，已整体降权；2 个独立来源域名"
+    },
+    {
+      "id": "evt_20240205_009",
+      "date": "2024-02-05",
+      "title": "英国国王查尔斯三世被诊断出患有癌症",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 22,
+      "reason": "疑似普通商业/日常信息（综合22，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20240119_003",
+      "date": "2024-01-19",
+      "title": "几内亚球迷庆祝球队获胜时发生车祸致6死",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 29,
+      "reason": "疑似普通商业/日常信息（综合29，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20240117_009",
+      "date": "2024-01-17",
+      "title": "泰国活动人士阿农·南帕因冒犯君主罪被判四年",
+      "category": [
+        "政治"
+      ],
+      "eventType": "world",
+      "archiveValue": 39,
+      "reason": "疑似普通商业/日常信息（综合39，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20240116_013",
+      "date": "2024-01-16",
+      "title": "波多黎各塞巴发生驾车枪击致5人死亡",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 23,
+      "reason": "疑似普通商业/日常信息（综合23，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20240114_008",
+      "date": "2024-01-14",
+      "title": "英吉利海峡翻船致五名移民身亡",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 30,
+      "reason": "疑似普通商业/日常信息（综合30，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20231230_012",
+      "date": "2023-12-30",
+      "title": "谷歌就50亿美元隐私诉讼达成和解",
+      "category": [
+        "科技"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 26,
+      "reason": "疑似普通商业/日常信息（综合26，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20231214_024",
+      "date": "2023-12-14",
+      "title": "Temu起诉Shein指控其恐吓供应商",
+      "category": [
+        "经济"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 38,
+      "reason": "疑似普通商业/日常信息（综合38，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20231214_022",
+      "date": "2023-12-14",
+      "title": "香港警方悬红通缉五名海外活动人士",
+      "category": [
+        "政治"
+      ],
+      "eventType": "world",
+      "archiveValue": 39,
+      "reason": "疑似普通商业/日常信息（综合39，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20231207_008",
+      "date": "2023-12-07",
+      "title": "丹麦议会通过法案禁止亵渎宗教经典",
+      "category": [
+        "政治"
+      ],
+      "eventType": "world",
+      "archiveValue": 39,
+      "reason": "疑似普通商业/日常信息（综合39，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20231207_001",
+      "date": "2023-12-07",
+      "title": "《博德之门3》获2023年TGA年度最佳游戏",
+      "category": [
+        "文化"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 38,
+      "reason": "疑似普通商业/日常信息（综合38，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20231206_020",
+      "date": "2023-12-06",
+      "title": "洛杉矶FC因球迷违规被罚款并禁赛球迷组织",
+      "category": [
+        "体育"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 25,
+      "reason": "疑似普通商业/日常信息（综合25，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20231130_015",
+      "date": "2023-11-30",
+      "title": "俄罗斯最高法院禁止LGBT运动并定性为极端主义",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 22,
+      "reason": "疑似普通商业/日常信息（综合22，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20231111_023",
+      "date": "2023-11-11",
+      "title": "伦敦市中心数十万人集会声援巴勒斯坦",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 22,
+      "reason": "疑似普通商业/日常信息（综合22，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20231110_030",
+      "date": "2023-11-10",
+      "title": "国际板球理事会暂停斯里兰卡资格",
+      "category": [
+        "体育"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 26,
+      "reason": "疑似普通商业/日常信息（综合26，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20231030_021",
+      "date": "2023-10-30",
+      "title": "国际足联禁足鲁维亚莱斯三年",
+      "category": [
+        "体育"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 35,
+      "reason": "疑似普通商业/日常信息（综合35，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20231029_030",
+      "date": "2023-10-29",
+      "title": "阿曼举行协商会议成员选举",
+      "category": [
+        "政治"
+      ],
+      "eventType": "world",
+      "archiveValue": 39,
+      "reason": "疑似普通商业/日常信息（综合39，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20231026_029",
+      "date": "2023-10-26",
+      "title": "缅甸仰光警方打击网络诈骗逮捕95人",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 22,
+      "reason": "疑似普通商业/日常信息（综合22，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20231024_018",
+      "date": "2023-10-24",
+      "title": "菲律宾哥打巴托市张贴竞选海报时发生枪战",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 22,
+      "reason": "疑似普通商业/日常信息（综合22，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20231006_009",
+      "date": "2023-10-06",
+      "title": "伊朗活动人士穆罕默迪获诺贝尔和平奖",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 23,
+      "reason": "疑似普通商业/日常信息（综合23，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20231004_008",
+      "date": "2023-10-04",
+      "title": "美俄分别测试紧急民众警报系统",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 22,
+      "reason": "疑似普通商业/日常信息（综合22，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20230929_016",
+      "date": "2023-09-29",
+      "title": "白俄罗斯禁止左翼党活动",
+      "category": [
+        "政治"
+      ],
+      "eventType": "world",
+      "archiveValue": 39,
+      "reason": "疑似普通商业/日常信息（综合39，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20230926_003",
+      "date": "2023-09-26",
+      "title": "加拿大议长罗塔因争议辞职",
+      "category": [
+        "政治"
+      ],
+      "eventType": "world",
+      "archiveValue": 39,
+      "reason": "疑似普通商业/日常信息（综合39，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20230924_013",
+      "date": "2023-09-24",
+      "title": "加拿大议长为邀请纳粹老兵致歉",
+      "category": [
+        "政治"
+      ],
+      "eventType": "world",
+      "archiveValue": 39,
+      "reason": "疑似普通商业/日常信息（综合39，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20230827_009",
+      "date": "2023-08-27",
+      "title": "两名波兰黑客入侵铁路系统被捕",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 23,
+      "reason": "疑似普通商业/日常信息（综合23，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20230823_014",
+      "date": "2023-08-23",
+      "title": "伦敦法院裁定两名少年涉黑客勒索案",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 22,
+      "reason": "疑似普通商业/日常信息（综合22，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20230821_005",
+      "date": "2023-08-21",
+      "title": "德央行预测三季度经济停滞",
+      "category": [
+        "经济"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 37,
+      "reason": "疑似普通商业/日常信息（综合37，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20230817_017",
+      "date": "2023-08-17",
+      "title": "瑞典恐袭威胁升级",
+      "category": [
+        "政治"
+      ],
+      "eventType": "world",
+      "archiveValue": 39,
+      "reason": "疑似普通商业/日常信息（综合39，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20230816_012",
+      "date": "2023-08-16",
+      "title": "荷兰经济陷入衰退",
+      "category": [
+        "经济"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 37,
+      "reason": "疑似普通商业/日常信息（综合37，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20230816_022",
+      "date": "2023-08-16",
+      "title": "新加坡破获跨国洗钱案",
+      "category": [
+        "经济"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 38,
+      "reason": "疑似普通商业/日常信息（综合38，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20230804_014",
+      "date": "2023-08-04",
+      "title": "纳瓦利内被判19年监禁",
+      "category": [
+        "政治"
+      ],
+      "eventType": "world",
+      "archiveValue": 39,
+      "reason": "疑似普通商业/日常信息（综合39，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20230725_021",
+      "date": "2023-07-25",
+      "title": "德桑蒂斯竞选团队解雇员工",
+      "category": [
+        "政治"
+      ],
+      "eventType": "world",
+      "archiveValue": 39,
+      "reason": "疑似普通商业/日常信息（综合39，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20230721_007",
+      "date": "2023-07-21",
+      "title": "印尼托莫洪市场停止猫狗肉交易",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 22,
+      "reason": "疑似普通商业/日常信息（综合22，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20230718_016",
+      "date": "2023-07-18",
+      "title": "埃及基督徒活动家因文章被判刑",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 22,
+      "reason": "疑似普通商业/日常信息（综合22，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20230620_005",
+      "date": "2023-06-20",
+      "title": "冰岛暂停所有捕鲸活动",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 22,
+      "reason": "疑似普通商业/日常信息（综合22，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20230605_005",
+      "date": "2023-06-05",
+      "title": "苹果发布Vision Pro混合现实头显",
+      "category": [
+        "科技"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 28,
+      "reason": "疑似普通商业/日常信息（综合28，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20230517_011",
+      "date": "2023-05-17",
+      "title": "泰国前市长因谋杀活动家被判死刑",
+      "category": [
+        "政治"
+      ],
+      "eventType": "world",
+      "archiveValue": 39,
+      "reason": "疑似普通商业/日常信息（综合39，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20230415_024",
+      "date": "2023-04-15",
+      "title": "爱尔兰骑手赢得第175届英国国家大赛马",
+      "category": [
+        "体育"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 25,
+      "reason": "疑似普通商业/日常信息（综合25，无突出维度）；命中商业噪声词，已整体降权；2 个独立来源域名"
+    },
+    {
+      "id": "evt_20230106_006",
+      "date": "2023-01-06",
+      "title": "美国古巴间谍服刑20年后获释",
+      "category": [
+        "政治"
+      ],
+      "eventType": "world",
+      "archiveValue": 39,
+      "reason": "疑似普通商业/日常信息（综合39，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261001_014",
+      "date": "2022-12-13",
+      "title": "中国多家驻土机构参加土耳其创新周",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 15,
+      "reason": "疑似普通商业/日常信息（综合15，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20261001_015",
+      "date": "2022-12-13",
+      "title": "匈牙利说就解冻恢复基金与欧盟达成协议",
+      "category": [
+        "其他"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 15,
+      "reason": "疑似普通商业/日常信息（综合15，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20221118_018",
+      "date": "2022-11-18",
+      "title": "国际篮联发布最新世界排名",
+      "category": [
+        "体育"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 39,
+      "reason": "疑似普通商业/日常信息（综合39，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20220813_007",
+      "date": "2022-08-13",
+      "title": "美国宾州车祸致1死17伤",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 28,
+      "reason": "疑似普通商业/日常信息（综合28，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20220711_011",
+      "date": "2022-07-11",
+      "title": "NASA发布韦伯望远镜首张全彩星系团图像",
+      "category": [
+        "科技"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 26,
+      "reason": "疑似普通商业/日常信息（综合26，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20220612_002",
+      "date": "2022-06-12",
+      "title": "麦当劳俄罗斯门店更名重新开业",
+      "category": [
+        "经济"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 37,
+      "reason": "疑似普通商业/日常信息（综合37，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20220602_006",
+      "date": "2022-06-02",
+      "title": "伦敦举行女王铂禧庆典活动",
+      "category": [
+        "文化"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 29,
+      "reason": "疑似普通商业/日常信息（综合29，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20220204_004",
+      "date": "2022-02-04",
+      "title": "冰岛宣布2024年终止捕鲸活动",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 22,
+      "reason": "疑似普通商业/日常信息（综合22，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20220121_005",
+      "date": "2022-01-21",
+      "title": "孟加拉国关闭学校至2月6日",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 30,
+      "reason": "疑似普通商业/日常信息（综合30，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20220109_012",
+      "date": "2022-01-09",
+      "title": "希腊宣布未接种加强针者禁入室内场所",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 30,
+      "reason": "疑似普通商业/日常信息（综合30，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20220101_006",
+      "date": "2022-01-01",
+      "title": "阿根廷实施疫苗接种证书制度",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 30,
+      "reason": "疑似普通商业/日常信息（综合30，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20211223_012",
+      "date": "2021-12-23",
+      "title": "意大利宣布新年庆祝活动禁令",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 22,
+      "reason": "疑似普通商业/日常信息（综合22，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20211222_008",
+      "date": "2021-12-22",
+      "title": "不列颠哥伦比亚省因Omicron变种关闭公共场所",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 30,
+      "reason": "疑似普通商业/日常信息（综合30，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20211221_010",
+      "date": "2021-12-21",
+      "title": "瑞典宣布新防疫措施",
+      "category": [
+        "社会"
       ],
       "eventType": "society_culture",
       "archiveValue": 34,
       "reason": "疑似普通商业/日常信息（综合34，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
     },
     {
-      "id": "evt_20250605_005",
-      "date": "2025-06-05",
-      "title": "来自神舟二十号的“太空问候”！中国航天员为世博会中国馆送祝福",
+      "id": "evt_20211219_009",
+      "date": "2021-12-19",
+      "title": "爱尔兰收紧餐饮场所营业时间",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 22,
+      "reason": "疑似普通商业/日常信息（综合22，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20211217_010",
+      "date": "2021-12-17",
+      "title": "芬兰恢复公共场所口罩强制令",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 30,
+      "reason": "疑似普通商业/日常信息（综合30，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20211216_008",
+      "date": "2021-12-16",
+      "title": "马来西亚因Omicron变种禁止大型圣诞新年庆祝",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 30,
+      "reason": "疑似普通商业/日常信息（综合30，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20211213_017",
+      "date": "2021-12-13",
+      "title": "费城实施室内活动疫苗强制令",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 30,
+      "reason": "疑似普通商业/日常信息（综合30，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20211208_005",
+      "date": "2021-12-08",
+      "title": "中国批准BRII生物新冠抗体药物上市",
       "category": [
         "科技"
       ],
       "eventType": "society_culture",
-      "archiveValue": 37,
-      "reason": "疑似普通商业/日常信息（综合37，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+      "archiveValue": 27,
+      "reason": "疑似普通商业/日常信息（综合27，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20211108_013",
+      "date": "2021-11-08",
+      "title": "洛杉矶实施全美最严疫苗令",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 30,
+      "reason": "疑似普通商业/日常信息（综合30，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20211105_006",
+      "date": "2021-11-05",
+      "title": "阿斯托洛世界音乐节踩踏事件",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 23,
+      "reason": "疑似普通商业/日常信息（综合23，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20211019_003",
+      "date": "2021-10-19",
+      "title": "保加利亚推行新冠绿色证书",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 22,
+      "reason": "疑似普通商业/日常信息（综合22，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20211015_013",
+      "date": "2021-10-15",
+      "title": "布鲁塞尔扩大新冠安全票使用范围",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 22,
+      "reason": "疑似普通商业/日常信息（综合22，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20210925_008",
+      "date": "2021-09-25",
+      "title": "荷兰13岁以上须持疫苗通行证",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 30,
+      "reason": "疑似普通商业/日常信息（综合30，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20210911_010",
+      "date": "2021-09-11",
+      "title": "摩尔多瓦实施新冠疫苗接种令限制餐饮文化活动",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 30,
+      "reason": "疑似普通商业/日常信息（综合30，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20210907_019",
+      "date": "2021-09-07",
+      "title": "Gettr CEO在巴西CPAC活动后被扣留",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 22,
+      "reason": "疑似普通商业/日常信息（综合22，无突出维度）；命中商业噪声词，已整体降权；2 个独立来源域名"
+    },
+    {
+      "id": "evt_20210906_023",
+      "date": "2021-09-06",
+      "title": "白俄罗斯反对派活动家被判11年监禁",
+      "category": [
+        "政治"
+      ],
+      "eventType": "world",
+      "archiveValue": 39,
+      "reason": "疑似普通商业/日常信息（综合39，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20210827_021",
+      "date": "2021-08-27",
+      "title": "丹麦解除所有新冠限制",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 22,
+      "reason": "疑似普通商业/日常信息（综合22，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20210827_019",
+      "date": "2021-08-27",
+      "title": "泰国计划9月1日起逐步放宽新冠限制措施",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 22,
+      "reason": "疑似普通商业/日常信息（综合22，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20210818_012",
+      "date": "2021-08-18",
+      "title": "以色列推行室内场所疫苗准入令",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 30,
+      "reason": "疑似普通商业/日常信息（综合30，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20210816_028",
+      "date": "2021-08-16",
+      "title": "北马其顿实施防疫新规",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 30,
+      "reason": "疑似普通商业/日常信息（综合30，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20210811_032",
+      "date": "2021-08-11",
+      "title": "俄勒冈州重新实施室内口罩令",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 30,
+      "reason": "疑似普通商业/日常信息（综合30，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20210805_028",
+      "date": "2021-08-05",
+      "title": "加纳法院撤销21名LGBT活动人士指控",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 22,
+      "reason": "疑似普通商业/日常信息（综合22，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20210729_022",
+      "date": "2021-07-29",
+      "title": "华盛顿特区发布室内口罩令",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 30,
+      "reason": "疑似普通商业/日常信息（综合30，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20210721_010",
+      "date": "2021-07-21",
+      "title": "密苏里州推出疫苗抽奖活动",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 30,
+      "reason": "疑似普通商业/日常信息（综合30，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20210706_006",
+      "date": "2021-07-06",
+      "title": "西班牙加泰罗尼亚收紧防疫措施",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 22,
+      "reason": "疑似普通商业/日常信息（综合22，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20210701_024",
+      "date": "2021-07-01",
+      "title": "密歇根州宣布推出疫苗接种抽奖活动",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 31,
+      "reason": "疑似普通商业/日常信息（综合31，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20210616_008",
+      "date": "2021-06-16",
+      "title": "北马其顿解除宵禁并放宽多项防疫限制",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 22,
+      "reason": "疑似普通商业/日常信息（综合22，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20210615_015",
+      "date": "2021-06-15",
+      "title": "斯洛文尼亚结束持续八个月的国家紧急状态",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 30,
+      "reason": "疑似普通商业/日常信息（综合30，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20210611_029",
+      "date": "2021-06-11",
+      "title": "安全机构揭露窃取超千万用户数据木马",
+      "category": [
+        "科技"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 27,
+      "reason": "疑似普通商业/日常信息（综合27，无突出维度）；命中商业噪声词，已整体降权；2 个独立来源域名"
+    },
+    {
+      "id": "evt_20210610_014",
+      "date": "2021-06-10",
+      "title": "德国一特警分队因涉嫌极右翼活动被解散",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 22,
+      "reason": "疑似普通商业/日常信息（综合22，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
+    },
+    {
+      "id": "evt_20210608_021",
+      "date": "2021-06-08",
+      "title": "加纳法院拒绝保捕逾两周的同性恋权利活动人士",
+      "category": [
+        "社会"
+      ],
+      "eventType": "society_culture",
+      "archiveValue": 22,
+      "reason": "疑似普通商业/日常信息（综合22，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名"
     }
   ]
 }

@@ -76,6 +76,12 @@ jobs:
           ALL_SOURCES: '1'
         run: python scraper/fill_images.py 60
 
+      - name: 档案价值评分补跑（给新抓事件补 archiveValue / decision）
+        # 抓取流程本身不评分，这里补跑保证评分覆盖跟上数据量。
+        # continue-on-error：评分失败也绝不影响每日抓取入库这条主线。
+        continue-on-error: true
+        run: python scraper/rescore.py
+
       - name: 构建静态页面
         run: python scraper/build.py
 
