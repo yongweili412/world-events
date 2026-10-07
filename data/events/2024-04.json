@@ -4269,9 +4269,12 @@
     "tags": [
       "社会",
       "俄罗斯",
-      "政治"
+      "政治",
+      "科技",
+      "人工智能",
+      "The Guardian World"
     ],
-    "status": "closed",
+    "status": "ongoing",
     "sources": [
       {
         "name": "apnews.com",
@@ -4286,6 +4289,13 @@
         "date": "2024-04-27",
         "title": "俄罗斯逮捕莫斯科音乐厅袭击案第五名嫌疑人",
         "snippet": "俄罗斯当局逮捕了上月莫斯科州克拉斯诺戈尔斯克音乐厅袭击案的第五名嫌疑人，为一名塔吉克斯坦男子，被控为袭击者提供资金和通讯支持。"
+      },
+      {
+        "name": "The Guardian World",
+        "url": "https://www.theguardian.com/world/2026/oct/06/tumbler-ridge-shooting-arrest-washington",
+        "date": "2026-10-06",
+        "title": "US man arrested as second suspect in Canada mass school shooting planned with ChatGPT",
+        "snippet": "Justice department detained James Codey Bryant and allege he offered ‘technical advice’ to primary suspectA surprise sus"
       }
     ],
     "timeline": [
@@ -4296,6 +4306,10 @@
       {
         "date": "2024-04-27",
         "text": "apnews.com｜俄罗斯当局逮捕了上月莫斯科州克拉斯诺戈尔斯克音乐厅袭击案的第五名嫌疑人，为一名塔吉克斯坦男子，被控为袭击者提供资金和通讯支持。"
+      },
+      {
+        "date": "2026-10-06",
+        "text": "The Guardian World｜Justice department detained James Codey Bryant and allege he offered ‘technical "
       }
     ],
     "relatedEvents": [],
@@ -29398,7 +29412,27 @@
         "text": "reuters.com｜以色列空袭叙利亚大马士革伊朗大使馆，造成伊斯兰革命卫队八名成员身亡，包括准将穆罕默德·礼萨·扎赫迪。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 80,
+    "socialImpact": 50,
+    "culturalImpact": 15,
+    "economicImpact": 20,
+    "technologyImpact": 15,
+    "memoryValue": 45,
+    "archiveValue": 64,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-10-07T20:49:33+00:00",
+      "model": null,
+      "inputHash": "68b3eddf1b34d5db"
+    }
   },
   {
     "id": "evt_20240404_019",
@@ -29445,7 +29479,27 @@
       }
     ],
     "relatedEvents": [],
-    "aiSummary": "伊朗锡斯坦-俾路支斯坦省发生针对革命卫队总部的袭击事件，正义军成员发动攻击，造成包括5名革命卫队成员在内的11名安全人员死亡，16名武装分子在交火中被击毙。"
+    "aiSummary": "伊朗锡斯坦-俾路支斯坦省发生针对革命卫队总部的袭击事件，正义军成员发动攻击，造成包括5名革命卫队成员在内的11名安全人员死亡，16名武装分子在交火中被击毙。",
+    "globalImpact": 100,
+    "socialImpact": 50,
+    "culturalImpact": 15,
+    "economicImpact": 20,
+    "technologyImpact": 15,
+    "memoryValue": 45,
+    "archiveValue": 78,
+    "eventType": "world",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合78，最强维度globalImpact=100）；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 70,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-10-07T20:49:33+00:00",
+      "model": null,
+      "inputHash": "184b2f0c9bead2f7"
+    }
   },
   {
     "id": "evt_20240404_020",
@@ -29485,7 +29539,27 @@
       }
     ],
     "relatedEvents": [],
-    "aiSummary": "2024年马耳他总统选举举行，选举产生新一任马耳他总统，接替卸任总统乔治·维拉。"
+    "aiSummary": "2024年马耳他总统选举举行，选举产生新一任马耳他总统，接替卸任总统乔治·维拉。",
+    "globalImpact": 45,
+    "socialImpact": 45,
+    "culturalImpact": 15,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 39,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "来源仅维基月度存档页，缺独立佐证，待补证；证据等级 weak",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 50,
+      "evidenceStatus": "weak",
+      "needsEvidence": true,
+      "assessedAt": "2026-10-07T20:49:33+00:00",
+      "model": null,
+      "inputHash": "530d5c10515174af"
+    }
   },
   {
     "id": "evt_20240405_015",
@@ -29525,7 +29599,27 @@
       }
     ],
     "relatedEvents": [],
-    "aiSummary": "2024年4月5日，俄乌冲突期间俄罗斯境内遭受攻击的事件持续发生，多地报告遇袭情况，俄方称已采取应对措施，局势仍然紧张。"
+    "aiSummary": "2024年4月5日，俄乌冲突期间俄罗斯境内遭受攻击的事件持续发生，多地报告遇袭情况，俄方称已采取应对措施，局势仍然紧张。",
+    "globalImpact": 55,
+    "socialImpact": 50,
+    "culturalImpact": 15,
+    "economicImpact": 20,
+    "technologyImpact": 15,
+    "memoryValue": 45,
+    "archiveValue": 47,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "来源仅维基月度存档页，缺独立佐证，待补证；证据等级 weak",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 50,
+      "evidenceStatus": "weak",
+      "needsEvidence": true,
+      "assessedAt": "2026-10-07T20:49:33+00:00",
+      "model": null,
+      "inputHash": "5580cf92200d5936"
+    }
   },
   {
     "id": "evt_20240406_009",
@@ -29564,7 +29658,27 @@
         "text": "english.alarabiya.net｜在厄瓜多尔警方突袭墨西哥驻基多大使馆后，尼加拉瓜政府于2024年4月6日宣布暂停与厄瓜多尔的外交关系，声援墨西哥并谴责厄方侵犯外交豁免权。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 100,
+    "socialImpact": 25,
+    "culturalImpact": 15,
+    "economicImpact": 25,
+    "technologyImpact": 10,
+    "memoryValue": 25,
+    "archiveValue": 75,
+    "eventType": "world",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合75，最强维度globalImpact=100）；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 70,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-10-07T20:49:33+00:00",
+      "model": null,
+      "inputHash": "f9be446e4d619b58"
+    }
   },
   {
     "id": "evt_20240408_016",
@@ -29603,7 +29717,27 @@
         "text": "kyivindependent.com｜乌克兰方面声称在加里宁格勒附近的波罗的海海域损坏了一艘俄罗斯海军导弹舰。俄方尚未对此说法作出回应，事件具体情况有待进一步核实。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 80,
+    "socialImpact": 50,
+    "culturalImpact": 15,
+    "economicImpact": 20,
+    "technologyImpact": 15,
+    "memoryValue": 45,
+    "archiveValue": 64,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-10-07T20:49:33+00:00",
+      "model": null,
+      "inputHash": "c00350916785c580"
+    }
   },
   {
     "id": "evt_20240408_017",
@@ -29643,7 +29777,27 @@
       }
     ],
     "relatedEvents": [],
-    "aiSummary": "苏丹内战持续对该国平民造成严重人道主义影响，大量民众面临流离失所、粮食短缺和医疗资源匮乏等问题。国际社会呼吁各方保护平民并允许人道救援准入。"
+    "aiSummary": "苏丹内战持续对该国平民造成严重人道主义影响，大量民众面临流离失所、粮食短缺和医疗资源匮乏等问题。国际社会呼吁各方保护平民并允许人道救援准入。",
+    "globalImpact": 70,
+    "socialImpact": 45,
+    "culturalImpact": 15,
+    "economicImpact": 25,
+    "technologyImpact": 10,
+    "memoryValue": 25,
+    "archiveValue": 56,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "来源仅维基月度存档页，缺独立佐证，待补证；证据等级 weak",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 50,
+      "evidenceStatus": "weak",
+      "needsEvidence": true,
+      "assessedAt": "2026-10-07T20:49:33+00:00",
+      "model": null,
+      "inputHash": "79942a6f0de00abc"
+    }
   },
   {
     "id": "evt_20240408_018",
@@ -29683,7 +29837,27 @@
       }
     ],
     "relatedEvents": [],
-    "aiSummary": "2024年伊朗与以色列冲突及以色列与真主党冲突持续。以黎边境地区紧张局势升级，双方武装力量在边境地带持续交火。"
+    "aiSummary": "2024年伊朗与以色列冲突及以色列与真主党冲突持续。以黎边境地区紧张局势升级，双方武装力量在边境地带持续交火。",
+    "globalImpact": 80,
+    "socialImpact": 50,
+    "culturalImpact": 15,
+    "economicImpact": 20,
+    "technologyImpact": 15,
+    "memoryValue": 45,
+    "archiveValue": 64,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "来源仅维基月度存档页，缺独立佐证，待补证；命中商业噪声词，已整体降权；证据等级 weak",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 50,
+      "evidenceStatus": "weak",
+      "needsEvidence": true,
+      "assessedAt": "2026-10-07T20:49:33+00:00",
+      "model": null,
+      "inputHash": "a307b8466264e596"
+    }
   },
   {
     "id": "evt_20240409_015",
@@ -29723,7 +29897,27 @@
       }
     ],
     "relatedEvents": [],
-    "aiSummary": "以色列与哈马斯战争期间，加沙地带人道主义援助行动持续进行。国际社会加大援助力度，以缓解当地民众面临的人道危机。"
+    "aiSummary": "以色列与哈马斯战争期间，加沙地带人道主义援助行动持续进行。国际社会加大援助力度，以缓解当地民众面临的人道危机。",
+    "globalImpact": 100,
+    "socialImpact": 43,
+    "culturalImpact": 15,
+    "economicImpact": 25,
+    "technologyImpact": 10,
+    "memoryValue": 25,
+    "archiveValue": 76,
+    "eventType": "world",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合76，最强维度globalImpact=100）；证据等级 weak",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 55,
+      "evidenceStatus": "weak",
+      "needsEvidence": true,
+      "assessedAt": "2026-10-07T20:49:33+00:00",
+      "model": null,
+      "inputHash": "1087782ac6f90e1a"
+    }
   },
   {
     "id": "evt_20240411_013",
@@ -29762,7 +29956,27 @@
         "text": "bbc.com｜考古学家宣布在意大利古罗马城市庞贝发现新壁画，画面描绘古希腊神话人物形象，为研究当地艺术与宗教提供新资料。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 15,
+    "socialImpact": 25,
+    "culturalImpact": 60,
+    "economicImpact": 15,
+    "technologyImpact": 32,
+    "memoryValue": 50,
+    "archiveValue": 50,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-10-07T20:49:33+00:00",
+      "model": null,
+      "inputHash": "dfd8eedc35323bbb"
+    }
   },
   {
     "id": "evt_20240411_014",
@@ -29801,7 +30015,27 @@
         "text": "reuters.com｜科摩罗首都莫罗尼一所监狱发生越狱事件，共有38名囚犯逃脱。当局已展开追捕行动，并调查监狱安保漏洞。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 15,
+    "socialImpact": 45,
+    "culturalImpact": 20,
+    "economicImpact": 15,
+    "technologyImpact": 10,
+    "memoryValue": 25,
+    "archiveValue": 36,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-10-07T20:49:33+00:00",
+      "model": null,
+      "inputHash": "4a9ac3a6ea1b2d81"
+    }
   },
   {
     "id": "evt_20240412_017",
@@ -29840,7 +30074,27 @@
         "text": "washingtonpost.com｜埃塞俄比亚亚的斯亚贝巴千年厅附近，警方与法诺武装分子交火，两名武装分子被击毙，一人被捕，一名平民身亡，两名警员受伤。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 40,
+    "socialImpact": 45,
+    "culturalImpact": 20,
+    "economicImpact": 15,
+    "technologyImpact": 10,
+    "memoryValue": 25,
+    "archiveValue": 38,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-10-07T20:49:33+00:00",
+      "model": null,
+      "inputHash": "eb1d772c4362c2c1"
+    }
   },
   {
     "id": "evt_20240413_017",
@@ -29879,7 +30133,27 @@
         "text": "wsj.com｜据《华尔街日报》报道，美国海军舰艇于当日向中东地区调动，以协助以色列防御可能来袭的导弹。此举发生在地区紧张局势持续升级的背景下。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 80,
+    "socialImpact": 50,
+    "culturalImpact": 15,
+    "economicImpact": 20,
+    "technologyImpact": 15,
+    "memoryValue": 45,
+    "archiveValue": 64,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；命中商业噪声词，已整体降权；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-10-07T20:49:33+00:00",
+      "model": null,
+      "inputHash": "cfc5ab5ebb194b5c"
+    }
   },
   {
     "id": "evt_20240413_018",
@@ -29918,7 +30192,27 @@
         "text": "reuters.com｜伊朗扣押了葡萄牙注册、马德拉旗的集装箱船MSC Aries号，该船隶属以色列富商埃亚尔·奥弗任董事长的佐迪亚克海事公司。事件加剧了地区紧张局势。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 70,
+    "socialImpact": 25,
+    "culturalImpact": 15,
+    "economicImpact": 25,
+    "technologyImpact": 10,
+    "memoryValue": 25,
+    "archiveValue": 54,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-10-07T20:49:33+00:00",
+      "model": null,
+      "inputHash": "927f0cd83fcba9e5"
+    }
   },
   {
     "id": "evt_20240413_019",
@@ -29957,7 +30251,27 @@
         "text": "reuters.com｜枪手在巴基斯坦俾路支省努什基区从一辆巴士上绑架并杀害九人。遇难者遗体在一座桥下被发现，均似遭近距离枪击身亡。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 45,
+    "socialImpact": 45,
+    "culturalImpact": 20,
+    "economicImpact": 15,
+    "technologyImpact": 25,
+    "memoryValue": 25,
+    "archiveValue": 39,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-10-07T20:49:33+00:00",
+      "model": null,
+      "inputHash": "65f52d3a916b8290"
+    }
   },
   {
     "id": "evt_20240415_022",
@@ -29997,7 +30311,27 @@
       }
     ],
     "relatedEvents": [],
-    "aiSummary": "2024年伊朗对以色列发动军事打击，中东局势急剧升级。与此同时，伊朗与日本的外交关系也引发国际社会关注。"
+    "aiSummary": "2024年伊朗对以色列发动军事打击，中东局势急剧升级。与此同时，伊朗与日本的外交关系也引发国际社会关注。",
+    "globalImpact": 100,
+    "socialImpact": 25,
+    "culturalImpact": 15,
+    "economicImpact": 25,
+    "technologyImpact": 10,
+    "memoryValue": 25,
+    "archiveValue": 75,
+    "eventType": "world",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合75，最强维度globalImpact=100）；命中商业噪声词，已整体降权；证据等级 weak",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 55,
+      "evidenceStatus": "weak",
+      "needsEvidence": true,
+      "assessedAt": "2026-10-07T20:49:33+00:00",
+      "model": null,
+      "inputHash": "815e7bcb93207d5b"
+    }
   },
   {
     "id": "evt_20240415_023",
@@ -30036,7 +30370,27 @@
         "text": "japannews.yomiuri.co.jp｜日本将伊朗大部分地区包括德黑兰的旅行危险等级提升至4级中的第3级，呼吁日本公民避免前往伊朗旅行。此举与中东紧张局势升级有关。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 70,
+    "socialImpact": 25,
+    "culturalImpact": 15,
+    "economicImpact": 25,
+    "technologyImpact": 10,
+    "memoryValue": 25,
+    "archiveValue": 54,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；命中商业噪声词，已整体降权；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-10-07T20:49:33+00:00",
+      "model": null,
+      "inputHash": "50493fb9c2a0b75f"
+    }
   },
   {
     "id": "evt_20240415_024",
@@ -30075,7 +30429,27 @@
         "text": "radiotamazuj.org｜苏丹武装部队与快速支援部队在杰济拉州迈迪奈阿拉伯地区发生冲突，双方交火，当地局势紧张。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 80,
+    "socialImpact": 50,
+    "culturalImpact": 15,
+    "economicImpact": 20,
+    "technologyImpact": 15,
+    "memoryValue": 45,
+    "archiveValue": 64,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-10-07T20:49:33+00:00",
+      "model": null,
+      "inputHash": "432f1f60d3929d49"
+    }
   },
   {
     "id": "evt_20240415_025",
@@ -30114,7 +30488,27 @@
         "text": "apnews.com｜印度尼西亚南苏拉威西省塔纳托拉查地区因暴雨引发滑坡，随着最后一名失踪者被找到并确认身亡，死亡人数升至20人。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 35,
+    "socialImpact": 55,
+    "culturalImpact": 15,
+    "economicImpact": 25,
+    "technologyImpact": 10,
+    "memoryValue": 40,
+    "archiveValue": 46,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-10-07T20:49:33+00:00",
+      "model": null,
+      "inputHash": "02ee0318db738f19"
+    }
   },
   {
     "id": "evt_20240415_026",
@@ -30153,7 +30547,27 @@
         "text": "militarytimes.com｜美国弗吉尼亚州联邦法院审理伊拉克阿布格莱布监狱幸存者的首批索赔请求，三名被拘留者指控CACI公司参与监狱酷刑。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 15,
+    "socialImpact": 45,
+    "culturalImpact": 20,
+    "economicImpact": 15,
+    "technologyImpact": 10,
+    "memoryValue": 25,
+    "archiveValue": 36,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-10-07T20:49:33+00:00",
+      "model": null,
+      "inputHash": "39ca0351692bf87f"
+    }
   },
   {
     "id": "evt_20240415_027",
@@ -30192,7 +30606,27 @@
         "text": "dw.com｜2024年4月15日，格鲁吉亚第比利斯数千人抗议争议性外国代理人法，内政部称至少14人被拘留。议会辩论期间，执政党议员姆迪纳拉泽遭反对派成员殴打。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 65,
+    "socialImpact": 45,
+    "culturalImpact": 15,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 52,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-10-07T20:49:33+00:00",
+      "model": null,
+      "inputHash": "38c2b88791dec35c"
+    }
   },
   {
     "id": "evt_20240416_023",
@@ -30231,7 +30665,27 @@
         "text": "reuters.com｜美国电子游戏公司Take-Two Interactive宣布裁减5%的员工。公司称此举旨在优化成本结构并应对行业环境变化，裁员涉及多个业务部门。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 30,
+    "socialImpact": 30,
+    "culturalImpact": 37,
+    "economicImpact": 93,
+    "technologyImpact": 20,
+    "memoryValue": 25,
+    "archiveValue": 70,
+    "eventType": "society_culture",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合70，最强维度economicImpact=93）；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 70,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-10-07T20:49:33+00:00",
+      "model": null,
+      "inputHash": "1bf05be31eceec2e"
+    }
   },
   {
     "id": "evt_20240417_016",
@@ -30270,7 +30724,27 @@
         "text": "reuters.com｜以色列北部遭无人机袭击，14名以色列士兵和4名平民受伤，一名以色列国防军军官随后不治身亡。袭击加剧以黎边境紧张，以军与真主党交火持续。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 100,
+    "socialImpact": 50,
+    "culturalImpact": 15,
+    "economicImpact": 20,
+    "technologyImpact": 15,
+    "memoryValue": 45,
+    "archiveValue": 78,
+    "eventType": "world",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合78，最强维度globalImpact=100）；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 70,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-10-07T20:49:33+00:00",
+      "model": null,
+      "inputHash": "0bbec93b766e7bb2"
+    }
   },
   {
     "id": "evt_20240418_007",
@@ -30309,7 +30783,27 @@
         "text": "bbc.co.uk｜2024年4月18日，肯尼亚空军一架贝尔UH-1H直升机在埃尔盖约-马拉奎特郡坠毁，造成10人死亡，包括国防军司令弗朗西斯·奥蒙迪·奥格拉。总统鲁托宣布全国哀悼"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 55,
+    "socialImpact": 55,
+    "culturalImpact": 15,
+    "economicImpact": 25,
+    "technologyImpact": 10,
+    "memoryValue": 62,
+    "archiveValue": 53,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-10-07T20:49:33+00:00",
+      "model": null,
+      "inputHash": "50c6fe51c4a36b03"
+    }
   },
   {
     "id": "evt_20240418_008",
@@ -30349,7 +30843,27 @@
       }
     ],
     "relatedEvents": [],
-    "aiSummary": "2024年4月18日，巴勒斯坦推动联合国安理会就其成为正式会员国进行表决。该议题涉及联合国扩员程序，引发国际社会广泛关注，各方立场分歧明显。"
+    "aiSummary": "2024年4月18日，巴勒斯坦推动联合国安理会就其成为正式会员国进行表决。该议题涉及联合国扩员程序，引发国际社会广泛关注，各方立场分歧明显。",
+    "globalImpact": 100,
+    "socialImpact": 25,
+    "culturalImpact": 15,
+    "economicImpact": 25,
+    "technologyImpact": 10,
+    "memoryValue": 25,
+    "archiveValue": 75,
+    "eventType": "world",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合75，最强维度globalImpact=100）；证据等级 weak",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 55,
+      "evidenceStatus": "weak",
+      "needsEvidence": true,
+      "assessedAt": "2026-10-07T20:49:33+00:00",
+      "model": null,
+      "inputHash": "4259787fab971cb8"
+    }
   },
   {
     "id": "evt_20240420_011",
@@ -30388,7 +30902,27 @@
         "text": "reuters.com｜西班牙加那利群岛特内里费岛发生抗议活动，民众反对过度旅游推高当地房价，要求政府采取措施保障居民住房。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 29,
+    "socialImpact": 55,
+    "culturalImpact": 17,
+    "economicImpact": 12,
+    "technologyImpact": 8,
+    "memoryValue": 21,
+    "archiveValue": 43,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；命中商业噪声词，已整体降权；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-10-07T20:49:33+00:00",
+      "model": null,
+      "inputHash": "313bd8f67675cc36"
+    }
   },
   {
     "id": "evt_20240422_020",
@@ -30428,7 +30962,27 @@
       }
     ],
     "relatedEvents": [],
-    "aiSummary": "俄乌战争持续进行，多国继续向乌克兰提供军事援助，以支持其防御能力。"
+    "aiSummary": "俄乌战争持续进行，多国继续向乌克兰提供军事援助，以支持其防御能力。",
+    "globalImpact": 100,
+    "socialImpact": 25,
+    "culturalImpact": 15,
+    "economicImpact": 25,
+    "technologyImpact": 10,
+    "memoryValue": 25,
+    "archiveValue": 75,
+    "eventType": "world",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合75，最强维度globalImpact=100）；证据等级 weak",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 55,
+      "evidenceStatus": "weak",
+      "needsEvidence": true,
+      "assessedAt": "2026-10-07T20:49:33+00:00",
+      "model": null,
+      "inputHash": "92b684e12c67a522"
+    }
   },
   {
     "id": "evt_20240423_016",
@@ -30468,7 +31022,27 @@
       }
     ],
     "relatedEvents": [],
-    "aiSummary": "英吉利海峡移民越境事件持续发生，多国关注相关海域的偷渡与救援情况。该议题涉及英法等多国边境管理与移民政策。"
+    "aiSummary": "英吉利海峡移民越境事件持续发生，多国关注相关海域的偷渡与救援情况。该议题涉及英法等多国边境管理与移民政策。",
+    "globalImpact": 30,
+    "socialImpact": 65,
+    "culturalImpact": 20,
+    "economicImpact": 15,
+    "technologyImpact": 10,
+    "memoryValue": 25,
+    "archiveValue": 51,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "来源仅维基月度存档页，缺独立佐证，待补证；证据等级 weak",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 50,
+      "evidenceStatus": "weak",
+      "needsEvidence": true,
+      "assessedAt": "2026-10-07T20:49:33+00:00",
+      "model": null,
+      "inputHash": "f67d488c26846ef4"
+    }
   },
   {
     "id": "evt_20240423_017",
@@ -30507,7 +31081,27 @@
         "text": "reuters.com｜一艘载有移民的船只在吉布提沿海倾覆，造成至少二十一人死亡。事发后当地展开搜救，移民偷渡风险再度受到关注。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 35,
+    "socialImpact": 75,
+    "culturalImpact": 15,
+    "economicImpact": 25,
+    "technologyImpact": 10,
+    "memoryValue": 40,
+    "archiveValue": 59,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-10-07T20:49:33+00:00",
+      "model": null,
+      "inputHash": "373eec14aa458e44"
+    }
   },
   {
     "id": "evt_20240423_018",
@@ -30547,7 +31141,27 @@
       }
     ],
     "relatedEvents": [],
-    "aiSummary": "围绕巴勒斯坦国的国际承认以及以色列与哈马斯战争引发的国际反应持续发酵，多国立场与外交动向受到关注。"
+    "aiSummary": "围绕巴勒斯坦国的国际承认以及以色列与哈马斯战争引发的国际反应持续发酵，多国立场与外交动向受到关注。",
+    "globalImpact": 100,
+    "socialImpact": 25,
+    "culturalImpact": 15,
+    "economicImpact": 25,
+    "technologyImpact": 10,
+    "memoryValue": 25,
+    "archiveValue": 75,
+    "eventType": "world",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合75，最强维度globalImpact=100）；证据等级 weak",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 55,
+      "evidenceStatus": "weak",
+      "needsEvidence": true,
+      "assessedAt": "2026-10-07T20:49:33+00:00",
+      "model": null,
+      "inputHash": "37fede6eeaba1912"
+    }
   },
   {
     "id": "evt_20240424_017",
@@ -30586,7 +31200,27 @@
         "text": "bbc.co.uk｜阿根廷通过国际刑警组织对伊朗内政部长艾哈迈德·瓦希迪发出逮捕令，涉1994年布宜诺斯艾利斯犹太社区中心爆炸案。据信瓦希迪目前身在斯里兰卡。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 90,
+    "socialImpact": 25,
+    "culturalImpact": 15,
+    "economicImpact": 25,
+    "technologyImpact": 10,
+    "memoryValue": 25,
+    "archiveValue": 68,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-10-07T20:49:33+00:00",
+      "model": null,
+      "inputHash": "465b5f060f3f5ede"
+    }
   },
   {
     "id": "evt_20240426_014",
@@ -30626,7 +31260,27 @@
       }
     ],
     "relatedEvents": [],
-    "aiSummary": "2024年4月25日至28日，美国中西部多地遭遇龙卷风序列袭击，内布拉斯加和艾奥瓦等州受灾。风暴造成广泛破坏，气象部门发布多项预警，灾情与损失仍在统计中。"
+    "aiSummary": "2024年4月25日至28日，美国中西部多地遭遇龙卷风序列袭击，内布拉斯加和艾奥瓦等州受灾。风暴造成广泛破坏，气象部门发布多项预警，灾情与损失仍在统计中。",
+    "globalImpact": 55,
+    "socialImpact": 55,
+    "culturalImpact": 15,
+    "economicImpact": 25,
+    "technologyImpact": 10,
+    "memoryValue": 40,
+    "archiveValue": 47,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "来源仅维基月度存档页，缺独立佐证，待补证；命中商业噪声词，已整体降权；证据等级 weak",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 50,
+      "evidenceStatus": "weak",
+      "needsEvidence": true,
+      "assessedAt": "2026-10-07T20:49:33+00:00",
+      "model": null,
+      "inputHash": "440c050b5838d412"
+    }
   },
   {
     "id": "evt_20240426_015",
@@ -30665,7 +31319,27 @@
         "text": "twitter.com｜一台多普勒移动雷达在艾奥瓦州哈伦附近龙卷风中记录到时速224英里（约360公里）的风速，为2013年埃尔里诺龙卷风以来移动气象雷达测得的最强风速，相当于增强藤田"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 35,
+    "socialImpact": 55,
+    "culturalImpact": 15,
+    "economicImpact": 25,
+    "technologyImpact": 10,
+    "memoryValue": 40,
+    "archiveValue": 46,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-10-07T20:49:33+00:00",
+      "model": null,
+      "inputHash": "07aa8a713fa66ee2"
+    }
   },
   {
     "id": "evt_20240427_018",
@@ -30705,7 +31379,27 @@
       }
     ],
     "relatedEvents": [],
-    "aiSummary": "在俄罗斯入侵乌克兰背景下，俄罗斯境内发生袭击事件。相关情况仍在发展，具体损失和伤亡信息有待进一步确认。"
+    "aiSummary": "在俄罗斯入侵乌克兰背景下，俄罗斯境内发生袭击事件。相关情况仍在发展，具体损失和伤亡信息有待进一步确认。",
+    "globalImpact": 100,
+    "socialImpact": 50,
+    "culturalImpact": 15,
+    "economicImpact": 20,
+    "technologyImpact": 15,
+    "memoryValue": 45,
+    "archiveValue": 78,
+    "eventType": "world",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合78，最强维度globalImpact=100）；证据等级 weak",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 55,
+      "evidenceStatus": "weak",
+      "needsEvidence": true,
+      "assessedAt": "2026-10-07T20:49:33+00:00",
+      "model": null,
+      "inputHash": "ef2e728366141ce2"
+    }
   },
   {
     "id": "evt_20240427_019",
@@ -30744,6 +31438,26 @@
         "text": "cnn.com｜中国广州遭遇龙卷风袭击，造成至少五人死亡、至少三十三人受伤。当地建筑和基础设施受到不同程度损坏。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 55,
+    "socialImpact": 55,
+    "culturalImpact": 15,
+    "economicImpact": 25,
+    "technologyImpact": 10,
+    "memoryValue": 40,
+    "archiveValue": 47,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-10-07T20:49:33+00:00",
+      "model": null,
+      "inputHash": "ab61a1d53828a778"
+    }
   }
 ]
