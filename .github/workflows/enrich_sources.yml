@@ -60,6 +60,10 @@ jobs:
       - name: 校验数据完整性（事件数不减少 / id 唯一）
         run: python scraper/validate.py || echo "⚠️ validate 有告警（不阻断补证结果）"
 
+      - name: 档案价值评分补跑（补证会改变证据强度，顺带保证评分覆盖无缺口）
+        continue-on-error: true
+        run: python scraper/rescore.py
+
       - name: 分片写回（data/events/*.json 为入库真源，工作副本不入库）
         run: python scraper/shard_events.py split
 

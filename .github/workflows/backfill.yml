@@ -47,6 +47,12 @@ jobs:
           LLM_MODEL: ${{ secrets.LLM_MODEL }}
         run: python scraper/backfill_history.py ${{ github.event.inputs.years || 'auto' }}
 
+      - name: 档案价值评分补跑（新增事件必须补分，否则评分覆盖出现缺口）
+        # 2026-10-10 修复：回填类工作流原先漏了这一步，导致 2025-01/02/03 共 1838 条
+        # 回填事件入库后无 archiveValue（评分覆盖掉到 95.9%）。补分只补未评分的，可安全重跑。
+        continue-on-error: true
+        run: python scraper/rescore.py
+
       - name: 构建静态页面
         run: python scraper/build.py
 

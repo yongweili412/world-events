@@ -90,9 +90,12 @@ def classify(item, use_llm=True):
                 "method": "llm",
             })
         else:
-            # 模型不可用 → 保守转 REVIEW，绝不默认 KEEP/DROP
+            # 模型不可用 → 保守转 REVIEW，绝不默认 KEEP/DROP。
+            # 同时打上 llm_failed 标记：enforce 模式下这类条目**必须放行**——
+            # 「闸门故障绝不能变成丢数据」，模型限流时不能顺手拦掉未判定的新闻。
             result["decision"] = "REVIEW"
             result["method"] = "rules+llm_fail"
+            result["llm_failed"] = True
             result["reason"] = (r["reason"] + "；模型判断不可用，转 REVIEW").strip("；")
     return result
 
@@ -145,7 +148,7 @@ def gate_items(items, events=None, mode_override=None, daily_cap=DAILY_CAP,
     m = (mode_override or mode()).strip().lower()
     report = {"mode": m, "total": len(items), "update_only": 0, "create": 0,
               "review": 0, "reject": 0, "llm_used": 0, "capped": 0,
-              "llm_budget": llm_budget}
+              "llm_failed": 0, "llm_budget": llm_budget}
 
     if m not in ("shadow", "enforce"):
         # off：完全不动，保持原有行为
@@ -163,6 +166,14 @@ def gate_items(items, events=None, mode_override=None, daily_cap=DAILY_CAP,
         res = classify(it, use_llm=(use_llm and report["llm_used"] < llm_budget))
         if res.get("method") == "llm":
             report["llm_used"] += 1
+        if res.get("llm_failed"):
+            # 闸门故障（模型限流/异常）→ 放行 + 记账，绝不因故障拦掉数据。
+            # 这些条目等模型恢复后可从候选账本重放复核。
+            report["llm_failed"] += 1
+            _append_candidate(it, res, "PASS_ON_FAIL")
+            it["_value"] = res
+            allowed.append(it)
+            continue
         act = action_of(res["decision"])
         judged.append((it, res, act))
 
@@ -202,7 +213,7 @@ def print_report(report):
     print(f"  并入已有事件（放行） {report['update_only']}")
     print(f"  判定可新建 {report['create']} | 待复核 {report['review']} | 丢弃 {report['reject']}"
           f" | 超额留到下轮 {report['capped']}")
-    print(f"  LLM 精修 {report['llm_used']} 条")
+    print(f"  LLM 精修 {report['llm_used']} 条 | 模型不可用放行 {report.get('llm_failed', 0)} 条")
     if report.get("shadow_note"):
         print(f"  ⚠️ {report['shadow_note']}")
     print("================")

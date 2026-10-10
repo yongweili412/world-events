@@ -64,6 +64,12 @@ jobs:
       - name: 产出验收（各月条数达标检查，不达标即告警失败）
         run: python scraper/verify_daily_backfill.py
 
+      - name: 档案价值评分补跑（新增事件必须补分，否则评分覆盖出现缺口）
+        # 2026-10-10 修复：本工作流原先漏了这一步，导致 2025-01/02/03 共 1838 条
+        # 回填事件入库后无 archiveValue。补分只补未评分的，可安全重跑。
+        continue-on-error: true
+        run: python scraper/rescore.py
+
       - name: 构建静态页面
         run: python scraper/build.py
 

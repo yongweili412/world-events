@@ -28,6 +28,9 @@ WAR = mk("多国爆发全面武装冲突 联合国召开紧急会议",
          cat="军事")
 CAR = mk("某汽车品牌发布新款中型SUV 售价18.98万元起",
          "新车搭载2.0T发动机，配备全景天窗与L2级辅助驾驶，即日起开启预售。", cat="经济")
+# 明确垃圾（评分收紧后仍会真判 DROP 的样本：极低分 + 强商业噪声词）
+JUNK = mk("某品牌耳机开启预售 售价199元 限时优惠",
+          "新款蓝牙耳机上市，优惠促销，即日起开售，售价199元。", cat="其他")
 VIDEO = mk("网友发布一段猫咪搞笑视频", "一名用户上传了自家猫咪的趣味短片，获得亲友转发。", cat="其他")
 
 
@@ -48,12 +51,35 @@ class TestGateModes(unittest.TestCase):
         self.assertGreater(rep["reject"] + rep["review"], 0, "shadow 应统计出会被拦的条目")
 
     def test_enforce_keeps_high_value_and_blocks_noise(self):
-        """enforce：明显高价值放行，普通商业信息拦下。"""
-        items = [WAR, CAR]
+        """enforce：明显高价值放行，明确商业广告拦下。"""
+        items = [WAR, JUNK]
         allowed, rep = CP.gate_items(items, events=[], mode_override="enforce", use_llm=False)
-        self.assertEqual(rep["reject"], 1, "普通车型应被丢弃")
+        self.assertEqual(rep["reject"], 1, "明确商业广告（极低分+强噪声）应被丢弃")
         self.assertIn(WAR, allowed)
-        self.assertNotIn(CAR, allowed)
+        self.assertNotIn(JUNK, allowed)
+
+    def test_enforce_blocks_low_confidence_noise_as_review(self):
+        """评分收紧后：中等分的商业信息落 REVIEW，仍然不新建事件（只记账等复核）。"""
+        allowed, rep = CP.gate_items([CAR], events=[], mode_override="enforce", use_llm=False)
+        self.assertNotIn(CAR, allowed, "未过线的商业信息不应新建事件")
+        self.assertEqual(rep["review"], 1)
+        self.assertEqual(rep["reject"], 0, "分数未低到硬门槛，应归 REVIEW 而非硬丢弃")
+
+    def test_llm_failure_passes_through_in_enforce(self):
+        """模型限流/故障时绝不拦数据：llm_failed 的条目在 enforce 下必须放行（可后续重放）。"""
+        orig = CP.classify
+        CP.classify = lambda item, use_llm=True: {
+            "layer": "boundary", "eventType": "society_culture", "scores": {},
+            "archiveValue": 45, "decision": "REVIEW", "reason": "模型判断不可用，转 REVIEW",
+            "method": "rules+llm_fail", "llm_failed": True,
+        }
+        try:
+            allowed, rep = CP.gate_items([WAR], events=[], mode_override="enforce", use_llm=True)
+        finally:
+            CP.classify = orig
+        self.assertEqual(len(allowed), 1, "闸门故障绝不能变成丢数据")
+        self.assertEqual(rep["llm_failed"], 1)
+        self.assertIn("_value", allowed[0])
 
 
 class TestUpdateOnlyPassthrough(unittest.TestCase):
@@ -76,7 +102,7 @@ class TestSafeties(unittest.TestCase):
             orig = CP.CANDIDATE_DIR
             CP.CANDIDATE_DIR = Path(td)
             try:
-                CP.gate_items([CAR], events=[], mode_override="enforce", use_llm=False)
+                CP.gate_items([JUNK], events=[], mode_override="enforce", use_llm=False)
                 files = list(Path(td).glob("*.jsonl"))
                 self.assertEqual(len(files), 1, "应写出候选账本")
                 self.assertIn("REJECT", files[0].read_text(encoding="utf-8"))
