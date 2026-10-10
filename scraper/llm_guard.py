@@ -198,7 +198,14 @@ def resolve_model_chain(config_path: str = None) -> list:
     cfg_model = (da.get("model") or "").strip()
     explicit = env_model or cfg_model
     if explicit and _norm(explicit) != _norm(DEFAULT_MODEL):
-        return [_check_forbidden(explicit, cfg_forbidden, "人工显式指定")]
+        chain = [_check_forbidden(explicit, cfg_forbidden, "人工显式指定")]
+        # 显式模型失败时的最后兜底：回退 flash 档（规定一：glm-4.5-flash 作为备选；
+        # 规定八：允许按候选链自动换档重试）。
+        # 2026-10-10 修复：此前显式模型存在时链只有它自己，一旦网关限流(429)
+        # 就"不再换档"全线失败——闸门价值判断因此 1643 条转 rules+llm_fail。
+        if _norm(DEFAULT_MODEL) not in {_norm(m) for m in chain}:
+            chain.append(_check_forbidden(DEFAULT_MODEL, cfg_forbidden, "备选回退 flash"))
+        return chain
     chain = [ent["model"].strip() for ent in active_free_chain(cfg)]
     fallback = explicit or DEFAULT_MODEL
     if fallback not in chain:
