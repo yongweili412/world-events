@@ -102,12 +102,29 @@ def gen_full_summary(title, text, date, important=True):
         print("⚠️ 未配置 LLM_API_KEY，跳过（已移除内置兜底密钥，请在 GitHub Secrets / 本机环境变量配置）")
         return None
     try:
-        r = chat_raw(prompt, key=KEY, timeout=120, max_tokens=MAX_TOKENS)
-        if r.status_code != 200:
-            return None
-        content = (r.json()["choices"][0]["message"].get("content") or "").strip()
-        content = re.sub(r"^```[a-z]*\n?|```$", "", content.strip(), flags=re.M).strip()
-        return content if 100 <= len(content) <= 600 else (content[:600] if len(content) > 600 else None)
+        # 2026-10-11：加入同模型指数退避重试——网关 429 时 chat_raw 只会换档，
+        # 而备选 glm-4.5-flash 返回 400 不可用，导致限流窗口内整批失败。
+        RETRY_DELAYS = (4, 12, 30, 60)
+        content = None
+        for attempt in range(len(RETRY_DELAYS) + 1):
+            r = None
+            try:
+                r = chat_raw(prompt, key=KEY, timeout=120, max_tokens=MAX_TOKENS)
+            except Exception:
+                r = None
+            if r is not None and r.status_code == 200:
+                try:
+                    content = (r.json()["choices"][0]["message"].get("content") or "").strip()
+                except Exception:
+                    content = ""
+                content = re.sub(r"^```[a-z]*\n?|```$", "", content.strip(), flags=re.M).strip()
+                if content and len(content) >= 100:
+                    return content if len(content) <= 600 else content[:600]
+                content = None
+            if attempt < len(RETRY_DELAYS):
+                print(f"  ↻ 限流/失败，{RETRY_DELAYS[attempt]}s 后重试", flush=True)
+                time.sleep(RETRY_DELAYS[attempt])
+        return None
     except Exception:
         return None
 
@@ -178,9 +195,16 @@ def main():
             skip += 1
             print(f"  [{i+1}/{len(targets)}] 生成失败: {e['title'][:40]}", flush=True)
         time.sleep(1.5)
+        if (i + 1) % 10 == 0:
+            cache_save()   # 阶段性落盘，防中途被杀丢缓存
 
     cache_save()
-    json.dump(ev, open("data/events.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    with open("data/events.json", "w", encoding="utf-8") as f:
+        json.dump(ev, f, ensure_ascii=False, indent=1)
+        f.flush()
+    with open("data/events.json", encoding="utf-8") as f:
+        _chk = json.load(f)
+    assert len(_chk) == len(ev), f"复读断言失败 {len(_chk)} != {len(ev)}"
     total = len([e for e in ev if e.get("summaryFull")])
     print(f"DONE: 成功 {ok}（其中缓存复用 {n_cache}、A级全文版 {n_imp}），跳过 {skip}，"
           f"库内 summaryFull 总数 {total}/{len(ev)}")
