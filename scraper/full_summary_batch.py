@@ -64,8 +64,10 @@ def fetch_fulltext(url, limit=None):
     # 策略：取出所有候选容器，逐个向后截 9000 字去标签，**选文本最长的那个**作为正文起点。
     # 原因：同一个页面常有多个匹配（如 CCTV 的 text_area 是空壳仅 100 字、content_area 才是正文
     # 702 字），只取"第一个匹配"会命中空壳容器导致抓取失败（2026-09-19 修复，此前 CCTV 源 100% 失败）。
+    # 2026-10-14 增补：cri.cn（news.cri.cn）正文容器为 div id="abody"（class="list-abody abody"），
+    # 不在旧列表内导致该源 100% 抓取失败；加入 abody 后恢复正常（实测提取 700+ 字）。
     cands = [mm.start() for mm in re.finditer(
-        r'<div[^>]*(?:id|class)="(?:left_zw|content_area|text_area|article[_-]?content|TRS_Editor|zoom|content|article)"[^>]*>',
+        r'<div[^>]*(?:id|class)="(?:left_zw|content_area|text_area|article[_-]?content|TRS_Editor|zoom|content|article|abody)"[^>]*>',
         html, re.I)]
     if not cands:
         cands = [0]
