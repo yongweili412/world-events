@@ -61,7 +61,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-10-06T03:00:07+08:00",
+      "assessedAt": "2026-10-16T14:21:08+08:00",
       "model": null,
       "inputHash": "3be33f9f6b1bee43"
     },
@@ -122,7 +122,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-10-06T03:00:07+08:00",
+      "assessedAt": "2026-10-16T14:21:08+08:00",
       "model": null,
       "inputHash": "e01f6ff7dbb576ed"
     },
@@ -204,7 +204,7 @@
       "confidence": 45,
       "evidenceStatus": "strong",
       "needsEvidence": false,
-      "assessedAt": "2026-10-06T03:00:07+08:00",
+      "assessedAt": "2026-10-16T14:21:08+08:00",
       "model": null,
       "inputHash": "5450d2bc24fe18ad"
     },
@@ -272,7 +272,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-10-06T03:00:07+08:00",
+      "assessedAt": "2026-10-16T14:21:08+08:00",
       "model": null,
       "inputHash": "f257a1d509af64ee"
     },
@@ -333,7 +333,7 @@
       "confidence": 55,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-10-06T03:00:07+08:00",
+      "assessedAt": "2026-10-16T14:21:08+08:00",
       "model": null,
       "inputHash": "4106ebeb98950f60"
     },
@@ -385,23 +385,23 @@
     ],
     "relatedEvents": [],
     "aiSummary": "2016年12月9日，韩国国会通过对总统朴槿惠的弹劾案，指控其卷入亲信干政丑闻。朴槿惠成为韩国首位遭弹劾停职的总统，引发大规模抗议活动。",
-    "globalImpact": 80,
+    "globalImpact": 100,
     "socialImpact": 45,
     "culturalImpact": 15,
     "economicImpact": 20,
     "technologyImpact": 10,
     "memoryValue": 30,
-    "archiveValue": 63,
+    "archiveValue": 76,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；命中商业噪声词，已整体降权；1 个独立来源域名",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合76，最强维度globalImpact=100）；命中商业噪声词，已整体降权；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 45,
+      "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-10-06T03:00:07+08:00",
+      "assessedAt": "2026-10-16T14:21:08+08:00",
       "model": null,
       "inputHash": "ca7bc53f61c5da95"
     },
@@ -453,13 +453,13 @@
     ],
     "relatedEvents": [],
     "aiSummary": "2016年12月4日，意大利举行宪法改革公投，结果否决了修宪方案。总理伦齐随后宣布辞职，引发意大利政坛震动，对欧洲一体化进程产生影响。",
-    "globalImpact": 60,
+    "globalImpact": 85,
     "socialImpact": 45,
     "culturalImpact": 15,
     "economicImpact": 20,
     "technologyImpact": 10,
     "memoryValue": 30,
-    "archiveValue": 49,
+    "archiveValue": 66,
     "eventType": "world",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
@@ -469,7 +469,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-10-06T03:00:07+08:00",
+      "assessedAt": "2026-10-16T14:21:08+08:00",
       "model": null,
       "inputHash": "1cbdf6d75b3a087b"
     },
@@ -530,7 +530,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-10-06T03:00:07+08:00",
+      "assessedAt": "2026-10-16T14:21:08+08:00",
       "model": null,
       "inputHash": "1a90757ddbef6478"
     },
@@ -591,7 +591,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-10-06T03:00:07+08:00",
+      "assessedAt": "2026-10-16T14:21:08+08:00",
       "model": null,
       "inputHash": "5575fd0eabc4ca45"
     },
@@ -652,7 +652,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-10-06T03:00:07+08:00",
+      "assessedAt": "2026-10-16T14:21:08+08:00",
       "model": null,
       "inputHash": "985f0b1495b46b7f"
     },
@@ -713,7 +713,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-10-06T03:00:07+08:00",
+      "assessedAt": "2026-10-16T14:21:08+08:00",
       "model": null,
       "inputHash": "0d902a3f89f684e5"
     },
@@ -774,7 +774,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-10-06T03:00:07+08:00",
+      "assessedAt": "2026-10-16T14:21:08+08:00",
       "model": null,
       "inputHash": "c83d206eadb669a9"
     },
@@ -842,7 +842,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-10-06T03:00:07+08:00",
+      "assessedAt": "2026-10-16T14:21:08+08:00",
       "model": null,
       "inputHash": "a9152038c246a780"
     },
@@ -903,7 +903,7 @@
       "confidence": 45,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-10-06T03:00:07+08:00",
+      "assessedAt": "2026-10-16T14:21:08+08:00",
       "model": null,
       "inputHash": "5441fd9ade760381"
     },
@@ -964,7 +964,7 @@
       "confidence": 55,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-10-06T03:00:07+08:00",
+      "assessedAt": "2026-10-16T14:21:08+08:00",
       "model": null,
       "inputHash": "40cdf5aebc00906d"
     },
@@ -1025,7 +1025,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-10-06T03:00:07+08:00",
+      "assessedAt": "2026-10-16T14:21:08+08:00",
       "model": null,
       "inputHash": "a965e983e7b70097"
     },
@@ -1086,7 +1086,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-10-06T03:00:07+08:00",
+      "assessedAt": "2026-10-16T14:21:08+08:00",
       "model": null,
       "inputHash": "0b049717180744e3"
     },
@@ -1147,7 +1147,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-10-06T03:00:07+08:00",
+      "assessedAt": "2026-10-16T14:21:08+08:00",
       "model": null,
       "inputHash": "fab6457d06e5b490"
     },
@@ -1208,9 +1208,9 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-10-06T03:00:07+08:00",
+      "assessedAt": "2026-10-16T14:21:08+08:00",
       "model": null,
-      "inputHash": "cd94b65116835d27"
+      "inputHash": "d7388862cff327f8"
     },
     "summaryFull": false
   },
@@ -1276,7 +1276,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-10-06T03:00:07+08:00",
+      "assessedAt": "2026-10-16T14:21:08+08:00",
       "model": null,
       "inputHash": "3584f8552dc283a7"
     },
@@ -1337,9 +1337,9 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-10-06T03:00:07+08:00",
+      "assessedAt": "2026-10-16T14:21:08+08:00",
       "model": null,
-      "inputHash": "64dcc8df965decc8"
+      "inputHash": "c8f07be067675844"
     },
     "summaryFull": false
   },
@@ -1412,7 +1412,7 @@
       "confidence": 45,
       "evidenceStatus": "strong",
       "needsEvidence": false,
-      "assessedAt": "2026-10-06T03:00:07+08:00",
+      "assessedAt": "2026-10-16T14:21:08+08:00",
       "model": null,
       "inputHash": "f46d0df331a11ef1"
     },
@@ -1473,7 +1473,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-10-06T03:00:07+08:00",
+      "assessedAt": "2026-10-16T14:21:08+08:00",
       "model": null,
       "inputHash": "1b12dc59628bec8b"
     },
@@ -1534,7 +1534,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-10-06T03:00:07+08:00",
+      "assessedAt": "2026-10-16T14:21:08+08:00",
       "model": null,
       "inputHash": "6708e0fe0a2656cf"
     },
@@ -1579,13 +1579,13 @@
     ],
     "relatedEvents": [],
     "aiSummary": "巴西参议院投票通过弹劾总统罗塞夫的议案，副总统特梅尔接任总统职务，巴西政坛陷入严重动荡。",
-    "globalImpact": 60,
+    "globalImpact": 85,
     "socialImpact": 45,
     "culturalImpact": 15,
     "economicImpact": 20,
     "technologyImpact": 10,
     "memoryValue": 30,
-    "archiveValue": 49,
+    "archiveValue": 66,
     "eventType": "world",
     "decision": "REVIEW",
     "decisionReason": "来源仅维基月度存档页，缺独立佐证，待补证；证据等级 weak",
@@ -1595,7 +1595,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-10-06T03:00:07+08:00",
+      "assessedAt": "2026-10-16T14:21:08+08:00",
       "model": null,
       "inputHash": "601bab67f5090d0a"
     },
@@ -1677,7 +1677,7 @@
       "confidence": 45,
       "evidenceStatus": "strong",
       "needsEvidence": false,
-      "assessedAt": "2026-10-06T03:00:07+08:00",
+      "assessedAt": "2026-10-16T14:21:08+08:00",
       "model": null,
       "inputHash": "146b67dd1ebfa0ee"
     },
@@ -1745,7 +1745,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-10-06T03:00:07+08:00",
+      "assessedAt": "2026-10-16T14:21:08+08:00",
       "model": null,
       "inputHash": "032980392be1abf6"
     },
@@ -1790,13 +1790,13 @@
     ],
     "relatedEvents": [],
     "aiSummary": "特雷莎·梅接替辞职的大卫·卡梅伦，成为英国新首相。卡梅伦因脱欧公投结果辞职，梅将主导英国与欧盟的谈判进程。",
-    "globalImpact": 15,
+    "globalImpact": 40,
     "socialImpact": 20,
     "culturalImpact": 18,
     "economicImpact": 10,
     "technologyImpact": 10,
     "memoryValue": 18,
-    "archiveValue": 18,
+    "archiveValue": 32,
     "eventType": "society_culture",
     "decision": "REVIEW",
     "decisionReason": "来源仅维基月度存档页，缺独立佐证，待补证；证据等级 weak",
@@ -1806,7 +1806,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-10-06T03:00:07+08:00",
+      "assessedAt": "2026-10-16T14:21:08+08:00",
       "model": null,
       "inputHash": "bf5f5cb798d352a5"
     },
@@ -1867,7 +1867,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-10-06T03:00:07+08:00",
+      "assessedAt": "2026-10-16T14:21:08+08:00",
       "model": null,
       "inputHash": "9abd5e90b3daa1b8"
     },
@@ -1928,7 +1928,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-10-06T03:00:07+08:00",
+      "assessedAt": "2026-10-16T14:21:08+08:00",
       "model": null,
       "inputHash": "b1461801481069f3"
     },
@@ -1996,7 +1996,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-10-06T03:00:07+08:00",
+      "assessedAt": "2026-10-16T14:21:08+08:00",
       "model": null,
       "inputHash": "e37b1eda45b320e5"
     },
@@ -2057,7 +2057,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-10-06T03:00:07+08:00",
+      "assessedAt": "2026-10-16T14:21:08+08:00",
       "model": null,
       "inputHash": "70ada828f1990bc3"
     },
@@ -2125,7 +2125,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-10-06T03:00:07+08:00",
+      "assessedAt": "2026-10-16T14:21:08+08:00",
       "model": null,
       "inputHash": "c4386d6979b88d07"
     },
@@ -2200,7 +2200,7 @@
       "confidence": 70,
       "evidenceStatus": "strong",
       "needsEvidence": false,
-      "assessedAt": "2026-10-06T03:00:07+08:00",
+      "assessedAt": "2026-10-16T14:21:08+08:00",
       "model": null,
       "inputHash": "5d3268fcdf14906f"
     },
@@ -2268,7 +2268,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-10-06T03:00:07+08:00",
+      "assessedAt": "2026-10-16T14:21:08+08:00",
       "model": null,
       "inputHash": "0280b35785c7f208"
     },
@@ -2336,7 +2336,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-10-06T03:00:07+08:00",
+      "assessedAt": "2026-10-16T14:21:08+08:00",
       "model": null,
       "inputHash": "e1db0ae89f02816a"
     },
@@ -2404,7 +2404,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-10-06T03:00:07+08:00",
+      "assessedAt": "2026-10-16T14:21:08+08:00",
       "model": null,
       "inputHash": "fc6c81e77d1cd72f"
     },
@@ -2465,7 +2465,7 @@
       "confidence": 45,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-10-06T03:00:07+08:00",
+      "assessedAt": "2026-10-16T14:21:08+08:00",
       "model": null,
       "inputHash": "8e624c7eab75e19f"
     },
@@ -2526,7 +2526,7 @@
       "confidence": 55,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-10-06T03:00:07+08:00",
+      "assessedAt": "2026-10-16T14:21:08+08:00",
       "model": null,
       "inputHash": "e5fc9b20f94db180"
     },
@@ -2608,7 +2608,7 @@
       "confidence": 45,
       "evidenceStatus": "strong",
       "needsEvidence": false,
-      "assessedAt": "2026-10-06T03:00:07+08:00",
+      "assessedAt": "2026-10-16T14:21:08+08:00",
       "model": null,
       "inputHash": "80498d2dbb7cfa5b"
     },
@@ -2669,7 +2669,7 @@
       "confidence": 55,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-10-06T03:00:07+08:00",
+      "assessedAt": "2026-10-16T14:21:08+08:00",
       "model": null,
       "inputHash": "0b3e8cb06ae5e320"
     },
@@ -2751,7 +2751,7 @@
       "confidence": 45,
       "evidenceStatus": "strong",
       "needsEvidence": false,
-      "assessedAt": "2026-10-06T03:00:07+08:00",
+      "assessedAt": "2026-10-16T14:21:08+08:00",
       "model": null,
       "inputHash": "f09985704770b460"
     },
@@ -2812,7 +2812,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-10-06T03:00:07+08:00",
+      "assessedAt": "2026-10-16T14:21:08+08:00",
       "model": null,
       "inputHash": "fcd4e073719d090d"
     },
@@ -2873,7 +2873,7 @@
       "confidence": 55,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-10-06T03:00:07+08:00",
+      "assessedAt": "2026-10-16T14:21:08+08:00",
       "model": null,
       "inputHash": "3243cf376de8ba56"
     },

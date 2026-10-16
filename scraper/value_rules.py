@@ -126,9 +126,18 @@ def score_dimensions(ev):
         return scores, False, rescued, True
 
     # 商业噪声惩罚分两档：强噪声（明确商业）×0.60，弱噪声（语义歧义）×0.85。
-    # 弱噪声只轻微降权，不再单独把事件推进 DROP 区间。
-    strong = _hits(text, NOISE["patterns"]) > 0
+    # 强噪声与聚合页（摘要/简报）只在【标题】判定——"晨报/榜单/盘点"这类短词
+    # 出现在正文或来源标题里不代表它是垃圾（2026-10-16：曾误杀"环球小姐桂冠"
+    # ——正文来源里有"晨报"；"尼日利亚发现遇难者遗体"——来源里有"榜单"）。
+    title = ev.get("title") or ""
+    digest = _hits(title, NOISE.get("digestPatterns", [])) > 0
+    strong = _hits(title, NOISE["patterns"]) > 0
     ambiguous = _hits(text, NOISE.get("ambiguousPatterns", [])) > 0
+    # 聚合页（新闻摘要/简报/要闻）不是事件而是『一天新闻的目录』，降权最狠（×0.45）
+    # 且不受世界类目豁免——即使出自国际政治类源，它也不是一条可存档的事件。
+    if digest:
+        for d in ES.DIMENSIONS:
+            scores[d] = ES.clamp(int(scores[d] * NOISE.get("penaltyDigest", 0.45)))
     # 商业噪声惩罚只针对「普通商业/日常信息」，绝不应施加于世界/外交/军事类事件——
     # 这类事件常含"合作/任命/发布"等词，若被降权会误杀真正的战争、外交、政治事件。
     is_world = bool(set(ev.get("category") or []) & set(WORLD_CATS))
@@ -140,7 +149,7 @@ def score_dimensions(ev):
     elif ambiguous:
         for d in ES.DIMENSIONS:
             scores[d] = ES.clamp(int(scores[d] * NOISE.get("penaltyAmbiguous", 0.85)))
-    return scores, (strong or ambiguous), rescued, False
+    return scores, (digest or strong or ambiguous), rescued, False
 
 
 def infer_event_type(ev, scores):
@@ -224,7 +233,11 @@ def score_event(ev):
         # 其余疑似噪声一律降到 softDropConfidence（默认 65）→ decide() 自然落到 REVIEW，
         # 保留"疑似噪声"标记但不删数据。宁可 REVIEW 不误杀。
         t = CFG["thresholds"]
-        strong_noise = _hits(build_text(ev), NOISE["patterns"]) > 0
+        # digestPatterns（新闻摘要/简报等聚合页）按强噪声对待——它们比商业广告更确定不是事件。
+        # 与强噪声一样只在标题判定（避免正文子串误命中）。
+        ev_title = ev.get("title") or ""
+        strong_noise = (_hits(ev_title, NOISE["patterns"]) > 0
+                        or _hits(ev_title, NOISE.get("digestPatterns", [])) > 0)
         hard_drop = (
             (archive_value or 0) < t.get("hardDropMaxScore", 25)
             and strong_noise
