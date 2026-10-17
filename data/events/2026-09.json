@@ -386,7 +386,7 @@
       "model": null,
       "inputHash": "6e95e442e96157c5"
     },
-    "image": "",
+    "image": "http://www.chinanews.com.cn/fileftp/2025/07/2025-07-17/U947P4T47D55580F24532DT20250717134135.png",
     "aiSummary": "近期持续强降雨导致柬埔寨严重洪涝灾害，马德望、暹粒、磅通、特本克蒙、拜林、菩萨、柏威夏等10省数万户家庭受到影响。9月30日，马德望省一条公路沿线的简易棚屋与街边小商铺被浑浊洪水淹没，房屋立柱和树木半泡在积水中。",
     "summaryFull": false
   },
@@ -3275,7 +3275,8 @@
       "Al Jazeera",
       "BBC World News",
       "ABC News US",
-      "UN News"
+      "UN News",
+      "France24"
     ],
     "status": "ongoing",
     "sources": [
@@ -3353,8 +3354,15 @@
         "name": "Al Jazeera",
         "url": "https://www.aljazeera.com/news/2026/10/16/us-records-4410-measles-cases-as-outbreak-grows?traffic_source=rss",
         "date": "2026-10-16",
-        "title": "US records 4,410 measles cases as outbreak grows",
-        "snippet": "The CDC reports 451 hospitalisations nationwide as health officials expand vaccination efforts."
+        "title": "美国麻疹病例增至4410例，疫情持续扩大",
+        "snippet": "美国疾控中心报告全国451人住院，卫生官员扩大疫苗接种工作。"
+      },
+      {
+        "name": "France24",
+        "url": "https://www.france24.com/en/kenya-confirms-third-ebola-case",
+        "date": "2026-10-17",
+        "title": "肯尼亚确认第三例埃博拉病例",
+        "snippet": "在今晚的节目中，肯尼亚确认第三例埃博拉病例，患者是本月早些时候去世的一名男子的亲属，该男子此前曾……"
       }
     ],
     "timeline": [
@@ -3396,7 +3404,11 @@
       },
       {
         "date": "2026-10-16",
-        "text": "Al Jazeera｜The CDC reports 451 hospitalisations nationwide as health officials expand vacci"
+        "text": "半岛电视台｜美国疾控中心报告全国451人住院，卫生官员扩大疫苗接种……"
+      },
+      {
+        "date": "2026-10-17",
+        "text": "法国24台｜在今晚的节目中，肯尼亚确认第三例埃博拉病例，患者是一名男子的亲属……"
       }
     ],
     "relatedEvents": [],
@@ -5898,8 +5910,8 @@
         "name": "BBC World News",
         "url": "https://www.bbc.co.uk/news/articles/cw146ej00yn7o?at_medium=RSS&at_campaign=rss",
         "date": "2026-10-16",
-        "title": "Pope pictured for first time since surgery and cancer diagnosis",
-        "snippet": "The pontiff was diagnosed with lung cancer after having surgery at Rome's Gemelli Hospital on Tuesday."
+        "title": "教皇接受手术并确诊癌症后首次露面",
+        "snippet": "教皇于周二在罗马杰梅利医院接受手术后被诊断出肺癌。"
       }
     ],
     "timeline": [
@@ -6025,7 +6037,7 @@
       },
       {
         "date": "2026-10-16",
-        "text": "BBC World News｜The pontiff was diagnosed with lung cancer after having surgery at Rome's Gemell"
+        "text": "BBC世界新闻｜教皇于周二在罗马杰梅利医院接受手术后被诊断出肺癌。"
       }
     ],
     "relatedEvents": [],
@@ -6644,15 +6656,43 @@
         "name": "Euronews",
         "url": "https://www.euronews.com/video/2026/10/16/italy-nationwide-air-traffic-control-issues-disrupt-flights-at-rome-airport",
         "date": "2026-10-16",
-        "title": "Italy: Nationwide air traffic control issues disrupt flights at Rome airport",
-        "snippet": "Flight delays and cancellations disrupted Rome’s Fiumicino Airport on Friday 16 October after a fault in the data-transm"
+        "title": "意大利：全国空中交通管制系统故障导致罗马机场航班中断",
+        "snippet": "10月16日星期五，数据传输系统故障导致罗马菲乌米奇诺机场航班延误和取消。"
       },
       {
         "name": "Russia Today",
         "url": "https://rt-english.com/news/647315-trump-first-attorney-general-pick-accused-sex-trafficking/?utm_source=rss&utm_medium=rss&utm_campaign=RSS",
         "date": "2026-10-16",
-        "title": "Trump’s first attorney general pick accused of sex trafficking",
-        "snippet": "Two women have sued former US Representative Matt Gaetz, accusing him and other defendants of running a sex trafficking "
+        "title": "特朗普首任司法部长人选被控性交易",
+        "snippet": "两名女性起诉美国前众议员马特·盖茨，指控他及其他被告经营性交易网络。"
+      },
+      {
+        "name": "DW 德国之声",
+        "url": "https://www.dw.com/en/brazil-amazon-deforestation-lowest-in-nearly-40-years/a-79684906?maca=en-rss-en-all-1573-rdf",
+        "date": "2026-10-17",
+        "title": "巴西：亚马孙雨林砍伐量降至近40年来最低",
+        "snippet": "最新数据显示，截至7月的一年内，亚马孙雨林有3335平方公里被砍伐。"
+      },
+      {
+        "name": "Al Jazeera",
+        "url": "https://www.aljazeera.com/news/2026/10/17/brazils-amazon-deforestation-hits-lowest-level-on-record?traffic_source=rss",
+        "date": "2026-10-17",
+        "title": "巴西亚马孙雨林砍伐量创有记录以来最低水平",
+        "snippet": "数据显示森林砍伐量较上年下降42%，为卢拉在第二轮选举前带来利好。"
+      },
+      {
+        "name": "Al Jazeera",
+        "url": "https://www.aljazeera.com/video/newsfeed/2026/10/16/trump-mocks-middle-eastern-names-with-mohammed-joke?traffic_source=rss",
+        "date": "2026-10-17",
+        "title": "特朗普用‘穆罕默德’玩笑嘲讽中东人名",
+        "snippet": "美国总统唐纳德·特朗普表示：‘如果你不确定某人的中东名字，就直接叫穆罕默德。’"
+      },
+      {
+        "name": "ABC News US",
+        "url": "https://abcnews.com/International/wireStory/brazil-amazon-deforestation-fell-lowest-level-1988-137329441",
+        "date": "2026-10-17",
+        "title": "巴西称亚马孙雨林砍伐量降至1988年以来最低水平",
+        "snippet": "巴西政府宣布，亚马孙雨林年度砍伐量已降至1988年以来最低水平"
       }
     ],
     "timeline": [
@@ -6970,11 +7010,27 @@
       },
       {
         "date": "2026-10-16",
-        "text": "Euronews｜Flight delays and cancellations disrupted Rome’s Fiumicino Airport on Friday 16 "
+        "text": "欧洲新闻台｜航班延误和取消导致罗马菲乌米奇诺机场16日周五陷入混乱"
       },
       {
         "date": "2026-10-16",
-        "text": "Russia Today｜Two women have sued former US Representative Matt Gaetz, accusing him and other "
+        "text": "今日俄罗斯｜两名女性起诉美国前众议员马特·盖茨，指控他及其他"
+      },
+      {
+        "date": "2026-10-17",
+        "text": "德国之声｜最新数据显示，3335平方公里的亚马孙雨林"
+      },
+      {
+        "date": "2026-10-17",
+        "text": "半岛电视台｜数据显示森林砍伐量较一年前下降42%，这让卢拉"
+      },
+      {
+        "date": "2026-10-17",
+        "text": "半岛电视台｜“如果你不确定某人来自中东的名字，就直接说‘穆罕默"
+      },
+      {
+        "date": "2026-10-17",
+        "text": "美国广播公司新闻｜巴西政府宣布，亚马孙雨林年度砍伐量已"
       }
     ],
     "relatedEvents": [],
@@ -21366,6 +21422,13 @@
         "date": "2026-10-05",
         "title": "超级替补助法国队末段爆发大胜比利时",
         "snippet": "迈克尔·奥利塞梅开二度并送出助攻，法国队在还剩13分钟时0-1落后的情况下以4-1逆转战胜比利时。"
+      },
+      {
+        "name": "Al Jazeera",
+        "url": "https://www.aljazeera.com/sports/2026/10/16/leeds-vs-manchester-united-premier-league-teams-prediction-lineups?traffic_source=rss",
+        "date": "2026-10-17",
+        "title": "利兹联对阵曼联：英超联赛——球队、预测、首发阵容",
+        "snippet": "曼联深陷状态低迷——以及利桑德罗·马丁内斯的情绪失控——如今他们面对状态回升的对手利兹联。"
       }
     ],
     "timeline": [
@@ -21380,6 +21443,10 @@
       {
         "date": "2026-10-05",
         "text": "Al Jazeera｜Al Jazeera｜迈克尔·奥利塞梅开二度并送出助攻，法国队在还剩13分钟时0-1落后的情况下以4-1逆转战胜比利时"
+      },
+      {
+        "date": "2026-10-17",
+        "text": "半岛电视台｜曼联深陷低迷状态——利桑德罗·马丁内斯的情绪失控"
       }
     ],
     "relatedEvents": [],
@@ -25615,8 +25682,8 @@
         "name": "SciTech Daily",
         "url": "https://scitechdaily.com/scientists-discover-a-surprising-new-way-to-fight-high-blood-pressure-through-the-ear/",
         "date": "2026-10-16",
-        "title": "Scientists Discover a Surprising New Way To Fight High Blood Pressure – Through the Ear",
-        "snippet": "A small ear stimulation device could offer a new way to tackle high blood pressure that stays elevated despite medicatio"
+        "title": "科学家发现一种出人意料的抗击高血压新途径——通过耳朵",
+        "snippet": "一种小型耳部刺激装置或可为治疗服药后仍居高不下的高血压提供新途径"
       }
     ],
     "timeline": [
@@ -25626,7 +25693,7 @@
       },
       {
         "date": "2026-10-16",
-        "text": "SciTech Daily｜A small ear stimulation device could offer a new way to tackle high blood pressu"
+        "text": "科技日报｜一种小型耳部刺激装置或可为治疗高血压提供新途径"
       }
     ],
     "relatedEvents": [],
@@ -40436,8 +40503,8 @@
         "name": "Nikkei Asia",
         "url": "https://asia.nikkei.com/business/automobiles/toyota-to-turn-all-50-models-into-software-defined-vehicles-by-2030",
         "date": "2026-10-17",
-        "title": "Toyota to turn all 50 models into software-defined vehicles by 2030",
-        "snippet": "Toyota to turn all 50 models into software-defined vehicles by 2030"
+        "title": "丰田将于2030年前把全部50款车型转变为软件定义汽车",
+        "snippet": "丰田将于2030年前把全部50款车型转变为软件定义汽车"
       }
     ],
     "timeline": [
@@ -40451,7 +40518,7 @@
       },
       {
         "date": "2026-10-17",
-        "text": "Nikkei Asia｜Toyota to turn all 50 models into software-defined vehicles by 2030"
+        "text": "日经亚洲｜丰田将于2030年前把全部50款车型转变为软件定义汽车"
       }
     ],
     "relatedEvents": [],
@@ -41224,29 +41291,29 @@
         "name": "Sky News World",
         "url": "https://news.sky.com/story/pope-leo-pictured-for-first-time-since-cancer-surgery-as-he-holds-mass-from-hospital-13599944",
         "date": "2026-10-16",
-        "title": "What the Pope said to Putin in call days after lung cancer surgery",
-        "snippet": "The Pope spoke to Russian President Vladimir Putin on Friday and urged a truce with Ukraine as he continued his recovery"
+        "title": "教皇在肺癌手术后数日与普京通话时说了什么",
+        "snippet": "教皇于周五与俄罗斯总统弗拉基米尔·普京通话，敦促与乌克兰停战，同时继续康复"
       },
       {
         "name": "DW 德国之声",
         "url": "https://www.dw.com/en/pope-leo-recovering-from-surgery-will-deliver-sunday-prayer/a-79682540?maca=en-rss-en-all-1573-rdf",
         "date": "2026-10-17",
-        "title": "Pope Leo recovering from surgery, will deliver Sunday prayer",
-        "snippet": "The Vatican has said that Pope Leo XIV is recovering from lung surgery. Photos released on Friday showed the pontiff cel"
+        "title": "教皇利奥术后康复中，将主持周日祈祷",
+        "snippet": "梵蒂冈表示，教皇利奥十四世正在肺部手术后康复。周五公布的画面显示，这位教皇……"
       },
       {
         "name": "Euronews",
         "url": "https://www.euronews.com/2026/10/16/vatican-releases-first-photos-of-pope-leo-xiv-after-lung-tumour-surgery",
         "date": "2026-10-16",
-        "title": "Vatican releases first photos of Pope Leo XIV after lung tumour surgery",
-        "snippet": "The Vatican has released the first images of Pope Leo XIV since he underwent surgery to remove a cancerous tumour from h"
+        "title": "梵蒂冈公布教皇利奥十四世肺部肿瘤手术后的首批照片",
+        "snippet": "梵蒂冈公布了教皇利奥十四世自接受癌性肿瘤切除手术以来的首批影像"
       },
       {
         "name": "Al Jazeera",
         "url": "https://www.aljazeera.com/news/2026/10/16/pope-leo-to-make-public-appearance-sunday-first-since-cancer-surgery?traffic_source=rss",
         "date": "2026-10-16",
-        "title": "Pope Leo to make public appearance Sunday, first since cancer surgery",
-        "snippet": "After undergoing surgery this week, pope can now &#039;carry out normal activities ​with full independence&#039;, say do"
+        "title": "教皇利奥将于周日公开露面，为癌症手术以来首次",
+        "snippet": "在本周接受手术后，教皇如今可以“完全独立地开展正常活动”，医生说"
       }
     ],
     "timeline": [
@@ -41320,19 +41387,19 @@
       },
       {
         "date": "2026-10-16",
-        "text": "Sky News World｜The Pope spoke to Russian President Vladimir Putin on Friday and urged a truce w"
+        "text": "天空新闻世界频道｜教皇周五与俄罗斯总统弗拉基米尔·普京通话，敦促停火"
       },
       {
         "date": "2026-10-16",
-        "text": "Euronews｜The Vatican has released the first images of Pope Leo XIV since he underwent sur"
+        "text": "欧洲新闻台｜梵蒂冈公布了教皇利奥十四世自接受手术以来的首批影像"
       },
       {
         "date": "2026-10-16",
-        "text": "Al Jazeera｜After undergoing surgery this week, pope can now &#039;carry out normal activiti"
+        "text": "半岛电视台｜在本周接受手术后，教皇如今可以“完全独立地开展正常活动”"
       },
       {
         "date": "2026-10-17",
-        "text": "DW 德国之声｜The Vatican has said that Pope Leo XIV is recovering from lung surgery. Photos r"
+        "text": "德国之声｜梵蒂冈表示，教皇利奥十四世正在肺部手术后康复。照片……"
       }
     ],
     "relatedEvents": [],
@@ -47779,22 +47846,22 @@
         "name": "BBC World News",
         "url": "https://www.bbc.co.uk/news/articles/cmx237n1y9lzo?at_medium=RSS&at_campaign=rss",
         "date": "2026-10-16",
-        "title": "India's 'cockroach' party founder detained ahead of protest",
-        "snippet": "The youth-led movement had called for a Delhi protest after mass detentions last week and the jailing of two leaders."
+        "title": "印度“蟑螂”党创始人抗议前被拘留",
+        "snippet": "这场由青年领导的运动在上周发生大规模拘留和两名领导人入狱后，呼吁在德里举行抗议。"
       },
       {
         "name": "France24",
         "url": "https://www.france24.com/en/video/20261016-india-detains-top-cockroach-leader-as-hundreds-protest-in-capital",
         "date": "2026-10-16",
-        "title": "India detains top 'cockroach' leader as hundreds protest in capital",
-        "snippet": "Indian police detained Cockroach Janta Party (CJP) leader Abhijeet Dipke on Friday ahead of fresh protests demanding the"
+        "title": "印度拘留顶级‘蟑螂’领导人，数百人在首都抗议",
+        "snippet": "印度警方周五拘留了蟑螂人民党（CJP）领导人阿比吉特·迪普克，此前要求……的新一轮抗议即将举行。"
       },
       {
         "name": "ABC News US",
         "url": "https://abcnews.com/International/wireStory/indian-authorities-tighten-security-new-delhi-ahead-cockroach-137313289",
         "date": "2026-10-16",
-        "title": "India tightens security in New Delhi ahead of 'Cockroach' movement's rally",
-        "snippet": "Indian authorities have increased security in New Delhi and closed a central park ahead of a flag-waving protest by the "
+        "title": "印度在‘蟑螂’运动集会前加强新德里安保",
+        "snippet": "印度当局加强了新德里的安保，并关闭了一座中央公园，此前……将举行挥舞旗帜的抗议。"
       }
     ],
     "timeline": [
@@ -47832,15 +47899,15 @@
       },
       {
         "date": "2026-10-16",
-        "text": "BBC World News｜The youth-led movement had called for a Delhi protest after mass detentions last"
+        "text": "BBC世界新闻｜这场由青年领导的运动在上周发生大规模拘留后，呼吁在德里举行抗议。"
       },
       {
         "date": "2026-10-16",
-        "text": "France24｜Indian police detained Cockroach Janta Party (CJP) leader Abhijeet Dipke on Frid"
+        "text": "法国24台｜印度警方周五拘留了蟑螂人民党（CJP）领导人阿比吉特·迪普克。"
       },
       {
         "date": "2026-10-16",
-        "text": "ABC News US｜Indian authorities have increased security in New Delhi and closed a central par"
+        "text": "美国广播公司新闻｜印度当局加强了新德里的安保，并关闭了一座中央公园。"
       }
     ],
     "relatedEvents": [],
@@ -69568,9 +69635,10 @@
     "tags": [
       "其他",
       "SciTech Daily",
-      "美国"
+      "美国",
+      "文化"
     ],
-    "status": "closed",
+    "status": "ongoing",
     "sources": [
       {
         "name": "SciTech Daily",
@@ -69578,12 +69646,23 @@
         "date": "2026-09-23",
         "title": "科学家发现加拿大首批来自鲜有记录的白垩纪的恐龙足迹",
         "snippet": "来自不列颠哥伦比亚省东北部的罕见足迹揭示了一个以鸟脚类恐龙为主的恐龙群落，该时期此前鲜有记录"
+      },
+      {
+        "name": "SciTech Daily",
+        "url": "https://scitechdaily.com/scientists-discover-a-terrifying-new-dinosaur-hidden-for-100-years/",
+        "date": "2026-10-17",
+        "title": "科学家发现一种隐藏了100年的可怕新恐龙",
+        "snippet": "一块在博物馆藏品中近一个世纪无人注意的恐龙化石，结果属于一种此前……"
       }
     ],
     "timeline": [
       {
         "date": "2026-09-23",
         "text": "SciTech Daily｜来自不列颠哥伦比亚省东北部的罕见足迹揭示了一个以鸟脚类恐龙为主的恐龙群"
+      },
+      {
+        "date": "2026-10-17",
+        "text": "科技日报｜一具恐龙化石在博物馆藏品中沉寂近一个世纪无人问津"
       }
     ],
     "relatedEvents": [],
@@ -119273,8 +119352,8 @@
         "name": "Nikkei Asia",
         "url": "https://asia.nikkei.com/business/energy/japan-s-toho-gas-to-generate-solar-power-in-us-with-texas-investment",
         "date": "2026-10-17",
-        "title": "Japan's Toho Gas to generate solar power in US with Texas investment",
-        "snippet": "Japan's Toho Gas to generate solar power in US with Texas investment"
+        "title": "日本东邦燃气将在美国得克萨斯州投资太阳能发电",
+        "snippet": "日本东邦燃气将在美国得克萨斯州投资太阳能发电"
       }
     ],
     "timeline": [
@@ -119284,7 +119363,7 @@
       },
       {
         "date": "2026-10-17",
-        "text": "Nikkei Asia｜Japan's Toho Gas to generate solar power in US with Texas investment"
+        "text": "日经亚洲｜日本东邦燃气将在美国得克萨斯州投资太阳能发电"
       }
     ],
     "relatedEvents": [],
@@ -168637,6 +168716,13 @@
         "date": "2026-10-12",
         "title": "联合国：非洲海岸船只灾难造成130多名移民遇难（视频）",
         "snippet": "一艘从吉布提驶往也门的船只倾覆，造成至少139名移民死亡，其中包括15名儿童，联合国移民"
+      },
+      {
+        "name": "Al Jazeera",
+        "url": "https://www.aljazeera.com/news/2026/10/17/us-coastguard-rescues-16-after-boat-sinks-off-mexicos-baja-coast?traffic_source=rss",
+        "date": "2026-10-17",
+        "title": "美国海岸警卫队在墨西哥下加利福尼亚沿岸海域救起16名沉船人员",
+        "snippet": "据信仍有11人失踪，救援行动正在进行中。"
       }
     ],
     "timeline": [
@@ -168695,6 +168781,10 @@
       {
         "date": "2026-10-12",
         "text": "Russia Today｜一艘从吉布提驶往也门的船只倾覆，造成至少139名移民死亡，其中包括15名儿童"
+      },
+      {
+        "date": "2026-10-17",
+        "text": "半岛电视台｜据信仍有11人失踪，救援行动正在进行中"
       }
     ],
     "relatedEvents": [],
@@ -184066,15 +184156,15 @@
         "name": "Euronews",
         "url": "https://www.euronews.com/video/2026/10/16/latest-news-bulletin-october-16th-2026-evening",
         "date": "2026-10-16",
-        "title": "Latest news bulletin | October 16th, 2026 – Evening",
-        "snippet": "Catch up with the most important stories from around Europe and beyond this October 16th, 2026 - latest news, breaking n"
+        "title": "最新新闻简报｜2026年10月16日——晚间",
+        "snippet": "回顾2026年10月16日欧洲及全球各地最重要的新闻——最新消息、突发新闻"
       },
       {
         "name": "Euronews",
         "url": "https://www.euronews.com/video/2026/10/16/latest-news-bulletin-october-16th-2026-midday",
         "date": "2026-10-16",
-        "title": "Latest news bulletin | October 16th, 2026 – Midday",
-        "snippet": "Catch up with the most important stories from around Europe and beyond this October 16th, 2026 - latest news, breaking n"
+        "title": "最新新闻简报｜2026年10月16日——午间",
+        "snippet": "2026年10月16日，速览欧洲及全球最重要新闻——最新消息、突发新闻"
       }
     ],
     "timeline": [
@@ -204315,218 +204405,365 @@
         "name": "BBC World News",
         "url": "https://www.bbc.co.uk/news/articles/cvx284w16z1po?at_medium=RSS&at_campaign=rss",
         "date": "2026-10-16",
-        "title": "Inside Ukrainian offensive pushing Russia back - with Starlink playing a key role",
-        "snippet": "The BBC joins Ukraine's Operation Vivaldi as it regains crucial territory in the Donbas, but optimism has been dampened "
+        "title": "乌克兰攻势内部：借助星链关键作用击退俄罗斯",
+        "snippet": "BBC随乌克兰“维瓦尔第行动”报道，乌军在顿巴斯夺回关键领土，但乐观情绪已受挫"
       },
       {
         "name": "BBC World News",
         "url": "https://www.bbc.co.uk/news/articles/c65ynk7212vqo?at_medium=RSS&at_campaign=rss",
         "date": "2026-10-16",
-        "title": "Palestinians and US journalist injured by Israeli settlers in West Bank harvest attack",
-        "snippet": "The BBC sees masked settlers attack Palestinians trying to harvest olives, amid a surge in similar incidents."
+        "title": "巴勒斯坦人和美国记者在约旦河西岸采收期间遭以色列定居者袭击受伤",
+        "snippet": "BBC目击蒙面定居者袭击试图采收橄榄的巴勒斯坦人，类似事件激增"
       },
       {
         "name": "DW 德国之声",
         "url": "https://www.dw.com/en/iran-when-honor-becomes-a-death-sentence-for-women/a-79681977?maca=en-rss-en-all-1573-rdf",
         "date": "2026-10-17",
-        "title": "Iran: When 'honor' becomes a death sentence for women",
-        "snippet": "The murder of a young mother has once again sparked debate in Iran over so-called honor killings, the social acceptance "
+        "title": "伊朗：当“荣誉”成为女性的死刑判决",
+        "snippet": "一名年轻母亲的遇害再次引发伊朗对所谓“荣誉杀人”的辩论，以及社会对此的接受度"
       },
       {
         "name": "DW 德国之声",
         "url": "https://www.dw.com/en/houthi-attacks-on-strategic-saudi-assets-threaten-riyadh-s-regional-leadership-and-economic-ambitions/a-79680200?maca=en-rss-en-all-1573-rdf",
         "date": "2026-10-17",
-        "title": "Houthi attacks on strategic Saudi assets threaten Riyadh's regional leadership and economic ambitions",
-        "snippet": "As Yemen's Iran-backed Houthis continue to target Saudi Arabia, Riyadh's vulnerability threatens its claim on regional a"
+        "title": "胡塞武装袭击沙特战略资产，威胁利雅得的地区领导地位和经济雄心",
+        "snippet": "随着也门伊朗支持的胡塞武装继续针对沙特阿拉伯，利雅得的脆弱性威胁其地区领导地位的主张"
       },
       {
         "name": "France24",
         "url": "https://www.france24.com/en/video/20261016-cost-of-living-demonstrations-to-grip-pre-election-france",
         "date": "2026-10-16",
-        "title": "Cost-of-living demonstrations to grip pre-election France",
-        "snippet": "After weeks of student protests, France is set to be swept by broader, nationwide demonstrations Saturday over the cost "
+        "title": "生活成本示威将席卷选举前的法国",
+        "snippet": "数周的学生抗议之后，法国周六将迎来更大规模、全国性的示威活动，抗议生活成本问题。"
       },
       {
         "name": "Euronews",
         "url": "https://www.euronews.com/2026/10/16/ukrainian-drones-force-closure-of-all-four-moscow-airports-overnight-cancelling-dozens-of-",
         "date": "2026-10-16",
-        "title": "Ukrainian drones force closure of all four Moscow airports overnight, cancelling dozens of flights",
-        "snippet": "Moscow’s airports were closed for 101 hours in the first 14 days of October, more than double the total for all of Septe"
+        "title": "乌克兰无人机迫使莫斯科所有四座机场夜间关闭，取消数十架航班。",
+        "snippet": "十月的头14天里，莫斯科各机场共关闭101小时，是九月全月关闭总时长的两倍多。"
       },
       {
         "name": "Al Jazeera",
         "url": "https://www.aljazeera.com/news/2026/10/16/how-iran-messaging-highlights-cost-of-war-ahead-of-us-midterm-elections?traffic_source=rss",
         "date": "2026-10-16",
-        "title": "How Iran messaging highlights cost of war ahead of US midterm elections",
-        "snippet": "Through statements in English, Iranian officials are emphasising gas prices and issues with the US economy."
+        "title": "伊朗的信息传递如何凸显美国中期选举前战争的成本。",
+        "snippet": "伊朗官员通过英文声明，强调天然气价格和美国经济问题。"
       },
       {
         "name": "Al Jazeera",
         "url": "https://www.aljazeera.com/news/2026/10/16/ukraine-repels-russian-forces-as-us-support-wavers-energy-strikes-escalate?traffic_source=rss",
         "date": "2026-10-16",
-        "title": "Ukraine advances in occupied Donetsk as Trump hands Putin diesel deal",
-        "snippet": "Ukraine’s &#039;Operation Vivaldi&#039; reclaimed more occupied territory in Donetsk during a week when Trump sided with"
+        "title": "乌克兰在被占领的顿涅茨克推进，特朗普向普京抛出柴油协议。",
+        "snippet": "乌克兰的“维瓦尔第行动”在特朗普站队的一周内，夺回了顿涅茨克更多被占领土。"
       },
       {
         "name": "Al Jazeera",
         "url": "https://www.aljazeera.com/video/newsfeed/2026/10/16/sally-rooney-cant-sell-her-books-in-uk-over-support-for-palestine-action?traffic_source=rss",
         "date": "2026-10-16",
-        "title": "Sally Rooney can’t sell her books in UK over support for Palestine Action",
-        "snippet": "We asked students what they think."
+        "title": "萨莉·鲁尼因支持“巴勒斯坦行动”组织，无法在英国销售其书籍。",
+        "snippet": "我们询问了学生们的看法。"
       },
       {
         "name": "Al Jazeera",
         "url": "https://www.aljazeera.com/video/newsfeed/2026/10/16/irans-president-condemns-environmental-impact-of-war-in-middle-eas?traffic_source=rss",
         "date": "2026-10-16",
-        "title": "Iran’s president condemns environmental impact of war in Middle East",
-        "snippet": "Iranian President Masoud Pezeshkian has decried the ecological damage caused by conflict in the Middle East"
+        "title": "伊朗总统谴责中东战争对环境的影响。",
+        "snippet": "伊朗总统马苏德·佩泽希齐扬谴责中东冲突造成的生态破坏"
       },
       {
         "name": "CNA 亚洲新闻台",
         "url": "https://www.channelnewsasia.com/world/saudi-arabia-houthi-attacks-riyadh-missiles-6467001",
         "date": "2026-10-16",
-        "title": "Saudi-led coalition says intercepts missiles, drones over Riyadh, other areas",
-        "snippet": "The UN Security Council “condemned in the strongest terms continued and escalatory Houthi attacks against the Kingdom of"
+        "title": "沙特领导的联军称在利雅得及其他地区拦截了导弹和无人机",
+        "snippet": "联合国安理会“以最强烈措辞谴责胡塞武装对沙特王国持续且不断升级的袭击”"
       },
       {
         "name": "CNA 亚洲新闻台",
         "url": "https://www.channelnewsasia.com/world/russia-ukraine-drone-attack-power-blackout-three-killed-6466786",
         "date": "2026-10-16",
-        "title": "Russian drones kill three in Ukraine, cut power to over a million",
-        "snippet": "Authorities said repair crews restored electricity to many affected areas, but some areas may face blackouts for at leas"
+        "title": "俄罗斯无人机袭击乌克兰致三人死亡，逾百万人断电",
+        "snippet": "当局表示维修人员已恢复许多受影响地区的供电，但部分地区可能面临至少数日的停电"
       },
       {
         "name": "ABC 澳大利亚",
         "url": "https://www.abc.net.au/news/2026-10-17/laura-tingle-trump-netanyahu-elections/107270666",
         "date": "2026-10-16",
-        "title": "Trump, Netanyahu and the dangerous politics of staying in power",
-        "snippet": "With the US mid-term elections looming and Israel heading to the polls, Donald Trump and Benjamin Netanyahu are playing "
+        "title": "特朗普、内塔尼亚胡与恋栈权力的危险政治",
+        "snippet": "随着美国中期选举临近和以色列即将举行大选，唐纳德·特朗普和本雅明·内塔尼亚胡正在玩弄……"
       },
       {
         "name": "Russia Today",
         "url": "https://rt-english.com/news/647309-saudi-arabia-ansar-allah/?utm_source=rss&utm_medium=rss&utm_campaign=RSS",
         "date": "2026-10-16",
-        "title": "Saudi Arabia’s biggest problem may be its enemy’s smallest weapons",
-        "snippet": "Saudi Arabia spends over $82 billion on defense, yet Houthi drones and missiles keep threatening its oil facilities and "
+        "title": "沙特阿拉伯最大的问题或许是其敌人最小的武器",
+        "snippet": "沙特阿拉伯在国防上花费超过820亿美元，然而胡塞武装的无人机和导弹仍不断威胁其石油设施和……"
       },
       {
         "name": "Russia Today",
         "url": "https://rt-english.com/africa/647302-egypt-discovers-remains-royal-statues/?utm_source=rss&utm_medium=rss&utm_campaign=RSS",
         "date": "2026-10-16",
-        "title": "Egypt discovers parts of giant pharaoh statues (PHOTOS)",
-        "snippet": "Egyptian archaeologists have uncovered two ancient royal statues in the Nile Delta, including a monument depicting Ramse"
+        "title": "埃及发现巨型法老雕像残件（照片）",
+        "snippet": "埃及考古学家在尼罗河三角洲发现了两尊古代王室雕像，其中包括一座描绘拉美西斯的纪念碑。"
       },
       {
         "name": "Russia Today",
         "url": "https://rt-english.com/africa/647303-south-african-coalition-government-faces-fresh-rift/?utm_source=rss&utm_medium=rss&utm_campaign=RSS",
         "date": "2026-10-16",
-        "title": "South African coalition government faces fresh rift",
-        "snippet": "South Africa’s ANC has called for a review of the Democratic Alliance’s place in government after a clash over election "
+        "title": "南非联合政府面临新的裂痕。",
+        "snippet": "南非非洲人国民大会呼吁重新审视民主联盟在政府中的地位，此前双方因选举问题发生冲突。"
       },
       {
         "name": "Russia Today",
         "url": "https://rt-english.com/russia/647300-russian-wrestler-world-gold/?utm_source=rss&utm_medium=rss&utm_campaign=RSS",
         "date": "2026-10-16",
-        "title": "Russian wrestler strikes gold at world championships in US",
-        "snippet": "Russia’s Alina Shevchenko has claimed gold at the U23 World Wrestling Championships in Las Vegas after defeating a Belar"
+        "title": "俄罗斯摔跤手在美国举行的世界锦标赛上夺金。",
+        "snippet": "俄罗斯选手阿丽娜·舍甫琴科在拉斯维加斯举行的U23世界摔跤锦标赛上击败一名白俄罗斯选手，夺得金牌。"
       },
       {
         "name": "MIT Technology Review",
         "url": "https://www.technologyreview.com/2026/10/15/1146577/nuclear-power-upgrade/",
         "date": "2026-10-15",
-        "title": "How much more can nuclear power plants give?",
-        "snippet": "In this age of rising electricity demand, people are trying to squeeze every last bit of power out of every power plant "
+        "title": "核电站还能再多贡献多少？",
+        "snippet": "在这个电力需求不断上升的时代，人们正试图从每座发电厂中榨出最后一点电力。"
       },
       {
         "name": "Times of India",
         "url": "https://timesofindia.indiatimes.com/world/middle-east/israeli-settlers-attack-palestinian-villages-torch-cars-and-trees-during-olive-harvest/articleshow/134999210.cms",
         "date": "2026-10-17",
-        "title": "Israeli settlers attack Palestinian villages, torch cars and trees during olive harvest",
-        "snippet": "Residents and human rights organisations say Israeli authorities have done little to stop settler attacks. They allege t"
+        "title": "以色列定居者在橄榄收获季袭击巴勒斯坦村庄，焚烧汽车和树木。",
+        "snippet": "居民和人权组织表示，以色列当局几乎没有采取任何措施阻止定居者的袭击。他们声称……"
       },
       {
         "name": "Times of India",
         "url": "https://timesofindia.indiatimes.com/world/us/us-mid-term-elections/news/us-tells-election-officials-to-guard-against-ai-powered-cyber-threats-ahead-of-midterm-elections/articleshow/134997494.cms",
         "date": "2026-10-17",
-        "title": "US tells election officials to guard against AI-powered cyber threats ahead of midterm elections",
-        "snippet": "US tells election officials to guard against AI-powered cyber threats ahead of midterm elections"
+        "title": "美国要求在中期选举前，选举官员防范人工智能驱动的网络威胁。",
+        "snippet": "美国告知选举官员在中选前防范人工智能驱动的网络威胁"
       },
       {
         "name": "The Hindu 国际",
         "url": "https://www.thehindu.com/news/international/irans-military-says-oil-tanker-on-fire-in-gulf-of-oman/article71593986.ece",
         "date": "2026-10-16",
-        "title": "Iran's military says oil tanker on fire in Gulf of Oman",
-        "snippet": "Tehran had said non-compliant vessels in the zone would face sanctions, without explicitly threatening military action a"
+        "title": "伊朗军方称阿曼湾一艘油轮起火",
+        "snippet": "德黑兰曾表示，该区域内不合规的船只将面临制裁，但未明确威胁采取军事行动"
       },
       {
         "name": "The Hindu 国际",
         "url": "https://www.thehindu.com/news/international/israeli-settlers-burn-olive-trees-injure-journalist-in-west-bank-attack/article71593869.ece",
         "date": "2026-10-16",
-        "title": "Israeli settlers burn olive trees, injure journalist in West Bank attack",
-        "snippet": "Palestinian medics said two people were injured and taken to hospitals in the area of Ramallah. One of them was Heidi Le"
+        "title": "以色列定居者在约旦河西岸袭击中焚烧橄榄树并致一名记者受伤",
+        "snippet": "巴勒斯坦医护人员表示，两人在拉马拉地区受伤并被送往医院，其中一人是海蒂·勒"
       },
       {
         "name": "The Hindu 国际",
         "url": "https://www.thehindu.com/news/international/bulgaria-seeks-nato-anti-drone-systems-says-defence-minister/article71593808.ece",
         "date": "2026-10-16",
-        "title": "Bulgaria seeks NATO anti-drone systems, says defence minister",
-        "snippet": "Drones hit two ships which caught fire off Romania’s ‌Black Sea coast this week."
+        "title": "保加利亚国防部长表示，该国寻求北约反无人机系统",
+        "snippet": "本周，无人机袭击了两艘船，这些船只在罗马尼亚黑海沿岸附近起火"
       },
       {
         "name": "韩联社 Yonhap",
         "url": "https://en.yna.co.kr/view/AEN20261017000200315",
         "date": "2026-10-16",
-        "title": "S. Korean envoy condemns Houthi attacks, calls for stronger U.N. sanctions to block weapons supplies",
-        "snippet": "WASHINGTON, Oct. 16 (Yonhap) -- South Korea has condemned recent deadly attacks ..."
+        "title": "韩国特使谴责胡塞武装袭击，呼吁联合国加强制裁以阻断武器供应",
+        "snippet": "华盛顿，10月16日（韩联社）——韩国谴责近期致命袭击……"
       },
       {
         "name": "UN News",
         "url": "https://news.un.org/feed/view/en/story/2026/10/1168612",
         "date": "2026-10-16",
-        "title": "Security Council LIVE: Sudan’s war spreads as drones and hunger take a deadly toll",
-        "snippet": "As drone strikes kill civilians from El Obeid to Blue Nile and famine risk spreads across Darfur and Kordofan, the Secur"
+        "title": "安理会直播：苏丹战争蔓延，无人机与饥荒造成致命伤亡",
+        "snippet": "随着无人机袭击在欧拜伊德至青尼罗河一带造成平民死亡，饥荒风险在达尔富尔和科尔多凡蔓延，安全……"
       },
       {
         "name": "NPR World",
         "url": "https://www.npr.org/2026/10/16/nx-s1-6004904/israeli-settlers-beat-us-photojournalist-washington-post-west-bank",
         "date": "2026-10-16",
-        "title": "Israeli settlers beat Palestinians and a U.S. photojournalist in West Bank attacks",
-        "snippet": "Masked Israeli settlers attacked Palestinians as they were harvesting olives in the occupied West Bank on Friday, injuri"
+        "title": "以色列定居者在约旦河西岸袭击中殴打巴勒斯坦人和一名美国摄影记者",
+        "snippet": "周五，蒙面以色列定居者在被占领的约旦河西岸袭击正在采收橄榄的巴勒斯坦人，致人受伤……"
       },
       {
         "name": "NPR World",
         "url": "https://www.npr.org/2026/10/15/nx-s1-6002949/ukraine-says-its-starshield-access-is-back",
         "date": "2026-10-15",
-        "title": "Ukraine says its Starshield access is back",
-        "snippet": "Ukraine says its access to SpaceX's Starshield has been restored. It's the system the country uses for its offensive dro"
+        "title": "乌克兰称其星盾访问权限已恢复",
+        "snippet": "乌克兰称其已恢复对太空探索技术公司星盾系统的访问权限。该系统用于该国发动无人机……"
       },
       {
         "name": "ABC News US",
         "url": "https://abcnews.com/International/wireStory/increase-killings-women-cameroon-spurs-protests-demands-laws-137278252",
         "date": "2026-10-15",
-        "title": "An increase in killings of women in Cameroon spurs protests",
-        "snippet": "Elementary school teacher Geraldine Achiah died in Cameroon after allegedly being beaten by her husband"
+        "title": "喀麦隆女性遇害事件增加引发抗议",
+        "snippet": "小学教师杰拉尔丁·阿奇亚在喀麦隆据称遭丈夫殴打后死亡"
       },
       {
         "name": "Le Monde EN",
         "url": "https://www.lemonde.fr/en/international/article/2026/10/16/israeli-settlers-attack-us-photojournalist-covering-west-bank-violence_6758685_4.html",
         "date": "2026-10-16",
-        "title": "Israeli settlers attack US photojournalist covering West Bank violence",
-        "snippet": "Heidi Levine, a veteran photographer, was hospitalized, with doctors saying she had suffered from 'lacerations.' The Isr"
+        "title": "以色列定居者袭击报道约旦河西岸暴力的美国摄影记者",
+        "snippet": "资深摄影师海蒂·莱文被送医治疗，医生称她遭受了“撕裂伤”。以色列……"
       },
       {
         "name": "Le Monde EN",
         "url": "https://www.lemonde.fr/en/opinion/article/2026/10/16/the-us-is-not-doing-so-badly-despite-trump_6758681_23.html",
         "date": "2026-10-16",
-        "title": "'The US is not doing so badly, despite Trump'",
-        "snippet": "The cost of living has remained high for a large portion of Americans, a situation that could have been avoided if the p"
+        "title": "尽管有特朗普，美国的表现还不算太糟",
+        "snippet": "对很大一部分美国人来说，生活成本仍然居高不下，如果政策得当，这种局面本可避免。"
       },
       {
         "name": "Nikkei Asia",
         "url": "https://asia.nikkei.com/economy/trade/eu-seeks-faster-china-de-risking-with-new-diversification-tool",
         "date": "2026-10-17",
-        "title": "EU seeks faster China de-risking with new diversification tool",
-        "snippet": "EU seeks faster China de-risking with new diversification tool"
+        "title": "欧盟寻求以新的多元化工具加快对华去风险",
+        "snippet": "欧盟寻求以新的多元化工具加快对华去风险"
+      },
+      {
+        "name": "BBC World News",
+        "url": "https://www.bbc.co.uk/news/articles/cxr5yvzv7rp0o?at_medium=RSS&at_campaign=rss",
+        "date": "2026-10-17",
+        "title": "美国新法生效之际，特朗普豁免多项对俄制裁",
+        "snippet": "特朗普表示，旨在因莫斯科对乌克兰发动战争而惩罚俄罗斯的新法律中，有部分内容违背美国国家利益。"
+      },
+      {
+        "name": "BBC World News",
+        "url": "https://www.bbc.co.uk/news/articles/c64g18ljjd8do?at_medium=RSS&at_campaign=rss",
+        "date": "2026-10-17",
+        "title": "意大利部长对BBC表示，特朗普限制对乌支持“完全错误”",
+        "snippet": "国防部长圭多·克罗塞托对BBC表示，美国这样做可能不是帮助乌克兰，而是延长俄罗斯的全面入侵。"
+      },
+      {
+        "name": "DW 德国之声",
+        "url": "https://www.dw.com/en/trump-puts-new-russia-sanctions-on-hold/a-79685002?maca=en-rss-en-all-1573-rdf",
+        "date": "2026-10-17",
+        "title": "特朗普暂缓实施新的对俄制裁",
+        "snippet": "美国总统以国家利益为由，决定签署豁免令，暂不执行国会投票通过对俄罗斯实施的制裁。"
+      },
+      {
+        "name": "DW 德国之声",
+        "url": "https://www.dw.com/en/west-bank-us-journalist-injured-by-israeli-settlers/a-79684181?maca=en-rss-en-all-1573-rdf",
+        "date": "2026-10-17",
+        "title": "约旦河西岸：美国记者被以色列定居者打伤",
+        "snippet": "《华盛顿邮报》记者海蒂·莱文称她在被占领的约旦河西岸遭到以色列定居者殴打。记者维特"
+      },
+      {
+        "name": "Euronews",
+        "url": "https://www.euronews.com/2026/10/16/trumps-new-press-secretary-leaves-after-less-than-a-week-following-controversy",
+        "date": "2026-10-17",
+        "title": "特朗普的新任新闻秘书在争议后不到一周便离职",
+        "snippet": "扎卡里亚在福克斯新闻等保守派媒体担任评论员期间，长期自称是一名律师"
+      },
+      {
+        "name": "Al Jazeera",
+        "url": "https://www.aljazeera.com/video/newsfeed/2026/10/17/healthcare-crisis-escalating-in-yemens-besieged-taiz?traffic_source=rss",
+        "date": "2026-10-17",
+        "title": "也门被围困的塔伊兹医疗危机不断升级",
+        "snippet": "也门胡塞武装与国际公认政府之间的战斗正在加深人道主义危机。"
+      },
+      {
+        "name": "Al Jazeera",
+        "url": "https://www.aljazeera.com/news/liveblog/2026/10/17/draft-2?traffic_source=rss",
+        "date": "2026-10-17",
+        "title": "伊朗战争实时：伊斯兰革命卫队称超级油轮在霍尔木兹海峡触水雷起火",
+        "snippet": "伊朗伊斯兰革命卫队称，一艘石油超级油轮在霍尔木兹海峡触水雷后起火。"
+      },
+      {
+        "name": "Russia Today",
+        "url": "https://rt-english.com/news/647324-trump-waives-graham-sanctions-russia/?utm_source=rss&utm_medium=rss&utm_campaign=RSS",
+        "date": "2026-10-17",
+        "title": "特朗普豁免“毁灭性”对俄制裁",
+        "snippet": "特朗普依据以参议员林赛·格雷厄姆命名的法律，豁免了对俄罗斯的大规模新制裁，理由是美国的国家"
+      },
+      {
+        "name": "Russia Today",
+        "url": "https://rt-english.com/news/647288-israel-netanyahu-elections-hamas/?utm_source=rss&utm_medium=rss&utm_campaign=RSS",
+        "date": "2026-10-17",
+        "title": "十月七日成为内塔尼亚胡的“政治氪石”——RT报道（视频）",
+        "snippet": "以色列总理本雅明·内塔尼亚胡因在10月7日哈马斯袭击前忽视警告而面临越来越多的指控，据RT报道"
+      },
+      {
+        "name": "Russia Today",
+        "url": "https://rt-english.com/news/647321-trump-press-secretarey-leaves/?utm_source=rss&utm_medium=rss&utm_campaign=RSS",
+        "date": "2026-10-17",
+        "title": "特朗普的新闻秘书上任仅五天即离职",
+        "snippet": "凯蒂·扎卡里亚在担任白宫新闻秘书仅五天后离职，此前她的首次简报会及表现受到批评"
+      },
+      {
+        "name": "Russia Today",
+        "url": "https://rt-english.com/russia/647318-ukraine-reduce-draft-exemptions-quotas/?utm_source=rss&utm_medium=rss&utm_campaign=RSS",
+        "date": "2026-10-17",
+        "title": "乌克兰可能取消关键行业工人的征兵豁免——总理",
+        "snippet": "随着政府着手遏制所谓的逃避兵役行为，乌克兰可能减少对关键行业工人的动员豁免"
+      },
+      {
+        "name": "Russia Today",
+        "url": "https://rt-english.com/news/647319-israeli-settlers-wapo-journalist/?utm_source=rss&utm_medium=rss&utm_campaign=RSS",
+        "date": "2026-10-17",
+        "title": "以色列定居者在约旦河西岸殴打并抢劫《华盛顿邮报》记者（视频）",
+        "snippet": "《华盛顿邮报》摄影记者海蒂·莱文在约旦河西岸遭到暴力以色列定居者袭击，请在R阅读全文"
+      },
+      {
+        "name": "Russia Today",
+        "url": "https://rt-english.com/russia/647320-russian-forces-liberate-key-ukrainian-stronghold-donbass/?utm_source=rss&utm_medium=rss&utm_campaign=RSS",
+        "date": "2026-10-17",
+        "title": "俄军解放顿巴斯地区乌克兰关键据点——国防部",
+        "snippet": "俄罗斯武装力量总参谋长瓦列里·格拉西莫夫表示，俄军已攻占顿巴斯地区的乌克兰据点多布罗波利耶"
+      },
+      {
+        "name": "Times of India",
+        "url": "https://timesofindia.indiatimes.com/world/middle-east/iran-broke-25-billion-oil-loss-350-million-crypto-frozen-as-militias-send-money-back-to-irgc-says-us/articleshow/135006374.cms",
+        "date": "2026-10-17",
+        "title": "伊朗破产了？损失250亿美元石油收入，3.5亿美元加密货币被冻结，民兵组织将资金送回伊斯兰革命卫队",
+        "snippet": "伊朗破产了？民兵组织将资金汇回伊斯兰革命卫队，导致250亿美元石油损失、3.5亿美元加密货币被冻结"
+      },
+      {
+        "name": "Times of India",
+        "url": "https://timesofindia.indiatimes.com/world/us/five-women-in-trumps-world-who-made-headlines-in-last-15-days-katie-zacharia-overtakes-anthony-scaramucci-in-record-of-shortest-tenure/articleshow/135003215.cms",
+        "date": "2026-10-17",
+        "title": "过去15天登上头条的特朗普圈内五位女性：凯蒂·扎卡里亚在纪录上超越安东尼·斯卡拉穆奇",
+        "snippet": "过去15天登上头条的特朗普圈内五位女性：凯蒂·扎卡里亚在纪录上超越安东尼·斯卡拉穆奇"
+      },
+      {
+        "name": "The Hindu 国际",
+        "url": "https://www.thehindu.com/news/international/china-to-resume-october-fuel-exports-after-a-brief-halt-trade-sources-say/article71562527.ece",
+        "date": "2026-10-17",
+        "title": "贸易消息人士称，中国在短暂暂停后将恢复10月燃料出口",
+        "snippet": "尽管北京通常通过配额制度管理燃料出口，但近期通过审查船舶加强了监管"
+      },
+      {
+        "name": "The Hindu 国际",
+        "url": "https://www.thehindu.com/news/international/2-missiles-strike-the-airport-in-yemens-port-city-of-aden-officials-say/article71595249.ece",
+        "date": "2026-10-17",
+        "title": "官员称，两枚导弹袭击了也门港口城市亚丁的机场",
+        "snippet": "此次，也门政府新闻部长表示，导弹落在距离机场约500米（码）处"
+      },
+      {
+        "name": "The Hindu 国际",
+        "url": "https://www.thehindu.com/news/international/south-african-anti-migrant-protests-turn-violent-government-blames-disinformation/article71561419.ece",
+        "date": "2026-10-17",
+        "title": "南非反移民抗议演变为暴力事件，政府归咎于虚假信息",
+        "snippet": "骚乱发生前，一个团体举行抗议，要求一处难民中心停止处理庇护申请"
+      },
+      {
+        "name": "NPR World",
+        "url": "https://www.npr.org/2026/10/15/nx-s1-6000378/three-years-on-israel-still-bars-foreign-journalists-from-entering-gaza",
+        "date": "2026-10-16",
+        "title": "三年过去，以色列仍禁止外国记者进入加沙",
+        "snippet": "加沙宣布停火已一年有余——战争爆发也已三年——以色列仍未允许外国"
+      },
+      {
+        "name": "CNBC World",
+        "url": "https://www.cnbc.com/2026/10/16/oil-price-today-iran-strait-hormuz-ukraine-russia.html",
+        "date": "2026-10-17",
+        "title": "布伦特原油触及110美元，伊朗加剧霍尔木兹海峡袭击，乌克兰誓言打击俄罗斯炼油厂",
+        "snippet": "美国原油价格周五大幅上涨，因伊朗本周加剧了在霍尔木兹海峡的袭击。"
+      },
+      {
+        "name": "ABC News US",
+        "url": "https://abcnews.com/International/wireStory/2-missiles-strike-airport-yemens-port-city-aden-137331824",
+        "date": "2026-10-17",
+        "title": "官员称，两枚导弹袭击了也门港口城市亚丁的机场",
+        "snippet": "据警方称，两枚导弹袭击了也门港口城市亚丁的机场"
       }
     ],
     "timeline": [
@@ -205292,15 +205529,15 @@
       },
       {
         "date": "2026-10-15",
-        "text": "MIT Technology Review｜In this age of rising electricity demand, people are trying to squeeze every las"
+        "text": "麻省理工科技评论｜在这个电力需求不断上升的时代，人们正试图榨取每一丝"
       },
       {
         "date": "2026-10-15",
-        "text": "NPR World｜Ukraine says its access to SpaceX's Starshield has been restored. It's the syste"
+        "text": "美国国家公共广播电台国际频道｜乌克兰表示其使用SpaceX星盾系统的权限已恢复。这是该系统"
       },
       {
         "date": "2026-10-15",
-        "text": "ABC News US｜Elementary school teacher Geraldine Achiah died in Cameroon after allegedly bein"
+        "text": "美国广播公司新闻美国频道｜小学教师杰拉尔丁·阿奇亚在喀麦隆去世，据称她遭到"
       },
       {
         "date": "2026-10-16",
@@ -205324,115 +205561,199 @@
       },
       {
         "date": "2026-10-16",
-        "text": "BBC World News｜The BBC joins Ukraine's Operation Vivaldi as it regains crucial territory in the"
+        "text": "英国广播公司国际新闻｜英国广播公司随乌克兰“维瓦尔第行动”采访，该行动正在收复"
       },
       {
         "date": "2026-10-16",
-        "text": "BBC World News｜The BBC sees masked settlers attack Palestinians trying to harvest olives, amid "
+        "text": "英国广播公司国际新闻｜英国广播公司目睹蒙面定居者袭击试图采收橄榄的巴勒斯坦人，正值"
       },
       {
         "date": "2026-10-16",
-        "text": "France24｜After weeks of student protests, France is set to be swept by broader, nationwid"
+        "text": "法国24电视台｜在数周的学生抗议之后，法国即将被更广泛、全国性的浪潮席卷"
       },
       {
         "date": "2026-10-16",
-        "text": "Euronews｜Moscow’s airports were closed for 101 hours in the first 14 days of October, mor"
+        "text": "欧洲新闻台｜10月前14天，莫斯科各机场共关闭101小时，更多"
       },
       {
         "date": "2026-10-16",
-        "text": "Al Jazeera｜Through statements in English, Iranian officials are emphasising gas prices and "
+        "text": "半岛电视台｜伊朗官员通过英文声明强调天然气价格和"
       },
       {
         "date": "2026-10-16",
-        "text": "Al Jazeera｜Ukraine’s &#039;Operation Vivaldi&#039; reclaimed more occupied territory in Don"
+        "text": "半岛电视台｜乌克兰的“维瓦尔第行动”在顿涅茨克收复了更多被占领土"
       },
       {
         "date": "2026-10-16",
-        "text": "Al Jazeera｜We asked students what they think."
+        "text": "半岛电视台｜我们询问了学生们的看法。"
       },
       {
         "date": "2026-10-16",
-        "text": "Al Jazeera｜Iranian President Masoud Pezeshkian has decried the ecological damage caused by "
+        "text": "半岛电视台｜伊朗总统马苏德·佩泽希齐扬谴责了由……造成的生态破坏"
       },
       {
         "date": "2026-10-16",
-        "text": "CNA 亚洲新闻台｜The UN Security Council “condemned in the strongest terms continued and escalato"
+        "text": "亚洲新闻台｜联合国安理会“以最强烈措辞谴责持续且不断升级的"
       },
       {
         "date": "2026-10-16",
-        "text": "CNA 亚洲新闻台｜Authorities said repair crews restored electricity to many affected areas, but s"
+        "text": "亚洲新闻台｜当局表示，抢修人员已恢复许多受灾地区的供电，但仍有"
       },
       {
         "date": "2026-10-16",
-        "text": "ABC 澳大利亚｜With the US mid-term elections looming and Israel heading to the polls, Donald T"
+        "text": "澳大利亚广播公司｜随着美国中期选举临近、以色列即将举行大选，唐纳德·特朗普"
       },
       {
         "date": "2026-10-16",
-        "text": "Russia Today｜Saudi Arabia spends over $82 billion on defense, yet Houthi drones and missiles "
+        "text": "今日俄罗斯｜沙特阿拉伯在国防上花费超过820亿美元，然而胡塞武装的无人机和导弹"
       },
       {
         "date": "2026-10-16",
-        "text": "Russia Today｜Egyptian archaeologists have uncovered two ancient royal statues in the Nile Del"
+        "text": "今日俄罗斯｜埃及考古学家在尼罗河三角洲发现了两尊古代王室雕像。"
       },
       {
         "date": "2026-10-16",
-        "text": "Russia Today｜South Africa’s ANC has called for a review of the Democratic Alliance’s place in"
+        "text": "今日俄罗斯｜南非非洲人国民大会呼吁重新审视民主联盟在其中的地位。"
       },
       {
         "date": "2026-10-16",
-        "text": "Russia Today｜Russia’s Alina Shevchenko has claimed gold at the U23 World Wrestling Championsh"
+        "text": "今日俄罗斯｜俄罗斯选手阿丽娜·舍甫琴科在U23世界摔跤锦标赛上夺得金牌。"
       },
       {
         "date": "2026-10-16",
-        "text": "The Hindu 国际｜Tehran had said non-compliant vessels in the zone would face sanctions, without "
+        "text": "印度教徒报国际｜德黑兰曾表示，该区域内不合规的船只将面临制裁，但未说明"
       },
       {
         "date": "2026-10-16",
-        "text": "The Hindu 国际｜Palestinian medics said two people were injured and taken to hospitals in the ar"
+        "text": "印度教徒报国际｜巴勒斯坦医护人员表示，两人受伤并被送往该地区的医院。"
       },
       {
         "date": "2026-10-16",
-        "text": "The Hindu 国际｜Drones hit two ships which caught fire off Romania’s ‌Black Sea coast this week."
+        "text": "印度教徒报国际｜本周，无人机袭击了两艘船，船只在罗马尼亚黑海沿岸附近起火。"
       },
       {
         "date": "2026-10-16",
-        "text": "韩联社 Yonhap｜WASHINGTON, Oct. 16 (Yonhap) -- South Korea has condemned recent deadly attacks "
+        "text": "韩联社｜华盛顿，10月16日（韩联社）——韩国谴责近期发生的致命袭击。"
       },
       {
         "date": "2026-10-16",
-        "text": "UN News｜As drone strikes kill civilians from El Obeid to Blue Nile and famine risk sprea"
+        "text": "联合国新闻｜随着无人机袭击导致从欧拜伊德到青尼罗河的平民丧生，饥荒风险蔓延。"
       },
       {
         "date": "2026-10-16",
-        "text": "NPR World｜Masked Israeli settlers attacked Palestinians as they were harvesting olives in "
+        "text": "美国国家公共电台世界频道｜蒙面以色列定居者在巴勒斯坦人采摘橄榄时袭击了他们。"
       },
       {
         "date": "2026-10-16",
-        "text": "Le Monde EN｜Heidi Levine, a veteran photographer, was hospitalized, with doctors saying she "
+        "text": "法国世界报英文版｜资深摄影师海蒂·莱文被送往医院，医生表示她"
       },
       {
         "date": "2026-10-16",
-        "text": "Le Monde EN｜The cost of living has remained high for a large portion of Americans, a situati"
+        "text": "世界报英文版｜对很大一部分美国人来说，生活成本依然居高不下，这一局面"
+      },
+      {
+        "date": "2026-10-16",
+        "text": "美国国家公共广播电台国际频道｜加沙宣布停火已一年有余——而这场战争已持续三年"
       },
       {
         "date": "2026-10-17",
-        "text": "DW 德国之声｜The murder of a young mother has once again sparked debate in Iran over so-calle"
+        "text": "德国之声｜一名年轻母亲的遇害再次在伊朗引发关于所谓"
       },
       {
         "date": "2026-10-17",
-        "text": "DW 德国之声｜As Yemen's Iran-backed Houthis continue to target Saudi Arabia, Riyadh's vulnera"
+        "text": "德国之声｜随着也门受伊朗支持的胡塞武装继续针对沙特阿拉伯，利雅得的脆弱"
       },
       {
         "date": "2026-10-17",
-        "text": "Times of India｜Residents and human rights organisations say Israeli authorities have done littl"
+        "text": "印度时报｜居民和人权组织称，以色列当局几乎没有采取什么行动"
       },
       {
         "date": "2026-10-17",
-        "text": "Times of India｜US tells election officials to guard against AI-powered cyber threats ahead of m"
+        "text": "印度时报｜美国告知选举官员，在中期选举前要防范人工智能驱动的网络威胁"
       },
       {
         "date": "2026-10-17",
-        "text": "Nikkei Asia｜EU seeks faster China de-risking with new diversification tool"
+        "text": "日经亚洲｜欧盟寻求借助新的多元化工具加快对华去风险"
+      },
+      {
+        "date": "2026-10-17",
+        "text": "英国广播公司国际新闻｜特朗普表示，一项旨在因莫斯科对乌克兰发动战争而惩罚它的新法律中部分内容"
+      },
+      {
+        "date": "2026-10-17",
+        "text": "英国广播公司国际新闻｜国防部长圭多·克罗塞托告诉英国广播公司，美国有可能延长俄罗斯的"
+      },
+      {
+        "date": "2026-10-17",
+        "text": "德国之声｜美国总统以国家利益为由，决定签署一项对……的豁免"
+      },
+      {
+        "date": "2026-10-17",
+        "text": "德国之声｜《华盛顿邮报》记者海蒂·莱文称遭以色列定居者殴打"
+      },
+      {
+        "date": "2026-10-17",
+        "text": "欧洲新闻台｜扎卡里亚长期自称律师，同时担任评论员"
+      },
+      {
+        "date": "2026-10-17",
+        "text": "半岛电视台｜也门胡塞武装与国际公认政府之间的战斗"
+      },
+      {
+        "date": "2026-10-17",
+        "text": "半岛电视台｜伊朗伊斯兰革命卫队称一艘超级油轮在霍尔木兹海峡遭袭后起火"
+      },
+      {
+        "date": "2026-10-17",
+        "text": "今日俄罗斯｜特朗普根据以苏命名的一项法律，豁免了对俄罗斯的全面新制裁"
+      },
+      {
+        "date": "2026-10-17",
+        "text": "今日俄罗斯｜以色列总理本雅明·内塔尼亚胡因忽视警告而面临越来越多的指控"
+      },
+      {
+        "date": "2026-10-17",
+        "text": "今日俄罗斯｜凯蒂·扎卡里亚在任职仅五天后辞去白宫新闻秘书一职"
+      },
+      {
+        "date": "2026-10-17",
+        "text": "今日俄罗斯｜乌克兰可能减少关键行业工人的动员豁免"
+      },
+      {
+        "date": "2026-10-17",
+        "text": "今日俄罗斯｜《华盛顿邮报》摄影记者海蒂·莱文遭暴力以色列定居者袭击"
+      },
+      {
+        "date": "2026-10-17",
+        "text": "今日俄罗斯｜俄军已攻占顿巴斯地区的乌克兰据点多布罗波利耶"
+      },
+      {
+        "date": "2026-10-17",
+        "text": "印度时报｜伊朗破产了？250亿美元石油损失，3.5亿美元加密货币被冻结，民兵组织将资金汇回伊朗"
+      },
+      {
+        "date": "2026-10-17",
+        "text": "印度时报｜特朗普圈子里过去15天登上头条的五位女性：凯蒂·扎卡里亚等"
+      },
+      {
+        "date": "2026-10-17",
+        "text": "印度教徒报 国际｜尽管北京通常通过配额制度规范燃料出口，但它已重新"
+      },
+      {
+        "date": "2026-10-17",
+        "text": "印度教徒报 国际｜此次，也门政府新闻部长表示，导弹落在"
+      },
+      {
+        "date": "2026-10-17",
+        "text": "印度教徒报 国际｜骚乱发生前，一个团体举行抗议，要求一处难民中心停止"
+      },
+      {
+        "date": "2026-10-17",
+        "text": "CNBC 世界｜美国原油价格周五大幅上涨，因伊朗在霍尔木兹海峡升级袭击"
+      },
+      {
+        "date": "2026-10-17",
+        "text": "ABC新闻 美国｜两枚导弹击中了也门港口城市亚丁的机场，据"
       }
     ],
     "relatedEvents": [],
@@ -212489,162 +212810,232 @@
         "name": "DW 德国之声",
         "url": "https://www.dw.com/en/at-summit-eu-leaders-pledge-support-for-ukraine-s-zelenskyy/a-79678808?maca=en-rss-en-all-1573-rdf",
         "date": "2026-10-17",
-        "title": "At summit, EU leaders pledge support for Ukraine's Zelenskyy",
-        "snippet": "President Zelenskyy has received words of encouragement from EU leaders, who pledged support for Ukraine's self-defense "
+        "title": "欧盟领导人在峰会上承诺支持乌克兰的泽连斯基",
+        "snippet": "泽连斯基总统收到了欧盟领导人的鼓励之词，他们承诺支持乌克兰的自卫"
       },
       {
         "name": "DW 德国之声",
         "url": "https://www.dw.com/en/germany-france-agree-on-deal-to-support-europe-s-struggling-car-industry/a-79678595?maca=en-rss-en-all-1573-rdf",
         "date": "2026-10-17",
-        "title": "Germany, France agree on deal to support Europe's struggling car industry",
-        "snippet": "The two countries said the agreement aimed to safeguard Europe's automotive industry, encouraging development and resear"
+        "title": "德国与法国就支持欧洲陷入困境的汽车行业达成协议",
+        "snippet": "两国表示，该协议旨在保护欧洲汽车工业，鼓励发展和研究。"
       },
       {
         "name": "DW 德国之声",
         "url": "https://www.dw.com/en/german-colonialism-on-agenda-in-bundestag-debate-on-namibia-genocide/a-79682388?maca=en-rss-en-all-1573-rdf",
         "date": "2026-10-17",
-        "title": "German colonialism on agenda in Bundestag debate on Namibia genocide",
-        "snippet": "Opposition parties have forced a debate in the Bundestag on the early-20th-century genocide Germany carried out in Namib"
+        "title": "德国殖民主义问题被列入联邦议院关于纳米比亚种族灭绝的辩论议程。",
+        "snippet": "反对党迫使联邦议院就德国在20世纪初于纳米比亚实施的种族灭绝展开辩论。"
       },
       {
         "name": "France24",
         "url": "https://www.france24.com/en/video/20261016-replay-ukraine-s-zelensky-holds-presser-in-brussels",
         "date": "2026-10-16",
-        "title": "REPLAY: Ukraine's Zelensky holds presser in Brussels",
-        "snippet": "Ukrainian President Volodymyr Zelensky on Friday urged European leaders to maintain their support for Kyiv and warned ag"
+        "title": "回放：乌克兰总统泽连斯基在布鲁塞尔举行记者会。",
+        "snippet": "乌克兰总统弗拉基米尔·泽连斯基于周五敦促欧洲领导人继续支持基辅，并警告称……"
       },
       {
         "name": "Euronews",
         "url": "https://www.euronews.com/video/2026/10/16/russian-missiles-spark-huge-factory-fires-in-ukraines-odesa-and-zaporizhzhia",
         "date": "2026-10-16",
-        "title": "Russian missiles spark huge factory fires in Ukraine’s Odesa and Zaporizhzhia",
-        "snippet": "Russian strikes ignited massive fires at businesses in Odesa and Zaporizhzhia as President Zelensky met European leaders"
+        "title": "俄罗斯导弹在乌克兰敖德萨和扎波罗热引发工厂大火。",
+        "snippet": "俄罗斯袭击在敖德萨和扎波罗热的企业引发大火，泽连斯基总统此时正与欧洲领导人会晤。"
       },
       {
         "name": "Euronews",
         "url": "https://www.euronews.com/2026/10/16/putin-seizes-five-more-european-firms-continuing-russias-hostile-asset-crackdown",
         "date": "2026-10-16",
-        "title": "Putin seizes five more European firms, continuing Russia's hostile asset crackdown",
-        "snippet": "The decree covers a flooring manufacturer, a paper packaging firm, a hygiene products maker, and two metal- and plastic-"
+        "title": "普京再没收五家欧洲企业，继续俄罗斯针对资产的敌对打压。",
+        "snippet": "该法令涉及一家地板制造商、一家纸包装企业、一家卫生用品生产商，以及两家金属和塑料制品公司。"
       },
       {
         "name": "Al Jazeera",
         "url": "https://www.aljazeera.com/video/newsfeed/2026/10/16/ukraine-president-targets-trump-putin-at-eu-summit?traffic_source=rss",
         "date": "2026-10-16",
-        "title": "Ukraine president targets Trump, Putin at EU summit",
-        "snippet": "President Zelenskyy warned Russia’s ambitions extend beyond eastern Ukraine, saying its drone attack threaten NATO."
+        "title": "乌克兰总统在欧盟峰会上将矛头指向特朗普和普京。",
+        "snippet": "泽连斯基总统警告称，俄罗斯的野心不止于乌克兰东部，其无人机袭击威胁到北约。"
       },
       {
         "name": "Russia Today",
         "url": "https://rt-english.com/news/647317-trump-putin-diesel-deal-west/?utm_source=rss&utm_medium=rss&utm_campaign=RSS",
         "date": "2026-10-16",
-        "title": "Trump-Putin diesel deal fractures West on Russia – ex-Austrian FM",
-        "snippet": "The US diesel deal with Moscow has exposed divisions in the West’s anti-Russian stance, ex-Austrian Foreign Minister Kar"
+        "title": "特朗普与普京的柴油协议使西方在俄罗斯问题上产生裂痕——奥地利前外长",
+        "snippet": "美国与莫斯科达成的柴油协议暴露了西方反俄立场中的分歧，奥地利前外长卡琳表示。"
       },
       {
         "name": "Russia Today",
         "url": "https://rt-english.com/russia/647316-putin-strategic-companies-rules/?utm_source=rss&utm_medium=rss&utm_campaign=RSS",
         "date": "2026-10-16",
-        "title": "Putin tightens rules for strategic Russian companies",
-        "snippet": "Russian President Vladimir Putin has tightened regulations on strategic enterprises, requiring state approval for certai"
+        "title": "普京收紧对俄罗斯战略企业的规定",
+        "snippet": "俄罗斯总统弗拉基米尔·普京收紧了对战略企业的监管，要求某些事项须经国家批准。"
       },
       {
         "name": "Russia Today",
         "url": "https://rt-english.com/russia/647312-security-of-russian-border-regions-top-priority/?utm_source=rss&utm_medium=rss&utm_campaign=RSS",
         "date": "2026-10-16",
-        "title": "Security of Russian border regions top priority – Putin",
-        "snippet": "The Russian military is set to continue retaliatory long-range strikes against Ukraine, President Vladimir Putin has sai"
+        "title": "普京：俄罗斯边境地区安全是首要任务",
+        "snippet": "俄罗斯总统弗拉基米尔·普京表示，俄军将继续对乌克兰实施报复性远程打击。"
       },
       {
         "name": "Russia Today",
         "url": "https://rt-english.com/russia/647295-ukraine-alternatives-starlink-intelligence/?utm_source=rss&utm_medium=rss&utm_campaign=RSS",
         "date": "2026-10-16",
-        "title": "In space, no one hears Zelensky scream: No euros can buy Kiev options in orbit",
-        "snippet": "European backers of Vladimir Zelensky’s government cannot replace American intelligence and Starlink access Read Full Ar"
+        "title": "在太空中，无人听到泽连斯基的呼喊：欧元买不到基辅在轨选项",
+        "snippet": "弗拉基米尔·泽连斯基政府的欧洲支持者无法替代美国的情报和星链接入。阅读全文。"
       },
       {
         "name": "Times of India",
         "url": "https://timesofindia.indiatimes.com/world/europe/russia-strikes-9-ukrainian-regions-as-new-report-shows-spike-in-civilian-casualties/articleshow/135000226.cms",
         "date": "2026-10-17",
-        "title": "Russia strikes 9 Ukrainian regions as new report shows spike in civilian casualties",
-        "snippet": "Russia's recent strikes have plunged Ukraine into darkness, impacting electricity for hundreds of thousands and resultin"
+        "title": "俄罗斯袭击乌克兰9个地区，新报告显示平民伤亡激增。",
+        "snippet": "俄罗斯近期的打击使乌克兰陷入黑暗，导致数十万人电力供应受影响，并造成"
       },
       {
         "name": "The Hindu 国际",
         "url": "https://www.thehindu.com/opinion/op-ed/us-midterms-donald-trumps-test-indias-stakes/article71593689.ece",
         "date": "2026-10-16",
-        "title": "U.S. midterms — Donald Trump’s test, India’s stakes",
-        "snippet": "The midterm elections will test the U.S. President’s leadership, congressional control and the future of India relations"
+        "title": "美国中期选举——唐纳德·特朗普的考验，印度的利害关系",
+        "snippet": "中期选举将考验美国总统的领导力、国会控制权以及印度关系的未来"
       },
       {
         "name": "UN News",
         "url": "https://news.un.org/feed/view/en/story/2026/10/1168614",
         "date": "2026-10-16",
-        "title": "Ukraine: Civilian casualty rates among ‘deadliest’ in years, as energy attacks intensify",
-        "snippet": "Civilian casualties in Ukraine&nbsp;remain at record levels, with intensified Russian attacks in September continuing a "
+        "title": "乌克兰：能源袭击加剧，平民伤亡率创下多年来‘最致命’纪录",
+        "snippet": "乌克兰平民伤亡人数仍处于创纪录水平，俄罗斯9月加强袭击，延续了"
       },
       {
         "name": "NPR World",
         "url": "https://www.npr.org/2026/10/16/nx-s1-6004281/russias-view-amid-ukraines-strikes-and-zelenskyys-growing-rift-with-the-u-s",
         "date": "2026-10-16",
-        "title": "Russia's view amid Ukraine's strikes and Zelenskyy's growing rift with the U.S.",
-        "snippet": "Russian authorities say Ukraine struck a major oil refinery southeast of Moscow Thursday. The strike was in response to "
+        "title": "乌克兰发动袭击及泽连斯基与美国裂痕加深之际，俄罗斯的立场",
+        "snippet": "俄罗斯当局称，乌克兰周四袭击了莫斯科东南部一座大型炼油厂。此次袭击是对"
       },
       {
         "name": "NPR World",
         "url": "https://www.npr.org/2026/10/16/nx-s1-6003665/how-putin-may-react-to-the-rift-between-the-u-s-and-ukraine",
         "date": "2026-10-16",
-        "title": "How Putin may react to the rift between the U.S. and Ukraine",
-        "snippet": "Journalist and Russia analyst Julia Ioffe lays out how Vladimir Putin might be trying to exploit the current divide betw"
+        "title": "普京可能如何回应美乌之间的裂痕",
+        "snippet": "记者兼俄罗斯分析人士朱莉娅·约菲阐述了弗拉基米尔·普京可能如何试图利用当前美乌之间的分歧"
       },
       {
         "name": "NPR World",
         "url": "https://www.npr.org/2026/10/15/g-s1-148194/russia-ukraine-war",
         "date": "2026-10-15",
-        "title": "Ukraine resumes attacks on Russian oil refineries, officials say, after brief truce",
-        "snippet": "Ukrainian drones attacked a refinery in Russia's Ryazan region early Thursday, hours after Ukrainian President Volodymyr"
+        "title": "官员称，短暂停火后，乌克兰恢复对俄罗斯炼油厂的袭击",
+        "snippet": "乌克兰无人机于周四凌晨袭击了俄罗斯梁赞地区的一座炼油厂，数小时前乌克兰总统弗拉基米尔"
       },
       {
         "name": "CNBC World",
         "url": "https://www.cnbc.com/2026/10/16/zelenskyy-trump-eu-summit-russia-ukraine.html",
         "date": "2026-10-16",
-        "title": "U.S. Starlink curbs embolden Russia to intensify attacks on Ukraine, minister tells CNBC",
-        "snippet": "Ukraine is seeking winter energy and air-defense support as Russian strikes intensify and Starlink limits disrupt milita"
+        "title": "部长对CNBC表示，美国限制星链服务使俄罗斯有恃无恐，加大对乌克兰的攻击力度",
+        "snippet": "随着俄罗斯打击力度加大以及星链限制扰乱军事行动，乌克兰正寻求冬季能源和防空支持"
       },
       {
         "name": "Le Monde EN",
         "url": "https://www.lemonde.fr/en/economy/article/2026/10/16/france-and-germany-unveil-deal-on-future-of-car-industry_6758655_20.html",
         "date": "2026-10-16",
-        "title": "France and Germany unveil deal on future of car industry",
-        "snippet": "France and Germany have agreed to ease EU pollution rules for new cars and to let Britain count as 'made in Europe.' The"
+        "title": "法国和德国公布汽车工业未来协议",
+        "snippet": "法国和德国已同意放宽欧盟对新车的污染规定，并允许英国计入“欧洲制造”。该"
       },
       {
         "name": "Le Monde EN",
         "url": "https://www.lemonde.fr/en/international/article/2026/10/16/leaders-debate-ue-budget-ahead-of-high-stakes-2027-elections_6758677_4.html",
         "date": "2026-10-16",
-        "title": "Leaders debate UE budget ahead of high-stakes 2027 elections",
-        "snippet": "The debate has intensified between countries pushing to reduce the budget envelope and those determined to preserve EU r"
+        "title": "各国领导人在2027年高风险选举前辩论欧盟预算",
+        "snippet": "主张削减预算规模的国家与决心维护欧盟角色的国家之间的辩论愈演愈烈"
       },
       {
         "name": "Le Monde EN",
         "url": "https://www.lemonde.fr/en/international/article/2026/10/16/zelensky-resumes-strikes-on-russian-refineries-trump-brands-them-a-disgrace_6758672_4.html",
         "date": "2026-10-16",
-        "title": "Zelensky resumes strikes on Russian refineries, Trump brands them 'a disgrace'",
-        "snippet": "The end of the truce called for by the US president marks an escalation in tensions between Zelensky and Trump, followin"
+        "title": "泽连斯基恢复对俄罗斯炼油厂的打击，特朗普称其“丢人”",
+        "snippet": "美国总统呼吁的停火结束，标志着泽连斯基与特朗普之间紧张关系升级，此前"
       },
       {
         "name": "Le Monde EN",
         "url": "https://www.lemonde.fr/en/economy/article/2026/10/16/eu-struggles-to-agree-on-fuel-energy-price-cuts-leaving-its-economy-in-peril_6758671_19.html",
         "date": "2026-10-16",
-        "title": "EU member states struggle to reach an agreement to lower energy prices",
-        "snippet": "European leaders meeting in Brussels on October 15 and 16 remain divided over how to tackle soaring energy prices, as th"
+        "title": "欧盟成员国难以就降低能源价格达成协议",
+        "snippet": "10月15日和16日在布鲁塞尔开会的欧洲领导人，在如何应对能源价格飙升的问题上仍存在分歧，因为……"
       },
       {
         "name": "Le Monde EN",
         "url": "https://www.lemonde.fr/en/international/article/2026/10/16/zelensky-rallies-european-allies-as-trump-ties-slump_6758667_4.html",
         "date": "2026-10-16",
-        "title": "Zelensky rallies European allies as Trump ties slump",
-        "snippet": "Zelensky said Ukraine was no longer pausing strikes on Russian refineries as Moscow was not abiding by a ceasefire on hi"
+        "title": "泽连斯基拉拢欧洲盟友，与特朗普的关系却急剧恶化",
+        "snippet": "泽连斯基表示，乌克兰不再暂停对俄罗斯炼油厂的打击，因为莫斯科没有遵守对他……的停火协议"
+      },
+      {
+        "name": "BBC World News",
+        "url": "https://www.bbc.co.uk/news/articles/c32l4ekpvzl8o?at_medium=RSS&at_campaign=rss",
+        "date": "2026-10-17",
+        "title": "凯蒂·扎卡里亚上任不到五天便离开白宫职位",
+        "snippet": "她周二作为白宫新闻秘书的首次公开亮相，以媒体对其资历的一片质疑声收场"
+      },
+      {
+        "name": "BBC World News",
+        "url": "https://www.bbc.co.uk/news/articles/cwvgdn3d656vo?at_medium=RSS&at_campaign=rss",
+        "date": "2026-10-17",
+        "title": "引发巨大间谍丑闻的德国牛排馆女继承人案开审",
+        "snippet": "15个月来，汉堡一个高度设防的法庭一直在审理克里斯蒂娜·布洛克一案，她被控下令……"
+      },
+      {
+        "name": "DW 德国之声",
+        "url": "https://www.dw.com/en/ukrainian-president-zelenskyy-speaks-at-eu-summit-amid-spat-with-donald-trump/a-79684340?maca=en-rss-en-all-1573-rdf",
+        "date": "2026-10-17",
+        "title": "乌克兰总统泽连斯基在与唐纳德·特朗普发生争执之际在欧盟峰会上发表讲话",
+        "snippet": "欧盟领导人在布鲁塞尔峰会上重申对乌克兰的支持。但因俄罗斯和星……问题与美国关系恶化"
+      },
+      {
+        "name": "France24",
+        "url": "https://www.france24.com/en/europe/20261016-zelensky-turns-to-europe-for-backing-as-ties-with-trump-deteriorate",
+        "date": "2026-10-17",
+        "title": "随着与特朗普的关系恶化，泽连斯基转向欧洲寻求支持",
+        "snippet": "乌克兰总统弗拉基米尔·泽连斯基周五转向其欧洲盟友，请求布鲁塞尔再提供700亿欧元。"
+      },
+      {
+        "name": "Russia Today",
+        "url": "https://rt-english.com/news/647323-trump-welcomes-putin-g20/?utm_source=rss&utm_medium=rss&utm_campaign=RSS",
+        "date": "2026-10-17",
+        "title": "特朗普无视西方批评者，坚持邀请普京出席二十国集团峰会",
+        "snippet": "特朗普表示，尽管欧洲盟友批评他向莫斯科示好，他仍欢迎普京出席在迈阿密举行的二十国集团峰会。"
+      },
+      {
+        "name": "Russia Today",
+        "url": "https://rt-english.com/news/647296-rt-top-stories-zelensky-trump-nord-stream/?utm_source=rss&utm_medium=rss&utm_campaign=RSS",
+        "date": "2026-10-17",
+        "title": "泽连斯基的柴油耗尽、北溪案开庭、通俄门重启：塑造本周的今日俄罗斯报道",
+        "snippet": "今日俄罗斯盘点本周头条新闻，包括唐纳德·特朗普与弗拉基米尔·泽连斯基之间的裂痕，以及……的回归。"
+      },
+      {
+        "name": "Times of India",
+        "url": "https://timesofindia.indiatimes.com/world/europe/zelenskyy-terms-russian-peace-moves-a-parody-slams-trump-deal/articleshow/135006211.cms",
+        "date": "2026-10-17",
+        "title": "泽连斯基称俄罗斯的和平举措是‘拙劣模仿’，抨击特朗普协议",
+        "snippet": "泽连斯基称俄罗斯的和平举措是‘拙劣模仿’，抨击特朗普协议"
+      },
+      {
+        "name": "Times of India",
+        "url": "https://timesofindia.indiatimes.com/world/europe/order-to-limit-satellite-system-used-by-ukraine-came-from-white-house-report/articleshow/135006178.cms",
+        "date": "2026-10-17",
+        "title": "报道称限制乌克兰所用卫星系统的命令来自白宫",
+        "snippet": "报道称限制乌克兰所用卫星系统的命令来自白宫"
+      },
+      {
+        "name": "The Hindu 国际",
+        "url": "https://www.thehindu.com/news/international/donald-trump-waives-sanctions-tariffs-on-purchase-of-russian-oil-and-gas/article71595243.ece",
+        "date": "2026-10-17",
+        "title": "唐纳德·特朗普豁免购买俄罗斯石油和天然气的制裁与关税",
+        "snippet": "特朗普表示，他已向国会提交证明，认定此时发放此类豁免符合国家利益"
+      },
+      {
+        "name": "ABC News US",
+        "url": "https://abcnews.com/International/wireStory/presidential-adviser-ukraine-talks-lift-speed-limit-military-137331428",
+        "date": "2026-10-17",
+        "title": "总统顾问称乌克兰正就解除军事卫星网络速度限制进行谈判",
+        "snippet": "乌克兰正与SpaceX和美国国防部谈判，以解除其军事卫星通信服务的速度上限"
       }
     ],
     "timeline": [
@@ -213402,7 +213793,7 @@
       },
       {
         "date": "2026-10-15",
-        "text": "NPR World｜Ukrainian drones attacked a refinery in Russia's Ryazan region early Thursday, h"
+        "text": "美国国家公共广播电台国际频道｜乌克兰无人机周四凌晨袭击了俄罗斯梁赞地区的一座炼油厂"
       },
       {
         "date": "2026-10-16",
@@ -213422,91 +213813,131 @@
       },
       {
         "date": "2026-10-16",
-        "text": "France24｜Ukrainian President Volodymyr Zelensky on Friday urged European leaders to maint"
+        "text": "法国24电视台｜乌克兰总统弗拉基米尔·泽连斯基周五敦促欧洲领导人维持"
       },
       {
         "date": "2026-10-16",
-        "text": "Euronews｜Russian strikes ignited massive fires at businesses in Odesa and Zaporizhzhia as"
+        "text": "欧洲新闻台｜俄罗斯的袭击引发敖德萨和扎波罗热企业大规模火灾"
       },
       {
         "date": "2026-10-16",
-        "text": "Euronews｜The decree covers a flooring manufacturer, a paper packaging firm, a hygiene pro"
+        "text": "欧洲新闻台｜该法令涵盖一家地板制造商、一家纸包装企业、一家卫生用品生产商"
       },
       {
         "date": "2026-10-16",
-        "text": "Al Jazeera｜President Zelenskyy warned Russia’s ambitions extend beyond eastern Ukraine, say"
+        "text": "半岛电视台｜泽连斯基总统警告称，俄罗斯的野心不止于乌克兰东部"
       },
       {
         "date": "2026-10-16",
-        "text": "Russia Today｜The US diesel deal with Moscow has exposed divisions in the West’s anti-Russian "
+        "text": "今日俄罗斯｜美国与莫斯科的柴油交易暴露了西方反俄阵营的分歧"
       },
       {
         "date": "2026-10-16",
-        "text": "Russia Today｜Russian President Vladimir Putin has tightened regulations on strategic enterpri"
+        "text": "今日俄罗斯｜俄罗斯总统弗拉基米尔·普京加强了对战略企业的监管"
       },
       {
         "date": "2026-10-16",
-        "text": "Russia Today｜The Russian military is set to continue retaliatory long-range strikes against U"
+        "text": "今日俄罗斯｜俄罗斯军方将继续对乌克兰实施远程报复性打击。"
       },
       {
         "date": "2026-10-16",
-        "text": "Russia Today｜European backers of Vladimir Zelensky’s government cannot replace American intel"
+        "text": "今日俄罗斯｜弗拉基米尔·泽连斯基政府的欧洲支持者无法取代美国的情报支持。"
       },
       {
         "date": "2026-10-16",
-        "text": "The Hindu 国际｜The midterm elections will test the U.S. President’s leadership, congressional c"
+        "text": "印度教徒报 国际｜中期选举将考验美国总统的领导力、国会控制权。"
       },
       {
         "date": "2026-10-16",
-        "text": "UN News｜Civilian casualties in Ukraine&nbsp;remain at record levels, with intensified Ru"
+        "text": "联合国新闻｜乌克兰平民伤亡仍处于创纪录水平，俄罗斯加大攻势。"
       },
       {
         "date": "2026-10-16",
-        "text": "NPR World｜Russian authorities say Ukraine struck a major oil refinery southeast of Moscow "
+        "text": "美国国家公共电台 世界｜俄罗斯当局称乌克兰袭击了莫斯科东南部一座大型炼油厂。"
       },
       {
         "date": "2026-10-16",
-        "text": "NPR World｜Journalist and Russia analyst Julia Ioffe lays out how Vladimir Putin might be t"
+        "text": "美国国家公共电台 世界｜记者兼俄罗斯问题分析师朱莉娅·约费阐述了弗拉基米尔·普京可能如何被试探。"
       },
       {
         "date": "2026-10-16",
-        "text": "CNBC World｜Ukraine is seeking winter energy and air-defense support as Russian strikes inte"
+        "text": "美国消费者新闻与商业频道 世界｜随着俄罗斯打击加剧，乌克兰正寻求冬季能源和防空支持。"
       },
       {
         "date": "2026-10-16",
-        "text": "Le Monde EN｜France and Germany have agreed to ease EU pollution rules for new cars and to le"
+        "text": "世界报 英文版｜法国和德国已同意放宽欧盟新车污染规则，并允许。"
       },
       {
         "date": "2026-10-16",
-        "text": "Le Monde EN｜The debate has intensified between countries pushing to reduce the budget envelo"
+        "text": "世界报 英文版｜主张削减预算规模的国家之间辩论加剧。"
       },
       {
         "date": "2026-10-16",
-        "text": "Le Monde EN｜The end of the truce called for by the US president marks an escalation in tensi"
+        "text": "世界报 英文版｜美国总统呼吁的停火结束，标志着紧张局势升级。"
       },
       {
         "date": "2026-10-16",
-        "text": "Le Monde EN｜European leaders meeting in Brussels on October 15 and 16 remain divided over ho"
+        "text": "《世界报》英文版｜10月15日和16日在布鲁塞尔开会的欧洲领导人仍在……问题上存在分歧。"
       },
       {
         "date": "2026-10-16",
-        "text": "Le Monde EN｜Zelensky said Ukraine was no longer pausing strikes on Russian refineries as Mos"
+        "text": "《世界报》英文版｜泽连斯基表示，乌克兰不再暂停对俄罗斯炼油厂的打击，因为莫斯科……"
       },
       {
         "date": "2026-10-17",
-        "text": "DW 德国之声｜President Zelenskyy has received words of encouragement from EU leaders, who ple"
+        "text": "德国之声｜泽连斯基总统得到了欧盟领导人的鼓励之词，他们……"
       },
       {
         "date": "2026-10-17",
-        "text": "DW 德国之声｜The two countries said the agreement aimed to safeguard Europe's automotive indu"
+        "text": "德国之声｜两国表示，该协议旨在保护欧洲汽车工业……"
       },
       {
         "date": "2026-10-17",
-        "text": "DW 德国之声｜Opposition parties have forced a debate in the Bundestag on the early-20th-centu"
+        "text": "德国之声｜反对党迫使联邦议院就20世纪初……展开辩论。"
       },
       {
         "date": "2026-10-17",
-        "text": "Times of India｜Russia's recent strikes have plunged Ukraine into darkness, impacting electricit"
+        "text": "《印度时报》｜俄罗斯近期的打击使乌克兰陷入黑暗，影响了电力供应……"
+      },
+      {
+        "date": "2026-10-17",
+        "text": "BBC世界新闻｜她周二作为白宫新闻秘书的首次公开亮相在一片……中结束。"
+      },
+      {
+        "date": "2026-10-17",
+        "text": "BBC世界新闻｜15个月来，汉堡一个高度设防的法庭一直在审理……的案件。"
+      },
+      {
+        "date": "2026-10-17",
+        "text": "德国之声｜欧盟领导人在布鲁塞尔峰会上重申对乌克兰的支持。但日益恶化的关系……"
+      },
+      {
+        "date": "2026-10-17",
+        "text": "法国24小时｜乌克兰总统弗拉基米尔·泽连斯基周五转向他的欧洲盟友，……"
+      },
+      {
+        "date": "2026-10-17",
+        "text": "今日俄罗斯｜特朗普表示，尽管有批评声音，他仍欢迎普京出席在迈阿密举行的二十国集团峰会"
+      },
+      {
+        "date": "2026-10-17",
+        "text": "今日俄罗斯｜今日俄罗斯盘点本周头条新闻，包括唐纳德·特朗普与……之间的裂痕"
+      },
+      {
+        "date": "2026-10-17",
+        "text": "印度时报｜泽连斯基称俄罗斯的和平举措是“拙劣模仿”，抨击特朗普的协议"
+      },
+      {
+        "date": "2026-10-17",
+        "text": "印度时报｜报道称，限制乌克兰所用卫星系统的命令来自白宫"
+      },
+      {
+        "date": "2026-10-17",
+        "text": "印度教徒报国际版｜特朗普表示，他已向国会提交了一份证明，说明发布此类豁免……"
+      },
+      {
+        "date": "2026-10-17",
+        "text": "美国广播公司新闻美国版｜乌克兰正与太空探索技术公司和五角大楼谈判，以解除对其军用……的速度限制"
       }
     ],
     "relatedEvents": [],
@@ -220119,8 +220550,8 @@
         "name": "NASA News",
         "url": "https://science.nasa.gov/missions/hubble/nasas-hubble-spies-spirals-edge/",
         "date": "2026-10-16",
-        "title": "NASA’s Hubble Spies Spiral’s Edge",
-        "snippet": "This NASA Hubble Space Telescope image features the edge-on, intermediate spiral galaxy NGC 1827, located roughly 37 mil"
+        "title": "美国国家航空航天局哈勃望远镜观测到螺旋星系的边缘",
+        "snippet": "这张美国国家航空航天局哈勃空间望远镜图像展示了侧向朝向的中间型螺旋星系NGC 1827，该星系位于约3700万……"
       }
     ],
     "timeline": [
@@ -220134,7 +220565,7 @@
       },
       {
         "date": "2026-10-16",
-        "text": "NASA News｜This NASA Hubble Space Telescope image features the edge-on, intermediate spiral"
+        "text": "美国国家航空航天局新闻｜这张美国国家航空航天局哈勃空间望远镜图像展示了侧向朝向的中间型螺旋……"
       }
     ],
     "relatedEvents": [],
@@ -221733,8 +222164,8 @@
         "name": "Al Jazeera",
         "url": "https://www.aljazeera.com/news/2026/10/16/uk-pm-advisers-wife-expresses-support-for-palestine-action?traffic_source=rss",
         "date": "2026-10-16",
-        "title": "UK PM adviser’s wife expresses ‘support’ for Palestine Action",
-        "snippet": "Police reviewing social media post by writer Sarah Helm, wife of Burnham&#039;s National Security Adviser Jonathan Powel"
+        "title": "英国首相顾问的妻子对“巴勒斯坦行动”表示“支持”",
+        "snippet": "警方正在审查作家莎拉·赫尔姆在社交媒体上发布的帖子，她是伯纳姆的国家安全顾问乔纳森·鲍威尔的妻子"
       }
     ],
     "timeline": [
@@ -221744,7 +222175,7 @@
       },
       {
         "date": "2026-10-16",
-        "text": "Al Jazeera｜Police reviewing social media post by writer Sarah Helm, wife of Burnham&#039;s "
+        "text": "半岛电视台｜警方正在审查作家莎拉·赫尔姆在社交媒体上发布的帖子，她是伯纳姆的"
       }
     ],
     "relatedEvents": [],
