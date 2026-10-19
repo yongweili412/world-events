@@ -58,20 +58,19 @@ QUIET_SECONDS = 300        # 并发静默检查：目标文件距今不足 5 分
 def check_quiet_period():
     """并发静默检查：本机自动任务会在任意时间运行，持有内存副本整体写回，
     会覆盖重判期间写入的账本行（2026-10-19 实际发生：52 条明细被覆盖丢失）。
-    因此写账本前要求核心文件至少静默 QUIET_SECONDS 秒。"""
+
+    只检查 events.json 的 mtime：自动任务的写回必然整体覆盖 events.json，
+    而重判脚本自己只写账本、不写 events.json —— 若把账本也算进去，
+    自己上一批的写入会误伤下一批的启动。"""
     import time as _t
-    targets = [
-        ROOT / "data" / "events.json",
-        CANDIDATE_DIR / ("candidate-decisions-%s.jsonl" % time.strftime("%Y-%m")),
-    ]
+    target = ROOT / "data" / "events.json"
     now = _t.time()
-    for f in targets:
-        try:
-            age = now - f.stat().st_mtime
-        except OSError:
-            continue
-        if age < QUIET_SECONDS:
-            return False, f"{f.name} 最近 {age:.0f}s 内被修改（< {QUIET_SECONDS}s 静默要求）"
+    try:
+        age = now - target.stat().st_mtime
+    except OSError:
+        return True, ""
+    if age < QUIET_SECONDS:
+        return False, f"events.json 最近 {age:.0f}s 内被修改（< {QUIET_SECONDS}s 静默要求）"
     return True, ""
 
 
