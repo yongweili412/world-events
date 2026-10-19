@@ -1,20 +1,26 @@
 {
-  "run_at": "2026-10-19T15:24:25",
+  "run_at": "2026-10-19T15:29:10",
   "month": "2026-10",
   "total_pass_on_fail_in_ledger": 694,
   "unique_urls": 585,
-  "done_before_this_run": 58,
+  "done_before_this_run": 78,
   "this_run_budget": 20,
   "this_run_attempted": 20,
   "this_run": {
-    "keep": 2,
-    "review": 16,
-    "drop": 2,
-    "failed": 0
+    "keep": 1,
+    "review": 18,
+    "drop": 0,
+    "failed": 1
   },
-  "started_at": "2026-10-19T15:20:43",
-  "finished_at": "2026-10-19T15:24:25",
-  "wall_clock_seconds": 221.7,
-  "done_total_after_this_run": 78,
+  "started_at": "2026-10-19T15:25:22",
+  "errors": [
+    {
+      "url": "https://www.globaltimes.cn/page/202604/1359873.shtml",
+      "title": "DC gala shooting suspect voices grievances against US administration in writings"
+    }
+  ],
+  "finished_at": "2026-10-19T15:29:10",
+  "wall_clock_seconds": 227.6,
+  "done_total_after_this_run": 97,
   "orphan_count": 0
 }
