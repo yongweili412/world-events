@@ -1,26 +1,20 @@
 {
-  "run_at": "2026-10-19T17:05:14",
+  "run_at": "2026-10-19T17:10:17",
   "month": "2026-10",
   "total_pass_on_fail_in_ledger": 694,
   "unique_urls": 585,
-  "done_before_this_run": 317,
+  "done_before_this_run": 336,
   "this_run_budget": 20,
   "this_run_attempted": 20,
   "this_run": {
-    "keep": 1,
-    "review": 17,
-    "drop": 1,
-    "failed": 1
+    "keep": 2,
+    "review": 15,
+    "drop": 3,
+    "failed": 0
   },
-  "started_at": "2026-10-19T17:01:48",
-  "errors": [
-    {
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/10/14/settlers-attack-palestinian-mosque-near-occupied-east-jerusalem?traffic_source=rss",
-      "title": "Settlers attack Palestinian mosque near occupied East Jerusalem"
-    }
-  ],
-  "finished_at": "2026-10-19T17:05:14",
-  "wall_clock_seconds": 206.2,
-  "done_total_after_this_run": 336,
+  "started_at": "2026-10-19T17:06:51",
+  "finished_at": "2026-10-19T17:10:17",
+  "wall_clock_seconds": 205.5,
+  "done_total_after_this_run": 356,
   "orphan_count": 0
 }
