@@ -1,30 +1,34 @@
 {
-  "run_at": "2026-10-19T16:11:22",
+  "run_at": "2026-10-19T16:16:03",
   "month": "2026-10",
   "total_pass_on_fail_in_ledger": 694,
   "unique_urls": 585,
-  "done_before_this_run": 172,
+  "done_before_this_run": 190,
   "this_run_budget": 20,
   "this_run_attempted": 20,
   "this_run": {
     "keep": 1,
-    "review": 16,
+    "review": 15,
     "drop": 1,
-    "failed": 2
+    "failed": 3
   },
-  "started_at": "2026-10-19T16:08:08",
+  "started_at": "2026-10-19T16:12:15",
   "errors": [
     {
-      "url": "https://www.france24.com/en/europe/20261012-what-we-know-about-pope-leo-xiv-planned-lung-operation-this-week",
-      "title": "What we know about Pope Leo XIV's planned lung operation this week"
+      "url": "https://www.euronews.com/2026/10/12/citroen-revives-its-classic-2cv-with-a-new-electric-concept",
+      "title": "Citroën revives its classic 2CV with a new electric concept"
     },
     {
-      "url": "https://www.france24.com/en/it-s-clear-that-moscow-is-just-playing-with-washington-analyst-says",
-      "title": "'It's clear that Moscow is just playing with Washington', analyst says"
+      "url": "https://www.aljazeera.com/news/2026/10/12/conflict-drought-increasing-risk-of-famine-in-sudan-monitor?traffic_source=rss",
+      "title": "Conflict, drought increasing risk of famine in Sudan: Monitor"
+    },
+    {
+      "url": "https://www.channelnewsasia.com/world/ilhan-omar-democratic-home-raid-trump-us-6454226",
+      "title": "US immigration authorities raid Democratic congresswoman Ilhan Omar's home"
     }
   ],
-  "finished_at": "2026-10-19T16:11:22",
-  "wall_clock_seconds": 193.9,
-  "done_total_after_this_run": 190,
+  "finished_at": "2026-10-19T16:16:03",
+  "wall_clock_seconds": 227.8,
+  "done_total_after_this_run": 207,
   "orphan_count": 0
 }
