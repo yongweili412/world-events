@@ -90,15 +90,43 @@ def dedup_by_url(rows):
     return list(seen.values())
 
 
-def load_checkpoint():
-    """读取断点：已重判完成的 url 集合。"""
-    if not CHECKPOINT_FILE.exists():
-        return set()
-    try:
-        data = json.loads(CHECKPOINT_FILE.read_text(encoding="utf-8"))
-        return set(data.get("done_urls") or [])
-    except Exception:
-        return set()
+def load_checkpoint(month: str = None):
+    """读取断点：已重判完成的 url 集合。
+
+    两个来源合并，缺一不可：
+      1. rejudge_checkpoint.json（正常退出/中断时写入）
+      2. 当月账本里的 REJUDGE_* 行（进程被强杀时 finally 不执行，
+         checkpoint 会丢；但账本行是逐条 append 落盘的，可信）
+    只靠 checkpoint 会在强杀后重复重判、白烧模型额度。
+    """
+    done = set()
+    if CHECKPOINT_FILE.exists():
+        try:
+            data = json.loads(CHECKPOINT_FILE.read_text(encoding="utf-8"))
+            done.update(data.get("done_urls") or [])
+        except Exception:
+            pass
+    if month:
+        ledger = CANDIDATE_DIR / LEDGER_GLOB.format(month=month)
+        if ledger.exists():
+            with open(ledger, encoding="utf-8") as fh:
+                for line in fh:
+                    line = line.strip()
+                    if not line or "REJUDGE_" not in line:
+                        continue
+                    try:
+                        d = json.loads(line)
+                    except json.JSONDecodeError:
+                        continue
+                    if not str(d.get("action") or "").startswith("REJUDGE_"):
+                        continue
+                    # REJUDGE_FAILED 不算完成：模型限流/异常导致的失败要给后续轮次重试机会，
+                    # 否则失败条目会被永久跳过，与「绝不丢数据」的红线相悖。
+                    if d.get("action") == "REJUDGE_FAILED":
+                        continue
+                    if d.get("rejudge_of_url"):
+                        done.add(d["rejudge_of_url"].strip())
+    return done
 
 
 def save_checkpoint(done_urls):
@@ -290,9 +318,9 @@ def main():
     uniq = dedup_by_url(rows)
     print(f"按 url 去重后: {len(uniq)} 条")
 
-    done = load_checkpoint()
+    done = load_checkpoint(args.month)
     if done:
-        print(f"断点已存在，已完成 {len(done)} 条，本轮将跳过")
+        print(f"断点已恢复：已完成 {len(done)} 条（含账本中已有的 REJUDGE_* 记录），本轮将跳过")
     pending = [r for r in uniq if (r.get("url") or "").strip() not in done]
     if args.limit_urls:
         pending = pending[: args.limit_urls]
