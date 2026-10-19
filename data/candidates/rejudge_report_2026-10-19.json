@@ -1,34 +1,30 @@
 {
-  "run_at": "2026-10-19T16:21:16",
+  "run_at": "2026-10-19T16:25:20",
   "month": "2026-10",
   "total_pass_on_fail_in_ledger": 694,
   "unique_urls": 585,
-  "done_before_this_run": 207,
+  "done_before_this_run": 224,
   "this_run_budget": 20,
   "this_run_attempted": 20,
   "this_run": {
-    "keep": 1,
-    "review": 13,
-    "drop": 3,
-    "failed": 3
+    "keep": 2,
+    "review": 14,
+    "drop": 2,
+    "failed": 2
   },
-  "started_at": "2026-10-19T16:18:05",
+  "started_at": "2026-10-19T16:22:08",
   "errors": [
     {
-      "url": "https://www.abc.net.au/news/2026-10-13/wa-broome-lack-of-taxis-uber-transport/107221428",
-      "title": "Uber struggles to solve Broome's late-night transport issues"
+      "url": "https://www.bbc.co.uk/news/articles/crx2d60y1py3o?at_medium=RSS&at_campaign=rss",
+      "title": "Missiles intercepted near Riyadh after Saudi coalition hits Yemen fuel depot"
     },
     {
-      "url": "https://www.abc.net.au/news/2026-10-13/breaking-bad-star-rj-mitte-dies-aged-34/107258894",
-      "title": "Breaking Bad star RJ Mitte dies age 34"
-    },
-    {
-      "url": "https://news.web.nhk/newsweb/na/nd-20261013de58321",
-      "title": "栃木県那珂川町の工場火災 24時間以上経過も鎮火せず"
+      "url": "https://news.sky.com/story/hackers-heat-french-supermarket-fridges-to-50c-in-large-scale-cyber-attack-13598252",
+      "title": "French supermarket fridges heated to 50C in cyber attack - causing fires and foo"
     }
   ],
-  "finished_at": "2026-10-19T16:21:16",
-  "wall_clock_seconds": 191.4,
-  "done_total_after_this_run": 224,
+  "finished_at": "2026-10-19T16:25:20",
+  "wall_clock_seconds": 191.6,
+  "done_total_after_this_run": 242,
   "orphan_count": 0
 }
