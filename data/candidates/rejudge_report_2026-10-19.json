@@ -1,26 +1,20 @@
 {
-  "run_at": "2026-10-19T17:14:27",
+  "run_at": "2026-10-19T17:19:13",
   "month": "2026-10",
   "total_pass_on_fail_in_ledger": 694,
   "unique_urls": 585,
-  "done_before_this_run": 356,
+  "done_before_this_run": 375,
   "this_run_budget": 20,
   "this_run_attempted": 20,
   "this_run": {
-    "keep": 3,
-    "review": 16,
-    "drop": 0,
-    "failed": 1
+    "keep": 1,
+    "review": 15,
+    "drop": 4,
+    "failed": 0
   },
-  "started_at": "2026-10-19T17:11:16",
-  "errors": [
-    {
-      "url": "https://www.france24.com/en/video/20261015-france-charges-teen-shooter-citing-revenge-for-bullying-in-school",
-      "title": "France charges teen shooter citing revenge for bullying in school"
-    }
-  ],
-  "finished_at": "2026-10-19T17:14:27",
-  "wall_clock_seconds": 191.1,
-  "done_total_after_this_run": 375,
+  "started_at": "2026-10-19T17:15:32",
+  "finished_at": "2026-10-19T17:19:13",
+  "wall_clock_seconds": 221.4,
+  "done_total_after_this_run": 395,
   "orphan_count": 0
 }
