@@ -1,30 +1,20 @@
 {
-  "run_at": "2026-10-19T16:29:23",
+  "run_at": "2026-10-19T16:34:16",
   "month": "2026-10",
   "total_pass_on_fail_in_ledger": 694,
   "unique_urls": 585,
-  "done_before_this_run": 242,
+  "done_before_this_run": 260,
   "this_run_budget": 20,
   "this_run_attempted": 20,
   "this_run": {
-    "keep": 3,
+    "keep": 4,
     "review": 14,
-    "drop": 1,
-    "failed": 2
+    "drop": 2,
+    "failed": 0
   },
-  "started_at": "2026-10-19T16:26:12",
-  "errors": [
-    {
-      "url": "https://www.dw.com/en/germany-news-left-leaning-berlin-coalition-talks-break-down/live-79647092?maca=en-rss-en-all-1573-rdf",
-      "title": "Germany news: Left-leaning Berlin coalition talks break down"
-    },
-    {
-      "url": "https://www.france24.com/en/video/20261013-student-protesters-tell-police-to-join-them-in-paris-demonstrations",
-      "title": "Student protesters tell police to join them in Paris demonstrations"
-    }
-  ],
-  "finished_at": "2026-10-19T16:29:23",
-  "wall_clock_seconds": 191.1,
-  "done_total_after_this_run": 260,
+  "started_at": "2026-10-19T16:30:27",
+  "finished_at": "2026-10-19T16:34:16",
+  "wall_clock_seconds": 228.7,
+  "done_total_after_this_run": 280,
   "orphan_count": 0
 }
