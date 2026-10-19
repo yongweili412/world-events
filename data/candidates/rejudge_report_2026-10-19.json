@@ -1,20 +1,30 @@
 {
-  "run_at": "2026-10-19T17:19:13",
+  "run_at": "2026-10-19T17:23:20",
   "month": "2026-10",
   "total_pass_on_fail_in_ledger": 694,
   "unique_urls": 585,
-  "done_before_this_run": 375,
+  "done_before_this_run": 395,
   "this_run_budget": 20,
   "this_run_attempted": 20,
   "this_run": {
-    "keep": 1,
-    "review": 15,
+    "keep": 3,
+    "review": 11,
     "drop": 4,
-    "failed": 0
+    "failed": 2
   },
-  "started_at": "2026-10-19T17:15:32",
-  "finished_at": "2026-10-19T17:19:13",
-  "wall_clock_seconds": 221.4,
-  "done_total_after_this_run": 395,
+  "started_at": "2026-10-19T17:20:10",
+  "errors": [
+    {
+      "url": "https://www.bbc.co.uk/news/articles/cw146ej00yn7o?at_medium=RSS&at_campaign=rss",
+      "title": "Pope pictured for first time since surgery and cancer diagnosis"
+    },
+    {
+      "url": "https://www.bbc.co.uk/news/articles/cmwyvxj49gpwo?at_medium=RSS&at_campaign=rss",
+      "title": "Patients in chains rescued from suspected illegal rehab centre in South Africa"
+    }
+  ],
+  "finished_at": "2026-10-19T17:23:20",
+  "wall_clock_seconds": 189.2,
+  "done_total_after_this_run": 413,
   "orphan_count": 0
 }
