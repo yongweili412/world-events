@@ -52,6 +52,27 @@ BATCH_SLEEP = 2.5          # 批间 sleep（秒），略大于 judge_items 默�
 PROBE_COUNT = 3            # 启动时 LLM 可用性探测条数
 PROBE_REQUIRED = 3         # 3 条全部成功才视为可用
 MAX_RETRY_PER_ITEM = 2     # 同条最多重试次数
+QUIET_SECONDS = 300        # 并发静默检查：目标文件距今不足 5 分钟禁止启动（本机自动任务会整体写回覆盖账本）
+
+
+def check_quiet_period():
+    """并发静默检查：本机自动任务会在任意时间运行，持有内存副本整体写回，
+    会覆盖重判期间写入的账本行（2026-10-19 实际发生：52 条明细被覆盖丢失）。
+    因此写账本前要求核心文件至少静默 QUIET_SECONDS 秒。"""
+    import time as _t
+    targets = [
+        ROOT / "data" / "events.json",
+        CANDIDATE_DIR / ("candidate-decisions-%s.jsonl" % time.strftime("%Y-%m")),
+    ]
+    now = _t.time()
+    for f in targets:
+        try:
+            age = now - f.stat().st_mtime
+        except OSError:
+            continue
+        if age < QUIET_SECONDS:
+            return False, f"{f.name} 最近 {age:.0f}s 内被修改（< {QUIET_SECONDS}s 静默要求）"
+    return True, ""
 
 
 def _now_iso():
@@ -302,12 +323,23 @@ def main():
                     help="调试：只处理前 N 个唯一 URL")
     ap.add_argument("--load-events", action="store_true",
                     help="加载 events.json 用 url 反查 event id（报告字段更全）")
+    ap.add_argument("--force", action="store_true",
+                    help="跳过并发静默检查（**不推荐**，仅在确认无自动任务运行时使用）")
     args = ap.parse_args()
 
     print(f"=== PASS_ON_FAIL 重判 ===")
     print(f"  账本: {LEDGER_GLOB.format(month=args.month)}")
     print(f"  模式: {'APPLY（真跑）' if args.apply else 'DRY-RUN（只预览）'}")
     print(f"  预算: {args.budget} 条/轮\n")
+
+    if args.apply and not args.force:
+        ok, why = check_quiet_period()
+        if not ok:
+            print(f"❌ 并发静默检查未通过：{why}")
+            print("   本机自动任务可能在运行，其整体写回会覆盖重判结果（2026-10-19 曾丢失 52 条明细）。")
+            print("   等待静默后再跑，或确认安全后加 --force。")
+            return 3
+        print("✅ 并发静默检查通过（核心文件已静默 ≥ 5 分钟）")
 
     rows, _all = load_ledger(args.month)
     if not rows:
