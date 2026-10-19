@@ -1,34 +1,20 @@
 {
-  "run_at": "2026-10-19T16:39:04",
+  "run_at": "2026-10-19T16:44:14",
   "month": "2026-10",
   "total_pass_on_fail_in_ledger": 694,
   "unique_urls": 585,
-  "done_before_this_run": 280,
+  "done_before_this_run": 297,
   "this_run_budget": 20,
   "this_run_attempted": 20,
   "this_run": {
-    "keep": 1,
-    "review": 14,
-    "drop": 2,
-    "failed": 3
+    "keep": 2,
+    "review": 18,
+    "drop": 0,
+    "failed": 0
   },
-  "started_at": "2026-10-19T16:35:17",
-  "errors": [
-    {
-      "url": "https://www.channelnewsasia.com/world/saudi-arabia-houthis-yemen-strike-yanaa-oil-site-6456711",
-      "title": "Houthis say Saudi Arabia strikes oil site in Yemen's capital"
-    },
-    {
-      "url": "https://www.bbc.co.uk/news/articles/cwx28r0zvm6lo?at_medium=RSS&at_campaign=rss",
-      "title": "Pope walking and recovering 'as expected' after surgery, doctors say"
-    },
-    {
-      "url": "https://www.theguardian.com/technology/2026/oct/14/zimbabwean-author-simbarashe-kundizeza-denies-ai-story",
-      "title": "Zimbabwean author Simbarashe Kundizeza denies using AI to write prize-winning st"
-    }
-  ],
-  "finished_at": "2026-10-19T16:39:04",
-  "wall_clock_seconds": 227.0,
-  "done_total_after_this_run": 297,
-  "orphan_count": 0
+  "started_at": "2026-10-19T16:40:33",
+  "finished_at": "2026-10-19T16:44:14",
+  "wall_clock_seconds": 221.0,
+  "done_total_after_this_run": 317,
+  "orphan_count": 1
 }
