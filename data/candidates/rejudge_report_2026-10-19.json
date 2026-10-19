@@ -1,26 +1,30 @@
 {
-  "run_at": "2026-10-19T15:11:10",
+  "run_at": "2026-10-19T15:17:17",
   "month": "2026-10",
   "total_pass_on_fail_in_ledger": 694,
   "unique_urls": 585,
-  "done_before_this_run": 21,
+  "done_before_this_run": 40,
   "this_run_budget": 20,
   "this_run_attempted": 20,
   "this_run": {
-    "keep": 2,
+    "keep": 1,
     "review": 17,
     "drop": 0,
-    "failed": 1
+    "failed": 2
   },
-  "started_at": "2026-10-19T15:07:47",
+  "started_at": "2026-10-19T15:14:00",
   "errors": [
     {
-      "url": "https://news.sky.com/story/a-gang-of-masked-men-stole-42m-worth-of-red-wine-from-marchesi-antinori-italys-largest-family-run-producer-13596841",
-      "title": "Gang of masked men stole £4.2m worth of red wine from Italy"
+      "url": "https://www.dw.com/en/operations-plan-germany-how-the-bundeswehr-trains-for-nato-collective-defense/a-79553793?maca=en-rss-en-all-1573-rdf",
+      "title": "Operations Plan Germany: How the Bundeswehr trains for NATO collective defense"
+    },
+    {
+      "url": "https://www.euronews.com/2026/10/10/evacuations-and-injuries-reported-at-riyadh-airport-after-another-alleged-houthi-attack",
+      "title": "Evacuations and injuries reported at Riyadh airport after another alleged Houthi"
     }
   ],
-  "finished_at": "2026-10-19T15:11:10",
-  "wall_clock_seconds": 202.8,
-  "done_total_after_this_run": 40,
+  "finished_at": "2026-10-19T15:17:17",
+  "wall_clock_seconds": 197.8,
+  "done_total_after_this_run": 58,
   "orphan_count": 0
 }
