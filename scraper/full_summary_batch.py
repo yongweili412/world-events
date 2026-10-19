@@ -104,8 +104,9 @@ def gen_full_summary(title, text, date, important=True):
         print("⚠️ 未配置 LLM_API_KEY，跳过（已移除内置兜底密钥，请在 GitHub Secrets / 本机环境变量配置）")
         return None
     try:
-        # 2026-10-11：加入同模型指数退避重试——网关 429 时 chat_raw 只会换档，
-        # 而备选 glm-4.5-flash 返回 400 不可用，导致限流窗口内整批失败。
+        # 2026-10-11：加入同模型指数退避重试——网关 429 时先退避重试同档。
+        # 2026-10-19 更新：备选档已改为三档结构（见 llm_guard），原 glm-4.5-flash
+        # 因额度耗尽列入 exhausted_models，不再作为切换目标。
         RETRY_DELAYS = (4, 12, 30, 60)
         content = None
         for attempt in range(len(RETRY_DELAYS) + 1):

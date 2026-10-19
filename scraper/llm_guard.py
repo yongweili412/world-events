@@ -1,16 +1,25 @@
 # -*- coding: utf-8 -*-
 """LLM 模型守卫（用户规定的机制性落实）。
 
-规定：
-  一、一切自动任务优先使用【时段内限时免费】的模型（登记在 llm_config.json 的 free_models）；
-  二、没有可用的限时免费模型时，使用 flash 档模型（glm-4.5-flash）；
-  三、一切自动任务禁止使用 GLM-5.3 与 KIMI K3，仅在用户明确指定时才可用（限时免费模型同样受此约束）；
-  四、配置单一事实源为 scraper/llm_config.json（换模型只改此文件 + GitHub Secrets 的 LLM_MODEL）。
+模型结构（2026-10-19 起为三档，详见 scraper/llm_config.json）：
+  free_promo   限时免费档      step-5-preview              首选，有密钥即排链首
+  performance  性能优先兜底档  deepseek/deepseek-v4.1-flash 价值判断/重判等需推理质量的任务
+  free_first   免费为主兜底档  tencent/hy3-free            翻译/速览/字段中文化等量大任务
+
+硬约束：
+  一、每档自带 base_url 与 key_env —— 换档时 model + 网关 + 密钥三者同步切换，
+      绝不能只换模型名（否则会把 A 厂商模型发往 B 厂商网关，返回 model_not_found）。
+  二、exhausted_models 中的模型（额度已耗尽）一律硬跳过，绝不作为切换目标；
+      当前包含 glm-4.7 / glm-4.7-flash / glm-4.5-flash。
+  三、GLM-5.3 与 KIMI K3 为禁用名单，仅在用户明确指定时才可用（exhausted 模型同样受此约束）。
+  四、配置单一事实源为 scraper/llm_config.json；所需密钥未配置的档位自动跳过。
 
 用法：
-    from llm_guard import resolve_model, resolve_endpoint
-    model = resolve_model()                 # 限时免费 > flash，并校验禁用名单
-    model, base_url, source = resolve_endpoint()   # 需要 base_url / 选择依据时用这个
+    from llm_guard import resolve_model, resolve_endpoint, resolve_model_chain
+    model = resolve_model()                                  # 按默认场景取首个可用档
+    model, base_url, source = resolve_endpoint()             # 需要 base_url / 选择依据时用这个
+    chain = resolve_model_chain(scenario="free_first")       # 该场景下全部可用模型
+    自检：python scraper/llm_guard.py [performance|free_first]
 """
 import datetime
 import json
@@ -35,7 +44,8 @@ def _norm(name: str) -> str:
 def _load_config(config_path: str = None) -> dict:
     cfg_path = config_path or os.path.join(os.path.dirname(os.path.abspath(__file__)), "llm_config.json")
     try:
-        return json.load(open(cfg_path, encoding="utf-8"))
+        with open(cfg_path, encoding="utf-8") as fh:
+            return json.load(fh)
     except Exception:
         return {}
 

@@ -4,7 +4,7 @@
 分层结果（layer）：
   rules_keep    —— 规则明确高价值，暂定 KEEP
   rules_drop    —— 规则明确低价值（普通商业信息/日常内容），暂定 DROP
-  boundary      —— 边界/文化/互联网候选，交给 glm-4.5-flash 精修
+  boundary      —— 边界/文化/互联网候选，交给模型精修（档位见 llm_guard / llm_config.json）
   weak_evidence —— 证据不足（只有维基月度存档页），进 REVIEW 等补证
 
 设计要点：
