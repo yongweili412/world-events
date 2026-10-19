@@ -1,30 +1,34 @@
 {
-  "run_at": "2026-10-19T17:28:00",
+  "run_at": "2026-10-19T17:32:14",
   "month": "2026-10",
   "total_pass_on_fail_in_ledger": 694,
   "unique_urls": 585,
-  "done_before_this_run": 413,
+  "done_before_this_run": 431,
   "this_run_budget": 20,
   "this_run_attempted": 20,
   "this_run": {
-    "keep": 0,
-    "review": 16,
-    "drop": 2,
-    "failed": 2
+    "keep": 2,
+    "review": 12,
+    "drop": 3,
+    "failed": 3
   },
-  "started_at": "2026-10-19T17:24:17",
+  "started_at": "2026-10-19T17:29:02",
   "errors": [
     {
-      "url": "https://www.dw.com/en/albania-students-demand-political-change-and-resignation-of-prime-minister-edi-rama/a-79682217?maca=en-rss-en-all-1573-rdf",
-      "title": "Albania: Students demand political change and resignation of Prime Minister Edi "
+      "url": "https://www.euronews.com/video/2026/10/16/russian-missiles-spark-huge-factory-fires-in-ukraines-odesa-and-zaporizhzhia",
+      "title": "Russian missiles spark huge factory fires in Ukraine’s Odesa and Zaporizhzhia"
     },
     {
-      "url": "https://www.euronews.com/2026/10/16/japans-first-female-pm-says-makeup-and-housework-add-hours-to-her-working-day",
-      "title": "Japan's first female PM says makeup and housework add hours to her working day"
+      "url": "https://www.aljazeera.com/news/2026/10/16/how-iran-messaging-highlights-cost-of-war-ahead-of-us-midterm-elections?traffic_source=rss",
+      "title": "How Iran messaging highlights cost of war ahead of US midterm elections"
+    },
+    {
+      "url": "https://www.channelnewsasia.com/world/saudi-arabia-houthi-attacks-riyadh-missiles-6467001",
+      "title": "Saudi-led coalition says intercepts missiles, drones over Riyadh, other areas"
     }
   ],
-  "finished_at": "2026-10-19T17:28:00",
-  "wall_clock_seconds": 223.5,
-  "done_total_after_this_run": 431,
+  "finished_at": "2026-10-19T17:32:14",
+  "wall_clock_seconds": 192.3,
+  "done_total_after_this_run": 448,
   "orphan_count": 0
 }
