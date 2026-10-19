@@ -124,18 +124,58 @@ def resolve_endpoint(config_path: str = None):
     return _check_forbidden(model, cfg_forbidden, "默认 flash"), cfg_base, "fallback_flash"
 
 
+# 模型名 → 厂商路由。不同厂商的模型必须走各自的网关与密钥：
+# 只换模型名、不换网关，等于把 A 厂商的模型发给 B 厂商的网关，必然返回 model_not_found。
+# 2026-10-19 修正：此前 chat_raw 在循环外算一次 base，换档时模型变了网关没变，
+# 导致「deepseek 429 → 兜底 glm-4.5-flash 发往 qnaigc 网关 → 400 model_not_found」，
+# 兜底链自加入起从未真正生效（这是 llm_fail 长期降不下去的真实根因之一）。
+PROVIDER_ROUTES = (
+    # (模型名前缀小写, 该厂商默认网关, 该厂商密钥环境变量名)
+    ("deepseek", "https://api.qnaigc.com/v1", "LLM_API_KEY"),
+    ("glm", "https://open.bigmodel.cn/api/paas/v4", "LLM_API_KEY_ZHIPU"),
+    ("kimi", "https://api.qnaigc.com/v1", "LLM_API_KEY"),
+)
+
+MODEL_RETRY_ATTEMPTS = 2   # 同一档遇到 429 时先退避重试的次数（限流是暂时的，换档未必更优）
+RETRY_BACKOFF = 15         # 退避基数（秒），第 n 次重试等待 RETRY_BACKOFF × n
+
+
+def _route_for(model, fallback_base, fallback_key):
+    """解析某个模型应使用的 (base_url, api_key)。
+
+    返回 None 表示该模型所属厂商的密钥未配置——调用方应**跳过这一档**，
+    而不是发一个注定 400 的请求（既浪费时间又掩盖真实原因）。
+    """
+    n = _norm(model)
+    for prefix, base_default, key_env in PROVIDER_ROUTES:
+        if n.startswith(prefix):
+            env_base = (os.environ.get(prefix.upper() + "_BASE_URL") or "").strip()
+            k = (os.environ.get(key_env) or "").strip()
+            if not k:
+                return None
+            return ((env_base or base_default).rstrip("/"), k)
+    return (fallback_base, fallback_key)
+
+
 def chat_raw(prompt, key: str = None, base: str = None, timeout: int = 300, temperature: float = 0.3,
              max_tokens: int = None, thinking: str = "disabled", extra: dict = None, models: list = None):
     """按候选链依次调用 chat/completions，遇限流(429)/5xx/超时自动换下一档。
+
+    每一档都按模型所属厂商解析网关与密钥（见 PROVIDER_ROUTES）；密钥缺失的档直接跳过。
+    同一档遇 429 先退避重试，再考虑换档。
 
     返回最后一次的 response 对象（成功即返回该响应），调用方可照常读 .status_code / .json()。
     """
     key = (key or os.environ.get("LLM_API_KEY", "")).strip()
     base = (base or os.environ.get("LLM_BASE_URL") or DEFAULT_BASE_URL).rstrip("/")
     chain = models or resolve_model_chain()
-    retryable = {429, 500, 502, 503, 504}
     last = None
     for idx, m in enumerate(chain):
+        route = _route_for(m, base, key)
+        if route is None:
+            print(f"[llm] 跳过 {m}：未配置该厂商密钥（跳过而非硬发，避免 model_not_found）", flush=True)
+            continue
+        m_base, m_key = route
         body = {"model": m, "messages": [{"role": "user", "content": prompt}], "temperature": temperature}
         if max_tokens:
             body["max_tokens"] = max_tokens
@@ -143,20 +183,36 @@ def chat_raw(prompt, key: str = None, base: str = None, timeout: int = 300, temp
             body["thinking"] = {"type": thinking}
         if extra:
             body.update(extra)
-        try:
-            r = requests.post(base + "/chat/completions",
-                              headers={"Authorization": "Bearer " + key, "Content-Type": "application/json"},
-                              json=body, timeout=timeout)
-        except Exception as ex:
-            print(f"[llm] {m} 请求异常({type(ex).__name__})，切换到下一档", flush=True)
+
+        r = None
+        for attempt in range(MODEL_RETRY_ATTEMPTS):
+            try:
+                r = requests.post(m_base + "/chat/completions",
+                                  headers={"Authorization": "Bearer " + m_key,
+                                           "Content-Type": "application/json"},
+                                  json=body, timeout=timeout)
+            except Exception as ex:
+                print(f"[llm] {m} 请求异常({type(ex).__name__})，不再重试同档", flush=True)
+                r = None
+                break
+            if r.status_code == 200:
+                if idx > 0:
+                    print(f"[llm] 已自动换档到 {m} 调用成功", flush=True)
+                return r
+            last = r
+            if r.status_code == 429 and attempt + 1 < MODEL_RETRY_ATTEMPTS:
+                wait = RETRY_BACKOFF * (attempt + 1)
+                print(f"[llm] {m} 限流 429，{wait}s 后重试同档"
+                      f"（{attempt + 1}/{MODEL_RETRY_ATTEMPTS}）", flush=True)
+                time.sleep(wait)
+                continue
+            break
+
+        if r is None:
             continue
-        if r.status_code == 200:
-            if idx > 0:
-                print(f"[llm] 已自动换档到 {m} 调用成功", flush=True)
-            return r
-        last = r
         if _is_retryable(r) and idx + 1 < len(chain):
-            print(f"[llm] {m} 返回 {r.status_code}（限流/额度/服务不可用），切换到 {chain[idx + 1]}", flush=True)
+            print(f"[llm] {m} 返回 {r.status_code}（限流/额度/服务不可用），"
+                  f"切换到 {chain[idx + 1]}", flush=True)
             time.sleep(1.5)
             continue
         print(f"[llm] {m} 返回 {r.status_code}，不再换档", flush=True)
