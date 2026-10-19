@@ -1,26 +1,30 @@
 {
-  "run_at": "2026-10-19T16:03:14",
+  "run_at": "2026-10-19T16:07:19",
   "month": "2026-10",
   "total_pass_on_fail_in_ledger": 694,
   "unique_urls": 585,
-  "done_before_this_run": 135,
+  "done_before_this_run": 154,
   "this_run_budget": 20,
   "this_run_attempted": 20,
   "this_run": {
-    "keep": 0,
-    "review": 12,
-    "drop": 7,
-    "failed": 1
+    "keep": 1,
+    "review": 15,
+    "drop": 2,
+    "failed": 2
   },
-  "started_at": "2026-10-19T15:59:42",
+  "started_at": "2026-10-19T16:03:58",
   "errors": [
     {
-      "url": "https://www.abc.net.au/news/2026-10-12/migration-changes-hands-power-to-domestic-abusers-expert-say/107180366",
-      "title": "Fears migration changes may fuel coercive control, visa-related abuse"
+      "url": "https://www.bbc.co.uk/news/articles/cke8re5v1pgmo?at_medium=RSS&at_campaign=rss",
+      "title": "Tom Cruise film Digger forecast to become one of Hollywood's biggest flops"
+    },
+    {
+      "url": "https://news.sky.com/story/former-irish-olympic-swimming-coach-jailed-over-indecent-assaults-13598158",
+      "title": "Former Irish Olympic swimming coach jailed over indecent assaults"
     }
   ],
-  "finished_at": "2026-10-19T16:03:14",
-  "wall_clock_seconds": 212.3,
-  "done_total_after_this_run": 154,
+  "finished_at": "2026-10-19T16:07:19",
+  "wall_clock_seconds": 200.3,
+  "done_total_after_this_run": 172,
   "orphan_count": 0
 }
