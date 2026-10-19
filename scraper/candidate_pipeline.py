@@ -139,12 +139,18 @@ def _append_candidate(item, result, action):
 
 
 def gate_items(items, events=None, mode_override=None, daily_cap=DAILY_CAP,
-               use_llm=True, llm_budget=30):
+               use_llm=True, llm_budget=None):
     """价值闸门。返回 (放行的条目, 报告)。
 
     llm_budget：单轮最多调用模型的次数上限。免费账户限流 2-3 次/分钟，
     不设上限可能把每日任务拖到超时，因此默认 30 次（约 10-15 分钟）。
+    环境变量 LLM_BUDGET 可临时覆盖（用于 llm_budget 30→60 对照实验）。
     """
+    if llm_budget is None:
+        try:
+            llm_budget = int(os.environ.get("LLM_BUDGET", "30") or "30")
+        except ValueError:
+            llm_budget = 30
     m = (mode_override or mode()).strip().lower()
     report = {"mode": m, "total": len(items), "update_only": 0, "create": 0,
               "review": 0, "reject": 0, "llm_used": 0, "capped": 0,
