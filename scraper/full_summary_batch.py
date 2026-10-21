@@ -82,6 +82,30 @@ def fetch_fulltext(url, limit=None):
         t = _clean(html[st:st + 9000])
         if len(t) > len(best):
             best = t
+    # 2026-10-21 增补：Next.js 站点（澎湃 thepaper.cn 等）正文由 JS 渲染，
+    # HTML 里只剩 __NEXT_DATA__ 的 JSON，容器正则取不到正文（实测 64 条全部失败）。
+    # 兜底：解析 __NEXT_DATA__，取最长的含 <p> 的字符串作为正文。
+    if len(best) < 400 and "__NEXT_DATA__" in html:
+        try:
+            import json as _json
+            m = re.search(r'<script id="__NEXT_DATA__"[^>]*>([\s\S]*?)</script>', html, re.I)
+            if m:
+                data = _json.loads(m.group(1))
+                stack, longest = [data], ""
+                while stack:
+                    cur = stack.pop()
+                    if isinstance(cur, dict):
+                        stack.extend(cur.values())
+                    elif isinstance(cur, list):
+                        stack.extend(cur)
+                    elif isinstance(cur, str) and len(cur) > len(longest) and "<p" in cur:
+                        longest = cur
+                if longest:
+                    cand = _clean(longest)
+                    if len(cand) > len(best):
+                        best = cand
+        except Exception:
+            pass
     text = best
     cap = limit or IMPORTANT_INPUT
     return (text[:cap] if len(text) > 200 else None), (image or None)
