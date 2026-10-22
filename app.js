@@ -442,8 +442,18 @@ async function renderEventDetail() {
     : '<span style="background:#F1F5F9;color:#475569;font-size:12px;font-weight:600;border-radius:4px;padding:2px 8px">已记录</span>';
 
   // AI 速览（含来源标注）
+  // 速览去重（评估报告 5.2）：约 94% 的 summary 只是正文（description）开头几十字的复制，
+  // 与正文完全重复。仅当速览提供了正文之外的信息时才显示：
+  //   · summaryFull=true（真全文总结，4.6%），或
+  //   · description 为空 / 不以 summary 开头（两者内容确实不同）
   let aiBox = '';
-  if (ev.aiSummary && ev.aiSummary.trim()) {
+  const summaryText = (ev.summary || '').trim();
+  const descText = (ev.description || '').trim();
+  const isRestate = summaryText && descText
+    && (descText.startsWith(summaryText.slice(0, 40)) || summaryText.startsWith(descText.slice(0, 40)));
+  const showAiBox = ev.aiSummary && ev.aiSummary.trim()
+    && (ev.summaryFull || !descText || !isRestate);
+  if (showAiBox) {
     const aiNote = ev.summaryFull ? '基于全文总结提炼' : '基于正文开头提炼';
     const aiBadge = ev.summaryFull ? '<span style="background:#2563EB;color:#fff;font-size:11px;font-weight:600;border-radius:4px;padding:1px 6px;margin-left:6px;vertical-align:1px">全文版</span>' : '';
     aiBox = `

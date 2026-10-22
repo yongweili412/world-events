@@ -277,6 +277,118 @@ def build_month_shards(events_sorted):
     return by_month
 
 
+def render_data_stats(events, months):
+    """填充 data-about.html：年份分布（纯 CSS 条形）、总览指标、主要来源 TOP 20。
+
+    坦率展示 1997-2019 的稀疏——档案站的立身之本是可信度，包括承认局限。
+    """
+    total = len(events)
+    by_year = {}
+    src_counter = {}
+    n_single = n_full = n_img = 0
+    for ev in events:
+        y = (ev.get("date") or "")[:4]
+        if y:
+            by_year[y] = by_year.get(y, 0) + 1
+        n_src = len(ev.get("sources") or [])
+        if n_src == 0:
+            n_single += 1
+        elif n_src == 1:
+            n_single += 1
+        if n_src > 1:
+            for src in (ev.get("sources") or [])[:3]:
+                name = (src.get("name") or src.get("url") or "").strip()
+                if name:
+                    src_counter[name] = src_counter.get(name, 0) + 1
+        if ev.get("summaryFull") is True:
+            n_full += 1
+        if str(ev.get("image") or "").startswith("http"):
+            n_img += 1
+    max_year = max(by_year.values()) if by_year else 1
+
+    bars = []
+    for y in sorted(by_year):
+        n = by_year[y]
+        w = max(2, round(n / max_year * 100))
+        bars.append(
+            f'<div style="display:flex;align-items:center;gap:10px;margin:3px 0">'
+            f'<span style="min-width:52px;font-size:13px;color:var(--text-secondary)">{y}</span>'
+            f'<div style="flex:1;background:var(--border);border-radius:4px;overflow:hidden">'
+            f'<div style="width:{w}%;background:#185FA5;height:16px"></div></div>'
+            f'<span style="min-width:60px;text-align:right;font-size:13px">{n:,}</span></div>'
+        )
+    year_html = "<br>".join(bars)
+
+    top_src = sorted(src_counter.items(), key=lambda kv: -kv[1])[:20]
+    src_html = "<br>".join(
+        f'<span style="display:inline-block;margin:2px 6px;padding:2px 10px;'
+        f'background:var(--bg);border-radius:12px;font-size:13px">{esc(n)}（{c} 次）</span>'
+        for n, c in top_src
+    )
+
+    pct = lambda a: f"{a / total * 100:.1f}%" if total else "-"
+    stats = (
+        '<div class="stat-row" style="display:flex;flex-wrap:wrap;gap:12px;margin:16px 0">'
+        + "".join(
+            f'<div class="stat-card"><div class="stat-num">{v}</div><div class="stat-label">{k}</div></div>'
+            for k, v in [
+                ("事件总数", f"{total:,}"), ("覆盖年份", f"{len(by_year)} 年"),
+                ("单来源占比", pct(n_single)), ("全文速览", pct(n_full)),
+                ("含封面图", pct(n_img)),
+            ]
+        ) + "</div>"
+        + '<h2>年份分布（1997 → 今）</h2>'
+        + '<p style="color:var(--text-secondary);font-size:14px">'
+        + '2020 年起为自动化管道持续收集；更早年份来自历史资料回填，条数稀疏是如实呈现。</p>'
+        + f'<div style="max-width:720px">{year_html}</div>'
+        + '<h2 style="margin-top:28px">主要来源（按引用次数 TOP 20）</h2>'
+        + f'<div>{src_html}</div>'
+    )
+    return stats
+
+
+def build_rss(events_sorted, latest_date):
+    """生成 feed.xml —— 最近 50 条事件的 RSS 订阅源（纯静态，无需后端）。
+
+    档案站的价值在于"能被复用"：RSS 让研究者和聚合器能订阅更新，
+    也是最便宜的外部分发出口。
+    """
+    site = "https://yongweili412.github.io/world-events/"
+    items = []
+    for ev in events_sorted[:50]:
+        url = f"{site}event.html?id={esc(ev.get('id', ''))}"
+        cat = cat_of(ev)
+        desc_parts = [esc((ev.get("summary") or ev.get("title") or "")[:200])]
+        for src in (ev.get("sources") or [])[:3]:
+            u = esc(src.get("url") or "")
+            if u:
+                desc_parts.append(f'<a href="{u}">来源：{esc(src.get("title") or u)}</a>')
+        items.append(
+            f"    <item>"
+            f"<title>{esc(ev.get('title', ''))}</title>"
+            f"<link>{url}</link>"
+            f"<guid isPermaLink=\"false\">{esc(ev.get('id', ''))}</guid>"
+            f"<pubDate>{esc(ev.get('date', ''))}</pubDate>"
+            f"<category>{esc(cat)}</category>"
+            f"<description><![CDATA[ {'<br>'.join(desc_parts)} ]]></description>"
+            f"</item>"
+        )
+    rss = (
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">\n'
+        '  <channel>\n'
+        '    <title>全球大事记</title>\n'
+        f'    <link>{site}</link>\n'
+        '    <description>世界事件永久存档：自动收集全球大事，每条含来源、时间线与地区标注（1997-2026）</description>\n'
+        '    <language>zh-CN</language>\n'
+        f'    <lastBuildDate>{esc(latest_date)}</lastBuildDate>\n'
+        f'    <atom:link href="{site}feed.xml" rel="self" type="application/rss+xml"/>\n'
+        + "\n".join(items) + "\n  </channel>\n</rss>\n"
+    )
+    (ROOT / "feed.xml").write_text(rss, encoding="utf-8")
+    print(f"  ✅ feed.xml 已生成（最近 {min(50, len(events_sorted))} 条 RSS）")
+
+
 def build_robots_and_sitemap(months, latest_date):
     """生成 robots.txt 与 sitemap.xml —— 让搜索引擎能真正抓到这个站。"""
     site = "https://yongweili412.github.io/world-events/"
@@ -288,7 +400,7 @@ def build_robots_and_sitemap(months, latest_date):
     )
     (ROOT / "robots.txt").write_text(robots, encoding="utf-8")
 
-    urls = [f"{site}", f"{site}map.html", f"{site}country.html"]
+    urls = [f"{site}", f"{site}map.html", f"{site}country.html", f"{site}data-about.html"]
     urls += [f"{site}archive-{ym}.html" for ym in months]
     # 最近 12 个月按事件生成详情页链接，帮助爬虫发现详情内容
     body = ['<?xml version="1.0" encoding="UTF-8"?>',
@@ -388,6 +500,18 @@ def main():
 
     # 6) robots.txt + sitemap.xml：让搜索引擎能抓到这个站
     build_robots_and_sitemap(months, latest_date)
+
+    # 7) feed.xml：RSS 订阅源（最近 50 条），研究者和聚合器的复用出口
+    build_rss(events_sorted, latest_date)
+
+    # 8) data-about.html：数据说明页（年份分布/判定标准/主要来源/已知局限）
+    about = ROOT / "data-about.html"
+    if about.exists():
+        h = about.read_text(encoding="utf-8")
+        h, _ = replace_between(h, "<!-- DATASTATS_START -->", "<!-- DATASTATS_END -->",
+                               render_data_stats(events, months), "数据说明统计")
+        about.write_text(h, encoding="utf-8")
+        print("  ✅ data-about.html 统计已填充")
 
     print("✨ 构建完成")
 
