@@ -32,6 +32,19 @@ function highlight(text, kw) {
   } catch (e) { return esc; }
 }
 
+// 写入/更新 <meta>：og:* 用 property，其余用 name（含 twitter:*）
+function setMeta(key, val) {
+  if (!val) return;
+  const attr = key.startsWith('og:') ? 'property' : 'name';
+  let el = document.querySelector('meta[' + attr + '="' + key + '"]');
+  if (!el) {
+    el = document.createElement('meta');
+    el.setAttribute(attr, key);
+    document.head.appendChild(el);
+  }
+  el.setAttribute('content', val);
+}
+
 function catOf(ev) {
   const c = ev.category;
   return Array.isArray(c) ? (c[0] || '其他') : (c || '其他');
@@ -76,41 +89,94 @@ function formatDate(dateStr) {
   return d.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric', weekday: 'short' });
 }
 
-// ===== 数据加载 =====
-let __fullEvents = null;
+// ===== 数据加载（2026-10 重构）=====
+// 旧方案：所有页面都加载 data/events.js（114.6MB 原始 / 14.5MB gzip），详情页 126 秒打不开。
+// 新方案：
+//   data/index-lite.json  全库轻量索引（约 2-3MB gzip），列表 / 搜索 / 地图 / 存档共用
+//   data/m/YYYY-MM.json   单月全量，详情页先查索引定位月份，只加载那一个月（平均几百 KB）
+const INDEX_LITE_URL = './data/index-lite.json';
+const MONTH_SHARD_URL = (ym) => './data/m/' + ym + '.json';
+
+let __fullEvents = null;   // 现为轻量索引数组（沿用旧变量名，避免改动所有调用点）
+let __litePromise = null;  // 并发请求去重：多个模块同时要数据时只 fetch 一次
 
 async function getFullEvents() {
   if (__fullEvents) return __fullEvents;
-  const embedded = window.__EMBEDDED_EVENTS__ || [];
-  if (!window.__TOTAL_EVENTS__ || embedded.length >= window.__TOTAL_EVENTS__) {
-    return embedded;
-  }
-  try {
-    const resp = await fetch('./data/events.json?t=' + Date.now());
-    if (!resp.ok) throw new Error('HTTP ' + resp.status);
-    const data = JSON.parse(await resp.text());
-    if (Array.isArray(data) && data.length > 0) {
-      __fullEvents = data;
-      return data;
+  if (__litePromise) return __litePromise;
+  __litePromise = (async () => {
+    try {
+      const resp = await fetch(INDEX_LITE_URL);
+      if (!resp.ok) throw new Error('HTTP ' + resp.status);
+      const data = await resp.json();
+      if (Array.isArray(data) && data.length > 0) {
+        __fullEvents = data;
+        return data;
+      }
+    } catch (e) {
+      console.warn('加载全库索引失败，降级使用内嵌数据:', e.message);
     }
-  } catch (e) {
-    console.warn('加载全量数据失败，降级使用内嵌数据:', e.message);
+    return window.__EMBEDDED_EVENTS__ || [];
+  })();
+  try {
+    return await __litePromise;
+  } finally {
+    __litePromise = null;
   }
-  return embedded;
 }
 
+// 兼容原有调用名（country / map / admin 页面内部仍用它）
 async function loadEvents() {
-  if (window.__EMBEDDED_EVENTS__ && Array.isArray(window.__EMBEDDED_EVENTS__) && window.__EMBEDDED_EVENTS__.length > 0) {
-    return window.__EMBEDDED_EVENTS__;
-  }
+  return getFullEvents();
+}
+
+// 详情页专用：事件 ID 自带日期（evt_YYYYMMDD_NNN），直接解析月份只取那一个分片。
+// 为什么不先拉 index-lite：索引全量有几 MB，而单月分片 gzip 后通常 <1MB——
+// 详情页的访客只想看这一条，没必要把整个目录先下载完。
+// 解析失败或分片里找不到（legacyIds 日期可能不同月）时，才回退到 index-lite 定位。
+async function getEventById(id) {
+  if (!id) return null;
+  const monthFromId = (s) => {
+    const m = /^evt_(\d{4})(\d{2})\d{2}_/.exec(String(s || ''));
+    return m ? m[1] + '-' + m[2] : '';
+  };
+  // 候选月份：主 id 的月份优先，legacyIds 的月份依次兜底（去重）
+  const months = [];
+  const ym0 = monthFromId(id);
+  if (ym0) months.push(ym0);
   try {
-    const resp = await fetch('./data/events.json?t=' + Date.now());
-    if (!resp.ok) throw new Error('HTTP ' + resp.status);
-    return JSON.parse(await resp.text());
-  } catch (e) {
-    console.warn('加载 events.json 失败:', e.message);
-    return [];
+    const idx = await getFullEvents();
+    const hit = idx.find(e => e.id === id) || idx.find(e => (e.legacyIds || []).includes(id));
+    if (hit) {
+      const ym = (hit.date || '').slice(0, 7);
+      if (ym && !months.includes(ym)) months.push(ym);
+      for (const lid of (hit.legacyIds || [])) {
+        const ym2 = monthFromId(lid);
+        if (ym2 && !months.includes(ym2)) months.push(ym2);
+      }
+    }
+  } catch (e) { /* 索引不可用时不阻塞：直接尝试按 id 月份取分片 */ }
+  for (const ym of months) {
+    try {
+      const resp = await fetch(MONTH_SHARD_URL(ym));
+      if (!resp.ok) continue;
+      const monthEvents = await resp.json();
+      const full = findEvent(monthEvents, id);
+      if (full) return full;                      // 命中：完整字段（正文/时间线/来源）
+    } catch (e) { /* 下一个候选月份 */ }
   }
+  // 分片全部未命中：回退索引字段（缺正文但至少能展示）
+  try {
+    const idx = await getFullEvents();
+    const hit = idx.find(e => e.id === id) || idx.find(e => (e.legacyIds || []).includes(id));
+    if (hit) return hit;
+  } catch (e) { /* ignore */ }
+  return null;
+}
+
+// 来源数量：索引里是 srcCount（数字），完整事件里是 sources 数组
+function srcCountOf(ev) {
+  if (typeof ev.srcCount === 'number') return ev.srcCount;
+  return (ev.sources || []).length;
 }
 
 // 按 id 或旧 ID（legacyIds）查找事件，兼容历史分享链接
@@ -132,7 +198,7 @@ function sortRegions(regions) {
 // ===== 事件卡片（搜索结果/列表通用） =====
 function renderEventCard(ev, kw) {
   const cat = catOf(ev);
-  const nSrc = (ev.sources || []).length;
+  const nSrc = srcCountOf(ev);
   const region = regionOf(ev);
   let extra = '';
   if (ev.status === 'ongoing') extra += ' <span style="color:#B45309;font-size:12px">● 持续发展</span>';
@@ -177,7 +243,9 @@ let __searchState = { results: [], kw: '', shown: 0 };
 async function initDateView() {
   const list = document.getElementById('timeline-list');
   if (!list) return;
-  const events = await getFullEvents();
+  // 首屏优先用内嵌数据（零额外请求）；内嵌不足时才去取全库索引
+  const embedded = window.__EMBEDDED_EVENTS__ || [];
+  const events = embedded.length ? embedded : await getFullEvents();
   if (!events.length) {
     list.innerHTML = '<div class="empty-state"><p>暂无事件数据</p></div>';
     return;
@@ -356,8 +424,8 @@ async function renderEventDetail() {
     container.innerHTML = '<div class="empty-state"><p>未找到事件ID</p><p><a href="./index.html">返回首页</a></p></div>';
     return;
   }
-  const events = await loadEvents();
-  const ev = findEvent(events, id);
+  // 按需加载：先从索引定位月份，再只取那一个月的事件（不再下载全库）
+  const ev = await getEventById(id);
   if (!ev) {
     container.innerHTML = '<div class="empty-state"><p>未找到该事件</p><p><a href="./index.html">返回首页</a></p></div>';
     return;
@@ -367,7 +435,7 @@ async function renderEventDetail() {
   const loc = ev.location || {};
   const region = loc.region || ev.region || '全球';
   const country = loc.country || ev.country || '';
-  const nSrc = (ev.sources || []).length;
+  const nSrc = srcCountOf(ev);
 
   const statusBadge = ev.status === 'ongoing'
     ? '<span style="background:#FEF3C7;color:#B45309;font-size:12px;font-weight:600;border-radius:4px;padding:2px 8px">● 持续发展中</span>'
@@ -423,16 +491,39 @@ async function renderEventDetail() {
       <p style="font-size:12px;color:var(--text-secondary);margin-top:10px">本页仅收录自行整理的事件摘要与来源链接，完整报道请点击原文阅读，版权属原媒体。</p>`;
   }
 
-  // 相关事件（同地区最近的几个其他事件）
+  // 相关事件：按「标签相似 0.5 + 同分类 0.3 + 时间接近 0.15 + 同地区 0.05」加权
+  // 旧逻辑只按地区取最新，在 70 个地区的大库里必然推出毫不相干的内容（如德国法庭新闻下推足球）
   let relatedHtml = '';
-  const related = events.filter(e => e.id !== ev.id && regionOf(e) === region)
-                        .sort((a, b) => b.date.localeCompare(a.date)).slice(0, 4);
+  const idx = await getFullEvents();
+  const myTags = new Set((ev.tags || []).map(t => String(t).toLowerCase()));
+  const myDate = ev.date || '';
+  const myCat = catOf(ev);
+  const myRegion = regionOf(ev);
+  const scored = [];
+  for (const r of idx) {
+    if (r.id === ev.id) continue;
+    const rTags = (r.tags || []).map(t => String(t).toLowerCase());
+    let inter = 0;
+    for (const t of rTags) if (myTags.has(t)) inter++;
+    const uni = myTags.size + rTags.size - inter;
+    const jac = uni > 0 ? inter / uni : 0;
+    let near = 0;
+    if (myDate && r.date) {
+      const diff = Math.abs(Date.parse(myDate) - Date.parse(r.date)) / 86400000;
+      if (!isNaN(diff) && diff <= 90) near = 1 - diff / 90;
+    }
+    const score = 0.5 * jac + 0.3 * (catOf(r) === myCat ? 1 : 0)
+                + 0.15 * near + 0.05 * (regionOf(r) === myRegion ? 1 : 0);
+    if (score > 0.12) scored.push({ r, score });
+  }
+  scored.sort((a, b) => b.score - a.score);
+  const related = scored.slice(0, 4).map(x => x.r);
   if (related.length) {
     relatedHtml = `
-      <h2 style="font-size:18px;font-weight:700;margin:24px 0 12px;border-left:4px solid ${getCategoryColor(cat)};padding-left:10px">相关事件（${escapeHtml(region)}）</h2>
+      <h2 style="font-size:18px;font-weight:700;margin:24px 0 12px;border-left:4px solid ${getCategoryColor(cat)};padding-left:10px">相关事件</h2>
       ${related.map(r => `
         <a href="./event.html?id=${escapeHtml(r.id)}" style="display:block;padding:10px 0;border-bottom:1px solid var(--border);text-decoration:none;color:inherit">
-          <span style="font-size:12px;color:var(--text-secondary)">${escapeHtml(r.date)}</span>
+          <span style="font-size:12px;color:var(--text-secondary)">${escapeHtml(r.date)} · ${escapeHtml(catOf(r))} · ${escapeHtml(regionOf(r))}</span>
           <div style="font-size:14px;font-weight:600;margin-top:2px">${escapeHtml(r.title)}</div>
         </a>`).join('')}`;
   }
@@ -475,6 +566,20 @@ async function renderEventDetail() {
       <a href="./index.html" style="color:var(--primary);text-decoration:none">← 返回今日世界</a>
     </div>
   `;
+
+  // 每条详情页自己的标题与社交名片（此前所有详情页共用「事件详情 - 全球大事记」，
+  // 搜索引擎无法区分，分享到微信/Telegram 也是一张白卡片）
+  const pageTitle = (ev.date ? ev.date + ' ' : '') + ev.title;
+  document.title = pageTitle + ' - 全球大事记';
+  setMeta('description', (ev.summary || ev.title || '').slice(0, 120));
+  setMeta('og:title', pageTitle);
+  setMeta('og:description', (ev.summary || ev.title || '').slice(0, 150));
+  setMeta('og:type', 'article');
+  setMeta('og:url', location.href);
+  setMeta('og:site_name', '全球大事记');
+  if (ev.image && /^https?:\/\//.test(ev.image)) setMeta('og:image', ev.image);
+  else setMeta('og:image', 'https://yongweili412.github.io/world-events/assets/og-default.svg');
+  setMeta('twitter:card', 'summary_large_image');
 }
 
 // ===== 地区档案页 =====

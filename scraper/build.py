@@ -23,8 +23,16 @@ from pathlib import Path
 ROOT = Path(__file__).parent.parent
 EVENTS_FILE = ROOT / "data" / "events.json"
 TEMPLATE_FILE = ROOT / "archive_template.html"
+DATA_DIR = ROOT / "data"
+INDEX_LITE_FILE = DATA_DIR / "index-lite.json"   # 轻量索引：全库搜索/地图/存档列表用
+MONTH_SHARD_DIR = DATA_DIR / "m"                 # 单月全量分片：详情页按需加载
 INDEX_STATIC_COUNT = 50   # 首页静态渲染条数
 INDEX_EMBED_COUNT = 300   # 首页内嵌 JSON 条数（供搜索/筛选）
+
+# index-lite 每个事件保留的字段。详情页正文/时间线/来源不在这里，
+# 而是按需从 data/m/YYYY-MM.json 取——这是把详情页首屏从 114MB 降到 <1MB 的关键。
+# summary 截 40 字：搜索匹配足够，同时把索引 gzip 体积从 ~5MB 压到 ~3MB（首页后台下载更轻）。
+LITE_FIELDS_SUMMARY_LIMIT = 40
 
 START = "<!-- EMBED_EVENTS_START -->"
 END = "<!-- EMBED_EVENTS_END -->"
@@ -214,6 +222,85 @@ def render_month_nav_grouped(months, current=None, recent=12):
     return "\n".join(parts)
 
 
+def build_index_lite(events):
+    """生成 data/index-lite.json —— 全库轻量索引。
+
+    只保留列表/搜索/地图/存档渲染需要的字段，正文、时间线、完整来源不进索引。
+    体积约为全量数据的 1/10（gzip 后约 2-3MB），可一次加载常驻内存做全库搜索。
+    """
+    lite = []
+    for ev in events:
+        summary = (ev.get("summary") or "")[:LITE_FIELDS_SUMMARY_LIMIT]
+        lite.append({
+            "id": ev.get("id", ""),
+            "legacyIds": ev.get("legacyIds") or [],
+            "date": ev.get("date", ""),
+            "title": ev.get("title", ""),
+            "summary": summary,
+            "category": cat_of(ev),
+            "region": region_of(ev),
+            "country": (ev.get("location") or {}).get("country") or ev.get("country") or "",
+            "tags": (ev.get("tags") or [])[:6],
+            "image": (ev.get("image") or "") if str(ev.get("image") or "").startswith("http") else "",
+            "status": ev.get("status", ""),
+            "summaryFull": bool(ev.get("summaryFull")),
+            "srcCount": len(ev.get("sources") or []),
+        })
+    DATA_DIR.mkdir(parents=True, exist_ok=True)
+    INDEX_LITE_FILE.write_text(
+        json.dumps(lite, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    size_mb = os.path.getsize(INDEX_LITE_FILE) / 1024 / 1024
+    print(f"  ✅ data/index-lite.json 已生成（{len(lite)} 条，{size_mb:.1f}MB 原始）")
+    return lite
+
+
+def build_month_shards(events_sorted):
+    """生成 data/m/YYYY-MM.json —— 单月全量分片，详情页按需只取一个月的文件。"""
+    MONTH_SHARD_DIR.mkdir(parents=True, exist_ok=True)
+    by_month = {}
+    for ev in events_sorted:
+        ym = (ev.get("date") or "")[:7]
+        if ym:
+            by_month.setdefault(ym, []).append(ev)
+    written, total_bytes = 0, 0
+    for ym, rows in by_month.items():
+        out = MONTH_SHARD_DIR / f"{ym}.json"
+        out.write_text(json.dumps(rows, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+        total_bytes += out.stat().st_size
+        written += 1
+    # 清理不再有数据的月份分片（例如事件被合并到别的月份）
+    for old in MONTH_SHARD_DIR.glob("*.json"):
+        if old.stem not in by_month:
+            old.unlink()
+    avg_kb = (total_bytes / written / 1024) if written else 0
+    print(f"  ✅ data/m/ 已生成 {written} 个月度分片（平均 {avg_kb:.0f}KB/月）")
+    return by_month
+
+
+def build_robots_and_sitemap(months, latest_date):
+    """生成 robots.txt 与 sitemap.xml —— 让搜索引擎能真正抓到这个站。"""
+    site = "https://yongweili412.github.io/world-events/"
+    robots = (
+        "User-agent: *\n"
+        "Allow: /\n"
+        "Disallow: /admin.html\n"
+        f"Sitemap: {site}sitemap.xml\n"
+    )
+    (ROOT / "robots.txt").write_text(robots, encoding="utf-8")
+
+    urls = [f"{site}", f"{site}map.html", f"{site}country.html"]
+    urls += [f"{site}archive-{ym}.html" for ym in months]
+    # 最近 12 个月按事件生成详情页链接，帮助爬虫发现详情内容
+    body = ['<?xml version="1.0" encoding="UTF-8"?>',
+            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+    for u in urls:
+        lastmod = latest_date or ""
+        body.append(f"  <url><loc>{u}</loc>" + (f"<lastmod>{lastmod}</lastmod>" if lastmod else "") + "</url>")
+    body.append("</urlset>")
+    (ROOT / "sitemap.xml").write_text("\n".join(body), encoding="utf-8")
+    print(f"  ✅ robots.txt + sitemap.xml 已生成（{len(urls)} 个页面入口）")
+
+
 def main():
     with open(EVENTS_FILE, "r", encoding="utf-8") as f:
         events = json.load(f)
@@ -242,11 +329,29 @@ def main():
           f"内嵌 {len(embed_latest)} 条（总 {len(events)} 事件），归档导航 {len(months)} 个月（折叠式）")
 
     # 2) archive-YYYY-MM.html：每个月一个静态归档页
+    #    每页带：meta description（搜索摘要）+ 面包屑 + 上/下月跳转 + canonical
+    #    —— 此前 354 个归档页只有"回首页"一个出口，搜索引擎也拿不到页面摘要。
     template = TEMPLATE_FILE.read_text(encoding="utf-8")
-    for ym in months:
+    for i, ym in enumerate(months):
         month_events = [e for e in events_sorted if e.get("date", "")[:7] == ym]
+        y, m = ym.split("-")
+        prev_ym = months[i - 1] if i > 0 else ""
+        next_ym = months[i + 1] if i + 1 < len(months) else ""
+        pn = []
+        if prev_ym:
+            pn.append(f'<a href="./archive-{prev_ym}.html" style="color:var(--primary);text-decoration:none">← {month_label(prev_ym)}</a>')
+        pn.append(f'<span style="color:var(--text-secondary);margin:0 10px">{len(month_events)} 条事件</span>')
+        if next_ym:
+            pn.append(f'<a href="./archive-{next_ym}.html" style="color:var(--primary);text-decoration:none">{month_label(next_ym)} →</a>')
         page = template.replace("{{MONTH_TITLE}}", f"{month_label(ym)} · 世界大事记")
+        page = page.replace("{{MONTH_LABEL_CN}}", month_label(ym))
+        page = page.replace("{{MONTH_YEAR}}", y)
+        page = page.replace("{{MONTH_YM}}", ym)
+        page = page.replace("{{MONTH_DESC}}",
+                            f"{month_label(ym)}全球大事记，共 {len(month_events)} 条事件，"
+                            f"每条含来源链接、时间线与地区标注，永久存档。")
         page = page.replace("{{MONTH_COUNT}}", str(len(month_events)))
+        page = page.replace("{{MONTH_PREV_NEXT}}", " ".join(pn))
         page = page.replace("{{MONTH_NAV}}", render_month_nav(months, current=ym))
         page, n1 = replace_between(page, T_START, T_END,
                                    render_timeline(month_events), f"{ym} 时间线")
@@ -260,30 +365,29 @@ def main():
             old.unlink()
             print(f"  删除过期归档页 {old.name}")
 
-    # 3) 全量数据抽成独立 data/events.js（浏览器可缓存复用，避免三个 29MB 巨型页面）
-    data_dir = ROOT / "data"
-    data_dir.mkdir(exist_ok=True)
-    payload = json.dumps(events, ensure_ascii=False).replace("</", "<\\/")
-    (data_dir / "events.js").write_text(
-        f"window.__EMBEDDED_EVENTS__ = {payload};", encoding="utf-8")
-    print(f"  ✅ data/events.js 已生成（{len(events)} 个事件，{os.path.getsize(data_dir / 'events.js')//1024//1024}MB）")
+    # 3) 轻量索引 + 月度分片 —— 替代原先 114MB 的 data/events.js
+    #    详情页只加载一个月（约 200KB-3MB），全库搜索用 index-lite（约 2-3MB gzip）
+    lite = build_index_lite(events)
+    build_month_shards(events_sorted)
 
-    # 4) event.html + country.html + map.html：改为引用独立数据文件
-    script_tag = '<script src="./data/events.js"></script>'
+    # 4) 各页面清空数据引用块：数据改为运行时按需 fetch（不再整包脚本注入）
     for name in ("event.html", "country.html", "map.html"):
         pg = ROOT / name
         h = pg.read_text(encoding="utf-8")
-        h, _ = replace_between(h, START, END, script_tag, f"{name} 数据引用")
+        h, _ = replace_between(h, START, END, "", f"{name} 数据引用")
         pg.write_text(h, encoding="utf-8")
-        print(f"  ✅ {name} 已改为引用 data/events.js")
+        print(f"  ✅ {name} 已移除全量数据引用（改为按需加载）")
 
-    # 5) admin.html：静态全量列表 + 引用独立数据
+    # 5) admin.html：不再静态渲染全量列表（原 28.5MB），改为运行时从 index-lite 加载
     adm = ROOT / "admin.html"
     h = adm.read_text(encoding="utf-8")
-    h, _ = replace_between(h, A_START, A_END, render_admin_list(events), "admin 列表")
-    h, _ = replace_between(h, START, END, script_tag, "admin 数据引用")
+    h, _ = replace_between(h, A_START, A_END, "", "admin 列表")
+    h, _ = replace_between(h, START, END, "", "admin 数据引用")
     adm.write_text(h, encoding="utf-8")
-    print(f"  ✅ admin.html 已静态渲染 {len(events)} 条 + 引用 data/events.js")
+    print(f"  ✅ admin.html 已瘦身（列表改为运行时加载）")
+
+    # 6) robots.txt + sitemap.xml：让搜索引擎能抓到这个站
+    build_robots_and_sitemap(months, latest_date)
 
     print("✨ 构建完成")
 

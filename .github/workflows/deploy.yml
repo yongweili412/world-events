@@ -53,20 +53,27 @@ jobs:
         with:
           python-version: '3.13'
 
-      - name: 生成静态站点（含 data/events.js）
+      - name: 生成静态站点（index-lite + 月分片 + robots/sitemap）
         run: python scraper/build.py
 
       - name: 组装发布目录
         run: |
           mkdir -p dist/data
-          cp index.html admin.html country.html event.html map.html preview.html dist/ 2>/dev/null || true
+          cp index.html country.html event.html map.html preview.html dist/ 2>/dev/null || true
           cp app.js style.css dist/ 2>/dev/null || true
           if [ -d assets ]; then cp -r assets dist/; fi
           cp archive-*.html dist/ || true
-          cp data/events.js dist/data/events.js
+          # 轻量索引 + 单月分片：详情页/搜索/地图按需加载（替代原 114MB 的 events.js）
+          cp data/index-lite.json dist/data/index-lite.json
+          mkdir -p dist/data/m
+          cp data/m/*.json dist/data/m/
+          # SEO：让搜索引擎能抓到站点
+          cp robots.txt sitemap.xml dist/ 2>/dev/null || true
+          # admin.html 不再部署：28.5MB、无鉴权、对访客零价值（robots.txt 已 Disallow）
           echo "--- 发布目录概览 ---"
           ls -1 dist | head -15
           echo "归档页数量: $(ls -1 dist/archive-*.html 2>/dev/null | wc -l)"
+          echo "月分片数量: $(ls -1 dist/data/m/*.json 2>/dev/null | wc -l)"
           du -sh dist
 
       - name: 上传 Pages 产物

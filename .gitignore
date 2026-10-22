@@ -12,3 +12,10 @@ data/events.js
 # 不入库（git rm --cached 已移除跟踪）。入库真源是 data/events/*.json 按年份/月份分片，
 # 由 scraper/shard_events.py 在 split（入库）/ merge（出库）时双向同步。
 data/events.json
+
+# 静态归档页与 SEO 文件：由部署时 build.py 现场生成，不再入库（仓库减重约 60MB）
+/archive-????-??.html
+/robots.txt
+/sitemap.xml
+/data/index-lite.json
+/data/m/
