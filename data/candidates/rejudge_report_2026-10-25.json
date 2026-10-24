@@ -1,26 +1,20 @@
 {
-  "run_at": "2026-10-25T06:12:15",
+  "run_at": "2026-10-25T06:17:12",
   "month": "2026-10",
   "total_pass_on_fail_in_ledger": 752,
   "unique_urls": 618,
-  "done_before_this_run": 577,
+  "done_before_this_run": 596,
   "this_run_budget": 20,
   "this_run_attempted": 20,
   "this_run": {
-    "keep": 1,
-    "review": 14,
-    "drop": 4,
-    "failed": 1
+    "keep": 2,
+    "review": 17,
+    "drop": 1,
+    "failed": 0
   },
-  "started_at": "2026-10-25T06:08:23",
-  "errors": [
-    {
-      "url": "https://www.bbc.co.uk/news/articles/cm5ynkk570pno?at_medium=RSS&at_campaign=rss",
-      "title": "Marseille braces for more unrest after protests give way to 'apocalyptic' disord"
-    }
-  ],
-  "finished_at": "2026-10-25T06:12:15",
-  "wall_clock_seconds": 231.8,
-  "done_total_after_this_run": 596,
+  "started_at": "2026-10-25T06:12:54",
+  "finished_at": "2026-10-25T06:17:12",
+  "wall_clock_seconds": 257.2,
+  "done_total_after_this_run": 616,
   "orphan_count": 0
 }
