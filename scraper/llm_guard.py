@@ -138,8 +138,26 @@ def _tier_for_model(cfg: dict, model: str) -> dict:
     return {}
 
 
+def _expire_reason(tier: dict):
+    """限时档位过期检查。expires 为 ISO 日期（YYYY-MM-DD）：到期当日仍可用，次日自动下线。
+
+    用户 2026-10-25 指定 qiniu/conatus-free 限免至 2026-11-30——做成机制性约束而非
+    文档提醒：到期后本档自动从候选链消失，链路顺延，无需任何人工干预。
+    """
+    exp = (tier.get("expires") or "").strip()
+    if not exp:
+        return False, ""
+    try:
+        exp_date = datetime.date.fromisoformat(exp)
+    except ValueError:
+        return False, ""
+    if datetime.date.today() > exp_date:
+        return True, f"限时免费已于 {exp} 到期"
+    return False, ""
+
+
 def _tier_available(tier: dict, cfg: dict) -> bool:
-    """档位是否可用：启用 + 未耗尽 + 未禁用 + 所需密钥已配置。
+    """档位是否可用：启用 + 未过期 + 未耗尽 + 未禁用 + 所需密钥已配置。
 
     密钥未配置的档位必须判定为不可用——否则会发出注定 401/400 的请求，
     既浪费时间又用错误码掩盖真实原因。
@@ -148,6 +166,9 @@ def _tier_available(tier: dict, cfg: dict) -> bool:
         return False
     model = (tier.get("model") or "").strip()
     if not model:
+        return False
+    expired, _why = _expire_reason(tier)
+    if expired:
         return False
     if _norm(model) in _exhausted_set(cfg):
         return False
@@ -179,6 +200,8 @@ def tier_status(config_path: str = None, scenario: str = None) -> list:
         key_env = (t.get("key_env") or "").strip()
         if t.get("enabled") is False:
             reason = "档位已禁用"
+        elif _expire_reason(t)[0]:
+            reason = _expire_reason(t)[1]
         elif _norm(model) in _exhausted_set(cfg):
             reason = "额度已耗尽（exhausted_models）"
         elif _is_forbidden(model, (cfg.get("daily_automation") or {}).get("forbidden_models")):

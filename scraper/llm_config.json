@@ -5,14 +5,15 @@
     "model_tiers": {
       "free_promo": {
         "label": "限时免费档",
-        "model": "step-5-preview",
-        "provider": "stepfun",
-        "base_url": "https://api.stepfun.com/v1",
-        "key_env": "LLM_API_KEY_STEP",
-        "scenario": "限时免费期内的首选，所有任务通用。step-5-preview 是阶跃星辰旗舰基模（MoE 600B/激活 27B，上下文 100 万 token），当前全量开放；免费策略与配额由阶跃星辰侧决定，随时可能调整。",
+        "model": "qiniu/conatus-free",
+        "provider": "qiniu",
+        "base_url": "https://api.qnaigc.com/v1",
+        "key_env": "LLM_API_KEY",
+        "scenario": "用户 2026-10-25 指定：七牛 conatus 免费版（经 qnaigc 路由），限时至 2026-11-30——llm_guard 到期自动跳过本档（expires 字段机制性落实），无需人工下线。与 kimi-k3-free / deepseek 共用同一网关与密钥。",
         "switch_condition": "只要该档存在可用密钥即排在任何场景候选链的第一位；无密钥或缺额度时自动跳过，不发出请求。若阶跃侧停止免费或限流，脚本按场景降级到对应兜底档。",
         "model_note": "API 模型标识固定为 step-5-preview（全小写）。平台另提供 step-3.7-flash / step-3.5-flash 等更轻量型号，需要更省时改此处即可。",
-        "enabled": true
+        "enabled": true,
+        "expires": "2026-11-30"
       },
       "performance": {
         "label": "性能优先兜底档",

@@ -19,6 +19,7 @@
 """
 import os
 import sys
+import datetime as _dt
 import unittest
 from pathlib import Path
 from unittest.mock import patch
@@ -93,8 +94,9 @@ class TestTierStructure(unittest.TestCase):
     def test_model_ids_match_actual_api_identifiers(self):
         """配置里的模型标识必须与实际可用 API 标识逐字一致（防止写成别名）。"""
         tiers = LG._tier_table(LG._load_config())
-        self.assertEqual(tiers["free_promo"]["model"], "step-5-preview")
+        self.assertEqual(tiers["free_promo"]["model"], "qiniu/conatus-free")
         self.assertEqual(tiers["performance"]["model"], "deepseek/deepseek-v4.1-flash")
+        self.assertEqual(tiers["free_first"]["model"], "moonshotai/kimi-k3-free")
         self.assertEqual(tiers["free_first"]["model"], "moonshotai/kimi-k3-free")
 
     def test_chain_order_performance(self):
@@ -102,7 +104,7 @@ class TestTierStructure(unittest.TestCase):
                                      "LLM_API_KEY_ORCAROUTER": "o"}):
             chain = LG.resolve_model_chain(scenario="performance")
             self.assertEqual(chain[:3],
-                             ["step-5-preview", "deepseek/deepseek-v4.1-flash",
+                             ["qiniu/conatus-free", "deepseek/deepseek-v4.1-flash",
                               "moonshotai/kimi-k3-free"])
 
     def test_chain_order_free_first(self):
@@ -110,25 +112,26 @@ class TestTierStructure(unittest.TestCase):
                                      "LLM_API_KEY_ORCAROUTER": "o"}):
             chain = LG.resolve_model_chain(scenario="free_first")
             self.assertEqual(chain[:3],
-                             ["step-5-preview", "moonshotai/kimi-k3-free",
+                             ["qiniu/conatus-free", "moonshotai/kimi-k3-free",
                               "deepseek/deepseek-v4.1-flash"])
 
     def test_missing_key_tier_skipped(self):
         """缺密钥的档位不得进入候选链（否则会发出注定失败的请求）。"""
-        env = {k: v for k, v in os.environ.items()
-               if k not in ("LLM_API_KEY_STEP", "LLM_API_KEY_ORCAROUTER")}
+        env = {k: v for k, v in os.environ.items() if k != "LLM_API_KEY"}
         with patch.dict(os.environ, env, clear=True):
             chain = LG.resolve_model_chain(scenario="performance")
-            self.assertNotIn("step-5-preview", chain, "缺密钥的 step 档不该入选")
+            self.assertNotIn("qiniu/conatus-free", chain, "缺密钥的 conatus 档不该入选")
+            self.assertNotIn("moonshotai/kimi-k3-free", chain, "缺密钥的 kimi 档不该入选")
+            self.assertNotIn("deepseek/deepseek-v4.1-flash", chain, "缺密钥的 deepseek 档不该入选")
 
     def test_route_uses_tier_own_base_url(self):
-        """step-5-preview 必须路由到阶跃网关，而不是沿用 deepseek 的网关。"""
-        with patch.dict(os.environ, {"LLM_API_KEY_STEP": "sk-step"}):
-            route, reason = LG._route_for("step-5-preview", cfg=LG._load_config())
+        """conatus-free 必须路由到 qnaigc 网关（与 kimi/deepseek 共用同一网关与密钥）。"""
+        with patch.dict(os.environ, {"LLM_API_KEY": "sk-qnaigc"}):
+            route, reason = LG._route_for("qiniu/conatus-free", cfg=LG._load_config())
             self.assertIsNotNone(route, f"路由失败: {reason}")
             base, key = route
-            self.assertEqual(base, "https://api.stepfun.com/v1")
-            self.assertEqual(key, "sk-step")
+            self.assertEqual(base, "https://api.qnaigc.com/v1")
+            self.assertEqual(key, "sk-qnaigc")
 
     def test_kimi_free_route_uses_qnaigc(self):
         """kimi-k3-free 与 deepseek 共用 qnaigc 网关与密钥（2026-10-25 用户指定）。"""
@@ -137,6 +140,59 @@ class TestTierStructure(unittest.TestCase):
             self.assertIsNotNone(route, f"路由失败: {reason}")
             self.assertEqual(route[0], "https://api.qnaigc.com/v1")
             self.assertEqual(route[1], "sk-qnaigc")
+
+
+class TestTierExpiry(unittest.TestCase):
+    """限时免费档的自动过期机制（用户 2026-10-25 指定 conatus-free 限至 2026-11-30）。"""
+
+    def test_expired_tier_skipped(self):
+        """expires 已过的档位必须自动下线，不进入候选链。"""
+        cfg = LG._load_config()
+        t = dict(LG._tier_table(cfg)["free_promo"])
+        t["expires"] = "2026-10-24"   # 昨天
+        self.assertFalse(LG._tier_available(t, cfg), "已过期的档位不该可用")
+        ok, why = LG._expire_reason(t)
+        self.assertTrue(ok)
+        self.assertIn("2026-10-24", why)
+
+    def test_future_expiry_still_available(self):
+        """未到期的限免档位正常可用（到期当日仍可用，次日下线）。"""
+        cfg = LG._load_config()
+        t = dict(LG._tier_table(cfg)["free_promo"])
+        t["expires"] = "2026-11-30"   # 未来
+        with patch.dict(os.environ, {"LLM_API_KEY": "sk-qnaigc"}):
+            self.assertTrue(LG._tier_available(t, cfg))
+        ok, why = LG._expire_reason(t)
+        self.assertFalse(ok)
+        self.assertEqual(why, "")
+
+    def test_expiry_today_still_available(self):
+        """到期当天仍可用（语义：免费持续到当天 23:59）。"""
+        import datetime as _dt
+        cfg = LG._load_config()
+        t = dict(LG._tier_table(cfg)["free_promo"])
+        t["expires"] = _dt.date.today().isoformat()
+        with patch.dict(os.environ, {"LLM_API_KEY": "sk-qnaigc"}):
+            self.assertTrue(LG._tier_available(t, cfg))
+
+    def test_real_config_expiry_is_valid_iso(self):
+        """配置里的 expires 必须是合法 ISO 日期，否则过期机制静默失效。"""
+        cfg = LG._load_config()
+        for name, t in LG._tier_table(cfg).items():
+            exp = (t.get("expires") or "").strip()
+            if exp:
+                try:
+                    _dt.date.fromisoformat(exp)
+                except ValueError:
+                    self.fail(f"{name} 的 expires={exp} 不是合法 ISO 日期")
+
+    def test_real_config_promo_is_conatus(self):
+        """限免档当前必须是 conatus-free 且带 2026-11-30 到期日。"""
+        cfg = LG._load_config()
+        t = LG._tier_table(cfg)["free_promo"]
+        self.assertEqual(t["model"], "qiniu/conatus-free")
+        self.assertEqual(t.get("expires"), "2026-11-30")
+        self.assertEqual(t["key_env"], "LLM_API_KEY")
 
 
 class TestForbiddenStillEnforced(unittest.TestCase):
