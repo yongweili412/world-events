@@ -1,20 +1,34 @@
 {
-  "run_at": "2026-10-25T05:55:37",
+  "run_at": "2026-10-25T06:03:14",
   "month": "2026-10",
   "total_pass_on_fail_in_ledger": 752,
   "unique_urls": 618,
-  "done_before_this_run": 521,
+  "done_before_this_run": 541,
   "this_run_budget": 20,
   "this_run_attempted": 20,
   "this_run": {
-    "keep": 1,
-    "review": 16,
+    "keep": 0,
+    "review": 14,
     "drop": 3,
-    "failed": 0
+    "failed": 3
   },
-  "started_at": "2026-10-25T05:51:46",
-  "finished_at": "2026-10-25T05:55:37",
-  "wall_clock_seconds": 231.7,
-  "done_total_after_this_run": 541,
+  "started_at": "2026-10-25T05:59:46",
+  "errors": [
+    {
+      "url": "https://www.euronews.com/2026/10/18/burnt-bicycles-smashed-windows-and-looted-shops-trail-of-destruction-across-paris",
+      "title": "Burnt bicycles, smashed windows and looted shops: Trail of destruction across Pa"
+    },
+    {
+      "url": "https://www.aljazeera.com/sports/2026/10/18/manchester-united-held-at-leeds-despite-improved-performance-under-carrick?traffic_source=rss",
+      "title": "Manchester United held at Leeds despite improved performance for Carrick"
+    },
+    {
+      "url": "https://www.channelnewsasia.com/world/zelenskyy-speaks-us-envoys-amid-trump-spat-6469886",
+      "title": "Zelenskyy speaks to US envoys amid Trump spat"
+    }
+  ],
+  "finished_at": "2026-10-25T06:03:14",
+  "wall_clock_seconds": 208.7,
+  "done_total_after_this_run": 558,
   "orphan_count": 0
 }
