@@ -90,6 +90,10 @@ def _free_disabled(cfg: dict) -> bool:
 def _is_forbidden(model: str, cfg_forbidden: list) -> bool:
     forbidden = {_norm(f) for f in FORBIDDEN if f}
     forbidden |= {_norm(f) for f in (cfg_forbidden or []) if f}
+    # 用户显式指定的免费变体（如 moonshotai/kimi-k3-free，2026-10-25 指定）
+    # 与禁用的完整版是不同模型；必须在 _norm 之前判断——_norm 会去掉连字符。
+    if "-free" in (model or "").lower():
+        return False
     nm = _norm(model)
     return any(nf and (nf == nm or nf in nm) for nf in forbidden)
 
@@ -97,12 +101,17 @@ def _is_forbidden(model: str, cfg_forbidden: list) -> bool:
 def _check_forbidden(model: str, cfg_forbidden: list, source: str) -> str:
     forbidden = {_norm(f) for f in FORBIDDEN if f}
     forbidden |= {_norm(f) for f in (cfg_forbidden or []) if f}
+    # 用户显式指定的 -free 免费变体放行（判断同样须在 _norm 之前，理由同上）。
+    if "-free" in (model or "").lower():
+        return model
     nm = _norm(model)
     for nf in forbidden:
-        if nf and (nf == nm or nf in nm):
+        if not nf:
+            continue
+        if nf == nm or nf in nm:
             raise RuntimeError(
                 f"模型 '{model}'（来源：{source}）属于禁用名单（GLM-5.3 / KIMI K3），自动任务一概不得使用——"
-                f"仅在用户明确指定时可用。请改用限时免费模型或 {DEFAULT_MODEL}（见 scraper/llm_config.json 规定三/七）。"
+                f"仅在用户明确指定时可用（-free 免费变体除外）。请改用限时免费模型或 {DEFAULT_MODEL}（见 scraper/llm_config.json 规定三/七）。"
             )
     return model
 

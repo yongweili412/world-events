@@ -95,7 +95,7 @@ class TestTierStructure(unittest.TestCase):
         tiers = LG._tier_table(LG._load_config())
         self.assertEqual(tiers["free_promo"]["model"], "step-5-preview")
         self.assertEqual(tiers["performance"]["model"], "deepseek/deepseek-v4.1-flash")
-        self.assertEqual(tiers["free_first"]["model"], "tencent/hy3-free")
+        self.assertEqual(tiers["free_first"]["model"], "moonshotai/kimi-k3-free")
 
     def test_chain_order_performance(self):
         with patch.dict(os.environ, {"LLM_API_KEY_STEP": "s",
@@ -103,14 +103,14 @@ class TestTierStructure(unittest.TestCase):
             chain = LG.resolve_model_chain(scenario="performance")
             self.assertEqual(chain[:3],
                              ["step-5-preview", "deepseek/deepseek-v4.1-flash",
-                              "tencent/hy3-free"])
+                              "moonshotai/kimi-k3-free"])
 
     def test_chain_order_free_first(self):
         with patch.dict(os.environ, {"LLM_API_KEY_STEP": "s",
                                      "LLM_API_KEY_ORCAROUTER": "o"}):
             chain = LG.resolve_model_chain(scenario="free_first")
             self.assertEqual(chain[:3],
-                             ["step-5-preview", "tencent/hy3-free",
+                             ["step-5-preview", "moonshotai/kimi-k3-free",
                               "deepseek/deepseek-v4.1-flash"])
 
     def test_missing_key_tier_skipped(self):
@@ -120,7 +120,6 @@ class TestTierStructure(unittest.TestCase):
         with patch.dict(os.environ, env, clear=True):
             chain = LG.resolve_model_chain(scenario="performance")
             self.assertNotIn("step-5-preview", chain, "缺密钥的 step 档不该入选")
-            self.assertNotIn("tencent/hy3-free", chain, "缺密钥的 hy3 档不该入选")
 
     def test_route_uses_tier_own_base_url(self):
         """step-5-preview 必须路由到阶跃网关，而不是沿用 deepseek 的网关。"""
@@ -131,21 +130,31 @@ class TestTierStructure(unittest.TestCase):
             self.assertEqual(base, "https://api.stepfun.com/v1")
             self.assertEqual(key, "sk-step")
 
-    def test_hy3_route_uses_orcarouter(self):
-        with patch.dict(os.environ, {"LLM_API_KEY_ORCAROUTER": "sk-orca"}):
-            route, reason = LG._route_for("tencent/hy3-free", cfg=LG._load_config())
+    def test_kimi_free_route_uses_qnaigc(self):
+        """kimi-k3-free 与 deepseek 共用 qnaigc 网关与密钥（2026-10-25 用户指定）。"""
+        with patch.dict(os.environ, {"LLM_API_KEY": "sk-qnaigc"}):
+            route, reason = LG._route_for("moonshotai/kimi-k3-free", cfg=LG._load_config())
             self.assertIsNotNone(route, f"路由失败: {reason}")
-            self.assertEqual(route[0], "https://api.orcarouter.ai/v1")
-            self.assertEqual(route[1], "sk-orca")
+            self.assertEqual(route[0], "https://api.qnaigc.com/v1")
+            self.assertEqual(route[1], "sk-qnaigc")
 
 
 class TestForbiddenStillEnforced(unittest.TestCase):
     """禁用名单不能被三档结构绕过。"""
 
     def test_forbidden_models_raise(self):
-        for m in ("glm-5.3", "kimi-k3"):
+        for m in ("glm-5.3", "kimi-k3", "moonshotai/kimi-k3"):
             with self.assertRaises(RuntimeError, msg=f"{m} 应触发禁用名单"):
                 LG._check_forbidden(m, [], "test")
+
+    def test_free_variant_of_forbidden_model_allowed(self):
+        """用户显式指定的 -free 免费变体不受完整版禁令约束（2026-10-25 指定）。"""
+        for m in ("moonshotai/kimi-k3-free", "kimi-k3-free"):
+            try:
+                out = LG._check_forbidden(m, [], "test")
+                self.assertEqual(out, m)
+            except RuntimeError as ex:
+                self.fail(f"{m} 是用户显式指定的免费变体，不应被拦截: {ex}")
 
 
 if __name__ == "__main__":

@@ -1,7 +1,7 @@
 {
   "_comment": "world-events LLM 模型配置（单一事实源）。scope=【一切自动任务】：云端 GitHub Actions workflows 全部 LLM 环节（update.yml / backfill.yml / backfill_daily.yml / enrich_sources.yml）+ 本机定时任务 + 今后新增的任何自动化任务。手动执行、临时对话任务不受此配置约束。三档结构见 model_tiers，各档携带自己的 base_url 与 key_env —— 换档时模型、网关、密钥三者同步切换，避免把 A 厂商模型发往 B 厂商网关。",
   "daily_automation": {
-    "default_scenario": "performance",
+    "default_scenario": "free_first",
     "model_tiers": {
       "free_promo": {
         "label": "限时免费档",
@@ -27,11 +27,11 @@
       },
       "free_first": {
         "label": "免费为主兜底档",
-        "model": "tencent/hy3-free",
-        "provider": "orcarouter",
-        "base_url": "https://api.orcarouter.ai/v1",
-        "key_env": "LLM_API_KEY_ORCAROUTER",
-        "scenario": "量大、对单条精度要求不高但要求零成本的任务：英日事件翻译、全文速览生成、字段级中文化、批量标题清洗。这些任务单日可达数百条，用免费档可把付费额度全部留给价值判断。",
+        "model": "moonshotai/kimi-k3-free",
+        "provider": "moonshot",
+        "base_url": "https://api.qnaigc.com/v1",
+        "key_env": "LLM_API_KEY",
+        "scenario": "用户 2026-10-25 显式指定：Kimi K3 免费版（经 qnaigc 路由），与 deepseek 共用同一网关与密钥，零新增配置即可生效。翻译/速览/字段中文化等量大任务的首选，也是默认场景的首选（default_scenario=free_first）。",
         "switch_condition": "free_first 场景下作为限时免费档之后的第二顺位；performance 场景下作为最后兜底。免费路由通常有更严的速率限制，遇 429 会退避重试后再换档。",
         "model_note": "OrcaRouter 免费路由的模型标识为 tencent/hy3-free（腾讯混元 Hy3，256K 上下文，开源权重，2026-09-19 起免费）。如改用 OpenRouter，模型标识为 tencent/hy3:free、网关 https://openrouter.ai/api/v1、密钥环境变量 LLM_API_KEY_OPENROUTER —— 三处需同时改，不可只改其中一个。",
         "enabled": true
@@ -39,15 +39,35 @@
     },
     "chain_by_scenario": {
       "_comment": "候选链顺序：故障时从左往右依次尝试。每一档都先检查密钥与额度，缺密钥或已耗尽则跳过，不发出注定失败的请求。",
-      "performance": ["free_promo", "performance", "free_first"],
-      "free_first": ["free_promo", "free_first", "performance"]
+      "performance": [
+        "free_promo",
+        "performance",
+        "free_first"
+      ],
+      "free_first": [
+        "free_promo",
+        "free_first",
+        "performance"
+      ]
     },
     "providers": {
       "_comment": "可选网关登记表，供新增档位或替换供应商时参照。key_env 为该网关需要的密钥环境变量名。",
-      "stepfun": {"base_url": "https://api.stepfun.com/v1", "key_env": "LLM_API_KEY_STEP"},
-      "deepseek": {"base_url": "https://api.qnaigc.com/v1", "key_env": "LLM_API_KEY"},
-      "orcarouter": {"base_url": "https://api.orcarouter.ai/v1", "key_env": "LLM_API_KEY_ORCAROUTER"},
-      "openrouter": {"base_url": "https://openrouter.ai/api/v1", "key_env": "LLM_API_KEY_OPENROUTER"}
+      "stepfun": {
+        "base_url": "https://api.stepfun.com/v1",
+        "key_env": "LLM_API_KEY_STEP"
+      },
+      "deepseek": {
+        "base_url": "https://api.qnaigc.com/v1",
+        "key_env": "LLM_API_KEY"
+      },
+      "orcarouter": {
+        "base_url": "https://api.orcarouter.ai/v1",
+        "key_env": "LLM_API_KEY_ORCAROUTER"
+      },
+      "openrouter": {
+        "base_url": "https://openrouter.ai/api/v1",
+        "key_env": "LLM_API_KEY_OPENROUTER"
+      }
     },
     "model": "deepseek/deepseek-v4.1-flash",
     "base_url": "https://api.qnaigc.com/v1",
