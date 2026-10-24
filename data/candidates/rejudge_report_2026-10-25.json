@@ -1,26 +1,20 @@
 {
-  "run_at": "2026-10-25T05:47:15",
+  "run_at": "2026-10-25T05:55:37",
   "month": "2026-10",
   "total_pass_on_fail_in_ledger": 752,
   "unique_urls": 618,
-  "done_before_this_run": 502,
+  "done_before_this_run": 521,
   "this_run_budget": 20,
   "this_run_attempted": 20,
   "this_run": {
-    "keep": 0,
-    "review": 11,
-    "drop": 8,
-    "failed": 1
+    "keep": 1,
+    "review": 16,
+    "drop": 3,
+    "failed": 0
   },
-  "started_at": "2026-10-25T05:43:22",
-  "errors": [
-    {
-      "url": "https://www.aljazeera.com/sports/2026/10/17/neto-brace-fires-chelsea-past-everton-but-martinez-head-injury-mars-win?traffic_source=rss",
-      "title": "Neto’s brace fires Chelsea past Everton but Martinez head injury mars win"
-    }
-  ],
-  "finished_at": "2026-10-25T05:47:15",
-  "wall_clock_seconds": 232.5,
-  "done_total_after_this_run": 521,
+  "started_at": "2026-10-25T05:51:46",
+  "finished_at": "2026-10-25T05:55:37",
+  "wall_clock_seconds": 231.7,
+  "done_total_after_this_run": 541,
   "orphan_count": 0
 }
