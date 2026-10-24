@@ -1,26 +1,26 @@
 {
-  "run_at": "2026-10-25T06:07:46",
+  "run_at": "2026-10-25T06:12:15",
   "month": "2026-10",
   "total_pass_on_fail_in_ledger": 752,
   "unique_urls": 618,
-  "done_before_this_run": 558,
+  "done_before_this_run": 577,
   "this_run_budget": 20,
   "this_run_attempted": 20,
   "this_run": {
-    "keep": 0,
-    "review": 6,
-    "drop": 13,
+    "keep": 1,
+    "review": 14,
+    "drop": 4,
     "failed": 1
   },
-  "started_at": "2026-10-25T06:03:54",
+  "started_at": "2026-10-25T06:08:23",
   "errors": [
     {
-      "url": "https://news.web.nhk/newsweb/na/nd-20261015de59773",
-      "title": "横浜市長選挙 出口調査の結果は"
+      "url": "https://www.bbc.co.uk/news/articles/cm5ynkk570pno?at_medium=RSS&at_campaign=rss",
+      "title": "Marseille braces for more unrest after protests give way to 'apocalyptic' disord"
     }
   ],
-  "finished_at": "2026-10-25T06:07:46",
-  "wall_clock_seconds": 232.3,
-  "done_total_after_this_run": 577,
+  "finished_at": "2026-10-25T06:12:15",
+  "wall_clock_seconds": 231.8,
+  "done_total_after_this_run": 596,
   "orphan_count": 0
 }
