@@ -9,9 +9,9 @@
         "provider": "qiniu",
         "base_url": "https://api.qnaigc.com/v1",
         "key_env": "LLM_API_KEY",
-        "scenario": "用户 2026-10-25 指定：七牛 conatus 免费版（经 qnaigc 路由），限时至 2026-11-30——llm_guard 到期自动跳过本档（expires 字段机制性落实），无需人工下线。与 kimi-k3-free / deepseek 共用同一网关与密钥。",
-        "switch_condition": "只要该档存在可用密钥即排在任何场景候选链的第一位；无密钥或缺额度时自动跳过，不发出请求。若阶跃侧停止免费或限流，脚本按场景降级到对应兜底档。",
-        "model_note": "API 模型标识固定为 step-5-preview（全小写）。平台另提供 step-3.7-flash / step-3.5-flash 等更轻量型号，需要更省时改此处即可。",
+        "scenario": "用户 2026-10-25 指定：七牛 conatus 免费版（经 qnaigc 路由），限时至 2026-11-30——llm_guard 到期自动跳过本档（expires 字段机制性落实），无需人工下线。与 deepseek 共用同一网关与密钥。2026-10-30 起为网关内唯一可用免费模型。",
+        "switch_condition": "只要该档未到期且密钥可用，即排在任何场景候选链的第一位；到期、无密钥或缺额度时自动跳过，不发出请求。若上游限流，脚本按场景降级到 deepseek 兜底档。",
+        "model_note": "API 模型标识固定为 qiniu/conatus-free（qnaigc 网关，2026-10-25 实测可用、2026-10-30 复测仍可用）。注意 expires=2026-11-30 到期后本档自动下线。",
         "enabled": true,
         "expires": "2026-11-30"
       },
@@ -22,32 +22,19 @@
         "base_url": "https://api.qnaigc.com/v1",
         "key_env": "LLM_API_KEY",
         "scenario": "需要判断质量与推理能力的任务：候选闸门价值判断、PASS_ON_FAIL 重判、争议条目复核。这类任务单条成本低但结论直接影响是否入库，值得用更强的模型。",
-        "switch_condition": "performance 场景下作为限时免费档之后的第二顺位；free_first 场景下作为最后兜底。遇 429/5xx/超时先同档退避重试（15s、30s），仍失败才换下一档。",
+        "switch_condition": "performance 场景下作为限免档之后的第二顺位；free_first 场景下同理作为兜底。两者当前候选链一致：conatus-free → deepseek。遇 429/5xx/超时先同档退避重试（15s、30s），仍失败才换下一档。",
         "model_note": "API 模型标识固定为 deepseek/deepseek-v4.1-flash（qnaigc 网关，2026-10-02 用户切换，已实测可用）。",
-        "enabled": true
-      },
-      "free_first": {
-        "label": "免费为主兜底档",
-        "model": "moonshotai/kimi-k3-free",
-        "provider": "moonshot",
-        "base_url": "https://api.qnaigc.com/v1",
-        "key_env": "LLM_API_KEY",
-        "scenario": "用户 2026-10-25 显式指定：Kimi K3 免费版（经 qnaigc 路由），与 deepseek 共用同一网关与密钥，零新增配置即可生效。翻译/速览/字段中文化等量大任务的首选，也是默认场景的首选（default_scenario=free_first）。",
-        "switch_condition": "free_first 场景下作为限时免费档之后的第二顺位；performance 场景下作为最后兜底。免费路由通常有更严的速率限制，遇 429 会退避重试后再换档。",
-        "model_note": "OrcaRouter 免费路由的模型标识为 tencent/hy3-free（腾讯混元 Hy3，256K 上下文，开源权重，2026-09-19 起免费）。如改用 OpenRouter，模型标识为 tencent/hy3:free、网关 https://openrouter.ai/api/v1、密钥环境变量 LLM_API_KEY_OPENROUTER —— 三处需同时改，不可只改其中一个。",
         "enabled": true
       }
     },
     "chain_by_scenario": {
-      "_comment": "候选链顺序：故障时从左往右依次尝试。每一档都先检查密钥与额度，缺密钥或已耗尽则跳过，不发出注定失败的请求。",
+      "_comment": "候选链顺序：故障时从左往右依次尝试。每一档都先检查密钥、额度、到期与退役状态，不合格则跳过，不发出注定失败的请求。2026-10-30 起仅剩两档（kimi-k3-free 已退役）。",
       "performance": [
         "free_promo",
-        "performance",
-        "free_first"
+        "performance"
       ],
       "free_first": [
         "free_promo",
-        "free_first",
         "performance"
       ]
     },
@@ -75,7 +62,7 @@
     "provider": "deepseek",
     "env_var": "LLM_MODEL（GitHub Secrets，值=deepseek/deepseek-v4.1-flash）。设置该变量会强制覆盖三档选择，仅在需要临时锁定单一模型时使用。",
     "cost_tier": "混合：免费档为主 + 性能档兜底",
-    "applied_at": "2026-10-19",
+    "applied_at": "2026-10-30",
     "steps": [
       "日常抓取后英文事件翻译（update.yml → translate_cloud.py）—— 适合 free_first 场景",
       "历史回填翻译（backfill.yml → backfill_history.py）—— 适合 free_first 场景",
@@ -96,20 +83,25 @@
     ],
     "exhausted_note": "2026-10-19 用户告知：以上三个模型额度已用完，任何自动任务不得再调用。代码层读取本列表后硬跳过（即使档位配置误指也不会发出请求）。额度恢复后从此列表移除即可重新启用。",
     "scope": "all_automation（云端 workflows + 本机定时任务 + 今后新增的自动化）",
-    "priority": "三档并存，按场景选链：限时免费档 step-5-preview 始终优先；其后 performance 场景用 deepseek/deepseek-v4.1-flash，free_first 场景用 tencent/hy3-free。",
+    "priority": "两档并存，按场景选链（两场景当前一致）：限时免费档 qiniu/conatus-free 始终优先；不可用或到期后由 performance 档 deepseek/deepseek-v4.1-flash 兜底。2026-11-30 后 conatus 自动下线，候选链退化为仅 deepseek 一档。",
     "free_models": [],
-    "use_free_models": false
+    "use_free_models": false,
+    "retired_models": [
+      "moonshotai/kimi-k3-free",
+      "z-ai/glm-4.5-air-free"
+    ],
+    "retired_note": "2026-10-30 实测确认：moonshotai/kimi-k3-free 已于 2026-10-27 被厂商退役（HTTP 502 \"has been retired\"），z-ai/glm-4.5-air-free 于 2026-06-25 退役。二者仍出现在 /v1/models 列表中，极易被误配，故列入本名单由代码硬跳过；任何自动任务都不得再调用（即使档位配置误指也不会发出请求）。"
   },
   "rules": [
-    "规定一（2026-10-19 用户指定，替代原规定一）：自动任务采用三档模型结构 —— 限时免费档 step-5-preview、性能优先兜底档 deepseek/deepseek-v4.1-flash、免费为主兜底档 tencent/hy3-free。三档各自携带 base_url 与 key_env，换档时必须同步切换网关与密钥。",
-    "规定二（2026-09-15 用户指定）：一切自动任务（含云端与本机定时任务）禁止使用 GLM-5.3 和 KIMI K3 模型——仅在用户明确指定时才可使用，其他任何情况一概不使用（含自动降级/重试/临时改动）。",
+    "规定一（2026-10-30 修订）：自动任务采用两档模型结构 —— 限时免费档 qiniu/conatus-free（至 2026-11-30）、性能优先兜底档 deepseek/deepseek-v4.1-flash。原免费为主兜底档 moonshotai/kimi-k3-free 已于 2026-10-27 被厂商退役，档位一并移除；网关内当前无其他可用免费模型可补位。两档各自携带 base_url 与 key_env，换档时必须同步切换网关与密钥。",
+    "规定二（2026-09-15 用户指定）：一切自动任务（含云端与本机定时任务）禁止使用 GLM-5.3 和 KIMI K3 模型——仅在用户明确指定时才可使用，其他任何情况一概不使用（含自动降级/重试/临时改动）。2026-10-30 补充：kimi-k3-free 已退役并列入 retired_models；此前为其开设的「-free 变体放行」口子已收回，禁用匹配恢复为严格子串判定。",
     "规定三（2026-09-15 用户指定，flash 优先原则）：一切自动任务优先使用 flash 档模型，模型选择、重试、降级等任何环节都以 flash 为先。",
     "规定四：今后新增的自动化任务默认沿用 daily_automation.default_scenario，无需重复设置；如需更换档位只改本文件的 model_tiers 与 chain_by_scenario 两处。",
     "规定五：此配置仅约束自动任务；手动执行、临时对话任务不受约束，可按需选用模型。",
-    "规定六（2026-10-19 修订）：限时免费优先原则保持不变，当前登记为 step-5-preview。该档无密钥或阶跃侧停止免费时自动跳过，不会阻断任务。",
-    "规定七：exhausted_models 优先级高于一切选择逻辑；同一模型不得同时出现在 model_tiers 与 exhausted_models 中。",
-    "规定八（2026-10-19 修订）：模型调用失败的处理顺序为——先同档退避重试（429/5xx/超时，间隔 15s、30s），仍失败再按链换下一档。每档换档时同时切换 model / base_url / key，缺密钥或已耗尽的档直接跳过，绝不发出注定失败的请求。",
+    "规定六（2026-10-30 修订）：限时免费优先原则保持不变，当前登记为 qiniu/conatus-free（限至 2026-11-30）。该档无密钥、到期或下游停止免费时自动跳过，不会阻断任务。",
+    "规定七：exhausted_models 与 retired_models 优先级高于一切选择逻辑；同一模型不得同时出现在 model_tiers 与上述任一列表中。",
+    "规定八（2026-10-19 修订）：模型调用失败的处理顺序为——先同档退避重试（429/5xx/超时，间隔 15s、30s），仍失败再按链换下一档。每档换档时同时切换 model / base_url / key，缺密钥、已耗尽或已退役的档直接跳过，绝不发出注定失败的请求。",
     "规定九（2026-10-19 用户指定）：glm-4.7 / glm-4.7-flash / glm-4.5-flash 额度已用完，任何自动任务不得再调用。",
-    "规定十（2026-10-19 用户指定）：配置项命名必须与实际模型标识一致且可核验 —— step-5-preview、deepseek/deepseek-v4.1-flash、tencent/hy3-free。修改模型时必须同时核对网关与密钥环境变量，三者不匹配会返回 model_not_found 或 401。"
+    "规定十（2026-10-30 修订）：配置项命名必须与实际模型标识一致且可核验 —— qiniu/conatus-free、deepseek/deepseek-v4.1-flash。修改模型时必须同时核对网关与密钥环境变量，三者不匹配会返回 model_not_found 或 401。退役或下线的模型名不得继续留在 model_tiers 中。"
   ]
 }

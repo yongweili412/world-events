@@ -1,17 +1,20 @@
 # -*- coding: utf-8 -*-
 """LLM 模型守卫（用户规定的机制性落实）。
 
-模型结构（2026-10-19 起为三档，详见 scraper/llm_config.json）：
-  free_promo   限时免费档      step-5-preview              首选，有密钥即排链首
+模型结构（2026-10-30 起为两档，详见 scraper/llm_config.json）：
+  free_promo   限时免费档      qiniu/conatus-free           首选（限至 2026-11-30，到期自动下线）
   performance  性能优先兜底档  deepseek/deepseek-v4.1-flash 价值判断/重判等需推理质量的任务
-  free_first   免费为主兜底档  tencent/hy3-free            翻译/速览/字段中文化等量大任务
+
+（原第三档 free_first = moonshotai/kimi-k3-free 已于 2026-10-27 被厂商退役，档位移除。）
 
 硬约束：
   一、每档自带 base_url 与 key_env —— 换档时 model + 网关 + 密钥三者同步切换，
       绝不能只换模型名（否则会把 A 厂商模型发往 B 厂商网关，返回 model_not_found）。
-  二、exhausted_models 中的模型（额度已耗尽）一律硬跳过，绝不作为切换目标；
-      当前包含 glm-4.7 / glm-4.7-flash / glm-4.5-flash。
-  三、GLM-5.3 与 KIMI K3 为禁用名单，仅在用户明确指定时才可用（exhausted 模型同样受此约束）。
+  二、exhausted_models 中的模型（额度已耗尽）与 retired_models 中的模型（厂商已下线）
+      一律硬跳过，绝不作为切换目标；当前 exhausted 含 glm-4.7 / glm-4.7-flash / glm-4.5-flash，
+      retired 含 moonshotai/kimi-k3-free / z-ai/glm-4.5-air-free。
+  三、GLM-5.3 与 KIMI K3 为禁用名单，仅在用户明确指定时才可用（exhausted/retired 同样受此约束）。
+      2026-10-30 起恢复严格子串匹配，不再为 -free 变体开设例外。
   四、配置单一事实源为 scraper/llm_config.json；所需密钥未配置的档位自动跳过。
 
 用法：
@@ -90,10 +93,6 @@ def _free_disabled(cfg: dict) -> bool:
 def _is_forbidden(model: str, cfg_forbidden: list) -> bool:
     forbidden = {_norm(f) for f in FORBIDDEN if f}
     forbidden |= {_norm(f) for f in (cfg_forbidden or []) if f}
-    # 用户显式指定的免费变体（如 moonshotai/kimi-k3-free，2026-10-25 指定）
-    # 与禁用的完整版是不同模型；必须在 _norm 之前判断——_norm 会去掉连字符。
-    if "-free" in (model or "").lower():
-        return False
     nm = _norm(model)
     return any(nf and (nf == nm or nf in nm) for nf in forbidden)
 
@@ -101,9 +100,6 @@ def _is_forbidden(model: str, cfg_forbidden: list) -> bool:
 def _check_forbidden(model: str, cfg_forbidden: list, source: str) -> str:
     forbidden = {_norm(f) for f in FORBIDDEN if f}
     forbidden |= {_norm(f) for f in (cfg_forbidden or []) if f}
-    # 用户显式指定的 -free 免费变体放行（判断同样须在 _norm 之前，理由同上）。
-    if "-free" in (model or "").lower():
-        return model
     nm = _norm(model)
     for nf in forbidden:
         if not nf:
@@ -111,7 +107,7 @@ def _check_forbidden(model: str, cfg_forbidden: list, source: str) -> str:
         if nf == nm or nf in nm:
             raise RuntimeError(
                 f"模型 '{model}'（来源：{source}）属于禁用名单（GLM-5.3 / KIMI K3），自动任务一概不得使用——"
-                f"仅在用户明确指定时可用（-free 免费变体除外）。请改用限时免费模型或 {DEFAULT_MODEL}（见 scraper/llm_config.json 规定三/七）。"
+                f"仅在用户明确指定时可用。请改用限时免费模型或 {DEFAULT_MODEL}（见 scraper/llm_config.json 规定二/三/七）。"
             )
     return model
 
@@ -120,6 +116,16 @@ def _exhausted_set(cfg: dict) -> set:
     """额度已耗尽的模型集合（归一化）。这些模型不得再发起任何请求。"""
     da = cfg.get("daily_automation") or {}
     return {_norm(m) for m in (da.get("exhausted_models") or []) if m}
+
+
+def _retired_set(cfg: dict) -> set:
+    """厂商已下线（retired）的模型集合（归一化）。这些模型不得再发起任何请求。
+
+    2026-10-30 新增：kimi-k3-free 于 2026-10-27 被退役、glm-4.5-air-free 于 2026-06-25 被退役，
+    但两者仍出现在网关 /v1/models 列表中，极易被误配。此名单使误配也不会真的发出请求。
+    """
+    da = cfg.get("daily_automation") or {}
+    return {_norm(m) for m in (da.get("retired_models") or []) if m}
 
 
 def _tier_table(cfg: dict) -> dict:
@@ -157,7 +163,7 @@ def _expire_reason(tier: dict):
 
 
 def _tier_available(tier: dict, cfg: dict) -> bool:
-    """档位是否可用：启用 + 未过期 + 未耗尽 + 未禁用 + 所需密钥已配置。
+    """档位是否可用：启用 + 未过期 + 未耗尽 + 未退役 + 未禁用 + 所需密钥已配置。
 
     密钥未配置的档位必须判定为不可用——否则会发出注定 401/400 的请求，
     既浪费时间又用错误码掩盖真实原因。
@@ -172,6 +178,8 @@ def _tier_available(tier: dict, cfg: dict) -> bool:
         return False
     if _norm(model) in _exhausted_set(cfg):
         return False
+    if _norm(model) in _retired_set(cfg):
+        return False
     if _is_forbidden(model, (cfg.get("daily_automation") or {}).get("forbidden_models")):
         return False
     key_env = (tier.get("key_env") or "").strip()
@@ -181,7 +189,7 @@ def _tier_available(tier: dict, cfg: dict) -> bool:
 
 
 def _scenario_chain(cfg: dict, scenario: str = None) -> list:
-    """按场景返回档位名列表（如 ['free_promo','performance','free_first']）。"""
+    """按场景返回档位名列表（2026-10-30 起两档：['free_promo','performance']）。"""
     da = cfg.get("daily_automation") or {}
     sc = (scenario or da.get("default_scenario") or "performance").strip().lower()
     table = da.get("chain_by_scenario") or {}
@@ -204,6 +212,8 @@ def tier_status(config_path: str = None, scenario: str = None) -> list:
             reason = _expire_reason(t)[1]
         elif _norm(model) in _exhausted_set(cfg):
             reason = "额度已耗尽（exhausted_models）"
+        elif _norm(model) in _retired_set(cfg):
+            reason = "厂商已下线（retired_models）"
         elif _is_forbidden(model, (cfg.get("daily_automation") or {}).get("forbidden_models")):
             reason = "命中禁用名单"
         elif key_env and not (os.environ.get(key_env) or "").strip():
@@ -220,10 +230,11 @@ def tier_status(config_path: str = None, scenario: str = None) -> list:
 def resolve_endpoint(config_path: str = None, scenario: str = None):
     """返回 (model, base_url, source)。
 
-    选择顺序（2026-10-19 三档结构）：
+    选择顺序（2026-10-30 两档结构）：
       1) 环境变量 LLM_MODEL 显式指定 —— 强制覆盖，仅临时锁定单一模型时使用
+         （指向已耗尽/已退役模型时忽略）
       2) 按场景候选链（chain_by_scenario）取第一个「可用」档位；
-         可用 = 未耗尽 + 未禁用 + 所需密钥已配置
+         可用 = 未过期 + 未耗尽 + 未退役 + 未禁用 + 所需密钥已配置
       3) 旧配置兼容：free_models 限时免费档 → 回退 DEFAULT_MODEL
     """
     cfg = _load_config(config_path)
@@ -232,9 +243,12 @@ def resolve_endpoint(config_path: str = None, scenario: str = None):
     env_model = os.environ.get("LLM_MODEL", "").strip()
     cfg_base = (da.get("base_url") or DEFAULT_BASE_URL).strip()
 
-    # 1) 环境变量指定的模型（额度已耗尽的忽略，继续按档位选择）
+    # 1) 环境变量指定的模型（额度已耗尽 / 厂商已下线的忽略，继续按档位选择）
     if env_model and _norm(env_model) in _exhausted_set(cfg):
         print(f"[llm] 忽略环境变量 LLM_MODEL={env_model}：该模型额度已耗尽", flush=True)
+        env_model = ""
+    if env_model and _norm(env_model) in _retired_set(cfg):
+        print(f"[llm] 忽略环境变量 LLM_MODEL={env_model}：该模型已被厂商下线", flush=True)
         env_model = ""
     # 环境变量若指向某个已登记档位内的模型，视为冗余：优先级由 chain_by_scenario 决定，
     # 否则残留的 LLM_MODEL 会一直把限时免费档压到链尾。
@@ -245,7 +259,7 @@ def resolve_endpoint(config_path: str = None, scenario: str = None):
         base = ((tier.get("base_url") or cfg_base) if tier else cfg_base).strip()
         return _check_forbidden(env_model, cfg_forbidden, "环境变量 LLM_MODEL"), base, "env_override"
 
-    # 2) 三档结构：按场景链取第一个可用档位
+    # 2) 两档结构：按场景链取第一个可用档位
     tiers = _tier_table(cfg)
     if tiers:
         for name in _scenario_chain(cfg, scenario):
@@ -279,6 +293,8 @@ PROVIDER_ROUTES = (
     # (模型名前缀小写, 该厂商默认网关, 该厂商密钥环境变量名)
     ("deepseek", "https://api.qnaigc.com/v1", "LLM_API_KEY"),
     ("glm", "https://open.bigmodel.cn/api/paas/v4", "LLM_API_KEY_ZHIPU"),
+    # kimi-k3 系列（含 -free 变体）已全部退役且属禁用名单，正常不会走到这条路由；
+    # 保留仅为兼容手动指定其他 moonshot 模型的情形（手动任务不受自动任务规则约束）。
     ("kimi", "https://api.qnaigc.com/v1", "LLM_API_KEY"),
 )
 
@@ -295,8 +311,10 @@ def _route_for(model, cfg=None, fallback_base=None, fallback_key=None):
     cfg = cfg if cfg is not None else _load_config()
     if _norm(model) in _exhausted_set(cfg):
         return None, "exhausted"
+    if _norm(model) in _retired_set(cfg):
+        return None, "retired"
 
-    # ① 档位表精确匹配（三档结构：每档自带 base_url 与 key_env）
+    # ① 档位表精确匹配（每档自带 base_url 与 key_env）
     tier = _tier_for_model(cfg, model)
     if tier:
         key_env = (tier.get("key_env") or "").strip()
@@ -426,9 +444,9 @@ def resolve_model(config_path: str = None) -> str:
 def resolve_model_chain(config_path: str = None, scenario: str = None) -> list:
     """返回按优先级排列、且**当前确实可用**的模型列表，供脚本在限流/失败时自动换档。
 
-    三档结构（2026-10-19）：
-      - 候选链顺序由 chain_by_scenario 决定，performance 与 free_first 不同；
-      - 只保留「未耗尽 + 未禁用 + 所需密钥已配置」的档位；
+    两档结构（2026-10-30，原 free_first 档因 kimi-k3-free 退役已移除）：
+      - 候选链顺序由 chain_by_scenario 决定，两场景当前一致（conatus-free → deepseek）；
+      - 只保留「未过期 + 未耗尽 + 未退役 + 未禁用 + 所需密钥已配置」的档位；
       - 环境变量 LLM_MODEL 存在时只返回该模型（强制锁定）。
     旧配置兼容：free_models 限时免费档 → 回退 DEFAULT_MODEL。
     """
@@ -438,9 +456,12 @@ def resolve_model_chain(config_path: str = None, scenario: str = None) -> list:
     env_model = os.environ.get("LLM_MODEL", "").strip()
     tiers = _tier_table(cfg)
 
-    # 环境变量指向已耗尽的模型 → 忽略，按档位正常选择
+    # 环境变量指向已耗尽 / 已退役的模型 → 忽略，按档位正常选择
     if env_model and _norm(env_model) in _exhausted_set(cfg):
         print(f"[llm] 忽略环境变量 LLM_MODEL={env_model}：该模型额度已耗尽", flush=True)
+        env_model = ""
+    if env_model and _norm(env_model) in _retired_set(cfg):
+        print(f"[llm] 忽略环境变量 LLM_MODEL={env_model}：该模型已被厂商下线", flush=True)
         env_model = ""
 
     # 环境变量指向档位内已登记的模型 → 冗余，优先级交给 chain_by_scenario
@@ -451,7 +472,7 @@ def resolve_model_chain(config_path: str = None, scenario: str = None) -> list:
     if env_model and (not tiers or not _tier_for_model(cfg, env_model)):
         return [_check_forbidden(env_model, cfg_forbidden, "环境变量 LLM_MODEL")]
 
-    # 三档结构
+    # 两档结构
     if tiers:
         chain = []
         # LLM_MODEL 命中的档位排在链首，但不砍掉其他可用档（否则限流时无档可换）
@@ -499,3 +520,4 @@ if __name__ == "__main__":
     print("候选链:", resolve_model_chain(scenario=_sc) or "(空：无可用档位)")
     print()
     print("已耗尽额度:", sorted(_exhausted_set(_load_config())) or "(无)")
+    print("已退役下线:", sorted(_retired_set(_load_config())) or "(无)")

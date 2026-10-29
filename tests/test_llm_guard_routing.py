@@ -5,12 +5,13 @@
 
   1. glm-4.7 / glm-4.7-flash / glm-4.5-flash 额度已用完，
      **任何路径都不得选中它们**（候选链、解析结果、环境变量覆盖、换档路由）。
-  2. 三档结构下，每档必须自带 base_url 与 key_env —— 换档时
+  2. 两档结构下（2026-10-30 起），每档必须自带 base_url 与 key_env —— 换档时
      model + 网关 + 密钥三者同步切换，不能只换模型名。
-  3. 缺密钥的档位必须跳过，而不是发出注定 401/400 的请求。
-  4. 场景链顺序要符合约定：
-     performance = free_promo → performance → free_first
-     free_first  = free_promo → free_first  → performance
+  3. 缺密钥、已到期、已退役的档位必须跳过，而不是发出注定失败的请求。
+  4. 候选链顺序要符合约定（两场景当前一致）：
+     performance = free_promo → performance
+     free_first  = free_promo → performance
+  5. 厂商已下线的模型（retired_models）即使被误配进档位也不得发出请求。
 
 为什么要有这个测试：注释和文档只能提醒人，「不要再切到 glm-4.5-flash」
 是行为约束，必须由断言守住，否则下次改配置时很容易悄悄回退。
@@ -79,11 +80,11 @@ class TestExhaustedModelsNeverSelected(unittest.TestCase):
 
 
 class TestTierStructure(unittest.TestCase):
-    """三档结构完整性：每档必须自带模型标识、网关、密钥变量名。"""
+    """两档结构完整性：每档必须自带模型标识、网关、密钥变量名。"""
 
-    def test_three_tiers_defined_with_full_fields(self):
+    def test_two_tiers_defined_with_full_fields(self):
         tiers = LG._tier_table(LG._load_config())
-        for key in ("free_promo", "performance", "free_first"):
+        for key in ("free_promo", "performance"):
             self.assertIn(key, tiers, f"缺少档位 {key}")
             t = tiers[key]
             self.assertTrue((t.get("model") or "").strip(), f"{key} 缺 model")
@@ -96,24 +97,21 @@ class TestTierStructure(unittest.TestCase):
         tiers = LG._tier_table(LG._load_config())
         self.assertEqual(tiers["free_promo"]["model"], "qiniu/conatus-free")
         self.assertEqual(tiers["performance"]["model"], "deepseek/deepseek-v4.1-flash")
-        self.assertEqual(tiers["free_first"]["model"], "moonshotai/kimi-k3-free")
-        self.assertEqual(tiers["free_first"]["model"], "moonshotai/kimi-k3-free")
+
 
     def test_chain_order_performance(self):
         with patch.dict(os.environ, {"LLM_API_KEY_STEP": "s",
                                      "LLM_API_KEY_ORCAROUTER": "o"}):
             chain = LG.resolve_model_chain(scenario="performance")
-            self.assertEqual(chain[:3],
-                             ["qiniu/conatus-free", "deepseek/deepseek-v4.1-flash",
-                              "moonshotai/kimi-k3-free"])
+            self.assertEqual(chain[:2],
+                             ["qiniu/conatus-free", "deepseek/deepseek-v4.1-flash"])
 
     def test_chain_order_free_first(self):
         with patch.dict(os.environ, {"LLM_API_KEY_STEP": "s",
                                      "LLM_API_KEY_ORCAROUTER": "o"}):
             chain = LG.resolve_model_chain(scenario="free_first")
-            self.assertEqual(chain[:3],
-                             ["qiniu/conatus-free", "moonshotai/kimi-k3-free",
-                              "deepseek/deepseek-v4.1-flash"])
+            self.assertEqual(chain[:2],
+                             ["qiniu/conatus-free", "deepseek/deepseek-v4.1-flash"])
 
     def test_missing_key_tier_skipped(self):
         """缺密钥的档位不得进入候选链（否则会发出注定失败的请求）。"""
@@ -121,7 +119,6 @@ class TestTierStructure(unittest.TestCase):
         with patch.dict(os.environ, env, clear=True):
             chain = LG.resolve_model_chain(scenario="performance")
             self.assertNotIn("qiniu/conatus-free", chain, "缺密钥的 conatus 档不该入选")
-            self.assertNotIn("moonshotai/kimi-k3-free", chain, "缺密钥的 kimi 档不该入选")
             self.assertNotIn("deepseek/deepseek-v4.1-flash", chain, "缺密钥的 deepseek 档不该入选")
 
     def test_route_uses_tier_own_base_url(self):
@@ -133,13 +130,15 @@ class TestTierStructure(unittest.TestCase):
             self.assertEqual(base, "https://api.qnaigc.com/v1")
             self.assertEqual(key, "sk-qnaigc")
 
-    def test_kimi_free_route_uses_qnaigc(self):
-        """kimi-k3-free 与 deepseek 共用 qnaigc 网关与密钥（2026-10-25 用户指定）。"""
-        with patch.dict(os.environ, {"LLM_API_KEY": "sk-qnaigc"}):
-            route, reason = LG._route_for("moonshotai/kimi-k3-free", cfg=LG._load_config())
-            self.assertIsNotNone(route, f"路由失败: {reason}")
-            self.assertEqual(route[0], "https://api.qnaigc.com/v1")
-            self.assertEqual(route[1], "sk-qnaigc")
+    def test_retired_model_route_rejected(self):
+        """退役模型必须被路由层直接拒绝（2026-10-30：kimi-k3-free 已退役）。"""
+        cfg = LG._load_config()
+        for m in ("moonshotai/kimi-k3-free", "z-ai/glm-4.5-air-free"):
+            route, reason = LG._route_for(m, cfg=cfg,
+                                          fallback_base="https://example.invalid/v1",
+                                          fallback_key="sk-dummy")
+            self.assertIsNone(route, f"{m} 已退役，竟然拿到了路由: {route}")
+            self.assertEqual(reason, "retired", f"{m} 的拒绝原因应为 retired，实际: {reason}")
 
 
 class TestTierExpiry(unittest.TestCase):
@@ -203,14 +202,61 @@ class TestForbiddenStillEnforced(unittest.TestCase):
             with self.assertRaises(RuntimeError, msg=f"{m} 应触发禁用名单"):
                 LG._check_forbidden(m, [], "test")
 
-    def test_free_variant_of_forbidden_model_allowed(self):
-        """用户显式指定的 -free 免费变体不受完整版禁令约束（2026-10-25 指定）。"""
+    def test_free_variant_exemption_removed(self):
+        """2026-10-30 收回 -free 放行口子：kimi-k3-free 同样属于禁用名单。
+
+        该模型已退役，放行口子只会让误配穿透到 HTTP 层白撞 502，故恢复严格判定。
+        """
         for m in ("moonshotai/kimi-k3-free", "kimi-k3-free"):
-            try:
-                out = LG._check_forbidden(m, [], "test")
-                self.assertEqual(out, m)
-            except RuntimeError as ex:
-                self.fail(f"{m} 是用户显式指定的免费变体，不应被拦截: {ex}")
+            with self.assertRaises(RuntimeError, msg=f"{m} 应被禁用名单拦截"):
+                LG._check_forbidden(m, [], "test")
+
+    def test_unrelated_free_model_not_blocked(self):
+        """不含禁用名的 -free 模型（如 conatus-free）不得被误伤。"""
+        for m in ("qiniu/conatus-free",):
+            self.assertEqual(LG._check_forbidden(m, [], "test"), m)
+            self.assertFalse(LG._is_forbidden(m, []))
+
+
+class TestRetiredModels(unittest.TestCase):
+    """厂商已下线模型（retired_models）的硬拦截：2026-10-30 kimi-k3-free 退役后新增。"""
+
+    def test_retired_models_not_in_any_chain(self):
+        cfg = LG._load_config()
+        retired = _norm_set(cfg["daily_automation"]["retired_models"])
+        self.assertIn(LG._norm("moonshotai/kimi-k3-free"), retired,
+                      "kimi-k3-free 必须登记在 retired_models")
+        for sc in SCENARIOS:
+            chain = LG.resolve_model_chain(scenario=sc)
+            picked = _norm_set(chain) & retired
+            self.assertEqual(picked, set(), f"{sc} 场景候选链混入退役模型: {picked}")
+
+    def test_retired_model_in_tier_is_skipped(self):
+        """即使把退役模型误配进档位，_tier_available 也必须判为不可用。"""
+        cfg = LG._load_config()
+        bad = dict(LG._tier_table(cfg)["free_promo"])
+        bad["model"] = "moonshotai/kimi-k3-free"
+        bad.pop("expires", None)
+        with patch.dict(os.environ, {"LLM_API_KEY": "sk-qnaigc"}):
+            self.assertFalse(LG._tier_available(bad, cfg),
+                             "退役模型被误配进档位后仍判为可用 —— 会白撞 502")
+
+    def test_env_override_to_retired_ignored(self):
+        with patch.dict(os.environ, {"LLM_MODEL": "moonshotai/kimi-k3-free"}):
+            model, _base, _src = LG.resolve_endpoint(scenario="performance")
+            self.assertNotEqual(LG._norm(model), LG._norm("moonshotai/kimi-k3-free"),
+                                "环境变量指向退役模型后仍被采用")
+            chain = LG.resolve_model_chain(scenario="performance")
+            self.assertNotIn(LG._norm("moonshotai/kimi-k3-free"), _norm_set(chain),
+                             f"环境变量指向退役模型后候选链混入了: {chain}")
+
+    def test_retired_model_not_in_tiers(self):
+        """退役模型不得同时留在 model_tiers 中（规定七）。"""
+        cfg = LG._load_config()
+        retired = _norm_set(cfg["daily_automation"]["retired_models"])
+        for name, t in LG._tier_table(cfg).items():
+            self.assertNotIn(LG._norm(t.get("model") or ""), retired,
+                             f"档位 {name} 仍指向已退役模型: {t.get('model')}")
 
 
 if __name__ == "__main__":
