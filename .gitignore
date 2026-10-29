@@ -15,6 +15,8 @@ data/events.json
 
 # 静态归档页与 SEO 文件：由部署时 build.py 现场生成，不再入库（仓库减重约 60MB）
 /archive-????-??.html
+/archive-????-??-p*.html
+/e/
 /robots.txt
 /sitemap.xml
 /data/index-lite.json

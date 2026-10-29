@@ -14,6 +14,7 @@
 用法（每次抓取新闻后运行一次）：
     python build.py
 """
+import difflib
 import html as html_mod
 import json
 import os
@@ -28,6 +29,11 @@ INDEX_LITE_FILE = DATA_DIR / "index-lite.json"   # 轻量索引：全库搜索/�
 MONTH_SHARD_DIR = DATA_DIR / "m"                 # 单月全量分片：详情页按需加载
 INDEX_STATIC_COUNT = 50   # 首页静态渲染条数
 INDEX_EMBED_COUNT = 300   # 首页内嵌 JSON 条数（供搜索/筛选）
+ARCHIVE_PAGE_SIZE = 900    # 归档页单页事件上限：大于此值按月内分块（P1-A）
+STATIC_EVENT_DIR = ROOT / "e"            # 静态详情页目录（P1-B，SEO 最后一公里）
+STATIC_EVENT_MONTHS = 12                 # 静态详情页覆盖最近几个月
+STATIC_EVENT_MIN_VALUE = 70              # 静态详情页的最低档案价值分（KEEP 线）
+STATIC_EVENT_MAX = 6000                  # 静态详情页总量上限，防止构建失控
 
 # index-lite 每个事件保留的字段。详情页正文/时间线/来源不在这里，
 # 而是按需从 data/m/YYYY-MM.json 取——这是把详情页首屏从 114MB 降到 <1MB 的关键。
@@ -391,7 +397,243 @@ def build_rss(events_sorted, latest_date):
     print(f"  ✅ feed.xml 已生成（最近 {min(50, len(events_sorted))} 条 RSS）")
 
 
-def build_robots_and_sitemap(months, latest_date):
+def archive_page_name(ym: str, page_idx: int) -> str:
+    """归档分块页文件名：第 1 块沿用原命名（外链不失效），后续为 -p2 / -p3。"""
+    return f"archive-{ym}.html" if page_idx <= 1 else f"archive-{ym}-p{page_idx}.html"
+
+
+def build_archive_pages(events_sorted, months, template):
+    """生成月归档页；单月超过 ARCHIVE_PAGE_SIZE 条时按月内分块（P1-A）。
+
+    分块原因：2026-09 单月 3,260 条挤在一页 = 3.2MB，比它包含的详情页还重，
+    移动端首屏无法接受。每块独立 URL + canonical，既可被搜索引擎收录，
+    也让"回首页/上下月/块间跳转"三套导航仍然可用。
+    """
+    pages = []
+    for i, ym in enumerate(months):
+        month_events = [e for e in events_sorted if e.get("date", "")[:7] == ym]
+        y, m = ym.split("-")
+        prev_ym = months[i - 1] if i > 0 else ""
+        next_ym = months[i + 1] if i + 1 < len(months) else ""
+        total = len(month_events)
+        n_pages = max(1, (total + ARCHIVE_PAGE_SIZE - 1) // ARCHIVE_PAGE_SIZE)
+        nav = render_month_nav(months, current=ym)
+
+        for pi in range(1, n_pages + 1):
+            lo = (pi - 1) * ARCHIVE_PAGE_SIZE
+            chunk = month_events[lo:lo + ARCHIVE_PAGE_SIZE]
+            pn = []
+            if prev_ym:
+                pn.append(f'<a href="./{archive_page_name(prev_ym, 1)}" '
+                          f'style="color:var(--primary);text-decoration:none">← {month_label(prev_ym)}</a>')
+            if pi > 1:
+                pn.append(f'<a href="./{archive_page_name(ym, pi - 1)}" '
+                          f'style="color:var(--primary);text-decoration:none">‹ 上一页</a>')
+            if n_pages > 1:
+                pn.append(f'<span style="color:var(--text-secondary);margin:0 10px">'
+                          f'第 {pi}/{n_pages} 页 · 本页 {lo + 1}–{lo + len(chunk)} 条（共 {total} 条）</span>')
+            else:
+                pn.append(f'<span style="color:var(--text-secondary);margin:0 10px">{total} 条事件</span>')
+            if pi < n_pages:
+                pn.append(f'<a href="./{archive_page_name(ym, pi + 1)}" '
+                          f'style="color:var(--primary);text-decoration:none">下一页 ›</a>')
+            if next_ym:
+                pn.append(f'<a href="./{archive_page_name(next_ym, 1)}" '
+                          f'style="color:var(--primary);text-decoration:none">{month_label(next_ym)} →</a>')
+
+            title = f"{month_label(ym)} · 世界大事记"
+            tail = ""
+            if n_pages > 1:
+                title += f"（第 {pi}/{n_pages} 页）"
+                tail = f" › 第 {pi} 页"
+            desc = (f"{month_label(ym)}全球大事记，共 {total} 条事件"
+                    + (f"，本页第 {lo + 1}–{lo + len(chunk)} 条" if n_pages > 1 else "")
+                    + "，每条含来源链接、时间线与地区标注，永久存档。")
+
+            page = template.replace("{{MONTH_TITLE}}", title)
+            page = page.replace("{{MONTH_LABEL_CN}}", month_label(ym))
+            page = page.replace("{{MONTH_YEAR}}", y)
+            page = page.replace("{{MONTH_YM}}", ym)
+            page = page.replace("{{MONTH_DESC}}", desc)
+            page = page.replace("{{MONTH_COUNT}}", str(total))
+            page = page.replace("{{MONTH_SUBTITLE}}",
+                                f"月度归档 · 共 {total} 条 · 自动收集 · 永久存档")
+            page = page.replace("{{PAGE_TAIL}}", tail)
+            page = page.replace("{{CANONICAL_PATH}}", archive_page_name(ym, pi))
+            page = page.replace("{{MONTH_PREV_NEXT}}", " ".join(pn))
+            page = page.replace("{{MONTH_NAV}}", nav)
+            page, _n = replace_between(page, T_START, T_END,
+                                       render_timeline(chunk), f"{ym} p{pi} 时间线")
+            name = archive_page_name(ym, pi)
+            (ROOT / name).write_text(page, encoding="utf-8")
+            pages.append(name)
+        if n_pages > 1:
+            print(f"  ✅ archive-{ym}.html 分 {n_pages} 页：{total} 条（单页上限 {ARCHIVE_PAGE_SIZE}）")
+        else:
+            print(f"  ✅ archive-{ym}.html：{total} 条")
+
+    # 清理不再有数据的旧归档页（含分块页）
+    keep = set(pages)
+    for old in ROOT.glob("archive-*.html"):
+        if old.name not in keep:
+            old.unlink()
+            print(f"  删除过期归档页 {old.name}")
+    return pages
+
+
+def build_static_event_pages(events_sorted, months):
+    """为近期高价值事件生成静态详情页 e/evt_xxx.html（P1-B）。
+
+    必要性：动态详情页 event.html?id= 靠 JS 运行时注入 title/OG/正文，
+    不跑 JS 的爬虫（百度、微信）只能看到空壳；且 sitemap 里没有详情页入口，
+    5 万条内容对搜索引擎基本不可见。
+
+    范围控制：只覆盖最近 STATIC_EVENT_MONTHS 个月且 archiveValue 达 KEEP 线的事件，
+    总量封顶 STATIC_EVENT_MAX——历史低价值条目不值得给静态页。
+    """
+    if not months:
+        return []
+    recent = set(months[-STATIC_EVENT_MONTHS:])
+    picked = []
+    for ev in events_sorted:
+        if (ev.get("date") or "")[:7] not in recent:
+            continue
+        if not ev.get("id"):
+            continue
+        if (ev.get("archiveValue") or 0) < STATIC_EVENT_MIN_VALUE:
+            continue
+        picked.append(ev)
+        if len(picked) >= STATIC_EVENT_MAX:
+            break
+
+    STATIC_EVENT_DIR.mkdir(parents=True, exist_ok=True)
+    wrote = []
+    for ev in picked:
+        eid = ev.get("id")
+        (STATIC_EVENT_DIR / f"{eid}.html").write_text(
+            _render_static_event(ev), encoding="utf-8")
+        wrote.append(eid)
+    # 清理已不在范围内的旧静态页
+    keep_ids = set(wrote)
+    for old in STATIC_EVENT_DIR.glob("evt_*.html"):
+        if old.stem not in keep_ids:
+            old.unlink()
+    print(f"  ✅ e/ 静态详情页 {len(wrote)} 条（覆盖最近 {STATIC_EVENT_MONTHS} 个月、"
+          f"档案价值 ≥ {STATIC_EVENT_MIN_VALUE}）")
+    return [f"e/{i}.html" for i in wrote]
+
+
+# 地区排序表，与 app.js 的 REGION_ORDER 一致（首页下拉框选项由本文件预置，顺序须吻合）
+REGION_ORDER = ['中国', '美国', '俄罗斯', '乌克兰', '欧盟', '印度', '东南亚', '中东', '苏丹',
+                '亚洲', '欧洲', '非洲', '北美洲', '南美洲', '大洋洲', '全球']
+
+
+def _sorted_regions(regions):
+    """按 REGION_ORDER 排序，未登记的地区排在后面（保持与前端一致的展示顺序）。"""
+    return sorted(regions, key=lambda r: REGION_ORDER.index(r) if r in REGION_ORDER else 999)
+
+
+def _is_restatement(summary: str, desc: str) -> bool:
+    """速览是否只是正文的复述（全库约 93% 属此类，重复渲染等于让用户读两遍）。
+
+    用前 60 字的字符级相似度判定，而非 startswith——改写过的复述（同义替换、
+    语序调整）也能识别出来。
+    """
+    if not summary or not desc:
+        return False
+    a, b = summary[:60], desc[:60]
+    if len(a) < 8:
+        return False
+    return difflib.SequenceMatcher(None, a, b).ratio() >= 0.75
+
+
+def _render_static_event(ev) -> str:
+    """单条事件的静态详情页 HTML：标题/摘要/正文/时间线/来源全预渲染。"""
+    eid = ev.get("id", "")
+    title = (ev.get("title") or "未命名事件").strip()
+    date = ev.get("date") or ""
+    cat = cat_of(ev)
+    region = region_of(ev)
+    summary = (ev.get("summary") or "").strip()
+    desc = (ev.get("description") or "").strip()
+    # 速览常是对正文的复述（全库约 93% 如此），两段几乎一样时只保留更完整的正文
+    if summary and _is_restatement(summary, desc):
+        summary = ""
+    loc = ev.get("location") or {}
+    place = loc.get("country") or loc.get("region") or ""
+    meta_desc = (summary or desc or title)[:150].replace("\n", " ").strip()
+
+    tags = ev.get("tags") or []
+    tag_html = "".join(
+        f'<span class="tag">{esc(t)}</span>' for t in tags[:8]
+    )
+    timeline = ev.get("timeline") or []
+    tl_html = ""
+    rows = []
+    for t in timeline[:20]:
+        raw = (t.get("text") or t.get("title") or t.get("description") or "").strip()
+        # timeline.text 形如「来源｜来源｜标题：描述」，去掉重复来源前缀只留正文
+        if "｜" in raw:
+            raw = raw.split("｜")[-1].strip()
+        if raw:
+            rows.append((t.get("date") or "", raw))
+    if rows:
+        items = "".join(f"<li><strong>{esc(d)}</strong> {esc(x)}</li>" for d, x in rows)
+        tl_html = f'<h2 class="section-title">事件脉络</h2><ul class="tl">{items}</ul>'
+
+    srcs = ev.get("sources") or []
+    src_html = ""
+    if srcs:
+        lis = "".join(
+            f'<li><a href="{esc(s.get("url") or "#")}" target="_blank" rel="noopener">'
+            f'{esc(s.get("name") or s.get("url") or "来源")}</a></li>'
+            for s in srcs[:10])
+        src_html = f'<h2 class="section-title">信息来源（{len(srcs)}）</h2><ul class="src">{lis}</ul>'
+
+    body = desc.replace("\n", "<br>") if desc else ""
+    val = ev.get("archiveValue")
+    val_html = (f'<span class="badge">档案价值 {val}</span>' if isinstance(val, (int, float)) else "")
+
+    return f'''<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{esc(title)} · 世界事件存档</title>
+<meta name="description" content="{esc(meta_desc)}">
+<link rel="canonical" href="https://yongweili412.github.io/world-events/e/{esc(eid)}.html">
+<meta property="og:title" content="{esc(title)}">
+<meta property="og:description" content="{esc(meta_desc)}">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="{esc(date)}">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="container">
+  <div class="page-header">
+    <p style="margin:0 0 8px;font-size:14px;color:var(--text-secondary)">
+      <a href="../index.html" style="color:var(--primary);text-decoration:none">首页</a>
+      › <a href="../{archive_page_name((date or "")[:7], 1)}" style="color:var(--primary);text-decoration:none">{esc((date or "")[:7])}</a>
+      › {esc(cat)}
+    </p>
+    <h1 class="page-title">{esc(title)}</h1>
+    <p class="page-subtitle">{esc(date)}{(" · " + esc(place)) if place else ""} · {esc(cat)} · {esc(region)} {val_html}</p>
+    <p style="margin:8px 0 0">{tag_html}</p>
+  </div>
+  {("<p class=" + chr(34) + "summary" + chr(34) + ">" + esc(summary) + "</p>") if summary else ""}
+  {("<p class=" + chr(34) + "body" + chr(34) + ">" + body + "</p>") if body else ""}
+  {tl_html}
+  {src_html}
+  <p style="text-align:center;margin:24px 0">
+    <a href="../event.html?id={esc(eid)}" style="color:var(--primary);text-decoration:none">查看完整档案（含相关事件）</a>
+    · <a href="../index.html" style="color:var(--primary);text-decoration:none">返回首页</a>
+  </p>
+</div>
+</body>
+</html>'''
+
+
+def build_robots_and_sitemap(months, latest_date, extra_urls=None):
     """生成 robots.txt 与 sitemap.xml —— 让搜索引擎能真正抓到这个站。"""
     site = "https://yongweili412.github.io/world-events/"
     robots = (
@@ -404,6 +646,7 @@ def build_robots_and_sitemap(months, latest_date):
 
     urls = [f"{site}", f"{site}map.html", f"{site}country.html", f"{site}data-about.html"]
     urls += [f"{site}archive-{ym}.html" for ym in months]
+    urls += [f"{site}{u}" for u in (extra_urls or [])]
     # 最近 12 个月按事件生成详情页链接，帮助爬虫发现详情内容
     body = ['<?xml version="1.0" encoding="UTF-8"?>',
             '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
@@ -434,50 +677,26 @@ def main():
     h, _ = replace_between(h, M_START, M_END, render_month_nav_grouped(months), "index 归档导航")
     embed_latest = events_sorted[:INDEX_EMBED_COUNT]
     payload = json.dumps(embed_latest, ensure_ascii=False).replace("</", "<\\/")
+    # 分类/地区下拉选项预置进页面（P1-C）：首页不必为了填两个下拉框而下载 20MB 索引，
+    # 索引改为用户真正搜索时才加载。地区顺序与 app.js 的 REGION_ORDER 保持一致。
+    cats_all = sorted({cat_of(e) for e in events})
+    regions_all = _sorted_regions({region_of(e) for e in events})
     embed_snippet = (f"<script>window.__TOTAL_EVENTS__ = {len(events)}; "
                      f"window.__LATEST_DATE__ = '{latest_date}'; "
+                     f"window.__CATS__ = {json.dumps(cats_all, ensure_ascii=False)}; "
+                     f"window.__REGIONS__ = {json.dumps(regions_all, ensure_ascii=False)}; "
                      f"window.__EMBEDDED_EVENTS__ = {payload};</script>")
     h, _ = replace_between(h, START, END, embed_snippet, "index 内嵌数据")
     idx.write_text(h, encoding="utf-8")
     print(f"  ✅ index.html：今日({latest_date}) {len(today_events)} 个事件，"
           f"内嵌 {len(embed_latest)} 条（总 {len(events)} 事件），归档导航 {len(months)} 个月（折叠式）")
 
-    # 2) archive-YYYY-MM.html：每个月一个静态归档页
-    #    每页带：meta description（搜索摘要）+ 面包屑 + 上/下月跳转 + canonical
-    #    —— 此前 354 个归档页只有"回首页"一个出口，搜索引擎也拿不到页面摘要。
+    # 2) archive-YYYY-MM.html：月归档页（超过 900 条自动分块，见 build_archive_pages）
+    #    每页带：meta description（搜索摘要）+ 面包屑 + 上/下月 + 块间跳转 + canonical
+    #    —— 此前 354 个归档页只有"回首页"一个出口，搜索引擎也拿不到页面摘要；
+    #    分块则解决大月单页 3.2MB 的问题（2026-09 有 3,260 条）。
     template = TEMPLATE_FILE.read_text(encoding="utf-8")
-    for i, ym in enumerate(months):
-        month_events = [e for e in events_sorted if e.get("date", "")[:7] == ym]
-        y, m = ym.split("-")
-        prev_ym = months[i - 1] if i > 0 else ""
-        next_ym = months[i + 1] if i + 1 < len(months) else ""
-        pn = []
-        if prev_ym:
-            pn.append(f'<a href="./archive-{prev_ym}.html" style="color:var(--primary);text-decoration:none">← {month_label(prev_ym)}</a>')
-        pn.append(f'<span style="color:var(--text-secondary);margin:0 10px">{len(month_events)} 条事件</span>')
-        if next_ym:
-            pn.append(f'<a href="./archive-{next_ym}.html" style="color:var(--primary);text-decoration:none">{month_label(next_ym)} →</a>')
-        page = template.replace("{{MONTH_TITLE}}", f"{month_label(ym)} · 世界大事记")
-        page = page.replace("{{MONTH_LABEL_CN}}", month_label(ym))
-        page = page.replace("{{MONTH_YEAR}}", y)
-        page = page.replace("{{MONTH_YM}}", ym)
-        page = page.replace("{{MONTH_DESC}}",
-                            f"{month_label(ym)}全球大事记，共 {len(month_events)} 条事件，"
-                            f"每条含来源链接、时间线与地区标注，永久存档。")
-        page = page.replace("{{MONTH_COUNT}}", str(len(month_events)))
-        page = page.replace("{{MONTH_PREV_NEXT}}", " ".join(pn))
-        page = page.replace("{{MONTH_NAV}}", render_month_nav(months, current=ym))
-        page, n1 = replace_between(page, T_START, T_END,
-                                   render_timeline(month_events), f"{ym} 时间线")
-        out = ROOT / f"archive-{ym}.html"
-        out.write_text(page, encoding="utf-8")
-        print(f"  ✅ archive-{ym}.html：{len(month_events)} 条")
-    # 清理不再有数据的旧归档页
-    for old in ROOT.glob("archive-*.html"):
-        ym = old.stem.replace("archive-", "")
-        if ym not in months:
-            old.unlink()
-            print(f"  删除过期归档页 {old.name}")
+    archive_pages = build_archive_pages(events_sorted, months, template)
 
     # 3) 轻量索引 + 月度分片 —— 替代原先 114MB 的 data/events.js
     #    详情页只加载一个月（约 200KB-3MB），全库搜索用 index-lite（约 2-3MB gzip）
@@ -500,8 +719,11 @@ def main():
     adm.write_text(h, encoding="utf-8")
     print(f"  ✅ admin.html 已瘦身（列表改为运行时加载）")
 
-    # 6) robots.txt + sitemap.xml：让搜索引擎能抓到这个站
-    build_robots_and_sitemap(months, latest_date)
+    # 5.5) 静态详情页 e/evt_xxx.html：让不跑 JS 的爬虫也能读到正文（P1-B）
+    static_event_urls = build_static_event_pages(events_sorted, months)
+
+    # 6) robots.txt + sitemap.xml：让搜索引擎能抓到这个站（含归档分块页与静态详情页）
+    build_robots_and_sitemap(months, latest_date, extra_urls=static_event_urls)
 
     # 7) feed.xml：RSS 订阅源（最近 50 条），研究者和聚合器的复用出口
     build_rss(events_sorted, latest_date)

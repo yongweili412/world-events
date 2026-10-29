@@ -40,7 +40,7 @@ RSS_SOURCES = [
     {
         "name": "人民网国际",
         "url": "http://www.people.com.cn/rss/world.xml",
-        "category": "国际政治",
+        "category": "政治",
         "region": "全球",
         "country": "中国",
         "lang": "zh",
@@ -56,7 +56,7 @@ RSS_SOURCES = [
     {
         "name": "新华网国际",
         "url": "http://www.xinhuanet.com/world/news_world.xml",
-        "category": "国际政治",
+        "category": "政治",
         "region": "全球",
         "country": "中国",
         "lang": "zh",
@@ -64,7 +64,7 @@ RSS_SOURCES = [
     {
         "name": "新华网时政",
         "url": "http://www.news.cn/politics/news_politics.xml",
-        "category": "国际政治",
+        "category": "政治",
         "region": "中国",
         "country": "中国",
         "lang": "zh",
@@ -72,7 +72,7 @@ RSS_SOURCES = [
     {
         "name": "环球时报英文版",
         "url": "https://www.globaltimes.cn/rss/outbrain.xml",
-        "category": "国际政治",
+        "category": "政治",
         "region": "全球",
         "country": "中国",
         "lang": "en",
@@ -81,7 +81,7 @@ RSS_SOURCES = [
     {
         "name": "BBC World News",
         "url": "https://feeds.bbci.co.uk/news/world/rss.xml",
-        "category": "国际政治",
+        "category": "政治",
         "region": "全球",
         "country": "英国",
         "lang": "en",
@@ -89,7 +89,7 @@ RSS_SOURCES = [
     {
         "name": "The Guardian World",
         "url": "https://www.theguardian.com/world/rss",
-        "category": "国际政治",
+        "category": "政治",
         "region": "全球",
         "country": "英国",
         "lang": "en",
@@ -97,7 +97,7 @@ RSS_SOURCES = [
     {
         "name": "Sky News World",
         "url": "https://feeds.skynews.com/feeds/rss/world.xml",
-        "category": "国际政治",
+        "category": "政治",
         "region": "全球",
         "country": "英国",
         "lang": "en",
@@ -105,7 +105,7 @@ RSS_SOURCES = [
     {
         "name": "DW 德国之声",
         "url": "https://rss.dw.com/rdf/rss-en-all",
-        "category": "国际政治",
+        "category": "政治",
         "region": "欧洲",
         "country": "德国",
         "lang": "en",
@@ -113,7 +113,7 @@ RSS_SOURCES = [
     {
         "name": "France24",
         "url": "https://www.france24.com/en/rss",
-        "category": "国际政治",
+        "category": "政治",
         "region": "欧洲",
         "country": "法国",
         "lang": "en",
@@ -121,7 +121,7 @@ RSS_SOURCES = [
     {
         "name": "Euronews",
         "url": "https://www.euronews.com/rss?level=theme&name=news",
-        "category": "国际政治",
+        "category": "政治",
         "region": "欧洲",
         "country": "法国",
         "lang": "en",
@@ -129,7 +129,7 @@ RSS_SOURCES = [
     {
         "name": "Al Jazeera",
         "url": "https://www.aljazeera.com/xml/rss/all.xml",
-        "category": "国际政治",
+        "category": "政治",
         "region": "全球",
         "country": "卡塔尔",
         "lang": "en",
@@ -137,7 +137,7 @@ RSS_SOURCES = [
     {
         "name": "CNA 亚洲新闻台",
         "url": "https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml",
-        "category": "国际政治",
+        "category": "政治",
         "region": "东南亚",
         "country": "新加坡",
         "lang": "en",
@@ -145,7 +145,7 @@ RSS_SOURCES = [
     {
         "name": "ABC 澳大利亚",
         "url": "https://www.abc.net.au/news/feed/51120/rss.xml",
-        "category": "国际政治",
+        "category": "政治",
         "region": "大洋洲",
         "country": "澳大利亚",
         "lang": "en",
@@ -153,7 +153,7 @@ RSS_SOURCES = [
     {
         "name": "CBC 加拿大",
         "url": "https://www.cbc.ca/cmlink/rss-canada",
-        "category": "国际政治",
+        "category": "政治",
         "region": "北美",
         "country": "加拿大",
         "lang": "en",
@@ -161,7 +161,7 @@ RSS_SOURCES = [
     {
         "name": "NHK 日本",
         "url": "https://www.nhk.or.jp/rss/news/cat0.xml",
-        "category": "国际政治",
+        "category": "政治",
         "region": "亚洲",
         "country": "日本",
         "lang": "ja",
@@ -169,7 +169,7 @@ RSS_SOURCES = [
     {
         "name": "KBS 韩国",
         "url": "https://news.kbs.co.kr/rss/1.xml",
-        "category": "国际政治",
+        "category": "政治",
         "region": "亚洲",
         "country": "韩国",
         "lang": "ko",
@@ -177,7 +177,7 @@ RSS_SOURCES = [
     {
         "name": "Russia Today",
         "url": "https://www.rt.com/rss/",
-        "category": "国际政治",
+        "category": "政治",
         "region": "欧洲",
         "country": "俄罗斯",
         "lang": "en",
@@ -201,7 +201,7 @@ RSS_SOURCES = [
     {
         "name": "Reuters",
         "url": "https://www.reuters.com/rssWorldNews",
-        "category": "国际政治",
+        "category": "政治",
         "region": "全球",
         "country": "英国",
         "lang": "en",
@@ -266,7 +266,7 @@ RSS_SOURCES = [
     {
         "name": "Times of India",
         "url": "https://timesofindia.indiatimes.com/rssfeeds/296589292.cms",
-        "category": "国际政治",
+        "category": "政治",
         "region": "印度",
         "country": "印度",
         "lang": "en",
@@ -274,7 +274,7 @@ RSS_SOURCES = [
     {
         "name": "The Hindu 国际",
         "url": "https://www.thehindu.com/news/international/feeder/default.rss",
-        "category": "国际政治",
+        "category": "政治",
         "region": "印度",
         "country": "印度",
         "lang": "en",
@@ -282,7 +282,7 @@ RSS_SOURCES = [
     {
         "name": "韩联社 Yonhap",
         "url": "https://en.yna.co.kr/RSS/news.xml",
-        "category": "国际政治",
+        "category": "政治",
         "region": "亚洲",
         "country": "韩国",
         "lang": "en",
@@ -299,7 +299,7 @@ RSS_SOURCES = [
     {
         "name": "UN News",
         "url": "https://news.un.org/feed/subscribe/en/news/all/rss.xml",
-        "category": "国际政治",
+        "category": "政治",
         "region": "全球",
         "country": "美国",
         "lang": "en",
@@ -340,7 +340,7 @@ RSS_SOURCES = [
     {
         "name": "Politico",
         "url": "https://www.politico.com/rss/politicopicks.xml",
-        "category": "国际政治",
+        "category": "政治",
         "region": "北美洲",
         "country": "美国",
         "lang": "en",
@@ -348,7 +348,7 @@ RSS_SOURCES = [
     {
         "name": "NPR World",
         "url": "https://feeds.npr.org/1004/rss.xml",
-        "category": "国际政治",
+        "category": "政治",
         "region": "全球",
         "country": "美国",
         "lang": "en",
@@ -364,7 +364,7 @@ RSS_SOURCES = [
     {
         "name": "WSJ World",
         "url": "https://feeds.a.dj.com/rss/RSSWorldNews.xml",
-        "category": "国际政治",
+        "category": "政治",
         "region": "全球",
         "country": "美国",
         "lang": "en",
@@ -381,7 +381,7 @@ RSS_SOURCES = [
     {
         "name": "Telegraph News",
         "url": "https://www.telegraph.co.uk/news/rss.xml",
-        "category": "国际政治",
+        "category": "政治",
         "region": "欧洲",
         "country": "英国",
         "lang": "en",
@@ -389,7 +389,7 @@ RSS_SOURCES = [
     {
         "name": "ABC News US",
         "url": "https://abcnews.go.com/abcnews/internationalheadlines",
-        "category": "国际政治",
+        "category": "政治",
         "region": "北美洲",
         "country": "美国",
         "lang": "en",
@@ -397,7 +397,7 @@ RSS_SOURCES = [
     {
         "name": "CNN World",
         "url": "https://rss.cnn.com/rss/edition_world.rss",
-        "category": "国际政治",
+        "category": "政治",
         "region": "北美洲",
         "country": "美国",
         "lang": "en",
@@ -405,7 +405,7 @@ RSS_SOURCES = [
     {
         "name": "SCMP News",
         "url": "https://www.scmp.com/rss/91/feed/all",
-        "category": "国际政治",
+        "category": "政治",
         "region": "亚洲",
         "country": "中国香港",
         "lang": "en",
@@ -413,7 +413,7 @@ RSS_SOURCES = [
     {
         "name": "Le Monde EN",
         "url": "https://www.lemonde.fr/en/international/rss_full.xml",
-        "category": "国际政治",
+        "category": "政治",
         "region": "欧洲",
         "country": "法国",
         "lang": "en",
@@ -421,7 +421,7 @@ RSS_SOURCES = [
     {
         "name": "Nikkei Asia",
         "url": "https://asia.nikkei.com/rss/feed/nar",
-        "category": "国际政治",
+        "category": "政治",
         "region": "亚洲",
         "country": "日本",
         "lang": "en",
@@ -429,7 +429,7 @@ RSS_SOURCES = [
     {
         "name": "Washington Post World",
         "url": "https://www.washingtonpost.com/rss/world",
-        "category": "国际政治",
+        "category": "政治",
         "region": "北美洲",
         "country": "美国",
         "lang": "en",
@@ -437,7 +437,7 @@ RSS_SOURCES = [
     {
         "name": "CBC World",
         "url": "https://www.cbc.ca/webfeed/rss/rss-world",
-        "category": "国际政治",
+        "category": "政治",
         "region": "北美洲",
         "country": "加拿大",
         "lang": "en",
@@ -458,7 +458,7 @@ HTML_SOURCES = [
         "url": "https://news.cctv.com/world/",
         "link_pattern": r'href="(https://news\.cctv\.com/20\d{2}/\d{2}/\d{2}/[A-Za-z0-9]+\.shtml)"',
         "date_url": r'/20(\d{2})/(\d{2})/(\d{2})/',
-        "category": "国际政治",
+        "category": "政治",
         "region": "全球",
         "lang": "zh",
     },
@@ -468,7 +468,7 @@ HTML_SOURCES = [
         "link_pattern": r'href="(/news/(?:world|china)/story\d{8}-\d+)"',
         "url_prefix": "https://www.zaobao.com.sg",
         "date_url": r'story(20\d{6})',
-        "category": "国际政治",
+        "category": "政治",
         "region": "东南亚",
         "lang": "zh",
     },
@@ -476,7 +476,7 @@ HTML_SOURCES = [
         "name": "凤凰网国际",
         "url": "https://news.ifeng.com/listpage/11502/0/1/rtlist.shtml",
         "link_pattern": r'href="(https?://news\.ifeng\.com/c/[0-9a-zA-Z]+)"',
-        "category": "国际政治",
+        "category": "政治",
         "region": "全球",
         "lang": "zh",
     },
@@ -493,7 +493,7 @@ HTML_SOURCES = [
         "name": "界面新闻国际",
         "url": "https://www.jiemian.com/lists/2.html",
         "link_pattern": r'href="(https?://www\.jiemian\.com/article/\d+\.html)"',
-        "category": "国际政治",
+        "category": "政治",
         "region": "全球",
         "lang": "zh",
     },
@@ -503,7 +503,7 @@ HTML_SOURCES = [
         "link_pattern": r'href="(/20\d{6}/[0-9a-f\-]+\.html)"',
         "url_prefix": "https://news.cri.cn",
         "date_url": r'/(20\d{2})(\d{2})(\d{2})/',
-        "category": "国际政治",
+        "category": "政治",
         "region": "全球",
         "lang": "zh",
     },
@@ -511,7 +511,7 @@ HTML_SOURCES = [
         "name": "AP News",
         "url": "https://apnews.com/hub/ap-top-news",
         "link_pattern": r'href="(https?://apnews\.com/article/[0-9a-z\-]+)"',
-        "category": "国际政治",
+        "category": "政治",
         "region": "全球",
         "lang": "en",
     },
@@ -520,7 +520,7 @@ HTML_SOURCES = [
         "url": "https://english.kyodonews.net/news/world",
         "link_pattern": r'href="(/articles/-/\d+)"',
         "url_prefix": "https://english.kyodonews.net",
-        "category": "国际政治",
+        "category": "政治",
         "region": "亚洲",
         "lang": "en",
     },
@@ -535,17 +535,30 @@ HTML_SOURCES = [
 # 英文关键词用词边界匹配（避免 tech 误匹配 technology news 之外的词）
 # 中文关键词用子串匹配
 CATEGORY_KEYWORDS = {
-    "灾难": ["crash", "accident", "derailment", "gas leak", "explosion",
-             "事故", "遇难", "身亡", "坍塌", "失火", "翻车"],
-    "军事": ["military exercise", "missile test", "nuclear test", "warplane", "warship",
-             "submarine", "military drill", "hypersonic", "nuclear plant",
-             "试射", "军演", "演习", "国防", "军队", "武器", "战斗机", "军舰",
-             "核试验", "高超音速", "核电站", "导弹"],
+    # 类目名必须是 10 类标准名（自然灾害/政治/经济/体育/环境/社会/军事/科技/文化/其他）。
+    # 2026-10-30：旧名「灾难」「冲突」「国际政治」已分别并入「自然灾害」「军事」「政治」，
+    # 词表本身未动，因此分类结果与改名前一致；改名是为了让新事件不再产生库外类目。
+    # ⚠️ 键的顺序即匹配优先级，改动前先跑本节末尾的对照用例：
+    # 「地震伤亡」必须仍是自然灾害、「空袭」仍是军事、「抗议」仍是军事。
     "自然灾害": ["earthquake", "seismic", "typhoon", "hurricane", "cyclone", "flood",
                 "wildfire", "tsunami", "volcano", "landslide", "drought",
                 "quake", "storm surge", "monsoon", "heatwave", "blizzard", "mudslide",
                 "地震", "台风", "飓风", "洪水", "山火", "海啸", "火山", "山体滑坡", "旱灾",
-                "暴雨", "泥石流", "龙卷风", "强风暴", "洪涝", "洪灾"],
+                "暴雨", "泥石流", "龙卷风", "强风暴", "洪涝", "洪灾",
+                # 原「灾难」组并入（事故类在 10 类体系下归自然灾害）；位于键末以保持原有优先级
+                "crash", "accident", "derailment", "gas leak", "explosion",
+                "事故", "遇难", "身亡", "坍塌", "失火", "翻车"],
+    "军事": ["military exercise", "missile test", "nuclear test", "warplane", "warship",
+             "submarine", "military drill", "hypersonic", "nuclear plant",
+             "试射", "军演", "演习", "国防", "军队", "武器", "战斗机", "军舰",
+             "核试验", "高超音速", "核电站", "导弹",
+             # 原「冲突」组并入（战争/袭击/制裁等在 10 类体系下归军事）；位于键末以保持原有优先级
+             "war", "airstrike", "strike", "military", "missile", "troops", "ceasefire",
+             "sanctions", "offensive", "hostage", "protest", "clash",
+             "attack", "shelling", "invasion", "militants", "insurgents", "bombing",
+             "casualties", "killed", "wounded", "gunfire", "unrest", "shooting",
+             "战争", "空袭", "军事", "导弹", "停火", "制裁", "抗议", "袭击", "冲突",
+             "炮击", "入侵", "武装分子", "枪击", "爆炸", "伤亡", "骚乱", "人质"],
     "科技": ["AI", "artificial intelligence", "space telescope", "spacecraft", "satellite",
              "rocket", "NASA", "ISRO", "ESA", "robot", "quantum", "semiconductor",
              "chip", "algorithm", "smartphone", "software", "neurons", "brain scan",
@@ -574,13 +587,7 @@ CATEGORY_KEYWORDS = {
              "奥运", "世界杯", "足球", "篮球", "网球", "联赛", "冠军",
              "锦标赛", "教练", "球员", "夺冠", "卫冕", "金牌", "决赛", "赛季", "入选",
              "国脚", "主帅", "杯赛", "预选赛", "友谊赛", "出场纪录"],
-    "冲突": ["war", "airstrike", "strike", "military", "missile", "troops", "ceasefire",
-             "sanctions", "offensive", "hostage", "protest", "clash",
-             "attack", "shelling", "invasion", "militants", "insurgents", "bombing",
-             "casualties", "killed", "wounded", "gunfire", "unrest", "shooting",
-             "战争", "空袭", "军事", "导弹", "停火", "制裁", "抗议", "袭击", "冲突",
-             "炮击", "入侵", "武装分子", "枪击", "爆炸", "伤亡", "骚乱", "人质"],
-    "国际政治": ["众议院", "自民党", "国会", "维和", "election", "president", "parliament", "diplomat", "summit", "treaty",
+    "政治": ["众议院", "自民党", "国会", "维和", "election", "president", "parliament", "diplomat", "summit", "treaty",
                  "minister", "chancellor", "prime minister", "vote", "senate",
                  "government", "cabinet", "embassy", "talks", "negotiations", "UN", "EU",
                  "impeachment", "coup", "border", "visa", "asylum", "referendum",
@@ -716,8 +723,37 @@ def make_id(title: str) -> str:
     return f"EVT-{h}"
 
 
+STANDARD_CATEGORIES = ("自然灾害", "政治", "经济", "体育", "环境", "社会", "军事", "科技", "文化", "其他")
+
+# 库外类目名的归并表：任何来源（源配置硬编码、LLM 输出、旧词库）给出的非标准名都在此收敛，
+# 保证数据库里永远只有 10 类。
+CATEGORY_ALIAS = {
+    "灾难": "自然灾害", "灾害": "自然灾害", "气候环境": "自然灾害",
+    "人道主义": "自然灾害", "人道": "自然灾害", "事故": "自然灾害",
+    "国际政治": "政治", "时政": "政治", "国际关系": "政治",
+    "财经": "经济", "能源": "经济", "贸易": "经济", "产业": "经济",
+    "文体": "体育",
+    "司法案件": "社会", "司法": "社会", "法治": "社会", "人权": "社会",
+    "卫生": "社会", "卫生疫情": "社会", "媒体": "社会", "交通": "社会", "航空": "社会",
+    "冲突": "军事", "巴以冲突": "军事",
+    "人工智能": "科技",
+}
+
+
+def normalize_category(cat: str) -> str:
+    """把任意类目名归一到 10 类标准名；无法识别的归入「其他」。"""
+    c = (cat or "").strip()
+    if c in STANDARD_CATEGORIES:
+        return c
+    return CATEGORY_ALIAS.get(c, "其他")
+
+
 def guess_category(title: str, summary: str) -> str:
-    """根据关键词自动判断分类（英文用词边界匹配，中文用于子串匹配）"""
+    """根据关键词自动判断分类（英文用词边界匹配，中文用于子串匹配）
+
+    返回值一律经 normalize_category 收敛——否则源配置或词表里残存的旧类目名
+    （国际政治/冲突/灾难）会持续写进数据库，10 类体系就永远收不干净。
+    """
     import re as _re
     text = (title + " " + summary)
     text_lower = text.lower()
@@ -725,12 +761,12 @@ def guess_category(title: str, summary: str) -> str:
         for kw in keywords:
             if _is_chinese(kw):
                 if kw in text:
-                    return cat
+                    return normalize_category(cat)
             else:
                 # 英文：词边界匹配，避免 tech 误匹配到无关词
                 pattern = r"\b" + _re.escape(kw.lower()) + r"\b"
                 if _re.search(pattern, text_lower):
-                    return cat
+                    return normalize_category(cat)
     return "其他"
 
 

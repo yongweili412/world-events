@@ -308,11 +308,30 @@ function initFilters() {
   const dateTo = document.getElementById('date-to');
   if (!searchInput) return;
 
-  getFullEvents().then(events => {
-    const cats = [...new Set(events.map(catOf))].sort();
-    const regions = sortRegions([...new Set(events.map(regionOf))]);
+  const fillSelects = (cats, regions) => {
     if (catSelect) cats.forEach(c => { catSelect.innerHTML += `<option value="${escapeHtml(c)}">${escapeHtml(c)}</option>`; });
     if (regionSelect) regions.forEach(r => { regionSelect.innerHTML += `<option value="${escapeHtml(r)}">${escapeHtml(r)}</option>`; });
+  };
+
+  // 下拉框选项：优先用 build.py 预置的 __CATS__/__REGIONS__（P1-C）。
+  // 在此之前为了填两个下拉框就要下载 20MB 全库索引，首页白白吃掉移动端流量；
+  // 索引推迟到用户真正搜索时再加载。旧缓存页面没有预置变量时才回退到拉索引。
+  const presetCats = window.__CATS__ || [];
+  const presetRegions = window.__REGIONS__ || [];
+  if (presetCats.length && presetRegions.length) {
+    fillSelects(presetCats, presetRegions);
+  } else {
+    getFullEvents().then(events => {
+      fillSelects([...new Set(events.map(catOf))].sort(),
+                  sortRegions([...new Set(events.map(regionOf))]));
+    });
+  }
+
+  // 预热：用户聚焦搜索框或改动筛选条件时提前拉索引，输入第一个字时不必干等
+  const warmIndex = () => { getFullEvents(); };
+  searchInput.addEventListener('focus', warmIndex, { once: true });
+  [catSelect, regionSelect, dateFrom, dateTo].forEach(el => {
+    if (el) el.addEventListener('change', warmIndex, { once: true });
   });
 
   let debounceTimer = null;
