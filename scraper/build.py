@@ -31,9 +31,9 @@ INDEX_STATIC_COUNT = 50   # 首页静态渲染条数
 INDEX_EMBED_COUNT = 300   # 首页内嵌 JSON 条数（供搜索/筛选）
 ARCHIVE_PAGE_SIZE = 900    # 归档页单页事件上限：大于此值按月内分块（P1-A）
 STATIC_EVENT_DIR = ROOT / "e"            # 静态详情页目录（P1-B，SEO 最后一公里）
-STATIC_EVENT_MONTHS = 12                 # 静态详情页覆盖最近几个月
+STATIC_EVENT_MONTHS = 0                  # 静态详情页覆盖最近几个月；0 = 不限月份（覆盖全量历史高价值条目）
 STATIC_EVENT_MIN_VALUE = 70              # 静态详情页的最低档案价值分（KEEP 线）
-STATIC_EVENT_MAX = 6000                  # 静态详情页总量上限，防止构建失控
+STATIC_EVENT_MAX = 12000                 # 静态详情页总量上限，防止构建失控
 
 # index-lite 每个事件保留的字段。详情页正文/时间线/来源不在这里，
 # 而是按需从 data/m/YYYY-MM.json 取——这是把详情页首屏从 114MB 降到 <1MB 的关键。
@@ -488,15 +488,16 @@ def build_static_event_pages(events_sorted, months):
     不跑 JS 的爬虫（百度、微信）只能看到空壳；且 sitemap 里没有详情页入口，
     5 万条内容对搜索引擎基本不可见。
 
-    范围控制：只覆盖最近 STATIC_EVENT_MONTHS 个月且 archiveValue 达 KEEP 线的事件，
+    范围控制：archiveValue 达 KEEP 线的事件均可获得静态页；
+    STATIC_EVENT_MONTHS > 0 时才额外限定「最近 N 个月」（0 = 不限月份，覆盖全量历史）。
     总量封顶 STATIC_EVENT_MAX——历史低价值条目不值得给静态页。
     """
     if not months:
         return []
-    recent = set(months[-STATIC_EVENT_MONTHS:])
+    recent = set(months[-STATIC_EVENT_MONTHS:]) if STATIC_EVENT_MONTHS > 0 else None
     picked = []
     for ev in events_sorted:
-        if (ev.get("date") or "")[:7] not in recent:
+        if recent is not None and (ev.get("date") or "")[:7] not in recent:
             continue
         if not ev.get("id"):
             continue
@@ -518,7 +519,8 @@ def build_static_event_pages(events_sorted, months):
     for old in STATIC_EVENT_DIR.glob("evt_*.html"):
         if old.stem not in keep_ids:
             old.unlink()
-    print(f"  ✅ e/ 静态详情页 {len(wrote)} 条（覆盖最近 {STATIC_EVENT_MONTHS} 个月、"
+    scope = f"最近 {STATIC_EVENT_MONTHS} 个月" if STATIC_EVENT_MONTHS > 0 else "全量历史"
+    print(f"  ✅ e/ 静态详情页 {len(wrote)} 条（{scope}、"
           f"档案价值 ≥ {STATIC_EVENT_MIN_VALUE}）")
     return [f"e/{i}.html" for i in wrote]
 
