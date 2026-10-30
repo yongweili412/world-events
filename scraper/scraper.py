@@ -539,7 +539,8 @@ CATEGORY_KEYWORDS = {
     # 2026-10-30：旧名「灾难」「冲突」「国际政治」已分别并入「自然灾害」「军事」「政治」，
     # 词表本身未动，因此分类结果与改名前一致；改名是为了让新事件不再产生库外类目。
     # ⚠️ 键的顺序即匹配优先级，改动前先跑本节末尾的对照用例：
-    # 「地震伤亡」必须仍是自然灾害、「空袭」仍是军事、「抗议」仍是军事。
+    # 「地震伤亡」必须仍是自然灾害、「空袭」仍是军事；
+    # 「抗议/骚乱/示威/游行」现归社会（2026-10-30 修正：原误置于军事组，10 类体系下归社会）。
     "自然灾害": ["earthquake", "seismic", "typhoon", "hurricane", "cyclone", "flood",
                 "wildfire", "tsunami", "volcano", "landslide", "drought",
                 "quake", "storm surge", "monsoon", "heatwave", "blizzard", "mudslide",
@@ -554,11 +555,11 @@ CATEGORY_KEYWORDS = {
              "核试验", "高超音速", "核电站", "导弹",
              # 原「冲突」组并入（战争/袭击/制裁等在 10 类体系下归军事）；位于键末以保持原有优先级
              "war", "airstrike", "strike", "military", "missile", "troops", "ceasefire",
-             "sanctions", "offensive", "hostage", "protest", "clash",
+             "sanctions", "offensive", "hostage", "clash",
              "attack", "shelling", "invasion", "militants", "insurgents", "bombing",
-             "casualties", "killed", "wounded", "gunfire", "unrest", "shooting",
-             "战争", "空袭", "军事", "导弹", "停火", "制裁", "抗议", "袭击", "冲突",
-             "炮击", "入侵", "武装分子", "枪击", "爆炸", "伤亡", "骚乱", "人质"],
+             "casualties", "killed", "wounded", "gunfire", "shooting",
+             "战争", "空袭", "军事", "导弹", "停火", "制裁", "袭击", "冲突",
+             "炮击", "入侵", "武装分子", "枪击", "爆炸", "伤亡", "人质"],
     "科技": ["AI", "artificial intelligence", "space telescope", "spacecraft", "satellite",
              "rocket", "NASA", "ISRO", "ESA", "robot", "quantum", "semiconductor",
              "chip", "algorithm", "smartphone", "software", "neurons", "brain scan",
@@ -603,10 +604,10 @@ CATEGORY_KEYWORDS = {
              "戛纳", "威尼斯", "格莱美", "展览", "博物馆", "艺术家", "导演",
              "剧集", "动漫", "文化遗产", "展映", "首映", "影片", "影视", "纪录片", "巡演", "话剧"],
     "社会": ["公诉", "起诉", "上诉", "无罪释放", "性侵", "伪证", "刑事", "school", "hospital", "police", "court", "trial", "migrant", "refugee",
-             "protesters", "strike action", "workers",
+             "protesters", "strike action", "workers", "protest", "unrest", "demonstration", "rally",
              "crime", "murder", "outbreak", "health", "pension", "housing",
              "jail", "prison", "evacuation", "indigenous",
-             "学校", "医院", "警方", "法院", "移民", "难民", "罢工",
+             "学校", "医院", "警方", "法院", "移民", "难民", "罢工", "抗议", "示威", "游行", "骚乱",
              "教育", "医疗", "住房", "就业", "人口", "养老", "民生", "判决", "宣判", "获刑",
              "下葬", "遗体", "直播", "原住民", "寺庙", "教堂"],
 }
