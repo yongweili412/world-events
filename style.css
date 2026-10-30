@@ -554,3 +554,9 @@ body {
   font-size: 13px;
   padding: 16px 0;
 }
+
+/* 速览：LLM 生成的「三要点」是换行分隔的三行，需保留换行才不会压成一段。
+   单段落的速览不含换行，加 pre-line 对它们无影响。 */
+.summary {
+  white-space: pre-line;
+}
