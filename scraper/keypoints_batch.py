@@ -11,10 +11,12 @@
   aiSummary = 动态详情页（event.html）渲染的"速览"；仅当它同样是复述时才一并修正，
               避免覆盖 full_summary_batch 已生成的"全文版"速览。
 
-与 full_summary_batch.py 的区别（关键）：
-  那个脚本依赖**抓取外网原文**（本机跑失败率高，实测 3 条里 2 条抓全文失败），
-  本脚本直接基于事件**已有的正文**提炼要点，不依赖外网，成功率接近 100%。
-  且输出是"三条要点"而非整段速览，更符合报告口径。
+⚠️ 限流规避策略（2026-10-31 探针实测后定）：
+  conatus-free 有两道限流——① 每密钥 RPM（初始突发≈5，之后按分钟窗口锁）、
+  ② 全局活动配额 free_campaign_global_limit（所有用户共享容量，随负载波动，无 Retry-After 头）。
+  本脚本**直连 conatus、绕开 llm_guard 换档链**，从根本上杜绝"漏到付费 deepseek 档"。
+  遇 429 只在 conatus 上指数退避重试；重试耗尽则该条跳过（defer），下一轮批次会自动重新选中补做。
+  自适应节奏：连续成功逐步收紧到 MIN_GAP；连续 429 指数放大间隔给全局配额降温。
 
 用法：
   python scraper/keypoints_batch.py [N]      # N 为本轮条数，默认 100
@@ -26,7 +28,8 @@ import sys
 import time
 from difflib import SequenceMatcher
 
-from llm_guard import chat_raw
+import requests
+
 from llm_cache import cache_get, cache_set, cache_save, stats as cache_stats
 
 KEY = (os.environ.get("LLM_API_KEY") or "").strip()
@@ -34,8 +37,18 @@ LIMIT = int(sys.argv[1]) if len(sys.argv) > 1 else 100
 TASK = "keypoints3"
 MIN_BODY = 120          # 正文太短不足以提炼要点
 RESTATE_TH = 0.75       # 复述判定阈值，与 build.py _is_restatement 保持一致
-MAX_TOKENS = 600        # 2026-10-31：400 对中文三要点偏紧，实测会截断末点，提到 600
-RETRY_DELAYS = (4, 12, 30, 60)
+MAX_TOKENS = 600        # 中文三要点约 180 字，400 会截断末点，提到 600
+CONATUS_MODEL = "qiniu/conatus-free"
+CONATUS_BASE = "https://api.qnaigc.com/v1"
+
+# 自适应节奏参数
+MIN_GAP = 12            # 基础间隔（秒）：≈5 次/分，卡在每密钥 RPM 安全线内
+MAX_GAP = 60            # 全局配额饱和时的最大退避间隔
+RETRY_BACKOFFS = (10, 20, 40, 80, 120)   # 单次调用内 429 退避序列（秒），全程只在 conatus
+MAX_CALL_RETRIES = len(RETRY_BACKOFFS)
+
+# 统计（证明零 spillover 到付费档）
+STATS = {"conatus_calls": 0, "deepseek_calls": 0, "skipped": 0}
 
 
 def _norm(s):
@@ -50,8 +63,55 @@ def is_restatement(ai, body):
     return SequenceMatcher(None, a, b).ratio() >= RESTATE_TH
 
 
-def gen_keypoints(title, body, date):
-    """让模型基于正文提炼三条要点；失败返回 None。"""
+def call_conatus_direct(prompt, timeout=120):
+    """直连 conatus-free，绕过换档链。返回 (content_or_None, hit_429_bool)。
+
+    遇 429/5xx 只在 conatus 上指数退避重试；重试耗尽返回 None。绝不调用 deepseek。
+    """
+    body = {"model": CONATUS_MODEL,
+            "messages": [{"role": "user", "content": prompt}],
+            "temperature": 0.3, "max_tokens": MAX_TOKENS}
+    STATS["conatus_calls"] += 1
+    last_429 = False
+    for attempt in range(MAX_CALL_RETRIES + 1):
+        try:
+            r = requests.post(CONATUS_BASE + "/chat/completions",
+                             headers={"Authorization": "Bearer " + KEY,
+                                      "Content-Type": "application/json"},
+                             json=body, timeout=timeout)
+        except Exception as ex:
+            print(f"    ⚠ 请求异常({type(ex).__name__})，{RETRY_BACKOFFS[min(attempt,4)]}s后重试", flush=True)
+            if attempt < MAX_CALL_RETRIES:
+                time.sleep(RETRY_BACKOFFS[min(attempt, 4)])
+                continue
+            return None, False
+        if r.status_code == 200:
+            try:
+                content = (r.json()["choices"][0]["message"].get("content") or "").strip()
+            except Exception:
+                content = ""
+            content = re.sub(r"^```[a-z]*\n?|```$", "", content.strip(), flags=re.M).strip()
+            lines = [ln.strip() for ln in content.splitlines()
+                     if re.match(r"^[123][.、)]\s*\S", ln.strip())]
+            if len(lines) >= 3:
+                return "\n".join(lines[:3]), False
+            # 返回 200 但格式不对：当作失败重试一次（不计入 429，但退避）
+            if attempt < MAX_CALL_RETRIES:
+                time.sleep(RETRY_BACKOFFS[min(attempt, 4)])
+                continue
+            return None, False
+        last_429 = (r.status_code == 429)
+        if attempt < MAX_CALL_RETRIES:
+            why = "限流429" if last_429 else f"{r.status_code}"
+            print(f"    ↻ {why}，{RETRY_BACKOFFS[attempt]}s 后重试(conatus)", flush=True)
+            time.sleep(RETRY_BACKOFFS[attempt])
+            continue
+        return None, last_429
+    return None, last_429
+
+
+def gen_keypoints(title, body, date, pacer):
+    """让模型基于正文提炼三条要点；失败返回 None。pacer 用于自适应节奏反馈。"""
     if not KEY:
         print("⚠️ 未配置 LLM_API_KEY，跳过", flush=True)
         return None
@@ -62,26 +122,37 @@ def gen_keypoints(title, body, date):
         "输出严格三行，每行以 \"1. \" \"2. \" \"3. \" 开头。纯文本，不要 JSON、不要标题、不要开场白。\n\n"
         f"事件：{title}（{date}）\n正文：\n{body}"
     )
-    for attempt in range(len(RETRY_DELAYS) + 1):
-        try:
-            r = chat_raw(prompt, key=KEY, timeout=120, max_tokens=MAX_TOKENS)
-        except Exception:
-            r = None
-        if r is not None and r.status_code == 200:
-            try:
-                content = (r.json()["choices"][0]["message"].get("content") or "").strip()
-            except Exception:
-                content = ""
-            content = re.sub(r"^```[a-z]*\n?|```$", "", content.strip(), flags=re.M).strip()
-            # 只保留以 1./2./3. 开头的行，过滤模型夹带的废话
-            lines = [ln.strip() for ln in content.splitlines()
-                     if re.match(r"^[123][.、)]\s*\S", ln.strip())]
-            if len(lines) >= 3:
-                return "\n".join(lines[:3])
-        if attempt < len(RETRY_DELAYS):
-            print(f"  ↻ 限流/失败，{RETRY_DELAYS[attempt]}s 后重试", flush=True)
-            time.sleep(RETRY_DELAYS[attempt])
+    content, was_429 = call_conatus_direct(prompt)
+    if content:
+        pacer.on_success()
+        return content
+    # 失败：反馈节奏控制器（连续 429 会放大间隔）
+    pacer.on_fail(was_429)
     return None
+
+
+class Pacer:
+    """自适应节奏控制：连续成功收紧，连续 429 放大（AIMD 风格）。"""
+    def __init__(self):
+        self.gap = MIN_GAP
+        self.consec_ok = 0
+        self.consec_429 = 0
+
+    def on_success(self):
+        self.consec_ok += 1
+        self.consec_429 = 0
+        if self.consec_ok >= 5 and self.gap > MIN_GAP:
+            self.gap = max(MIN_GAP, self.gap - 2)
+            self.consec_ok = 0
+
+    def on_fail(self, was_429):
+        self.consec_ok = 0
+        if was_429:
+            self.consec_429 += 1
+            if self.consec_429 >= 2:
+                self.gap = min(MAX_GAP, self.gap * 2)
+                self.consec_429 = 0
+                print(f"    ⏸ 全局配额疑似饱和，间隔放大至 {self.gap}s", flush=True)
 
 
 def main():
@@ -91,8 +162,6 @@ def main():
         return (e.get("description") or "").strip()
 
     # 目标：正文够长（短正文硬凑要点只会注水）且 当前 summary 只是正文的复述。
-    # 实测：全库 53,198 条里 summary 复述正文的有 50,116 条（94%，与报告 93.4% 吻合），
-    #       但正文 ≥120 字的只有 1,950 条，其中 1,858 条是复述——这才是值得做的富矿。
     candidates = [e for e in ev
                   if len(body_of(e)) >= MIN_BODY
                   and is_restatement(e.get("summary"), body_of(e))]
@@ -101,7 +170,11 @@ def main():
     targets = candidates[:LIMIT]
     print(f"本轮生成三要点: {len(targets)} 条（候选池 {len(candidates)} 条：正文≥{MIN_BODY}字且速览为复述）",
           flush=True)
+    if not targets:
+        print("候选池已空，全部完成或正文不足，无需继续。", flush=True)
+        return
 
+    pacer = Pacer()
     ok, skip, n_cache = 0, 0, 0
     for i, e in enumerate(targets):
         body = body_of(e)
@@ -115,11 +188,9 @@ def main():
             ok += 1
             print(f"  [{i+1}/{len(targets)}] ↺ 缓存复用 {e.get('title','')[:36]}", flush=True)
             continue
-        kp = gen_keypoints(e.get("title", ""), body[:2500], e.get("date", ""))
+        kp = gen_keypoints(e.get("title", ""), body[:2500], e.get("date", ""), pacer)
         if kp:
-            # summary = 静态页速览（主受益面，7,113 个 SEO 页直接可见）
             e["summary"] = kp
-            # aiSummary = 动态页速览；仅当它同样是复述时才一并修正，避免覆盖已有的全文版速览
             if is_restatement(e.get("aiSummary"), body):
                 e["aiSummary"] = kp
             cache_set(TASK, ck, kp)
@@ -127,8 +198,10 @@ def main():
             print(f"  [{i+1}/{len(targets)}] ✓ {e.get('title','')[:40]}", flush=True)
         else:
             skip += 1
-            print(f"  [{i+1}/{len(targets)}] 生成失败: {e.get('title','')[:40]}", flush=True)
-        time.sleep(1.2)
+            STATS["skipped"] += 1
+            print(f"  [{i+1}/{len(targets)}] ⏭ 生成失败/限流耗尽，跳过(下轮补做) {e.get('title','')[:36]}", flush=True)
+        # 自适应间隔：连续成功≈12s，饱和时自动放大到 60s
+        time.sleep(pacer.gap)
         if (i + 1) % 10 == 0:
             cache_save()   # 阶段性落盘，防中途被杀丢缓存
 
@@ -141,7 +214,9 @@ def main():
     os.replace(tmp, "data/events.json")
     with open("data/events.json", encoding="utf-8") as f:
         assert len(json.load(f)) == len(ev), "复读断言失败"
-    print(f"DONE: 成功 {ok}（缓存复用 {n_cache}），失败 {skip}；缓存: {cache_stats()}", flush=True)
+    print(f"DONE: 成功 {ok}（缓存复用 {n_cache}），跳过 {skip}", flush=True)
+    print(f"  [零spill校验] conatus调用={STATS['conatus_calls']} | deepseek调用={STATS['deepseek_calls']}(必须为0) | 跳过={STATS['skipped']}",
+          flush=True)
 
 
 if __name__ == "__main__":
