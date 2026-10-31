@@ -176,6 +176,17 @@ def main():
 
     pacer = Pacer()
     ok, skip, n_cache = 0, 0, 0
+
+    def flush_events():
+        """增量原子写回：每 10 条落一次盘，长批中断也只丢 <10 条（其余由缓存恢复）。"""
+        tmp = "data/events.json.tmp"
+        with open(tmp, "w", encoding="utf-8") as f:
+            json.dump(ev, f, ensure_ascii=False)
+            f.flush()
+        os.replace(tmp, "data/events.json")
+        with open("data/events.json", encoding="utf-8") as f:
+            assert len(json.load(f)) == len(ev), "复读断言失败"
+
     for i, e in enumerate(targets):
         body = body_of(e)
         ck = f"{e.get('id')}|{len(body)}"
@@ -204,16 +215,10 @@ def main():
         time.sleep(pacer.gap)
         if (i + 1) % 10 == 0:
             cache_save()   # 阶段性落盘，防中途被杀丢缓存
+            flush_events() # 每 10 条增量写回，长批中断只丢 <10 条
 
     cache_save()
-    # 原子写回（与 full_summary_batch 同一套约定）
-    tmp = "data/events.json.tmp"
-    with open(tmp, "w", encoding="utf-8") as f:
-        json.dump(ev, f, ensure_ascii=False)
-        f.flush()
-    os.replace(tmp, "data/events.json")
-    with open("data/events.json", encoding="utf-8") as f:
-        assert len(json.load(f)) == len(ev), "复读断言失败"
+    flush_events()
     print(f"DONE: 成功 {ok}（缓存复用 {n_cache}），跳过 {skip}", flush=True)
     print(f"  [零spill校验] conatus调用={STATS['conatus_calls']} | deepseek调用={STATS['deepseek_calls']}(必须为0) | 跳过={STATS['skipped']}",
           flush=True)
