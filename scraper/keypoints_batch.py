@@ -42,9 +42,11 @@ CONATUS_MODEL = "qiniu/conatus-free"
 CONATUS_BASE = "https://api.qnaigc.com/v1"
 
 # 自适应节奏参数
-MIN_GAP = 12            # 基础间隔（秒）：≈5 次/分，卡在每密钥 RPM 安全线内
-MAX_GAP = 60            # 全局配额饱和时的最大退避间隔
-RETRY_BACKOFFS = (10, 20, 40, 80, 120)   # 单次调用内 429 退避序列（秒），全程只在 conatus
+MIN_GAP = 8             # 基础间隔（秒）：约 7 次/分，仍在每密钥 RPM 安全线内
+MAX_GAP = 90            # 全局配额饱和时的最大间隔
+# 2026-11-01 优化：原 (10,20,40,80,120) 单条失败耗 270s，把时间全耗在死等一条上。
+# 改为单条只快速重试一次（4s 易成功），失败即跳过（defer），由 Pacer 在条目间做全局降温。
+RETRY_BACKOFFS = (4,)
 MAX_CALL_RETRIES = len(RETRY_BACKOFFS)
 
 # 统计（证明零 spillover 到付费档）
