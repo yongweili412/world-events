@@ -62,6 +62,36 @@ def _atomic_write_json(path: Path, data, indent=2):
     tmp.replace(path)
 
 
+def index_payload(total_events, shards, by_year, monthly_years):
+    """构造分片索引内容（不含 generatedAt），供比较与写入共用。"""
+    return {
+        "version": "events-shards-v1",
+        "totalEvents": total_events,
+        "shards": {k: len(shards[k]) for k in sorted(shards)},
+        "years": {y: n for y, n in sorted(by_year.items())},
+        "monthlyYears": sorted(monthly_years),
+        "note": "data/events/<key>.json 为入库真源；data/events.json 是不入库的工作副本，"
+                "由 merge 从分片重建。改数据后须先 split 再提交。",
+    }
+
+
+def index_content_changed(new_payload: dict, existing_path: Path) -> bool:
+    """除 generatedAt 外，索引内容是否真的变了。
+
+    P2-15：原实现每次 split 都无条件写 index.json，generatedAt 一变就产生新 blob，
+    但分片清单/条数其实没动。这里比较「除时间戳外的全部字段」决定是否写盘。
+    """
+    if not existing_path.exists():
+        return True
+    try:
+        with open(existing_path, "r", encoding="utf-8") as f:
+            old = json.load(f)
+    except Exception:
+        return True
+    old_cmp = {k: v for k, v in old.items() if k != "generatedAt"}
+    return old_cmp != new_payload
+
+
 def load_events():
     if not EVENTS_FILE.exists():
         return None
@@ -147,16 +177,12 @@ def split(events=None):
         print(f"  清理过时分片 {removed} 个（年/月粒度切换或数据消失的月份）")
     print(f"  未变化分片 {unchanged} 个（跳过写入，避免无意义的 git blob）")
 
-    _atomic_write_json(INDEX_FILE, {
-        "version": "events-shards-v1",
-        "generatedAt": _now(),
-        "totalEvents": len(events),
-        "shards": {k: len(buckets[k]) for k in sorted(buckets)},
-        "years": {y: n for y, n in sorted(by_year.items())},
-        "monthlyYears": sorted(monthly_years),
-        "note": "data/events/<key>.json 为入库真源；data/events.json 是不入库的工作副本，"
-                "由 merge 从分片重建。改数据后须先 split 再提交。",
-    })
+    payload = index_payload(len(events), buckets, by_year, monthly_years)
+    if index_content_changed(payload, INDEX_FILE):
+        _atomic_write_json(INDEX_FILE, {"generatedAt": _now(), **payload})
+        print("  index.json 内容有变化 → 已更新")
+    else:
+        print("  index.json 内容未变 → 跳过写入（避免 generatedAt 造成无意义 blob）")
     print(f"✅ split 完成：{len(events)} 条 → {len(buckets)} 个分片，"
           f"合计 {total_bytes/1024/1024:.1f} MB")
     return 0

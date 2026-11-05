@@ -318,9 +318,10 @@ def build_month_shards(events_sorted):
 
 
 def render_data_stats(events, months):
-    """填充 data-about.html：年份分布（纯 CSS 条形）、总览指标、主要来源 TOP 20。
+    """填充 data-about.html：采集覆盖（纯 CSS 条形）、总览指标、主要来源 TOP 20。
 
-    坦率展示 1997-2019 的稀疏——档案站的立身之本是可信度，包括承认局限。
+    口径：条形高度是「本站收录条数」而非「当年世界事件数」——2020 年前靠历史回填、
+    之后靠自动管道，密度差异来自采集方式。坦率标注这点，是档案站可信度的一部分。
     """
     total = len(events)
     by_year = {}
@@ -377,9 +378,11 @@ def render_data_stats(events, months):
                 ("含封面图", pct(n_img)),
             ]
         ) + "</div>"
-        + '<h2>年份分布（1997 → 今）</h2>'
+        + '<h2>采集覆盖（按事件年份）</h2>'
         + '<p style="color:var(--text-secondary);font-size:14px">'
-        + '2020 年起为自动化管道持续收集；更早年份来自历史资料回填，条数稀疏是如实呈现。</p>'
+        + '下图是<strong>本站收录条数</strong>，不是世界史上事件发生的多寡。'
+        + '2020 年起由自动化管道持续收集，故近六年密集；1997–2019 依赖历史资料回填，'
+        + '每年数十条属采集稀疏，并非那些年份无事发生。2008 年的突起是一次批量导入。</p>'
         + f'<div style="max-width:720px">{year_html}</div>'
         + '<h2 style="margin-top:28px">主要来源（按引用次数 TOP 20）</h2>'
         + f'<div>{src_html}</div>'
