@@ -739,6 +739,7 @@ def _render_static_event(ev) -> str:
   <p style="text-align:center;margin:24px 0">
     <a href="../event.html?id={esc(eid)}" style="color:var(--primary);text-decoration:none">查看完整档案（含相关事件）</a>
     · <a href="../index.html" style="color:var(--primary);text-decoration:none">返回首页</a>
+    · <a href="../data-about.html" style="color:var(--primary);text-decoration:none">数据说明</a>
   </p>
 </div>
 </body>
