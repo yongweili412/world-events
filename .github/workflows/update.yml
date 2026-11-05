@@ -23,16 +23,18 @@ jobs:
       - name: 检出仓库
         uses: actions/checkout@v4
 
-      - name: 从分片重建工作副本（data/events.json 不入库，真源是 data/events/*.json）
-        run: python scraper/shard_events.py ensure
-
+      # 先装 Python 再跑脚本：原先 ensure 跑在 setup-python 之前，依赖 runner 自带的
+      # python 别名；哪天镜像里只剩 python3 就会无声失败。
       - name: 安装 Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.13'
 
+      - name: 从分片重建工作副本（data/events.json 不入库，真源是 data/events/*.json）
+        run: python scraper/shard_events.py ensure
+
       - name: 安装依赖
-        run: pip install --quiet feedparser requests
+        run: pip install --quiet feedparser requests pytest
 
       - name: 抓取并合并事件（云端跳过机翻，英文原文入库）
         env:
@@ -84,6 +86,24 @@ jobs:
         # continue-on-error：评分失败也绝不影响每日抓取入库这条主线。
         continue-on-error: true
         run: python scraper/rescore.py
+
+      # 数据契约：自愈 → 契约测试 → 校验。放在 build 之前，
+      # 坏数据进不了HTML、也进不了分片（split 里还有一次同样的自愈兜底）。
+      - name: 数据契约自愈（类目/标签/日期，幂等）
+        run: python scraper/normalize_data.py
+
+      # 只阻断"数据契约"这一组：它不依赖网络与密钥，且正是防止 13 类回归的那道闸。
+      - name: 数据契约测试（阻断）
+        run: python -m pytest tests/test_data_contract.py -q
+
+      # 其余既有测试先只报告：不清楚是否有依赖本地环境/密钥的用例，
+      # 不让它们挡住每天的数据入库；确认稳定后把这一行改成阻断即可。
+      - name: 其余单元测试（只报告，不阻断）
+        continue-on-error: true
+        run: python -m pytest tests/ -q
+
+      - name: 数据契约校验（结构错误阻断发布）
+        run: python scraper/validate.py --quiet
 
       - name: 构建静态页面
         run: python scraper/build.py

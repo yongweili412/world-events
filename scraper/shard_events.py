@@ -81,6 +81,18 @@ def split(events=None):
     if events is None:
         print("❌ 找不到 data/events.json，无法 split")
         return 1
+
+    # 入库前的最后一道自愈（幂等）：类目归一、标签去来源名/类目名、日期格式。
+    # 放在这里而不是各个抓取脚本里——split 是所有写分片的唯一出口，
+    # 在这里做一次，scraper / backfill / enrich 任何一条路径都漏不出去。
+    try:
+        from normalize_data import normalize_events
+        _, fix_stats = normalize_events(events)
+        if fix_stats:
+            print("  🧽 入库自愈：" + " · ".join(f"{k}={v}" for k, v in sorted(fix_stats.items())))
+    except Exception as exc:  # 自愈失败不该阻断入库，但必须可见
+        print(f"  ⚠ 入库自愈跳过：{exc}")
+
     # 先按年统计，决定哪些年份需要再按月细分
     by_year = Counter(_year_of(e) for e in events)
     monthly_years = {y for y, n in by_year.items() if n > MONTHLY_THRESHOLD}
@@ -90,33 +102,50 @@ def split(events=None):
         buckets.setdefault(_shard_key(e, monthly_years), []).append(e)
 
     SHARD_DIR.mkdir(parents=True, exist_ok=True)
-    # 阶段一：全部写 .tmp（不动现有分片）
-    tmp_files = {}
+    # 阶段一：只为"内容真的变了"的分片写 .tmp。
+    # 为什么：以前每天全量重写 117 个分片，每个都变成新 git blob，仓库 5 天涨 74MB。
+    # 每天实际只有 1-2 个月份会变，只写变化的那几个，历史就只增长真正变化的内容。
+    staged = {}
+    unchanged = 0
     for key, items in buckets.items():
         p = SHARD_DIR / f"{key}.json"
+        payload = json.dumps(items, ensure_ascii=False, indent=2).encode("utf-8")
+        try:
+            if p.exists() and p.read_bytes() == payload:
+                unchanged += 1
+                continue
+        except OSError:
+            pass
         tmp = p.with_suffix(".json.tmp")
-        with open(tmp, "w", encoding="utf-8") as f:
-            json.dump(items, f, ensure_ascii=False, indent=2)
-        tmp_files[key] = (tmp, p)
+        tmp.write_bytes(payload)
+        staged[key] = (tmp, p)
 
     # 阶段二：清理上一轮分片（此时新数据已在手里，删旧的不再有风险）。
-    # 注意只删"本轮不再使用"的旧分片，避免年/月粒度并存造成 merge 重复。
+    # 注意只删"本轮不再使用"的旧分片，避免年/月粒度并存造成 merge 重复；
+    # 索引文件自身不是分片，跳过（以前会在这一步被误删再重建）。
     removed = 0
     for p in SHARD_DIR.glob("*.json"):
         key = p.name[:-5]  # 去掉 .json
+        if p == INDEX_FILE:
+            continue
         if key not in buckets:
             p.unlink()
             removed += 1
 
     # 阶段三：统一改名落位 + 打印
-    total_bytes = 0
-    for key in sorted(tmp_files):
-        tmp, p = tmp_files[key]
+    for key in sorted(staged):
+        tmp, p = staged[key]
         tmp.replace(p)
+
+    total_bytes = 0
+    for key in sorted(buckets):
+        p = SHARD_DIR / f"{key}.json"
         total_bytes += p.stat().st_size
-        print(f"  {key}.json  {len(buckets[key]):>6} 条  {p.stat().st_size/1024/1024:.2f} MB")
+        if key in staged:
+            print(f"  {key}.json  {len(buckets[key]):>6} 条  {p.stat().st_size/1024/1024:.2f} MB  ← 更新")
     if removed:
         print(f"  清理过时分片 {removed} 个（年/月粒度切换或数据消失的月份）")
+    print(f"  未变化分片 {unchanged} 个（跳过写入，避免无意义的 git blob）")
 
     _atomic_write_json(INDEX_FILE, {
         "version": "events-shards-v1",
