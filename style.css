@@ -561,6 +561,17 @@ body {
   white-space: pre-line;
 }
 
+/* 静态详情页的来源透明度说明：历史回填引用的是「当月汇总页」，如实告知读者
+   该链接只能定位到月份、不含单条条目，避免把汇总页误当成逐条证据。 */
+.source-note {
+  margin: 10px 0 0;
+  padding-left: 12px;
+  border-left: 3px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
 /* ===== 可访问性 ===== */
 
 /* 键盘焦点：此前只有 input 有 :focus 样式，链接/按钮/卡片完全没有可见焦点，

@@ -648,6 +648,14 @@ def _render_static_event(ev) -> str:
             f'{esc(s.get("name") or s.get("url") or "来源")}</a></li>'
             for s in srcs[:10])
         src_html = f'<h2 class="section-title">信息来源（{len(srcs)}）</h2><ul class="src">{lis}</ul>'
+        # P0-3 透明度：历史回填多引用 Wikipedia「当月事件汇总页」，只能定位到月份，
+        # 无法回溯到单条条目。如实标注，不用标题去猜具体链接（错证据比月级真实更糟）。
+        if any("Portal:Current_events/" in (s.get("url") or "") for s in srcs):
+            src_html += (
+                '<p class="source-note">其中部分来源为「当月事件汇总页」，'
+                '可核对月份与背景，但不提供指向本条事件的单独链接；'
+                '本站不据此推断具体条目，以免引入错误引证。</p>'
+            )
 
     body = desc.replace("\n", "<br>") if desc else ""
     val = ev.get("archiveValue")
