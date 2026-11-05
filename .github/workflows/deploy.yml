@@ -66,7 +66,7 @@ jobs:
       - name: 组装发布目录
         run: |
           mkdir -p dist/data
-          # preview.html 是开发期演示页（全 # 链接、无入口），不发布
+          # 只拷贝站点正式页面；演示页 preview.html 已于 2026-11-06 从仓库移除
           cp index.html country.html event.html map.html data-about.html dist/ 2>/dev/null || true
           cp app.js style.css dist/ 2>/dev/null || true
           if [ -d assets ]; then cp -r assets dist/; fi
