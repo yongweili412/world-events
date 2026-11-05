@@ -72,6 +72,10 @@ jobs:
           if [ -d assets ]; then cp -r assets dist/; fi
           cp archive-*.html dist/ || true
           cp LICENSE.md feed.xml dist/ 2>/dev/null || true
+          # 静态详情页 e/：sitemap 收录了这些 URL，必须一并发布，否则全部 404。
+          # 2026-11-06 修复：此前漏拷 e/，导致 7357 个 SEO 页面线上返回 GitHub Pages 404。
+          mkdir -p dist/e
+          cp e/*.html dist/e/
           # 轻量索引 + 单月分片：详情页/搜索/地图按需加载（替代原 114MB 的 events.js）
           cp data/index-lite.json dist/data/index-lite.json
           mkdir -p dist/data/m
@@ -82,8 +86,23 @@ jobs:
           echo "--- 发布目录概览 ---"
           ls -1 dist | head -18
           echo "归档页数量: $(ls -1 dist/archive-*.html 2>/dev/null | wc -l)"
+          echo "静态详情页数量: $(ls -1 dist/e/*.html 2>/dev/null | wc -l)"
           echo "月分片数量: $(ls -1 dist/data/m/*.json 2>/dev/null | wc -l)"
           du -sh dist
+          # 部署自检：sitemap 里的静态页 URL 必须真的存在于产物中，缺则直接失败。
+          # 抽查首个与末个静态详情页，避免"部署成功但页面 404"再次发生。
+          first_e=$(ls -1 dist/e/*.html 2>/dev/null | head -1)
+          if [ -z "$first_e" ]; then
+            echo "::error::dist/e 为空，静态详情页未发布（sitemap 会全部 404）"
+            exit 1
+          fi
+          sitemap_e=$(grep -c "e/evt_" dist/sitemap.xml 2>/dev/null || echo 0)
+          dist_e=$(ls -1 dist/e/*.html 2>/dev/null | wc -l)
+          echo "sitemap 静态页 URL: $sitemap_e | 已发布静态页: $dist_e"
+          if [ "$dist_e" -lt "$sitemap_e" ]; then
+            echo "::error::静态详情页数量少于 sitemap 收录数，会有一部分 404"
+            exit 1
+          fi
 
       - name: 上传 Pages 产物
         uses: actions/upload-pages-artifact@v3
