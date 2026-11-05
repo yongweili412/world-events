@@ -1,0 +1,71 @@
+name: 来源链接体检
+
+# 为什么单独一个 workflow：
+#   "永久存档"的引用会腐烂。这里每周抽样检测来源 URL，产出失效报告（artifact），
+#   不写回数据、不产生提交，避免为了监控反而把仓库撑大。
+#   404/410 才叫 dead；401/403/429 是反爬/限流，记为 blocked，不能当失效。
+
+on:
+  schedule:
+    - cron: '0 19 * * 0'      # 每周一 03:00（北京）
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: 本次检测的 URL 数（分批跑可覆盖全库）
+        required: false
+        default: '2000'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: world-events-linkcheck
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - name: 检出仓库
+        uses: actions/checkout@v4
+
+      - name: 安装 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: 从分片重建工作副本
+        run: python scraper/shard_events.py ensure
+
+      - name: 链接体检
+        run: python scraper/check_links.py --limit ${{ github.event.inputs.limit || '2000' }}
+
+      - name: 写入 Job Summary
+        if: always()
+        run: |
+          python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import json, pathlib
+          p = pathlib.Path("data/links-report.json")
+          if not p.exists():
+              print("### 来源链接体检\n\n没有生成报告（脚本可能提前失败）。")
+              raise SystemExit
+          s = json.loads(p.read_text(encoding="utf-8"))["summary"]
+          run = s["thisRun"]
+          print("### 来源链接体检\n")
+          print(f"- 本次检测：{run['count']} 个 URL")
+          print(f"- 正常 {run['ok']} · 失效 {run['dead']} · 反爬/限流 {run['blocked']} · 错误 {run['error']}")
+          print(f"- 失效率：{run['deadRatio']:.1%}")
+          if s.get("deadByDomain"):
+              print("\n**失效最多的域名**\n")
+              for d, n in s["deadByDomain"][:10]:
+                  print(f"- `{d}`：{n}")
+          PY
+
+      - name: 上传报告
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: links-report
+          path: data/links-report.json
+          retention-days: 90

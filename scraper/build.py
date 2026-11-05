@@ -19,6 +19,8 @@ import html as html_mod
 import json
 import os
 import re
+from datetime import datetime, timedelta, timezone
+from email.utils import format_datetime
 from pathlib import Path
 
 ROOT = Path(__file__).parent.parent
@@ -34,6 +36,13 @@ STATIC_EVENT_DIR = ROOT / "e"            # 静态详情页目录（P1-B，SEO �
 STATIC_EVENT_MONTHS = 0                  # 静态详情页覆盖最近几个月；0 = 不限月份（覆盖全量历史高价值条目）
 STATIC_EVENT_MIN_VALUE = 70              # 静态详情页的最低档案价值分（KEEP 线）
 STATIC_EVENT_MAX = 12000                 # 静态详情页总量上限，防止构建失控
+
+# 站点身份常量：canonical / OG / JSON-LD / RSS 里的绝对 URL 都从这里取，
+# 换域名（比如以后挂自定义域）只改这一处。
+SITE_URL = "https://yongweili412.github.io/world-events/"
+SITE_NAME = "全球大事记"
+OG_IMAGE = SITE_URL + "assets/og-default.png"
+CST = timezone(timedelta(hours=8))
 
 # index-lite 每个事件保留的字段。详情页正文/时间线/来源不在这里，
 # 而是按需从 data/m/YYYY-MM.json 取——这是把详情页首屏从 114MB 降到 <1MB 的关键。
@@ -230,6 +239,29 @@ def render_month_nav_grouped(months, current=None, recent=12):
     return "\n".join(parts)
 
 
+EMBED_FIELDS = ("id", "title", "summary", "date", "time", "category", "tags",
+                "location", "status", "summaryFull", "image", "archiveValue")
+
+
+def _embed_event(ev):
+    """首页内嵌用的精简事件：只留卡片渲染与搜索兜底真正会用到的字段。
+
+    原先内嵌的是完整事件（含七维影响分、assessment 审计对象、timeline、完整
+    sources 标题与摘要），单条约 2.3KB，300 条就占首页 83% 的体积；而这些字段
+    在首页从不渲染——等于把数据库的审计信息发给每一个访客。
+    """
+    out = {k: ev[k] for k in EMBED_FIELDS if k in ev}
+    srcs = ev.get("sources") or []
+    out["srcCount"] = len(srcs)
+    if srcs:
+        out["sources"] = [{"name": s.get("name") or "", "url": s.get("url") or ""}
+                          for s in srcs[:6]]
+    desc = (ev.get("description") or "").strip()
+    if desc:
+        out["description"] = desc[:120]   # 仅搜索兜底用；索引正常加载时不读它
+    return out
+
+
 def build_index_lite(events):
     """生成 data/index-lite.json —— 全库轻量索引。
 
@@ -355,13 +387,32 @@ def render_data_stats(events, months):
     return stats
 
 
+def _rss_date(date_str, time_str=""):
+    """YYYY-MM-DD（可选 HH:MM）→ RFC 822 时间。
+
+    RSS 2.0 的 pubDate 要求 RFC 822（含时区），只写日期会被一部分阅读器/校验器判为无效。
+    时间未知时按北京时间 08:00 处理，保证同一天的事件排序稳定。
+    """
+    d = (date_str or "").strip()
+    t = (time_str or "").strip() or "08:00"
+    for fmt in ("%Y-%m-%d %H:%M", "%Y-%m-%d %H:%M:%S"):
+        try:
+            return format_datetime(datetime.strptime(f"{d} {t}", fmt).replace(tzinfo=CST))
+        except ValueError:
+            continue
+    try:
+        return format_datetime(datetime.strptime(d, "%Y-%m-%d").replace(hour=8, tzinfo=CST))
+    except ValueError:
+        return ""
+
+
 def build_rss(events_sorted, latest_date):
     """生成 feed.xml —— 最近 50 条事件的 RSS 订阅源（纯静态，无需后端）。
 
     档案站的价值在于"能被复用"：RSS 让研究者和聚合器能订阅更新，
     也是最便宜的外部分发出口。
     """
-    site = "https://yongweili412.github.io/world-events/"
+    site = SITE_URL
     items = []
     for ev in events_sorted[:50]:
         url = f"{site}event.html?id={esc(ev.get('id', ''))}"
@@ -371,25 +422,28 @@ def build_rss(events_sorted, latest_date):
             u = esc(src.get("url") or "")
             if u:
                 desc_parts.append(f'<a href="{u}">来源：{esc(src.get("title") or u)}</a>')
+        pub = _rss_date(ev.get("date"), ev.get("time"))
         items.append(
             f"    <item>"
             f"<title>{esc(ev.get('title', ''))}</title>"
             f"<link>{url}</link>"
             f"<guid isPermaLink=\"false\">{esc(ev.get('id', ''))}</guid>"
-            f"<pubDate>{esc(ev.get('date', ''))}</pubDate>"
-            f"<category>{esc(cat)}</category>"
+            + (f"<pubDate>{pub}</pubDate>" if pub else "")
+            + f"<category>{esc(cat)}</category>"
             f"<description><![CDATA[ {'<br>'.join(desc_parts)} ]]></description>"
             f"</item>"
         )
+    last_build = _rss_date(latest_date) or format_datetime(datetime.now(CST))
     rss = (
         '<?xml version="1.0" encoding="UTF-8"?>\n'
         '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">\n'
         '  <channel>\n'
-        '    <title>全球大事记</title>\n'
+        f'    <title>{SITE_NAME}</title>\n'
         f'    <link>{site}</link>\n'
         '    <description>世界事件永久存档：自动收集全球大事，每条含来源、时间线与地区标注（1997-2026）</description>\n'
         '    <language>zh-CN</language>\n'
-        f'    <lastBuildDate>{esc(latest_date)}</lastBuildDate>\n'
+        f'    <lastBuildDate>{last_build}</lastBuildDate>\n'
+        '    <ttl>60</ttl>\n'
         f'    <atom:link href="{site}feed.xml" rel="self" type="application/rss+xml"/>\n'
         + "\n".join(items) + "\n  </channel>\n</rss>\n"
     )
@@ -596,19 +650,64 @@ def _render_static_event(ev) -> str:
     val = ev.get("archiveValue")
     val_html = (f'<span class="badge">档案价值 {val}</span>' if isinstance(val, (int, float)) else "")
 
+    # 结构化数据：NewsArticle 让搜索结果有机会出富摘要，BreadcrumbList 给出层级。
+    # 只放"可验证的事实"（标题/日期/类目/来源 URL），不放评分——评分是我们的口径，
+    # 不是搜索引擎需要的事实。
+    page_url = f"{SITE_URL}e/{eid}.html"
+    ld = {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "headline": title[:110],
+        "description": meta_desc,
+        "datePublished": date,
+        "dateModified": date,
+        "inLanguage": "zh-CN",
+        "articleSection": cat,
+        "mainEntityOfPage": {"@type": "WebPage", "@id": page_url},
+        "publisher": {"@type": "Organization", "name": SITE_NAME, "url": SITE_URL},
+        "isBasedOn": [s.get("url") for s in srcs if s.get("url")][:5],
+        "about": [{"@type": "Thing", "name": t} for t in tags[:5]],
+    }
+    ld_json = json.dumps(ld, ensure_ascii=False).replace("</", "<\\/")
+    crumbs = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "首页", "item": SITE_URL},
+            {"@type": "ListItem", "position": 2, "name": (date or "")[:7],
+             "item": SITE_URL + archive_page_name((date or "")[:7], 1)},
+            {"@type": "ListItem", "position": 3, "name": cat},
+        ],
+    }
+    crumb_json = json.dumps(crumbs, ensure_ascii=False).replace("</", "<\\/")
+
     return f'''<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{esc(title)} · 世界事件存档</title>
+<title>{esc(title)} · {SITE_NAME}</title>
 <meta name="description" content="{esc(meta_desc)}">
-<link rel="canonical" href="https://yongweili412.github.io/world-events/e/{esc(eid)}.html">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="{page_url}">
+<meta property="og:site_name" content="{SITE_NAME}">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:title" content="{esc(title)}">
 <meta property="og:description" content="{esc(meta_desc)}">
 <meta property="og:type" content="article">
+<meta property="og:url" content="{page_url}">
+<meta property="og:image" content="{OG_IMAGE}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="article:published_time" content="{esc(date)}">
-<link rel="stylesheet" href="../style.css">
+<meta property="article:section" content="{esc(cat)}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{esc(title)}">
+<meta name="twitter:description" content="{esc(meta_desc)}">
+<meta name="twitter:image" content="{OG_IMAGE}">
+<script type="application/ld+json">{ld_json}</script>
+<script type="application/ld+json">{crumb_json}</script>
+<link rel="stylesheet" href="../style.css?v=11">
 </head>
 <body>
 <div class="container">
@@ -637,7 +736,7 @@ def _render_static_event(ev) -> str:
 
 def build_robots_and_sitemap(months, latest_date, extra_urls=None):
     """生成 robots.txt 与 sitemap.xml —— 让搜索引擎能真正抓到这个站。"""
-    site = "https://yongweili412.github.io/world-events/"
+    site = SITE_URL
     robots = (
         "User-agent: *\n"
         "Allow: /\n"
@@ -678,7 +777,8 @@ def main():
                            "index 今日事件")
     h, _ = replace_between(h, M_START, M_END, render_month_nav_grouped(months), "index 归档导航")
     embed_latest = events_sorted[:INDEX_EMBED_COUNT]
-    payload = json.dumps(embed_latest, ensure_ascii=False).replace("</", "<\\/")
+    payload = json.dumps([_embed_event(e) for e in embed_latest],
+                         ensure_ascii=False).replace("</", "<\\/")
     # 分类/地区下拉选项预置进页面（P1-C）：首页不必为了填两个下拉框而下载 20MB 索引，
     # 索引改为用户真正搜索时才加载。地区顺序与 app.js 的 REGION_ORDER 保持一致。
     cats_all = sorted({cat_of(e) for e in events})
@@ -691,7 +791,8 @@ def main():
     h, _ = replace_between(h, START, END, embed_snippet, "index 内嵌数据")
     idx.write_text(h, encoding="utf-8")
     print(f"  ✅ index.html：今日({latest_date}) {len(today_events)} 个事件，"
-          f"内嵌 {len(embed_latest)} 条（总 {len(events)} 事件），归档导航 {len(months)} 个月（折叠式）")
+          f"内嵌 {len(embed_latest)} 条（{len(payload.encode())/1024:.0f}KB，总 {len(events)} 事件），"
+          f"归档导航 {len(months)} 个月（折叠式）")
 
     # 2) archive-YYYY-MM.html：月归档页（超过 900 条自动分块，见 build_archive_pages）
     #    每页带：meta description（搜索摘要）+ 面包屑 + 上/下月 + 块间跳转 + canonical

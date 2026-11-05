@@ -607,8 +607,21 @@ async function renderEventDetail() {
   setMeta('og:url', location.href);
   setMeta('og:site_name', '全球大事记');
   if (ev.image && /^https?:\/\//.test(ev.image)) setMeta('og:image', ev.image);
-  else setMeta('og:image', 'https://yongweili412.github.io/world-events/assets/og-default.svg');
+  // 必须用 PNG：Facebook / X / 微信 都不渲染 SVG 的 og:image，之前分享出来是白卡
+  else setMeta('og:image', 'https://yongweili412.github.io/world-events/assets/og-default.png');
   setMeta('twitter:card', 'summary_large_image');
+  setMeta('og:locale', 'zh_CN');
+}
+
+// 支持 ?q=关键词 直接打开搜索结果（也对应首页 JSON-LD 里的 SearchAction）：
+// 把关键词写进输入框并触发一次 input 事件，复用现有的防抖搜索逻辑。
+function applyQueryParam() {
+  const q = (new URLSearchParams(location.search).get('q') || '').trim();
+  if (!q) return;
+  const input = document.getElementById('search-input');
+  if (!input) return;
+  input.value = q;
+  input.dispatchEvent(new Event('input', { bubbles: true }));
 }
 
 // ===== 地区档案页 =====
@@ -913,6 +926,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (page === 'index.html' || page === '') {
     initDateView();
     initFilters();
+    applyQueryParam();
   } else if (page === 'event.html') {
     renderEventDetail();
   } else if (page === 'country.html') {

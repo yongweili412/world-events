@@ -45,13 +45,20 @@ jobs:
       - name: 检出仓库
         uses: actions/checkout@v4
 
-      - name: 从分片重建工作副本（data/events.json 不入库，真源是 data/events/*.json）
-        run: python scraper/shard_events.py ensure
-
       - name: 安装 Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.13'
+
+      - name: 从分片重建工作副本（data/events.json 不入库，真源是 data/events/*.json）
+        run: python scraper/shard_events.py ensure
+
+      # 部署不写库，但要有同样的底线：自愈 + 校验通过才发布。
+      # 自愈只改工作副本，不回写分片（分片的清洗由 update 的 split 负责）。
+      - name: 数据契约自愈 + 校验
+        run: |
+          python scraper/normalize_data.py
+          python scraper/validate.py --quiet
 
       - name: 生成静态站点（index-lite + 月分片 + robots/sitemap）
         run: python scraper/build.py
@@ -59,7 +66,8 @@ jobs:
       - name: 组装发布目录
         run: |
           mkdir -p dist/data
-          cp index.html country.html event.html map.html data-about.html preview.html dist/ 2>/dev/null || true
+          # preview.html 是开发期演示页（全 # 链接、无入口），不发布
+          cp index.html country.html event.html map.html data-about.html dist/ 2>/dev/null || true
           cp app.js style.css dist/ 2>/dev/null || true
           if [ -d assets ]; then cp -r assets dist/; fi
           cp archive-*.html dist/ || true

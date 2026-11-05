@@ -560,3 +560,43 @@ body {
 .summary {
   white-space: pre-line;
 }
+
+/* ===== 可访问性 ===== */
+
+/* 键盘焦点：此前只有 input 有 :focus 样式，链接/按钮/卡片完全没有可见焦点，
+   键盘用户 Tab 一圈不知道焦点在哪（WCAG 2.4.7）。 */
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* 跳到主内容：Tab 第一下就能跳过导航 */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 8px;
+  z-index: 200;
+  padding: 10px 16px;
+  background: var(--primary);
+  color: #fff;
+  border-radius: var(--radius);
+  font-size: 14px;
+  text-decoration: none;
+}
+.skip-link:focus {
+  left: 16px;
+}
+
+/* 尊重系统的"减少动态效果"设置 */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html {
+    scroll-behavior: auto !important;
+  }
+}
+
