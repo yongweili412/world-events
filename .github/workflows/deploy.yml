@@ -120,7 +120,8 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
         with:
-          # 2026-11-07：发布包含 7357 个静态详情页 + 355 个月分片后，
-          # Pages 同步偶尔超过 action 默认 600 秒而报 "Timeout reached, aborting!"。
-          # 放宽到 30 分钟，避免"数据补好了、线上却没更新"。
-          timeout: 1800
+          # 发布包含 9000+ 静态详情页与 350+ 月分片后，Pages 同步较慢。
+          # 注意：actions/deploy-pages@v4 的 timeout 单位是【毫秒】（默认 600000 = 10 分钟）。
+          # 2026-11-08 修正：此前误写 1800（=1.8 秒），导致部署刚创建就被中止、
+          # 线上一直停留在旧版。改为 1800000（30 分钟）。
+          timeout: 1800000
