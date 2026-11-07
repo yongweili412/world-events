@@ -328,10 +328,21 @@ def main():
         print(f"🌐 {ym}: 抓取逐日存档…", flush=True)
         rows = fetch_month(y, mo)
         if not rows:
-            print(f"  ⚠️ {ym} 无数据，跳过", flush=True)
+            # 早年维基逐日页可能整月不存在（无源数据 ≠ 翻译失败）。
+            # 单独记入 empty_months，验收时跳过，避免被当成"产出不达标"中断整条流水线。
+            print(f"  ⚠️ {ym} 无源数据，跳过并记录 empty_months", flush=True)
             p["done_months"].append(ym)
+            p.setdefault("empty_months", [])
+            if ym not in p["empty_months"]:
+                p["empty_months"].append(ym)
             save_progress(p)
             continue
+
+        # 记录源条目数：验收时用「入库数 vs 源数」判断翻译是否整体失败，
+        # 比固定阈值可靠（早年月份源数据本来就少，不该被误判）。
+        p.setdefault("source_counts", {})
+        p["source_counts"][ym] = len(rows)
+        save_progress(p)
 
         # 并发翻译（6 路并发，约 5 倍提速）
         cn = translate_all(rows, workers=1)

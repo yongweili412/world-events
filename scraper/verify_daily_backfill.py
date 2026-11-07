@@ -7,15 +7,51 @@ run 显示 success 但每月只剩 9-20 条（正常 100-500 条）。
 可接入 workflow 步骤实现"产出不达标即失败告警"。
 
 用法：python scraper/verify_daily_backfill.py [最低条数阈值，默认 50]
+
+阈值按年份分层（2026-11-06）：
+  维基 Portal:Current_events 的逐日页在 2008 年前本身就很稀疏（一个月常只有十几条），
+  统一用 50 会把"数据本来就少"误判成"翻译静默失败"，进而中断 job、数据不落库。
+  故 2008 年前用 EARLY_MIN（默认 10），2008 年起仍用 50——真失败（0-5 条）两种情况都会被抓。
 """
 import collections
 import json
 import sys
 
-MIN_PER_MONTH = int(sys.argv[1]) if len(sys.argv) > 1 else 50
+DEFAULT_MIN_PER_MONTH = 50
+MIN_PER_MONTH = DEFAULT_MIN_PER_MONTH   # 运行期可被命令行参数覆盖（见 main）
+EARLY_MIN = 10          # 2008 年前逐日页稀疏，降低阈值避免误报
+EARLY_UNTIL = 2008      # 不含该年
+MIN_OUTPUT_RATIO = 0.5  # 有源条目数时，入库数至少达到源的 50%（翻译整体失败通常只剩 0-20%）
+
+
+def _parse_min_per_month(argv):
+    """安全解析首个参数；非数字时回退默认值。
+
+    不能写成模块级 `int(sys.argv[1])`：被 pytest 等工具 import 时 argv 是工具自己的参数，
+    会直接 ValueError 导致整组测试无法收集（2026-11-06 修复）。
+    """
+    if len(argv) > 1:
+        try:
+            return int(argv[1])
+        except ValueError:
+            pass
+    return DEFAULT_MIN_PER_MONTH
+
+
+def threshold_for(ym: str) -> int:
+    """按月所属年份返回达标阈值。
+
+    只认 'YYYY-MM' 这种 4 位年份；'99'、'abc'、None 等畸形输入一律回退常规阈值，
+    避免把 2 位数字误当成年份而放宽标准。
+    """
+    if not isinstance(ym, str) or len(ym) < 4 or not ym[:4].isdigit():
+        return MIN_PER_MONTH
+    return EARLY_MIN if int(ym[:4]) < EARLY_UNTIL else MIN_PER_MONTH
 
 
 def main():
+    global MIN_PER_MONTH
+    MIN_PER_MONTH = _parse_min_per_month(sys.argv)
     ev = json.load(open("data/events.json", encoding="utf-8"))
     daily = [e for e in ev if any("当日新闻存档" in (s.get("name") or "") for s in (e.get("sources") or []))]
     cnt = collections.Counter(e["date"][:7] for e in daily)
@@ -28,27 +64,41 @@ def main():
     try:
         prog = json.load(open("data/backfill_daily_progress.json", encoding="utf-8"))
         done = set(prog.get("done_months", []))
+        empty = set(prog.get("empty_months", []))   # 无源数据的月份，不计入不达标
+        src = prog.get("source_counts", {}) or {}   # 各月源条目数，用于相对校验
     except Exception:
-        done = set()
+        done, empty, src = set(), set(), {}
 
-    print(f"验收范围: {years} | 已完成月份: {len(done)} | 逐日事件合计: {len(daily)}")
+    print(f"验收范围: {years} | 已完成月份: {len(done)} | 无源数据: {len(empty)} | 逐日事件合计: {len(daily)}")
+    print(f"阈值: {EARLY_UNTIL} 年前 ≥{EARLY_MIN} 条/月，{EARLY_UNTIL} 年起 ≥{MIN_PER_MONTH} 条/月")
     problems = []
     for y in years:
         for m in range(1, 13):
             ym = f"{y}-{m:02d}"
             if ym not in done:
                 continue  # 未标记完成的不算问题（可能还没跑）
+            if ym in empty:
+                continue  # 该月维基无源数据，属正常，不算产出异常
             n = cnt.get(ym, 0)
-            if n < MIN_PER_MONTH:
-                problems.append((ym, n))
+            s = src.get(ym)
+            if isinstance(s, int) and s > 0:
+                # 相对校验优先：入库数应达到源条目的一定比例，
+                # 这样早年稀疏月份（源本来只有几条）不会被误判。
+                need = max(1, int(s * MIN_OUTPUT_RATIO))
+                reason = f"应 ≥{need}（源 {s} 条，入库率 {n/s:.0%}，要求 ≥{MIN_OUTPUT_RATIO:.0%}）"
+            else:
+                need = threshold_for(ym)
+                reason = f"应 ≥{need}（按年份阈值，无源条目记录）"
+            if n < need:
+                problems.append((ym, n, reason))
 
     if problems:
-        print(f"\n⚠️ {len(problems)} 个已标记完成的月份产出异常（<{MIN_PER_MONTH} 条）:")
-        for ym, n in problems:
-            print(f"  {ym}: {n} 条")
+        print(f"\n⚠️ {len(problems)} 个已标记完成的月份产出异常:")
+        for ym, n, reason in problems:
+            print(f"  {ym}: 实际 {n} 条，{reason}")
         print("\n可能原因：API 限流导致翻译静默失败 / 抓取失败。请查日志并按需重跑（从 progress 移除该月）。")
         sys.exit(1)
-    print(f"\n✅ 所有已完成月份产出达标（≥{MIN_PER_MONTH} 条/月）")
+    print(f"\n✅ 所有已完成月份产出达标（按年份分层阈值）")
 
 
 if __name__ == "__main__":
