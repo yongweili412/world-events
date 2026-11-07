@@ -279,11 +279,19 @@ def git_save_and_push(ym, progress=None):
             print(f"    💾 {ym} 已增量保存并推送", flush=True)
             return True
         run(["git", "fetch", "origin", "main"])
-        r2 = run(["git", "merge", "-X", "ours", "origin/main", "-m", "merge: 保留回填成果"])
-        if r2 is None or r2.returncode != 0:
-            run(["git", "checkout", "--ours", "."])
-            run(["git", "add", "-A"])
-            run(["git", "commit", "-m", "merge: 保留回填成果（冲突取本地）"])
+        # P1-5：禁用 -X ours（对 JSON 分片等于整文件取本地，会静默丢掉另一 agent 刚写的事件）。
+        # 与 workflow 层保持一致：普通 merge 留冲突 → 按事件 id 并集合并 → split 重建。
+        run(["git", "merge", "--no-commit", "--no-ff", "origin/main"])
+        run([sys.executable, "scraper/merge_shards.py"])
+        conflicted = run(["git", "diff", "--name-only", "--diff-filter=U"])
+        for line in ((conflicted.stdout if conflicted else "") or "").splitlines():
+            f = line.strip()
+            if not f or f.startswith("data/events/") and f.endswith(".json"):
+                continue  # 分片已由 merge_shards 并集合并
+            run(["git", "checkout", "--ours", f])
+            run(["git", "add", f])
+        run(["git", "add", "-A"])
+        run(["git", "commit", "-m", "merge: 按事件id并集合并分片（不丢远端成果）"])
         time.sleep(4)
     print(f"    ⚠️ {ym} 增量推送失败（后续月份会继续尝试）", flush=True)
     return False

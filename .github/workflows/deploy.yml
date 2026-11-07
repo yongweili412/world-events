@@ -119,3 +119,8 @@ jobs:
       - name: 部署到 GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          # 2026-11-07：发布包含 7357 个静态详情页 + 355 个月分片后，
+          # Pages 同步偶尔超过 action 默认 600 秒而报 "Timeout reached, aborting!"。
+          # 放宽到 30 分钟，避免"数据补好了、线上却没更新"。
+          timeout: 1800
