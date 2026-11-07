@@ -329,8 +329,12 @@ def main():
         return
     p = load_progress()
     months = []
-    if args[0] == "auto":
-        n = int(args[1]) if len(args) > 1 else 1
+    if args[0] in ("auto", "continuous"):
+        # continuous：取全部待补月份，靠 4 小时耗时保护自然截断，单个 job 连轴跑；
+        # 每月即时落库（git_save_and_push 内先 split），中途停不丢成果。
+        # auto N：仅取前 N 个月，保留给手动排错用。
+        continuous = args[0] == "continuous" or (len(args) > 1 and args[1] == "continuous")
+        n = int(args[1]) if (len(args) > 1 and str(args[1]).isdigit()) else 1
         years = list(range(1997, 2026))
         try:
             cfg = json.load(open("data/backfill_daily_targets.json", encoding="utf-8"))
@@ -340,10 +344,14 @@ def main():
             pass
         print("auto 目标年份:", years, flush=True)
         allm = [f"{y}-{m:02d}" for y in years for m in range(1, 13)]
-        months = [m for m in allm if m not in p["done_months"]][:n]
+        todo = [m for m in allm if m not in p["done_months"]]
+        months = todo if continuous else todo[:n]
+        if continuous:
+            print(f"continuous 模式：本次候选 {len(months)} 个月，"
+                  f"由 4 小时耗时保护截断，剩余月份下批继续", flush=True)
     else:
         months = args
-    print("待处理月份:", months, flush=True)
+    print("待处理月份:", months[:10], f"…共 {len(months)} 个", flush=True)
 
     import scraper as sp
     ev = sp.load_events()

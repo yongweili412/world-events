@@ -2,9 +2,10 @@ name: 逐日存档回填（重点年份细节）
 
 # 抓维基百科 Portal:Current_events 逐日页（每天 5-20 条当时新闻），
 # 比年度大事年表细得多。用法：
-#   months 填 "2008-01 2008-02" 指定月份；留空则 auto 模式按 count 取未完成月份。
-#   auto 模式的目标年份范围见 data/backfill_daily_targets.json（跑完自动停止）。
-# cron 每天自动推进 per_run 个月（值见 data/backfill_daily_targets.json，公开仓库 Actions 免费）。
+#   months 填 "2008-01 2008-02" 指定月份；留空则 continuous 模式连续推进。
+#   目标年份范围见 data/backfill_daily_targets.json（跑完自动停止）。
+# 2026-11-07：默认 continuous——单 job 连续补，由脚本内 4 小时耗时保护截断，
+# 每月即时落库（先 split 再提交），中途停不丢；每天 4 批 cron 接力，近似连轴转。
 # 全部 LLM 环节统一 flash 模型（配置见 scraper/llm_config.json）。
 on:
   schedule:
@@ -25,7 +26,7 @@ on:
         required: false
         default: ''
       count:
-        description: 'auto 模式处理月份数（留空=读 data/backfill_daily_targets.json 的 per_run）'
+        description: '固定处理月份数（留空=continuous 连续推进，推荐）'
         required: false
         default: ''
 
@@ -65,12 +66,17 @@ jobs:
           if [ -z "${{ github.event.inputs.months }}" ]; then
             # 每批月份数：手动输入优先，否则读 data/backfill_daily_targets.json 的 per_run
             # （此前这里硬编码 '3'，导致改 JSON 的 per_run 不生效——2026-11-06 修复）
+            # 2026-11-07：默认走 continuous——单 job 连续推进，
+            # 靠脚本内 4 小时耗时保护截断，每月即时落库，中途停不丢。
+            # 仅当手动显式填了 count 时才按固定月数跑（排错用）。
             N="${{ github.event.inputs.count }}"
-            if [ -z "$N" ]; then
-              N=$(python -c "import json;print(json.load(open('data/backfill_daily_targets.json',encoding='utf-8')).get('per_run',3))")
+            if [ -n "$N" ]; then
+              echo "手动指定月份数: $N"
+              python scraper/backfill_daily.py auto "$N"
+            else
+              echo "continuous 模式：连续推进直至 4 小时耗时保护或全部补完"
+              python scraper/backfill_daily.py continuous
             fi
-            echo "本次 auto 处理月份数: $N"
-            python scraper/backfill_daily.py auto "$N"
           else
             python scraper/backfill_daily.py ${{ github.event.inputs.months }}
           fi
