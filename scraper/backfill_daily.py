@@ -244,14 +244,31 @@ def _parse(resp_json, batch):
     return out
 
 
-def git_save_and_push(ym):
-    """每月跑完立即提交推送（长任务最后才 push 会因冲突/超时全丢，增量保存只丢最后一个月）"""
+def git_save_and_push(ym, progress=None):
+    """每月跑完立即落库+提交推送；仅当落库成功后才标记 done。
+
+    长任务最后才 push 会因冲突/超时全丢，故按月增量保存。
+    """
     import subprocess
     def run(args):
         try:
             return subprocess.run(args, capture_output=True, text=True, timeout=300)
         except Exception:
             return None
+
+    # 关键：工作副本 data/events.json 是 gitignore，入库真源是 data/events/*.json 分片。
+    # 必须先 split 再提交，否则当月事件只存在于 runner 的临时工作副本里，
+    # 后续任何一步失败都会让整月成果蒸发，而进度文件却已标记 done（2026-11-07 事故，831 条白跑）。
+    sp = run([sys.executable, "scraper/shard_events.py", "split"])
+    if sp is None or sp.returncode != 0:
+        print(f"    ❌ {ym} split 失败，暂不标记完成也不提交，避免数据丢失", flush=True)
+        return False
+
+    # 落盘成功后才记账：done_months 与分片在同一次提交里，保证「账货一致」
+    if progress is not None and ym not in progress["done_months"]:
+        progress["done_months"].append(ym)
+        save_progress(progress)
+
     run(["git", "config", "user.name", "github-actions[bot]"])
     run(["git", "config", "user.email", "41898282+github-actions[bot]@users.noreply.github.com"])
     run(["git", "add", "-A"])
@@ -323,7 +340,17 @@ def main():
     import scraper as sp
     ev = sp.load_events()
 
-    for ym in months:
+    # 耗时保护：workflow 有 timeout-minutes: 330（5.5h），且 build/split/commit 还要留时间。
+    # 每月跑完立即落库（见 git_save_and_push），所以中途停下不丢已完成月份的成果。
+    # 免费模型限流严重时单月可能 40+ 分钟，宁可少跑几个月，也不要整批被超时杀掉。
+    t_start = time.time()
+    MAX_RUN_SECONDS = 4 * 3600
+    for idx, ym in enumerate(months):
+        elapsed = time.time() - t_start
+        if idx > 0 and elapsed > MAX_RUN_SECONDS:
+            print(f"⏱ 已运行 {elapsed/60:.0f} 分钟，接近安全上限，本批剩余 "
+                  f"{len(months)-idx} 个月留给下一轮（已完成月份均已落库）", flush=True)
+            break
         y, mo = int(ym[:4]), int(ym[5:7])
         print(f"🌐 {ym}: 抓取逐日存档…", flush=True)
         rows = fetch_month(y, mo)
@@ -379,11 +406,12 @@ def main():
                 if s:
                     e["aiSummary"] = s
         sp.save_events(ev)
-        p["done_months"].append(ym)
-        save_progress(p)
         print(f"  ✅ {ym}: 翻译 {len(cn)}/{len(rows)} 条 → 新建 {after - before} | 库总量 {after}"
               f" | 带独立引用 {n_with_refs}/{len(cn)}", flush=True)
-        git_save_and_push(ym)
+        # 先 split+提交（真源落盘），成功后才标记 done，避免「货丢了账还在」
+        if not git_save_and_push(ym, p):
+            print(f"    ⚠️ {ym} 未落库，保留未完成状态，下轮重跑", flush=True)
+            continue
         time.sleep(2)
 
     print("DONE")

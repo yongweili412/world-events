@@ -53,8 +53,12 @@ def main():
     global MIN_PER_MONTH
     MIN_PER_MONTH = _parse_min_per_month(sys.argv)
     ev = json.load(open("data/events.json", encoding="utf-8"))
-    daily = [e for e in ev if any("当日新闻存档" in (s.get("name") or "") for s in (e.get("sources") or []))]
-    cnt = collections.Counter(e["date"][:7] for e in daily)
+    # 按月份统计该月全部事件，不再靠来源名过滤。
+    # 原因（2026-11-07 事故）：新回填事件若有独立引用，来源名是域名（如 bbc.co.uk），
+    # 只有少数无引用的才叫「当日新闻存档 YYYY-MM」。按旧口径只数到 51 条，
+    # 把实际入库的 831 条误判为「产出不达标」，导致后续 build/split/commit 全被跳过。
+    # 是否真失败由 source_counts 的相对校验判定（入库数 vs 源条目数）。
+    cnt = collections.Counter(e["date"][:7] for e in ev if e.get("date"))
 
     try:
         cfg = json.load(open("data/backfill_daily_targets.json", encoding="utf-8"))
@@ -69,7 +73,7 @@ def main():
     except Exception:
         done, empty, src = set(), set(), {}
 
-    print(f"验收范围: {years} | 已完成月份: {len(done)} | 无源数据: {len(empty)} | 逐日事件合计: {len(daily)}")
+    print(f"验收范围: {years} | 已完成月份: {len(done)} | 无源数据: {len(empty)} | 库中事件总数: {len(ev)}")
     print(f"阈值: {EARLY_UNTIL} 年前 ≥{EARLY_MIN} 条/月，{EARLY_UNTIL} 年起 ≥{MIN_PER_MONTH} 条/月")
     problems = []
     for y in years:
@@ -79,6 +83,13 @@ def main():
                 continue  # 未标记完成的不算问题（可能还没跑）
             if ym in empty:
                 continue  # 该月维基无源数据，属正常，不算产出异常
+            # 账货一致性：标记 done 的月份，库里必须真的有该月数据。
+            # 2026-11-07 事故：进度记了 done，但 events.json 是 gitignore 工作副本，
+            # 真源分片没 split，runner 一销毁 831 条全丢——这里直接把"账有货无"拦下来。
+            n_month = cnt.get(ym, 0)
+            if n_month == 0:
+                problems.append((ym, 0, "已标记完成但库中该月 0 条（账货不一致，数据可能未落库）"))
+                continue
             n = cnt.get(ym, 0)
             s = src.get(ym)
             if isinstance(s, int) and s > 0:
