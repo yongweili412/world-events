@@ -70,10 +70,29 @@ def main():
         return 0
 
     # 2) 云端活跃任务（in_progress / queued / pending 都算"在跑或排队"）
+    #    但 queued/pending 卡住超过 STALE_MINUTES 分钟的（GitHub 并发组偶发僵死），
+    #    视为卡住并自动取消，否则守护会永远 SKIP、补全反而停摆。
+    STALE_MINUTES = 15
     try:
+        from datetime import datetime, timezone
         runs = _req(f"/repos/{REPO}/actions/workflows/{WF}/runs?per_page=8", tok=tok)
-        active = [r for r in runs.get("workflow_runs", [])
-                  if r["status"] in ("in_progress", "queued", "pending")]
+        now = datetime.now(timezone.utc)
+        active = []
+        for r in runs.get("workflow_runs", []):
+            if r["status"] not in ("in_progress", "queued", "pending"):
+                continue
+            created = datetime.fromisoformat(r["created_at"].replace("Z", "+00:00"))
+            age_min = (now - created).total_seconds() / 60
+            if r["status"] in ("queued", "pending") and age_min > STALE_MINUTES:
+                try:
+                    _req(f"/repos/{REPO}/actions/runs/{r['id']}/cancel",
+                         method="POST", tok=tok)
+                    print(f"STALE_CANCEL: 取消卡住 {age_min:.0f} 分钟的 run {r['id']}",
+                          flush=True)
+                except Exception as ce:
+                    print(f"STALE_CANCEL_FAIL: {r['id']} {type(ce).__name__}", flush=True)
+                continue
+            active.append(r)
     except Exception as e:
         print(f"GUARD_ERROR: 查询 run 失败 {type(e).__name__}: {e}", flush=True)
         return 1
