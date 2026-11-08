@@ -46,7 +46,11 @@ def _req(path, method="GET", payload=None, tok=None, timeout=40):
         h["Content-Type"] = "application/json"
     r = urllib.request.Request(API + path, data=data, headers=h, method=method)
     with urllib.request.urlopen(r, timeout=timeout) as f:
-        return json.load(f)
+        body = f.read()
+        # workflow_dispatch 成功返回 204 No Content（空 body），不能 json.load
+        if not body:
+            return {}
+        return json.loads(body)
 
 
 def main():
