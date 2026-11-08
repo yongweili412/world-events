@@ -99,19 +99,29 @@ class TestTierStructure(unittest.TestCase):
         self.assertEqual(tiers["performance"]["model"], "deepseek/deepseek-v4.1-flash")
 
 
+    @staticmethod
+    def _expected_chain():
+        """期望候选链：两档都可用时 free_promo 在前；free_promo 到期后只剩 deepseek。
+        （测试依赖 _expire_reason 判断，2026-11-30 免费档到期后本断言自动收窄，不会误报。）
+        """
+        tiers = LG._tier_table(LG._load_config())
+        free_expired = bool(LG._expire_reason(tiers["free_promo"])[0]) \
+            if "free_promo" in tiers else True
+        if free_expired:
+            return ["deepseek/deepseek-v4.1-flash"]
+        return ["qiniu/conatus-free", "deepseek/deepseek-v4.1-flash"]
+
     def test_chain_order_performance(self):
-        with patch.dict(os.environ, {"LLM_API_KEY_STEP": "s",
-                                     "LLM_API_KEY_ORCAROUTER": "o"}):
+        # 两档的 key_env 都是 LLM_API_KEY（qnaigc 网关共用密钥），
+        # 测试用假密钥即可——本组测试不联网、不发真实请求。
+        with patch.dict(os.environ, {"LLM_API_KEY": "sk-test-dummy"}):
             chain = LG.resolve_model_chain(scenario="performance")
-            self.assertEqual(chain[:2],
-                             ["qiniu/conatus-free", "deepseek/deepseek-v4.1-flash"])
+            self.assertEqual(chain, self._expected_chain())
 
     def test_chain_order_free_first(self):
-        with patch.dict(os.environ, {"LLM_API_KEY_STEP": "s",
-                                     "LLM_API_KEY_ORCAROUTER": "o"}):
+        with patch.dict(os.environ, {"LLM_API_KEY": "sk-test-dummy"}):
             chain = LG.resolve_model_chain(scenario="free_first")
-            self.assertEqual(chain[:2],
-                             ["qiniu/conatus-free", "deepseek/deepseek-v4.1-flash"])
+            self.assertEqual(chain, self._expected_chain())
 
     def test_missing_key_tier_skipped(self):
         """缺密钥的档位不得进入候选链（否则会发出注定失败的请求）。"""
