@@ -391,6 +391,17 @@ def main():
         cn = translate_all(rows, workers=1)
         print(f"    翻译完成 {len(cn)}/{len(rows)} 条", flush=True)
 
+        # 质量闸门（2026-11-08）：免费模型 ReadTimeout 会让翻译静默失败，
+        # 只翻出 1-9% 却照常入库并标记 done，形成「假完成」，之后永远不会被重跑。
+        # 这里在入库前拦下：成功率 <50% 就不落库、不记账，整月留给下一轮重跑。
+        # 阈值与 verify_daily_backfill.py 的 MIN_OUTPUT_RATIO 保持一致。
+        MIN_TRANSLATE_RATIO = 0.5
+        ratio = len(cn) / len(rows) if rows else 0
+        if ratio < MIN_TRANSLATE_RATIO:
+            print(f"    ⚠️ {ym} 翻译成功率仅 {ratio:.0%}（{len(cn)}/{len(rows)}），"
+                  f"疑似限流/超时导致静默失败；本轮不落库、不标记完成，留待重跑", flush=True)
+            continue
+
         # 入库
         new_items = []
         n_with_refs = 0
