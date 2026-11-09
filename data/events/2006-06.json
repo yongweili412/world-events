@@ -230,7 +230,27 @@
       }
     ],
     "relatedEvents": [],
-    "aiSummary": "德国联邦情报局声明，在美国以反恐战争名义正式通知德国之前16个月，该局已获悉哈立德·马斯里遭错捕一事。德国此前一直声称，在马斯里2004年5月回国前，对其中情局绑架及关押于阿富汗监狱一事并不知情。"
+    "aiSummary": "德国联邦情报局声明，在美国以反恐战争名义正式通知德国之前16个月，该局已获悉哈立德·马斯里遭错捕一事。德国此前一直声称，在马斯里2004年5月回国前，对其中情局绑架及关押于阿富汗监狱一事并不知情。",
+    "globalImpact": 70,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 56,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "来源仅维基月度存档页，缺独立佐证，待补证；证据等级 weak",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 50,
+      "evidenceStatus": "weak",
+      "needsEvidence": true,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "2d8b5596e341174d"
+    }
   },
   {
     "id": "evt_20060601_002",
@@ -268,7 +288,27 @@
         "text": "news.bbc.co.uk｜第16届世界经济论坛非洲会议在南非开普敦举行，来自非洲及世界各地的政商界代表与会，讨论非洲经济发展议题。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 45,
+    "socialImpact": 30,
+    "culturalImpact": 18,
+    "economicImpact": 82,
+    "technologyImpact": 20,
+    "memoryValue": 25,
+    "archiveValue": 63,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "03bd036ebe18b224"
+    }
   },
   {
     "id": "evt_20060601_003",
@@ -307,7 +347,27 @@
         "text": "cnn.com｜中国、法国、德国、俄罗斯、英国和美国就针对伊朗的一揽子激励与制裁方案达成一致，以回应伊朗核问题。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 92,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 42,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 72,
+    "eventType": "world",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合72，最强维度globalImpact=92）；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 70,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "bb03b7df762328a3"
+    }
   },
   {
     "id": "evt_20060601_004",
@@ -346,7 +406,27 @@
         "text": "guardian.co.uk｜美国陆军工程兵团发布报告，承认对2005年卡特里娜飓风过后新奥尔良大部分地区被淹的堤坝溃决负有责任。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 35,
+    "socialImpact": 55,
+    "culturalImpact": 18,
+    "economicImpact": 25,
+    "technologyImpact": 10,
+    "memoryValue": 40,
+    "archiveValue": 46,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；命中商业噪声词，已整体降权；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "a5cc309e1fda2c7a"
+    }
   },
   {
     "id": "evt_20060601_005",
@@ -384,7 +464,27 @@
         "text": "libertypost.org｜美国国土安全部透露将重新分配全国反恐资金，纽约和华盛顿经费被削减，奥马哈和洛杉矶等城市增加。纽约市长布隆伯格办公室抨击报告中称纽约无国家纪念物的说法。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 45,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 52,
+    "archiveValue": 45,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "6ce9e1ddc58ba485"
+    }
   },
   {
     "id": "evt_20060601_006",
@@ -422,7 +522,27 @@
         "text": "washingtonpost.com｜西班牙政府推翻对伊马德·亚尔卡斯参与2001年9月11日袭击阴谋的定罪，此前检察官承认相关证据不一致且几乎不存在。西班牙政府表示将在未来数日进一步说明。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 65,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 53,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "bed88da90abe1680"
+    }
   },
   {
     "id": "evt_20060601_007",
@@ -461,7 +581,27 @@
         "text": "cnn.com｜伊朗拒绝就本国核计划与美国进行谈判。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 60,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 49,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "d2c222a200eeb028"
+    }
   },
   {
     "id": "evt_20060601_008",
@@ -499,7 +639,27 @@
         "text": "agi.it｜意大利新任司法部长克莱门特·马斯特拉宣布，左翼武装人士阿德里亚诺·索弗里可能在年底前获得赦免。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 45,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 39,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "17ab5192df5ba953"
+    }
   },
   {
     "id": "evt_20060601_009",
@@ -537,7 +697,27 @@
         "text": "worldnetdaily.com｜美国特勤局在Great News Network查扣一批由Living Waters Publications印制的仿百万美元钞票福音传单，认为其可能构成伪造货"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 15,
+    "socialImpact": 45,
+    "culturalImpact": 20,
+    "economicImpact": 15,
+    "technologyImpact": 10,
+    "memoryValue": 25,
+    "archiveValue": 36,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "786a941d776114e2"
+    }
   },
   {
     "id": "evt_20060601_010",
@@ -576,7 +756,27 @@
       }
     ],
     "relatedEvents": [],
-    "aiSummary": "位于澳大利亚墨尔本的尤里卡塔外部工程完工，高297.2米、共91层，成为世界最高住宅楼，取代黄金海岸的Q1大厦。"
+    "aiSummary": "位于澳大利亚墨尔本的尤里卡塔外部工程完工，高297.2米、共91层，成为世界最高住宅楼，取代黄金海岸的Q1大厦。",
+    "globalImpact": 47,
+    "socialImpact": 25,
+    "culturalImpact": 18,
+    "economicImpact": 25,
+    "technologyImpact": 55,
+    "memoryValue": 30,
+    "archiveValue": 46,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；命中产业转型/现象级关键词，已豁免噪声惩罚并升级；证据等级 weak",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "weak",
+      "needsEvidence": true,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "a2c55d5f868a95a5"
+    }
   },
   {
     "id": "evt_20060601_011",
@@ -615,7 +815,27 @@
       }
     ],
     "relatedEvents": [],
-    "aiSummary": "肯尼亚举行第44次马达拉卡日庆祝活动，纪念该国获得内部自治。马达拉卡日在斯瓦希里语中意为自由日。"
+    "aiSummary": "肯尼亚举行第44次马达拉卡日庆祝活动，纪念该国获得内部自治。马达拉卡日在斯瓦希里语中意为自由日。",
+    "globalImpact": 12,
+    "socialImpact": 38,
+    "culturalImpact": 17,
+    "economicImpact": 12,
+    "technologyImpact": 8,
+    "memoryValue": 21,
+    "archiveValue": 30,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "来源仅维基月度存档页，缺独立佐证，待补证；命中商业噪声词，已整体降权；证据等级 weak",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 50,
+      "evidenceStatus": "weak",
+      "needsEvidence": true,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "f2ec54af8b9353fd"
+    }
   },
   {
     "id": "evt_20060602_001",
@@ -653,7 +873,27 @@
         "text": "newwest.net｜英国《独立报》报道，阿帕奇领袖杰罗尼莫的曾孙呼吁美国总统布什协助寻回其祖先遗骸。据称遗骸90多年前被包括布什祖父在内的一群学生盗走，用于耶鲁大学秘密社团骷髅会的"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 15,
+    "socialImpact": 45,
+    "culturalImpact": 20,
+    "economicImpact": 15,
+    "technologyImpact": 10,
+    "memoryValue": 25,
+    "archiveValue": 36,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "f3e138da454633f1"
+    }
   },
   {
     "id": "evt_20060602_002",
@@ -691,7 +931,27 @@
         "text": "news.bbc.co.uk｜英国警方在伦敦森林门开展反恐突袭行动，250名警察搜查一名23岁男子住所时开枪将其击伤，伤势无生命危险，事发时其家人就在现场。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 35,
+    "socialImpact": 45,
+    "culturalImpact": 20,
+    "economicImpact": 15,
+    "technologyImpact": 10,
+    "memoryValue": 25,
+    "archiveValue": 38,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "c093bd274a6535a3"
+    }
   },
   {
     "id": "evt_20060602_003",
@@ -729,7 +989,27 @@
         "text": "news.bbc.co.uk｜BBC播出一段视频，涉及美军2006年3月15日在伊拉克伊沙基镇实施的新一起被指屠杀事件。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 55,
+    "socialImpact": 50,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 15,
+    "memoryValue": 45,
+    "archiveValue": 48,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "9bb33b0428f5ed59"
+    }
   },
   {
     "id": "evt_20060602_004",
@@ -767,7 +1047,27 @@
         "text": "rollingstone.com｜小罗伯特·F·肯尼迪在《滚石》杂志撰文，指控乔治·W·布什及其共和党在2004年总统选举中存在大规模投票舞弊行为。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 45,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 39,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "c5ab1c111fbb04ea"
+    }
   },
   {
     "id": "evt_20060602_005",
@@ -806,7 +1106,27 @@
         "text": "washingtonpost.com｜中国、法国、德国、俄罗斯、英国和美国共同提出一揽子激励措施及可能的制裁方案，以促使伊朗暂停或放弃核开发计划。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 92,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 42,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 72,
+    "eventType": "world",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合72，最强维度globalImpact=92）；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 70,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "7da4bb060ed029d9"
+    }
   },
   {
     "id": "evt_20060602_006",
@@ -842,7 +1162,27 @@
         "text": "news.bbc.co.uk｜研究发现，女性生殖器切割会增加婴儿死亡率和分娩并发症风险。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 15,
+    "socialImpact": 45,
+    "culturalImpact": 20,
+    "economicImpact": 15,
+    "technologyImpact": 32,
+    "memoryValue": 25,
+    "archiveValue": 37,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "b86980de55c3fb46"
+    }
   },
   {
     "id": "evt_20060602_007",
@@ -880,7 +1220,27 @@
         "text": "voanews.com｜第13远征队宇航员帕维尔·维诺格拉多夫和杰弗里·威廉姆斯在国际空间站外度过六个多小时，完成延长维护太空行走任务。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 47,
+    "socialImpact": 25,
+    "culturalImpact": 18,
+    "economicImpact": 25,
+    "technologyImpact": 55,
+    "memoryValue": 30,
+    "archiveValue": 46,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "70c381e4149198b3"
+    }
   },
   {
     "id": "evt_20060603_002",
@@ -918,7 +1278,27 @@
         "text": "mercurynews.com｜巴基斯坦以影片含有关于耶稣的亵渎性内容为由，禁止上映电影《达芬奇密码》。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 15,
+    "socialImpact": 25,
+    "culturalImpact": 93,
+    "economicImpact": 15,
+    "technologyImpact": 10,
+    "memoryValue": 50,
+    "archiveValue": 71,
+    "eventType": "society_culture",
+    "decision": "KEEP",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "eeaf53603f0ea638"
+    }
   },
   {
     "id": "evt_20060603_003",
@@ -957,7 +1337,27 @@
         "text": "dailytimes.com.pk｜伊朗南部发生里氏5.2级强烈地震，拉姆坎村一名年轻女孩在地震中身亡。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 35,
+    "socialImpact": 73,
+    "culturalImpact": 18,
+    "economicImpact": 25,
+    "technologyImpact": 10,
+    "memoryValue": 40,
+    "archiveValue": 58,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "5def828731478c72"
+    }
   },
   {
     "id": "evt_20060603_004",
@@ -995,7 +1395,27 @@
         "text": "theage.com.au｜美国军方认定参与伊沙基事件的士兵无任何不当行为，该事件涉及11名伊拉克平民死亡。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 55,
+    "socialImpact": 50,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 15,
+    "memoryValue": 45,
+    "archiveValue": 48,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "9e2654b941756ce7"
+    }
   },
   {
     "id": "evt_20060603_005",
@@ -1035,7 +1455,27 @@
       }
     ],
     "relatedEvents": [],
-    "aiSummary": "伊朗总统艾哈迈迪内贾德表示不会仓促评判六国提出的核问题激励方案，同时坚持伊朗有权继续发展核技术。"
+    "aiSummary": "伊朗总统艾哈迈迪内贾德表示不会仓促评判六国提出的核问题激励方案，同时坚持伊朗有权继续发展核技术。",
+    "globalImpact": 60,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 49,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "来源仅维基月度存档页，缺独立佐证，待补证；证据等级 weak",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 50,
+      "evidenceStatus": "weak",
+      "needsEvidence": true,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "9d8fbaba3c123223"
+    }
   },
   {
     "id": "evt_20060603_006",
@@ -1074,7 +1514,27 @@
         "text": "scoop.co.nz｜人权观察公布视频，显示南苏丹副总统马沙尔贿赂圣灵抵抗军领导人科尼及其副手，以换取停止袭击南部苏丹平民。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 80,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 63,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "b4f72da1e09add49"
+    }
   },
   {
     "id": "evt_20060603_007",
@@ -1112,7 +1572,27 @@
         "text": "news.bbc.co.uk｜据俄罗斯和伊拉克官员消息，一名俄罗斯外交官在巴格达俄罗斯使馆附近遇袭身亡，另有四人被绑架。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 40,
+    "socialImpact": 45,
+    "culturalImpact": 20,
+    "economicImpact": 15,
+    "technologyImpact": 10,
+    "memoryValue": 25,
+    "archiveValue": 38,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "5c7a86017309d404"
+    }
   },
   {
     "id": "evt_20060603_008",
@@ -1150,7 +1630,27 @@
         "text": "chron.com｜黑山议会举行特别会议，宣布脱离塞尔维亚和黑山国家共同体独立。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 45,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 39,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "8b7ee19f95d1af4a"
+    }
   },
   {
     "id": "evt_20060603_009",
@@ -1188,7 +1688,27 @@
         "text": "cbc.ca｜加拿大皇家骑警宣布逮捕17名涉嫌策划多伦多地区恐怖袭击的嫌疑人，并查获三吨硝酸铵。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 45,
+    "socialImpact": 45,
+    "culturalImpact": 20,
+    "economicImpact": 15,
+    "technologyImpact": 10,
+    "memoryValue": 25,
+    "archiveValue": 38,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "d65ebf4063c1ec71"
+    }
   },
   {
     "id": "evt_20060603_010",
@@ -1227,7 +1747,27 @@
       }
     ],
     "relatedEvents": [],
-    "aiSummary": "捷克议会选举结果显示，各党派阵营之间席位分布持平，组阁前景不明。"
+    "aiSummary": "捷克议会选举结果显示，各党派阵营之间席位分布持平，组阁前景不明。",
+    "globalImpact": 45,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 39,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "来源仅维基月度存档页，缺独立佐证，待补证；证据等级 weak",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 50,
+      "evidenceStatus": "weak",
+      "needsEvidence": true,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "a0f8d515ffdcee3c"
+    }
   },
   {
     "id": "evt_20060603_011",
@@ -1265,7 +1805,27 @@
         "text": "worldnetdaily.com｜活水出版社创始人康福特表示，在无搜查令情况下拒绝交出剩余宣传单，此前美国特勤局扣押了其百万美元钞票造型的福音传单。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 15,
+    "socialImpact": 45,
+    "culturalImpact": 20,
+    "economicImpact": 15,
+    "technologyImpact": 10,
+    "memoryValue": 25,
+    "archiveValue": 36,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "43f9a49c0837d83f"
+    }
   },
   {
     "id": "evt_20060604_001",
@@ -1303,7 +1863,27 @@
         "text": "news.bbc.co.uk｜伊斯兰法院民兵从军阀联盟ARPCT成员手中攻占索马里首都摩加迪沙附近的巴拉德镇，交火造成至少15人死亡。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 80,
+    "socialImpact": 50,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 15,
+    "memoryValue": 45,
+    "archiveValue": 65,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "98940230d0d19f75"
+    }
   },
   {
     "id": "evt_20060605_001",
@@ -1342,7 +1922,27 @@
         "text": "edition.cnn.com｜欧盟外交政策高级代表索拉纳抵达德黑兰，就伊朗铀浓缩设施发展计划与伊朗政府进行会谈。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 85,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 66,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "81a4368cdee27449"
+    }
   },
   {
     "id": "evt_20060605_002",
@@ -1380,7 +1980,27 @@
         "text": "forbes.com｜伊斯兰法院联盟宣布，在与美国支持的世俗军阀联盟恢复和平与反恐联盟交战后，已控制索马里首都摩加迪沙。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 55,
+    "socialImpact": 50,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 15,
+    "memoryValue": 45,
+    "archiveValue": 48,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "f860518c6b60a232"
+    }
   },
   {
     "id": "evt_20060605_003",
@@ -1418,7 +2038,27 @@
         "text": "foxnews.com｜秘鲁阿普拉党候选人阿兰·加西亚在周日举行的第二轮选举中击败秘鲁联盟候选人奥良塔·乌马拉，再次当选总统。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 45,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 39,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "40dea99862cb4f37"
+    }
   },
   {
     "id": "evt_20060605_004",
@@ -1456,7 +2096,27 @@
         "text": "news.bbc.co.uk｜塞尔维亚确认塞尔维亚和黑山国家联盟正式解体，并宣布成为独立国家，标志原国家共同体终结。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 45,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 52,
+    "archiveValue": 45,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；命中产业转型/现象级关键词，已豁免噪声惩罚并升级；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "b186fa1e0aba7177"
+    }
   },
   {
     "id": "evt_20060605_005",
@@ -1496,7 +2156,27 @@
       }
     ],
     "relatedEvents": [],
-    "aiSummary": "澳大利亚呼吁东南亚国家增派军队和警察，协助平息东帝汶国内的社会动荡与暴力事件。"
+    "aiSummary": "澳大利亚呼吁东南亚国家增派军队和警察，协助平息东帝汶国内的社会动荡与暴力事件。",
+    "globalImpact": 80,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 63,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "来源仅维基月度存档页，缺独立佐证，待补证；证据等级 weak",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 50,
+      "evidenceStatus": "weak",
+      "needsEvidence": true,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "994b3d4062f6d05e"
+    }
   },
   {
     "id": "evt_20060606_001",
@@ -1534,7 +2214,27 @@
         "text": "cbc.ca｜多伦多警方在2006年多伦多恐怖主义案件中发现涉嫌阴谋，嫌疑人史蒂文·维卡什·钱德据称计划袭击加拿大议会大厦并刺杀总理斯蒂芬·哈珀。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 45,
+    "socialImpact": 45,
+    "culturalImpact": 20,
+    "economicImpact": 15,
+    "technologyImpact": 25,
+    "memoryValue": 25,
+    "archiveValue": 39,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "cec3ea1d6b7fc85a"
+    }
   },
   {
     "id": "evt_20060606_002",
@@ -1572,7 +2272,27 @@
         "text": "news.bbc.co.uk｜伊拉克卫生部数据显示，今年前五个月共有6025具平民遗体被送至巴格达中央太平间，反映当地暴力死亡情况。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 15,
+    "socialImpact": 45,
+    "culturalImpact": 20,
+    "economicImpact": 15,
+    "technologyImpact": 10,
+    "memoryValue": 25,
+    "archiveValue": 36,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "9a868964c9e85001"
+    }
   },
   {
     "id": "evt_20060606_003",
@@ -1612,7 +2332,27 @@
       }
     ],
     "relatedEvents": [],
-    "aiSummary": "伊拉克政府已请求联合国参与调查有关美国士兵涉嫌实施屠杀的事件，以查明相关指控。"
+    "aiSummary": "伊拉克政府已请求联合国参与调查有关美国士兵涉嫌实施屠杀的事件，以查明相关指控。",
+    "globalImpact": 92,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 71,
+    "eventType": "world",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合71，最强维度globalImpact=92）；证据等级 weak",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 55,
+      "evidenceStatus": "weak",
+      "needsEvidence": true,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "17793cd9dfe03406"
+    }
   },
   {
     "id": "evt_20060606_004",
@@ -1651,7 +2391,27 @@
       }
     ],
     "relatedEvents": [],
-    "aiSummary": "苏丹金戈威德武装人员在乍得戈兹贝达地区抢走350头牛，事件加剧两国边境地区紧张局势。"
+    "aiSummary": "苏丹金戈威德武装人员在乍得戈兹贝达地区抢走350头牛，事件加剧两国边境地区紧张局势。",
+    "globalImpact": 15,
+    "socialImpact": 45,
+    "culturalImpact": 20,
+    "economicImpact": 15,
+    "technologyImpact": 10,
+    "memoryValue": 25,
+    "archiveValue": 36,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "来源仅维基月度存档页，缺独立佐证，待补证；证据等级 weak",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 50,
+      "evidenceStatus": "weak",
+      "needsEvidence": true,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "f965a4dd7b0b3901"
+    }
   },
   {
     "id": "evt_20060606_005",
@@ -1690,7 +2450,27 @@
       }
     ],
     "relatedEvents": [],
-    "aiSummary": "叛军领导人蒂马内·埃尔迪米的武装从苏丹进入乍得蒂内市发动袭击，造成32人死亡、50人受伤，叛军一度控制该市后被乍得军方击退。"
+    "aiSummary": "叛军领导人蒂马内·埃尔迪米的武装从苏丹进入乍得蒂内市发动袭击，造成32人死亡、50人受伤，叛军一度控制该市后被乍得军方击退。",
+    "globalImpact": 75,
+    "socialImpact": 50,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 15,
+    "memoryValue": 45,
+    "archiveValue": 61,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "来源仅维基月度存档页，缺独立佐证，待补证；证据等级 weak",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 50,
+      "evidenceStatus": "weak",
+      "needsEvidence": true,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "a2359f76b9041f46"
+    }
   },
   {
     "id": "evt_20060606_006",
@@ -1728,7 +2508,27 @@
         "text": "bloomberg.com｜澳大利亚霍华德政府任命齐吉·斯威特科夫斯基领导委员会，就澳大利亚引进核能相关问题开展评估与咨询。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 25,
+    "socialImpact": 25,
+    "culturalImpact": 18,
+    "economicImpact": 25,
+    "technologyImpact": 55,
+    "memoryValue": 30,
+    "archiveValue": 44,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "c19d819dabe6b692"
+    }
   },
   {
     "id": "evt_20060606_007",
@@ -1767,7 +2567,27 @@
       }
     ],
     "relatedEvents": [],
-    "aiSummary": "末日题材影片《凶兆》于2006年6月6日上映，日期因与基督教中代表野兽的数字666相合而具宗教意味。该片为1976年同名电影的翻拍版。"
+    "aiSummary": "末日题材影片《凶兆》于2006年6月6日上映，日期因与基督教中代表野兽的数字666相合而具宗教意味。该片为1976年同名电影的翻拍版。",
+    "globalImpact": 15,
+    "socialImpact": 25,
+    "culturalImpact": 93,
+    "economicImpact": 15,
+    "technologyImpact": 10,
+    "memoryValue": 50,
+    "archiveValue": 71,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；证据等级 weak",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "weak",
+      "needsEvidence": true,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "a3774be6de1e0fec"
+    }
   },
   {
     "id": "evt_20060606_008",
@@ -1805,7 +2625,27 @@
         "text": "news.bbc.co.uk｜拥有伦敦希思罗、盖特威克和斯坦斯特德机场的BAA公司接受由西班牙费罗维亚尔集团牵头财团提出的约100亿英镑收购要约，该财团还包括魁北克公共雇员养老基金。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 30,
+    "socialImpact": 60,
+    "culturalImpact": 18,
+    "economicImpact": 82,
+    "technologyImpact": 20,
+    "memoryValue": 25,
+    "archiveValue": 64,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "a4aaa360910c4aa3"
+    }
   },
   {
     "id": "evt_20060606_009",
@@ -1843,7 +2683,27 @@
         "text": "newswire.co.nz｜蒂姆·塞尔温因煽动罪在奥克兰开始受审，成为新西兰80多年来首位被控煽动罪的人。案件引发对新西兰言论与政治表达法律边界的关注。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 15,
+    "socialImpact": 45,
+    "culturalImpact": 20,
+    "economicImpact": 15,
+    "technologyImpact": 10,
+    "memoryValue": 25,
+    "archiveValue": 36,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "0b6fab68af452255"
+    }
   },
   {
     "id": "evt_20060606_010",
@@ -1881,7 +2741,27 @@
         "text": "news.bbc.co.uk｜冰岛总理哈尔多尔·奥斯格里姆松因执政党在地方选举中表现不佳而辞职，外交部长盖尔·哈尔德接任总理职务。政权交接在选举失利后迅速完成。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 82,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 64,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "485b6aa5052f6ffd"
+    }
   },
   {
     "id": "evt_20060606_011",
@@ -1919,7 +2799,27 @@
         "text": "usatoday.com｜在持续进行的巴尔科类固醇调查中，亚利桑那响尾蛇队后援投手贾森·格里姆斯利的住宅被搜查。格里姆斯利次日请求并获球队无条件释放。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 20,
+    "socialImpact": 25,
+    "culturalImpact": 50,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 45,
+    "archiveValue": 42,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "89f97ff0df1f8378"
+    }
   },
   {
     "id": "evt_20060606_012",
@@ -1958,7 +2858,27 @@
       }
     ],
     "relatedEvents": [],
-    "aiSummary": "撒旦教会在洛杉矶举行40周年纪念高等弥撒，来自9个国家的撒旦教徒聚集庆祝。活动为公开宗教集会，吸引媒体关注。"
+    "aiSummary": "撒旦教会在洛杉矶举行40周年纪念高等弥撒，来自9个国家的撒旦教徒聚集庆祝。活动为公开宗教集会，吸引媒体关注。",
+    "globalImpact": 12,
+    "socialImpact": 21,
+    "culturalImpact": 51,
+    "economicImpact": 12,
+    "technologyImpact": 8,
+    "memoryValue": 42,
+    "archiveValue": 41,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "来源仅维基月度存档页，缺独立佐证，待补证；命中商业噪声词，已整体降权；证据等级 weak",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 50,
+      "evidenceStatus": "weak",
+      "needsEvidence": true,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "8ccc3ea648609364"
+    }
   },
   {
     "id": "evt_20060606_013",
@@ -1996,7 +2916,27 @@
         "text": "mmo-population.com｜Jagex旗下大型多人在线角色扮演游戏《RuneScape》出现严重漏洞，部分玩家利用漏洞攻击其他无防御玩家，造成大规模角色死亡，被称为法尔多尔大屠杀。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 25,
+    "socialImpact": 25,
+    "culturalImpact": 40,
+    "economicImpact": 25,
+    "technologyImpact": 55,
+    "memoryValue": 30,
+    "archiveValue": 46,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "738473e8350ae36f"
+    }
   },
   {
     "id": "evt_20060607_002",
@@ -2035,7 +2975,27 @@
         "text": "aftenposten.no｜挪威特罗姆斯郡北部发生陨石撞击事件，当地居民将爆炸声比作广岛核爆。撞击地点看似荒无人烟，未报告建筑损坏或人员伤亡。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 65,
+    "socialImpact": 55,
+    "culturalImpact": 18,
+    "economicImpact": 25,
+    "technologyImpact": 10,
+    "memoryValue": 40,
+    "archiveValue": 54,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "5e1e68de78732c60"
+    }
   },
   {
     "id": "evt_20060607_003",
@@ -2073,7 +3033,27 @@
         "text": "abcnews.go.com｜美国参议院就禁止同性婚姻的宪法修正案进行表决，结果为49票赞成、48票反对，未达到结束辩论所需五分之三多数，更远低于通过所需三分之二多数。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 45,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 39,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "8c0735dcb34b021c"
+    }
   },
   {
     "id": "evt_20060607_004",
@@ -2111,7 +3091,27 @@
         "text": "english.aljazeera.net｜叙利亚军事法院以煽动外国入侵及与以色列接触等指控，向前副总统阿卜杜勒·哈利姆·卡达姆发出逮捕令。另一军事法院判处知名亲民主、亲库尔德博主穆罕默德·加尼姆6个月监"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 70,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 56,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "1bdff2d66a953858"
+    }
   },
   {
     "id": "evt_20060607_005",
@@ -2150,7 +3150,27 @@
         "text": "washingtonpost.com｜瑞士调查员迪克·马蒂得出结论，有严重迹象显示美国中情局在波兰和罗马尼亚运营针对基地组织嫌疑人的秘密监狱，并称多个欧洲国家当局积极参与这些非法活动，其他国家则知情"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 67,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 54,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；命中商业噪声词，已整体降权；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "d0fab702a08527e6"
+    }
   },
   {
     "id": "evt_20060608_001",
@@ -2188,7 +3208,27 @@
         "text": "theregister.co.uk｜希腊科学家宣布在安提基特拉机械上发现此前隐藏的古希腊文字，该装置被认为是世界上最早的模拟计算机之一，这一发现有助于进一步了解其构造和用途。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 40,
+    "socialImpact": 25,
+    "culturalImpact": 18,
+    "economicImpact": 25,
+    "technologyImpact": 70,
+    "memoryValue": 30,
+    "archiveValue": 55,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "2bf0cdcd23f3741f"
+    }
   },
   {
     "id": "evt_20060608_002",
@@ -2227,7 +3267,27 @@
         "text": "news.bbc.co.uk｜乌干达反政府武装上帝抵抗军代表团抵达苏丹朱巴，将与乌干达政府举行和平谈判，谈判由南苏丹副总统里克·马沙尔居中调解。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 60,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 49,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "41ad1ac9b5e6a9b1"
+    }
   },
   {
     "id": "evt_20060608_003",
@@ -2265,7 +3325,27 @@
         "text": "abcnews.go.com｜28岁的美军少尉埃伦·沃塔达公开拒绝前往伊拉克服役，称此举将使他成为战争罪行的参与者，其表态引发对伊拉克战争合法性的争议。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 80,
+    "socialImpact": 50,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 15,
+    "memoryValue": 45,
+    "archiveValue": 65,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "90e1effd28ef3280"
+    }
   },
   {
     "id": "evt_20060608_004",
@@ -2303,7 +3383,27 @@
         "text": "news.bbc.co.uk｜伊拉克总理努里·马利基填补内阁最后空缺职位，任命卡迪尔·奥贝迪为国防部长、贾瓦德·布拉尼为内政部长，完成新政府组建。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 45,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 39,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "00ce4e7ffbb1b11d"
+    }
   },
   {
     "id": "evt_20060608_005",
@@ -2342,7 +3442,27 @@
         "text": "hindustantimes.com｜巴林前驻法国大使、该国首批执业女律师之一哈亚·拉希德·阿勒哈利法当选第六十一届联合国大会主席，成为担任该职位的又一位女性。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 100,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 76,
+    "eventType": "world",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合76，最强维度globalImpact=100）；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 70,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "c9a58bb969652318"
+    }
   },
   {
     "id": "evt_20060608_006",
@@ -2380,7 +3500,27 @@
         "text": "news.bbc.co.uk｜英国布里斯托尔布罗德米德地区发现一枚疑似二战时期德国未爆炸弹，该区域随即被临时封锁，以便拆弹人员进行处理。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 45,
+    "socialImpact": 65,
+    "culturalImpact": 20,
+    "economicImpact": 15,
+    "technologyImpact": 25,
+    "memoryValue": 25,
+    "archiveValue": 53,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "e841ef4d3854ec1c"
+    }
   },
   {
     "id": "evt_20060608_007",
@@ -2419,7 +3559,27 @@
       }
     ],
     "relatedEvents": [],
-    "aiSummary": "微软公司宣布向公众开放Windows Vista Beta 2测试版本的下载，供用户体验和测试这一新一代操作系统。"
+    "aiSummary": "微软公司宣布向公众开放Windows Vista Beta 2测试版本的下载，供用户体验和测试这一新一代操作系统。",
+    "globalImpact": 21,
+    "socialImpact": 21,
+    "culturalImpact": 15,
+    "economicImpact": 21,
+    "technologyImpact": 46,
+    "memoryValue": 25,
+    "archiveValue": 37,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "来源仅维基月度存档页，缺独立佐证，待补证；命中商业噪声词，已整体降权；证据等级 weak",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 50,
+      "evidenceStatus": "weak",
+      "needsEvidence": true,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "ef2494cfea21acd4"
+    }
   },
   {
     "id": "evt_20060608_008",
@@ -2458,7 +3618,27 @@
       }
     ],
     "relatedEvents": [],
-    "aiSummary": "马来西亚前总理马哈蒂尔·穆罕默德公开指责其继任者阿卜杜拉·艾哈迈德·巴达维背叛信任，这是他对巴达维政府迄今最严厉的批评。"
+    "aiSummary": "马来西亚前总理马哈蒂尔·穆罕默德公开指责其继任者阿卜杜拉·艾哈迈德·巴达维背叛信任，这是他对巴达维政府迄今最严厉的批评。",
+    "globalImpact": 45,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 39,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "来源仅维基月度存档页，缺独立佐证，待补证；证据等级 weak",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 50,
+      "evidenceStatus": "weak",
+      "needsEvidence": true,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "be7dd3f090442cc0"
+    }
   },
   {
     "id": "evt_20060608_009",
@@ -2497,7 +3677,27 @@
       }
     ],
     "relatedEvents": [],
-    "aiSummary": "美国众议院表决明确否决网络中立概念，相关立法在国会遇阻，引发关于互联网服务公平与监管的持续争论。"
+    "aiSummary": "美国众议院表决明确否决网络中立概念，相关立法在国会遇阻，引发关于互联网服务公平与监管的持续争论。",
+    "globalImpact": 25,
+    "socialImpact": 25,
+    "culturalImpact": 18,
+    "economicImpact": 25,
+    "technologyImpact": 55,
+    "memoryValue": 30,
+    "archiveValue": 44,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "来源仅维基月度存档页，缺独立佐证，待补证；证据等级 weak",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 50,
+      "evidenceStatus": "weak",
+      "needsEvidence": true,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "437822dec1257b78"
+    }
   },
   {
     "id": "evt_20060608_010",
@@ -2536,7 +3736,27 @@
       }
     ],
     "relatedEvents": [],
-    "aiSummary": "NBA总决赛第一场，达拉斯小牛队以90比80击败迈阿密热火队，在七场四胜制系列赛中取得领先。"
+    "aiSummary": "NBA总决赛第一场，达拉斯小牛队以90比80击败迈阿密热火队，在七场四胜制系列赛中取得领先。",
+    "globalImpact": 20,
+    "socialImpact": 25,
+    "culturalImpact": 50,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 45,
+    "archiveValue": 42,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "来源仅维基月度存档页，缺独立佐证，待补证；证据等级 weak",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 50,
+      "evidenceStatus": "weak",
+      "needsEvidence": true,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "c6b6ed1c1136b14e"
+    }
   },
   {
     "id": "evt_20060609_001",
@@ -2575,7 +3795,27 @@
         "text": "ynetnews.com｜加沙地带一处人群密集的海滩发生爆炸，七名巴勒斯坦平民身亡，其中包括妇女和三名儿童，爆炸原因引发激烈国际争论。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 70,
+    "socialImpact": 55,
+    "culturalImpact": 18,
+    "economicImpact": 25,
+    "technologyImpact": 10,
+    "memoryValue": 40,
+    "archiveValue": 58,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "70c5c585f31988aa"
+    }
   },
   {
     "id": "evt_20060609_002",
@@ -2614,7 +3854,27 @@
       }
     ],
     "relatedEvents": [],
-    "aiSummary": "迪士尼与皮克斯合作推出的动画电影《赛车总动员》在全球多数地区上映，英国等地延后放映。"
+    "aiSummary": "迪士尼与皮克斯合作推出的动画电影《赛车总动员》在全球多数地区上映，英国等地延后放映。",
+    "globalImpact": 30,
+    "socialImpact": 25,
+    "culturalImpact": 93,
+    "economicImpact": 15,
+    "technologyImpact": 10,
+    "memoryValue": 50,
+    "archiveValue": 72,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；证据等级 weak",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "weak",
+      "needsEvidence": true,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "8b52064981235eb7"
+    }
   },
   {
     "id": "evt_20060609_003",
@@ -2652,7 +3912,27 @@
         "text": "news.bbc.co.uk｜2006年国际足联世界杯在慕尼黑世界杯体育场开幕，32支球队将展开为期一个月的角逐。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 42,
+    "socialImpact": 25,
+    "culturalImpact": 72,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 45,
+    "archiveValue": 59,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "42e1343572febfc5"
+    }
   },
   {
     "id": "evt_20060609_004",
@@ -2690,7 +3970,27 @@
         "text": "news.bbc.co.uk｜英国布里斯托尔布罗德米德发现的可疑二战遗留炸弹经检查实为一块钢筋混凝土，有关区域的警报解除。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 15,
+    "socialImpact": 45,
+    "culturalImpact": 20,
+    "economicImpact": 15,
+    "technologyImpact": 25,
+    "memoryValue": 25,
+    "archiveValue": 37,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "4add4981d4774d3b"
+    }
   },
   {
     "id": "evt_20060609_005",
@@ -2729,7 +4029,27 @@
       }
     ],
     "relatedEvents": [],
-    "aiSummary": "泰国举行活动庆祝国王拉玛九世普密蓬登基六十周年，系列庆典由此展开。"
+    "aiSummary": "泰国举行活动庆祝国王拉玛九世普密蓬登基六十周年，系列庆典由此展开。",
+    "globalImpact": 12,
+    "socialImpact": 21,
+    "culturalImpact": 51,
+    "economicImpact": 12,
+    "technologyImpact": 8,
+    "memoryValue": 42,
+    "archiveValue": 41,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "来源仅维基月度存档页，缺独立佐证，待补证；命中商业噪声词，已整体降权；证据等级 weak",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 50,
+      "evidenceStatus": "weak",
+      "needsEvidence": true,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "c43dc789be4993df"
+    }
   },
   {
     "id": "evt_20060610_001",
@@ -2767,7 +4087,27 @@
         "text": "chron.com｜古巴关塔那摩湾拘留营三名囚犯自杀身亡，其行为被指抗议该营地受国际批评的拘押条件，人权组织表示关切。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 50,
+    "socialImpact": 45,
+    "culturalImpact": 20,
+    "economicImpact": 15,
+    "technologyImpact": 10,
+    "memoryValue": 25,
+    "archiveValue": 42,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "d39dde6f40e401fa"
+    }
   },
   {
     "id": "evt_20060610_002",
@@ -2817,7 +4157,27 @@
         "text": "cnn.com｜2006年大西洋飓风季首个获命名的风暴阿尔贝托由第一号热带低气压发展形成。美国国家飓风中心与媒体报道确认了这一动向，气象部门持续监测其路径。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 35,
+    "socialImpact": 55,
+    "culturalImpact": 18,
+    "economicImpact": 25,
+    "technologyImpact": 10,
+    "memoryValue": 55,
+    "archiveValue": 47,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "51e36868977a23c3"
+    }
   },
   {
     "id": "evt_20060610_003",
@@ -2855,7 +4215,27 @@
         "text": "theglobeandmail.com｜加沙地带七名平民身亡后，哈马斯武装派别宣布终止与以色列的停火，并向以色列城镇发射数十枚火箭弹，造成平民受伤。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 80,
+    "socialImpact": 50,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 40,
+    "memoryValue": 45,
+    "archiveValue": 66,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "868022d5a7e87f26"
+    }
   },
   {
     "id": "evt_20060610_004",
@@ -2894,7 +4274,27 @@
       }
     ],
     "relatedEvents": [],
-    "aiSummary": "新西兰援引移民法第72条国家安全条款，将一名与2001年美国九一一袭击有关的也门男子驱逐出境。该条款须经总督同意且不得上诉，这是该条款第二次被使用。"
+    "aiSummary": "新西兰援引移民法第72条国家安全条款，将一名与2001年美国九一一袭击有关的也门男子驱逐出境。该条款须经总督同意且不得上诉，这是该条款第二次被使用。",
+    "globalImpact": 35,
+    "socialImpact": 65,
+    "culturalImpact": 20,
+    "economicImpact": 15,
+    "technologyImpact": 10,
+    "memoryValue": 25,
+    "archiveValue": 51,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "来源仅维基月度存档页，缺独立佐证，待补证；证据等级 weak",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 50,
+      "evidenceStatus": "weak",
+      "needsEvidence": true,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "7444959d26adc568"
+    }
   },
   {
     "id": "evt_20060611_001",
@@ -2932,7 +4332,27 @@
         "text": "timesonline.co.uk｜伊拉克目击者声称，阿布·穆萨布·扎卡维在身亡前曾短暂遭美军审讯，并被踢中胸部。相关说法由英国《星期日泰晤士报》报道，美方未予证实。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 55,
+    "socialImpact": 50,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 15,
+    "memoryValue": 45,
+    "archiveValue": 48,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "908bb74611e000c8"
+    }
   },
   {
     "id": "evt_20060612_001",
@@ -2970,7 +4390,27 @@
         "text": "abcnews.go.com｜据报道，法塔赫活动人士袭击巴勒斯坦议会大楼，纵火焚烧四楼并向建筑开枪射击。事件加剧了巴勒斯坦内部派系紧张，暂无人员伤亡的详细报道。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 75,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 59,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；命中商业噪声词，已整体降权；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "a63cd0ed18f674e2"
+    }
   },
   {
     "id": "evt_20060612_002",
@@ -3010,7 +4450,27 @@
       }
     ],
     "relatedEvents": [],
-    "aiSummary": "热带风暴阿尔贝托威胁袭击美国佛罗里达州西北海岸，飓风警告发布，州长杰布·布什宣布进入紧急状态，低洼地区被下令强制疏散。"
+    "aiSummary": "热带风暴阿尔贝托威胁袭击美国佛罗里达州西北海岸，飓风警告发布，州长杰布·布什宣布进入紧急状态，低洼地区被下令强制疏散。",
+    "globalImpact": 55,
+    "socialImpact": 55,
+    "culturalImpact": 18,
+    "economicImpact": 25,
+    "technologyImpact": 10,
+    "memoryValue": 40,
+    "archiveValue": 48,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "来源仅维基月度存档页，缺独立佐证，待补证；命中商业噪声词，已整体降权；证据等级 weak",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 50,
+      "evidenceStatus": "weak",
+      "needsEvidence": true,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "2a3a3124227a4ce5"
+    }
   },
   {
     "id": "evt_20060612_003",
@@ -3050,7 +4510,27 @@
       }
     ],
     "relatedEvents": [],
-    "aiSummary": "阿尔巴尼亚签署《稳定与联系协议》，这是该国迈向加入欧洲联盟的第一步。协议由美国之音报道，被视为阿尔巴尼亚欧洲一体化进程的重要节点。"
+    "aiSummary": "阿尔巴尼亚签署《稳定与联系协议》，这是该国迈向加入欧洲联盟的第一步。协议由美国之音报道，被视为阿尔巴尼亚欧洲一体化进程的重要节点。",
+    "globalImpact": 60,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 49,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "来源仅维基月度存档页，缺独立佐证，待补证；证据等级 weak",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 50,
+      "evidenceStatus": "weak",
+      "needsEvidence": true,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "3fd3d7de3b1c16f6"
+    }
   },
   {
     "id": "evt_20060612_004",
@@ -3088,7 +4568,27 @@
         "text": "washingtonpost.com｜美国官员表示，朝鲜正计划试射大浦洞二号洲际弹道导弹，该导弹可能具备打击美国本土的能力。相关消息由路透社报道，地区局势引发关注。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 80,
+    "socialImpact": 50,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 15,
+    "memoryValue": 45,
+    "archiveValue": 65,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "583e01e78cc797df"
+    }
   },
   {
     "id": "evt_20060612_005",
@@ -3127,7 +4627,27 @@
         "text": "edition.cnn.com｜以色列一列往返特拉维夫与海法的火车在内坦亚附近平交道口与卡车相撞，造成五人死亡、约八十人受伤。九天后恰逢类似事故一周年。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 35,
+    "socialImpact": 73,
+    "culturalImpact": 18,
+    "economicImpact": 25,
+    "technologyImpact": 10,
+    "memoryValue": 40,
+    "archiveValue": 58,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "dd459ca761b502f6"
+    }
   },
   {
     "id": "evt_20060612_006",
@@ -3165,7 +4685,27 @@
         "text": "haaretz.com｜一名巴勒斯坦狙击手在耶路撒冷附近443号公路开枪，造成一人死亡、四人受伤。据报道，所有受害者均为居住在耶路撒冷的巴勒斯坦人。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 75,
+    "socialImpact": 50,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 15,
+    "memoryValue": 45,
+    "archiveValue": 61,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "71eff0f02d79b8bd"
+    }
   },
   {
     "id": "evt_20060612_007",
@@ -3204,7 +4744,27 @@
         "text": "nzherald.co.nz｜新西兰奥克兰遭遇严重风暴袭击后发生大面积停电，持续数小时。多家媒体将此次停电与1998年奥克兰电力危机相提并论。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 55,
+    "socialImpact": 82,
+    "culturalImpact": 18,
+    "economicImpact": 25,
+    "technologyImpact": 10,
+    "memoryValue": 40,
+    "archiveValue": 66,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "abfd064b954fa744"
+    }
   },
   {
     "id": "evt_20060613_001",
@@ -3242,7 +4802,27 @@
         "text": "chicagotribune.com｜美国最高法院在希尔诉麦克多诺案中作出裁决，允许死刑犯就注射死刑是否符合宪法提出司法挑战，为相关诉讼打开通道。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 45,
+    "socialImpact": 45,
+    "culturalImpact": 38,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 40,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "9a65cec756dca022"
+    }
   },
   {
     "id": "evt_20060613_002",
@@ -3280,7 +4860,27 @@
         "text": "washingtonpost.com｜美国最高法院在豪斯诉贝尔案中裁定，死刑犯在定罪后上诉阶段可以提交新的DNA法医证据，为翻案提供法律依据。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 45,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 39,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "9275895354f9c7f5"
+    }
   },
   {
     "id": "evt_20060613_003",
@@ -3318,7 +4918,27 @@
         "text": "cnn.com｜几内亚教师因抗议低薪举行全国罢工，年末考试被取消，首都科纳克里爆发大规模骚乱，造成16人死亡。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 45,
+    "socialImpact": 45,
+    "culturalImpact": 20,
+    "economicImpact": 15,
+    "technologyImpact": 10,
+    "memoryValue": 47,
+    "archiveValue": 41,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "cf062741d64a841f"
+    }
   },
   {
     "id": "evt_20060613_004",
@@ -3357,7 +4977,27 @@
         "text": "msnbc.msn.com｜美国总统布什对伊拉克进行五小时突访，会见新任总理马利基、总统塔拉巴尼及政治领袖和驻伊美军，访问全程保密。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 60,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 49,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "5d7e9fe0d68df0c3"
+    }
   },
   {
     "id": "evt_20060613_005",
@@ -3395,7 +5035,27 @@
         "text": "ynetnews.com｜以色列调查称加沙海滩爆炸由埋设爆炸装置引起，而非巴方所指的炮击。事件致七名巴勒斯坦平民死亡，联合国秘书长安南收回先前质疑言论。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 100,
+    "socialImpact": 50,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 15,
+    "memoryValue": 45,
+    "archiveValue": 78,
+    "eventType": "world",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合78，最强维度globalImpact=100）；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 70,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "ee08393853dca717"
+    }
   },
   {
     "id": "evt_20060613_006",
@@ -3433,7 +5093,27 @@
         "text": "cnn.com｜伊拉克总理办公室表示，约七万名联军部队开始在巴格达对武装分子展开大规模清剿行动。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 55,
+    "socialImpact": 50,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 15,
+    "memoryValue": 45,
+    "archiveValue": 48,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "338527e4582d12eb"
+    }
   },
   {
     "id": "evt_20060613_007",
@@ -3471,7 +5151,27 @@
         "text": "today.reuters.co.uk｜以色列战机向加沙一辆载有火箭发射小组的车辆发射两枚导弹，两名伊斯兰圣战组织武装分子和七名平民死亡，包括两名学童和三名医务人员。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 100,
+    "socialImpact": 50,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 40,
+    "memoryValue": 45,
+    "archiveValue": 79,
+    "eventType": "world",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合79，最强维度globalImpact=100）；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 70,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "438fc1fc6ab04d33"
+    }
   },
   {
     "id": "evt_20060613_008",
@@ -3510,7 +5210,27 @@
         "text": "dailytelegraph.news.com.au｜伊拉克基尔库克一处热闹集市发生多起汽车炸弹袭击，造成至少十人死亡、二十人受伤。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 65,
+    "socialImpact": 55,
+    "culturalImpact": 18,
+    "economicImpact": 25,
+    "technologyImpact": 10,
+    "memoryValue": 40,
+    "archiveValue": 54,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "3c60c5737297c3f3"
+    }
   },
   {
     "id": "evt_20060613_009",
@@ -3548,7 +5268,27 @@
         "text": "la.indymedia.org｜据称是美国最大城市农场的洛杉矶南中央农场遭警方突袭，洛杉矶消防局协助行动，农场命运引发关注。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 15,
+    "socialImpact": 45,
+    "culturalImpact": 20,
+    "economicImpact": 15,
+    "technologyImpact": 10,
+    "memoryValue": 25,
+    "archiveValue": 36,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "26c155a45146b370"
+    }
   },
   {
     "id": "evt_20060614_002",
@@ -3586,7 +5326,27 @@
         "text": "cnn.com｜几内亚首都科纳克里的暴力骚乱持续，社会秩序动荡，当地局势仍未平息。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 35,
+    "socialImpact": 45,
+    "culturalImpact": 20,
+    "economicImpact": 15,
+    "technologyImpact": 10,
+    "memoryValue": 25,
+    "archiveValue": 38,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "1df3159ebf06e20e"
+    }
   },
   {
     "id": "evt_20060614_003",
@@ -3624,7 +5384,27 @@
         "text": "smh.com.au｜滚石乐队吉他手罗尼·伍德因酒精滥用入住戒酒所接受治疗。据《悉尼先驱晨报》报道，伍德已开始相关疗程，乐队后续演出安排未受影响。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 15,
+    "socialImpact": 25,
+    "culturalImpact": 60,
+    "economicImpact": 15,
+    "technologyImpact": 10,
+    "memoryValue": 50,
+    "archiveValue": 49,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "0e95496e47c8e2a7"
+    }
   },
   {
     "id": "evt_20060614_004",
@@ -3660,7 +5440,27 @@
         "text": "news.bbc.co.uk｜科研人员在琥珀中发现两具Mesozygiella dunlopi标本，年代可追溯至白垩纪早期，是目前已知最古老的圆蛛。该发现有助于研究蜘蛛织网行为的演化历史。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 25,
+    "socialImpact": 25,
+    "culturalImpact": 18,
+    "economicImpact": 25,
+    "technologyImpact": 77,
+    "memoryValue": 30,
+    "archiveValue": 59,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "558e7933cfb0c787"
+    }
   },
   {
     "id": "evt_20060614_005",
@@ -3698,7 +5498,27 @@
         "text": "news.bbc.co.uk｜伊斯兰法院联盟从恢复和平与反恐联盟的世俗军阀手中夺取索马里城镇乔哈尔。此前一周，该联盟已接管首都摩加迪沙，索马里局势持续动荡。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 55,
+    "socialImpact": 50,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 15,
+    "memoryValue": 45,
+    "archiveValue": 48,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "06954f633af6cfb4"
+    }
   },
   {
     "id": "evt_20060614_006",
@@ -3736,7 +5556,27 @@
         "text": "edition.cnn.com｜因参与2002年巴厘岛爆炸案被判刑的阿布·巴卡尔·巴希尔在服完26个月刑期后出狱。该爆炸案造成重大人员伤亡，巴希尔获释引发多方关注。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 45,
+    "socialImpact": 45,
+    "culturalImpact": 20,
+    "economicImpact": 15,
+    "technologyImpact": 10,
+    "memoryValue": 25,
+    "archiveValue": 38,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "1051738ebb9068c3"
+    }
   },
   {
     "id": "evt_20060614_007",
@@ -3775,7 +5615,27 @@
       }
     ],
     "relatedEvents": [],
-    "aiSummary": "在布里斯班 Suncorp 体育场举行的州际 Origin 第二场比赛中，昆士兰队以30比6战胜新南威尔士队。系列赛总比分扳为1比1平，决胜场将决定归属。"
+    "aiSummary": "在布里斯班 Suncorp 体育场举行的州际 Origin 第二场比赛中，昆士兰队以30比6战胜新南威尔士队。系列赛总比分扳为1比1平，决胜场将决定归属。",
+    "globalImpact": 20,
+    "socialImpact": 25,
+    "culturalImpact": 50,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 45,
+    "archiveValue": 42,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "来源仅维基月度存档页，缺独立佐证，待补证；证据等级 weak",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 50,
+      "evidenceStatus": "weak",
+      "needsEvidence": true,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "fac23e7667aadca7"
+    }
   },
   {
     "id": "evt_20060615_001",
@@ -3813,7 +5673,27 @@
         "text": "cnn.com｜美国最高法院大法官塞缪尔·阿利托在哈德森诉密歇根案中以5比4打破平局，裁定警方执行搜查令时未敲门通报情况下取得的证据仍可采纳。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 45,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 39,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "cd2af36d60ea1af5"
+    }
   },
   {
     "id": "evt_20060615_002",
@@ -3851,7 +5731,27 @@
         "text": "allafrica.com｜卡萨芒斯民主力量运动内部两派武装发生交火，数百人受伤。一派主张延续冲突，另一派支持与塞内加尔政府和解，战火已蔓延至冈比亚。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 80,
+    "socialImpact": 50,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 15,
+    "memoryValue": 45,
+    "archiveValue": 65,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "2de281a6a78d1ad7"
+    }
   },
   {
     "id": "evt_20060615_003",
@@ -3890,7 +5790,27 @@
       }
     ],
     "relatedEvents": [],
-    "aiSummary": "布隆迪最后一支活跃叛军民族解放力量向首都布琼布拉发射15枚60毫米迫击炮弹，造成至少8名平民受伤。此前该组织与政府正在坦桑尼亚进行和谈。"
+    "aiSummary": "布隆迪最后一支活跃叛军民族解放力量向首都布琼布拉发射15枚60毫米迫击炮弹，造成至少8名平民受伤。此前该组织与政府正在坦桑尼亚进行和谈。",
+    "globalImpact": 55,
+    "socialImpact": 50,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 15,
+    "memoryValue": 45,
+    "archiveValue": 48,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "来源仅维基月度存档页，缺独立佐证，待补证；证据等级 weak",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 50,
+      "evidenceStatus": "weak",
+      "needsEvidence": true,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "5383f4595d832751"
+    }
   },
   {
     "id": "evt_20060615_004",
@@ -3928,7 +5848,27 @@
         "text": "canada.com｜驻阿富汗联军发起代号山地猛攻的军事行动，旨在将塔利班武装逐出南部省份。该行动是阿富汗战争爆发以来规模最大的一次军事行动，多国部队参与。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 100,
+    "socialImpact": 50,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 15,
+    "memoryValue": 45,
+    "archiveValue": 78,
+    "eventType": "world",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合78，最强维度globalImpact=100）；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 70,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "8750ce782d97e5e4"
+    }
   },
   {
     "id": "evt_20060615_005",
@@ -3967,7 +5907,27 @@
       }
     ],
     "relatedEvents": [],
-    "aiSummary": "美国天主教主教会议批准弥撒英文新译本，将用于全国教会礼仪。新译本在措辞和结构上作出调整，需经相关程序后正式生效。"
+    "aiSummary": "美国天主教主教会议批准弥撒英文新译本，将用于全国教会礼仪。新译本在措辞和结构上作出调整，需经相关程序后正式生效。",
+    "globalImpact": 15,
+    "socialImpact": 25,
+    "culturalImpact": 60,
+    "economicImpact": 15,
+    "technologyImpact": 10,
+    "memoryValue": 72,
+    "archiveValue": 57,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；证据等级 weak",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "weak",
+      "needsEvidence": true,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "1adf149dacde5033"
+    }
   },
   {
     "id": "evt_20060615_006",
@@ -4005,7 +5965,27 @@
         "text": "msnbc.msn.com｜微软公司董事长比尔·盖茨宣布将于2008年卸下日常管理职务，把精力转向比尔及梅琳达·盖茨基金会。其职务将由首席技术官雷·奥兹和克雷格·蒙迪分别接手软件架构与研发"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 25,
+    "socialImpact": 25,
+    "culturalImpact": 18,
+    "economicImpact": 25,
+    "technologyImpact": 55,
+    "memoryValue": 30,
+    "archiveValue": 44,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "29d0d469c207d1da"
+    }
   },
   {
     "id": "evt_20060615_007",
@@ -4044,7 +6024,27 @@
         "text": "news.bbc.co.uk｜美国总统乔治·W·布什宣布建立西北夏威夷群岛国家纪念区，成为当时世界上最大的海洋保护区，旨在加强对该海域生态系统与珊瑚礁资源的保护。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 67,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 54,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "456873a115fb9ccc"
+    }
   },
   {
     "id": "evt_20060615_008",
@@ -4082,7 +6082,27 @@
         "text": "thestar.com｜美国军方在伊拉克战争中的死亡人数达到第2500人，另有18490人受伤。该统计反映驻伊美军在持续武装冲突中的人员损失不断上升。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 92,
+    "socialImpact": 50,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 15,
+    "memoryValue": 45,
+    "archiveValue": 73,
+    "eventType": "world",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合73，最强维度globalImpact=92）；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 70,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "985b90a0360faf5c"
+    }
   },
   {
     "id": "evt_20060615_009",
@@ -4121,7 +6141,27 @@
         "text": "news.bbc.co.uk｜英国同意在前利比里亚总统查尔斯·泰勒被定罪后将其监禁，从而移除塞拉利昂特别法庭拟在海牙审理泰勒案的一项关键障碍。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 60,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 49,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "64330211fdceb9d4"
+    }
   },
   {
     "id": "evt_20060615_010",
@@ -4159,7 +6199,27 @@
         "text": "news.bbc.co.uk｜一段美国海军陆战队员演唱名为《哈吉女孩》的歌曲视频在互联网传播，内容涉及杀害伊拉克平民，引发强烈谴责。涉事下士乔舒亚·贝莱尔道歉，军方表示正在调查。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 15,
+    "socialImpact": 45,
+    "culturalImpact": 42,
+    "economicImpact": 15,
+    "technologyImpact": 10,
+    "memoryValue": 25,
+    "archiveValue": 38,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "ad1278cc4453243a"
+    }
   },
   {
     "id": "evt_20060615_011",
@@ -4198,7 +6258,27 @@
         "text": "newkerala.com｜清理人员试图阻止大沙河中的煤焦油流入王快水库，该水库为河北省保定市供水。事件凸显当地饮用水源地面临工业污染威胁。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 35,
+    "socialImpact": 55,
+    "culturalImpact": 18,
+    "economicImpact": 25,
+    "technologyImpact": 10,
+    "memoryValue": 40,
+    "archiveValue": 46,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "07cb4570f09cea2d"
+    }
   },
   {
     "id": "evt_20060615_012",
@@ -4236,7 +6316,27 @@
         "text": "cnews.canoe.ca｜阿富汗坎大哈发生炸弹爆炸袭击，造成10人死亡、15人受伤。事件再次显示当地安全形势严峻，武装暴力持续造成平民与安全人员伤亡。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 85,
+    "socialImpact": 50,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 15,
+    "memoryValue": 45,
+    "archiveValue": 68,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "509793b4a4418bf0"
+    }
   },
   {
     "id": "evt_20060615_013",
@@ -4274,7 +6374,27 @@
         "text": "ynetnews.com｜两名以色列少女在约旦河西岸逃脱一起绑架企图。随后，三名持手枪的巴勒斯坦嫌疑人被逮捕，事件加剧当地安全紧张局势。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 15,
+    "socialImpact": 45,
+    "culturalImpact": 20,
+    "economicImpact": 15,
+    "technologyImpact": 10,
+    "memoryValue": 25,
+    "archiveValue": 36,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "d6bf2c4443738094"
+    }
   },
   {
     "id": "evt_20060615_014",
@@ -4313,7 +6433,27 @@
       }
     ],
     "relatedEvents": [],
-    "aiSummary": "斯里兰卡发生一起克莱莫地雷爆炸事件，造成58人死亡。该地雷疑似由泰米尔猛虎组织埋设，事件发生在当地武装冲突持续背景下。"
+    "aiSummary": "斯里兰卡发生一起克莱莫地雷爆炸事件，造成58人死亡。该地雷疑似由泰米尔猛虎组织埋设，事件发生在当地武装冲突持续背景下。",
+    "globalImpact": 100,
+    "socialImpact": 50,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 15,
+    "memoryValue": 45,
+    "archiveValue": 78,
+    "eventType": "world",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合78，最强维度globalImpact=100）；证据等级 weak",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 55,
+      "evidenceStatus": "weak",
+      "needsEvidence": true,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "1bc132b133cade41"
+    }
   },
   {
     "id": "evt_20060615_015",
@@ -4352,7 +6492,27 @@
       }
     ],
     "relatedEvents": [],
-    "aiSummary": "Google正式成为《牛津英语词典》收录的一个词条，反映该搜索引擎名称已广泛进入英语日常用语，并成为科技品牌影响语言的典型案例。"
+    "aiSummary": "Google正式成为《牛津英语词典》收录的一个词条，反映该搜索引擎名称已广泛进入英语日常用语，并成为科技品牌影响语言的典型案例。",
+    "globalImpact": 25,
+    "socialImpact": 25,
+    "culturalImpact": 18,
+    "economicImpact": 25,
+    "technologyImpact": 55,
+    "memoryValue": 30,
+    "archiveValue": 44,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "来源仅维基月度存档页，缺独立佐证，待补证；证据等级 weak",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 50,
+      "evidenceStatus": "weak",
+      "needsEvidence": true,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "fcab6ac644607dd7"
+    }
   },
   {
     "id": "evt_20060616_001",
@@ -4390,7 +6550,27 @@
         "text": "latimes.com｜美国众议院以256票赞成、153票反对通过一项决议，支持总统布什的伊拉克政策。投票结果基本按党派划线，反映国会对伊战立场的分歧。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 45,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 39,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "144a8cd1ebbc2cae"
+    }
   },
   {
     "id": "evt_20060616_002",
@@ -4428,7 +6608,27 @@
         "text": "thestar.com｜监视与情报报告确认，朝鲜正准备于周日试射大浦洞2型导弹。相关情报引发地区关注，美日韩等方面密切跟踪朝方动向。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 80,
+    "socialImpact": 50,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 15,
+    "memoryValue": 45,
+    "archiveValue": 65,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "142447d303af68e0"
+    }
   },
   {
     "id": "evt_20060616_003",
@@ -4466,7 +6666,27 @@
         "text": "news.bbc.co.uk｜意大利王室后裔、那不勒斯亲王维托里奥·埃马努埃莱在一起涉及腐败与卖淫的调查中被捕。案件由意大利司法机关立案侦办。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 15,
+    "socialImpact": 45,
+    "culturalImpact": 20,
+    "economicImpact": 15,
+    "technologyImpact": 10,
+    "memoryValue": 25,
+    "archiveValue": 36,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "2245c885e7d68064"
+    }
   },
   {
     "id": "evt_20060616_004",
@@ -4504,7 +6724,27 @@
         "text": "theglobeandmail.com｜加拿大爱德华王子岛省检测出H5型禽流感病毒。有关部门表示，该毒株目前对人类构成的风险较低，防控与监测工作已展开。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 15,
+    "socialImpact": 45,
+    "culturalImpact": 20,
+    "economicImpact": 15,
+    "technologyImpact": 10,
+    "memoryValue": 25,
+    "archiveValue": 36,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "1f7425970699ea2c"
+    }
   },
   {
     "id": "evt_20060616_005",
@@ -4542,7 +6782,27 @@
         "text": "cpj.org｜湖南隆回县第一人民法院以敲诈勒索罪判处《中国经济时报》记者杨晓庆一年监禁。杨曾撰文揭露地方官员挪用国有资产，数百名抗议者阻拦警车押送。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 35,
+    "socialImpact": 45,
+    "culturalImpact": 20,
+    "economicImpact": 37,
+    "technologyImpact": 10,
+    "memoryValue": 25,
+    "archiveValue": 39,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "d2f9cf73bd2ecbca"
+    }
   },
   {
     "id": "evt_20060616_006",
@@ -4580,7 +6840,27 @@
         "text": "cbc.ca｜温尼伯警方就谢登惨案实施多起逮捕，其中包括五名地狱天使摩托帮分支Bandidos成员。案件调查持续推进，涉案人员陆续落网。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 15,
+    "socialImpact": 45,
+    "culturalImpact": 20,
+    "economicImpact": 15,
+    "technologyImpact": 10,
+    "memoryValue": 25,
+    "archiveValue": 36,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "4be145a7dfc08939"
+    }
   },
   {
     "id": "evt_20060616_007",
@@ -4618,7 +6898,27 @@
         "text": "news.bbc.co.uk｜尼泊尔共产党（毛主义）领导人普拉昌达在首都加德满都会见总理柯伊拉腊。这被认为是普拉昌达数十年来首次到访首都。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 45,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 67,
+    "archiveValue": 55,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "e541a84581c4aa23"
+    }
   },
   {
     "id": "evt_20060616_008",
@@ -4656,7 +6956,27 @@
         "text": "telegraph.co.uk｜经十小时会谈，尼泊尔各方同意组建包含毛派代表的新政府，并于2007年举行新选举。叛军方面同意暂停其人民政权。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 45,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 39,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "905902604a323609"
+    }
   },
   {
     "id": "evt_20060616_009",
@@ -4694,7 +7014,27 @@
         "text": "cnn.com｜以色列在加沙附近发动空袭，打死一名伊斯兰圣战组织武装人员，另伤两人。以方称其正前往发射卡桑火箭弹，空袭未造成平民伤亡。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 100,
+    "socialImpact": 50,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 40,
+    "memoryValue": 45,
+    "archiveValue": 79,
+    "eventType": "world",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合79，最强维度globalImpact=100）；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 70,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "ae8ce4f2bda2e502"
+    }
   },
   {
     "id": "evt_20060616_010",
@@ -4732,7 +7072,27 @@
         "text": "news.bbc.co.uk｜布道者吉尔伯特·德亚在爱丁堡治安法院被警方逮捕。肯尼亚警方指控其涉嫌参与儿童贩运，相关调查正在进行。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 15,
+    "socialImpact": 45,
+    "culturalImpact": 20,
+    "economicImpact": 15,
+    "technologyImpact": 10,
+    "memoryValue": 25,
+    "archiveValue": 36,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "69dab60a37a04d8b"
+    }
   },
   {
     "id": "evt_20060617_001",
@@ -4770,7 +7130,27 @@
         "text": "news.bbc.co.uk｜斯里兰卡暴力冲突升级。泰米尔猛虎组织袭击海军后，政府军被指在教堂内对泰米尔人发动攻击，当地安全形势持续恶化。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 75,
+    "socialImpact": 50,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 15,
+    "memoryValue": 45,
+    "archiveValue": 61,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；命中商业噪声词，已整体降权；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "3e49d924fba85e07"
+    }
   },
   {
     "id": "evt_20060617_002",
@@ -4810,7 +7190,27 @@
       }
     ],
     "relatedEvents": [],
-    "aiSummary": "欧盟禽流感参考实验室确认，匈牙利基什孔毛伊绍地区送检禽类样本检出H5N1病毒。这是匈牙利首次发现该病毒毒株。"
+    "aiSummary": "欧盟禽流感参考实验室确认，匈牙利基什孔毛伊绍地区送检禽类样本检出H5N1病毒。这是匈牙利首次发现该病毒毒株。",
+    "globalImpact": 35,
+    "socialImpact": 55,
+    "culturalImpact": 18,
+    "economicImpact": 25,
+    "technologyImpact": 32,
+    "memoryValue": 77,
+    "archiveValue": 63,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；证据等级 weak",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "weak",
+      "needsEvidence": true,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "8913bb42b6a58ac4"
+    }
   },
   {
     "id": "evt_20060618_001",
@@ -4849,7 +7249,27 @@
         "text": "washingtonpost.com｜《华盛顿邮报》披露，美国政府在2003年拒绝了伊朗提出的谈判提议，内容涉及承认以色列生存权及伊朗被指支持恐怖主义等问题。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 80,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 63,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "dc17f0b3c57d3e2c"
+    }
   },
   {
     "id": "evt_20060618_002",
@@ -4887,7 +7307,27 @@
         "text": "theglobeandmail.com｜记者罗恩·苏斯金德调查报道称，基地组织2003年曾计划对纽约地铁发动毒气袭击，距实施仅45天时被本·拉登副手扎瓦希里叫停。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 35,
+    "socialImpact": 45,
+    "culturalImpact": 20,
+    "economicImpact": 15,
+    "technologyImpact": 10,
+    "memoryValue": 25,
+    "archiveValue": 38,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "270bbc4e1c04c63a"
+    }
   },
   {
     "id": "evt_20060618_003",
@@ -4925,7 +7365,27 @@
         "text": "cbc.ca｜加泰罗尼亚民众接受自治条例修改案，其中最受关注的内容是将加泰罗尼亚定义为民族。此次公投结果为地区地位带来重大变化。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 70,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 56,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "542f5f88c573985b"
+    }
   },
   {
     "id": "evt_20060618_004",
@@ -4963,7 +7423,27 @@
         "text": "haaretz.com｜以色列城镇斯德罗特为抗议持续遭受卡桑火箭袭击而停工24小时。自以色列撤离加沙地带以来，已有逾600枚火箭弹袭向以色列城镇。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 85,
+    "socialImpact": 50,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 40,
+    "memoryValue": 45,
+    "archiveValue": 69,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "162e3dad97f392a6"
+    }
   },
   {
     "id": "evt_20060619_001",
@@ -5001,7 +7481,27 @@
         "text": "usatoday.com｜北美职业冰球联赛总决赛第七场，卡罗来纳飓风队以3比1击败埃德蒙顿油人队，队史首次夺得斯坦利杯冠军。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 20,
+    "socialImpact": 25,
+    "culturalImpact": 83,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 82,
+    "archiveValue": 67,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "87f3ad77a3f84089"
+    }
   },
   {
     "id": "evt_20060619_002",
@@ -5039,7 +7539,27 @@
         "text": "chicagotribune.com｜美国路易斯安那州州长凯瑟琳·布兰科调遣州国民警卫队在新奥尔良街头巡逻。此前一个周末当地发生六人死亡事件。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 15,
+    "socialImpact": 45,
+    "culturalImpact": 20,
+    "economicImpact": 15,
+    "technologyImpact": 10,
+    "memoryValue": 25,
+    "archiveValue": 36,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "3e4f726c57960234"
+    }
   },
   {
     "id": "evt_20060619_003",
@@ -5077,7 +7597,27 @@
         "text": "usatoday.com｜美国陆军以谋杀罪名起诉第101空降师第三旅级战斗队三名士兵，案件涉及三名在伊拉克被羁押男子的死亡。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 55,
+    "socialImpact": 50,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 15,
+    "memoryValue": 45,
+    "archiveValue": 48,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "43f819a8762e13a5"
+    }
   },
   {
     "id": "evt_20060619_004",
@@ -5115,7 +7655,27 @@
         "text": "cbc.ca｜伊拉克圣战者协商委员会宣称俘获两名美国士兵。美军方面尚未就此作出确认，事件引发外界对驻伊美军安全的关注。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 55,
+    "socialImpact": 50,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 15,
+    "memoryValue": 45,
+    "archiveValue": 48,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "5627a0f073db30b0"
+    }
   },
   {
     "id": "evt_20060619_005",
@@ -5153,7 +7713,27 @@
         "text": "dailymail.co.uk｜伊拉克检察官在审判萨达姆·侯赛因的庭审中，要求判处萨达姆及其同父异母兄弟巴尔赞·提克里提及前副总统塔哈·亚辛·拉马丹死刑。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 45,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 39,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "cba54d074f72c896"
+    }
   },
   {
     "id": "evt_20060619_006",
@@ -5191,7 +7771,27 @@
         "text": "edition.cnn.com｜据报道，朝鲜正为试射大浦洞2号远程导弹作准备，该导弹射程据信可覆盖美国西海岸一带。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 80,
+    "socialImpact": 50,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 15,
+    "memoryValue": 45,
+    "archiveValue": 65,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "1806fde7faf6a807"
+    }
   },
   {
     "id": "evt_20060620_001",
@@ -5229,7 +7829,27 @@
         "text": "rawstory.com｜华盛顿邮报依据信息自由法取得对拉姆斯菲尔德的调查访谈记录，这位美国国防部长称记忆不佳、办公程序松散及专注战争，使其不知部门为何险些浪费300亿美元租用波音加油机"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 70,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 56,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "a401dab96a509eda"
+    }
   },
   {
     "id": "evt_20060620_002",
@@ -5267,7 +7887,27 @@
         "text": "msnbc.msn.com｜伊拉克官员称发现两名失踪美军士兵遗体，美方本周初开始搜寻。来自得克萨斯州休斯敦的门查卡和俄勒冈州马德拉斯的塔克遗体有多处受虐迹象，消息尚未证实。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 55,
+    "socialImpact": 50,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 30,
+    "memoryValue": 45,
+    "archiveValue": 48,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "e692c608200cbaca"
+    }
   },
   {
     "id": "evt_20060620_003",
@@ -5305,7 +7945,27 @@
         "text": "cnn.com｜阿布拉莫夫丑闻中，前布什政府白宫官员戴维·萨法维安因与说客杰克·阿布拉莫夫交易相关的四项撒谎和妨碍司法重罪被判有罪。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 45,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 39,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "e746cff34c1b46ef"
+    }
   },
   {
     "id": "evt_20060620_004",
@@ -5344,7 +8004,27 @@
         "text": "tiscali.co.uk｜利比里亚前总统查尔斯·泰勒离开塞拉利昂，前往海牙接受人权审判。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 60,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 49,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "5dfbdfed1e89156c"
+    }
   },
   {
     "id": "evt_20060620_005",
@@ -5382,7 +8062,27 @@
         "text": "today.reuters.co.uk｜日本首相小泉纯一郎宣布计划从伊拉克撤出本国部队。600名士兵于2004年部署伊拉克协助重建，是日本二战后最具雄心的海外部署，曾在国内引发争议。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 55,
+    "socialImpact": 50,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 15,
+    "memoryValue": 45,
+    "archiveValue": 48,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "f34b6b3efcbda488"
+    }
   },
   {
     "id": "evt_20060620_006",
@@ -5421,7 +8121,27 @@
         "text": "msnbc.msn.com｜以色列总理埃胡德·奥尔默特与巴勒斯坦总统马哈茂德·阿巴斯将出席本周晚些时候的共同会议。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 67,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 54,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "02f3ea70409fcd21"
+    }
   },
   {
     "id": "evt_20060621_001",
@@ -5459,7 +8179,27 @@
         "text": "cbc.ca｜阿富汗战争期间，阿富汗南部省份发生两起独立袭击，六名加拿大士兵受伤。这是自2006年6月12日山地突击行动开始以来首批联军伤亡。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 100,
+    "socialImpact": 50,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 15,
+    "memoryValue": 45,
+    "archiveValue": 78,
+    "eventType": "world",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合78，最强维度globalImpact=100）；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 70,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "5cf65c2499922b3c"
+    }
   },
   {
     "id": "evt_20060621_002",
@@ -5498,7 +8238,27 @@
         "text": "news.yahoo.com｜乍得政府要求联合国安全理事会采取行动，制止金戈威德民兵和UFDC武装力量侵入乍得。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 100,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 76,
+    "eventType": "world",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合76，最强维度globalImpact=100）；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 70,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "3c588a2fbdf466fa"
+    }
   },
   {
     "id": "evt_20060621_003",
@@ -5537,7 +8297,27 @@
         "text": "sudantribune.com｜苏丹总统奥马尔·巴希尔在南非举行的新闻发布会上表示，联合国维和部队永远不会进入苏丹，并称该部队受国际犹太阴谋集团控制，涉及大规模宣传和媒体攻势。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 92,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 71,
+    "eventType": "world",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合71，最强维度globalImpact=92）；命中商业噪声词，已整体降权；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 70,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "55ce46117ebd00a1"
+    }
   },
   {
     "id": "evt_20060621_004",
@@ -5575,7 +8355,27 @@
         "text": "edition.cnn.com｜美国海军陆战队宣布以谋杀等罪名起诉七名陆战队员和一名水兵，涉及4月26日伊拉克哈姆达尼亚平民哈希姆·易卜拉欣·阿瓦德死亡案。另有第101空降师一名士兵因5月萨拉"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 55,
+    "socialImpact": 50,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 15,
+    "memoryValue": 45,
+    "archiveValue": 48,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "770b72fd8bcdd67d"
+    }
   },
   {
     "id": "evt_20060621_005",
@@ -5613,7 +8413,27 @@
         "text": "edition.cnn.com｜东帝汶总统夏纳纳·古斯芒要求总理马里·阿尔卡蒂里辞职，以应对国内持续的政治与社会危机。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 45,
+    "socialImpact": 63,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 51,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "21f13b1bb9ec23f9"
+    }
   },
   {
     "id": "evt_20060621_006",
@@ -5651,7 +8471,27 @@
         "text": "news.bbc.co.uk｜伊拉克前总统萨达姆·侯赛因的首席辩护律师哈米斯·奥贝迪在巴格达遭暗杀身亡，事件引发对伊拉克司法程序安全的关注。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 15,
+    "socialImpact": 45,
+    "culturalImpact": 20,
+    "economicImpact": 15,
+    "technologyImpact": 10,
+    "memoryValue": 25,
+    "archiveValue": 36,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "e6f051ad916363fd"
+    }
   },
   {
     "id": "evt_20060621_007",
@@ -5690,7 +8530,27 @@
       }
     ],
     "relatedEvents": [],
-    "aiSummary": "美国各地举办活动庆祝全国滑板日，滑板爱好者参与街头滑行和表演，推广滑板文化。"
+    "aiSummary": "美国各地举办活动庆祝全国滑板日，滑板爱好者参与街头滑行和表演，推广滑板文化。",
+    "globalImpact": 12,
+    "socialImpact": 21,
+    "culturalImpact": 51,
+    "economicImpact": 12,
+    "technologyImpact": 8,
+    "memoryValue": 61,
+    "archiveValue": 49,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；命中商业噪声词，已整体降权；证据等级 weak",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "weak",
+      "needsEvidence": true,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "bfecfc4edb6771f8"
+    }
   },
   {
     "id": "evt_20060621_008",
@@ -5728,7 +8588,27 @@
         "text": "kyivpost.com｜乌克兰一度疏远的橙色革命盟友经过三个月的不确定局面后达成协议，决定恢复尤利娅·季莫申科的总理职务。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 45,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 39,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "3d612c80fa646eba"
+    }
   },
   {
     "id": "evt_20060621_009",
@@ -5766,7 +8646,27 @@
         "text": "heraldsun.news.com.au｜美国圣公会内华达教区主教、新任美国圣公会领袖凯瑟琳·杰弗茨·肖里表示，同性恋不是罪过，此番言论在宗教界引发讨论。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 15,
+    "socialImpact": 45,
+    "culturalImpact": 20,
+    "economicImpact": 15,
+    "technologyImpact": 10,
+    "memoryValue": 25,
+    "archiveValue": 36,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "fbbda8a3269e32f0"
+    }
   },
   {
     "id": "evt_20060621_010",
@@ -5809,7 +8709,27 @@
       }
     ],
     "relatedEvents": [],
-    "aiSummary": "电影《超人归来》在影院正式上映，作为超人系列的重启作品受到观众关注。"
+    "aiSummary": "电影《超人归来》在影院正式上映，作为超人系列的重启作品受到观众关注。",
+    "globalImpact": 15,
+    "socialImpact": 25,
+    "culturalImpact": 93,
+    "economicImpact": 15,
+    "technologyImpact": 10,
+    "memoryValue": 50,
+    "archiveValue": 71,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；证据等级 weak",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "weak",
+      "needsEvidence": true,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "c7a9214bb66f6bec"
+    }
   },
   {
     "id": "evt_20060622_001",
@@ -5845,7 +8765,27 @@
         "text": "smh.com.au｜国际天文学联合会正式将冥王星新发现的两颗卫星S/2005 P 2和S/2005 P 1命名为尼克斯和许德拉，分别取自希腊神话中的黑夜女神和九头蛇怪物。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 40,
+    "socialImpact": 25,
+    "culturalImpact": 18,
+    "economicImpact": 25,
+    "technologyImpact": 95,
+    "memoryValue": 30,
+    "archiveValue": 71,
+    "eventType": "society_culture",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合71，最强维度technologyImpact=95）；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 70,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "5dfa80ef7093a4e9"
+    }
   },
   {
     "id": "evt_20060622_002",
@@ -5883,7 +8823,27 @@
         "text": "news.bbc.co.uk｜东帝汶总统夏纳纳·古斯芒因国内社会动荡表示可能辞职，政治危机进一步加剧。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 45,
+    "socialImpact": 63,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 51,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "502a7281d33a9f4b"
+    }
   },
   {
     "id": "evt_20060622_003",
@@ -5921,7 +8881,27 @@
         "text": "kyw1060.com｜美国联邦调查局在佛罗里达州迈阿密突袭恐怖嫌疑人，逮捕七人。被拘留者被控共谋实施恐怖活动，涉嫌处于策划袭击芝加哥西尔斯大厦及迈阿密地区联邦调查局和政府建筑的早期阶"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 38,
+    "socialImpact": 38,
+    "culturalImpact": 17,
+    "economicImpact": 12,
+    "technologyImpact": 8,
+    "memoryValue": 21,
+    "archiveValue": 32,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "来源仅维基月度存档页，缺独立佐证，待补证；命中商业噪声词，已整体降权；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 50,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "390221e50f026c0d"
+    }
   },
   {
     "id": "evt_20060622_004",
@@ -5960,7 +8940,27 @@
         "text": "cnn.com｜国际红十字委员会接纳以色列红大卫盾会和巴勒斯坦红新月会，以237票赞成、54票反对通过决议，结束长达58年的争议。此项决议遭到穆斯林方面反对。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 67,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 54,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "8b4f248f5e87bb59"
+    }
   },
   {
     "id": "evt_20060622_005",
@@ -5998,7 +8998,27 @@
         "text": "siouxcityjournal.com｜日本派遣舰艇和飞机监视朝鲜相关动向。朝鲜正准备进行远程导弹试射，日方此举为跟踪事态发展。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 80,
+    "socialImpact": 50,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 15,
+    "memoryValue": 45,
+    "archiveValue": 65,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "ca708c6cc5797045"
+    }
   },
   {
     "id": "evt_20060622_006",
@@ -6036,7 +9056,27 @@
         "text": "breitbart.com｜美国及联军部队自2003年入侵伊拉克以来已发现500件1991年前的化学武器。五角大楼官员称这些武器已降解至无法使用，但报告指出其仍具危险性，依然可能致命。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 80,
+    "socialImpact": 50,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 30,
+    "memoryValue": 45,
+    "archiveValue": 65,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "31e56975ef7d8ef1"
+    }
   },
   {
     "id": "evt_20060622_007",
@@ -6074,7 +9114,27 @@
         "text": "212.77.1.245｜在任16年后，安杰洛·索达诺卸任枢机国务卿一职。他将由时任热那亚大主教塔尔奇西奥·贝尔托内接任。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 15,
+    "socialImpact": 25,
+    "culturalImpact": 60,
+    "economicImpact": 15,
+    "technologyImpact": 10,
+    "memoryValue": 50,
+    "archiveValue": 49,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "4f4b46d200af838b"
+    }
   },
   {
     "id": "evt_20060623_001",
@@ -6112,7 +9172,27 @@
         "text": "cnn.com｜人权观察估计，过去一周内乍得东部数百名平民遭苏丹金戈威德民兵和UFDC袭击屠杀。该组织还指责苏丹政府使用童兵，称平民被困于达尔富尔的杀戮与乍得混乱之间。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 50,
+    "socialImpact": 45,
+    "culturalImpact": 20,
+    "economicImpact": 15,
+    "technologyImpact": 10,
+    "memoryValue": 25,
+    "archiveValue": 42,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "a2b4f132c2210150"
+    }
   },
   {
     "id": "evt_20060623_002",
@@ -6150,7 +9230,27 @@
         "text": "breitbart.com｜美国导弹防御局局长、空军中将亨利·奥伯林三世表示，他非常有信心，若获总统批准，任何射向美国的朝鲜导弹都将在飞行途中被拦截导弹摧毁。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 80,
+    "socialImpact": 50,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 15,
+    "memoryValue": 45,
+    "archiveValue": 65,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "85893913c83f54a4"
+    }
   },
   {
     "id": "evt_20060623_003",
@@ -6188,7 +9288,27 @@
         "text": "whitehouse.gov｜美国总统乔治·W·布什签署行政令，表示将限制联邦政府征用私有财产，征用须有利于公众利益，而非仅为私有财产的经济利益目的。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 45,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 42,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 40,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "12220badccd2c856"
+    }
   },
   {
     "id": "evt_20060623_004",
@@ -6226,7 +9346,27 @@
         "text": "msnbc.msn.com｜萨达姆·侯赛因在狱中仅错过一顿饭后结束了短暂的绝食。他以此举抗议其一名律师被杀。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 35,
+    "socialImpact": 45,
+    "culturalImpact": 20,
+    "economicImpact": 15,
+    "technologyImpact": 10,
+    "memoryValue": 25,
+    "archiveValue": 38,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "40d9c61d504c7504"
+    }
   },
   {
     "id": "evt_20060623_005",
@@ -6264,7 +9404,27 @@
         "text": "breitbart.com｜据报道，一艘美国军舰在太平洋试射中击落一枚导弹，测试其现已投入运作的海基导弹防御系统。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 80,
+    "socialImpact": 50,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 15,
+    "memoryValue": 45,
+    "archiveValue": 65,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "5ad91cd10b0e1c9a"
+    }
   },
   {
     "id": "evt_20060623_006",
@@ -6302,7 +9462,27 @@
         "text": "smh.com.au｜一只名为哈里特的加拉帕戈斯象龟死亡，年龄约176岁，是世界上已知最长寿的动物之一。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 30,
+    "socialImpact": 45,
+    "culturalImpact": 20,
+    "economicImpact": 15,
+    "technologyImpact": 10,
+    "memoryValue": 25,
+    "archiveValue": 37,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "c4551e72679bfdd9"
+    }
   },
   {
     "id": "evt_20060623_007",
@@ -6340,7 +9520,27 @@
         "text": "mercurynews.com｜美国交通部长诺曼·峰田宣布辞去职务，自2006年7月7日起生效。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 45,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 39,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "b7e83f12c9254c5b"
+    }
   },
   {
     "id": "evt_20060623_008",
@@ -6378,7 +9578,27 @@
         "text": "nytimes.com｜纽约时报发表关于恐怖分子资金追踪计划的报道，披露中情局五年来通过环球银行金融电信协会秘密监控国际私人银行业务，并拒绝政府撤回报道的要求。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 80,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 63,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "0639fc5cf45a3845"
+    }
   },
   {
     "id": "evt_20060623_009",
@@ -6416,7 +9636,27 @@
         "text": "edition.cnn.com｜波兰总理卡齐米日·马尔钦凯维奇宣布解除副总理兼财政部长兹塔·吉洛夫斯卡的职务，由总理顾问帕维尔·沃伊切霍夫斯基接任，并表示将继续其财政政策。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 45,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 39,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "3ee39f2eda5d1cfd"
+    }
   },
   {
     "id": "evt_20060623_010",
@@ -6455,7 +9695,27 @@
       }
     ],
     "relatedEvents": [],
-    "aiSummary": "美国演员、歌手、舞者和电视制片人阿伦·斯佩林因五日前中风引发的并发症去世，享年83岁，数日后举行私人葬礼。"
+    "aiSummary": "美国演员、歌手、舞者和电视制片人阿伦·斯佩林因五日前中风引发的并发症去世，享年83岁，数日后举行私人葬礼。",
+    "globalImpact": 15,
+    "socialImpact": 25,
+    "culturalImpact": 60,
+    "economicImpact": 15,
+    "technologyImpact": 10,
+    "memoryValue": 50,
+    "archiveValue": 49,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；证据等级 weak",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "weak",
+      "needsEvidence": true,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "599f159838f36e86"
+    }
   },
   {
     "id": "evt_20060624_001",
@@ -6493,7 +9753,27 @@
         "text": "news.bbc.co.uk｜德国斯图加特发生英格兰与德国球迷之间的暴力冲突，378人被捕，其中包括122名英格兰球迷。约6万名英格兰球迷聚集当地观看世界杯比赛。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 30,
+    "socialImpact": 45,
+    "culturalImpact": 42,
+    "economicImpact": 15,
+    "technologyImpact": 10,
+    "memoryValue": 25,
+    "archiveValue": 39,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "e01a94f1ffb9c2cd"
+    }
   },
   {
     "id": "evt_20060624_002",
@@ -6531,7 +9811,27 @@
         "text": "news.yahoo.com｜玻利维亚油气部长安德烈斯·索利斯·拉达要求总检察长起诉安然公司及其子公司前负责人、前总统贡萨洛·桑切斯·德洛萨达等人，指其合同损害国家利益、违反宪法并伪造合同。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 45,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 39,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "900f6c20d3e573dd"
+    }
   },
   {
     "id": "evt_20060624_003",
@@ -6570,7 +9870,27 @@
       }
     ],
     "relatedEvents": [],
-    "aiSummary": "菲律宾总统格洛丽亚·马卡帕加尔·阿罗约签署一项废除死刑的法律。"
+    "aiSummary": "菲律宾总统格洛丽亚·马卡帕加尔·阿罗约签署一项废除死刑的法律。",
+    "globalImpact": 45,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 39,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "来源仅维基月度存档页，缺独立佐证，待补证；证据等级 weak",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 50,
+      "evidenceStatus": "weak",
+      "needsEvidence": true,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "028efd9156130871"
+    }
   },
   {
     "id": "evt_20060624_004",
@@ -6608,7 +9928,27 @@
         "text": "news.bbc.co.uk｜越南国家主席陈德良、政府总理潘文凯和国会主席阮文安以年事已高为由辞职。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 45,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 39,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "f6769f081e008988"
+    }
   },
   {
     "id": "evt_20060624_005",
@@ -6646,7 +9986,27 @@
         "text": "news.bbc.co.uk｜以色列在加沙地带的一次夜间突袭中抓获穆阿马尔家族的两名巴勒斯坦平民兄弟。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 55,
+    "socialImpact": 50,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 15,
+    "memoryValue": 45,
+    "archiveValue": 48,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "ea6aae3eb77b4ea7"
+    }
   },
   {
     "id": "evt_20060625_001",
@@ -6685,7 +10045,27 @@
         "text": "news.bbc.co.uk｜苏丹政府宣布解除对联合国在达尔富尔地区行动的部分禁令。此前苏丹政府指控联合国运送一名反对和平协议的叛军领导人。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 92,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 71,
+    "eventType": "world",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合71，最强维度globalImpact=92）；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 70,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "65847d6e6d8ed833"
+    }
   },
   {
     "id": "evt_20060625_002",
@@ -6723,7 +10103,27 @@
         "text": "ibnlive.com｜欧洲钢铁企业阿塞洛宣布与米塔尔钢铁公司合并，新公司命名为阿塞洛-米塔尔，成为全球最大钢铁企业。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 52,
+    "socialImpact": 30,
+    "culturalImpact": 18,
+    "economicImpact": 60,
+    "technologyImpact": 20,
+    "memoryValue": 25,
+    "archiveValue": 49,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "155de454f208cfff"
+    }
   },
   {
     "id": "evt_20060625_003",
@@ -6761,7 +10161,27 @@
         "text": "haaretz.com｜八名巴勒斯坦武装人员经地道潜入以色列一处军营发动袭击，两名以军士兵身亡、一人被俘、三人受伤，至少两名巴方武装人员死亡。以总理誓言在士兵获释后实施猛烈军事回应。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 75,
+    "socialImpact": 50,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 15,
+    "memoryValue": 45,
+    "archiveValue": 61,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "3bdbbd46b8b6ad16"
+    }
   },
   {
     "id": "evt_20060625_004",
@@ -6799,7 +10219,27 @@
         "text": "smh.com.au｜在东帝汶持续政治动荡背景下，若泽·拉莫斯-奥尔塔辞去外交部长兼代理国防部长职务。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 82,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 64,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "a39d8ae4f99fbacd"
+    }
   },
   {
     "id": "evt_20060625_005",
@@ -6837,7 +10277,27 @@
         "text": "news.scotsman.com｜意大利选民就修改宪法53项条款举行全民公投，若获通过将扩大总理和地方权力，使意大利成为联邦制国家。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 70,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 52,
+    "archiveValue": 58,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；命中产业转型/现象级关键词，已豁免噪声惩罚并升级；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "d89733dfd6908041"
+    }
   },
   {
     "id": "evt_20060625_006",
@@ -6875,7 +10335,27 @@
         "text": "money.cnn.com｜全球第三富豪沃伦·巴菲特承诺向比尔及梅琳达·盖茨基金会捐赠约370亿美元的股票，使该基金会成为历史上最大的慈善组织。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 45,
+    "socialImpact": 30,
+    "culturalImpact": 18,
+    "economicImpact": 60,
+    "technologyImpact": 20,
+    "memoryValue": 40,
+    "archiveValue": 50,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "b88c12aab3367070"
+    }
   },
   {
     "id": "evt_20060626_001",
@@ -6913,7 +10393,27 @@
         "text": "archive.gulfnews.com｜比利时将向所有12岁以下儿童发放电子身份证，作为防范儿童绑架的措施，证件上除热线电话外还带有特殊编码。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 15,
+    "socialImpact": 45,
+    "culturalImpact": 20,
+    "economicImpact": 15,
+    "technologyImpact": 10,
+    "memoryValue": 25,
+    "archiveValue": 36,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "4b9edadaaa6ef9ad"
+    }
   },
   {
     "id": "evt_20060626_002",
@@ -6951,7 +10451,27 @@
         "text": "edition.cnn.com｜美国总统布什批评有关监控疑似恐怖分子金融交易项目的披露为可耻行为。白宫新闻秘书斯诺表示，新闻机构应考量公众知情权在某些情况下是否凌驾于他人生命权之上。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 65,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 53,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "83535ea1ec9e24d6"
+    }
   },
   {
     "id": "evt_20060626_003",
@@ -6989,7 +10509,27 @@
         "text": "news.bbc.co.uk｜在瓦济里斯坦战争中，一起自杀式汽车炸弹袭击造成六名巴基斯坦士兵死亡。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 100,
+    "socialImpact": 50,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 15,
+    "memoryValue": 45,
+    "archiveValue": 78,
+    "eventType": "world",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合78，最强维度globalImpact=100）；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 70,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "3166c80c77dac6e3"
+    }
   },
   {
     "id": "evt_20060626_004",
@@ -7027,7 +10567,27 @@
         "text": "heraldsun.news.com.au｜在数周政治动荡之后，马里·阿尔卡蒂里辞去东帝汶总理职务。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 45,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 39,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "ab54f5b9c9641ea9"
+    }
   },
   {
     "id": "evt_20060626_005",
@@ -7066,7 +10626,27 @@
         "text": "asiantribune.com｜斯里兰卡帕纳皮蒂亚发生自杀式爆炸袭击，造成三人死亡，其中包括斯里兰卡陆军副参谋长帕拉米·库拉通加。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 65,
+    "socialImpact": 55,
+    "culturalImpact": 18,
+    "economicImpact": 25,
+    "technologyImpact": 10,
+    "memoryValue": 40,
+    "archiveValue": 54,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "24e289690e4b0bd0"
+    }
   },
   {
     "id": "evt_20060626_006",
@@ -7105,7 +10685,27 @@
         "text": "abcnews.go.com｜以色列表示若被俘士兵吉拉德·沙利特遇害，将确保哈马斯控制的巴勒斯坦政府被推翻。三个声称扣押沙利特的巴勒斯坦组织要求以色列释放被关押的巴勒斯坦妇女和青少年，否则不"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 60,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 35,
+    "memoryValue": 30,
+    "archiveValue": 50,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "a7aef35b75a695de"
+    }
   },
   {
     "id": "evt_20060626_007",
@@ -7143,7 +10743,27 @@
         "text": "news.bbc.co.uk｜意大利为期两天的全民公投中，反对票以约百分之六十一对百分之三十八击败赞成票，宪法修改案未获通过，宪法文本保持不变。北方联盟曾宣布若改革被否决将退出中右翼反对派联"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 70,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 52,
+    "archiveValue": 58,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；命中产业转型/现象级关键词，已豁免噪声惩罚并升级；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "8b85b012ecf0e1e5"
+    }
   },
   {
     "id": "evt_20060627_001",
@@ -7181,7 +10801,27 @@
         "text": "news.bbc.co.uk｜乍得反叛武装袭击邻国中非共和国，据报道已与中非共和国反叛武装结成联盟。两国大片地区已陷入暴力冲突。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 75,
+    "socialImpact": 50,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 15,
+    "memoryValue": 45,
+    "archiveValue": 61,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "079f4990a9b775b2"
+    }
   },
   {
     "id": "evt_20060627_002",
@@ -7220,7 +10860,27 @@
         "text": "armenialiberty.org｜亚美尼亚总统罗伯特·科恰良与阿塞拜疆总统伊利哈姆·阿利耶夫达成协议，允许纳戈尔诺-卡拉巴赫地区居民通过全民投票决定该地区的未来地位。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 85,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 52,
+    "archiveValue": 68,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；命中产业转型/现象级关键词，已豁免噪声惩罚并升级；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "532027eb610d95bc"
+    }
   },
   {
     "id": "evt_20060627_003",
@@ -7258,7 +10918,27 @@
         "text": "cnn.com｜美国参议院以仅差一票的结果否决了关于禁止亵渎国旗的宪法修正案，这是美国最近一次推动该修正案的努力。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 45,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 39,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "dbe1b610e4ea5098"
+    }
   },
   {
     "id": "evt_20060627_004",
@@ -7296,7 +10976,27 @@
         "text": "news.bbc.co.uk｜枪炮与玫瑰乐队主唱埃克索尔·罗斯在瑞典斯德哥尔摩被捕，涉嫌暴力行为，包括咬伤一名保安的腿部。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 15,
+    "socialImpact": 45,
+    "culturalImpact": 20,
+    "economicImpact": 15,
+    "technologyImpact": 10,
+    "memoryValue": 25,
+    "archiveValue": 36,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "346166421f2da088"
+    }
   },
   {
     "id": "evt_20060627_005",
@@ -7335,7 +11035,27 @@
         "text": "cbsnews.com｜伊朗最高领袖阿亚图拉阿里·哈梅内伊表示，伊朗在核计划问题上不需要与美国进行谈判。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 60,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 49,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "b9da304e4d46ca6d"
+    }
   },
   {
     "id": "evt_20060627_006",
@@ -7374,7 +11094,27 @@
         "text": "news.bbc.co.uk｜据报道，哈马斯领导的巴勒斯坦政府已同意间接承认以色列，为重启和平谈判铺平道路。其他哈马斯官员随后否认了这些报道。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 60,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 49,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "05b519a629ca48ed"
+    }
   },
   {
     "id": "evt_20060627_007",
@@ -7412,7 +11152,27 @@
         "text": "haaretz.com｜一个巴勒斯坦武装组织绑架了十九岁的以色列大学生埃利亚胡·阿舍里，一小时后将其杀害。该组织随后威胁称，若以色列继续进攻将杀害这名学生。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 55,
+    "socialImpact": 50,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 15,
+    "memoryValue": 45,
+    "archiveValue": 48,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "fac6ad3b8667e117"
+    }
   },
   {
     "id": "evt_20060627_008",
@@ -7450,7 +11210,27 @@
         "text": "chinapost.com.tw｜伊拉克特别法庭宣布，前总统萨达姆·侯赛因及六名共同被告将于8月21日出庭受审，涉及1980年代安法尔行动，据估计该行动导致约10万名库尔德人死亡。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 45,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 39,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "4de9f8d1f7d7b407"
+    }
   },
   {
     "id": "evt_20060627_009",
@@ -7488,7 +11268,27 @@
         "text": "bloomberg.com｜台湾立法院就罢免总统陈水扁进行表决，陈水扁因多起腐败丑闻受到指控，但罢免案未能获得所需的三分之二多数票，未获通过。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 70,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 56,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "ee5d862384311781"
+    }
   },
   {
     "id": "evt_20060627_010",
@@ -7526,7 +11326,27 @@
         "text": "edition.cnn.com｜阮明哲成为越南国家主席，阮晋勇预计将出任新一任越南政府总理。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 45,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 39,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "add2797349a94e03"
+    }
   },
   {
     "id": "evt_20060627_011",
@@ -7565,7 +11385,27 @@
       }
     ],
     "relatedEvents": [],
-    "aiSummary": "在巴西对加纳的十六强比赛中，罗纳尔多打入个人世界杯第15球，打破德国球员盖德·穆勒保持的14球世界杯决赛阶段进球纪录。"
+    "aiSummary": "在巴西对加纳的十六强比赛中，罗纳尔多打入个人世界杯第15球，打破德国球员盖德·穆勒保持的14球世界杯决赛阶段进球纪录。",
+    "globalImpact": 35,
+    "socialImpact": 25,
+    "culturalImpact": 72,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 67,
+    "archiveValue": 60,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；证据等级 weak",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "weak",
+      "needsEvidence": true,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "1f85f62d04ea16a9"
+    }
   },
   {
     "id": "evt_20060628_001",
@@ -7604,7 +11444,27 @@
         "text": "kfmb.com｜因萨斯奎哈纳河水位上涨，美国宾夕法尼亚州威尔克斯-巴里地区多达20万人被要求撤离，宾州67个县中有46个进入紧急状态，纽约等周边州也发生严重洪灾。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 35,
+    "socialImpact": 82,
+    "culturalImpact": 18,
+    "economicImpact": 25,
+    "technologyImpact": 10,
+    "memoryValue": 40,
+    "archiveValue": 64,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "d31bab4aa1228e5d"
+    }
   },
   {
     "id": "evt_20060628_002",
@@ -7642,7 +11502,27 @@
         "text": "theage.com.au｜在东帝汶2006年危机持续之际，一群愤怒的暴民在首都帝力袭击了一处难民营。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 45,
+    "socialImpact": 63,
+    "culturalImpact": 20,
+    "economicImpact": 15,
+    "technologyImpact": 10,
+    "memoryValue": 25,
+    "archiveValue": 51,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "79caf59b3a365032"
+    }
   },
   {
     "id": "evt_20060628_003",
@@ -7691,7 +11571,27 @@
         "text": "haaretz.com｜以色列政府推迟对加沙地带北部的攻势，并冻结加沙南部的军事行动，以便为外交谈判留出更多时间。两天来以色列在加沙和约旦河西岸的行动未造成巴勒斯坦人死亡。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 80,
+    "socialImpact": 50,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 15,
+    "memoryValue": 45,
+    "archiveValue": 65,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；2 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "strong",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "329df60b06e50415"
+    }
   },
   {
     "id": "evt_20060628_004",
@@ -7730,7 +11630,27 @@
       }
     ],
     "relatedEvents": [],
-    "aiSummary": "法塔赫下属武装派别阿克萨烈士旅称，已向以色列城镇斯代罗特发射一枚化学弹头导弹。以军表示未侦测到此类火箭弹发射，也未收到相关袭击报告。"
+    "aiSummary": "法塔赫下属武装派别阿克萨烈士旅称，已向以色列城镇斯代罗特发射一枚化学弹头导弹。以军表示未侦测到此类火箭弹发射，也未收到相关袭击报告。",
+    "globalImpact": 100,
+    "socialImpact": 50,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 40,
+    "memoryValue": 45,
+    "archiveValue": 79,
+    "eventType": "world",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合79，最强维度globalImpact=100）；证据等级 weak",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 55,
+      "evidenceStatus": "weak",
+      "needsEvidence": true,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "986fe6007395c233"
+    }
   },
   {
     "id": "evt_20060629_001",
@@ -7770,7 +11690,27 @@
       }
     ],
     "relatedEvents": [],
-    "aiSummary": "一段据称来自奥萨马·本·拉登的新录音带被公布，内容赞扬阿布·穆萨布·扎卡维。"
+    "aiSummary": "一段据称来自奥萨马·本·拉登的新录音带被公布，内容赞扬阿布·穆萨布·扎卡维。",
+    "globalImpact": 67,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 54,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "来源仅维基月度存档页，缺独立佐证，待补证；证据等级 weak",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 50,
+      "evidenceStatus": "weak",
+      "needsEvidence": true,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "3e90d70406513c2e"
+    }
   },
   {
     "id": "evt_20060629_002",
@@ -7809,7 +11749,27 @@
       }
     ],
     "relatedEvents": [],
-    "aiSummary": "微软公司发布Internet Explorer 7第三个测试版，面向Windows XP和Windows Server 2003操作系统提供下载。"
+    "aiSummary": "微软公司发布Internet Explorer 7第三个测试版，面向Windows XP和Windows Server 2003操作系统提供下载。",
+    "globalImpact": 21,
+    "socialImpact": 21,
+    "culturalImpact": 15,
+    "economicImpact": 21,
+    "technologyImpact": 46,
+    "memoryValue": 25,
+    "archiveValue": 37,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "来源仅维基月度存档页，缺独立佐证，待补证；命中商业噪声词，已整体降权；证据等级 weak",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 50,
+      "evidenceStatus": "weak",
+      "needsEvidence": true,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "261fe254c42d72fc"
+    }
   },
   {
     "id": "evt_20060629_003",
@@ -7847,7 +11807,27 @@
         "text": "msnbc.msn.com｜美国众议院投票通过决议，结束实施25年的近海石油钻探禁令，此举被视为能源政策的重要转变。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 45,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 39,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "ed66a079a3b4da69"
+    }
   },
   {
     "id": "evt_20060629_004",
@@ -7886,7 +11866,27 @@
       }
     ],
     "relatedEvents": [],
-    "aiSummary": "美国阿拉巴马州前州长唐·西格尔曼被法院裁定受贿和共谋罪名成立，面临相应刑事处罚。"
+    "aiSummary": "美国阿拉巴马州前州长唐·西格尔曼被法院裁定受贿和共谋罪名成立，面临相应刑事处罚。",
+    "globalImpact": 15,
+    "socialImpact": 45,
+    "culturalImpact": 20,
+    "economicImpact": 15,
+    "technologyImpact": 10,
+    "memoryValue": 25,
+    "archiveValue": 36,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "来源仅维基月度存档页，缺独立佐证，待补证；证据等级 weak",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 50,
+      "evidenceStatus": "weak",
+      "needsEvidence": true,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "885033af3d2dd737"
+    }
   },
   {
     "id": "evt_20060629_005",
@@ -7924,7 +11924,27 @@
         "text": "breitbart.com｜美联储连续第17次加息，将利率提高至5.25%，并表示将综合考虑整体经济和通胀走势。道琼斯工业平均指数收盘上涨超过215点。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 30,
+    "socialImpact": 30,
+    "culturalImpact": 18,
+    "economicImpact": 93,
+    "technologyImpact": 20,
+    "memoryValue": 25,
+    "archiveValue": 69,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "31a7dd9f0bd90f55"
+    }
   },
   {
     "id": "evt_20060629_006",
@@ -7963,7 +11983,27 @@
         "text": "usatoday.com｜伊拉克基尔库克一名什叶派士兵的葬礼遭自杀式爆炸袭击，造成4人死亡、27人受伤。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 65,
+    "socialImpact": 55,
+    "culturalImpact": 18,
+    "economicImpact": 25,
+    "technologyImpact": 10,
+    "memoryValue": 40,
+    "archiveValue": 54,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "5c7084679834b984"
+    }
   },
   {
     "id": "evt_20060629_007",
@@ -8001,7 +12041,27 @@
         "text": "news.bbc.co.uk｜美国最高法院在哈姆丹诉拉姆斯菲尔德案中裁定，布什政府无权以军事法庭审判关押在关塔那摩湾的囚犯，相关程序违反日内瓦公约和美国宪法。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 45,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 39,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "d2606eea637a9cff"
+    }
   },
   {
     "id": "evt_20060629_008",
@@ -8039,7 +12099,27 @@
         "text": "news.bbc.co.uk｜英国下议院在布莱瑙格温特及布罗姆利和奇斯尔赫斯特两个选区举行补选，以填补空缺的议会席位。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 45,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 39,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "463ac18215ec8c0f"
+    }
   },
   {
     "id": "evt_20060629_009",
@@ -8077,7 +12157,27 @@
         "text": "ynetnews.com｜加沙地带北部向以色列城镇发射6枚卡桑火箭弹，以色列国防军随后向加沙无人区发射400余枚炮弹，以压制进一步的火箭袭击。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 75,
+    "socialImpact": 50,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 40,
+    "memoryValue": 45,
+    "archiveValue": 62,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "812dca7d444ef292"
+    }
   },
   {
     "id": "evt_20060629_010",
@@ -8117,7 +12217,27 @@
       }
     ],
     "relatedEvents": [],
-    "aiSummary": "俄罗斯要求以色列在加沙地带的任何攻势中避免伤害巴勒斯坦平民，并敦促武装分子释放被绑架的以色列士兵。"
+    "aiSummary": "俄罗斯要求以色列在加沙地带的任何攻势中避免伤害巴勒斯坦平民，并敦促武装分子释放被绑架的以色列士兵。",
+    "globalImpact": 60,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 49,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "来源仅维基月度存档页，缺独立佐证，待补证；证据等级 weak",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 50,
+      "evidenceStatus": "weak",
+      "needsEvidence": true,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "34017bec23b2aa03"
+    }
   },
   {
     "id": "evt_20060629_011",
@@ -8155,7 +12275,27 @@
         "text": "haaretz.com｜以色列学生埃利亚胡·阿舍里的遗体在拉姆安拉附近田野中被发现，头部中弹。这名18岁学生于周日晚被巴勒斯坦武装组织绑架并杀害。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 55,
+    "socialImpact": 50,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 30,
+    "memoryValue": 45,
+    "archiveValue": 48,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "b655d026efae025b"
+    }
   },
   {
     "id": "evt_20060629_012",
@@ -8193,7 +12333,27 @@
         "text": "ynetnews.com｜以色列对加沙两名伊斯兰圣战组织武装人员发动空袭未成功，造成一名平民轻伤。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 80,
+    "socialImpact": 50,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 15,
+    "memoryValue": 45,
+    "archiveValue": 65,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "44656afbf38120a1"
+    }
   },
   {
     "id": "evt_20060629_013",
@@ -8231,7 +12391,27 @@
         "text": "jpost.com｜曾被认为遭巴勒斯坦武装人员绑架的阿尔茨海默病患者诺姆·莫斯科维奇的遗体在里雄莱锡安被发现。警方排除了刑事和恐怖主义动机。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 35,
+    "socialImpact": 45,
+    "culturalImpact": 20,
+    "economicImpact": 15,
+    "technologyImpact": 25,
+    "memoryValue": 25,
+    "archiveValue": 38,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "1e9004923e885282"
+    }
   },
   {
     "id": "evt_20060629_014",
@@ -8269,7 +12449,27 @@
         "text": "haaretz.com｜以色列士兵在约旦河西岸逮捕62名哈马斯成员，包括巴勒斯坦权力机构的8名部长和20名议员，引发正在举行的八国集团峰会对局势的关注。以官员称预计还将有更多逮捕行动，"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 80,
+    "socialImpact": 50,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 15,
+    "memoryValue": 45,
+    "archiveValue": 65,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "90d6ab6b3fd8a4dd"
+    }
   },
   {
     "id": "evt_20060629_015",
@@ -8307,7 +12507,27 @@
         "text": "foxnews.com｜科威特举行议会选举，为该国有史以来首次实行全民普选。反对党赢得议会多数席位，但未有女性当选。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 45,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 85,
+    "archiveValue": 67,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；命中产业转型/现象级关键词，已豁免噪声惩罚并升级；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "97575b3fa0ecd18d"
+    }
   },
   {
     "id": "evt_20060629_016",
@@ -8345,7 +12565,27 @@
         "text": "news.bbc.co.uk｜荷兰巴尔克嫩德二世内阁在执政联盟伙伴就前议员阿亚安·希尔西·阿里的国籍问题发生争执后宣布辞职。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 45,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 39,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "ae1cc70c0406f1fe"
+    }
   },
   {
     "id": "evt_20060630_001",
@@ -8383,7 +12623,27 @@
         "text": "alertnet.org｜一名法官下令逮捕墨西哥前总统路易斯·埃切维里亚，指控其与1968年特拉特洛尔科屠杀事件有关。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 45,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 39,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "c073acb06d2e9e49"
+    }
   },
   {
     "id": "evt_20060630_002",
@@ -8421,7 +12681,27 @@
         "text": "chron.com｜美国军方下令调查有关五名美军士兵强奸一名伊拉克妇女并杀害她及其三名家庭成员的指控。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 55,
+    "socialImpact": 50,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 15,
+    "memoryValue": 45,
+    "archiveValue": 48,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "cf9b34591d1f1f4f"
+    }
   },
   {
     "id": "evt_20060630_003",
@@ -8459,7 +12739,27 @@
         "text": "news.bbc.co.uk｜随着特里什·劳在补选中当选，威尔士国民议会成为世界上第一个女性议员占多数的立法机构。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 67,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 45,
+    "archiveValue": 55,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；命中产业转型/现象级关键词，已豁免噪声惩罚并升级；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "6de3b0d2952c201c"
+    }
   },
   {
     "id": "evt_20060630_004",
@@ -8498,7 +12798,27 @@
         "text": "ynetnews.com｜在士兵吉拉德·沙利特被绑架第六天，其父呼吁绑架者出于人道提供沙利特尚在人世的迹象，并亲自感谢埃及总统穆巴拉克参与化解危机。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 60,
+    "socialImpact": 63,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 52,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "ec4ebced13344a99"
+    }
   },
   {
     "id": "evt_20060630_005",
@@ -8536,7 +12856,27 @@
         "text": "haaretz.com｜以色列国防军对加沙地带发动空袭，一名伊斯兰圣战组织（杰哈德）武装人员身亡，为以军此次入侵行动中首位巴勒斯坦遇难者。另一起空袭中一名儿童受轻伤。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 100,
+    "socialImpact": 50,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 15,
+    "memoryValue": 45,
+    "archiveValue": 78,
+    "eventType": "world",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合78，最强维度globalImpact=100）；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 70,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "7a5cb2def639158a"
+    }
   },
   {
     "id": "evt_20060630_006",
@@ -8574,6 +12914,26 @@
         "text": "ynetnews.com｜一枚改进型卡桑火箭弹落在以色列城市阿什凯隆的墓地，该市人口超过11.7万。这是卡桑火箭弹迄今达到的最远射程。"
       }
     ],
-    "relatedEvents": []
+    "relatedEvents": [],
+    "globalImpact": 55,
+    "socialImpact": 70,
+    "culturalImpact": 18,
+    "economicImpact": 35,
+    "technologyImpact": 40,
+    "memoryValue": 67,
+    "archiveValue": 62,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；命中产业转型/现象级关键词，已豁免噪声惩罚并升级；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-09T00:38:14+00:00",
+      "model": null,
+      "inputHash": "f68d04e566b94270"
+    }
   }
 ]
