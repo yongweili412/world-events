@@ -1,0 +1,94 @@
+name: 封面图补抓（来源页 og:image）
+
+# 背景（2026-11-10）：12 万条里仅 1.7% 有封面图。来源页的 og:image 是现成可用的图，
+# 本站只存 URL、不下载转存（版权归原媒体，页面已带来源声明），也不增加仓库体积。
+# 每天一批（默认 60 条，价值优先），慢慢补，不追求一次到底。
+# 为什么必须在云端：本机访问外网被代理拦截（ProxyError/无路由），抓不到目标站。
+
+on:
+  schedule:
+    - cron: '35 3 * * *'   # = 北京 11:35，避开抓取/回填/补证各任务
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: '本次处理条数'
+        required: false
+        default: '60'
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: world-events-update     # 与其它写库任务互斥，避免并发写坏分片
+  cancel-in-progress: false
+
+jobs:
+  fetch-images:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: 检出仓库
+        uses: actions/checkout@v4
+
+      - name: 从分片重建工作副本（data/events.json 不入库，真源是 data/events/*.json）
+        run: python scraper/shard_events.py ensure
+
+      - name: 安装 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 安装依赖
+        run: pip install --quiet requests
+
+      - name: 抓取 og:image
+        run: python scraper/fetch_images.py --auto ${{ github.event.inputs.limit || '60' }}
+
+      - name: 档案价值评分补跑（新增封面图不影响评分，但保持覆盖一致）
+        continue-on-error: true
+        run: python scraper/rescore.py
+
+      - name: 构建静态页面
+        run: python scraper/build.py
+
+      - name: 提交并推送
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "无变化，跳过提交"
+            exit 0
+          fi
+          git commit -m "data: 封面图补抓（来源页 og:image）$(TZ=Asia/Shanghai date '+%m-%d %H:%M') 北京时间"
+          for i in 1 2 3 4; do
+            if git push; then echo "PUSH_OK"; exit 0; fi
+            git fetch origin main
+            git merge --no-commit --no-ff origin/main || true
+            python scraper/merge_shards.py
+            python scraper/shard_events.py split
+            for f in $(git diff --name-only --diff-filter=U); do
+              case "$f" in
+                data/events/*.json) : ;;
+                *) git checkout --ours "$f" 2>/dev/null || true; git add "$f" 2>/dev/null || true ;;
+              esac
+            done
+            git add -A
+            git commit -m "merge: 按事件id并集合并分片（不丢远端成果）" 2>/dev/null || true
+            sleep 5
+          done
+          echo "PUSH_FAILED"
+          exit 1
+
+      - name: 失败时创建 Issue 通知
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          EXISTING=$(gh issue list --repo ${{ github.repository }} --state open --search "自动化失败 in:title" --limit 1 --json number --jq 'length')
+          if [ "${EXISTING}" = "0" ]; then
+            gh issue create --repo ${{ github.repository }} \
+              --title "自动化失败: 封面图补抓 $(TZ=Asia/Shanghai date '+%m-%d %H:%M') 北京时间" \
+              --body "封面图补抓任务失败，请检查日志：${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" || echo "issue create failed"
+          fi
