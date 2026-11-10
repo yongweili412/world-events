@@ -32,10 +32,23 @@ MONTH_SHARD_DIR = DATA_DIR / "m"                 # 单月全量分片：详情�
 INDEX_STATIC_COUNT = 50   # 首页静态渲染条数
 INDEX_EMBED_COUNT = 300   # 首页内嵌 JSON 条数（供搜索/筛选）
 ARCHIVE_PAGE_SIZE = 900    # 归档页单页事件上限：大于此值按月内分块（P1-A）
+# 归档页摘要截断（2026-11-10）：375 个归档页曾达 111MB（每页内嵌 900 条完整摘要），
+# 是部署超时的主要体积来源之一。截到 60 字仍够判断是否点开，全文在详情页。
+ARCHIVE_SUMMARY_LIMIT = 60
 STATIC_EVENT_DIR = ROOT / "e"            # 静态详情页目录（P1-B，SEO 最后一公里）
 STATIC_EVENT_MONTHS = 0                  # 静态详情页覆盖最近几个月；0 = 不限月份（覆盖全量历史高价值条目）
-STATIC_EVENT_MIN_VALUE = 70              # 静态详情页的最低档案价值分（KEEP 线）
+STATIC_EVENT_MIN_VALUE = 75              # 静态详情页的最低档案价值分（2026-11-10 由 70 提到 75：
+                                         # 12 万条后发布文件数成为部署超时主因，且 70-74 分多为
+                                         # 历史回填的平庸条目，宁可 7000 个能打的页面，不要 1.2 万个弱页）
 STATIC_EVENT_MAX = 12000                 # 静态详情页总量上限，防止构建失控
+
+# data/m 月分片保留字段（前端详情页实际渲染所需，其余字段不进发布产物）。
+# 依据：app.js 中所有 ev.xxx 引用；assessment/decisionReason/sourceExcerpt/eventType 零引用。
+MONTH_SHARD_KEEP = (
+    "id", "title", "date", "summary", "description", "aiSummary", "summaryFull",
+    "status", "tags", "category", "country", "region", "location",
+    "sources", "timeline", "image", "archiveValue", "legacyIds",
+)
 
 # 站点身份常量：canonical / OG / JSON-LD / RSS 里的绝对 URL 都从这里取，
 # 换域名（比如以后挂自定义域）只改这一处。
@@ -77,6 +90,17 @@ CAT_BG = {
 def esc(s):
     """HTML 转义，防止 RSS 内容里的尖括号破坏页面结构"""
     return html_mod.escape(str(s or ""), quote=True)
+
+
+def _clip(text, limit):
+    """按字符截断文本（用于归档页摘要瘦身），超出加省略号。
+
+    用字符而非字节切分，避免把中文/代理对切成乱码；空白归一后再截。
+    """
+    t = " ".join(str(text or "").split())
+    if limit <= 0 or len(t) <= limit:
+        return t
+    return t[:limit].rstrip() + "…"
 
 
 # 统一 SVG 图标（描边风格，随字号缩放）—— 替代原先的 emoji 功能图标（P0 规则）
@@ -160,7 +184,7 @@ def render_timeline(events):
         {esc(ev.get("date", ""))} · {esc(region)}{extra}
       </div>
       <div class="timeline-title">{esc(ev.get("title", ""))}</div>
-      <div class="timeline-summary">{esc(ev.get("summary", ""))}</div>
+      <div class="timeline-summary">{esc(_clip(ev.get("summary", ""), ARCHIVE_SUMMARY_LIMIT))}</div>
       <div class="timeline-meta">{tags}</div>
     </a>''')
     return "\n".join(out)
@@ -295,13 +319,21 @@ def build_index_lite(events):
 
 
 def build_month_shards(events_sorted):
-    """生成 data/m/YYYY-MM.json —— 单月全量分片，详情页按需只取一个月的文件。"""
+    """生成 data/m/YYYY-MM.json —— 单月全量分片，详情页按需只取一个月的文件。
+
+    体积控制（2026-11-10）：12 万条后 data/m 达 232MB，且 GitHub Pages 部署同步
+    受文件数与体积双重约束。这里按「前端详情页真正渲染的字段」做白名单裁剪：
+    app.js 只用 id/title/date/summary/description/aiSummary/summaryFull/status/
+    tags/category/country/region/location/sources/timeline/image/archiveValue/legacyIds。
+    assessment、decisionReason、sourceExcerpt、eventType 前端零引用（约 332B/条），
+    原始数据完整保留在入库真源 data/events/*.json，仅发布产物精简，可随时回滚。
+    """
     MONTH_SHARD_DIR.mkdir(parents=True, exist_ok=True)
     by_month = {}
     for ev in events_sorted:
         ym = (ev.get("date") or "")[:7]
         if ym:
-            by_month.setdefault(ym, []).append(ev)
+            by_month.setdefault(ym, []).append({k: ev[k] for k in MONTH_SHARD_KEEP if k in ev})
     written, total_bytes = 0, 0
     for ym, rows in by_month.items():
         out = MONTH_SHARD_DIR / f"{ym}.json"
@@ -313,7 +345,8 @@ def build_month_shards(events_sorted):
         if old.stem not in by_month:
             old.unlink()
     avg_kb = (total_bytes / written / 1024) if written else 0
-    print(f"  ✅ data/m/ 已生成 {written} 个月度分片（平均 {avg_kb:.0f}KB/月）")
+    print(f"  ✅ data/m/ 已生成 {written} 个月度分片（平均 {avg_kb:.0f}KB/月，"
+          f"合计 {total_bytes/1048576:.0f}MB，字段白名单裁剪）")
     return by_month
 
 

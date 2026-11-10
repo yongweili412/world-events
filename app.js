@@ -522,40 +522,44 @@ async function renderEventDetail() {
 
   // 相关事件：按「标签相似 0.5 + 同分类 0.3 + 时间接近 0.15 + 同地区 0.05」加权
   // 旧逻辑只按地区取最新，在 70 个地区的大库里必然推出毫不相干的内容（如德国法庭新闻下推足球）
-  let relatedHtml = '';
-  const idx = await getFullEvents();
-  const myTags = new Set((ev.tags || []).map(t => String(t).toLowerCase()));
-  const myDate = ev.date || '';
-  const myCat = catOf(ev);
-  const myRegion = regionOf(ev);
-  const scored = [];
-  for (const r of idx) {
-    if (r.id === ev.id) continue;
-    const rTags = (r.tags || []).map(t => String(t).toLowerCase());
-    let inter = 0;
-    for (const t of rTags) if (myTags.has(t)) inter++;
-    const uni = myTags.size + rTags.size - inter;
-    const jac = uni > 0 ? inter / uni : 0;
-    let near = 0;
-    if (myDate && r.date) {
-      const diff = Math.abs(Date.parse(myDate) - Date.parse(r.date)) / 86400000;
-      if (!isNaN(diff) && diff <= 90) near = 1 - diff / 90;
+  //
+  // 性能（2026-11-10）：这段原先在首屏同步执行，会强制下载整份 index-lite
+  // （12 万条，gzip 10.8MB）——手机打开任何一篇文章都要等 10MB 流量。
+  // 改为懒加载：滚到接近页底时才取索引并计算，首屏只依赖当月分片。
+  const loadRelatedEvents = async () => {
+    const myTags = new Set((ev.tags || []).map(t => String(t).toLowerCase()));
+    const myDate = ev.date || '';
+    const myCat = catOf(ev);
+    const myRegion = regionOf(ev);
+    const idx = await getFullEvents();
+    const scored = [];
+    for (const r of idx) {
+      if (r.id === ev.id) continue;
+      const rTags = (r.tags || []).map(t => String(t).toLowerCase());
+      let inter = 0;
+      for (const t of rTags) if (myTags.has(t)) inter++;
+      const uni = myTags.size + rTags.size - inter;
+      const jac = uni > 0 ? inter / uni : 0;
+      let near = 0;
+      if (myDate && r.date) {
+        const diff = Math.abs(Date.parse(myDate) - Date.parse(r.date)) / 86400000;
+        if (!isNaN(diff) && diff <= 90) near = 1 - diff / 90;
+      }
+      const score = 0.5 * jac + 0.3 * (catOf(r) === myCat ? 1 : 0)
+                  + 0.15 * near + 0.05 * (regionOf(r) === myRegion ? 1 : 0);
+      if (score > 0.12) scored.push({ r, score });
     }
-    const score = 0.5 * jac + 0.3 * (catOf(r) === myCat ? 1 : 0)
-                + 0.15 * near + 0.05 * (regionOf(r) === myRegion ? 1 : 0);
-    if (score > 0.12) scored.push({ r, score });
-  }
-  scored.sort((a, b) => b.score - a.score);
-  const related = scored.slice(0, 4).map(x => x.r);
-  if (related.length) {
-    relatedHtml = `
+    scored.sort((a, b) => b.score - a.score);
+    const related = scored.slice(0, 4).map(x => x.r);
+    if (!related.length) return '';
+    return `
       <h2 style="font-size:18px;font-weight:700;margin:24px 0 12px;border-left:4px solid ${getCategoryColor(cat)};padding-left:10px">相关事件</h2>
       ${related.map(r => `
         <a href="./event.html?id=${escapeHtml(r.id)}" style="display:block;padding:10px 0;border-bottom:1px solid var(--border);text-decoration:none;color:inherit">
           <span style="font-size:12px;color:var(--text-secondary)">${escapeHtml(r.date)} · ${escapeHtml(catOf(r))} · ${escapeHtml(regionOf(r))}</span>
           <div style="font-size:14px;font-weight:600;margin-top:2px">${escapeHtml(r.title)}</div>
         </a>`).join('')}`;
-  }
+  };
 
   // 事件主图（来源原文配图，外链展示，版权归原媒体）
   let imgBox = '';
@@ -587,7 +591,7 @@ async function renderEventDetail() {
     </div>
     ${timelineHtml}
     ${sourcesHtml}
-    ${relatedHtml}
+    <div id="related-slot"></div>
     <div style="margin-top:20px">
       ${(ev.tags || []).map(t => `<span class="timeline-tag" style="margin-bottom:4px;display:inline-block">#${escapeHtml(t)}</span>`).join('')}
     </div>
@@ -595,6 +599,26 @@ async function renderEventDetail() {
       <a href="./index.html" style="color:var(--primary);text-decoration:none">← 返回今日世界</a>
     </div>
   `;
+
+  // 懒加载相关事件：接近视口（提前 300px）时才取索引，避免详情页首屏拖 10MB。
+  // IntersectionObserver 不可用时退回"立即加载"，功能不丢。
+  const relatedSlot = document.getElementById('related-slot');
+  if (relatedSlot) {
+    const fillRelated = async () => {
+      try { relatedSlot.innerHTML = await loadRelatedEvents(); }
+      catch (e) { relatedSlot.innerHTML = ''; }
+    };
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver(entries => {
+        if (!entries.some(en => en.isIntersecting)) return;
+        io.disconnect();
+        fillRelated();
+      }, { rootMargin: '300px' });
+      io.observe(relatedSlot);
+    } else {
+      fillRelated();
+    }
+  }
 
   // 每条详情页自己的标题与社交名片（此前所有详情页共用「事件详情 - 全球大事记」，
   // 搜索引擎无法区分，分享到微信/Telegram 也是一张白卡片）
