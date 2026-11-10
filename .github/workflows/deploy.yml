@@ -7,21 +7,19 @@ name: 部署站点（GitHub Pages）
 #
 # 触发说明（重要）：
 #   - push：本地/PAT 推送会触发；但云端工作流用 GITHUB_TOKEN 推送【不会】触发 push 工作流
-#     （GitHub 防死循环机制），所以下面额外用 workflow_run 监听数据类工作流。
-#   - workflow_run：4 个数据工作流跑完后触发部署（仅成功时）。
+#     （GitHub 防死循环机制），所以云端数据更新不会即时触发部署，靠 schedule 兜底。
 #   - schedule：每 6 小时兜底，防止漏触发。
 #   - workflow_dispatch：手动触发。
 
 on:
   push:
     branches: [main]
-  workflow_run:
-    workflows:
-      - 云端自动抓取
-      - 历史回填（1997-2025 大事年表）
-      - 逐日存档回填（重点年份细节）
-      - 证据补证（弱证据事件补抓独立来源）
-    types: [completed]
+  # 2026-11-10：移除 workflow_run 即时触发。
+  # 原因：dist 达 386MB / 约 1.18 万文件，Pages 单次同步经常超过 action 的
+  # 600 秒硬上限（timeout 参数被 GitHub 强制压到最大 600000ms，设更大也无效），
+  # 而数据工作流一天成功十几次，每次都触发一次全量同步 → 近 12 次部署 2 次失败。
+  # 改为只靠 schedule 每 6 小时批量部署 + push 触发：牺牲最多 6 小时新鲜度，
+  # 换取部署次数减少一个量级、排队冲突显著下降。配合下方"失败自动重试一次"。
   schedule:
     - cron: '40 */6 * * *'
   workflow_dispatch:
@@ -37,8 +35,6 @@ concurrency:
 
 jobs:
   build:
-    # workflow_run 只在源工作流成功时才部署；其他触发方式一律执行
-    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
@@ -114,14 +110,28 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url || steps.deployment_retry.outputs.page_url }}
     steps:
       - name: 部署到 GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        # 首次失败不中断，交给下一步重试（Pages 同步超时是瞬时拥塞，重试常能过）
+        continue-on-error: true
         with:
-          # 发布包含 9000+ 静态详情页与 350+ 月分片后，Pages 同步较慢。
-          # 注意：actions/deploy-pages@v4 的 timeout 单位是【毫秒】（默认 600000 = 10 分钟）。
-          # 2026-11-08 修正：此前误写 1800（=1.8 秒），导致部署刚创建就被中止、
-          # 线上一直停留在旧版。改为 1800000（30 分钟）。
-          timeout: 1800000
+          # 单位是毫秒。实测 GitHub 会把超过 600000 的值强制压回 600000
+          # （日志：timeout set to the maximum of 600000 milliseconds），
+          # 所以直接写 600000（10 分钟），不再用 1800000 造成误解。
+          timeout: 600000
+
+      - name: 部署重试（首次超时/失败后）
+        id: deployment_retry
+        if: steps.deployment.outcome == 'failure'
+        uses: actions/deploy-pages@v4
+        with:
+          timeout: 600000
+
+      - name: 两次都失败则标记本次部署失败
+        if: steps.deployment.outcome == 'failure' && steps.deployment_retry.outcome == 'failure'
+        run: |
+          echo "::error::Pages 部署两次均失败，请检查是否为发布体积/文件数超限（当前 dist 约 386MB / 1.18 万文件）"
+          exit 1
