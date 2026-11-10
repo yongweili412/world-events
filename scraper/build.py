@@ -291,25 +291,45 @@ def build_index_lite(events):
 
     只保留列表/搜索/地图/存档渲染需要的字段，正文、时间线、完整来源不进索引。
     体积约为全量数据的 1/10（gzip 后约 2-3MB），可一次加载常驻内存做全库搜索。
+
+    体积控制（2026-11-10）：12 万条后索引达 45.6MB（gzip 10.2MB），手机首次搜索要下 10MB。
+    这里改为**只写有值的字段**——空 image、空 legacyIds、summaryFull=false、空 country
+    每条约占 60-70B 纯冗余，合计约 8MB。前端对这些字段全部 null 安全
+    （`(e.legacyIds || [])`、`ev.status === 'ongoing'`、`ev.summaryFull === true`、
+    `ev.image && /^https?:/`），缺字段与空值等价。
     """
     lite = []
     for ev in events:
         summary = (ev.get("summary") or "")[:LITE_FIELDS_SUMMARY_LIMIT]
-        lite.append({
+        country = (ev.get("location") or {}).get("country") or ev.get("country") or ""
+        tags = (ev.get("tags") or [])[:6]
+        image = ev.get("image") or ""
+        item = {
             "id": ev.get("id", ""),
-            "legacyIds": ev.get("legacyIds") or [],
             "date": ev.get("date", ""),
             "title": ev.get("title", ""),
             "summary": summary,
             "category": cat_of(ev),
             "region": region_of(ev),
-            "country": (ev.get("location") or {}).get("country") or ev.get("country") or "",
-            "tags": (ev.get("tags") or [])[:6],
-            "image": (ev.get("image") or "") if str(ev.get("image") or "").startswith("http") else "",
-            "status": ev.get("status", ""),
-            "summaryFull": bool(ev.get("summaryFull")),
-            "srcCount": len(ev.get("sources") or []),
-        })
+        }
+        # 以下字段仅在确有内容时写入，避免 12 万条累加出几 MB 的空值
+        legacy = ev.get("legacyIds") or []
+        if legacy:
+            item["legacyIds"] = legacy
+        if country:
+            item["country"] = country
+        if tags:
+            item["tags"] = tags
+        if str(image).startswith("http"):
+            item["image"] = image
+        if ev.get("status"):
+            item["status"] = ev["status"]
+        if ev.get("summaryFull"):
+            item["summaryFull"] = True
+        n_src = len(ev.get("sources") or [])
+        if n_src > 1:                      # 卡片只在 >1 时显示「N 个来源」
+            item["srcCount"] = n_src
+        lite.append(item)
     DATA_DIR.mkdir(parents=True, exist_ok=True)
     INDEX_LITE_FILE.write_text(
         json.dumps(lite, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")

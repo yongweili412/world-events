@@ -169,17 +169,21 @@ def main():
         return
 
     p = load_progress()
+    events = sp.load_events()
+
     if args[0] == "--auto":
         n = int(args[1]) if len(args) > 1 else 1
-        months = [m for m in _all_months() if m not in p["done_months"]][:n]
+        cand = [m for m in _all_months() if m not in p["done_months"]]
+        # 价值优先排序（2026-11-10）：全库单来源占 86%，模型额度有限，
+        # 先补「单来源多且档案价值高」的月份，比按年份顺序磨更有意义。
+        months = _rank_months_by_value(cand, events)[:n]
     elif args[0] == "--months":
         months = args[1:]
     else:
         months = args
     months = months[:MAX_PER_RUN]
-    print("待补证月份:", months, " dry-run:", dry, flush=True)
+    print("待补证月份（按单来源×价值排序）:", months, " dry-run:", dry, flush=True)
 
-    events = sp.load_events()
     total_ev = total_match = 0
     for ym in months:
         ne, nm, nd = enrich_month(ym, events, dry)
@@ -195,6 +199,32 @@ def main():
 
     rate = (total_match / total_ev * 100) if total_ev else 0
     print(f"\n合计：弱证据 {total_ev} 条，补证成功 {total_match} 条（命中率 {rate:.1f}%）", flush=True)
+
+
+def _rank_months_by_value(months, events):
+    """按「单来源事件数 × 平均档案价值」给月份排序，让模型额度花在刀刃上。
+
+    只统计单来源（len(sources)<=1）的条目——多来源的已经可交叉验证，不必再补。
+    没有单来源条目的月份排最后（仍会跑，但优先级最低）。
+    """
+    stat = {}
+    for ev in events:
+        ym = (ev.get("date") or "")[:7]
+        if not ym:
+            continue
+        n_src = len(ev.get("sources") or [])
+        if n_src > 1:
+            continue
+        v = ev.get("archiveValue") or 0
+        cnt, tot = stat.get(ym, (0, 0))
+        stat[ym] = (cnt + 1, tot + v)
+    def score(ym):
+        cnt, tot = stat.get(ym, (0, 0))
+        if not cnt:
+            return 0
+        avg = tot / cnt
+        return cnt * (avg / 50.0)   # 以 50 分为基准，价值越高权重越大
+    return sorted(months, key=lambda m: -score(m))
 
 
 def _all_months():
