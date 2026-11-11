@@ -1162,7 +1162,15 @@ def _fp_match(item_words: set, ev_fp: dict, ev_order: list):
 
 
 def _find_event(events: list, item: dict):
-    """在事件库中查找该报道所属的事件（标题相似 + 日期相近）"""
+    """在事件库中查找该报道所属的事件（标题相似 + 日期相近）。
+
+    2026-11-11 修复（数据完整性 P0）：
+    第一层原本是「标题前 22 字相同即合并」，**没有任何日期限制**。
+    历史回填里大量模板化标题（"以色列空袭叙利亚境内目标"、"坦帕湾海盗队夺得超级碗冠军"）
+    会把 2003/2014/2021 等不同年份的**不同事件**合并成一条，实测 8.2% 的多来源事件
+    出现跨年份混源；也导致某些月份源数据 500+ 条却只入库几条（都被吞进旧事件）。
+    现在第一层也必须满足 |日期差| <= 7 天，与第二层一致的时间语义。
+    """
     nt = _norm(item["title"])
     from datetime import date as _d
 
@@ -1170,8 +1178,21 @@ def _find_event(events: list, item: dict):
         y, m, dd = map(int, s.split("-"))
         return _d(y, m, dd).toordinal()
 
+    try:
+        d_item = _ord(item["date"])
+    except Exception:
+        d_item = None
+
     for ev in events:
-        if _norm(ev["title"])[:22] == nt[:22]:
+        if _norm(ev["title"])[:22] != nt[:22]:
+            continue
+        if d_item is None:
+            continue
+        try:
+            gap = abs(_ord(ev["date"]) - d_item)
+        except Exception:
+            continue
+        if gap <= 7:
             return ev
     for ev in events:
         try:

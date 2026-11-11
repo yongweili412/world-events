@@ -391,18 +391,13 @@ def main():
         cn = translate_all(rows, workers=1)
         print(f"    翻译完成 {len(cn)}/{len(rows)} 条", flush=True)
 
-        # 质量闸门（2026-11-08）：免费模型 ReadTimeout 会让翻译静默失败，
-        # 只翻出 1-9% 却照常入库并标记 done，形成「假完成」，之后永远不会被重跑。
-        # 这里在入库前拦下：成功率 <50% 就不落库、不记账，整月留给下一轮重跑。
+        # 质量闸门（2026-11-08 建立，2026-11-11 修正）：
+        # 初版只看「翻译返回数 / 源数」，但 merge_into_events 可能把条目并入旧事件
+        # （_find_event 曾无日期限制，跨年份同标题也会误合并），于是翻译 500 条、
+        # 实际新建仅几条，仍被判合格并标记 done —— 形成 25 个月的「假完成」。
+        # 现在改为看「实际新建事件数 / 源条目数」，且闸门放在入库后：
+        # 不达标就把本轮新建的事件从内存移除，不落库、不记账，整月留给下轮重跑。
         # 阈值与 verify_daily_backfill.py 的 MIN_OUTPUT_RATIO 保持一致。
-        MIN_TRANSLATE_RATIO = 0.5
-        ratio = len(cn) / len(rows) if rows else 0
-        if ratio < MIN_TRANSLATE_RATIO:
-            print(f"    ⚠️ {ym} 翻译成功率仅 {ratio:.0%}（{len(cn)}/{len(rows)}），"
-                  f"疑似限流/超时导致静默失败；本轮不落库、不标记完成，留待重跑", flush=True)
-            continue
-
-        # 入库
         new_items = []
         n_with_refs = 0
         for row in cn:
@@ -427,13 +422,24 @@ def main():
         before = len(ev)
         sp.merge_into_events(ev, new_items, dedupe_url=False, use_fp=False)
         after = len(ev)
+        created = after - before
+        # 真实产出闸门：以「实际新建事件数」而非「翻译返回数」判定。
+        # 翻译成功但被 merge 吞并（旧 _find_event 跨年份误合并）时，created 会远小于源数，
+        # 必须判不合格。此时 ev 只改了内存、尚未 save_events，磁盘工作副本未变；
+        # 直接 break 结束本 job，之前月份已各自即时 split+落库，不会丢。
+        MIN_OUTPUT_RATIO = 0.5
+        created_ratio = created / len(rows) if rows else 0
+        if created_ratio < MIN_OUTPUT_RATIO:
+            print(f"    ⚠️ {ym} 实际新建仅 {created}/{len(rows)} 条（{created_ratio:.0%}），"
+                  f"翻译 {len(cn)} 条但入库不足；本轮不落库、不标记完成，停止本批待重跑", flush=True)
+            break
         for e in ev:
             if not e.get("aiSummary") and (e.get("sources") or [{}])[0].get("name", "").startswith("Wikipedia"):
                 s = (e.get("summary") or "").strip()
                 if s:
                     e["aiSummary"] = s
         sp.save_events(ev)
-        print(f"  ✅ {ym}: 翻译 {len(cn)}/{len(rows)} 条 → 新建 {after - before} | 库总量 {after}"
+        print(f"  ✅ {ym}: 翻译 {len(cn)}/{len(rows)} 条 → 新建 {created} | 库总量 {after}"
               f" | 带独立引用 {n_with_refs}/{len(cn)}", flush=True)
         # 先 split+提交（真源落盘），成功后才标记 done，避免「货丢了账还在」
         if not git_save_and_push(ym, p):

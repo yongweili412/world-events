@@ -14,8 +14,40 @@ run 显示 success 但每月只剩 9-20 条（正常 100-500 条）。
   故 2008 年前用 EARLY_MIN（默认 10），2008 年起仍用 50——真失败（0-5 条）两种情况都会被抓。
 """
 import collections
+import glob
 import json
+import os
 import sys
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+PROGRESS_FILE = os.path.join(ROOT, "data", "backfill_daily_progress.json")
+
+
+def month_counts_from_shards():
+    """逐分片统计每月事件数（真源 data/events/*.json），不整库载入内存。
+
+    2026-11-11：全库 12 万条后 data/events.json 达 241MB，json.load 会 MemoryError
+    （本机可用内存约 4GB）。分片是入库真源，用它统计更准确、内存只占单片。
+    """
+    cnt = collections.Counter()
+    total = 0
+    for p in sorted(glob.glob(os.path.join(ROOT, "data", "events", "*.json"))):
+        if os.path.basename(p) == "index.json":
+            continue
+        try:
+            with open(p, encoding="utf-8") as f:
+                rows = json.load(f)
+        except Exception:
+            continue
+        if not isinstance(rows, list):
+            continue
+        for e in rows:
+            total += 1
+            d = (e.get("date") or "")[:7]
+            if d:
+                cnt[d] += 1
+    return cnt, total
+
 
 DEFAULT_MIN_PER_MONTH = 50
 MIN_PER_MONTH = DEFAULT_MIN_PER_MONTH   # 运行期可被命令行参数覆盖（见 main）
@@ -52,28 +84,23 @@ def threshold_for(ym: str) -> int:
 def main():
     global MIN_PER_MONTH
     MIN_PER_MONTH = _parse_min_per_month(sys.argv)
-    ev = json.load(open("data/events.json", encoding="utf-8"))
-    # 按月份统计该月全部事件，不再靠来源名过滤。
-    # 原因（2026-11-07 事故）：新回填事件若有独立引用，来源名是域名（如 bbc.co.uk），
-    # 只有少数无引用的才叫「当日新闻存档 YYYY-MM」。按旧口径只数到 51 条，
-    # 把实际入库的 831 条误判为「产出不达标」，导致后续 build/split/commit 全被跳过。
-    # 是否真失败由 source_counts 的相对校验判定（入库数 vs 源条目数）。
-    cnt = collections.Counter(e["date"][:7] for e in ev if e.get("date"))
+    cnt, total_events = month_counts_from_shards()
 
     try:
-        cfg = json.load(open("data/backfill_daily_targets.json", encoding="utf-8"))
+        cfg = json.load(open(os.path.join(ROOT, "data", "backfill_daily_targets.json"), encoding="utf-8"))
         years = [str(y) for y in cfg.get("years", [])]
     except Exception:
         years = []
     try:
-        prog = json.load(open("data/backfill_daily_progress.json", encoding="utf-8"))
+        prog = json.load(open(PROGRESS_FILE, encoding="utf-8"))
         done = set(prog.get("done_months", []))
         empty = set(prog.get("empty_months", []))   # 无源数据的月份，不计入不达标
         src = prog.get("source_counts", {}) or {}   # 各月源条目数，用于相对校验
     except Exception:
+        prog = {"done_months": [], "empty_months": [], "source_counts": {}}
         done, empty, src = set(), set(), {}
 
-    print(f"验收范围: {years} | 已完成月份: {len(done)} | 无源数据: {len(empty)} | 库中事件总数: {len(ev)}")
+    print(f"验收范围: {years} | 已完成月份: {len(done)} | 无源数据: {len(empty)} | 库中事件总数: {total_events}")
     print(f"阈值: {EARLY_UNTIL} 年前 ≥{EARLY_MIN} 条/月，{EARLY_UNTIL} 年起 ≥{MIN_PER_MONTH} 条/月")
     problems = []
     for y in years:
@@ -104,13 +131,52 @@ def main():
                 problems.append((ym, n, reason))
 
     if problems:
-        print(f"\n⚠️ {len(problems)} 个已标记完成的月份产出异常:")
+        print(f"\n{len(problems)} 个已标记完成的月份产出异常:")
         for ym, n, reason in problems:
             print(f"  {ym}: 实际 {n} 条，{reason}")
-        print("\n可能原因：API 限流导致翻译静默失败 / 抓取失败。请查日志并按需重跑（从 progress 移除该月）。")
+
+        # 自愈（2026-11-11）：把产出异常的月份从 done_months 撤销，
+        # 让下一轮 auto/continuous 自动重跑，而不是每次 cron 都判 failure
+        # 却什么都不做（此前连续 5 次 failure 就是这个死循环）。
+        # 重试上限 3 次：反复失败的月份不再无限撤销，避免刷爆免费模型额度。
+        MAX_RETRY = 3
+        retries = prog.get("retry_counts", {}) or {}
+        revoked, exhausted = [], []
+        for ym, _n, _reason in problems:
+            times = int(retries.get(ym, 0)) + 1
+            retries[ym] = times
+            if times > MAX_RETRY:
+                exhausted.append(ym)
+                continue
+            if ym in done:
+                done.discard(ym)
+                revoked.append(ym)
+        prog["retry_counts"] = retries
+        prog["done_months"] = sorted(done)
+        prog.setdefault("auto_revoked_months", [])
+        for ym in revoked:
+            if ym not in prog["auto_revoked_months"]:
+                prog["auto_revoked_months"].append(ym)
+        try:
+            with open(PROGRESS_FILE, "w", encoding="utf-8") as f:
+                json.dump(prog, f, ensure_ascii=False, indent=1)
+        except Exception as ex:
+            print(f"进度写回失败: {type(ex).__name__}: {ex}", flush=True)
+            sys.exit(1)
+        print(f"\n已自动撤销 {len(revoked)} 个假完成月份，等待重跑"
+              f"（重试次数已记录，上限 {MAX_RETRY}）")
+        if exhausted:
+            print(f"已达重试上限、不再自动撤销: {', '.join(sorted(exhausted))}")
+            print("这些月份需人工检查数据源或模型额度。")
+            sys.exit(1)
+        if revoked:
+            # 本轮已安排重跑，不算失败；让后续 rescore/build/split 正常执行
+            print("本轮无其它问题，交由守护补位重跑。")
+            return 0
         sys.exit(1)
-    print(f"\n✅ 所有已完成月份产出达标（按年份分层阈值）")
+    print(f"\n所有已完成月份产出达标（按年份分层阈值）")
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())
