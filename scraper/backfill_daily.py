@@ -344,7 +344,12 @@ def main():
             pass
         print("auto 目标年份:", years, flush=True)
         allm = [f"{y}-{m:02d}" for y in years for m in range(1, 13)]
-        todo = [m for m in allm if m not in p["done_months"]]
+        # 反复被质量闸门拦下的月份不再参与自动推进（显式暴露，避免守护每 30 分钟
+        # 无限补位重跑同一个月、白耗免费模型额度）。需要人工检查数据源/额度后再解除。
+        exhausted = set(p.get("exhausted_months", []))
+        if exhausted:
+            print(f"跳过 {len(exhausted)} 个反复失败月份: {sorted(exhausted)}", flush=True)
+        todo = [m for m in allm if m not in p["done_months"] and m not in exhausted]
         months = todo if continuous else todo[:n]
         if continuous:
             print(f"continuous 模式：本次候选 {len(months)} 个月，"
@@ -430,6 +435,18 @@ def main():
         MIN_OUTPUT_RATIO = 0.5
         created_ratio = created / len(rows) if rows else 0
         if created_ratio < MIN_OUTPUT_RATIO:
+            # 记录该月被闸门拦下的次数；达到上限就列入 exhausted_months，
+            # 让 auto 不再反复挑它（否则守护会每 30 分钟补位重跑同一个月）。
+            fails = p.setdefault("gate_fail_counts", {})
+            fails[ym] = int(fails.get(ym, 0)) + 1
+            GATE_FAIL_LIMIT = 3
+            if fails[ym] >= GATE_FAIL_LIMIT:
+                p.setdefault("exhausted_months", [])
+                if ym not in p["exhausted_months"]:
+                    p["exhausted_months"].append(ym)
+                print(f"    {ym} 连续 {fails[ym]} 次入库不足，列入 exhausted_months；"
+                      f"需人工检查数据源/模型额度后解除", flush=True)
+            save_progress(p)
             print(f"    ⚠️ {ym} 实际新建仅 {created}/{len(rows)} 条（{created_ratio:.0%}），"
                   f"翻译 {len(cn)} 条但入库不足；本轮不落库、不标记完成，停止本批待重跑", flush=True)
             break

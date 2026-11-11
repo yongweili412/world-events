@@ -60,17 +60,24 @@ def main():
         f = _req(f"/repos/{REPO}/contents/data/backfill_daily_progress.json?ref=main", tok=tok)
         prog = json.loads(base64.b64decode(f["content"]))
         done = set(prog.get("done_months", []))
+        # 反复被质量闸门拦下的月份已由 backfill_daily.py 列入 exhausted_months，
+        # 不再参与自动推进；守护也不该把它们算作待补，否则会每 30 分钟触发空跑。
+        exhausted = set(prog.get("exhausted_months", []))
         c = _req(f"/repos/{REPO}/contents/data/backfill_daily_targets.json?ref=main", tok=tok)
         cfg = json.loads(base64.b64decode(c["content"]))
         years = [int(y) for y in cfg["years"]]
         todo = [f"{y}-{m:02d}" for y in years for m in range(1, 13)
-                if f"{y}-{m:02d}" not in done]
+                if f"{y}-{m:02d}" not in done and f"{y}-{m:02d}" not in exhausted]
     except Exception as e:
         print(f"GUARD_ERROR: 读取远端进度失败 {type(e).__name__}: {e}", flush=True)
         return 1
 
     if not todo:
-        print("DONE: 全部目标月份已补完，无需触发", flush=True)
+        if exhausted:
+            print(f"DONE: 无待补月份；另有 {len(exhausted)} 个反复失败月份待人工处理"
+                  f"（{', '.join(sorted(exhausted))}）", flush=True)
+        else:
+            print("DONE: 全部目标月份已补完，无需触发", flush=True)
         return 0
 
     # 2) 云端活跃任务（in_progress / queued / pending 都算"在跑或排队"）

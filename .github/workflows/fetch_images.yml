@@ -20,7 +20,11 @@ permissions:
   issues: write
 
 concurrency:
-  group: world-events-update     # 与其它写库任务互斥，避免并发写坏分片
+  # 2026-11-11：改独立组。原先与 backfill_daily 共用 world-events-update，
+  # 而回填 continuous 一跑就是数小时，封面图任务会一直 pending 被饿死。
+  # 本任务只给已有事件补 image 字段，与回填"新增事件"冲突面很小；
+  # 提交步骤已内置 merge_shards 按 id 并集合并，并发写库不会丢数据。
+  group: world-events-images
   cancel-in-progress: false
 
 jobs:
