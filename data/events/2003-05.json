@@ -53,7 +53,7 @@
       "confidence": 45,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-05T07:41:57+08:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "4ac189480a8da247"
     },
@@ -114,7 +114,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-05T07:41:57+08:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "8e723fbc566a47fd"
     },
@@ -175,7 +175,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-05T07:41:57+08:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "030844a1c759ac73"
     },
@@ -246,9 +246,9 @@
       "confidence": 45,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-05T07:41:57+08:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
-      "inputHash": "3efa8f71ca21e5d1"
+      "inputHash": "5e4026c59fcfcab5"
     },
     "summaryFull": false
   },
@@ -309,7 +309,7 @@
       "confidence": 55,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-05T07:41:57+08:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "d95b3209de05d158"
     },
@@ -382,9 +382,9 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-05T07:41:57+08:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
-      "inputHash": "2623840d6067b1df"
+      "inputHash": "bd00c27d5c757471"
     },
     "summaryFull": false
   },
@@ -444,7 +444,7 @@
       "confidence": 45,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-05T07:41:57+08:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "cb0d684741094a1e"
     },
@@ -504,23 +504,23 @@
     ],
     "relatedEvents": [],
     "aiSummary": "车臣自杀袭击者在俄兹纳缅斯科政府大楼发动爆炸袭击，造成至少59人死亡，俄反恐形势严峻。",
-    "globalImpact": 65,
+    "globalImpact": 90,
     "socialImpact": 73,
     "culturalImpact": 18,
     "economicImpact": 25,
     "technologyImpact": 10,
     "memoryValue": 40,
-    "archiveValue": 60,
+    "archiveValue": 73,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；2 个独立来源域名",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合73，最强维度globalImpact=90）；2 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 45,
+      "confidence": 70,
       "evidenceStatus": "strong",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:41:57+08:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "79a17efc71089b3b"
     },
@@ -565,13 +565,13 @@
     ],
     "relatedEvents": [],
     "aiSummary": "罗马教皇保罗二世访问叙利亚大马士革清真寺，成为首位进入清真寺的教皇，促进宗教对话。",
-    "globalImpact": 15,
+    "globalImpact": 40,
     "socialImpact": 25,
     "culturalImpact": 60,
     "economicImpact": 15,
     "technologyImpact": 10,
     "memoryValue": 50,
-    "archiveValue": 49,
+    "archiveValue": 51,
     "eventType": "society_culture",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；证据等级 weak",
@@ -581,7 +581,7 @@
       "confidence": 45,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-05T07:41:57+08:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "19c21449f41c6d9b"
     },
@@ -643,7 +643,7 @@
       "confidence": 45,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-05T07:41:57+08:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "b12967cfca0d4441"
     },
@@ -704,7 +704,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "0f6e7832d0368905"
     }
@@ -764,7 +764,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "ee8140de41cb527e"
     }
@@ -825,7 +825,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "a985414dc7b7bc69"
     }
@@ -884,7 +884,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "4aa826bbecd540f6"
     }
@@ -944,7 +944,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "ab5b038245969458"
     }
@@ -1003,7 +1003,7 @@
       "confidence": 45,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "e25c117dba56494c"
     }
@@ -1062,7 +1062,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "0bd424eface22a1b"
     }
@@ -1121,7 +1121,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "ac15732e36621392"
     }
@@ -1180,7 +1180,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "183675a8d30577cf"
     }
@@ -1239,7 +1239,7 @@
       "confidence": 45,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "fa5ca65e2914ead0"
     }
@@ -1298,7 +1298,7 @@
       "confidence": 45,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "59865e49c26deea3"
     }
@@ -1357,7 +1357,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "c91f5c22b296bee5"
     }
@@ -1402,23 +1402,23 @@
     ],
     "relatedEvents": [],
     "aiSummary": "科罗拉多、堪萨斯和密苏里三州遭遇系列龙卷风袭击，造成至少19人遇难，多处房屋和设施受损，当地展开救援与灾情评估。",
-    "globalImpact": 65,
+    "globalImpact": 90,
     "socialImpact": 55,
     "culturalImpact": 18,
     "economicImpact": 25,
     "technologyImpact": 10,
     "memoryValue": 40,
-    "archiveValue": 54,
+    "archiveValue": 71,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "来源仅维基月度存档页，缺独立佐证，待补证；证据等级 weak",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合71，最强维度globalImpact=90）；证据等级 weak",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 50,
+      "confidence": 55,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "6f221dae80883d07"
     }
@@ -1477,7 +1477,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "d78e3d06cb01c915"
     }
@@ -1536,7 +1536,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "3aa5ac1ce72ae554"
     }
@@ -1595,7 +1595,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "da3a0689cf62ef11"
     }
@@ -1654,7 +1654,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "204f93c5efbbe619"
     }
@@ -1712,7 +1712,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "34982f58f2e9a974"
     },
@@ -1773,7 +1773,7 @@
       "confidence": 45,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "d97e438e1e9cff53"
     }
@@ -1830,7 +1830,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "0e247ba87fa5e457"
     }
@@ -1890,7 +1890,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "3a4bc50326d1a504"
     }
@@ -1948,7 +1948,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "72c2508789d7f720"
     },
@@ -2008,7 +2008,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "9f0f0530229bda53"
     },
@@ -2069,7 +2069,7 @@
       "confidence": 45,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "564a27ea22b13d0e"
     }
@@ -2128,7 +2128,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "e65d0864ecf569a7"
     }
@@ -2173,13 +2173,13 @@
     ],
     "relatedEvents": [],
     "aiSummary": "2003年5月8日，一场F4级龙卷风袭击美国俄克拉何马城都会区，成为美国历史上损失第十大的龙卷风。事件未造成人员死亡，但有多人受伤，其路径与1999年5月3日的F5级龙卷风相似。",
-    "globalImpact": 55,
+    "globalImpact": 80,
     "socialImpact": 55,
     "culturalImpact": 18,
     "economicImpact": 25,
     "technologyImpact": 10,
     "memoryValue": 40,
-    "archiveValue": 48,
+    "archiveValue": 65,
     "eventType": "world",
     "decision": "REVIEW",
     "decisionReason": "来源仅维基月度存档页，缺独立佐证，待补证；证据等级 weak",
@@ -2189,7 +2189,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "cce8eeab35397f01"
     }
@@ -2249,7 +2249,7 @@
       "confidence": 45,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "2e5d5a362cb94f3c"
     }
@@ -2308,7 +2308,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "7726574fac95fe3e"
     },
@@ -2369,7 +2369,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "b15eb8a22ab6f9ac"
     }
@@ -2428,7 +2428,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "9694fbcf983f1aca"
     }
@@ -2487,7 +2487,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "8f3448abceb83c75"
     }
@@ -2532,14 +2532,14 @@
     ],
     "relatedEvents": [],
     "aiSummary": "美国联邦调查局就2001年炭疽袭击事件，调查马里兰州弗雷德里克卡托克廷山北侧的池塘，搜寻中曾发现炭疽孢子及其他证据。",
-    "globalImpact": 35,
+    "globalImpact": 60,
     "socialImpact": 45,
     "culturalImpact": 20,
     "economicImpact": 15,
     "technologyImpact": 25,
     "memoryValue": 25,
-    "archiveValue": 38,
-    "eventType": "society_culture",
+    "archiveValue": 49,
+    "eventType": "world",
     "decision": "REVIEW",
     "decisionReason": "来源仅维基月度存档页，缺独立佐证，待补证；证据等级 weak",
     "assessment": {
@@ -2548,7 +2548,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "577780ca1975d487"
     }
@@ -2607,7 +2607,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "56cdb8732de0b1d0"
     }
@@ -2667,7 +2667,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "8e8902df34480375"
     }
@@ -2727,7 +2727,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "c0e487832c70b771"
     }
@@ -2788,7 +2788,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "ecaab228f2f9986e"
     }
@@ -2847,7 +2847,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "e700a16b27017ac5"
     }
@@ -2906,7 +2906,7 @@
       "confidence": 45,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "76306df7c54a6dd9"
     }
@@ -2951,23 +2951,23 @@
     ],
     "relatedEvents": [],
     "aiSummary": "沙特阿拉伯利雅得多处西方人聚居区几乎同时发生四起汽车炸弹爆炸，造成至少35人死亡。美沙官员推测袭击为基地组织所为。",
-    "globalImpact": 65,
+    "globalImpact": 90,
     "socialImpact": 55,
     "culturalImpact": 18,
     "economicImpact": 25,
     "technologyImpact": 10,
     "memoryValue": 40,
-    "archiveValue": 54,
+    "archiveValue": 71,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "来源仅维基月度存档页，缺独立佐证，待补证；证据等级 weak",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合71，最强维度globalImpact=90）；证据等级 weak",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 50,
+      "confidence": 55,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "343ef36a09f570df"
     }
@@ -3010,23 +3010,23 @@
       }
     ],
     "relatedEvents": [],
-    "globalImpact": 85,
+    "globalImpact": 100,
     "socialImpact": 50,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 15,
     "memoryValue": 45,
-    "archiveValue": 68,
+    "archiveValue": 78,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合78，最强维度globalImpact=100）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 45,
+      "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "51d3e2cd875d22a4"
     },
@@ -3087,7 +3087,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "f11ab3403ee0d17b"
     },
@@ -3148,7 +3148,7 @@
       "confidence": 55,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "5d8b0fc33b313582"
     }
@@ -3207,7 +3207,7 @@
       "confidence": 45,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "a76b067cf2d258db"
     }
@@ -3266,7 +3266,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "40144e3ce1460f81"
     }
@@ -3324,7 +3324,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "b3558620387153ab"
     },
@@ -3369,23 +3369,23 @@
       }
     ],
     "relatedEvents": [],
-    "globalImpact": 85,
+    "globalImpact": 100,
     "socialImpact": 50,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 15,
     "memoryValue": 45,
-    "archiveValue": 68,
+    "archiveValue": 78,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合78，最强维度globalImpact=100）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 45,
+      "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "83131194e3f41b0e"
     },
@@ -3430,23 +3430,23 @@
       }
     ],
     "relatedEvents": [],
-    "globalImpact": 85,
+    "globalImpact": 100,
     "socialImpact": 50,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 15,
     "memoryValue": 45,
-    "archiveValue": 68,
+    "archiveValue": 78,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；命中商业噪声词，已整体降权；1 个独立来源域名",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合78，最强维度globalImpact=100）；命中商业噪声词，已整体降权；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 45,
+      "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "28e5a750a76c0d8e"
     },
@@ -3506,7 +3506,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "7235bd5e03bd462f"
     },
@@ -3568,7 +3568,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "65a54e607307783f"
     }
@@ -3628,7 +3628,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "deeac337aeaa15e3"
     }
@@ -3687,7 +3687,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "541676dbfde28acf"
     }
@@ -3745,7 +3745,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "ee77ba1c13cef99f"
     },
@@ -3820,16 +3820,16 @@
     "archiveValue": 48,
     "eventType": "society_culture",
     "decision": "REVIEW",
-    "decisionReason": "来源仅维基月度存档页，缺独立佐证，待补证；证据等级 weak",
+    "decisionReason": "边界候选，需模型结合语境判断；3 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 50,
-      "evidenceStatus": "weak",
-      "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "confidence": 45,
+      "evidenceStatus": "strong",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
-      "inputHash": "d349b418f8cabf30"
+      "inputHash": "77df05a8baeb4ac1"
     }
   },
   {
@@ -3886,7 +3886,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "3bd2c2f228927f99"
     }
@@ -3952,25 +3952,25 @@
     ],
     "relatedEvents": [],
     "aiSummary": "美国联邦检察官缺席起诉贾迈勒·艾哈迈德·穆罕默德·巴达维和法赫德·库索，指控其与2000年10月12日也门亚丁港美国科尔号驱逐舰爆炸袭击有关。",
-    "globalImpact": 85,
+    "globalImpact": 100,
     "socialImpact": 50,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 15,
     "memoryValue": 45,
-    "archiveValue": 68,
+    "archiveValue": 78,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "来源仅维基月度存档页，缺独立佐证，待补证；证据等级 weak",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合78，最强维度globalImpact=100）；3 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 50,
-      "evidenceStatus": "weak",
-      "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "confidence": 70,
+      "evidenceStatus": "strong",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
-      "inputHash": "d23e8b3d6ac61de8"
+      "inputHash": "e555240cdb5e729b"
     }
   },
   {
@@ -4029,7 +4029,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "c1122c34d0bd4281"
     }
@@ -4073,23 +4073,23 @@
       }
     ],
     "relatedEvents": [],
-    "globalImpact": 65,
+    "globalImpact": 90,
     "socialImpact": 55,
     "culturalImpact": 18,
     "economicImpact": 25,
     "technologyImpact": 10,
     "memoryValue": 40,
-    "archiveValue": 54,
+    "archiveValue": 71,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合71，最强维度globalImpact=90）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 45,
+      "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "b363022017676335"
     },
@@ -4150,7 +4150,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "23918878ec9e29ae"
     }
@@ -4208,7 +4208,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "06f67688d69e0a86"
     },
@@ -4269,7 +4269,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "564ca65914afcae4"
     }
@@ -4328,7 +4328,7 @@
       "confidence": 45,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "8c1da1fa58c94aca"
     }
@@ -4388,7 +4388,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "34a1ef0d158a8db8"
     }
@@ -4447,7 +4447,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "7d26b065436844d6"
     }
@@ -4507,7 +4507,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "925b2c2c03caae44"
     }
@@ -4565,7 +4565,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "824652d7bcd94ab5"
     },
@@ -4627,7 +4627,7 @@
       "confidence": 55,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "49d00a56ab0cb0dc"
     }
@@ -4686,7 +4686,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "012fd938976fe8ff"
     }
@@ -4745,7 +4745,7 @@
       "confidence": 45,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "4cb17d48fd1e2bcc"
     }
@@ -4803,7 +4803,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "f2182cc8d64538a3"
     },
@@ -4864,7 +4864,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "61abd33ace5dd9df"
     }
@@ -4922,7 +4922,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "df7617c059e4e80a"
     },
@@ -4983,7 +4983,7 @@
       "confidence": 45,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "3fcf74aa251e182c"
     }
@@ -5042,7 +5042,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "3fbbbeedeeb84d30"
     }
@@ -5103,7 +5103,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "664a469111224044"
     }
@@ -5163,7 +5163,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "7ff1ee271033fb2d"
     }
@@ -5223,7 +5223,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "9153d98f3a709bad"
     }
@@ -5283,7 +5283,7 @@
       "confidence": 45,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "e867b78b64bd8904"
     }
@@ -5344,7 +5344,7 @@
       "confidence": 55,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "f0e285f4d3e89c2f"
     }
@@ -5403,7 +5403,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "a5c6288b51bdabfe"
     }
@@ -5461,7 +5461,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "e2f834ea2405206f"
     },
@@ -5521,7 +5521,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "66a68526b6933632"
     },
@@ -5582,7 +5582,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "287757e7f8416c6d"
     },
@@ -5643,7 +5643,7 @@
       "confidence": 45,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "1d6038da1d5b71fe"
     }
@@ -5702,7 +5702,7 @@
       "confidence": 45,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "c92db0576fb252d6"
     }
@@ -5762,7 +5762,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "99baf85e03a0716a"
     }
@@ -5821,7 +5821,7 @@
       "confidence": 55,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "87fe8a9f5776d79b"
     }
@@ -5880,7 +5880,7 @@
       "confidence": 45,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "3140c3a59288600f"
     }
@@ -5939,7 +5939,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "293035f77d4dc0c3"
     },
@@ -5999,7 +5999,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "834dd81daf198d7b"
     },
@@ -6059,7 +6059,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "e8eab813ea2d4a7f"
     },
@@ -6120,7 +6120,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "a1ee5fbb04189eee"
     }
@@ -6179,7 +6179,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "0ac24c1ffe85bc9e"
     },
@@ -6225,14 +6225,14 @@
     ],
     "relatedEvents": [],
     "aiSummary": "Novell发表声明介入SCO集团与IBM的Linux诉讼，称1995年协议未向SCO转让相关版权，并指SCO难以证明其拥有这些版权。",
-    "globalImpact": 25,
+    "globalImpact": 50,
     "socialImpact": 25,
     "culturalImpact": 18,
     "economicImpact": 25,
     "technologyImpact": 55,
     "memoryValue": 30,
-    "archiveValue": 44,
-    "eventType": "society_culture",
+    "archiveValue": 46,
+    "eventType": "world",
     "decision": "REVIEW",
     "decisionReason": "来源仅维基月度存档页，缺独立佐证，待补证；证据等级 weak",
     "assessment": {
@@ -6241,7 +6241,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "b4e87d583c40c852"
     }
@@ -6297,7 +6297,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "d04442fd6f11fe63"
     },
@@ -6357,7 +6357,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "af44b7f1c82e6786"
     },
@@ -6417,7 +6417,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "da935ba699c27402"
     },
@@ -6477,7 +6477,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "8ba5461e99f53efe"
     },
@@ -6538,7 +6538,7 @@
       "confidence": 45,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "2efe4d5962c8482f"
     }
@@ -6597,7 +6597,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "6fc867ce499ed085"
     }
@@ -6656,7 +6656,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "b5f7090c663c9599"
     },
@@ -6716,7 +6716,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "a0bd4dc993efac2a"
     },
@@ -6777,7 +6777,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "caddedfe7bbb2a7d"
     }
@@ -6835,7 +6835,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "3985cd0e963cca63"
     },
@@ -6897,7 +6897,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "d89cf8f405561e74"
     }
@@ -6956,7 +6956,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "1ef80f01f0ccac1e"
     }
@@ -7015,7 +7015,7 @@
       "confidence": 45,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "03db76d86db6a956"
     }
@@ -7073,7 +7073,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "db7688586a26a48e"
     },
@@ -7120,13 +7120,13 @@
     ],
     "relatedEvents": [],
     "aiSummary": "美国总统乔治·W·布什访问奥斯维辛集中营旧址，成为继福特之后第二位到访该地的美国总统。",
-    "globalImpact": 60,
+    "globalImpact": 85,
     "socialImpact": 45,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 10,
     "memoryValue": 30,
-    "archiveValue": 49,
+    "archiveValue": 66,
     "eventType": "world",
     "decision": "REVIEW",
     "decisionReason": "来源仅维基月度存档页，缺独立佐证，待补证；证据等级 weak",
@@ -7136,7 +7136,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "88da218c9f430867"
     }
@@ -7194,7 +7194,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "54459732be4de9a4"
     },
@@ -7255,7 +7255,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T15:15:17+00:00",
+      "assessedAt": "2026-11-11T10:43:14+08:00",
       "model": null,
       "inputHash": "3f8d5a62f2773186"
     }

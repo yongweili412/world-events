@@ -67,16 +67,16 @@
     "archiveValue": 66,
     "eventType": "world",
     "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "decisionReason": "边界候选，需模型结合语境判断；2 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
       "confidence": 45,
-      "evidenceStatus": "medium",
+      "evidenceStatus": "strong",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:41:57+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
-      "inputHash": "abe445d6254b97df"
+      "inputHash": "4764f6c471ce8e26"
     },
     "summaryFull": false
   },
@@ -135,7 +135,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-05T07:41:57+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "391f2730404f8e63"
     },
@@ -196,7 +196,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-05T07:41:57+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "c1721e803237c800"
     },
@@ -256,7 +256,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-05T07:41:57+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "34ff3533c75d126f"
     },
@@ -317,7 +317,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-05T07:41:57+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "950d9e6168516ab0"
     },
@@ -408,25 +408,25 @@
     ],
     "relatedEvents": [],
     "aiSummary": "叙利亚内战持续外溢至邻国黎巴嫩，黎巴嫩境内安全局势趋于紧张，武装冲突与袭击事件频发，引发地区局势进一步动荡。",
-    "globalImpact": 75,
-    "socialImpact": 20,
+    "globalImpact": 100,
+    "socialImpact": 45,
     "culturalImpact": 18,
-    "economicImpact": 10,
+    "economicImpact": 20,
     "technologyImpact": 10,
-    "memoryValue": 18,
-    "archiveValue": 56,
+    "memoryValue": 30,
+    "archiveValue": 76,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "来源仅维基月度存档页，缺独立佐证，待补证；证据等级 weak",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合76，最强维度globalImpact=100）；证据等级 weak",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 50,
+      "confidence": 55,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-07T12:17:38+00:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
-      "inputHash": "f20b929aaf724af4"
+      "inputHash": "86745667df77dec6"
     }
   },
   {
@@ -556,9 +556,9 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-05T07:41:58+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
-      "inputHash": "2bef9e8d70f2b5ea"
+      "inputHash": "f87544d05d61f8ad"
     },
     "summaryFull": false
   },
@@ -619,16 +619,16 @@
     "archiveValue": 38,
     "eventType": "society_culture",
     "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "decisionReason": "边界候选，需模型结合语境判断；2 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
       "confidence": 45,
-      "evidenceStatus": "medium",
+      "evidenceStatus": "strong",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:09+00:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
-      "inputHash": "5412b61e2240e605"
+      "inputHash": "cec19cd30ade3419"
     },
     "aiSummary": "前新英格兰爱国者队近端锋阿隆·赫尔南德斯因2012年7月波士顿南端区一起驾车枪击案被控两项谋杀罪。",
     "summaryFull": false
@@ -689,7 +689,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "93b506475be87220"
     }
@@ -749,16 +749,16 @@
     "archiveValue": 78,
     "eventType": "world",
     "decision": "KEEP",
-    "decisionReason": "规则判定高价值（综合78，最强维度globalImpact=100）；证据等级 weak",
+    "decisionReason": "规则判定高价值（综合78，最强维度globalImpact=100）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 55,
-      "evidenceStatus": "weak",
-      "needsEvidence": true,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "confidence": 70,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
-      "inputHash": "a3c0058fc5542c10"
+      "inputHash": "fdcfde1b14db5751"
     }
   },
   {
@@ -817,7 +817,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "0386aea14e5626a5"
     }
@@ -877,16 +877,16 @@
     "archiveValue": 67,
     "eventType": "world",
     "decision": "REVIEW",
-    "decisionReason": "来源仅维基月度存档页，缺独立佐证，待补证；证据等级 weak",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 50,
-      "evidenceStatus": "weak",
-      "needsEvidence": true,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
-      "inputHash": "b933a00e099a5687"
+      "inputHash": "e62e54be1fd08986"
     }
   },
   {
@@ -945,7 +945,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "3cbcdbb9b4edd4b7"
     }
@@ -1005,7 +1005,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "d5c9bee1d2f2e7db"
     }
@@ -1065,7 +1065,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "58a65d8d54d4a5ba"
     }
@@ -1127,7 +1127,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "1b24832e28bf0214"
     }
@@ -1189,7 +1189,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "7f9116ff9b37e9cd"
     }
@@ -1251,7 +1251,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "86e1ee857a13273d"
     }
@@ -1312,7 +1312,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "a9e624b7eeebd80d"
     }
@@ -1372,7 +1372,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "423c6e248c7150f1"
     }
@@ -1434,7 +1434,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "3b6831275a60ea2d"
     }
@@ -1496,7 +1496,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "9507f8322a355354"
     }
@@ -1558,7 +1558,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "b32c3f51d8d7ece1"
     }
@@ -1619,7 +1619,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "dc560264ca65c391"
     }
@@ -1680,7 +1680,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "07e737141584394d"
     }
@@ -1741,7 +1741,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "7a2dd7ed02b6908d"
     }
@@ -1803,7 +1803,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "f9a725da7733a906"
     }
@@ -1861,7 +1861,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "bd0cd272b283aba6"
     }
@@ -1922,7 +1922,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "b50e745ef33d28d3"
     }
@@ -1982,7 +1982,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "9b7525457b8629a2"
     }
@@ -2042,7 +2042,7 @@
       "confidence": 50,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "1621603b251e17a0"
     }
@@ -2102,7 +2102,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "0e142d59b0733f29"
     }
@@ -2162,7 +2162,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "2c8fe276f768b056"
     }
@@ -2222,7 +2222,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "5e314b70cb3f575c"
     }
@@ -2284,7 +2284,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "def7b1b0bd1a170a"
     }
@@ -2345,7 +2345,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "b8c8d4ea827b1692"
     }
@@ -2405,7 +2405,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "6ec1c0120ee478aa"
     }
@@ -2466,7 +2466,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "08487938359daee5"
     }
@@ -2514,10 +2514,10 @@
     "globalImpact": 52,
     "socialImpact": 30,
     "culturalImpact": 18,
-    "economicImpact": 82,
+    "economicImpact": 60,
     "technologyImpact": 20,
     "memoryValue": 25,
-    "archiveValue": 64,
+    "archiveValue": 49,
     "eventType": "world",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
@@ -2527,7 +2527,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "f182e1ddac6af89d"
     }
@@ -2574,10 +2574,10 @@
     "globalImpact": 30,
     "socialImpact": 30,
     "culturalImpact": 18,
-    "economicImpact": 82,
+    "economicImpact": 60,
     "technologyImpact": 20,
     "memoryValue": 25,
-    "archiveValue": 62,
+    "archiveValue": 48,
     "eventType": "society_culture",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
@@ -2587,7 +2587,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "5fd41e383faae1b3"
     }
@@ -2650,7 +2650,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "d1797c896e97b1a7"
     }
@@ -2712,7 +2712,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "7fa4cf9fd9ae3998"
     }
@@ -2774,7 +2774,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "970d874d4dd18c85"
     }
@@ -2835,7 +2835,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "27527a812c2e9930"
     }
@@ -2895,7 +2895,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "8abffb997348712d"
     }
@@ -2956,7 +2956,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "f34b573f8d4fd54d"
     }
@@ -3017,7 +3017,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "13d0261605496cab"
     }
@@ -3078,7 +3078,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "07e2f0f766a1ee1c"
     }
@@ -3139,7 +3139,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "81b69a7194b7ff92"
     }
@@ -3199,7 +3199,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "40b16f7982018430"
     }
@@ -3259,7 +3259,7 @@
       "confidence": 50,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "43d3317b9b98a88f"
     }
@@ -3319,7 +3319,7 @@
       "confidence": 50,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "b6bb29f8aedebcd2"
     }
@@ -3380,7 +3380,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "69276b1cd2aff90b"
     }
@@ -3440,7 +3440,7 @@
       "confidence": 50,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "3a42416362f37bd0"
     }
@@ -3500,7 +3500,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "0c742aa059215c9c"
     }
@@ -3562,7 +3562,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "857b599ae57c1575"
     }
@@ -3622,7 +3622,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "e7f737efd12b6596"
     }
@@ -3682,7 +3682,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "b318684a11d0b825"
     }
@@ -3741,7 +3741,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "2602000a63dc09e2"
     }
@@ -3801,7 +3801,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "5ef4372fac30c464"
     }
@@ -3861,7 +3861,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "97b813341bda4241"
     }
@@ -3921,7 +3921,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "04309e061d730299"
     }
@@ -3981,7 +3981,7 @@
       "confidence": 50,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "5120099092640203"
     }
@@ -4043,7 +4043,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "02b98fdd13bf82f2"
     }
@@ -4103,7 +4103,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "72ad6f0a4a61d197"
     }
@@ -4164,7 +4164,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "753877f223a4e866"
     }
@@ -4225,7 +4225,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "7fe7341c1af398f6"
     }
@@ -4287,7 +4287,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "fecb15294babc5df"
     }
@@ -4349,7 +4349,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "f1bf61b048d7ace7"
     }
@@ -4409,7 +4409,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "7cfc449e2bb3eb0b"
     }
@@ -4469,7 +4469,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "dcbba6a3e318a09e"
     }
@@ -4516,10 +4516,10 @@
     "globalImpact": 30,
     "socialImpact": 30,
     "culturalImpact": 18,
-    "economicImpact": 93,
+    "economicImpact": 82,
     "technologyImpact": 20,
     "memoryValue": 25,
-    "archiveValue": 69,
+    "archiveValue": 62,
     "eventType": "society_culture",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
@@ -4529,7 +4529,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "3e2f5d4adef42fae"
     }
@@ -4589,7 +4589,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "bb4ff36ba96a4491"
     }
@@ -4650,7 +4650,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "fe0c02bd22fd839f"
     }
@@ -4712,7 +4712,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "6464bbd4657239d8"
     }
@@ -4772,7 +4772,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "5b9c0c987c59e43b"
     }
@@ -4833,7 +4833,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "989af6326bba7e68"
     }
@@ -4893,7 +4893,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "b1660a4b4e7ee90f"
     }
@@ -4957,7 +4957,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "53efee9ec4f5af40"
     }
@@ -5017,7 +5017,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "344ec783f11633e5"
     }
@@ -5077,7 +5077,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "9706db4d02bc13c4"
     }
@@ -5137,7 +5137,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "439ac99b658a263f"
     }
@@ -5197,7 +5197,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "641b18df38b5f649"
     }
@@ -5257,7 +5257,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "6f80609451da080c"
     }
@@ -5317,7 +5317,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "1a188d5e940da87f"
     }
@@ -5377,7 +5377,7 @@
       "confidence": 65,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "b93ac352a92df2d1"
     }
@@ -5437,7 +5437,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "9b7eda6e63183df6"
     }
@@ -5497,7 +5497,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "6313520ecab4b0bc"
     }
@@ -5569,7 +5569,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "abff7bf548e987e4"
     }
@@ -5629,7 +5629,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "2b4f21d8a08980e7"
     }
@@ -5687,7 +5687,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "005f4ddeacb81c9e"
     }
@@ -5747,7 +5747,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "db0e85a7d14176c2"
     }
@@ -5807,7 +5807,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "725ba3c327083091"
     }
@@ -5868,7 +5868,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "44edd3d2281a262e"
     }
@@ -5928,7 +5928,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "96009b53e49beef8"
     }
@@ -5988,7 +5988,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "9ac1a4f875f76b20"
     }
@@ -6049,7 +6049,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "8b342d209e3ee0d3"
     }
@@ -6109,7 +6109,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "e700075f619d6d64"
     }
@@ -6169,7 +6169,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "af961f643a73f3d3"
     }
@@ -6229,7 +6229,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "001b948cabce74b5"
     }
@@ -6290,7 +6290,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "a18baf74158106f1"
     }
@@ -6350,7 +6350,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "a938a4cdefd94a67"
     }
@@ -6411,7 +6411,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "be012d9bfb6700f2"
     }
@@ -6472,7 +6472,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "158abe4d9ee6471c"
     }
@@ -6532,7 +6532,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "98d8db2f69f903e3"
     }
@@ -6593,7 +6593,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "c12e2d0f7265c5c1"
     }
@@ -6653,7 +6653,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "d51e477ab40e8f06"
     }
@@ -6714,7 +6714,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "7917fa844eea8c05"
     }
@@ -6785,7 +6785,7 @@
       "confidence": 45,
       "evidenceStatus": "strong",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "271c9f9e7eee8022"
     }
@@ -6844,7 +6844,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "ba78d8f4bfc15bbc"
     }
@@ -6904,7 +6904,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "8828db9117d29a1b"
     }
@@ -6964,7 +6964,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "8dc51b105a17ba19"
     }
@@ -7024,7 +7024,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "52bc6d2222539948"
     }
@@ -7071,10 +7071,10 @@
     "globalImpact": 30,
     "socialImpact": 30,
     "culturalImpact": 18,
-    "economicImpact": 82,
+    "economicImpact": 60,
     "technologyImpact": 20,
     "memoryValue": 25,
-    "archiveValue": 62,
+    "archiveValue": 48,
     "eventType": "society_culture",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
@@ -7084,7 +7084,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "921b891c0fb9a10c"
     }
@@ -7146,7 +7146,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "17cc3de103b0d5e0"
     }
@@ -7207,7 +7207,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "a723603a42d25072"
     }
@@ -7270,7 +7270,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "c3fa31ad76320687"
     }
@@ -7331,7 +7331,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "53caa32f4ce69b84"
     }
@@ -7392,7 +7392,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "e1130d3fc2109222"
     }
@@ -7452,7 +7452,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "227106b57dd49a4c"
     }
@@ -7512,7 +7512,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "fdff412a67f1fdd1"
     }
@@ -7572,7 +7572,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "4a144ae488f3e067"
     }
@@ -7633,7 +7633,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "5f891a11b992cff9"
     }
@@ -7694,7 +7694,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "99d09c9295673b51"
     }
@@ -7754,7 +7754,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "eaae20da27cd3a11"
     }
@@ -7816,7 +7816,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "dc10d00b2ef94c05"
     }
@@ -7877,7 +7877,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "3275927a0d992e98"
     }
@@ -7938,7 +7938,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "3834796a44b6baff"
     }
@@ -7997,7 +7997,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "8fcd223e034ba104"
     }
@@ -8057,7 +8057,7 @@
       "confidence": 65,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "ce5f68b2587b87e3"
     }
@@ -8117,7 +8117,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "fb76c88451366264"
     }
@@ -8178,7 +8178,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "6a2f772e939bc0d0"
     }
@@ -8239,7 +8239,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "732f7cb2b7ada9c0"
     }
@@ -8300,7 +8300,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "fbb7cbc049577144"
     }
@@ -8347,10 +8347,10 @@
     "globalImpact": 30,
     "socialImpact": 30,
     "culturalImpact": 18,
-    "economicImpact": 82,
+    "economicImpact": 60,
     "technologyImpact": 20,
     "memoryValue": 47,
-    "archiveValue": 64,
+    "archiveValue": 49,
     "eventType": "society_culture",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
@@ -8360,7 +8360,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "f25735a1e7d62b2e"
     }
@@ -8421,7 +8421,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "c68dd407d745941b"
     }
@@ -8483,7 +8483,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "1363e3790e530fdd"
     }
@@ -8544,7 +8544,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "e8e8b5d7232b0416"
     }
@@ -8605,7 +8605,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "781ed6ad5e8bf02f"
     }
@@ -8666,7 +8666,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "dc35e72d8678d798"
     }
@@ -8726,7 +8726,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "c610d98de9a89062"
     }
@@ -8786,7 +8786,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "82c3cd8f3c0a1a70"
     }
@@ -8847,7 +8847,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "7c69ff392ab7d922"
     }
@@ -8907,7 +8907,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "ad349f56c00f1a17"
     }
@@ -8967,7 +8967,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "fe9f1b4c51b217d8"
     }
@@ -9014,20 +9014,20 @@
     "globalImpact": 55,
     "socialImpact": 30,
     "culturalImpact": 18,
-    "economicImpact": 93,
+    "economicImpact": 82,
     "technologyImpact": 20,
     "memoryValue": 25,
-    "archiveValue": 71,
+    "archiveValue": 64,
     "eventType": "world",
-    "decision": "KEEP",
-    "decisionReason": "规则判定高价值（综合71，最强维度economicImpact=93）；1 个独立来源域名",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 70,
+      "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "730c6ac61026ab85"
     }
@@ -9074,12 +9074,12 @@
     "globalImpact": 30,
     "socialImpact": 30,
     "culturalImpact": 18,
-    "economicImpact": 97,
+    "economicImpact": 75,
     "technologyImpact": 20,
     "memoryValue": 47,
-    "archiveValue": 73,
+    "archiveValue": 59,
     "eventType": "society_culture",
-    "decision": "KEEP",
+    "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；命中产业转型/现象级关键词，已豁免噪声惩罚并升级；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
@@ -9087,7 +9087,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "e4fb81d0065b6893"
     }
@@ -9149,7 +9149,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "60c212f8929edb2f"
     }
@@ -9210,7 +9210,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "eeeb1196cff1ec15"
     }
@@ -9271,7 +9271,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "8237ec8942cc7521"
     }
@@ -9329,7 +9329,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "6c5290fecb34b274"
     }
@@ -9390,7 +9390,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "0493d5872fa9709f"
     }
@@ -9451,7 +9451,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "af5ea0b495426b5c"
     }
@@ -9522,7 +9522,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "1515bffae42b4899"
     }
@@ -9582,7 +9582,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "29dbe36e352c8524"
     }
@@ -9642,7 +9642,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "1315600eb64e6802"
     }
@@ -9702,7 +9702,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "c9179e6e372a706b"
     }
@@ -9762,7 +9762,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "17297074df3bcb12"
     }
@@ -9822,7 +9822,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "a8ed11d6473ba7b2"
     }
@@ -9883,7 +9883,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "4848c5fc55e3c743"
     }
@@ -9943,7 +9943,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "eaa6b894fefcf5ac"
     }
@@ -10004,7 +10004,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "ddb30206209fb569"
     }
@@ -10064,7 +10064,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "f792aeac1881ce76"
     }
@@ -10124,7 +10124,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "fea2c8dca26a99ba"
     }
@@ -10186,7 +10186,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "3f7860a22042d589"
     }
@@ -10246,7 +10246,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "9e6a5606bb27d44b"
     }
@@ -10306,7 +10306,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "f2e5d5c0288817ce"
     }
@@ -10366,7 +10366,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "caf65f0cb361601d"
     }
@@ -10426,7 +10426,7 @@
       "confidence": 55,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "aeedd9d5633773bf"
     }
@@ -10486,7 +10486,7 @@
       "confidence": 55,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "3c4dff3623401c70"
     }
@@ -10547,7 +10547,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "288e875695c718e7"
     }
@@ -10607,7 +10607,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "28f0ff21da9d1be9"
     }
@@ -10666,16 +10666,16 @@
     "archiveValue": 78,
     "eventType": "world",
     "decision": "KEEP",
-    "decisionReason": "规则判定高价值（综合78，最强维度globalImpact=100）；证据等级 weak",
+    "decisionReason": "规则判定高价值（综合78，最强维度globalImpact=100）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 55,
-      "evidenceStatus": "weak",
-      "needsEvidence": true,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "confidence": 70,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
-      "inputHash": "c6945aea9a1dcd48"
+      "inputHash": "1d72ae4efcd6d9c8"
     }
   },
   {
@@ -10743,7 +10743,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "a2a5c43e27e94058"
     }
@@ -10805,7 +10805,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "6d32a01d7558c732"
     }
@@ -10865,7 +10865,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "4c517557dfb28221"
     }
@@ -10925,7 +10925,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "dee07dbc26760754"
     }
@@ -10986,7 +10986,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "b6c0d2a949f68930"
     }
@@ -11048,7 +11048,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "f8aa7aed1adb91e3"
     }
@@ -11110,7 +11110,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "4acd9bbdedfc296b"
     }
@@ -11170,7 +11170,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "8b752d2dd895ad1e"
     }
@@ -11230,7 +11230,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "68bb8cdfc6d4aa44"
     }
@@ -11291,7 +11291,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "79e674ebf29b7416"
     }
@@ -11351,7 +11351,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "46c3d0a8a3c9e7b6"
     }
@@ -11411,7 +11411,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "8332014a97fe58b2"
     }
@@ -11472,7 +11472,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "bc9c3f9472f80234"
     }
@@ -11533,7 +11533,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "55247de5a1c1a5d1"
     }
@@ -11593,7 +11593,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "23e6a30c641e2f86"
     }
@@ -11651,7 +11651,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "665d7f5b4a9e5ddd"
     }
@@ -11711,7 +11711,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "529d42d5adfb26b8"
     }
@@ -11771,7 +11771,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "d1e8543ee9e64709"
     }
@@ -11831,7 +11831,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "d599555feeb2ee0c"
     }
@@ -11891,7 +11891,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "a4651e5baf60b70b"
     }
@@ -11951,7 +11951,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "45447479c91fabdc"
     }
@@ -12011,7 +12011,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "9931a87aa98c1a88"
     }
@@ -12072,16 +12072,16 @@
     "archiveValue": 58,
     "eventType": "world",
     "decision": "REVIEW",
-    "decisionReason": "来源仅维基月度存档页，缺独立佐证，待补证；证据等级 weak",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 50,
-      "evidenceStatus": "weak",
-      "needsEvidence": true,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
-      "inputHash": "b503383b2452a716"
+      "inputHash": "07b866d5f2a5504f"
     }
   },
   {
@@ -12140,7 +12140,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "dc3b0968ca0996ad"
     }
@@ -12201,7 +12201,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "4d750b8c17282de1"
     }
@@ -12261,7 +12261,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "160d6e603784c069"
     }
@@ -12321,7 +12321,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "342bc42317fbd812"
     }
@@ -12381,7 +12381,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "bfaed29a39ec51c8"
     }
@@ -12441,7 +12441,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "81b814454b8316e9"
     }
@@ -12501,7 +12501,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "8e30561155e813b1"
     }
@@ -12563,7 +12563,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "37b2952677ba3f84"
     }
@@ -12623,7 +12623,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "bf73e91928b6523a"
     }
@@ -12683,7 +12683,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "1d862ff0c19ad54c"
     }
@@ -12744,7 +12744,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "2cf812895ffee559"
     }
@@ -12805,7 +12805,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "032ce19f11e72fdc"
     }
@@ -12867,7 +12867,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "cc596cb89bead353"
     }
@@ -12927,7 +12927,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "47de04b883a94afa"
     }
@@ -12989,7 +12989,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "5c4190ea81515acb"
     }
@@ -13050,7 +13050,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "43f69f9f38258faa"
     }
@@ -13110,7 +13110,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "ab30a0c3eff75949"
     }
@@ -13170,7 +13170,7 @@
       "confidence": 50,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "16a7c418801d77e2"
     }
@@ -13230,7 +13230,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "557df5563c0ad3f3"
     }
@@ -13290,7 +13290,7 @@
       "confidence": 50,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "1972611577911232"
     }
@@ -13352,7 +13352,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "be461bbd0dc582c4"
     }
@@ -13412,7 +13412,7 @@
       "confidence": 55,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "ccfdd1bee3af296e"
     }
@@ -13475,7 +13475,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "2507c0aa68b3c1ba"
     }
@@ -13536,7 +13536,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "c5597ffbe2ae52f6"
     }
@@ -13597,7 +13597,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "4d7fba912092a758"
     }
@@ -13644,10 +13644,10 @@
     "globalImpact": 30,
     "socialImpact": 50,
     "culturalImpact": 18,
-    "economicImpact": 82,
+    "economicImpact": 60,
     "technologyImpact": 20,
     "memoryValue": 25,
-    "archiveValue": 63,
+    "archiveValue": 49,
     "eventType": "society_culture",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
@@ -13657,7 +13657,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "d1696d0d052f1ec4"
     }
@@ -13718,7 +13718,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "e54de2e7fa80e475"
     }
@@ -13777,7 +13777,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "2cb881e4bd01570e"
     }
@@ -13838,7 +13838,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "89a07e9f0936dd60"
     }
@@ -13899,7 +13899,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "a2b5908658f306f5"
     }
@@ -13959,7 +13959,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "2e10c5f578ed7d9e"
     }
@@ -14020,7 +14020,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "55e128fb8f30dfc0"
     }
@@ -14081,7 +14081,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "a5649e10bf7d2293"
     }
@@ -14142,7 +14142,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "f4fda2d93dd25c9e"
     }
@@ -14204,7 +14204,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "9194ec7a3caea487"
     }
@@ -14264,7 +14264,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "d0d8c9264b99c0dd"
     }
@@ -14325,7 +14325,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "40f01a9a594e23d9"
     }
@@ -14385,7 +14385,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "2cfc1028bab4db06"
     }
@@ -14446,7 +14446,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "af4c9383e04e37a6"
     }
@@ -14507,7 +14507,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "7addda11e307d5f7"
     }
@@ -14567,7 +14567,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "3584fb87da8d203a"
     }
@@ -14627,7 +14627,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "4e6774920db98c82"
     }
@@ -14687,7 +14687,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "452eee6f6fc27a6c"
     }
@@ -14734,10 +14734,10 @@
     "globalImpact": 30,
     "socialImpact": 30,
     "culturalImpact": 18,
-    "economicImpact": 82,
+    "economicImpact": 60,
     "technologyImpact": 20,
     "memoryValue": 25,
-    "archiveValue": 62,
+    "archiveValue": 48,
     "eventType": "society_culture",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
@@ -14747,7 +14747,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "aeebdbdfbc7ca238"
     }
@@ -14794,10 +14794,10 @@
     "globalImpact": 30,
     "socialImpact": 30,
     "culturalImpact": 18,
-    "economicImpact": 82,
+    "economicImpact": 60,
     "technologyImpact": 20,
     "memoryValue": 25,
-    "archiveValue": 62,
+    "archiveValue": 48,
     "eventType": "society_culture",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
@@ -14807,7 +14807,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "cca063131e4d7f08"
     }
@@ -14854,10 +14854,10 @@
     "globalImpact": 30,
     "socialImpact": 30,
     "culturalImpact": 18,
-    "economicImpact": 82,
+    "economicImpact": 60,
     "technologyImpact": 20,
     "memoryValue": 25,
-    "archiveValue": 62,
+    "archiveValue": 48,
     "eventType": "society_culture",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
@@ -14867,7 +14867,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "d5c857d7ed752498"
     }
@@ -14927,7 +14927,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "08536b756495e8e3"
     }
@@ -14987,7 +14987,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "b26e829617e10d6c"
     }
@@ -15049,7 +15049,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "8635aceac0f26c0f"
     }
@@ -15109,7 +15109,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "4ea26ced9ff7949b"
     }
@@ -15169,7 +15169,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "44f1a17c01e8f49c"
     }
@@ -15230,7 +15230,7 @@
       "confidence": 50,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "805c159b656e6943"
     }
@@ -15291,7 +15291,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "b134f49d4e0c0bf2"
     }
@@ -15351,7 +15351,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "4eec89a371105910"
     }
@@ -15411,7 +15411,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "e50764760e9ac08f"
     }
@@ -15469,7 +15469,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "44eea54c194bd8bb"
     }
@@ -15529,7 +15529,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "9d4cc9273155f74d"
     }
@@ -15589,7 +15589,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "c5c48cf6c16e7b5f"
     }
@@ -15649,7 +15649,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "ac11bc0ff6c0d473"
     }
@@ -15709,7 +15709,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "c378c9b3298d657d"
     }
@@ -15770,7 +15770,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "d6c090c4aaaa66d1"
     }
@@ -15831,7 +15831,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "a2f602482cbd4fbb"
     }
@@ -15891,7 +15891,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "c67200fc8b50fa6d"
     }
@@ -15952,7 +15952,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "4424cc3a64947131"
     }
@@ -16013,7 +16013,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "dce857d0d3c6ee7c"
     }
@@ -16075,7 +16075,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "4923b1fd12498c26"
     }
@@ -16136,7 +16136,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "41fbad8ac62b6bbe"
     }
@@ -16196,7 +16196,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "aace4e45cec3d1a0"
     }
@@ -16256,7 +16256,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "c192d6890e519226"
     }
@@ -16317,7 +16317,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "703f18e7c00465e7"
     }
@@ -16378,7 +16378,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "c2e297bd45840427"
     }
@@ -16438,7 +16438,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "30997266ee2c162b"
     }
@@ -16499,7 +16499,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "8bdb7ccf13f48ee5"
     }
@@ -16560,7 +16560,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "a174641492e0866f"
     }
@@ -16621,7 +16621,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "a91322fd5e4d1ed6"
     }
@@ -16682,7 +16682,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "7a46fc5c6cc7b701"
     }
@@ -16743,7 +16743,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "7e9af274d5c580d5"
     }
@@ -16804,7 +16804,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "9725603f776baefc"
     }
@@ -16865,7 +16865,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "6faa9e2456180226"
     }
@@ -16927,7 +16927,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "a58b14452d44761e"
     }
@@ -16987,7 +16987,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "223685db084f10cb"
     }
@@ -17047,7 +17047,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "0fc0cec52ffaf83f"
     }
@@ -17107,7 +17107,7 @@
       "confidence": 50,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "fc3c516224636c3f"
     }
@@ -17169,7 +17169,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "305ebaa06d84f229"
     }
@@ -17230,7 +17230,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "cfe83e62d855d50e"
     }
@@ -17291,7 +17291,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "89feb9bec0c094ba"
     }
@@ -17351,7 +17351,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "4ed0b4a932aacd38"
     }
@@ -17410,7 +17410,7 @@
       "confidence": 55,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "7349bff063bdd35c"
     }
@@ -17470,7 +17470,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "b8208f81b24b3998"
     }
@@ -17532,7 +17532,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "3898fb422b4fde73"
     }
@@ -17593,7 +17593,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "75f9936a24b182a5"
     }
@@ -17655,7 +17655,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "a714356d8f7c1231"
     }
@@ -17716,7 +17716,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "9d321f0195ff37bd"
     }
@@ -17776,7 +17776,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "a55d092e64604428"
     }
@@ -17837,7 +17837,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "0836d3277bdac12a"
     }
@@ -17910,7 +17910,7 @@
       "confidence": 45,
       "evidenceStatus": "strong",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "7bbb503230adc24b"
     }
@@ -17972,7 +17972,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "b06d273a690574e9"
     }
@@ -18032,7 +18032,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "61ff24a38d456cf2"
     }
@@ -18092,7 +18092,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "d862aad20026675c"
     }
@@ -18153,7 +18153,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "089904762a5f92a0"
     }
@@ -18214,7 +18214,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "a9a771c6fa8a14b4"
     }
@@ -18275,7 +18275,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "c8c0f070ab0f6ae0"
     }
@@ -18337,7 +18337,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "56f95dd37796f123"
     }
@@ -18397,7 +18397,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "b24d1bbdd58bc057"
     }
@@ -18457,7 +18457,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "eea9532260019ae1"
     }
@@ -18517,7 +18517,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "56bf32d1b1983b4d"
     }
@@ -18564,10 +18564,10 @@
     "globalImpact": 30,
     "socialImpact": 30,
     "culturalImpact": 18,
-    "economicImpact": 93,
+    "economicImpact": 82,
     "technologyImpact": 20,
     "memoryValue": 25,
-    "archiveValue": 69,
+    "archiveValue": 62,
     "eventType": "society_culture",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
@@ -18577,7 +18577,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "1332e22fc9a877e1"
     }
@@ -18639,7 +18639,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "af1a3730a90d745e"
     }
@@ -18701,7 +18701,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "0d4105a9a62a97d9"
     }
@@ -18761,7 +18761,7 @@
       "confidence": 65,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "d76ebff6ea6fd4a6"
     }
@@ -18822,7 +18822,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "3477bb9480cbb992"
     }
@@ -18882,7 +18882,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "c41178b023bc4573"
     }
@@ -18943,7 +18943,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "4248b34dbaa23cd8"
     }
@@ -19003,7 +19003,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "d149b8242e620579"
     }
@@ -19065,7 +19065,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "0178ad09bae8e813"
     }
@@ -19136,7 +19136,7 @@
       "confidence": 45,
       "evidenceStatus": "strong",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "12aab288d62c6000"
     }
@@ -19196,7 +19196,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "1b97dfa1ac7ee503"
     }
@@ -19256,7 +19256,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "6618123ebe74cae6"
     }
@@ -19316,7 +19316,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "2e40ec8b599fc597"
     }
@@ -19376,7 +19376,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "9fa685a80f5d92a8"
     }
@@ -19438,7 +19438,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "ff65c201ea975fad"
     }
@@ -19500,7 +19500,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "2865b05594204aa6"
     }
@@ -19561,7 +19561,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "8542169b54415d22"
     }
@@ -19623,7 +19623,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "a734adf67ee59db1"
     }
@@ -19684,7 +19684,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "ed20e9937e40ba29"
     }
@@ -19744,7 +19744,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "47ca69c6a9ebb3e2"
     }
@@ -19804,7 +19804,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "366a6dc9ca55a165"
     }
@@ -19864,7 +19864,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "27e4b400eadace3a"
     }
@@ -19924,7 +19924,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "b0de4275ce259440"
     }
@@ -19984,7 +19984,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "fe80f8d4ba620f29"
     }
@@ -20046,7 +20046,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "99a0571e8dfeb92f"
     }
@@ -20107,7 +20107,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "4125c4dbbcc100f6"
     }
@@ -20168,7 +20168,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "a4007e6114db0280"
     }
@@ -20230,7 +20230,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "58542d77bb8dc307"
     }
@@ -20292,7 +20292,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "2e0bfe5ed84b8954"
     }
@@ -20353,7 +20353,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "3e616231fd8db976"
     }
@@ -20415,7 +20415,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "91b5ec5ece145c32"
     }
@@ -20475,7 +20475,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "6dc238f2b5c85c37"
     }
@@ -20536,7 +20536,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "c30fe0a016fe3552"
     }
@@ -20583,10 +20583,10 @@
     "globalImpact": 25,
     "socialImpact": 25,
     "culturalImpact": 15,
-    "economicImpact": 69,
+    "economicImpact": 51,
     "technologyImpact": 17,
     "memoryValue": 21,
-    "archiveValue": 52,
+    "archiveValue": 40,
     "eventType": "society_culture",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；命中商业噪声词，已整体降权；1 个独立来源域名",
@@ -20596,7 +20596,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "97d758be3f8f5059"
     }
@@ -20656,7 +20656,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "6eb318e20f9b2962"
     }
@@ -20704,10 +20704,10 @@
     "globalImpact": 55,
     "socialImpact": 30,
     "culturalImpact": 18,
-    "economicImpact": 82,
+    "economicImpact": 60,
     "technologyImpact": 20,
     "memoryValue": 25,
-    "archiveValue": 64,
+    "archiveValue": 50,
     "eventType": "world",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
@@ -20717,7 +20717,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "a54ca15405f8d048"
     }
@@ -20779,7 +20779,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "3551e5d2b3984957"
     }
@@ -20840,7 +20840,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "2438922ec707428f"
     }
@@ -20913,16 +20913,16 @@
     "archiveValue": 57,
     "eventType": "society_culture",
     "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；证据等级 weak",
+    "decisionReason": "边界候选，需模型结合语境判断；3 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
       "confidence": 45,
-      "evidenceStatus": "weak",
-      "needsEvidence": true,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "evidenceStatus": "strong",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
-      "inputHash": "70e915a6d2328745"
+      "inputHash": "a581dc455693aa7e"
     }
   },
   {
@@ -20982,7 +20982,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "4bb029f5d03be6db"
     }
@@ -21044,7 +21044,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "37b6b58c155f888c"
     }
@@ -21105,7 +21105,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "650f42faddabd827"
     }
@@ -21165,7 +21165,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "4905b1fba2f8b907"
     }
@@ -21226,7 +21226,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "6286c22af2f4e415"
     }
@@ -21286,7 +21286,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "61faa9f48b54edcf"
     }
@@ -21346,7 +21346,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "bb43d2089aa72d2d"
     }
@@ -21407,7 +21407,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "c9288cdf51313a15"
     }
@@ -21468,7 +21468,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "438ddbb40b3a0064"
     }
@@ -21527,7 +21527,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "5c7398cdd64ad988"
     }
@@ -21587,7 +21587,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "5c8c44cc16d72b30"
     }
@@ -21647,7 +21647,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "57848fe5270d5728"
     }
@@ -21707,7 +21707,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "da60f802723c4a61"
     }
@@ -21767,7 +21767,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "b5cdc82b952976c8"
     }
@@ -21827,7 +21827,7 @@
       "confidence": 65,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "d5e6b067fdb86c4a"
     }
@@ -21887,7 +21887,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "6e3e5fce635c0f72"
     }
@@ -21945,7 +21945,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "89a22475e53f9d45"
     }
@@ -22003,7 +22003,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "b508b06a8e76d33c"
     }
@@ -22063,7 +22063,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "89b8ac32627e97b8"
     }
@@ -22123,7 +22123,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "01fddd1730f04694"
     }
@@ -22183,7 +22183,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "c15116296e93b09b"
     }
@@ -22244,7 +22244,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "97e4a44c9b16a5ed"
     }
@@ -22305,7 +22305,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "f9dcc7f9251c6a06"
     }
@@ -22366,7 +22366,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "5f4004198131fa77"
     }
@@ -22426,7 +22426,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "576363391fdaf0c9"
     }
@@ -22487,7 +22487,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "dcecffb75ea67034"
     }
@@ -22548,7 +22548,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "cab7c9cbba424e88"
     }
@@ -22609,7 +22609,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "f341ed61a22d593b"
     }
@@ -22670,7 +22670,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "076ab2e53b2a1380"
     }
@@ -22731,7 +22731,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "598f5559e10fdc88"
     }
@@ -22779,10 +22779,10 @@
     "globalImpact": 30,
     "socialImpact": 30,
     "culturalImpact": 18,
-    "economicImpact": 82,
+    "economicImpact": 60,
     "technologyImpact": 20,
     "memoryValue": 25,
-    "archiveValue": 62,
+    "archiveValue": 48,
     "eventType": "society_culture",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
@@ -22792,7 +22792,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "f372daab09974e8f"
     }
@@ -22852,7 +22852,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "7e4758cade089b3d"
     }
@@ -22913,7 +22913,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "aef0f6b9e41ff715"
     }
@@ -22973,7 +22973,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "1bc69476a4a3dc65"
     }
@@ -23020,10 +23020,10 @@
     "globalImpact": 30,
     "socialImpact": 30,
     "culturalImpact": 18,
-    "economicImpact": 82,
+    "economicImpact": 60,
     "technologyImpact": 20,
     "memoryValue": 25,
-    "archiveValue": 62,
+    "archiveValue": 48,
     "eventType": "society_culture",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
@@ -23033,7 +23033,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "dd8b392a5d5e07e9"
     }
@@ -23094,7 +23094,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "6ede409159c5cc97"
     }
@@ -23167,7 +23167,7 @@
       "confidence": 45,
       "evidenceStatus": "strong",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "7e9d1887404e321e"
     }
@@ -23228,16 +23228,16 @@
     "archiveValue": 58,
     "eventType": "world",
     "decision": "REVIEW",
-    "decisionReason": "来源仅维基月度存档页，缺独立佐证，待补证；命中商业噪声词，已整体降权；证据等级 weak",
+    "decisionReason": "边界候选，需模型结合语境判断；命中商业噪声词，已整体降权；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 50,
-      "evidenceStatus": "weak",
-      "needsEvidence": true,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
-      "inputHash": "40572e17c80fa49e"
+      "inputHash": "5da890a72677648d"
     }
   },
   {
@@ -23308,7 +23308,7 @@
       "confidence": 45,
       "evidenceStatus": "strong",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "2070e092e6ee2db4"
     }
@@ -23369,7 +23369,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "bf0f9b1c2767c801"
     }
@@ -23430,16 +23430,16 @@
     "archiveValue": 58,
     "eventType": "world",
     "decision": "REVIEW",
-    "decisionReason": "来源仅维基月度存档页，缺独立佐证，待补证；证据等级 weak",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 50,
-      "evidenceStatus": "weak",
-      "needsEvidence": true,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
-      "inputHash": "73d1f8760a4a55e7"
+      "inputHash": "6541768276f97445"
     }
   },
   {
@@ -23499,7 +23499,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "f2f5b072ce6ec76a"
     }
@@ -23562,7 +23562,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "940f989c1a406ebd"
     }
@@ -23623,7 +23623,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "c5f7bf66a883d5c8"
     }
@@ -23683,7 +23683,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "0e2d47d445cffa26"
     }
@@ -23740,16 +23740,16 @@
     "archiveValue": 59,
     "eventType": "society_culture",
     "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；证据等级 weak",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
       "confidence": 45,
-      "evidenceStatus": "weak",
-      "needsEvidence": true,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
-      "inputHash": "8676bac5cb8e0d55"
+      "inputHash": "ae9a617ce9def8df"
     }
   },
   {
@@ -23807,7 +23807,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "033a7fba44355727"
     }
@@ -23868,7 +23868,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "112c8f62f588a87d"
     }
@@ -23928,7 +23928,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "85da3912d8ccbe60"
     }
@@ -23988,7 +23988,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "049a2988dbee1542"
     }
@@ -24035,10 +24035,10 @@
     "globalImpact": 30,
     "socialImpact": 30,
     "culturalImpact": 18,
-    "economicImpact": 82,
+    "economicImpact": 60,
     "technologyImpact": 20,
     "memoryValue": 25,
-    "archiveValue": 62,
+    "archiveValue": 48,
     "eventType": "society_culture",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
@@ -24048,7 +24048,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "28b9f264432aaeef"
     }
@@ -24110,7 +24110,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "c0dda5f6988913b3"
     }
@@ -24171,7 +24171,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "e08d7b77ed645bba"
     }
@@ -24232,7 +24232,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "43c192a1bfde44cf"
     }
@@ -24294,7 +24294,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "bd6b292f5f96d5bb"
     }
@@ -24355,7 +24355,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "de1bd7353a71e197"
     }
@@ -24415,7 +24415,7 @@
       "confidence": 50,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "96c0d14e5c984a71"
     }
@@ -24476,7 +24476,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "94b2c1f74d230a59"
     }
@@ -24548,7 +24548,7 @@
       "confidence": 45,
       "evidenceStatus": "strong",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "4b5d1d8f7845e926"
     }
@@ -24608,7 +24608,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "a38e1936f8d239df"
     }
@@ -24670,7 +24670,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "691a895cf0ea5dfd"
     }
@@ -24731,7 +24731,7 @@
       "confidence": 55,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "33957a7e1280efc5"
     }
@@ -24792,7 +24792,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "e3656538aed6d070"
     }
@@ -24852,7 +24852,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "a5133b5d8d6ef426"
     }
@@ -24913,7 +24913,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "c79fe8e6e493f1a4"
     }
@@ -24974,7 +24974,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "e073f844863ce013"
     }
@@ -25034,7 +25034,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "7f711b0d6d8c04be"
     }
@@ -25094,7 +25094,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "20be48fed552d060"
     }
@@ -25156,7 +25156,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "ef18b7ef091c13d8"
     }
@@ -25216,7 +25216,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "c200c2eeacca3a1e"
     }
@@ -25276,7 +25276,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "6958a9c008c675c9"
     }
@@ -25336,7 +25336,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "7383a6e1aaa6120e"
     }
@@ -25397,7 +25397,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "4f394c9a16da0d2a"
     }
@@ -25459,7 +25459,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "42aadf1ed6c8ea12"
     }
@@ -25519,7 +25519,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "6806ed216ada2166"
     }
@@ -25580,7 +25580,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "40da1537f76797f5"
     }
@@ -25640,7 +25640,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "806ea89203d47401"
     }
@@ -25700,7 +25700,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "2eb6eb4aadf6009a"
     }
@@ -25760,7 +25760,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "4655648150be9af8"
     }
@@ -25820,7 +25820,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "e612d3676b7c1201"
     }
@@ -25880,7 +25880,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "9c9d35143328b106"
     }
@@ -25941,7 +25941,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "2755e0cfe8952090"
     }
@@ -26002,7 +26002,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "be297d0fc8e6a2f9"
     }
@@ -26062,7 +26062,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "ac06528019dc3eca"
     }
@@ -26123,7 +26123,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "21f97f8baf650083"
     }
@@ -26183,7 +26183,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "952579c24b755e24"
     }
@@ -26244,7 +26244,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "b4de4c059788fd3a"
     }
@@ -26304,7 +26304,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "966b85ebd894c79c"
     }
@@ -26351,12 +26351,12 @@
     "globalImpact": 30,
     "socialImpact": 30,
     "culturalImpact": 18,
-    "economicImpact": 100,
+    "economicImpact": 82,
     "technologyImpact": 20,
     "memoryValue": 47,
-    "archiveValue": 75,
+    "archiveValue": 64,
     "eventType": "society_culture",
-    "decision": "KEEP",
+    "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；命中产业转型/现象级关键词，已豁免噪声惩罚并升级；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
@@ -26364,7 +26364,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "e25e30317e32a4f0"
     }
@@ -26411,10 +26411,10 @@
     "globalImpact": 30,
     "socialImpact": 30,
     "culturalImpact": 18,
-    "economicImpact": 82,
+    "economicImpact": 60,
     "technologyImpact": 20,
     "memoryValue": 25,
-    "archiveValue": 62,
+    "archiveValue": 48,
     "eventType": "society_culture",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
@@ -26424,7 +26424,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "0aebd97e89db9e25"
     }
@@ -26485,7 +26485,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "fc3b0669228dfe93"
     }
@@ -26546,7 +26546,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "2a81e73438f2da6d"
     }
@@ -26606,7 +26606,7 @@
       "confidence": 50,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "7e517dc8605db187"
     }
@@ -26666,7 +26666,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "e54898528ba8f06b"
     }
@@ -26728,7 +26728,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "64321bbce7b10e17"
     }
@@ -26788,7 +26788,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "ce68dedfe57cdfe0"
     }
@@ -26850,7 +26850,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "5f7bf921b946c8eb"
     }
@@ -26910,7 +26910,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "fce32e93ae27cf12"
     }
@@ -26970,7 +26970,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "c3a42942f74a63d0"
     }
@@ -27030,7 +27030,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "e18a22cadefc36fb"
     }
@@ -27090,7 +27090,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "1cc9409a185326e9"
     }
@@ -27137,10 +27137,10 @@
     "globalImpact": 30,
     "socialImpact": 30,
     "culturalImpact": 18,
-    "economicImpact": 82,
+    "economicImpact": 60,
     "technologyImpact": 20,
     "memoryValue": 25,
-    "archiveValue": 62,
+    "archiveValue": 48,
     "eventType": "society_culture",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
@@ -27150,7 +27150,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "a9454d53bdeb0236"
     }
@@ -27212,7 +27212,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "5841dfa7fe9b3006"
     }
@@ -27272,7 +27272,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "c590fe8f1554a551"
     }
@@ -27332,7 +27332,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "21b6474b4bde1123"
     }
@@ -27395,7 +27395,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "815b0ad47bd06bd1"
     }
@@ -27455,7 +27455,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "ac41dd53692ff7d9"
     }
@@ -27515,7 +27515,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "1168ec8c6b1f5404"
     }
@@ -27576,7 +27576,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "e09f1623ad1e19a8"
     }
@@ -27636,16 +27636,16 @@
     "archiveValue": 39,
     "eventType": "society_culture",
     "decision": "REVIEW",
-    "decisionReason": "来源仅维基月度存档页，缺独立佐证，待补证；证据等级 weak",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 50,
-      "evidenceStatus": "weak",
-      "needsEvidence": true,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
-      "inputHash": "6c92b1ef6d61794e"
+      "inputHash": "0ecee89bcd51a50c"
     }
   },
   {
@@ -27704,7 +27704,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "52972cf951afac9d"
     }
@@ -27765,7 +27765,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "c795a09bc11d7f06"
     }
@@ -27826,7 +27826,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "344828802b2a6f66"
     }
@@ -27887,7 +27887,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "bb2d25c514fee8cd"
     }
@@ -27947,7 +27947,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "de958e8bcd40a3aa"
     }
@@ -28008,7 +28008,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "17d7b8270f9af519"
     }
@@ -28056,10 +28056,10 @@
     "globalImpact": 70,
     "socialImpact": 30,
     "culturalImpact": 18,
-    "economicImpact": 82,
+    "economicImpact": 60,
     "technologyImpact": 20,
     "memoryValue": 25,
-    "archiveValue": 65,
+    "archiveValue": 57,
     "eventType": "world",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
@@ -28069,7 +28069,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "08cfb840ebd2d0e5"
     }
@@ -28131,7 +28131,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "90fe1aa17c2d9545"
     }
@@ -28193,7 +28193,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "98483cdd2cdd586c"
     }
@@ -28254,7 +28254,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "054d96f985adb03d"
     }
@@ -28314,7 +28314,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "acf0013d2ec6b3e8"
     }
@@ -28373,7 +28373,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "79802b3f89e5113b"
     }
@@ -28433,7 +28433,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "af3726384b6adb86"
     }
@@ -28493,7 +28493,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "32050a070f64ad74"
     }
@@ -28554,7 +28554,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "6d116b2e7c632c62"
     }
@@ -28615,7 +28615,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "a5cfef6631c2ade4"
     }
@@ -28676,7 +28676,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "d1ffa93ede337f42"
     }
@@ -28737,7 +28737,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "457e70467c797e2f"
     }
@@ -28798,7 +28798,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "4a4b925c5e97b72a"
     }
@@ -28858,7 +28858,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "454a855507443b17"
     }
@@ -28903,10 +28903,10 @@
     "globalImpact": 45,
     "socialImpact": 30,
     "culturalImpact": 18,
-    "economicImpact": 82,
+    "economicImpact": 60,
     "technologyImpact": 20,
     "memoryValue": 62,
-    "archiveValue": 66,
+    "archiveValue": 53,
     "eventType": "world",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
@@ -28916,7 +28916,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "e76f31974c9dcf1a"
     }
@@ -28963,10 +28963,10 @@
     "globalImpact": 30,
     "socialImpact": 30,
     "culturalImpact": 18,
-    "economicImpact": 82,
+    "economicImpact": 60,
     "technologyImpact": 20,
     "memoryValue": 25,
-    "archiveValue": 62,
+    "archiveValue": 48,
     "eventType": "society_culture",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
@@ -28976,7 +28976,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "01ca2c25f8245702"
     }
@@ -29023,10 +29023,10 @@
     "globalImpact": 30,
     "socialImpact": 30,
     "culturalImpact": 18,
-    "economicImpact": 82,
+    "economicImpact": 60,
     "technologyImpact": 20,
     "memoryValue": 25,
-    "archiveValue": 62,
+    "archiveValue": 48,
     "eventType": "society_culture",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
@@ -29036,7 +29036,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "9d5851d8b85f33e5"
     }
@@ -29083,10 +29083,10 @@
     "globalImpact": 25,
     "socialImpact": 25,
     "culturalImpact": 15,
-    "economicImpact": 69,
+    "economicImpact": 51,
     "technologyImpact": 17,
     "memoryValue": 21,
-    "archiveValue": 52,
+    "archiveValue": 40,
     "eventType": "society_culture",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；命中商业噪声词，已整体降权；1 个独立来源域名",
@@ -29096,7 +29096,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "edd6547a8aaac956"
     }
@@ -29157,7 +29157,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "df2fb82b6af0884f"
     }
@@ -29218,7 +29218,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "aeaec57d9346077d"
     }
@@ -29279,7 +29279,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "e2b0429f43d33f30"
     }
@@ -29339,7 +29339,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "8d7cd4b2a57618c2"
     }
@@ -29400,7 +29400,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "b3467298b3f7575e"
     }
@@ -29460,7 +29460,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "a6526589985d4e5e"
     }
@@ -29522,7 +29522,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "d414e35af9ecdc24"
     }
@@ -29582,7 +29582,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "c0a80f361110a657"
     }
@@ -29642,7 +29642,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "b69c6a9fd58c5071"
     }
@@ -29704,7 +29704,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "ffbbc0eba24eca04"
     }
@@ -29765,7 +29765,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "5dedc967a043a1c6"
     }
@@ -29826,7 +29826,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "ebe92c0a120ef888"
     }
@@ -29887,7 +29887,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "31db3a76d9c119ed"
     }
@@ -29947,7 +29947,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "2bf048c5fdf37e09"
     }
@@ -30008,7 +30008,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "d4b9603b2702d067"
     }
@@ -30068,7 +30068,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "7d3b9d9b1e5a644a"
     }
@@ -30128,7 +30128,7 @@
       "confidence": 65,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "93be895c8e86cbb9"
     }
@@ -30188,7 +30188,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "66d22a610eb1697f"
     }
@@ -30248,7 +30248,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "dbcbefc76394afd4"
     }
@@ -30309,7 +30309,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "02f0dca467817ab9"
     }
@@ -30370,7 +30370,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "7edcdf9db81725f6"
     }
@@ -30431,7 +30431,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "8947916cc09dbec4"
     }
@@ -30493,7 +30493,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "15dbc41869d2c95b"
     }
@@ -30553,7 +30553,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "d00a1fa130d98b2f"
     }
@@ -30615,7 +30615,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "87b59d11daae59ee"
     }
@@ -30677,7 +30677,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "78afe617e1c6e27a"
     }
@@ -30737,7 +30737,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "876ab8e7e068d246"
     }
@@ -30797,7 +30797,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "c99aa94b8a5c8aee"
     }
@@ -30857,7 +30857,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "49e1128a30d3f7b8"
     }
@@ -30917,7 +30917,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "5b60c2c99b53f752"
     }
@@ -30977,7 +30977,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "1f6981fced0e72a0"
     }
@@ -31037,7 +31037,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-09T23:03:20+08:00",
+      "assessedAt": "2026-11-11T10:43:18+08:00",
       "model": null,
       "inputHash": "5ba5ec2c48700f52"
     }

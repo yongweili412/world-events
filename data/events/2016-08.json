@@ -55,7 +55,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-05T07:41:57+08:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "601bab67f5090d0a"
     },
@@ -154,9 +154,9 @@
       "confidence": 45,
       "evidenceStatus": "strong",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:41:57+08:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
-      "inputHash": "146b67dd1ebfa0ee"
+      "inputHash": "7d41adcdf240a7d4"
     },
     "summaryFull": false
   },
@@ -225,7 +225,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:41:57+08:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "032980392be1abf6"
     },
@@ -301,9 +301,9 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-05T07:42:01+08:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
-      "inputHash": "21967322a986215d"
+      "inputHash": "95b85a91e9909371"
     }
   },
   {
@@ -344,23 +344,23 @@
       }
     ],
     "relatedEvents": [],
-    "globalImpact": 85,
+    "globalImpact": 100,
     "socialImpact": 70,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 15,
     "memoryValue": 45,
-    "archiveValue": 69,
+    "archiveValue": 80,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合80，最强维度globalImpact=100）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 45,
+      "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "170f46c370dd0ad7"
     },
@@ -420,7 +420,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "79cb58add617fde2"
     },
@@ -481,7 +481,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "6aadd63962e545ca"
     },
@@ -541,7 +541,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "a96b4fcba13d0168"
     },
@@ -601,7 +601,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "ab33d1f5b5548aff"
     },
@@ -661,7 +661,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "6733c71c79f163e7"
     },
@@ -722,7 +722,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "2a91f29f24344dc3"
     }
@@ -781,7 +781,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "57123bcbfb0de466"
     },
@@ -841,7 +841,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "3f1878d6f9eb9a16"
     },
@@ -886,23 +886,23 @@
       }
     ],
     "relatedEvents": [],
-    "globalImpact": 75,
+    "globalImpact": 100,
     "socialImpact": 50,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 15,
     "memoryValue": 45,
-    "archiveValue": 61,
+    "archiveValue": 78,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合78，最强维度globalImpact=100）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 45,
+      "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "5943c1b74911b893"
     },
@@ -947,23 +947,23 @@
       }
     ],
     "relatedEvents": [],
-    "globalImpact": 85,
+    "globalImpact": 100,
     "socialImpact": 50,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 15,
     "memoryValue": 45,
-    "archiveValue": 68,
+    "archiveValue": 78,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合78，最强维度globalImpact=100）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 45,
+      "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "a3fd98dbb104095d"
     },
@@ -1023,7 +1023,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "20eb52a92dd3910d"
     },
@@ -1085,7 +1085,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "7ee2e1bd6d418f73"
     },
@@ -1146,7 +1146,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "cfd901dd0b050abd"
     },
@@ -1207,7 +1207,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "6bcc98348ab1f73c"
     },
@@ -1268,7 +1268,7 @@
       "confidence": 65,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "f1c65e3b005c81b3"
     },
@@ -1328,7 +1328,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "c646df9201019b81"
     },
@@ -1388,7 +1388,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "e1313f323f25ab8b"
     },
@@ -1448,7 +1448,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "0b30602fc59e95b7"
     },
@@ -1509,7 +1509,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "83f01c24f1f0077e"
     },
@@ -1570,7 +1570,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "1ac606d3f83a047f"
     },
@@ -1639,7 +1639,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "e2d5c4966990a456"
     }
@@ -1698,7 +1698,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "e38c623b30fc3f84"
     },
@@ -1745,23 +1745,23 @@
       }
     ],
     "relatedEvents": [],
-    "globalImpact": 70,
+    "globalImpact": 95,
     "socialImpact": 73,
     "culturalImpact": 18,
     "economicImpact": 25,
     "technologyImpact": 10,
     "memoryValue": 40,
-    "archiveValue": 61,
+    "archiveValue": 76,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合76，最强维度globalImpact=95）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 45,
+      "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "c297de2432a59ae5"
     },
@@ -1822,7 +1822,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "171d6b8904f4ee3a"
     },
@@ -1883,7 +1883,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "a40047ee5a441c73"
     },
@@ -1944,7 +1944,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "18c55560d3c2111a"
     },
@@ -1990,14 +1990,14 @@
       }
     ],
     "relatedEvents": [],
-    "globalImpact": 35,
+    "globalImpact": 60,
     "socialImpact": 45,
     "culturalImpact": 20,
     "economicImpact": 15,
     "technologyImpact": 10,
     "memoryValue": 25,
-    "archiveValue": 38,
-    "eventType": "society_culture",
+    "archiveValue": 49,
+    "eventType": "world",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
     "assessment": {
@@ -2006,7 +2006,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "b5a3a7667848af4b"
     },
@@ -2066,7 +2066,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "4be863b5f31d082b"
     },
@@ -2124,7 +2124,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "79a2ac758bb0cf10"
     },
@@ -2169,23 +2169,23 @@
       }
     ],
     "relatedEvents": [],
-    "globalImpact": 80,
+    "globalImpact": 92,
     "socialImpact": 50,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 15,
     "memoryValue": 45,
-    "archiveValue": 65,
+    "archiveValue": 73,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合73，最强维度globalImpact=92）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 45,
+      "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "97774a1400582ea3"
     },
@@ -2233,22 +2233,22 @@
     ],
     "relatedEvents": [],
     "globalImpact": 100,
-    "socialImpact": 65,
+    "socialImpact": 75,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 10,
     "memoryValue": 30,
-    "archiveValue": 78,
+    "archiveValue": 79,
     "eventType": "world",
     "decision": "KEEP",
-    "decisionReason": "规则判定高价值（综合78，最强维度globalImpact=100）；1 个独立来源域名",
+    "decisionReason": "规则判定高价值（综合79，最强维度globalImpact=100）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "54d24e3a13da0e70"
     },
@@ -2308,7 +2308,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "626557cf590e8e66"
     },
@@ -2369,7 +2369,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "e4b114c2b6588afb"
     },
@@ -2430,7 +2430,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "d90f8fa9d2c787fd"
     },
@@ -2491,7 +2491,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "abb83e171e2930ed"
     },
@@ -2552,7 +2552,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "e7de8143e27f447b"
     },
@@ -2612,7 +2612,7 @@
       "confidence": 50,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "d5fe069d067bc8f5"
     },
@@ -2674,16 +2674,16 @@
     "archiveValue": 45,
     "eventType": "world",
     "decision": "REVIEW",
-    "decisionReason": "来源仅维基月度存档页，缺独立佐证，待补证；证据等级 weak",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 50,
-      "evidenceStatus": "weak",
-      "needsEvidence": true,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
-      "inputHash": "03ff0061cf18ba5d"
+      "inputHash": "0473eba1d9dae3c5"
     }
   },
   {
@@ -2740,7 +2740,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "9cef63c665fd6500"
     },
@@ -2800,7 +2800,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "58a096bc1d0da3c5"
     },
@@ -2860,7 +2860,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "c46f94e3749df616"
     },
@@ -2920,7 +2920,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "c58221ccda054ef8"
     },
@@ -2966,23 +2966,23 @@
       }
     ],
     "relatedEvents": [],
-    "globalImpact": 75,
+    "globalImpact": 100,
     "socialImpact": 50,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 15,
     "memoryValue": 45,
-    "archiveValue": 61,
+    "archiveValue": 78,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合78，最强维度globalImpact=100）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 45,
+      "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "4d47d3efd8440906"
     },
@@ -3043,7 +3043,7 @@
       "confidence": 55,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "90fca5b4733c168a"
     }
@@ -3101,7 +3101,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "38449198990a10f4"
     },
@@ -3146,23 +3146,23 @@
       }
     ],
     "relatedEvents": [],
-    "globalImpact": 85,
+    "globalImpact": 100,
     "socialImpact": 50,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 15,
     "memoryValue": 45,
-    "archiveValue": 68,
+    "archiveValue": 78,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合78，最强维度globalImpact=100）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 45,
+      "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "15b848c2d4b4b4f9"
     },
@@ -3223,7 +3223,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "8f08738dd935bf07"
     },
@@ -3283,7 +3283,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "58fd9dbe4a51f4d2"
     },
@@ -3343,7 +3343,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "0794a5cb2ce3843c"
     },
@@ -3403,7 +3403,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "0f970ad240e4aeb0"
     },
@@ -3463,7 +3463,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "9ae1873a68061b49"
     },
@@ -3524,7 +3524,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "266eb385bbbcb370"
     },
@@ -3584,7 +3584,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "3274eb656698d7bd"
     },
@@ -3629,23 +3629,23 @@
       }
     ],
     "relatedEvents": [],
-    "globalImpact": 80,
+    "globalImpact": 92,
     "socialImpact": 50,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 15,
     "memoryValue": 45,
-    "archiveValue": 65,
+    "archiveValue": 73,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合73，最强维度globalImpact=92）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 45,
+      "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "b8ad47f99fadb83f"
     },
@@ -3696,13 +3696,13 @@
     ],
     "relatedEvents": [],
     "aiSummary": "比利时沙勒罗瓦一名男子持刀袭击两名女警，随后被另一名警察开枪击毙。两名女警受伤送医，无生命危险，事件按可能的恐怖袭击方向调查。",
-    "globalImpact": 45,
+    "globalImpact": 70,
     "socialImpact": 45,
     "culturalImpact": 20,
     "economicImpact": 15,
     "technologyImpact": 10,
     "memoryValue": 25,
-    "archiveValue": 38,
+    "archiveValue": 55,
     "eventType": "world",
     "decision": "REVIEW",
     "decisionReason": "来源仅维基月度存档页，缺独立佐证，待补证；证据等级 weak",
@@ -3712,7 +3712,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "6b0ab6518d8d9d00"
     }
@@ -3756,13 +3756,13 @@
       }
     ],
     "relatedEvents": [],
-    "globalImpact": 45,
+    "globalImpact": 70,
     "socialImpact": 45,
     "culturalImpact": 20,
     "economicImpact": 15,
     "technologyImpact": 10,
     "memoryValue": 25,
-    "archiveValue": 38,
+    "archiveValue": 55,
     "eventType": "world",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
@@ -3772,7 +3772,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "e7585d951e471f13"
     },
@@ -3832,7 +3832,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "8033d126a63eaaef"
     },
@@ -3877,14 +3877,14 @@
       }
     ],
     "relatedEvents": [],
-    "globalImpact": 30,
+    "globalImpact": 55,
     "socialImpact": 30,
     "culturalImpact": 18,
     "economicImpact": 60,
     "technologyImpact": 45,
     "memoryValue": 25,
-    "archiveValue": 49,
-    "eventType": "society_culture",
+    "archiveValue": 51,
+    "eventType": "world",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
     "assessment": {
@@ -3893,7 +3893,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "5ddf4192f4a1e7ef"
     },
@@ -3956,7 +3956,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "53d874398f03b870"
     },
@@ -4017,7 +4017,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "d4816199304c6c4b"
     },
@@ -4077,7 +4077,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "ed4bff6b3b19f4dd"
     },
@@ -4143,7 +4143,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "c69ced492c5020f5"
     }
@@ -4201,7 +4201,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "77f6c7bbee0d7ce2"
     },
@@ -4247,14 +4247,14 @@
       }
     ],
     "relatedEvents": [],
-    "globalImpact": 35,
+    "globalImpact": 60,
     "socialImpact": 45,
     "culturalImpact": 20,
     "economicImpact": 15,
     "technologyImpact": 10,
     "memoryValue": 25,
-    "archiveValue": 38,
-    "eventType": "society_culture",
+    "archiveValue": 49,
+    "eventType": "world",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
     "assessment": {
@@ -4263,7 +4263,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "cd85351bf53e65c0"
     },
@@ -4325,7 +4325,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
       "inputHash": "93747d8595bc03f2"
     },
@@ -4458,16 +4458,16 @@
     "archiveValue": 47,
     "eventType": "world",
     "decision": "REVIEW",
-    "decisionReason": "来源仅维基月度存档页，缺独立佐证，待补证；命中商业噪声词，已整体降权；证据等级 weak",
+    "decisionReason": "边界候选，需模型结合语境判断；命中商业噪声词，已整体降权；3 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 50,
-      "evidenceStatus": "weak",
-      "needsEvidence": true,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "confidence": 45,
+      "evidenceStatus": "strong",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-11T10:43:19+08:00",
       "model": null,
-      "inputHash": "2a02f6ad933450d9"
+      "inputHash": "527a6b611ad1d4a7"
     }
   },
   {
@@ -4525,7 +4525,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "98da7e565094a923"
     },
@@ -4587,7 +4587,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "608e9f2bb15fbc03"
     }
@@ -4645,7 +4645,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "786396c13e378efb"
     },
@@ -4705,7 +4705,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "d42efc47cb7130de"
     },
@@ -4765,7 +4765,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "351ddad2e7eb730f"
     },
@@ -4825,7 +4825,7 @@
       "confidence": 50,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "3349bcf8d6be1033"
     },
@@ -4887,7 +4887,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "b98f25886eff5d1e"
     }
@@ -4946,7 +4946,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "09ec6a6fc67c2a84"
     },
@@ -5006,7 +5006,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "26a7a44d518fe932"
     },
@@ -5066,7 +5066,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "46d1b9e7e8c241fa"
     },
@@ -5126,7 +5126,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "44effe6874482506"
     },
@@ -5186,7 +5186,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "17b46472e19a1299"
     },
@@ -5246,7 +5246,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "5f662aecaafb9c66"
     },
@@ -5292,23 +5292,23 @@
       }
     ],
     "relatedEvents": [],
-    "globalImpact": 65,
+    "globalImpact": 90,
     "socialImpact": 55,
     "culturalImpact": 18,
     "economicImpact": 25,
     "technologyImpact": 10,
     "memoryValue": 40,
-    "archiveValue": 54,
+    "archiveValue": 71,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合71，最强维度globalImpact=90）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 45,
+      "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "16d46e21f0f81215"
     },
@@ -5353,23 +5353,23 @@
       }
     ],
     "relatedEvents": [],
-    "globalImpact": 75,
+    "globalImpact": 100,
     "socialImpact": 45,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 10,
     "memoryValue": 30,
-    "archiveValue": 59,
+    "archiveValue": 76,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合76，最强维度globalImpact=100）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 45,
+      "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "a623f03f19baa21d"
     },
@@ -5429,7 +5429,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "5a605d0f848ef419"
     },
@@ -5489,7 +5489,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "63af4753482f71c2"
     },
@@ -5549,7 +5549,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "e1569efb5a4c6246"
     },
@@ -5610,7 +5610,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "14aca481e0fce393"
     },
@@ -5671,7 +5671,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "1bfd718029a5f6ef"
     },
@@ -5732,7 +5732,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "11eb8221b9f0fa3a"
     },
@@ -5779,23 +5779,23 @@
     ],
     "relatedEvents": [],
     "aiSummary": "近日，朝鲜进行导弹发射活动。日本政府对朝鲜核武器与弹道导弹计划表示严重关切，日朝两国关系及相关安全问题持续受到国际社会关注。",
-    "globalImpact": 85,
+    "globalImpact": 97,
     "socialImpact": 45,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 10,
     "memoryValue": 30,
-    "archiveValue": 66,
+    "archiveValue": 74,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "来源仅维基月度存档页，缺独立佐证，待补证；命中商业噪声词，已整体降权；证据等级 weak",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合74，最强维度globalImpact=97）；命中商业噪声词，已整体降权；证据等级 weak",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 50,
+      "confidence": 55,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "59d1a53d0e53c0ce"
     }
@@ -5838,23 +5838,23 @@
       }
     ],
     "relatedEvents": [],
-    "globalImpact": 80,
+    "globalImpact": 92,
     "socialImpact": 50,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 15,
     "memoryValue": 45,
-    "archiveValue": 65,
+    "archiveValue": 73,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；命中商业噪声词，已整体降权；1 个独立来源域名",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合73，最强维度globalImpact=92）；命中商业噪声词，已整体降权；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 45,
+      "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "6bab8d4aa1bf9a87"
     },
@@ -5915,7 +5915,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "2c3b9f8520e5aeef"
     },
@@ -5975,7 +5975,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "fe2a93df9cdb2485"
     },
@@ -6035,7 +6035,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "075219bfe9b29b1e"
     },
@@ -6096,7 +6096,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "88a7d1c54694a4c1"
     },
@@ -6142,23 +6142,23 @@
       }
     ],
     "relatedEvents": [],
-    "globalImpact": 80,
+    "globalImpact": 92,
     "socialImpact": 50,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 15,
     "memoryValue": 45,
-    "archiveValue": 65,
+    "archiveValue": 73,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合73，最强维度globalImpact=92）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 45,
+      "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "2388c1ececc7ba61"
     },
@@ -6203,23 +6203,23 @@
       }
     ],
     "relatedEvents": [],
-    "globalImpact": 42,
+    "globalImpact": 63,
     "socialImpact": 38,
     "culturalImpact": 17,
     "economicImpact": 12,
     "technologyImpact": 8,
     "memoryValue": 21,
-    "archiveValue": 35,
-    "eventType": "society_culture",
+    "archiveValue": 49,
+    "eventType": "world",
     "decision": "REVIEW",
-    "decisionReason": "来源仅维基月度存档页，缺独立佐证，待补证；命中商业噪声词，已整体降权；1 个独立来源域名",
+    "decisionReason": "边界候选，需模型结合语境判断；命中商业噪声词，已整体降权；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 50,
+      "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "bcdd1e47090e1678"
     },
@@ -6279,7 +6279,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "3a7927e15f3bead3"
     },
@@ -6340,7 +6340,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "99c3fe5e1c883c22"
     },
@@ -6401,7 +6401,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "d2928af49d4a8ddf"
     },
@@ -6462,7 +6462,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "832f63a6d67d2ec9"
     },
@@ -6523,7 +6523,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "2f4b91513c981406"
     },
@@ -6583,7 +6583,7 @@
       "confidence": 50,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "6fadcc0199a11812"
     },
@@ -6643,7 +6643,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "96ddfd84c6e40c28"
     },
@@ -6703,7 +6703,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "a06feaa066dbcacc"
     },
@@ -6763,7 +6763,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "4af16364308c6363"
     },
@@ -6823,7 +6823,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "863b2c1c2eb22a42"
     },
@@ -6868,14 +6868,14 @@
       }
     ],
     "relatedEvents": [],
-    "globalImpact": 35,
+    "globalImpact": 60,
     "socialImpact": 45,
     "culturalImpact": 20,
     "economicImpact": 15,
     "technologyImpact": 10,
     "memoryValue": 25,
-    "archiveValue": 38,
-    "eventType": "society_culture",
+    "archiveValue": 49,
+    "eventType": "world",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
     "assessment": {
@@ -6884,7 +6884,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "63198838660af45f"
     },
@@ -6944,7 +6944,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "b58b66a0b9d1afad"
     },
@@ -7004,7 +7004,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "92381ac3a79aafb5"
     },
@@ -7066,7 +7066,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "858b0b5c63500555"
     },
@@ -7127,7 +7127,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "f8ad3c72e2035206"
     },
@@ -7188,7 +7188,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "4d4fe368ddd73a56"
     }
@@ -7247,7 +7247,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "b9e054711943bace"
     },
@@ -7308,7 +7308,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "60d3aae3c82f7194"
     },
@@ -7353,23 +7353,23 @@
       }
     ],
     "relatedEvents": [],
-    "globalImpact": 75,
+    "globalImpact": 100,
     "socialImpact": 50,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 15,
     "memoryValue": 45,
-    "archiveValue": 61,
+    "archiveValue": 78,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合78，最强维度globalImpact=100）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 45,
+      "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "0600decdbb784ec9"
     },
@@ -7414,23 +7414,23 @@
       }
     ],
     "relatedEvents": [],
-    "globalImpact": 80,
+    "globalImpact": 92,
     "socialImpact": 50,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 15,
     "memoryValue": 45,
-    "archiveValue": 65,
+    "archiveValue": 73,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合73，最强维度globalImpact=92）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 45,
+      "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "fcde9ba603c52b70"
     },
@@ -7491,7 +7491,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "6f6ce7d8983ba50f"
     },
@@ -7553,7 +7553,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "ea66209778431aa9"
     },
@@ -7613,7 +7613,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "eacd8e9a1c726f1d"
     },
@@ -7675,16 +7675,16 @@
     "archiveValue": 56,
     "eventType": "world",
     "decision": "REVIEW",
-    "decisionReason": "来源仅维基月度存档页，缺独立佐证，待补证；证据等级 weak",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 50,
-      "evidenceStatus": "weak",
-      "needsEvidence": true,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
-      "inputHash": "0117fe44169e3958"
+      "inputHash": "23559fa53373bfb9"
     }
   },
   {
@@ -7741,7 +7741,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "01f0f5fff1428d7b"
     },
@@ -7799,7 +7799,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "6fd24256854ae146"
     },
@@ -7867,16 +7867,16 @@
     "archiveValue": 58,
     "eventType": "society_culture",
     "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；证据等级 weak",
+    "decisionReason": "边界候选，需模型结合语境判断；2 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
       "confidence": 45,
-      "evidenceStatus": "weak",
-      "needsEvidence": true,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "evidenceStatus": "strong",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
-      "inputHash": "421d4f3088b6357e"
+      "inputHash": "afce04b9e97e5c9d"
     }
   },
   {
@@ -7932,7 +7932,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "9058cf6d86200696"
     },
@@ -7978,23 +7978,23 @@
       }
     ],
     "relatedEvents": [],
-    "globalImpact": 65,
+    "globalImpact": 90,
     "socialImpact": 55,
     "culturalImpact": 18,
     "economicImpact": 25,
     "technologyImpact": 10,
     "memoryValue": 40,
-    "archiveValue": 54,
+    "archiveValue": 71,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合71，最强维度globalImpact=90）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 45,
+      "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "f082b0a2f9a0a78f"
     },
@@ -8054,7 +8054,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "2d8a37cada83d80b"
     },
@@ -8115,7 +8115,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "08aa8ca0992c8ceb"
     },
@@ -8177,7 +8177,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "b4ebdd847caff0eb"
     },
@@ -8238,7 +8238,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "51ccfc6745183e49"
     },
@@ -8299,7 +8299,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "422387d07ce1e97e"
     },
@@ -8360,7 +8360,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "a57059b3c168e9a7"
     },
@@ -8418,7 +8418,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "9eaa299b9cc7e1d3"
     },
@@ -8478,7 +8478,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "32a31116f907cdae"
     },
@@ -8540,7 +8540,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "a234266ccef53f5c"
     }
@@ -8600,7 +8600,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "5829f3c143bff44e"
     },
@@ -8660,7 +8660,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "439e751b0c1e4724"
     },
@@ -8720,7 +8720,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "e7701c78bed8be3e"
     },
@@ -8781,7 +8781,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "ca578fa3a0af7dfc"
     },
@@ -8841,7 +8841,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "a42c5917d237c26e"
     },
@@ -8913,7 +8913,7 @@
       "confidence": 45,
       "evidenceStatus": "strong",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "3312f15afabc9916"
     },
@@ -8974,7 +8974,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "eaff83be1f926154"
     },
@@ -9019,14 +9019,14 @@
       }
     ],
     "relatedEvents": [],
-    "globalImpact": 35,
+    "globalImpact": 60,
     "socialImpact": 45,
     "culturalImpact": 20,
     "economicImpact": 15,
     "technologyImpact": 10,
     "memoryValue": 25,
-    "archiveValue": 38,
-    "eventType": "society_culture",
+    "archiveValue": 49,
+    "eventType": "world",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
     "assessment": {
@@ -9035,7 +9035,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "fd861375edc578fe"
     },
@@ -9095,7 +9095,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "415dc534e0b205be"
     },
@@ -9155,7 +9155,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "882d1b1e6d47805d"
     },
@@ -9215,7 +9215,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "62d4917527bd449e"
     },
@@ -9275,7 +9275,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "408f4f00e566f811"
     },
@@ -9336,7 +9336,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "44b0f8ea4fbd5470"
     },
@@ -9381,23 +9381,23 @@
       }
     ],
     "relatedEvents": [],
-    "globalImpact": 95,
+    "globalImpact": 100,
     "socialImpact": 50,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 15,
     "memoryValue": 45,
-    "archiveValue": 75,
+    "archiveValue": 78,
     "eventType": "world",
     "decision": "KEEP",
-    "decisionReason": "规则判定高价值（综合75，最强维度globalImpact=95）；1 个独立来源域名",
+    "decisionReason": "规则判定高价值（综合78，最强维度globalImpact=100）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "de30d8d53682e326"
     },
@@ -9455,7 +9455,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "59d3b0a8157b9ba9"
     },
@@ -9515,7 +9515,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "c9dfa47a772c2e5a"
     },
@@ -9576,7 +9576,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "18498128ccfce889"
     },
@@ -9637,7 +9637,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "04ef443b7552c515"
     },
@@ -9697,7 +9697,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "5e3a67b8aab362dc"
     },
@@ -9757,7 +9757,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "9bc3fc56b8c8795c"
     },
@@ -9817,7 +9817,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "129d96ce4089d48a"
     },
@@ -9877,7 +9877,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "7fea8d12e6cb8ed9"
     },
@@ -9937,7 +9937,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "f4fee6332f274ec1"
     },
@@ -9997,7 +9997,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "e913dd8d7f52e96b"
     },
@@ -10057,7 +10057,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "eeffda4ad6563b51"
     },
@@ -10117,7 +10117,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "dd7ab8849fb9a066"
     },
@@ -10162,23 +10162,23 @@
       }
     ],
     "relatedEvents": [],
-    "globalImpact": 80,
+    "globalImpact": 92,
     "socialImpact": 50,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 15,
     "memoryValue": 45,
-    "archiveValue": 65,
+    "archiveValue": 73,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合73，最强维度globalImpact=92）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 45,
+      "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "7a8b0584f8dca32e"
     },
@@ -10238,7 +10238,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "8ad338e9f5d63f8b"
     },
@@ -10299,7 +10299,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "3e173ea31a3891d3"
     },
@@ -10359,7 +10359,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "00e5c5fc2e786676"
     },
@@ -10419,7 +10419,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "c0f435f96845bf00"
     },
@@ -10479,7 +10479,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "168fe640343e3415"
     },
@@ -10540,7 +10540,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "5984460ff7e6a3f0"
     },
@@ -10601,7 +10601,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "20ea620fbfc29c37"
     },
@@ -10662,7 +10662,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "e3e052cf72ef5725"
     },
@@ -10722,7 +10722,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "0bd4073681a966e6"
     },
@@ -10782,7 +10782,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "a4654f87a0bd9130"
     },
@@ -10842,7 +10842,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "b3143fca9955834d"
     },
@@ -10903,7 +10903,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "a0d04a41006dd42b"
     },
@@ -10965,7 +10965,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "6ae402c8c8c65a9f"
     },
@@ -11026,7 +11026,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "d37267a83c6d5e33"
     },
@@ -11087,7 +11087,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "76a6e0c792382e59"
     },
@@ -11132,23 +11132,23 @@
       }
     ],
     "relatedEvents": [],
-    "globalImpact": 75,
+    "globalImpact": 100,
     "socialImpact": 50,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 15,
     "memoryValue": 45,
-    "archiveValue": 61,
+    "archiveValue": 78,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合78，最强维度globalImpact=100）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 45,
+      "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "0dbc576a205a88d7"
     },
@@ -11208,7 +11208,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "ee7b3d7ab87f3000"
     },
@@ -11268,7 +11268,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "bd4fda3c31063163"
     },
@@ -11329,7 +11329,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "f539b9ff4eb6fcb6"
     },
@@ -11390,7 +11390,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "5e171be3760760b8"
     },
@@ -11452,7 +11452,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "0899afbe102bc777"
     },
@@ -11512,7 +11512,7 @@
       "confidence": 65,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "cf204b32d36f1784"
     },
@@ -11574,7 +11574,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "af71f54341c3e272"
     },
@@ -11636,7 +11636,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "27fd2815c9dd67b2"
     },
@@ -11696,7 +11696,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "db2038e145a1ae13"
     },
@@ -11756,7 +11756,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "9fa1cbb0a8f0770d"
     },
@@ -11801,14 +11801,14 @@
       }
     ],
     "relatedEvents": [],
-    "globalImpact": 25,
+    "globalImpact": 50,
     "socialImpact": 25,
     "culturalImpact": 18,
     "economicImpact": 25,
     "technologyImpact": 55,
     "memoryValue": 30,
-    "archiveValue": 44,
-    "eventType": "society_culture",
+    "archiveValue": 46,
+    "eventType": "world",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
     "assessment": {
@@ -11817,7 +11817,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "ba126997ad873ebd"
     },
@@ -11877,7 +11877,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "174a6325b3e6303c"
     },
@@ -11923,23 +11923,23 @@
       }
     ],
     "relatedEvents": [],
-    "globalImpact": 65,
+    "globalImpact": 90,
     "socialImpact": 55,
     "culturalImpact": 18,
     "economicImpact": 25,
     "technologyImpact": 10,
     "memoryValue": 40,
-    "archiveValue": 54,
+    "archiveValue": 71,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合71，最强维度globalImpact=90）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 45,
+      "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "120e6c21250703c6"
     },
@@ -11984,15 +11984,15 @@
       }
     ],
     "relatedEvents": [],
-    "globalImpact": 80,
+    "globalImpact": 92,
     "socialImpact": 50,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 15,
     "memoryValue": 82,
-    "archiveValue": 69,
+    "archiveValue": 76,
     "eventType": "world",
-    "decision": "REVIEW",
+    "decision": "KEEP",
     "decisionReason": "边界候选，需模型结合语境判断；命中商业噪声词，已整体降权；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
@@ -12000,7 +12000,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "a70458384f2a659a"
     },
@@ -12061,7 +12061,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "3947e84bb8f161b2"
     },
@@ -12121,7 +12121,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "a47c2d58dff1948b"
     },
@@ -12181,7 +12181,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "1edc06cdd6dacf69"
     },
@@ -12242,7 +12242,7 @@
       "confidence": 45,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "659b3ca88b01b0b0"
     }
@@ -12300,7 +12300,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "c31937bb86e5ae0e"
     },
@@ -12360,7 +12360,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "ff30b242b21d4446"
     },
@@ -12420,7 +12420,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "87b71b3f7d7572f3"
     },
@@ -12481,7 +12481,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "acb9480150b864d6"
     },
@@ -12542,7 +12542,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "4a2043e07917bae9"
     },
@@ -12602,7 +12602,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "a1577b20578bda14"
     },
@@ -12662,7 +12662,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "e681e043540b578e"
     },
@@ -12708,23 +12708,23 @@
       }
     ],
     "relatedEvents": [],
-    "globalImpact": 65,
+    "globalImpact": 90,
     "socialImpact": 55,
     "culturalImpact": 18,
     "economicImpact": 25,
     "technologyImpact": 10,
     "memoryValue": 40,
-    "archiveValue": 54,
+    "archiveValue": 71,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；命中商业噪声词，已整体降权；1 个独立来源域名",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合71，最强维度globalImpact=90）；命中商业噪声词，已整体降权；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 45,
+      "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "cc3d60e029eb7bd9"
     },
@@ -12785,7 +12785,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "02ce8301dba62d9a"
     },
@@ -12845,7 +12845,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "aa6ac961fa6ed728"
     },
@@ -12905,7 +12905,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "2275ecc627f0f453"
     },
@@ -12965,7 +12965,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "1c772dcc23f1c7ef"
     },
@@ -13025,7 +13025,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "ec78e597cbb59800"
     },
@@ -13085,7 +13085,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "25ebbc335a62dadd"
     },
@@ -13145,7 +13145,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "dea1ff6f4cd83b00"
     },
@@ -13191,13 +13191,13 @@
       }
     ],
     "relatedEvents": [],
-    "globalImpact": 55,
+    "globalImpact": 80,
     "socialImpact": 55,
     "culturalImpact": 18,
     "economicImpact": 25,
     "technologyImpact": 10,
     "memoryValue": 40,
-    "archiveValue": 48,
+    "archiveValue": 65,
     "eventType": "world",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
@@ -13207,7 +13207,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "79ba670773c50d39"
     },
@@ -13253,23 +13253,23 @@
       }
     ],
     "relatedEvents": [],
-    "globalImpact": 65,
+    "globalImpact": 90,
     "socialImpact": 55,
     "culturalImpact": 18,
     "economicImpact": 25,
     "technologyImpact": 10,
     "memoryValue": 40,
-    "archiveValue": 54,
+    "archiveValue": 71,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合71，最强维度globalImpact=90）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 45,
+      "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "95ad1df34ec4397e"
     },
@@ -13330,7 +13330,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "1a3f0ba532e4c218"
     },
@@ -13390,7 +13390,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "765256b9635e23d3"
     },
@@ -13450,7 +13450,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "62086d5f12fd0e64"
     },
@@ -13512,7 +13512,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "d698e6ff20b551fd"
     }
@@ -13571,7 +13571,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "02d18801e83fa73a"
     },
@@ -13633,7 +13633,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "6e90ee761eb1991b"
     },
@@ -13695,7 +13695,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "e5ce3a54ec3ecbe5"
     }
@@ -13753,7 +13753,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "c076360e959dfcf2"
     },
@@ -13814,7 +13814,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "c514d19109ed4173"
     },
@@ -13876,7 +13876,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "ce6dde0e2f569820"
     },
@@ -13948,7 +13948,7 @@
       "confidence": 45,
       "evidenceStatus": "strong",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "2b7f5c8e831cbad9"
     },
@@ -14008,7 +14008,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "4f05d2d0a536376d"
     },
@@ -14070,16 +14070,16 @@
     "archiveValue": 39,
     "eventType": "world",
     "decision": "REVIEW",
-    "decisionReason": "来源仅维基月度存档页，缺独立佐证，待补证；证据等级 weak",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 50,
-      "evidenceStatus": "weak",
-      "needsEvidence": true,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
-      "inputHash": "411124216a672f00"
+      "inputHash": "2a8c52072322413f"
     }
   },
   {
@@ -14136,7 +14136,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "a676c08841731d0c"
     },
@@ -14196,7 +14196,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "601acd8719bfb748"
     },
@@ -14241,23 +14241,23 @@
       }
     ],
     "relatedEvents": [],
-    "globalImpact": 80,
+    "globalImpact": 92,
     "socialImpact": 50,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 15,
     "memoryValue": 45,
-    "archiveValue": 65,
+    "archiveValue": 73,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合73，最强维度globalImpact=92）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 45,
+      "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "1861273a14262afc"
     },
@@ -14302,23 +14302,23 @@
       }
     ],
     "relatedEvents": [],
-    "globalImpact": 85,
+    "globalImpact": 100,
     "socialImpact": 50,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 15,
     "memoryValue": 45,
-    "archiveValue": 68,
+    "archiveValue": 78,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合78，最强维度globalImpact=100）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 45,
+      "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "d3af8176b069169c"
     },
@@ -14378,7 +14378,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "216c0e1fff356866"
     },
@@ -14438,7 +14438,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "ea8b795448682c34"
     },
@@ -14499,7 +14499,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "73d456bd7fc9c4b6"
     },
@@ -14559,7 +14559,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "9d04adbbabc8469a"
     },
@@ -14606,12 +14606,12 @@
     ],
     "relatedEvents": [],
     "globalImpact": 15,
-    "socialImpact": 45,
+    "socialImpact": 65,
     "culturalImpact": 20,
     "economicImpact": 15,
     "technologyImpact": 25,
     "memoryValue": 25,
-    "archiveValue": 37,
+    "archiveValue": 50,
     "eventType": "society_culture",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
@@ -14621,7 +14621,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "b3720da39ba170a9"
     },
@@ -14683,7 +14683,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "df05a9d6cc7df501"
     }
@@ -14741,7 +14741,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "fbd5cbb965516726"
     },
@@ -14801,7 +14801,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "c658f70b3184498b"
     },
@@ -14863,7 +14863,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "c581f0e288fb638f"
     }
@@ -14922,7 +14922,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "a4c0dc5534477011"
     },
@@ -14983,7 +14983,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "860724b09fc3617c"
     }
@@ -15043,7 +15043,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "c5d482bec33212c5"
     },
@@ -15104,7 +15104,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "313acc3b78602348"
     },
@@ -15165,7 +15165,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "e47ab139d70f6a19"
     },
@@ -15225,7 +15225,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "e179f319157c346b"
     },
@@ -15270,23 +15270,23 @@
       }
     ],
     "relatedEvents": [],
-    "globalImpact": 80,
+    "globalImpact": 92,
     "socialImpact": 50,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 15,
     "memoryValue": 45,
-    "archiveValue": 65,
+    "archiveValue": 73,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合73，最强维度globalImpact=92）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 45,
+      "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "b3e0bda9048b00d2"
     },
@@ -15331,13 +15331,13 @@
       }
     ],
     "relatedEvents": [],
-    "globalImpact": 60,
+    "globalImpact": 72,
     "socialImpact": 45,
     "culturalImpact": 20,
     "economicImpact": 15,
     "technologyImpact": 10,
     "memoryValue": 25,
-    "archiveValue": 49,
+    "archiveValue": 57,
     "eventType": "world",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
@@ -15347,7 +15347,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "345526a1c74fe10d"
     },
@@ -15420,7 +15420,7 @@
       "confidence": 45,
       "evidenceStatus": "strong",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "454c7a7d596ac7be"
     },
@@ -15483,16 +15483,16 @@
     "archiveValue": 58,
     "eventType": "world",
     "decision": "REVIEW",
-    "decisionReason": "来源仅维基月度存档页，缺独立佐证，待补证；证据等级 weak",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 50,
-      "evidenceStatus": "weak",
-      "needsEvidence": true,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
-      "inputHash": "902cc7dd5da818f8"
+      "inputHash": "229e9722b0c9023b"
     }
   },
   {
@@ -15550,7 +15550,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "e8f154aab59cda6c"
     },
@@ -15610,7 +15610,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "f55c9f4d4cea174d"
     },
@@ -15673,7 +15673,7 @@
       "confidence": 55,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "5030d604b4f40b5d"
     }
@@ -15716,23 +15716,23 @@
       }
     ],
     "relatedEvents": [],
-    "globalImpact": 80,
+    "globalImpact": 92,
     "socialImpact": 50,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 15,
     "memoryValue": 45,
-    "archiveValue": 65,
+    "archiveValue": 73,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合73，最强维度globalImpact=92）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 45,
+      "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "e60a118a5361ba08"
     },
@@ -15777,14 +15777,14 @@
       }
     ],
     "relatedEvents": [],
-    "globalImpact": 35,
+    "globalImpact": 60,
     "socialImpact": 45,
     "culturalImpact": 20,
     "economicImpact": 15,
     "technologyImpact": 10,
     "memoryValue": 25,
-    "archiveValue": 38,
-    "eventType": "society_culture",
+    "archiveValue": 49,
+    "eventType": "world",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
     "assessment": {
@@ -15793,7 +15793,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "488a3eec33bbc644"
     },
@@ -15854,7 +15854,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "c14932da933de1f9"
     },
@@ -15899,13 +15899,13 @@
       }
     ],
     "relatedEvents": [],
-    "globalImpact": 70,
+    "globalImpact": 82,
     "socialImpact": 45,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 10,
     "memoryValue": 30,
-    "archiveValue": 56,
+    "archiveValue": 64,
     "eventType": "world",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
@@ -15915,7 +15915,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "62d6546b55511026"
     },
@@ -15973,7 +15973,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "d0d6adaf0be1af4d"
     },
@@ -16048,16 +16048,16 @@
     "archiveValue": 42,
     "eventType": "society_culture",
     "decision": "REVIEW",
-    "decisionReason": "来源仅维基月度存档页，缺独立佐证，待补证；证据等级 weak",
+    "decisionReason": "边界候选，需模型结合语境判断；3 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 50,
-      "evidenceStatus": "weak",
-      "needsEvidence": true,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "confidence": 45,
+      "evidenceStatus": "strong",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
-      "inputHash": "80d9b7e02897cde1"
+      "inputHash": "5b409a099fcba702"
     }
   },
   {
@@ -16114,7 +16114,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "b02fb31dce12e3ff"
     },
@@ -16174,7 +16174,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "7792b30962d307f8"
     },
@@ -16220,12 +16220,12 @@
     ],
     "relatedEvents": [],
     "globalImpact": 30,
-    "socialImpact": 45,
+    "socialImpact": 65,
     "culturalImpact": 20,
     "economicImpact": 15,
     "technologyImpact": 10,
     "memoryValue": 25,
-    "archiveValue": 37,
+    "archiveValue": 51,
     "eventType": "society_culture",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
@@ -16235,7 +16235,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "58d1d78ab7acaf1c"
     },
@@ -16280,14 +16280,14 @@
       }
     ],
     "relatedEvents": [],
-    "globalImpact": 35,
+    "globalImpact": 60,
     "socialImpact": 45,
     "culturalImpact": 20,
     "economicImpact": 15,
     "technologyImpact": 25,
     "memoryValue": 25,
-    "archiveValue": 38,
-    "eventType": "society_culture",
+    "archiveValue": 49,
+    "eventType": "world",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
     "assessment": {
@@ -16296,7 +16296,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "13c28ecb3ec91eaf"
     },
@@ -16357,7 +16357,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "ce80ea108738b093"
     }
@@ -16416,7 +16416,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "0d2b85749368a849"
     },
@@ -16461,23 +16461,23 @@
       }
     ],
     "relatedEvents": [],
-    "globalImpact": 85,
+    "globalImpact": 100,
     "socialImpact": 50,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 15,
     "memoryValue": 45,
-    "archiveValue": 68,
+    "archiveValue": 78,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合78，最强维度globalImpact=100）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 45,
+      "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "ac10f6ee5c735299"
     },
@@ -16522,23 +16522,23 @@
       }
     ],
     "relatedEvents": [],
-    "globalImpact": 80,
+    "globalImpact": 92,
     "socialImpact": 50,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 15,
     "memoryValue": 45,
-    "archiveValue": 65,
+    "archiveValue": 73,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合73，最强维度globalImpact=92）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 45,
+      "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "f6e011da6b009599"
     },
@@ -16598,7 +16598,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "380bc9666de47012"
     },
@@ -16658,7 +16658,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "8f086ed03870bcf8"
     },
@@ -16720,7 +16720,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "2ebc9836355e96a4"
     }
@@ -16780,7 +16780,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "75bff86b3393321d"
     },
@@ -16842,7 +16842,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "dd73d9ff2b2a5d67"
     },
@@ -16902,7 +16902,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "21bf861ae5184a98"
     },
@@ -16964,7 +16964,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "187a0120471a712a"
     },
@@ -17025,7 +17025,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "77756bb21f86a2bd"
     },
@@ -17086,7 +17086,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "ac6d238258291f76"
     },
@@ -17146,7 +17146,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "2dfd1e9c1f24b1d8"
     },
@@ -17207,7 +17207,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "7d0101703f7657b7"
     },
@@ -17268,7 +17268,7 @@
       "confidence": 65,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "558151c5a3ba1c23"
     },
@@ -17330,7 +17330,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "8d05f92c6138f252"
     }
@@ -17386,7 +17386,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "20429f232fb3a208"
     },
@@ -17447,7 +17447,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "59717721fe114e92"
     }
@@ -17505,7 +17505,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "55936ddab886fc8f"
     },
@@ -17550,23 +17550,23 @@
       }
     ],
     "relatedEvents": [],
-    "globalImpact": 75,
+    "globalImpact": 100,
     "socialImpact": 50,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 40,
     "memoryValue": 45,
-    "archiveValue": 62,
+    "archiveValue": 79,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合79，最强维度globalImpact=100）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 45,
+      "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "e4131e2a4cf6e68f"
     },
@@ -17629,7 +17629,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "1ef49f43a5341f33"
     },
@@ -17691,7 +17691,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "d87e2854729ef255"
     }
@@ -17750,7 +17750,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "b7cf3ba3d42a9e8e"
     },
@@ -17795,23 +17795,23 @@
       }
     ],
     "relatedEvents": [],
-    "globalImpact": 75,
+    "globalImpact": 100,
     "socialImpact": 50,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 15,
     "memoryValue": 45,
-    "archiveValue": 61,
+    "archiveValue": 78,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合78，最强维度globalImpact=100）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 45,
+      "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "972a724ae8317b29"
     },
@@ -17856,23 +17856,23 @@
       }
     ],
     "relatedEvents": [],
-    "globalImpact": 80,
+    "globalImpact": 92,
     "socialImpact": 50,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 15,
     "memoryValue": 45,
-    "archiveValue": 65,
+    "archiveValue": 73,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合73，最强维度globalImpact=92）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 45,
+      "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "ebc255dd1f491c2f"
     },
@@ -17918,23 +17918,23 @@
       }
     ],
     "relatedEvents": [],
-    "globalImpact": 65,
+    "globalImpact": 90,
     "socialImpact": 55,
     "culturalImpact": 18,
     "economicImpact": 25,
     "technologyImpact": 10,
     "memoryValue": 40,
-    "archiveValue": 54,
+    "archiveValue": 71,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合71，最强维度globalImpact=90）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 45,
+      "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "7714f291c0ebaedb"
     },
@@ -17994,7 +17994,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "ebab6a5ac20ecc43"
     },
@@ -18054,7 +18054,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "ea8307eb398ee909"
     },
@@ -18115,7 +18115,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "044cc09ea2b9abb0"
     },
@@ -18176,7 +18176,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "0c1901e9372ce2c9"
     },
@@ -18236,7 +18236,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "aaf40d9a676c783a"
     },
@@ -18297,7 +18297,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "98879368e77d1ee5"
     }
@@ -18356,7 +18356,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "3941fb5e2e3d5529"
     }
@@ -18414,7 +18414,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "ba7f3446f34b1c1a"
     },
@@ -18459,23 +18459,23 @@
       }
     ],
     "relatedEvents": [],
-    "globalImpact": 45,
+    "globalImpact": 70,
     "socialImpact": 30,
     "culturalImpact": 18,
     "economicImpact": 93,
     "technologyImpact": 20,
     "memoryValue": 25,
-    "archiveValue": 70,
+    "archiveValue": 72,
     "eventType": "world",
     "decision": "KEEP",
-    "decisionReason": "规则判定高价值（综合70，最强维度economicImpact=93）；1 个独立来源域名",
+    "decisionReason": "规则判定高价值（综合72，最强维度economicImpact=93）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "1e6c5f63c18060c6"
     },
@@ -18552,7 +18552,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "441e4ad1a0abae48"
     }
@@ -18611,7 +18611,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "ed1938da615ed660"
     },
@@ -18671,7 +18671,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "fcc045ebb82cb043"
     },
@@ -18731,7 +18731,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "91991846d075f6c6"
     },
@@ -18791,7 +18791,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "737e132a4e67820d"
     },
@@ -18837,23 +18837,23 @@
       }
     ],
     "relatedEvents": [],
-    "globalImpact": 65,
+    "globalImpact": 90,
     "socialImpact": 55,
     "culturalImpact": 18,
     "economicImpact": 25,
     "technologyImpact": 10,
     "memoryValue": 40,
-    "archiveValue": 54,
+    "archiveValue": 71,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合71，最强维度globalImpact=90）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 45,
+      "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "3f0c5173e3f6c69b"
     },
@@ -18898,14 +18898,14 @@
       }
     ],
     "relatedEvents": [],
-    "globalImpact": 35,
+    "globalImpact": 60,
     "socialImpact": 45,
     "culturalImpact": 20,
     "economicImpact": 15,
     "technologyImpact": 10,
     "memoryValue": 25,
-    "archiveValue": 38,
-    "eventType": "society_culture",
+    "archiveValue": 49,
+    "eventType": "world",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
     "assessment": {
@@ -18914,7 +18914,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "c2f546edb326749d"
     },
@@ -18974,7 +18974,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "b1c38b938a0d881c"
     },
@@ -19035,7 +19035,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "bd8d6b8d0f3fff8c"
     },
@@ -19096,7 +19096,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "c3be8049ada22d96"
     },
@@ -19156,7 +19156,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "c7e046e73a63e59a"
     },
@@ -19216,7 +19216,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "96527cd8efe4cee8"
     },
@@ -19276,7 +19276,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "bc70ca6cd5a2ce34"
     },
@@ -19336,7 +19336,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "d430c9ec92ac3d91"
     },
@@ -19398,7 +19398,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "4b2e80026a039b0f"
     },
@@ -19459,7 +19459,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "3500acced47938a1"
     }
@@ -19518,7 +19518,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "74c507050afc3f6a"
     }
@@ -19576,7 +19576,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "511633da032d368d"
     },
@@ -19636,7 +19636,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "59113474bf96e90b"
     },
@@ -19697,7 +19697,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "09cd57ef35a9021b"
     },
@@ -19743,23 +19743,23 @@
       }
     ],
     "relatedEvents": [],
-    "globalImpact": 65,
+    "globalImpact": 90,
     "socialImpact": 55,
     "culturalImpact": 18,
     "economicImpact": 25,
     "technologyImpact": 10,
     "memoryValue": 40,
-    "archiveValue": 54,
+    "archiveValue": 71,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合71，最强维度globalImpact=90）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 45,
+      "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "99ade3e2c0fe82f3"
     },
@@ -19805,23 +19805,23 @@
       }
     ],
     "relatedEvents": [],
-    "globalImpact": 65,
+    "globalImpact": 90,
     "socialImpact": 55,
     "culturalImpact": 18,
     "economicImpact": 25,
     "technologyImpact": 10,
     "memoryValue": 40,
-    "archiveValue": 54,
+    "archiveValue": 71,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合71，最强维度globalImpact=90）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 45,
+      "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "7f4dd416da4f3215"
     },
@@ -19881,7 +19881,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "ee6a87533a88a16b"
     },
@@ -19942,7 +19942,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "0ad07a0442e50bdc"
     },
@@ -20003,7 +20003,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "fe33653c827bd922"
     },
@@ -20063,7 +20063,7 @@
       "confidence": 65,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "c7716f333bdfcb90"
     },
@@ -20124,7 +20124,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "4a143230883087c3"
     },
@@ -20184,7 +20184,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "c22815a31fd629b8"
     },
@@ -20230,14 +20230,14 @@
       }
     ],
     "relatedEvents": [],
-    "globalImpact": 35,
+    "globalImpact": 60,
     "socialImpact": 45,
     "culturalImpact": 20,
     "economicImpact": 15,
     "technologyImpact": 10,
     "memoryValue": 25,
-    "archiveValue": 38,
-    "eventType": "society_culture",
+    "archiveValue": 49,
+    "eventType": "world",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
     "assessment": {
@@ -20246,7 +20246,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "141d55692373da9a"
     },
@@ -20306,7 +20306,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "ce64e16068d30699"
     },
@@ -20366,7 +20366,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "8ba35684675b2dd5"
     },
@@ -20426,7 +20426,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "7f0445d8f1c03c21"
     },
@@ -20486,7 +20486,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "5112f1dab0883fa7"
     },
@@ -20547,7 +20547,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "e5385b44eccc4489"
     },
@@ -20609,7 +20609,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "07d37b27637f3d49"
     }
@@ -20669,7 +20669,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "435653b8166c50fa"
     },
@@ -20731,7 +20731,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "b151c791668616b7"
     }
@@ -20802,7 +20802,7 @@
       "confidence": 45,
       "evidenceStatus": "strong",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "4874ff161b39fae1"
     },
@@ -20863,7 +20863,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "2d0ca98ae4cb00af"
     },
@@ -20923,7 +20923,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "5af31170b12c39aa"
     },
@@ -20985,7 +20985,7 @@
       "confidence": 50,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "079bae8d440cd285"
     }
@@ -21044,7 +21044,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "f4ba48e2198f99a8"
     },
@@ -21091,23 +21091,23 @@
     ],
     "relatedEvents": [],
     "aiSummary": "菲律宾表示，在中国停止在南海的一切挑衅行为之前，菲方不会与中国举行双边会谈，相关表态涉及两国南海争议。",
-    "globalImpact": 67,
+    "globalImpact": 92,
     "socialImpact": 45,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 10,
     "memoryValue": 30,
-    "archiveValue": 54,
+    "archiveValue": 71,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "来源仅维基月度存档页，缺独立佐证，待补证；证据等级 weak",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合71，最强维度globalImpact=92）；证据等级 weak",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 50,
+      "confidence": 55,
       "evidenceStatus": "weak",
       "needsEvidence": true,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "10c8f08f11dfb3e8"
     }
@@ -21166,7 +21166,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "72572d46446826b8"
     },
@@ -21211,14 +21211,14 @@
       }
     ],
     "relatedEvents": [],
-    "globalImpact": 35,
+    "globalImpact": 60,
     "socialImpact": 45,
     "culturalImpact": 20,
     "economicImpact": 15,
     "technologyImpact": 10,
     "memoryValue": 25,
-    "archiveValue": 38,
-    "eventType": "society_culture",
+    "archiveValue": 49,
+    "eventType": "world",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
     "assessment": {
@@ -21227,7 +21227,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "baec06559569b2ff"
     },
@@ -21287,7 +21287,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "76915bda635e1560"
     },
@@ -21347,7 +21347,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "617759667ba33695"
     },
@@ -21408,7 +21408,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "f055db03b19c4c4b"
     },
@@ -21469,7 +21469,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "5fc9701929a10de1"
     },
@@ -21515,15 +21515,15 @@
       }
     ],
     "relatedEvents": [],
-    "globalImpact": 85,
+    "globalImpact": 97,
     "socialImpact": 45,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 10,
     "memoryValue": 52,
-    "archiveValue": 68,
+    "archiveValue": 76,
     "eventType": "world",
-    "decision": "REVIEW",
+    "decision": "KEEP",
     "decisionReason": "边界候选，需模型结合语境判断；命中产业转型/现象级关键词，已豁免噪声惩罚并升级；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
@@ -21531,7 +21531,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "886721262ae8bad3"
     },
@@ -21576,23 +21576,23 @@
       }
     ],
     "relatedEvents": [],
-    "globalImpact": 75,
+    "globalImpact": 100,
     "socialImpact": 45,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 10,
     "memoryValue": 30,
-    "archiveValue": 59,
+    "archiveValue": 76,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合76，最强维度globalImpact=100）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 45,
+      "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "90d4115970e15be0"
     },
@@ -21652,7 +21652,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "952cff567f33816f"
     },
@@ -21712,7 +21712,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "2678431169d8ff57"
     },
@@ -21772,7 +21772,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-08T01:17:10+00:00",
+      "assessedAt": "2026-11-11T10:43:20+08:00",
       "model": null,
       "inputHash": "0f1420f61d8d2b5e"
     },

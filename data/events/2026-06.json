@@ -45,10 +45,10 @@
     "globalImpact": 25,
     "socialImpact": 25,
     "culturalImpact": 15,
-    "economicImpact": 79,
+    "economicImpact": 69,
     "technologyImpact": 17,
     "memoryValue": 62,
-    "archiveValue": 62,
+    "archiveValue": 55,
     "eventType": "society_culture",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；命中商业噪声词，已整体降权；1 个独立来源域名",
@@ -58,7 +58,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "f4e2e69c7bfe60ed"
     }
@@ -123,7 +123,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "08e8933625e9c4a4"
     }
@@ -188,7 +188,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "ade8963eeecc9c76"
     }
@@ -237,23 +237,23 @@
     "relatedEvents": [],
     "aiSummary": "闪评：日本导弹首次进驻南鸟岛，军事野心再膨胀。",
     "summaryFull": false,
-    "globalImpact": 80,
+    "globalImpact": 92,
     "socialImpact": 50,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 15,
     "memoryValue": 45,
-    "archiveValue": 65,
+    "archiveValue": 73,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合73，最强维度globalImpact=92）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 45,
+      "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "6f07a32b2147e87f"
     }
@@ -318,7 +318,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "3d59b3edee1e45e1"
     }
@@ -381,7 +381,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "456e99aa10697060"
     }
@@ -444,7 +444,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "0df77bd23de1cbf5"
     }
@@ -494,23 +494,23 @@
     "relatedEvents": [],
     "aiSummary": "乌军在乌克兰宪法日之际远程打击俄两座炼油厂（至少1死1伤）；普京承认俄罗斯面临燃料短缺。",
     "summaryFull": false,
-    "globalImpact": 75,
+    "globalImpact": 100,
     "socialImpact": 50,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 15,
     "memoryValue": 45,
-    "archiveValue": 61,
+    "archiveValue": 78,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合78，最强维度globalImpact=100）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 45,
+      "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "59b57ac01cfcb352"
     }
@@ -575,7 +575,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "d6bf6c2bd41f6e42"
     }
@@ -641,7 +641,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "c6587167ad611558"
     }
@@ -706,7 +706,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "f9c7a3ffbc901b6a"
     }
@@ -756,23 +756,23 @@
     "relatedEvents": [],
     "aiSummary": "评论文章：日美6月下旬联合举行“坚毅之龙”“英勇盾牌”两场进攻性极强军演，并借演习之名将“堤丰”中导系统部署至日本，严重冲击亚太和平稳定。",
     "summaryFull": false,
-    "globalImpact": 80,
+    "globalImpact": 92,
     "socialImpact": 50,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 15,
     "memoryValue": 45,
-    "archiveValue": 65,
+    "archiveValue": 73,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合73，最强维度globalImpact=92）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 45,
+      "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "b295dd702fdf2696"
     }
@@ -837,7 +837,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "5722ae14ee31216e"
     }
@@ -914,7 +914,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "7d7a4b4da0f5023b"
     }
@@ -963,13 +963,13 @@
     "relatedEvents": [],
     "aiSummary": "黎真主党领导人卡西姆拒绝接受黎以美三方框架协议；以方则称真主党解除武装才会撤军。",
     "summaryFull": false,
-    "globalImpact": 45,
+    "globalImpact": 70,
     "socialImpact": 45,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 10,
     "memoryValue": 30,
-    "archiveValue": 39,
+    "archiveValue": 56,
     "eventType": "world",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
@@ -979,7 +979,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "6ce460a6f53f7b5a"
     }
@@ -1043,7 +1043,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "90545b2ac9f060c8"
     }
@@ -1108,7 +1108,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "48ad329e3d81579e"
     }
@@ -1174,7 +1174,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "fb5e44f77812400d"
     }
@@ -1224,23 +1224,23 @@
     "relatedEvents": [],
     "aiSummary": "泽连斯基宣布：乌军凌晨使用“火烈鸟”巡航导弹击中俄罗斯伏尔加格勒一家军工企业。",
     "summaryFull": false,
-    "globalImpact": 80,
+    "globalImpact": 92,
     "socialImpact": 50,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 15,
     "memoryValue": 45,
-    "archiveValue": 65,
+    "archiveValue": 73,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；命中商业噪声词，已整体降权；1 个独立来源域名",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合73，最强维度globalImpact=92）；命中商业噪声词，已整体降权；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 45,
+      "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "1d8487253d73de46"
     }
@@ -1290,23 +1290,23 @@
     "relatedEvents": [],
     "aiSummary": "乌军袭击俄伏尔加格勒市一企业，造成1人死亡、11人受伤、1人失踪。",
     "summaryFull": false,
-    "globalImpact": 75,
+    "globalImpact": 100,
     "socialImpact": 50,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 15,
     "memoryValue": 45,
-    "archiveValue": 61,
+    "archiveValue": 78,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合78，最强维度globalImpact=100）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 45,
+      "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "aef4ab66feaf807b"
     }
@@ -1372,7 +1372,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "4ae49821bd71a4bf"
     }
@@ -1431,7 +1431,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "d2c936f5036e2cae"
     },
@@ -1495,7 +1495,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "0a43bde2b7ce1305"
     }
@@ -1562,7 +1562,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "6abfbc7533b2eb00"
     }
@@ -1627,7 +1627,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "964887aff45c2dde"
     }
@@ -1690,7 +1690,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "b3109e268f02d604"
     }
@@ -1767,7 +1767,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "37a745d716494f1e"
     }
@@ -1832,7 +1832,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "ffe211891e3b6767"
     }
@@ -1898,7 +1898,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "c5083de378d21b92"
     }
@@ -1963,7 +1963,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "6d384bf76e56c7b5"
     }
@@ -2027,7 +2027,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "c8a04aeffcb94539"
     }
@@ -2091,7 +2091,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "2dfae773f60ad0b0"
     }
@@ -2179,7 +2179,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "f265f046ff21b436"
     }
@@ -2243,7 +2243,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "0ab07ae20e734378"
     }
@@ -2292,13 +2292,13 @@
     "relatedEvents": [],
     "aiSummary": "联合国拉加经委会报告：美国滥施关税并将关税用作政治谈判工具，引发巨大不确定性，拉美和加勒比地区外资流入遇阻、部分产业投资额大幅减少。",
     "summaryFull": false,
-    "globalImpact": 59,
+    "globalImpact": 69,
     "socialImpact": 25,
     "culturalImpact": 15,
     "economicImpact": 79,
     "technologyImpact": 17,
     "memoryValue": 21,
-    "archiveValue": 61,
+    "archiveValue": 62,
     "eventType": "world",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；命中商业噪声词，已整体降权；1 个独立来源域名",
@@ -2308,7 +2308,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "9b713c64881467fb"
     }
@@ -2373,7 +2373,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "b473816479cf81c7"
     }
@@ -2440,7 +2440,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "c365e8cfbc69108e"
     }
@@ -2506,7 +2506,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "76a7e73c0c531503"
     }
@@ -2555,12 +2555,12 @@
     "aiSummary": "法国卫生部宣布发现首例输入性埃博拉病毒感染病例。",
     "summaryFull": false,
     "globalImpact": 25,
-    "socialImpact": 25,
+    "socialImpact": 45,
     "culturalImpact": 18,
     "economicImpact": 25,
     "technologyImpact": 70,
     "memoryValue": 30,
-    "archiveValue": 54,
+    "archiveValue": 55,
     "eventType": "society_culture",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
@@ -2570,7 +2570,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "5e81bf72e47f0e4b"
     }
@@ -2633,7 +2633,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "5648606c5c7f2b1b"
     }
@@ -2700,7 +2700,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "77b0d15aaf0088e8"
     }
@@ -2763,7 +2763,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "e744fd83bafc01c9"
     }
@@ -2827,7 +2827,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "18b701a13c02a1d5"
     }
@@ -2891,7 +2891,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "336fe35406f420ad"
     }
@@ -2955,7 +2955,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "35d11475307a523c"
     }
@@ -3018,7 +3018,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "ed38f563bcecea14"
     }
@@ -3082,7 +3082,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "a45ae87326fa24b7"
     }
@@ -3147,7 +3147,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "0b59c3921a131ef0"
     }
@@ -3210,7 +3210,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "590db45565daf2ad"
     }
@@ -3259,13 +3259,13 @@
     "relatedEvents": [],
     "aiSummary": "欧盟委员会地中海事务委员舒伊察22-23日访问巴勒斯坦和以色列，商讨加沙局势等议题。",
     "summaryFull": false,
-    "globalImpact": 45,
+    "globalImpact": 70,
     "socialImpact": 45,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 10,
     "memoryValue": 30,
-    "archiveValue": 39,
+    "archiveValue": 56,
     "eventType": "world",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
@@ -3275,7 +3275,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "bc02b5f9122a7154"
     }
@@ -3341,7 +3341,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "6ec1b39ab81ef287"
     }
@@ -3391,23 +3391,23 @@
     "relatedEvents": [],
     "aiSummary": "特朗普表示：停火60天内霍尔木兹海峡不收费；但若协议未能达成，美国或收取通行费以补偿其“守护”中东的成本。",
     "summaryFull": false,
-    "globalImpact": 80,
+    "globalImpact": 92,
     "socialImpact": 50,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 15,
     "memoryValue": 45,
-    "archiveValue": 65,
+    "archiveValue": 73,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合73，最强维度globalImpact=92）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 45,
+      "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "fe18f2dcb700fad1"
     }
@@ -3470,7 +3470,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "68c05807c0991649"
     }
@@ -3534,7 +3534,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "7267c83e0f267f44"
     }
@@ -3598,7 +3598,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "cc57321fd3390fa9"
     }
@@ -3663,7 +3663,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "5f21f5d83a18e83c"
     }
@@ -3728,7 +3728,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "21ca89951649ca12"
     }
@@ -3795,7 +3795,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "6e9586305e78af2a"
     }
@@ -3861,7 +3861,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "d0bf740c2959f325"
     }
@@ -3924,7 +3924,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "0c4fc5f90a58334b"
     }
@@ -3990,7 +3990,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "2565a8d5bf671ac0"
     }
@@ -4053,7 +4053,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "aa0d38d9ac97dc0c"
     }
@@ -4116,7 +4116,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "e149332e15e06ee4"
     }
@@ -4179,7 +4179,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "949d4a8ae0fd8cce"
     }
@@ -4244,7 +4244,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "c58600b0a52c5bb3"
     }
@@ -4309,7 +4309,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "15771845f68fe71f"
     }
@@ -4376,7 +4376,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "48fe119d80e42eed"
     }
@@ -4426,23 +4426,23 @@
     "relatedEvents": [],
     "aiSummary": "莫斯科再次遭乌军大规模无人机袭击，截至傍晚击落76架无人机，无人员伤亡和财产损失。",
     "summaryFull": false,
-    "globalImpact": 85,
+    "globalImpact": 100,
     "socialImpact": 50,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 15,
     "memoryValue": 45,
-    "archiveValue": 68,
+    "archiveValue": 78,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合78，最强维度globalImpact=100）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 45,
+      "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "3b26bab011645979"
     }
@@ -4504,7 +4504,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "f17e8011daf6d718"
     }
@@ -4554,23 +4554,23 @@
     "relatedEvents": [],
     "aiSummary": "路透社：乌克兰无人机16日袭击莫斯科地区最大燃料供应商的炼油厂并引发火灾，该厂已停止运营。",
     "summaryFull": false,
-    "globalImpact": 75,
+    "globalImpact": 100,
     "socialImpact": 68,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 15,
     "memoryValue": 45,
-    "archiveValue": 62,
+    "archiveValue": 79,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合79，最强维度globalImpact=100）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 45,
+      "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "dc9177889e705092"
     }
@@ -4634,7 +4634,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "ac77507f92d5bc1a"
     }
@@ -4683,23 +4683,23 @@
     "relatedEvents": [],
     "aiSummary": "莫斯科遭大规模无人机袭击，俄防空系统击落194架无人机——近两年莫斯科遭遇的规模最大袭击之一。",
     "summaryFull": false,
-    "globalImpact": 75,
+    "globalImpact": 100,
     "socialImpact": 50,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 15,
     "memoryValue": 45,
-    "archiveValue": 61,
+    "archiveValue": 78,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合78，最强维度globalImpact=100）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 45,
+      "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "4c1dce1a51c120da"
     }
@@ -4750,10 +4750,10 @@
     "globalImpact": 30,
     "socialImpact": 30,
     "culturalImpact": 18,
-    "economicImpact": 93,
+    "economicImpact": 82,
     "technologyImpact": 20,
     "memoryValue": 25,
-    "archiveValue": 69,
+    "archiveValue": 62,
     "eventType": "society_culture",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
@@ -4763,7 +4763,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "a1d65e50ecbc8601"
     }
@@ -4828,7 +4828,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "d340cb9a890d4c16"
     }
@@ -4895,7 +4895,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "7235221507cc6509"
     }
@@ -4960,7 +4960,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "4586b4f4e0c49216"
     }
@@ -5023,7 +5023,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "79019517688a52cb"
     }
@@ -5089,7 +5089,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "84bc5618bcb84445"
     }
@@ -5139,10 +5139,10 @@
     "globalImpact": 25,
     "socialImpact": 25,
     "culturalImpact": 15,
-    "economicImpact": 79,
+    "economicImpact": 69,
     "technologyImpact": 17,
     "memoryValue": 21,
-    "archiveValue": 59,
+    "archiveValue": 52,
     "eventType": "society_culture",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；命中商业噪声词，已整体降权；1 个独立来源域名",
@@ -5152,7 +5152,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "be7e488c67e495d6"
     }
@@ -5217,7 +5217,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "bd13a28f285c4d28"
     }
@@ -5266,13 +5266,13 @@
     "relatedEvents": [],
     "aiSummary": "俄联邦侦查委员会：乌克兰在布良斯克州袭击一辆载有白俄罗斯儿童足球运动员的客车并造成死伤，俄方已按“恐怖主义行为”立案。",
     "summaryFull": false,
-    "globalImpact": 50,
+    "globalImpact": 75,
     "socialImpact": 25,
     "culturalImpact": 50,
     "economicImpact": 20,
     "technologyImpact": 10,
     "memoryValue": 45,
-    "archiveValue": 44,
+    "archiveValue": 61,
     "eventType": "world",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
@@ -5282,7 +5282,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "00606ec312f91376"
     }
@@ -5347,7 +5347,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "aa732e9d622c7fcf"
     }
@@ -5396,23 +5396,23 @@
     "relatedEvents": [],
     "aiSummary": "美伊战事迎来和平曙光：美方称谅解备忘录已电子签署、19日正式签署；特朗普称谈判已进入第二阶段。",
     "summaryFull": false,
-    "globalImpact": 85,
+    "globalImpact": 97,
     "socialImpact": 45,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 10,
     "memoryValue": 30,
-    "archiveValue": 66,
+    "archiveValue": 74,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合74，最强维度globalImpact=97）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 45,
+      "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "b833a31ab4468d7c"
     }
@@ -5479,7 +5479,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "3379ea53fee14e2e"
     }
@@ -5530,12 +5530,12 @@
     "globalImpact": 30,
     "socialImpact": 30,
     "culturalImpact": 18,
-    "economicImpact": 93,
+    "economicImpact": 82,
     "technologyImpact": 20,
     "memoryValue": 62,
-    "archiveValue": 72,
+    "archiveValue": 65,
     "eventType": "society_culture",
-    "decision": "KEEP",
+    "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
@@ -5543,7 +5543,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "d8be6da684873c64"
     }
@@ -5594,20 +5594,20 @@
     "globalImpact": 30,
     "socialImpact": 30,
     "culturalImpact": 18,
-    "economicImpact": 100,
+    "economicImpact": 97,
     "technologyImpact": 20,
     "memoryValue": 25,
-    "archiveValue": 74,
+    "archiveValue": 72,
     "eventType": "society_culture",
     "decision": "KEEP",
-    "decisionReason": "规则判定高价值（综合74，最强维度economicImpact=100）；1 个独立来源域名",
+    "decisionReason": "规则判定高价值（综合72，最强维度economicImpact=97）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "ca2c98fa547c385e"
     }
@@ -5673,7 +5673,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "4df869e6caad0026"
     }
@@ -5722,13 +5722,13 @@
     "relatedEvents": [],
     "aiSummary": "巴基斯坦、黎巴嫩、沙特分别就美伊14日宣布达成停战谅解备忘录作出回应。",
     "summaryFull": false,
-    "globalImpact": 45,
+    "globalImpact": 70,
     "socialImpact": 45,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 10,
     "memoryValue": 30,
-    "archiveValue": 39,
+    "archiveValue": 56,
     "eventType": "world",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
@@ -5738,7 +5738,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "cfc71077c6350f30"
     }
@@ -5803,7 +5803,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "1cc14defbafc5c7f"
     }
@@ -5866,7 +5866,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "22264d6feda3f85f"
     }
@@ -5916,23 +5916,23 @@
     "relatedEvents": [],
     "aiSummary": "半岛新闻网：美伊已就停火达成谅解备忘录，双方计划于6月19日签署和平协议。",
     "summaryFull": false,
-    "globalImpact": 80,
+    "globalImpact": 92,
     "socialImpact": 50,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 15,
     "memoryValue": 45,
-    "archiveValue": 65,
+    "archiveValue": 73,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合73，最强维度globalImpact=92）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 45,
+      "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "e80bb613a39d6b99"
     }
@@ -5998,7 +5998,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "8f51e19445b89e0e"
     }
@@ -6063,7 +6063,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "e295a8dac5176856"
     }
@@ -6114,23 +6114,23 @@
     "relatedEvents": [],
     "aiSummary": "黎巴嫩公共卫生部：3月2日至6月13日，以色列在黎发动的袭击已造成3756人死亡、11632人受伤。",
     "summaryFull": false,
-    "globalImpact": 75,
+    "globalImpact": 100,
     "socialImpact": 70,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 15,
     "memoryValue": 45,
-    "archiveValue": 63,
+    "archiveValue": 80,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合80，最强维度globalImpact=100）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 45,
+      "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "bc7a1be2b3538edb"
     }
@@ -6180,13 +6180,13 @@
     "relatedEvents": [],
     "aiSummary": "特朗普称美伊计划14日签署协议，“签署后霍尔木兹海峡将对所有人开放”；伊朗方面否认，称还需等待。",
     "summaryFull": false,
-    "globalImpact": 60,
+    "globalImpact": 85,
     "socialImpact": 45,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 10,
     "memoryValue": 30,
-    "archiveValue": 49,
+    "archiveValue": 66,
     "eventType": "world",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
@@ -6196,7 +6196,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "62f8c348e6d19290"
     }
@@ -6245,13 +6245,13 @@
     "relatedEvents": [],
     "aiSummary": "伊朗消息人士告诉新华社：巴基斯坦将主持召开视频会议，伊美双方代表将出席并签署协议。",
     "summaryFull": false,
-    "globalImpact": 45,
+    "globalImpact": 70,
     "socialImpact": 45,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 10,
     "memoryValue": 30,
-    "archiveValue": 39,
+    "archiveValue": 56,
     "eventType": "world",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
@@ -6261,7 +6261,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "7ad214ef37db6d36"
     }
@@ -6327,7 +6327,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "3fc56c6ecca887db"
     }
@@ -6378,23 +6378,23 @@
     "relatedEvents": [],
     "aiSummary": "伊朗总统佩泽希齐扬表示：战争和谈判的决定权在伊朗领导层和最高国家安全委员会。",
     "summaryFull": false,
-    "globalImpact": 80,
+    "globalImpact": 92,
     "socialImpact": 50,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 15,
     "memoryValue": 45,
-    "archiveValue": 65,
+    "archiveValue": 73,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合73，最强维度globalImpact=92）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 45,
+      "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "e5f1d5beefcc2da8"
     }
@@ -6444,23 +6444,23 @@
     "relatedEvents": [],
     "aiSummary": "特朗普发文称：以色列当天对贝鲁特的袭击“不应该发生”。",
     "summaryFull": false,
-    "globalImpact": 75,
+    "globalImpact": 100,
     "socialImpact": 50,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 15,
     "memoryValue": 45,
-    "archiveValue": 61,
+    "archiveValue": 78,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合78，最强维度globalImpact=100）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 45,
+      "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "afc1395b5e3847c0"
     }
@@ -6509,13 +6509,13 @@
     "relatedEvents": [],
     "aiSummary": "巴基斯坦总理夏巴兹在社交媒体宣布：伊朗和美国已就和平协议文本达成一致。",
     "summaryFull": false,
-    "globalImpact": 45,
+    "globalImpact": 70,
     "socialImpact": 45,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 10,
     "memoryValue": 30,
-    "archiveValue": 39,
+    "archiveValue": 56,
     "eventType": "world",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
@@ -6525,7 +6525,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "7215ddfb01a8e0c6"
     }
@@ -6574,13 +6574,13 @@
     "relatedEvents": [],
     "aiSummary": "巴基斯坦总理夏巴兹表示：伊朗与美国已就和平协议最终文本达成一致，谅解备忘录有望数日内签署。",
     "summaryFull": false,
-    "globalImpact": 45,
+    "globalImpact": 70,
     "socialImpact": 45,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 10,
     "memoryValue": 30,
-    "archiveValue": 39,
+    "archiveValue": 56,
     "eventType": "world",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
@@ -6590,7 +6590,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "b832d59201aec836"
     }
@@ -6655,7 +6655,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "b6eca1c1ff09b90b"
     }
@@ -6704,13 +6704,13 @@
     "relatedEvents": [],
     "aiSummary": "巴基斯坦总理夏巴兹宣布：美国和伊朗已就和平协议文本达成一致。",
     "summaryFull": false,
-    "globalImpact": 45,
+    "globalImpact": 70,
     "socialImpact": 45,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 10,
     "memoryValue": 30,
-    "archiveValue": 39,
+    "archiveValue": 56,
     "eventType": "world",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
@@ -6720,7 +6720,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "3785a74836a8579b"
     }
@@ -6785,7 +6785,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "fe3b9fb9c8142104"
     }
@@ -6851,7 +6851,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "ef8f25367385bea8"
     }
@@ -6917,7 +6917,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "80a5fd5e9d73f72a"
     }
@@ -6983,7 +6983,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "685f5f2b6c62250c"
     }
@@ -7047,7 +7047,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "9c246ef121a16e14"
     }
@@ -7096,23 +7096,23 @@
     "relatedEvents": [],
     "aiSummary": "苏丹快速支援部队无人机袭击北科尔多凡州首府欧拜伊德多个居民区，至少16人死亡、数十人受伤。",
     "summaryFull": false,
-    "globalImpact": 75,
+    "globalImpact": 100,
     "socialImpact": 50,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 15,
     "memoryValue": 45,
-    "archiveValue": 61,
+    "archiveValue": 78,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合78，最强维度globalImpact=100）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 45,
+      "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "86b394b9ad4a69c5"
     }
@@ -7161,13 +7161,13 @@
     "relatedEvents": [],
     "aiSummary": "美媒称美伊最快14日签署协议，中东紧张局势出现“积极信号”，但最终协议或遥遥无期。",
     "summaryFull": false,
-    "globalImpact": 45,
+    "globalImpact": 70,
     "socialImpact": 45,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 10,
     "memoryValue": 30,
-    "archiveValue": 39,
+    "archiveValue": 56,
     "eventType": "world",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
@@ -7177,7 +7177,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "0c8a9f78a42e93ca"
     }
@@ -7227,13 +7227,13 @@
     "relatedEvents": [],
     "aiSummary": "伊朗法尔斯通讯社援引消息人士：美伊“协议已敲定、14日日内瓦签署”的说法“完全是无稽之谈”。",
     "summaryFull": false,
-    "globalImpact": 60,
+    "globalImpact": 85,
     "socialImpact": 45,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 10,
     "memoryValue": 30,
-    "archiveValue": 49,
+    "archiveValue": 66,
     "eventType": "world",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
@@ -7243,7 +7243,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "15778161c597659c"
     }
@@ -7290,13 +7290,13 @@
     "summaryFull": true,
     "sourceExcerpt": "CHINA  /  DIPLOMACY Chinese expert criticizes Filipino FM’s claim that Japan-Philippines delimitation ‘nothing to do’ with China, warns move serves ulterior purposes beyond bilateral talks By Zhang Han Published: Jun 11, 2026 04:33 PM Updated: Jun 11, 2026 04:57 PM Philippines' Foreign Minister Maria Theresa Lazaro delivers a speech at the Nikkei Forum at a hotel in Tokyo on June 10, 202",
     "summaryBasedOn": "https://www.globaltimes.cn/page/202606/1363326.shtml",
-    "globalImpact": 45,
+    "globalImpact": 70,
     "socialImpact": 45,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 10,
     "memoryValue": 30,
-    "archiveValue": 39,
+    "archiveValue": 56,
     "eventType": "world",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
@@ -7306,7 +7306,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "f715ff2eee00bbd3"
     }
@@ -7369,7 +7369,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "abcba076276cc340"
     }
@@ -7433,7 +7433,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "6fe6bf6dd180a057"
     }
@@ -7498,7 +7498,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "34d43d3070c3ad06"
     }
@@ -7549,10 +7549,10 @@
     "globalImpact": 30,
     "socialImpact": 30,
     "culturalImpact": 18,
-    "economicImpact": 93,
+    "economicImpact": 82,
     "technologyImpact": 20,
     "memoryValue": 25,
-    "archiveValue": 69,
+    "archiveValue": 62,
     "eventType": "society_culture",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
@@ -7562,7 +7562,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "38f7270864f4f947"
     }
@@ -7626,7 +7626,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "03ccbe0fbee3ca5b"
     }
@@ -7689,7 +7689,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "c5e394598cafe7e4"
     }
@@ -7738,23 +7738,23 @@
     "relatedEvents": [],
     "aiSummary": "据俄媒6月10日报道，俄罗斯楚瓦什共和国首府切博克萨雷市遭导弹袭击，当地正核实受伤人数及基础设施受损情况。乌媒称乌军当日凌晨对俄纵深目标发动大规模袭击，萨马拉州一炼油厂和切博克萨雷市一军用电子厂发生爆炸。",
     "summaryFull": true,
-    "globalImpact": 70,
+    "globalImpact": 82,
     "socialImpact": 25,
     "culturalImpact": 18,
     "economicImpact": 25,
     "technologyImpact": 92,
     "memoryValue": 30,
-    "archiveValue": 72,
+    "archiveValue": 73,
     "eventType": "world",
     "decision": "KEEP",
-    "decisionReason": "规则判定高价值（综合72，最强维度technologyImpact=92）；1 个独立来源域名",
+    "decisionReason": "规则判定高价值（综合73，最强维度technologyImpact=92）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "3a478b312dbd88a5"
     }
@@ -7818,7 +7818,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "c6ab2b4d9dbdbc3b"
     }
@@ -7867,23 +7867,23 @@
     "relatedEvents": [],
     "aiSummary": "阿富汗政府发言人穆贾希德6月10日称，巴基斯坦军方再次侵犯阿领空，袭击库纳尔、霍斯特和帕克提卡省民宅，造成至少13人死亡，含11名儿童和1名妇女，另有14人受伤。巴方未立即置评，有安全官员称空袭针对武装分子藏身处。",
     "summaryFull": true,
-    "globalImpact": 75,
+    "globalImpact": 100,
     "socialImpact": 50,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 15,
     "memoryValue": 45,
-    "archiveValue": 61,
+    "archiveValue": 78,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合78，最强维度globalImpact=100）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 45,
+      "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "88014ce2379ebc57"
     }
@@ -7946,7 +7946,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "b2a833738a91a813"
     }
@@ -8009,7 +8009,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "6e234033355ab48f"
     }
@@ -8059,23 +8059,23 @@
     "relatedEvents": [],
     "aiSummary": "当地时间6月10日，以色列对黎巴嫩南部泰尔及周边发动多轮袭击，造成至少13人死亡、15人受伤，以军称打击真主党发射阵地并发布疏散令。黎真主党称以无人机和导弹还击以军人员、装甲车及指挥所。自3月2日冲突扩大以来，黎方超3660人死亡、约120万人流离失所，联合国将调查各方可能违反国际法行为。",
     "summaryFull": true,
-    "globalImpact": 85,
+    "globalImpact": 100,
     "socialImpact": 50,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 15,
     "memoryValue": 45,
-    "archiveValue": 68,
+    "archiveValue": 78,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合78，最强维度globalImpact=100）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 45,
+      "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "fffbffd1260ba2ea"
     }
@@ -8126,23 +8126,23 @@
     "relatedEvents": [],
     "aiSummary": "黎巴嫩卫生部：3月2日冲突爆发以来以军袭击已致3637人死亡、11188人受伤；同日以色列宣布停止袭击伊朗。",
     "summaryFull": false,
-    "globalImpact": 75,
-    "socialImpact": 50,
+    "globalImpact": 100,
+    "socialImpact": 70,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 15,
     "memoryValue": 45,
-    "archiveValue": 61,
+    "archiveValue": 80,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合80，最强维度globalImpact=100）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 45,
+      "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "f0be37afab3861c5"
     }
@@ -8206,7 +8206,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "168b3694c89176a3"
     }
@@ -8256,23 +8256,23 @@
     "relatedEvents": [],
     "aiSummary": "伊朗媒体报道：两名伊朗防空部队人员在以色列8日的袭击中丧生。",
     "summaryFull": false,
-    "globalImpact": 75,
+    "globalImpact": 100,
     "socialImpact": 50,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 15,
     "memoryValue": 45,
-    "archiveValue": 61,
+    "archiveValue": 78,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合78，最强维度globalImpact=100）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 45,
+      "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "d3a46011b4a8579f"
     }
@@ -8322,13 +8322,13 @@
     "relatedEvents": [],
     "aiSummary": "特朗普称美伊谈判进入“最后关头”、“两到三天内”达成协议；美媒统计他已至少37次作过类似表态。",
     "summaryFull": false,
-    "globalImpact": 60,
+    "globalImpact": 85,
     "socialImpact": 45,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 10,
     "memoryValue": 30,
-    "archiveValue": 49,
+    "archiveValue": 66,
     "eventType": "world",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
@@ -8338,7 +8338,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "1560e2534befafe4"
     }
@@ -8388,23 +8388,23 @@
     "relatedEvents": [],
     "aiSummary": "英国北爱尔兰贝尔法斯特北部发生恶性持刀伤人事件，一人重伤，一男子因涉嫌谋杀未遂被捕。",
     "summaryFull": false,
-    "globalImpact": 75,
+    "globalImpact": 100,
     "socialImpact": 50,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 15,
     "memoryValue": 45,
-    "archiveValue": 61,
+    "archiveValue": 78,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合78，最强维度globalImpact=100）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 45,
+      "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "00a51c9ed7816570"
     }
@@ -8455,10 +8455,10 @@
     "globalImpact": 30,
     "socialImpact": 30,
     "culturalImpact": 18,
-    "economicImpact": 93,
+    "economicImpact": 82,
     "technologyImpact": 20,
     "memoryValue": 25,
-    "archiveValue": 69,
+    "archiveValue": 62,
     "eventType": "society_culture",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
@@ -8468,7 +8468,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "bf1af97fd9ecc617"
     }
@@ -8533,7 +8533,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "c571d5bd801a691e"
     }
@@ -8598,7 +8598,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "de4c5ec2ef678906"
     }
@@ -8663,7 +8663,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "f7f2f69afcd95df9"
     }
@@ -8729,7 +8729,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "f1a0e712f921b9fe"
     }
@@ -8793,7 +8793,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "096e06b602c79f12"
     }
@@ -8859,7 +8859,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "efed6a61f6a66ee1"
     }
@@ -8923,7 +8923,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "c0da16712f69df83"
     }
@@ -8989,7 +8989,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "82b8d84cd43ccacb"
     }
@@ -9040,23 +9040,23 @@
     "relatedEvents": [],
     "aiSummary": "特朗普表示：不会把解冻伊朗资产或取消对伊制裁作为任何协议的先决条件。",
     "summaryFull": false,
-    "globalImpact": 80,
+    "globalImpact": 92,
     "socialImpact": 50,
     "culturalImpact": 18,
     "economicImpact": 42,
     "technologyImpact": 15,
     "memoryValue": 45,
-    "archiveValue": 66,
+    "archiveValue": 74,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合74，最强维度globalImpact=92）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 45,
+      "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "5299c54af82eb7ad"
     }
@@ -9121,7 +9121,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "fc4db590230206e1"
     }
@@ -9170,13 +9170,13 @@
     "relatedEvents": [],
     "aiSummary": "美军中央司令部称：击落4架伊朗向霍尔木兹海峡发射的攻击无人机，随后空袭伊朗戈鲁克地区和格什姆岛的沿海雷达站。",
     "summaryFull": false,
-    "globalImpact": 50,
+    "globalImpact": 62,
     "socialImpact": 25,
     "culturalImpact": 18,
     "economicImpact": 25,
     "technologyImpact": 55,
     "memoryValue": 30,
-    "archiveValue": 46,
+    "archiveValue": 51,
     "eventType": "world",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
@@ -9186,7 +9186,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "f0d1787dfe6dd73c"
     }
@@ -9236,10 +9236,10 @@
     "globalImpact": 25,
     "socialImpact": 25,
     "culturalImpact": 15,
-    "economicImpact": 79,
+    "economicImpact": 69,
     "technologyImpact": 17,
     "memoryValue": 21,
-    "archiveValue": 59,
+    "archiveValue": 52,
     "eventType": "society_culture",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；命中商业噪声词，已整体降权；1 个独立来源域名",
@@ -9249,7 +9249,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "00fb16a10b102096"
     }
@@ -9312,7 +9312,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "2d0908e1869db265"
     }
@@ -9377,7 +9377,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "d6b59b8a1834bfa7"
     }
@@ -9427,23 +9427,23 @@
     "relatedEvents": [],
     "aiSummary": "哈马斯高级官员哈利勒·哈亚率代表团抵达开罗，6日起与埃及及斡旋方就推进加沙停火协议举行新一轮会谈。",
     "summaryFull": false,
-    "globalImpact": 80,
+    "globalImpact": 92,
     "socialImpact": 50,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 15,
     "memoryValue": 45,
-    "archiveValue": 65,
+    "archiveValue": 73,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合73，最强维度globalImpact=92）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 45,
+      "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "1926616bdbacad80"
     }
@@ -9492,13 +9492,13 @@
     "relatedEvents": [],
     "aiSummary": "伊朗革命卫队称在美军袭击锡里克岛和格什姆岛后，对中东美军基地发动导弹袭击；美军称拦截多枚伊朗弹道导弹和无人机。",
     "summaryFull": false,
-    "globalImpact": 70,
+    "globalImpact": 82,
     "socialImpact": 45,
     "culturalImpact": 18,
     "economicImpact": 25,
     "technologyImpact": 55,
     "memoryValue": 30,
-    "archiveValue": 58,
+    "archiveValue": 67,
     "eventType": "world",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
@@ -9508,7 +9508,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "379087ac9a1db9c0"
     }
@@ -9573,7 +9573,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "a83a57375d63c101"
     }
@@ -9623,10 +9623,10 @@
     "globalImpact": 25,
     "socialImpact": 25,
     "culturalImpact": 15,
-    "economicImpact": 79,
+    "economicImpact": 69,
     "technologyImpact": 17,
     "memoryValue": 21,
-    "archiveValue": 59,
+    "archiveValue": 52,
     "eventType": "society_culture",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；命中商业噪声词，已整体降权；1 个独立来源域名",
@@ -9636,7 +9636,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "a262a33cbb77fef4"
     }
@@ -9686,13 +9686,13 @@
     "relatedEvents": [],
     "aiSummary": "泽连斯基发表公开信，提议与普京举行直接会谈以结束俄乌冲突，俄方多渠道回应谈判可能性。",
     "summaryFull": false,
-    "globalImpact": 55,
+    "globalImpact": 80,
     "socialImpact": 50,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 15,
     "memoryValue": 45,
-    "archiveValue": 48,
+    "archiveValue": 65,
     "eventType": "world",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
@@ -9702,7 +9702,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "4190f643f9051dc7"
     }
@@ -9751,13 +9751,13 @@
     "relatedEvents": [],
     "aiSummary": "伊朗军队称：向阿曼湾的美国军舰发射了警告导弹和无人机，指责美海军“骚扰海上交通、扣押商船和油轮”，并称美舰已驶离。",
     "summaryFull": false,
-    "globalImpact": 50,
+    "globalImpact": 62,
     "socialImpact": 25,
     "culturalImpact": 18,
     "economicImpact": 25,
     "technologyImpact": 55,
     "memoryValue": 30,
-    "archiveValue": 46,
+    "archiveValue": 51,
     "eventType": "world",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
@@ -9767,7 +9767,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "50a05703a726da63"
     }
@@ -9815,13 +9815,13 @@
     "relatedEvents": [],
     "aiSummary": "《以色列时报》：以美已启动正式谈判商讨新的安全合作框架，取代2028年到期的现行十年期谅解备忘录；以总理曾表态欲在十年内结束美国军援。",
     "summaryFull": false,
-    "globalImpact": 55,
+    "globalImpact": 80,
     "socialImpact": 50,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 15,
     "memoryValue": 45,
-    "archiveValue": 48,
+    "archiveValue": 65,
     "eventType": "world",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；命中产业转型/现象级关键词，已豁免噪声惩罚并升级；1 个独立来源域名",
@@ -9831,7 +9831,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "826c3ec33b72b230"
     }
@@ -9896,7 +9896,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "723db15f1ef88145"
     }
@@ -9961,7 +9961,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "2f3b083fc82ddf4c"
     }
@@ -10028,7 +10028,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "03dc48cb1cc724d1"
     }
@@ -10092,7 +10092,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "039894dfba81f852"
     }
@@ -10142,23 +10142,23 @@
     "relatedEvents": [],
     "aiSummary": "国际原子能机构表示：为扎波罗热核电站供电的扎波罗热热电站遭袭击。",
     "summaryFull": false,
-    "globalImpact": 90,
+    "globalImpact": 100,
     "socialImpact": 50,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 15,
     "memoryValue": 45,
-    "archiveValue": 71,
+    "archiveValue": 78,
     "eventType": "world",
     "decision": "KEEP",
-    "decisionReason": "规则判定高价值（综合71，最强维度globalImpact=90）；1 个独立来源域名",
+    "decisionReason": "规则判定高价值（综合78，最强维度globalImpact=100）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "671d3fdb30152479"
     }
@@ -10236,7 +10236,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "eac9663757de3854"
     }
@@ -10301,7 +10301,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "a9e24cb4bed82512"
     }
@@ -10365,7 +10365,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "f3548952e963eea0"
     }
@@ -10415,23 +10415,23 @@
     "relatedEvents": [],
     "aiSummary": "巴林军方称：拦截并摧毁了来自伊朗的三枚导弹和数架无人机。",
     "summaryFull": false,
-    "globalImpact": 80,
+    "globalImpact": 92,
     "socialImpact": 50,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 15,
     "memoryValue": 45,
-    "archiveValue": 65,
+    "archiveValue": 73,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合73，最强维度globalImpact=92）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 45,
+      "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "0aed457a7cc4ac88"
     }
@@ -10481,13 +10481,13 @@
     "relatedEvents": [],
     "aiSummary": "特朗普称正在与伊朗达成协议，称伊朗已同意不会拥有核武器，自己可能适时与伊朗最高领袖会面。",
     "summaryFull": false,
-    "globalImpact": 60,
+    "globalImpact": 85,
     "socialImpact": 45,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 10,
     "memoryValue": 30,
-    "archiveValue": 49,
+    "archiveValue": 66,
     "eventType": "world",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
@@ -10497,7 +10497,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "b4648c683ce55ffc"
     }
@@ -10563,7 +10563,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "5b5fe68c0c1ac05a"
     }
@@ -10626,7 +10626,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "f970733f855d2bb0"
     }
@@ -10676,13 +10676,13 @@
     "relatedEvents": [],
     "aiSummary": "台风“蔷薇”袭击日本西南部：数万户停电、数百架航班取消、9人受伤。",
     "summaryFull": false,
-    "globalImpact": 55,
+    "globalImpact": 80,
     "socialImpact": 82,
     "culturalImpact": 18,
     "economicImpact": 25,
     "technologyImpact": 10,
     "memoryValue": 40,
-    "archiveValue": 66,
+    "archiveValue": 68,
     "eventType": "world",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
@@ -10692,7 +10692,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "8e44f633b6edd55c"
     }
@@ -10758,7 +10758,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "42bd7275ca9d0095"
     }
@@ -10821,7 +10821,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "3ec93de72d7ef142"
     }
@@ -10871,12 +10871,12 @@
     "aiSummary": "世卫组织通报：刚果（金）本轮埃博拉疫情累计确诊321例、疑似116例，已致41人死亡（本迪布焦型毒株）。",
     "summaryFull": false,
     "globalImpact": 40,
-    "socialImpact": 45,
+    "socialImpact": 55,
     "culturalImpact": 18,
     "economicImpact": 25,
     "technologyImpact": 55,
     "memoryValue": 30,
-    "archiveValue": 47,
+    "archiveValue": 48,
     "eventType": "society_culture",
     "decision": "REVIEW",
     "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
@@ -10886,7 +10886,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "ab416011594356c9"
     }
@@ -10937,23 +10937,23 @@
     "relatedEvents": [],
     "aiSummary": "黎巴嫩卫生部：以色列1日对黎南部多地袭击造成至少10人死亡、131人受伤。",
     "summaryFull": false,
-    "globalImpact": 75,
-    "socialImpact": 50,
+    "globalImpact": 100,
+    "socialImpact": 70,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 15,
     "memoryValue": 45,
-    "archiveValue": 61,
+    "archiveValue": 80,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合80，最强维度globalImpact=100）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 45,
+      "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "b3c8453b0ac8bc18"
     }
@@ -11018,7 +11018,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "3aa3059cc8e5c54b"
     }
@@ -11086,7 +11086,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "406f35b66fedaec2"
     }
@@ -11135,23 +11135,23 @@
     "relatedEvents": [],
     "aiSummary": "苏丹民间机构披露：北科尔多凡州、西科尔多凡州两起无人机袭击共致67人死亡。",
     "summaryFull": false,
-    "globalImpact": 75,
+    "globalImpact": 100,
     "socialImpact": 50,
     "culturalImpact": 18,
     "economicImpact": 20,
     "technologyImpact": 15,
     "memoryValue": 45,
-    "archiveValue": 61,
+    "archiveValue": 78,
     "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合78，最强维度globalImpact=100）；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 45,
+      "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "98dc71f76b8dfac6"
     }
@@ -11215,7 +11215,7 @@
       "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "e8243397f7d31e1a"
     }
@@ -11281,7 +11281,7 @@
       "confidence": 70,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "2fd4053a89b62f18"
     }
@@ -11331,20 +11331,20 @@
     "globalImpact": 50,
     "socialImpact": 30,
     "culturalImpact": 18,
-    "economicImpact": 93,
+    "economicImpact": 82,
     "technologyImpact": 20,
     "memoryValue": 25,
-    "archiveValue": 71,
+    "archiveValue": 64,
     "eventType": "world",
-    "decision": "KEEP",
-    "decisionReason": "规则判定高价值（综合71，最强维度economicImpact=93）；1 个独立来源域名",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
     "assessment": {
       "version": "archive-value-v1",
       "method": "rules",
-      "confidence": 70,
+      "confidence": 45,
       "evidenceStatus": "medium",
       "needsEvidence": false,
-      "assessedAt": "2026-11-05T07:42:02+08:00",
+      "assessedAt": "2026-11-11T10:43:25+08:00",
       "model": null,
       "inputHash": "aadb749ec99ea133"
     }
