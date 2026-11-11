@@ -53,6 +53,7 @@ def audit(brief=False):
     n = 0
     by_year = Counter()
     single = no_src = img = scored = country = short_desc = 0
+    mixed_year = multi_src = 0
     titles = Counter()
     cats = Counter()
 
@@ -61,6 +62,15 @@ def audit(brief=False):
         srcs = ev.get("sources") or []
         if len(srcs) <= 1:
             single += 1
+        else:
+            multi_src += 1
+            # 跨年份混源：同一事件的来源来自不同年份。
+            # 部分是合理的长期事件追踪（如持续冲突），部分是 _find_event
+            # 旧逻辑「标题前22字相同即合并、无日期限制」造成的误合并。
+            # 2026-11-11 已给 _find_event 加 ±7 天窗口，杜绝新增；存量只做可见性。
+            syears = {(s.get("date") or "")[:4] for s in srcs if s.get("date")}
+            if len(syears) > 1:
+                mixed_year += 1
         if not srcs:
             no_src += 1
         if str(ev.get("image") or "").startswith("http"):
@@ -92,6 +102,9 @@ def audit(brief=False):
 
     print("\n质量指标:")
     print(f"  单来源/无来源 {single:,} ({_pct(single, n)}) | 完全无来源 {no_src:,}")
+    print(f"  多来源       {multi_src:,} ({_pct(multi_src, n)})")
+    print(f"  跨年份混源   {mixed_year:,} ({_pct(mixed_year, multi_src)} of 多来源；"
+          f"含合理长期追踪，根因已修，存量待人工判定)")
     print(f"  含封面图     {img:,} ({_pct(img, n)})")
     print(f"  已评分       {scored:,} ({_pct(scored, n)})")
     print(f"  有国家归属   {country:,} ({_pct(country, n)})")
