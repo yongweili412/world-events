@@ -142090,7 +142090,9 @@
   },
   {
     "id": "evt_20261113_025",
-    "legacyIds": [],
+    "legacyIds": [
+      "evt_20261113_067"
+    ],
     "title": "【持续更新】微软发生连接故障 全球多地受影响",
     "summary": "美国信息技术巨头微软旗下名为“微软 365”的服务发生连接故障，美国、日本等大范围地区均已确认受到影响，目前恢复前景仍不明朗。",
     "description": "美国信息技术巨头微软旗下名为“微软 365”的服务发生连接故障，美国、日本等大范围地区均已确认受到影响，目前恢复前景仍不明朗。",
@@ -142103,13 +142105,15 @@
       "city": ""
     },
     "category": [
-      "科技"
+      "科技",
+      "政治"
     ],
     "tags": [
       "日本",
       "微软",
       "服务中断",
-      "网络故障"
+      "网络故障",
+      "新加坡"
     ],
     "status": "closed",
     "sources": [
@@ -142119,12 +142123,23 @@
         "date": "2026-11-13",
         "title": "【持续更新】微软发生连接故障 全球多地受影响",
         "snippet": "美国信息技术巨头微软旗下名为“微软 365”的服务发生连接故障，美国、日本等大范围地区均已确认受到影响，目前恢复前景仍不明朗。"
+      },
+      {
+        "name": "联合早报国际",
+        "url": "https://www.zaobao.com.sg/news/world/story20261113-9990624",
+        "date": "2026-11-13",
+        "title": "微软Outlook突发大规模故障 全球数万用户受影响 波及新加坡",
+        "snippet": "微软（Microsoft）旗下的电邮服务Outlook突发大规模系统故障，导致全球数万名用户无法正常收发邮件，办公协作软件Microsoft Teams也受波及。 这起故障始于美东时间11月12日下午1时许（新加坡时间13日凌晨2时）。网络"
       }
     ],
     "timeline": [
       {
         "date": "2026-11-13",
         "text": "NHK 日本｜【持续更新】微软发生连接故障 全球多地受影响：美国信息技术巨头微软旗下“微软 365”服务发生连接故障，美国、日本等大范围地区均已确认受到影响，恢复前景仍不明朗。"
+      },
+      {
+        "date": "2026-11-13",
+        "text": "联合早报国际｜微软（Microsoft）旗下的电邮服务Outlook突发大规模系统故障，导致全球数万名用户无法正常收发邮件，办公协作软件Microsoft Teams也受波及"
       }
     ],
     "relatedEvents": [],
@@ -144771,66 +144786,6 @@
     "summaryFull": false
   },
   {
-    "id": "evt_20261113_067",
-    "legacyIds": [],
-    "title": "微软Outlook突发大规模故障 全球数万用户受影响 波及新加坡",
-    "summary": "微软（Microsoft）旗下的电邮服务Outlook突发大规模系统故障，导致全球数万名用户无法正常收发邮件，办公协作软件Microsoft Teams也受波及。 这起故障始于美东时间11月12日下午1时许（新加坡时间13日凌晨2时）。网络",
-    "description": "微软（Microsoft）旗下的电邮服务Outlook突发大规模系统故障，导致全球数万名用户无法正常收发邮件，办公协作软件Microsoft Teams也受波及。 这起故障始于美东时间11月12日下午1时许（新加坡时间13日凌晨2时）。网络",
-    "date": "2026-11-13",
-    "time": "",
-    "location": {
-      "country": "新加坡",
-      "countryCode": "",
-      "region": "东南亚",
-      "city": ""
-    },
-    "category": [
-      "政治"
-    ],
-    "tags": [
-      "新加坡"
-    ],
-    "status": "closed",
-    "sources": [
-      {
-        "name": "联合早报国际",
-        "url": "https://www.zaobao.com.sg/news/world/story20261113-9990624",
-        "date": "2026-11-13",
-        "title": "微软Outlook突发大规模故障 全球数万用户受影响 波及新加坡",
-        "snippet": "微软（Microsoft）旗下的电邮服务Outlook突发大规模系统故障，导致全球数万名用户无法正常收发邮件，办公协作软件Microsoft Teams也受波及。 这起故障始于美东时间11月12日下午1时许（新加坡时间13日凌晨2时）。网络"
-      }
-    ],
-    "timeline": [
-      {
-        "date": "2026-11-13",
-        "text": "联合早报国际｜微软（Microsoft）旗下的电邮服务Outlook突发大规模系统故障，导致全球数万名用户无法正常收发邮件，办公协作软件Microsoft Teams也受波及"
-      }
-    ],
-    "relatedEvents": [],
-    "globalImpact": 60,
-    "socialImpact": 45,
-    "culturalImpact": 18,
-    "economicImpact": 20,
-    "technologyImpact": 10,
-    "memoryValue": 30,
-    "archiveValue": 49,
-    "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
-    "assessment": {
-      "version": "archive-value-v1",
-      "method": "rules",
-      "confidence": 45,
-      "evidenceStatus": "medium",
-      "needsEvidence": false,
-      "assessedAt": "2026-11-13T12:16:04+08:00",
-      "model": null,
-      "inputHash": "a73c5f3632a35cff"
-    },
-    "aiSummary": "微软（Microsoft）旗下的电邮服务Outlook突发大规模系统故障，导致全球数万名用户无法正常收发邮件，办公协作软件Microsoft Teams也受波及。 这起故障始于美东时间11月12日下午1时许（新加坡时间13日凌晨2时）。网络",
-    "summaryFull": false
-  },
-  {
     "id": "evt_20261113_068",
     "legacyIds": [],
     "title": "寻找下一代费正清｜林优娜：研究中国，也是为了更好地理解印尼_理论·学术",
@@ -146357,7 +146312,7 @@
       "city": ""
     },
     "category": [
-      "其他"
+      "社会"
     ],
     "tags": [
       "中国"
@@ -146598,7 +146553,7 @@
       "city": ""
     },
     "category": [
-      "其他"
+      "文化"
     ],
     "tags": [],
     "status": "closed",
@@ -147015,7 +146970,7 @@
       "city": ""
     },
     "category": [
-      "其他"
+      "文化"
     ],
     "tags": [],
     "status": "closed",
@@ -147072,7 +147027,7 @@
       "city": ""
     },
     "category": [
-      "其他"
+      "文化"
     ],
     "tags": [
       "英国"
@@ -147249,7 +147204,7 @@
       "city": ""
     },
     "category": [
-      "其他"
+      "经济"
     ],
     "tags": [],
     "status": "closed",
@@ -147363,7 +147318,7 @@
       "city": ""
     },
     "category": [
-      "其他"
+      "环境"
     ],
     "tags": [],
     "status": "closed",
@@ -147420,7 +147375,7 @@
       "city": ""
     },
     "category": [
-      "其他"
+      "环境"
     ],
     "tags": [],
     "status": "closed",
@@ -147477,7 +147432,7 @@
       "city": ""
     },
     "category": [
-      "其他"
+      "社会"
     ],
     "tags": [],
     "status": "closed",
@@ -147535,7 +147490,7 @@
       "city": ""
     },
     "category": [
-      "其他"
+      "社会"
     ],
     "tags": [
       "日本"
@@ -147595,7 +147550,7 @@
       "city": ""
     },
     "category": [
-      "其他"
+      "社会"
     ],
     "tags": [],
     "status": "closed",
@@ -147711,7 +147666,7 @@
       "city": ""
     },
     "category": [
-      "其他"
+      "社会"
     ],
     "tags": [],
     "status": "closed",
@@ -147769,7 +147724,7 @@
       "city": ""
     },
     "category": [
-      "其他"
+      "科技"
     ],
     "tags": [
       "中国"
@@ -147829,7 +147784,7 @@
       "city": ""
     },
     "category": [
-      "其他"
+      "体育"
     ],
     "tags": [
       "日本"
@@ -147889,7 +147844,7 @@
       "city": ""
     },
     "category": [
-      "其他"
+      "科技"
     ],
     "tags": [],
     "status": "closed",
@@ -147946,7 +147901,7 @@
       "city": ""
     },
     "category": [
-      "其他"
+      "社会"
     ],
     "tags": [],
     "status": "closed",
@@ -148003,7 +147958,7 @@
       "city": ""
     },
     "category": [
-      "其他"
+      "社会"
     ],
     "tags": [],
     "status": "closed",
@@ -148178,7 +148133,7 @@
       "city": ""
     },
     "category": [
-      "其他"
+      "政治"
     ],
     "tags": [],
     "status": "closed",
@@ -148361,7 +148316,7 @@
       "city": ""
     },
     "category": [
-      "其他"
+      "政治"
     ],
     "tags": [],
     "status": "closed",
@@ -148418,7 +148373,7 @@
       "city": ""
     },
     "category": [
-      "其他"
+      "体育"
     ],
     "tags": [
       "韩国"
@@ -148477,7 +148432,7 @@
       "city": ""
     },
     "category": [
-      "其他"
+      "科技"
     ],
     "tags": [
       "美国"
@@ -148596,7 +148551,7 @@
       "city": ""
     },
     "category": [
-      "自然灾害"
+      "科技"
     ],
     "tags": [],
     "status": "closed",
@@ -148653,7 +148608,7 @@
       "city": ""
     },
     "category": [
-      "其他"
+      "科技"
     ],
     "tags": [],
     "status": "closed",
@@ -148710,7 +148665,7 @@
       "city": ""
     },
     "category": [
-      "其他"
+      "文化"
     ],
     "tags": [],
     "status": "closed",
@@ -148832,7 +148787,7 @@
       "city": ""
     },
     "category": [
-      "其他"
+      "科技"
     ],
     "tags": [],
     "status": "closed",
@@ -148893,7 +148848,7 @@
       "city": ""
     },
     "category": [
-      "其他"
+      "科技"
     ],
     "tags": [],
     "status": "closed",
@@ -149009,7 +148964,7 @@
       "city": ""
     },
     "category": [
-      "其他"
+      "科技"
     ],
     "tags": [
       "英国"
@@ -149068,7 +149023,7 @@
       "city": ""
     },
     "category": [
-      "其他"
+      "科技"
     ],
     "tags": [
       "能源",
@@ -149740,7 +149695,7 @@
       "city": ""
     },
     "category": [
-      "其他"
+      "社会"
     ],
     "tags": [
       "中国"
@@ -150500,7 +150455,27 @@
     ],
     "relatedEvents": [],
     "aiSummary": "中国人民银行11月13日公布数据，10月末广义货币余额359.06万亿元，同比增长7.1%；社会融资规模存量469.16万亿元，同比增长7.2%。1至10月社会融资规模增量为28.61万亿元。10月末人民币各项贷款余额283.33万亿元，同比增长4.7%，其中不含房地产业的服务业中长期贷款余额、普惠小微贷款余额同比分别增长9.2%和6.9%。",
-    "summaryFull": true
+    "summaryFull": true,
+    "globalImpact": 30,
+    "socialImpact": 30,
+    "culturalImpact": 18,
+    "economicImpact": 82,
+    "technologyImpact": 20,
+    "memoryValue": 25,
+    "archiveValue": 62,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-14T14:51:35+08:00",
+      "model": null,
+      "inputHash": "fef7fcdfdc745d69"
+    }
   },
   {
     "id": "evt_20261114_016",
@@ -150517,7 +150492,7 @@
       "city": ""
     },
     "category": [
-      "其他"
+      "社会"
     ],
     "tags": [],
     "status": "closed",
@@ -150538,7 +150513,27 @@
     ],
     "relatedEvents": [],
     "aiSummary": "2026年11月14日是第20个联合国糖尿病日，主题为“早发现，早行动”。2型糖尿病早期症状不明显，高血糖会持续损伤血管，引发心梗、脑卒中、肾衰竭、失明等并发症。《中国糖尿病防治指南(2024版)》建议35岁以上人群每年至少测一次空腹血糖，高危人群应做口服葡萄糖耐量试验。",
-    "summaryFull": true
+    "summaryFull": true,
+    "globalImpact": 55,
+    "socialImpact": 45,
+    "culturalImpact": 20,
+    "economicImpact": 15,
+    "technologyImpact": 25,
+    "memoryValue": 25,
+    "archiveValue": 46,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-14T14:51:35+08:00",
+      "model": null,
+      "inputHash": "014d05e944bf9dfc"
+    }
   },
   {
     "id": "evt_20261114_017",
@@ -150555,7 +150550,7 @@
       "city": ""
     },
     "category": [
-      "其他"
+      "体育"
     ],
     "tags": [
       "中国"
@@ -150578,7 +150573,27 @@
     ],
     "relatedEvents": [],
     "aiSummary": "2026年11月14日，江苏省“跟着赛事去旅行”提振消费主题活动在常熟启幕，采用苏州主会场联动常熟分会场模式。现场推介“跟着‘苏超’游江苏”5条主题线路，发布2025年度长三角地区体育消费创新场景51个典型案例，并解读体育赛事进商圈相关指导意见，推动文旅体商融合发展。",
-    "summaryFull": true
+    "summaryFull": true,
+    "globalImpact": 17,
+    "socialImpact": 21,
+    "culturalImpact": 42,
+    "economicImpact": 17,
+    "technologyImpact": 8,
+    "memoryValue": 38,
+    "archiveValue": 35,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "疑似普通商业/日常信息（综合35，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 65,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-14T14:51:35+08:00",
+      "model": null,
+      "inputHash": "a30407a0a377a9dc"
+    }
   },
   {
     "id": "evt_20261114_018",
@@ -150618,7 +150633,27 @@
     ],
     "relatedEvents": [],
     "aiSummary": "2026年11月，湖南智能机器人企业成批出海，从卖产品转向卖产线和解决方案。长沙海关统计显示，2025年湖南工业机器人出口9972万元，同比增长82.1%；全省已聚集机器人上下游企业约300家，2025年产业链规模接近500亿元。湖南提出2028年产业链营收突破1000亿元的目标。",
-    "summaryFull": true
+    "summaryFull": true,
+    "globalImpact": 25,
+    "socialImpact": 25,
+    "culturalImpact": 18,
+    "economicImpact": 25,
+    "technologyImpact": 80,
+    "memoryValue": 30,
+    "archiveValue": 61,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-14T14:51:35+08:00",
+      "model": null,
+      "inputHash": "7296292b521635fa"
+    }
   },
   {
     "id": "evt_20261114_019",
@@ -150658,7 +150693,27 @@
     ],
     "relatedEvents": [],
     "aiSummary": "信创海河实验室主任龚克在12日举办的阶段性建设成果汇报会暨产业生态发展大会上表示，天津已成为“信创第一城”，拥有国内新一代信创产业布局最为完整的产业集群。实验室由天津市牵头推进的京津冀新一代信息技术应用创新集群集聚3.3万余家企业。2026年前三季度天津信创产业规模达1149.9亿元，同比增长11.4%。",
-    "summaryFull": true
+    "summaryFull": true,
+    "globalImpact": 30,
+    "socialImpact": 30,
+    "culturalImpact": 18,
+    "economicImpact": 82,
+    "technologyImpact": 35,
+    "memoryValue": 25,
+    "archiveValue": 63,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-14T14:51:35+08:00",
+      "model": null,
+      "inputHash": "163df5572329d5c2"
+    }
   },
   {
     "id": "evt_20261114_020",
@@ -150698,7 +150753,27 @@
     ],
     "relatedEvents": [],
     "aiSummary": "2026年11月14日，国家发展改革委表示，受超强厄尔尼诺影响，预计今冬我国气温总体偏高但寒潮频次略多，今冬供暖季能源供应总体能够满足需求。截至10月底，全国统调电厂存煤超2.1亿吨，可用36天；已落实供暖季天然气资源超2000亿立方米；供暖季天然气日顶峰保供能力超17.5亿立方米。",
-    "summaryFull": true
+    "summaryFull": true,
+    "globalImpact": 15,
+    "socialImpact": 65,
+    "culturalImpact": 20,
+    "economicImpact": 15,
+    "technologyImpact": 10,
+    "memoryValue": 25,
+    "archiveValue": 50,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-14T14:51:35+08:00",
+      "model": null,
+      "inputHash": "55af76880b045216"
+    }
   },
   {
     "id": "evt_20261114_021",
@@ -150736,7 +150811,27 @@
     ],
     "relatedEvents": [],
     "aiSummary": "随着APEC领导人会议周临近，深圳全方位推进保障工作。宝安机场无异常旅客入境通关压缩至15分钟以内，各口岸25条APEC专用通道全面开启，皇岗口岸实现24小时专用通道保障，全市口岸升级外语标识超1.4万处。南方电网统筹8900万度绿电绿证资源，确保会场等场所会议期间100%绿电供应。",
-    "summaryFull": true
+    "summaryFull": true,
+    "globalImpact": 45,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 39,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-14T14:51:35+08:00",
+      "model": null,
+      "inputHash": "94126068d6bab9b6"
+    }
   },
   {
     "id": "evt_20261114_022",
@@ -150774,7 +150869,27 @@
     ],
     "relatedEvents": [],
     "aiSummary": "11月14日，国家医保局公布2026年国家医保目录，济川药业与征祥医药合作的国产1类抗流感创新药玛硒洛沙韦片（济可舒）正式纳入医保。该药2025年7月获批用于成人甲流、乙流治疗，2026年6月适用人群拓展至12岁及以上青少年，全疗程仅需一次用药。纳入医保后将降低患者用药负担，提升国产抗流感新药可及性。",
-    "summaryFull": true
+    "summaryFull": true,
+    "globalImpact": 15,
+    "socialImpact": 75,
+    "culturalImpact": 20,
+    "economicImpact": 15,
+    "technologyImpact": 10,
+    "memoryValue": 25,
+    "archiveValue": 56,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-14T14:51:35+08:00",
+      "model": null,
+      "inputHash": "6ec7cec89b5e5087"
+    }
   },
   {
     "id": "evt_20261114_023",
@@ -150814,7 +150929,27 @@
     ],
     "relatedEvents": [],
     "aiSummary": "2026年11月13日，中国体育文化博览会、中国体育旅游博览会冠军捐赠仪式在苏州国际博览中心举办。朱丹、陈艳青、赵帅与郑姝音夫妇等冠军运动员将征战赛场的珍贵装备捐赠给中国体育博物馆，由国家体育总局体育文化发展中心相关负责人接收并颁发收藏证书。主办方表示，藏品捐赠是精神接力，旨在讲好中国体育故事。",
-    "summaryFull": true
+    "summaryFull": true,
+    "globalImpact": 35,
+    "socialImpact": 25,
+    "culturalImpact": 72,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 45,
+    "archiveValue": 58,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-14T14:51:35+08:00",
+      "model": null,
+      "inputHash": "a39115b28e2b4204"
+    }
   },
   {
     "id": "evt_20261114_024",
@@ -150831,7 +150966,7 @@
       "city": ""
     },
     "category": [
-      "其他"
+      "文化"
     ],
     "tags": [
       "加拿大"
@@ -150854,7 +150989,27 @@
     ],
     "relatedEvents": [],
     "aiSummary": "近日，“港乐之父“顾嘉辉之子顾致和与太太从加拿大飞抵广州，探访父亲位于荔湾多宝南横40号的旧居。该三层小洋楼已被纳入第八批荔湾区登记保护文物单位。顾嘉辉1931年生于广州，2023年1月在加拿大去世，一生创作名曲1200多首。顾致和表示希望旧居尽量恢复当年原貌，并乐意配合未来纪念展览。",
-    "summaryFull": true
+    "summaryFull": true,
+    "globalImpact": 15,
+    "socialImpact": 25,
+    "culturalImpact": 60,
+    "economicImpact": 15,
+    "technologyImpact": 10,
+    "memoryValue": 50,
+    "archiveValue": 49,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-14T14:51:35+08:00",
+      "model": null,
+      "inputHash": "dcf0926e8768c894"
+    }
   },
   {
     "id": "evt_20261114_025",
@@ -150871,7 +151026,7 @@
       "city": ""
     },
     "category": [
-      "其他"
+      "社会"
     ],
     "tags": [],
     "status": "closed",
@@ -150892,7 +151047,27 @@
     ],
     "relatedEvents": [],
     "aiSummary": "11月14日，澳大利亚阿德莱德年度圣诞游行举行，圣诞老人按惯例抵达，沿途吸引约33.5万人观看，超过30万人。当天天空阴沉，但现场热情依旧高涨，标志着节日季开始。",
-    "summaryFull": true
+    "summaryFull": true,
+    "globalImpact": 12,
+    "socialImpact": 38,
+    "culturalImpact": 17,
+    "economicImpact": 12,
+    "technologyImpact": 8,
+    "memoryValue": 21,
+    "archiveValue": 30,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "疑似普通商业/日常信息（综合30，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 65,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-14T14:51:35+08:00",
+      "model": null,
+      "inputHash": "8b0cac4d7e1fa3f3"
+    }
   },
   {
     "id": "evt_20261114_026",
@@ -150909,7 +151084,7 @@
       "city": ""
     },
     "category": [
-      "其他"
+      "体育"
     ],
     "tags": [
       "澳大利亚"
@@ -150932,7 +151107,27 @@
     ],
     "relatedEvents": [],
     "aiSummary": "澳大利亚快速投球手马利·比尔德曼在首秀中拿下六记三柱门，西澳偏远地区为之欢庆。他自幼在地区青少年板球赛中展现天赋，被早早寄予厚望。",
-    "summaryFull": true
+    "summaryFull": true,
+    "globalImpact": 20,
+    "socialImpact": 25,
+    "culturalImpact": 50,
+    "economicImpact": 20,
+    "technologyImpact": 25,
+    "memoryValue": 45,
+    "archiveValue": 43,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-14T14:51:35+08:00",
+      "model": null,
+      "inputHash": "48b599335423eb63"
+    }
   },
   {
     "id": "evt_20261114_027",
@@ -150970,7 +151165,27 @@
     ],
     "relatedEvents": [],
     "aiSummary": "澳大利亚首都领地政府11月14日表示，其国家公园露营与观光预订系统遭黑客入侵，约6000名客户的个人数据可能泄露，政府已联系受影响客户并提醒防范诈骗活动。相关预订门户在调查期间被停用。",
-    "summaryFull": true
+    "summaryFull": true,
+    "globalImpact": 21,
+    "socialImpact": 36,
+    "culturalImpact": 15,
+    "economicImpact": 21,
+    "technologyImpact": 46,
+    "memoryValue": 44,
+    "archiveValue": 40,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；命中商业噪声词，已整体降权；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-14T14:51:35+08:00",
+      "model": null,
+      "inputHash": "667254c3caa4ef6f"
+    }
   },
   {
     "id": "evt_20261114_028",
@@ -150987,7 +151202,7 @@
       "city": ""
     },
     "category": [
-      "其他"
+      "体育"
     ],
     "tags": [
       "澳大利亚"
@@ -151010,7 +151225,27 @@
     ],
     "relatedEvents": [],
     "aiSummary": "消息人士11月14日称，与澳大利亚投球手群体有关联的人士均已在开普敦球面篡改调查中接受问询，这与大卫·沃纳此前对调查的抨击说法相矛盾。沃纳对调查提出批评，而消息人士的说法显示投球手们配合了调查。",
-    "summaryFull": true
+    "summaryFull": true,
+    "globalImpact": 20,
+    "socialImpact": 25,
+    "culturalImpact": 50,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 45,
+    "archiveValue": 42,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-14T14:51:35+08:00",
+      "model": null,
+      "inputHash": "252c358c36e53445"
+    }
   },
   {
     "id": "evt_20261114_029",
@@ -151050,7 +151285,27 @@
     ],
     "relatedEvents": [],
     "aiSummary": "据ABC新闻报道，印度尼西亚东爪哇当地居民数十年来一直焚烧塑料废弃物，但可能并不了解由此带来的健康后果。研究人员正就焚烧塑料废弃物对健康的影响展开调查。相关报道关注澳大利亚塑料进口、空气污染、回收与环境等议题。",
-    "summaryFull": true
+    "summaryFull": true,
+    "globalImpact": 15,
+    "socialImpact": 45,
+    "culturalImpact": 20,
+    "economicImpact": 15,
+    "technologyImpact": 10,
+    "memoryValue": 25,
+    "archiveValue": 36,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-14T14:51:35+08:00",
+      "model": null,
+      "inputHash": "e6b0fb0646555317"
+    }
   },
   {
     "id": "evt_20261114_030",
@@ -151067,7 +151322,7 @@
       "city": ""
     },
     "category": [
-      "其他"
+      "社会"
     ],
     "tags": [],
     "status": "closed",
@@ -151088,47 +151343,27 @@
     ],
     "relatedEvents": [],
     "aiSummary": "澳大利亚广播公司11月14日报道，汤斯维尔的酷儿文化此前不如当地其他方面显眼，如今随着更多创意人士主动建设社群而改变。报道称，不少人过去不得不离开昆士兰偏远地区去寻找归属，现在他们正按自己的方式在当地打造酷儿社群。",
-    "summaryFull": true
-  },
-  {
-    "id": "evt_20261114_031",
-    "legacyIds": [],
-    "title": "美国航空当局解除全美航班停飞措施 逾8000架次航班取消",
-    "summary": "美国联邦航空局（FAA）以发生通信故障为由，自日本时间14日起，在美国全国机场对所有航空器采取停飞措施。停飞措施约四个半小时后解除，国土安全部表示，网…",
-    "description": "美国联邦航空局（FAA）以发生通信故障为由，自日本时间14日起，在美国全国机场对所有航空器采取停飞措施。停飞措施约四个半小时后解除，国土安全部表示，网…",
-    "date": "2026-11-14",
-    "time": "",
-    "location": {
-      "country": "日本",
-      "countryCode": "",
-      "region": "亚洲",
-      "city": ""
-    },
-    "category": [
-      "其他"
-    ],
-    "tags": [
-      "日本"
-    ],
-    "status": "closed",
-    "sources": [
-      {
-        "name": "NHK 日本",
-        "url": "https://news.web.nhk/newsweb/na/nd-20261114de75764",
-        "date": "2026-11-14",
-        "title": "美国航空当局解除全美航班停飞措施 逾8000架次航班取消",
-        "snippet": "美国联邦航空局（FAA）以发生通信故障为由，自日本时间14日起，在美国全国机场对所有航空器采取停飞措施。停飞措施约四个半小时后解除，国土安全部表示，网…"
-      }
-    ],
-    "timeline": [
-      {
-        "date": "2026-11-14",
-        "text": "NHK 日本｜美国联邦航空局（FAA）以发生通信故障为由，自日本时间14日起，在美国全国机场对所有航空器采取停飞措施。停飞措施约四个半"
-      }
-    ],
-    "relatedEvents": [],
-    "aiSummary": "美国联邦航空局（FAA）以发生通信故障为由，自日本时间14日起，在美国全国机场对所有航空器采取停飞措施。停飞措施约四个半小时后解除，国土安全部表示，网…",
-    "summaryFull": false
+    "summaryFull": true,
+    "globalImpact": 15,
+    "socialImpact": 45,
+    "culturalImpact": 20,
+    "economicImpact": 15,
+    "technologyImpact": 10,
+    "memoryValue": 25,
+    "archiveValue": 36,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-14T14:51:35+08:00",
+      "model": null,
+      "inputHash": "3be2a5f7236b0bf3"
+    }
   },
   {
     "id": "evt_20261114_032",
@@ -151145,7 +151380,7 @@
       "city": ""
     },
     "category": [
-      "其他"
+      "政治"
     ],
     "tags": [
       "中国"
@@ -151168,7 +151403,27 @@
     ],
     "relatedEvents": [],
     "aiSummary": "美国白宫宣布，本月19日将举行美国总统特朗普、中国国家主席习近平以及俄罗斯总统普京的三方首脑会谈。美中俄三国首脑…",
-    "summaryFull": false
+    "summaryFull": false,
+    "globalImpact": 45,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 67,
+    "archiveValue": 55,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-14T14:51:35+08:00",
+      "model": null,
+      "inputHash": "4fdb9782b1b10d25"
+    }
   },
   {
     "id": "evt_20261114_033",
@@ -151185,7 +151440,7 @@
       "city": ""
     },
     "category": [
-      "其他"
+      "社会"
     ],
     "tags": [],
     "status": "closed",
@@ -151206,7 +151461,27 @@
     ],
     "relatedEvents": [],
     "aiSummary": "横田惠女士在新潟市被朝鲜绑架，到15日已满49年。与惠女士关系要好的两名同班同学，怀着惠女士写在笔记本上的“约定”——“我们要永远做好朋友”，表示“一定要回来……”",
-    "summaryFull": false
+    "summaryFull": false,
+    "globalImpact": 15,
+    "socialImpact": 45,
+    "culturalImpact": 20,
+    "economicImpact": 15,
+    "technologyImpact": 10,
+    "memoryValue": 25,
+    "archiveValue": 36,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-14T14:51:35+08:00",
+      "model": null,
+      "inputHash": "c0b8802bd21f517a"
+    }
   },
   {
     "id": "evt_20261114_034",
@@ -151223,7 +151498,7 @@
       "city": ""
     },
     "category": [
-      "其他"
+      "社会"
     ],
     "tags": [],
     "status": "closed",
@@ -151244,7 +151519,27 @@
     ],
     "relatedEvents": [],
     "aiSummary": "京成电铁连接成田机场与东京市区的特快列车“Skyliner”座位预约系统遭到非法访问，用户的姓名、电话号码、邮箱地址等最多约337万条信息可能已被第三方获取……",
-    "summaryFull": false
+    "summaryFull": false,
+    "globalImpact": 15,
+    "socialImpact": 63,
+    "culturalImpact": 20,
+    "economicImpact": 15,
+    "technologyImpact": 10,
+    "memoryValue": 25,
+    "archiveValue": 48,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-14T14:51:35+08:00",
+      "model": null,
+      "inputHash": "611ff02bd5416dc0"
+    }
   },
   {
     "id": "evt_20261114_035",
@@ -151261,7 +151556,7 @@
       "city": ""
     },
     "category": [
-      "其他"
+      "社会"
     ],
     "tags": [],
     "status": "closed",
@@ -151282,7 +151577,27 @@
     ],
     "relatedEvents": [],
     "aiSummary": "住宅制造商Tama Home在涉嫌不正当索取火灾保险保险金的问题中，已明确表示向各损害保险公司提出退出保险代理业务的方针。此外，针对所有门店正在推进的内部调……",
-    "summaryFull": false
+    "summaryFull": false,
+    "globalImpact": 15,
+    "socialImpact": 63,
+    "culturalImpact": 20,
+    "economicImpact": 15,
+    "technologyImpact": 10,
+    "memoryValue": 25,
+    "archiveValue": 48,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-14T14:51:35+08:00",
+      "model": null,
+      "inputHash": "bd5c2af89b9bbdb6"
+    }
   },
   {
     "id": "evt_20261114_036",
@@ -151299,7 +151614,7 @@
       "city": ""
     },
     "category": [
-      "其他"
+      "军事"
     ],
     "tags": [],
     "status": "closed",
@@ -151320,7 +151635,27 @@
     ],
     "relatedEvents": [],
     "aiSummary": "据《印度时报》报道，美国得克萨斯州一名73岁法学教授在课堂上突然倒地并停止呼吸，一名曾在海军海豹突击队服役的学生在教室内为其进行了三轮心肺复苏。该教授最终生还，目前已重返教学岗位。",
-    "summaryFull": true
+    "summaryFull": true,
+    "globalImpact": 55,
+    "socialImpact": 50,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 15,
+    "memoryValue": 45,
+    "archiveValue": 48,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-14T14:51:35+08:00",
+      "model": null,
+      "inputHash": "b64a202dfdfcbbab"
+    }
   },
   {
     "id": "evt_20261114_037",
@@ -151337,7 +151672,7 @@
       "city": ""
     },
     "category": [
-      "其他"
+      "社会"
     ],
     "tags": [
       "法国"
@@ -151360,7 +151695,27 @@
     ],
     "relatedEvents": [],
     "aiSummary": "据《印度时报》报道，滚石乐队主唱米克·贾格尔1980年以约47.7万美元购入一座18世纪法国城堡，其占地50英亩的庄园内设有滚石乐队使用过的录音室。",
-    "summaryFull": true
+    "summaryFull": true,
+    "globalImpact": 15,
+    "socialImpact": 45,
+    "culturalImpact": 20,
+    "economicImpact": 15,
+    "technologyImpact": 10,
+    "memoryValue": 25,
+    "archiveValue": 36,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-14T14:51:35+08:00",
+      "model": null,
+      "inputHash": "06324eb5f0769e01"
+    }
   },
   {
     "id": "evt_20261114_038",
@@ -151377,7 +151732,7 @@
       "city": ""
     },
     "category": [
-      "其他"
+      "社会"
     ],
     "tags": [],
     "status": "closed",
@@ -151398,7 +151753,27 @@
     ],
     "relatedEvents": [],
     "aiSummary": "在收到数百起关于臭鸡蛋、污水和腐肉般气味的投诉后，芝加哥一名法官下令一家动物饲料厂停止产生气味的运营，直至2027年1月。",
-    "summaryFull": true
+    "summaryFull": true,
+    "globalImpact": 15,
+    "socialImpact": 45,
+    "culturalImpact": 20,
+    "economicImpact": 15,
+    "technologyImpact": 10,
+    "memoryValue": 25,
+    "archiveValue": 36,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-14T14:51:35+08:00",
+      "model": null,
+      "inputHash": "69a7796754c98a0a"
+    }
   },
   {
     "id": "evt_20261114_039",
@@ -151438,7 +151813,27 @@
     ],
     "relatedEvents": [],
     "aiSummary": "印度驻美特使11月14日回击美国国际宗教自由委员会就沙尔吉勒·伊玛目言论的表态，称该委员会对印度事务“无诉讼资格”。此前该委员会分享了与伊玛目相关的言论内容，引发印方不满。",
-    "summaryFull": true
+    "summaryFull": true,
+    "globalImpact": 60,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 49,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-14T14:51:35+08:00",
+      "model": null,
+      "inputHash": "b20cb7748c551b90"
+    }
   },
   {
     "id": "evt_20261113_143",
@@ -151479,7 +151874,27 @@
     ],
     "relatedEvents": [],
     "aiSummary": "在基辅一条安静的医院走廊里，工作人员和志愿者推着载有热气腾腾的鸡汤锅、面包和",
-    "summaryFull": false
+    "summaryFull": false,
+    "globalImpact": 15,
+    "socialImpact": 45,
+    "culturalImpact": 20,
+    "economicImpact": 15,
+    "technologyImpact": 10,
+    "memoryValue": 25,
+    "archiveValue": 36,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-14T14:51:35+08:00",
+      "model": null,
+      "inputHash": "6be2d5a1e949b698"
+    }
   },
   {
     "id": "evt_20261114_040",
@@ -151496,7 +151911,7 @@
       "city": ""
     },
     "category": [
-      "其他"
+      "科技"
     ],
     "tags": [
       "英国"
@@ -151519,7 +151934,27 @@
     ],
     "relatedEvents": [],
     "aiSummary": "2026年11月，考古学家对两个世纪前从苏格兰沼泽出土的一条青铜腿提出新解，认为它可能属于一座罗马皇帝骑马巨像。此前长期认为该腿是苏格兰部落从英格兰北部掠夺而来，新研究则推测它或曾在罗马苏格兰展示，后被撤退部队拆解掩埋。",
-    "summaryFull": true
+    "summaryFull": true,
+    "globalImpact": 25,
+    "socialImpact": 25,
+    "culturalImpact": 18,
+    "economicImpact": 25,
+    "technologyImpact": 70,
+    "memoryValue": 30,
+    "archiveValue": 54,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-14T14:51:35+08:00",
+      "model": null,
+      "inputHash": "a894a3426d3d56df"
+    }
   },
   {
     "id": "evt_20261114_041",
@@ -151557,7 +151992,27 @@
     ],
     "relatedEvents": [],
     "aiSummary": "九年前，以调查马耳他腐败问题而闻名的达芙妮·卡鲁阿娜·加利齐亚在汽车爆炸后身亡",
-    "summaryFull": false
+    "summaryFull": false,
+    "globalImpact": 75,
+    "socialImpact": 50,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 15,
+    "memoryValue": 45,
+    "archiveValue": 61,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-14T14:51:35+08:00",
+      "model": null,
+      "inputHash": "277faa19b9c83b25"
+    }
   },
   {
     "id": "evt_20261114_042",
@@ -151574,7 +152029,7 @@
       "city": ""
     },
     "category": [
-      "其他"
+      "体育"
     ],
     "tags": [
       "澳大利亚"
@@ -151597,7 +152052,27 @@
     ],
     "relatedEvents": [],
     "aiSummary": "《日经亚洲》报道，澳大利亚内陆地区出现沙地高尔夫运动，球场没有草皮，球手直接在沙地上击球。报道以“没有草，没问题”概括这一因地制宜的打球方式，展现当地独特的地理环境与休闲文化。",
-    "summaryFull": true
+    "summaryFull": true,
+    "globalImpact": 20,
+    "socialImpact": 25,
+    "culturalImpact": 50,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 45,
+    "archiveValue": 42,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-14T14:51:35+08:00",
+      "model": null,
+      "inputHash": "1f23610d2c484f3d"
+    }
   },
   {
     "id": "evt_20261114_043",
@@ -151638,7 +152113,27 @@
     ],
     "relatedEvents": [],
     "aiSummary": "当地时间11月13日，以色列方面消息称，在是否立即重启对伊朗军事行动的问题上，以军总参谋长扎米尔立场孤立，遭到总理内塔尼亚胡及多名以高官反对，主张暂缓动武。",
-    "summaryFull": true
+    "summaryFull": true,
+    "globalImpact": 80,
+    "socialImpact": 50,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 15,
+    "memoryValue": 45,
+    "archiveValue": 65,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-14T14:51:35+08:00",
+      "model": null,
+      "inputHash": "aeeca036b59f5a34"
+    }
   },
   {
     "id": "evt_20261114_044",
@@ -151679,7 +152174,27 @@
     ],
     "relatedEvents": [],
     "aiSummary": "特斯拉邀请部分客户购买“赛博出租车”（Cybercab），供个人使用。特斯拉星期五（11月13日）在社媒平台X上发布这一公告，并配上一张双座车型照片，车身通体金色，采用蝶翼门设计，其中一侧门上印有“赛博出租车”字样。 这款车售价为2万999",
-    "summaryFull": false
+    "summaryFull": false,
+    "globalImpact": 21,
+    "socialImpact": 21,
+    "culturalImpact": 15,
+    "economicImpact": 21,
+    "technologyImpact": 68,
+    "memoryValue": 25,
+    "archiveValue": 51,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；命中商业噪声词，已整体降权；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-14T14:51:35+08:00",
+      "model": null,
+      "inputHash": "a13f61e3ef117082"
+    }
   },
   {
     "id": "evt_20261114_045",
@@ -151722,49 +152237,27 @@
     ],
     "relatedEvents": [],
     "aiSummary": "土耳其和卡塔尔签署共同防御协议，以便面对外部攻击采取统一立场。法新社报道，土耳其和卡塔尔星期五（11月13日）宣布签署共同防御协议，两国领导人此前在伊斯坦布尔会晤。 土耳其总统埃尔多安的办公室此前宣布这项协议，但没有透露具体内容；埃尔多安曾",
-    "summaryFull": false
-  },
-  {
-    "id": "evt_20261114_046",
-    "legacyIds": [],
-    "title": "爱尔兰欧洲领导人晚宴会场附近现爆炸物 军方已拆除",
-    "summary": "爱尔兰警方在欧洲政治共同体峰会领导人用餐地点附近，发现一个爆炸装置，军方已拆除。 路透社报道，参加欧洲政治共同体峰会的领导人，星期四（11月12日）在都柏林梅里恩广场附近的国家美术馆共进晚餐。爱尔兰警方隔天接到报案称，广场另一侧某建筑内发现",
-    "description": "爱尔兰警方在欧洲政治共同体峰会领导人用餐地点附近，发现一个爆炸装置，军方已拆除。 路透社报道，参加欧洲政治共同体峰会的领导人，星期四（11月12日）在都柏林梅里恩广场附近的国家美术馆共进晚餐。爱尔兰警方隔天接到报案称，广场另一侧某建筑内发现",
-    "date": "2026-11-14",
-    "time": "",
-    "location": {
-      "country": "美国",
-      "countryCode": "",
-      "region": "美国",
-      "city": ""
-    },
-    "category": [
-      "军事"
-    ],
-    "tags": [
-      "俄乌冲突",
-      "峰会外交",
-      "美国"
-    ],
-    "status": "closed",
-    "sources": [
-      {
-        "name": "联合早报国际",
-        "url": "https://www.zaobao.com.sg/news/world/story20261114-9996865",
-        "date": "2026-11-14",
-        "title": "爱尔兰欧洲领导人晚宴会场附近现爆炸物 军方已拆除",
-        "snippet": "爱尔兰警方在欧洲政治共同体峰会领导人用餐地点附近，发现一个爆炸装置，军方已拆除。 路透社报道，参加欧洲政治共同体峰会的领导人，星期四（11月12日）在都柏林梅里恩广场附近的国家美术馆共进晚餐。爱尔兰警方隔天接到报案称，广场另一侧某建筑内发现"
-      }
-    ],
-    "timeline": [
-      {
-        "date": "2026-11-14",
-        "text": "联合早报国际｜爱尔兰警方在欧洲政治共同体峰会领导人用餐地点附近，发现一个爆炸装置，军方已拆除。 路透社报道，参加欧洲政治共同体峰会的领导人，星期四（11月12日）在都柏林梅里"
-      }
-    ],
-    "relatedEvents": [],
-    "aiSummary": "爱尔兰警方在欧洲政治共同体峰会领导人用餐地点附近，发现一个爆炸装置，军方已拆除。 路透社报道，参加欧洲政治共同体峰会的领导人，星期四（11月12日）在都柏林梅里恩广场附近的国家美术馆共进晚餐。爱尔兰警方隔天接到报案称，广场另一侧某建筑内发现",
-    "summaryFull": false
+    "summaryFull": false,
+    "globalImpact": 92,
+    "socialImpact": 50,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 15,
+    "memoryValue": 45,
+    "archiveValue": 73,
+    "eventType": "world",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合73，最强维度globalImpact=92）；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 70,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-14T14:51:35+08:00",
+      "model": null,
+      "inputHash": "6862cfbd7e213fb8"
+    }
   },
   {
     "id": "evt_20261114_047",
@@ -151781,7 +152274,7 @@
       "city": ""
     },
     "category": [
-      "其他"
+      "社会"
     ],
     "tags": [
       "网络安全",
@@ -151805,7 +152298,27 @@
     ],
     "relatedEvents": [],
     "aiSummary": "美国联邦航空管理局宣布，持续数小时的全美地面停飞指令已解除。联邦航空管理局（FAA）于美国中部时间星期五（11月13日）下午宣布，实施全国范围地面停飞；约四小时后，管理局当晚宣布解除禁令，美国领空重新开放。 这是美国近25年以来，持续时间最",
-    "summaryFull": false
+    "summaryFull": false,
+    "globalImpact": 15,
+    "socialImpact": 45,
+    "culturalImpact": 20,
+    "economicImpact": 15,
+    "technologyImpact": 10,
+    "memoryValue": 47,
+    "archiveValue": 39,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-14T14:51:35+08:00",
+      "model": null,
+      "inputHash": "e71965aaa0c9772f"
+    }
   },
   {
     "id": "evt_20261114_048",
@@ -151845,7 +152358,27 @@
     ],
     "relatedEvents": [],
     "aiSummary": "知情人士透露，英伟达前首席执行官黄仁勋在与出轨对象黄乐的关系性质问题上，曾误导英伟达多名高层领导。 路透社星期五（11月13日）引述两名知情人士，以及路透社查阅的10月份内部通信记录，报道这一情况。 黄乐曾是英伟达客户企业超速国际公司（Me",
-    "summaryFull": false
+    "summaryFull": false,
+    "globalImpact": 45,
+    "socialImpact": 30,
+    "culturalImpact": 18,
+    "economicImpact": 60,
+    "technologyImpact": 20,
+    "memoryValue": 25,
+    "archiveValue": 49,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-14T14:51:35+08:00",
+      "model": null,
+      "inputHash": "efe73fce44c2a0c1"
+    }
   },
   {
     "id": "evt_20261114_049",
@@ -151886,7 +152419,27 @@
     ],
     "relatedEvents": [],
     "aiSummary": "美国太空探索技术公司（SpaceX）的重型运载火箭“星舰”实施第15次试飞，助推器未能按计划返回发射场。 新华社报道，“星舰”（Starship）于美国中部时间星期五（11月13日）下午（新加坡时间14日早上），从得克萨斯州南部的发射基地升",
-    "summaryFull": false
+    "summaryFull": false,
+    "globalImpact": 25,
+    "socialImpact": 25,
+    "culturalImpact": 18,
+    "economicImpact": 25,
+    "technologyImpact": 92,
+    "memoryValue": 30,
+    "archiveValue": 68,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-14T14:51:35+08:00",
+      "model": null,
+      "inputHash": "d696948b76f3a849"
+    }
   },
   {
     "id": "evt_20261114_050",
@@ -151929,7 +152482,27 @@
     ],
     "relatedEvents": [],
     "aiSummary": "白宫宣布，美国总统特朗普、中国国家主席习近平和俄罗斯总统普京，下周将在中国深圳举行罕见三方会晤。 法新社报道，白宫发言人威尔斯星期五（11月13日）向记者宣布这一消息。此次美中俄三国元首会晤定于下星期四（19日），即亚太经济合作组织（APE",
-    "summaryFull": false
+    "summaryFull": false,
+    "globalImpact": 92,
+    "socialImpact": 50,
+    "culturalImpact": 18,
+    "economicImpact": 42,
+    "technologyImpact": 15,
+    "memoryValue": 45,
+    "archiveValue": 74,
+    "eventType": "world",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合74，最强维度globalImpact=92）；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 70,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-14T14:51:35+08:00",
+      "model": null,
+      "inputHash": "3957932f0fde682c"
+    }
   },
   {
     "id": "evt_20261114_051",
@@ -151969,7 +152542,27 @@
     ],
     "relatedEvents": [],
     "aiSummary": "英国媒体报道，美国晶片巨头英伟达首席执行官黄仁勋辞职后，英伟达已就潜在继任问题接触英国晶片设计公司安谋（Arm）首席执行官哈斯。 《金融时报》星期五（11月13日）引述知情人士报道这一消息。哈斯（Rene Haas）自2022年起执掌安谋，",
-    "summaryFull": false
+    "summaryFull": false,
+    "globalImpact": 45,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 39,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-14T14:51:35+08:00",
+      "model": null,
+      "inputHash": "0e62b9475257f8d4"
+    }
   },
   {
     "id": "evt_20261114_052",
@@ -151986,7 +152579,7 @@
       "city": ""
     },
     "category": [
-      "其他"
+      "社会"
     ],
     "tags": [
       "中国"
@@ -152009,7 +152602,27 @@
     ],
     "relatedEvents": [],
     "aiSummary": "记者从中国商飞获悉，11月14日，我国自主研制的10吨级电动商用飞机CE-25A在山东滨州完成首次有人驾驶智能飞行。 当天，CE-25A飞机搭载2名飞行员、1名试飞工程师，飞机状态正常，各项指标符合预期。这是继CE-25A飞机今年2月2日无",
-    "summaryFull": false
+    "summaryFull": false,
+    "globalImpact": 15,
+    "socialImpact": 45,
+    "culturalImpact": 20,
+    "economicImpact": 15,
+    "technologyImpact": 10,
+    "memoryValue": 62,
+    "archiveValue": 49,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-14T14:51:35+08:00",
+      "model": null,
+      "inputHash": "6da545187d1e2ad2"
+    }
   },
   {
     "id": "evt_20261114_053",
@@ -152047,7 +152660,27 @@
     ],
     "relatedEvents": [],
     "aiSummary": "清晨6时许，29岁的俐俐躺在东部某城市的一家青年旅社的床上，睡得不熟。她来自中部地区一个县城，刚来这座城市没到一个星期，想在这儿找份工作谋生。有人轻轻敲她的腿，床帘被拉开了。 发懵之间，俐俐认出是母亲。她下床出去一看，除了母亲，还有哥哥、表",
-    "summaryFull": false
+    "summaryFull": false,
+    "globalImpact": 45,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 39,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-14T14:51:35+08:00",
+      "model": null,
+      "inputHash": "c41f7e8dd9fa7e67"
+    }
   },
   {
     "id": "evt_20261114_054",
@@ -152088,7 +152721,27 @@
     ],
     "relatedEvents": [],
     "aiSummary": "近日，习近平总书记对国有企业党的建设工作作出重要指示强调，新征程上，要全面贯彻新时代党建思想，深入贯彻党的二十届五中全会部署，坚持和加强党对国有企业的全面领导，持之以恒推进全面从严治党，以高质量党建引领企业高质量发展。习近平总书记的重要指示",
-    "summaryFull": false
+    "summaryFull": false,
+    "globalImpact": 30,
+    "socialImpact": 30,
+    "culturalImpact": 18,
+    "economicImpact": 60,
+    "technologyImpact": 20,
+    "memoryValue": 47,
+    "archiveValue": 49,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-14T14:51:35+08:00",
+      "model": null,
+      "inputHash": "5a7d39fe20f2a467"
+    }
   },
   {
     "id": "evt_20261114_055",
@@ -152128,7 +152781,27 @@
     ],
     "relatedEvents": [],
     "aiSummary": "近日，“司美格鲁肽副作用”登上热搜，引发社会关注。 据新华社报道，美国食品和药物管理局（FDA）11月9日发布通告称，使用GLP-1受体激动剂类药物可能增加患“非动脉炎性前部缺血性视神经病变”（简称NAION）的风险。这种疾病可能导致单眼无",
-    "summaryFull": false
+    "summaryFull": false,
+    "globalImpact": 21,
+    "socialImpact": 21,
+    "culturalImpact": 32,
+    "economicImpact": 21,
+    "technologyImpact": 68,
+    "memoryValue": 25,
+    "archiveValue": 53,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；命中商业噪声词，已整体降权；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-14T14:51:35+08:00",
+      "model": null,
+      "inputHash": "81d3afceabf0bb4b"
+    }
   },
   {
     "id": "evt_20261114_056",
@@ -152170,7 +152843,27 @@
     ],
     "relatedEvents": [],
     "aiSummary": "当地时间11月13日晚，由于通信故障引发安全隐患，全美各地航班一度停飞超过四小时。受此影响，美国机场上空“异常空旷”，而航站楼和行李提取区则挤满了不知所措的乘客。 美国联邦航空管理局（FAA）13日下午发布了全国范围内的地面停飞令，理由是区",
-    "summaryFull": false
+    "summaryFull": false,
+    "globalImpact": 70,
+    "socialImpact": 50,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 40,
+    "memoryValue": 67,
+    "archiveValue": 61,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；命中商业噪声词，已整体降权；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-14T14:51:35+08:00",
+      "model": null,
+      "inputHash": "31538d49693a6dec"
+    }
   },
   {
     "id": "evt_20261114_057",
@@ -152211,7 +152904,27 @@
     ],
     "relatedEvents": [],
     "aiSummary": "在1988年大选的副总统候选人辩论中，共和党候选人丹·奎尔将自己的经验欠缺强词夺理比作年轻的约翰·肯尼迪，对面的民主党候选人、得州联邦参议员劳埃德·贝特森反唇相讥：“我曾与杰克·肯尼迪一道共事，我与肯尼迪熟识，肯尼迪是我的朋友。参议员，你可",
-    "summaryFull": false
+    "summaryFull": false,
+    "globalImpact": 45,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 35,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 40,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；命中产业转型/现象级关键词，已豁免噪声惩罚并升级；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-14T14:51:35+08:00",
+      "model": null,
+      "inputHash": "d769e1c9e17b71cd"
+    }
   },
   {
     "id": "evt_20261114_058",
@@ -152252,7 +152965,27 @@
     ],
     "relatedEvents": [],
     "aiSummary": "近日有博主指控淘宝男装品牌FPA盗用其图片并“喂”给AI换衣后用于带货宣传，FPA官方致歉称系某部门盲目追求出图效率擅用博主图，承诺下架违规AI图并赔偿。律师指出AI生成广告须符合广告法并标识AI生成，此类侵权维权性价比偏低。",
-    "summaryFull": true
+    "summaryFull": true,
+    "globalImpact": 25,
+    "socialImpact": 25,
+    "culturalImpact": 18,
+    "economicImpact": 25,
+    "technologyImpact": 92,
+    "memoryValue": 30,
+    "archiveValue": 68,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-14T14:51:35+08:00",
+      "model": null,
+      "inputHash": "2d53136c3e234646"
+    }
   },
   {
     "id": "evt_20261114_059",
@@ -152293,7 +153026,27 @@
     ],
     "relatedEvents": [],
     "aiSummary": "11月13日，赛力斯在重庆工厂发布问界新M8，华为常务董事余承东亮相并阐述合作新模式：华为负责核心技术、产品定义和设计，赛力斯负责整车制造、研发工程、营销与销售服务，销售和服务工作已由华为交给赛力斯。同日，比亚迪法务部宣布对有效黑公关线索提供者最高奖励500万元；梅赛德斯-奔驰12日宣布冻结德国境内生产设施进一步投资并考虑关停工厂，称德国劳动力成本部分达东欧工厂5倍。",
-    "summaryFull": true
+    "summaryFull": true,
+    "globalImpact": 15,
+    "socialImpact": 15,
+    "culturalImpact": 10,
+    "economicImpact": 15,
+    "technologyImpact": 48,
+    "memoryValue": 18,
+    "archiveValue": 36,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "疑似普通商业/日常信息（综合36，无突出维度）；命中商业噪声词，已整体降权；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 65,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-14T14:51:35+08:00",
+      "model": null,
+      "inputHash": "8dc6ba4941e007b4"
+    }
   },
   {
     "id": "evt_20261114_060",
@@ -152334,7 +153087,27 @@
     ],
     "relatedEvents": [],
     "aiSummary": "中国水泥行业燃料替代呈现“示范亮眼、推广艰难”：头部示范线替代率最高达65%，全行业平均仅6%至10%。截至2025年底全国新型干法熟料产线约1200条，开展协同处置固废的仅436条、占28%，多数只做低比例掺烧。高比例替代需配套储库、预处理、旁路放风等系统改造，单条5000吨/日产线投资达数千万元，且易出现煤耗降、综合热耗升约10%的矛盾。",
-    "summaryFull": true
+    "summaryFull": true,
+    "globalImpact": 30,
+    "socialImpact": 40,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 20,
+    "memoryValue": 30,
+    "archiveValue": 35,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-14T14:51:35+08:00",
+      "model": null,
+      "inputHash": "8925eb1bda73d9a7"
+    }
   },
   {
     "id": "evt_20261114_061",
@@ -152376,11 +153149,33 @@
     ],
     "relatedEvents": [],
     "aiSummary": "据美国方面11月13日消息，美国民主党参议员珍妮·沙欣和克里斯·孔斯致信SpaceX首席执行官马斯克，要求保留关于限制乌克兰使用“星链”和“星盾”系统的所有记录，并在11月30日前书面确认已实施适当保护措施。乌方10月起多次通报搭载“星盾”终端航空器时速超160公里即断网，泽连斯基13日称限速问题仍未解决，损害乌军行动能力。",
-    "summaryFull": true
+    "summaryFull": true,
+    "globalImpact": 25,
+    "socialImpact": 25,
+    "culturalImpact": 18,
+    "economicImpact": 25,
+    "technologyImpact": 80,
+    "memoryValue": 30,
+    "archiveValue": 61,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-14T14:51:35+08:00",
+      "model": null,
+      "inputHash": "d56dfd8d176877f1"
+    }
   },
   {
     "id": "evt_20261114_062",
-    "legacyIds": [],
+    "legacyIds": [
+      "evt_20261114_046"
+    ],
     "title": "爱尔兰在多国领导人晚宴地点附近查获爆炸装置",
     "summary": "爱尔兰警方13日查获一枚简易爆炸装置，发现地点距多国领导人前一天晚宴的场所较近。军方拆弹专家出动，成功处置这枚“制作粗糙但具备引爆能力”的爆炸装置。 爱尔兰警方在一份声明中说，13日下午接到报案，位于首都都柏林市中心的梅里恩广场一栋办公楼内",
     "description": "爱尔兰警方13日查获一枚简易爆炸装置，发现地点距多国领导人前一天晚宴的场所较近。军方拆弹专家出动，成功处置这枚“制作粗糙但具备引爆能力”的爆炸装置。 爱尔兰警方在一份声明中说，13日下午接到报案，位于首都都柏林市中心的梅里恩广场一栋办公楼内",
@@ -152408,21 +153203,54 @@
         "date": "2026-11-14",
         "title": "爱尔兰在多国领导人晚宴地点附近查获爆炸装置",
         "snippet": "爱尔兰警方13日查获一枚简易爆炸装置，发现地点距多国领导人前一天晚宴的场所较近。军方拆弹专家出动，成功处置这枚“制作粗糙但具备引爆能力”的爆炸装置。 爱尔兰警方在一份声明中说，13日下午接到报案，位于首都都柏林市中心的梅里恩广场一栋办公楼内"
+      },
+      {
+        "name": "联合早报国际",
+        "url": "https://www.zaobao.com.sg/news/world/story20261114-9996865",
+        "date": "2026-11-14",
+        "title": "爱尔兰欧洲领导人晚宴会场附近现爆炸物 军方已拆除",
+        "snippet": "爱尔兰警方在欧洲政治共同体峰会领导人用餐地点附近，发现一个爆炸装置，军方已拆除。 路透社报道，参加欧洲政治共同体峰会的领导人，星期四（11月12日）在都柏林梅里恩广场附近的国家美术馆共进晚餐。爱尔兰警方隔天接到报案称，广场另一侧某建筑内发现"
       }
     ],
     "timeline": [
       {
         "date": "2026-11-14",
         "text": "国际在线｜爱尔兰警方13日查获一枚简易爆炸装置，发现地点距多国领导人前一天晚宴的场所较近。军方拆弹专家出动，成功处置这枚“制作粗糙但具备引爆能力”的爆炸装置。 爱尔兰警方"
+      },
+      {
+        "date": "2026-11-14",
+        "text": "联合早报国际｜爱尔兰警方在欧洲政治共同体峰会领导人用餐地点附近，发现一个爆炸装置，军方已拆除。 路透社报道，参加欧洲政治共同体峰会的领导人，星期四（11月12日）在都柏林梅里"
       }
     ],
     "relatedEvents": [],
     "aiSummary": "爱尔兰警方11月13日下午接报，在首都都柏林市中心梅里恩广场一栋办公楼内发现可疑装置，军方拆弹专家成功处置一枚“制作粗糙但具备引爆能力”的简易爆炸装置，调查仍在进行。事发前一天即12日，多国领导人在广场另一侧爱尔兰国家美术馆出席欧洲政治共同体领导人会议晚宴，马克龙、英国首相伯纳姆、加拿大总理卡尼等参加，主会场距发现地点1.5公里。",
-    "summaryFull": true
+    "summaryFull": true,
+    "globalImpact": 100,
+    "socialImpact": 50,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 30,
+    "memoryValue": 45,
+    "archiveValue": 79,
+    "eventType": "world",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合79，最强维度globalImpact=100）；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 70,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-14T14:51:35+08:00",
+      "model": null,
+      "inputHash": "76e11967fe33f510"
+    }
   },
   {
     "id": "evt_20261114_063",
-    "legacyIds": [],
+    "legacyIds": [
+      "evt_20261114_031"
+    ],
     "title": "美航空局解除全国航班停飞令",
     "summary": "新华社华盛顿11月13日电（记者颜亮）美国联邦航空局13日晚间解除了全国航班的停飞令。当天美国约有1.5万架次航班延误或取消。 在当晚的新闻发布会上，美国国土安全部长马克韦恩·马林表示，目前没有证据表明此次事件由网络攻击造成，也与前一天开始",
     "description": "新华社华盛顿11月13日电（记者颜亮）美国联邦航空局13日晚间解除了全国航班的停飞令。当天美国约有1.5万架次航班延误或取消。 在当晚的新闻发布会上，美国国土安全部长马克韦恩·马林表示，目前没有证据表明此次事件由网络攻击造成，也与前一天开始",
@@ -152435,11 +153263,13 @@
       "city": ""
     },
     "category": [
-      "政治"
+      "政治",
+      "社会"
     ],
     "tags": [
       "网络安全",
-      "美国"
+      "美国",
+      "日本"
     ],
     "status": "closed",
     "sources": [
@@ -152449,17 +153279,48 @@
         "date": "2026-11-14",
         "title": "美航空局解除全国航班停飞令",
         "snippet": "新华社华盛顿11月13日电（记者颜亮）美国联邦航空局13日晚间解除了全国航班的停飞令。当天美国约有1.5万架次航班延误或取消。 在当晚的新闻发布会上，美国国土安全部长马克韦恩·马林表示，目前没有证据表明此次事件由网络攻击造成，也与前一天开始"
+      },
+      {
+        "name": "NHK 日本",
+        "url": "https://news.web.nhk/newsweb/na/nd-20261114de75764",
+        "date": "2026-11-14",
+        "title": "美国航空当局解除全美航班停飞措施 逾8000架次航班取消",
+        "snippet": "美国联邦航空局（FAA）以发生通信故障为由，自日本时间14日起，在美国全国机场对所有航空器采取停飞措施。停飞措施约四个半小时后解除，国土安全部表示，网…"
       }
     ],
     "timeline": [
       {
         "date": "2026-11-14",
         "text": "国际在线｜新华社华盛顿11月13日电（记者颜亮）美国联邦航空局13日晚间解除了全国航班的停飞令。当天美国约有1.5万架次航班延误或取消。 在当晚的新闻发布会上，美国国土安"
+      },
+      {
+        "date": "2026-11-14",
+        "text": "NHK 日本｜美国联邦航空局（FAA）以发生通信故障为由，自日本时间14日起，在美国全国机场对所有航空器采取停飞措施。停飞措施约四个半"
       }
     ],
     "relatedEvents": [],
     "aiSummary": "美国联邦航空局于2026年11月13日晚间解除全国航班停飞令，当天美国约有1.5万架次航班延误或取消。国土安全部长马林称无证据表明事件由网络攻击造成，也与微软软件服务中断无关；交通部长达菲将故障归咎于“极其陈旧的空中交通管制系统”。停飞打乱旅客出行，并影响物流运输、体育赛事等。",
-    "summaryFull": true
+    "summaryFull": true,
+    "globalImpact": 45,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 52,
+    "archiveValue": 45,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；命中商业噪声词，已整体降权；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-14T14:51:35+08:00",
+      "model": null,
+      "inputHash": "145fff620a6cfd4c"
+    }
   },
   {
     "id": "evt_20261114_064",
@@ -152501,7 +153362,27 @@
     ],
     "relatedEvents": [],
     "aiSummary": "据美国福克斯新闻频道11月13日报道，美国总统特朗普受访时表示，美国空管系统故障与网络攻击或人工智能无关，而是由老旧、破损的基础设施导致，并称排查未发现网络攻击迹象。另据美国媒体报道，空管系统专用通信网络更新时引发系统重启继而崩溃，造成通信中断，该系统由L3Harris公司运营。",
-    "summaryFull": true
+    "summaryFull": true,
+    "globalImpact": 25,
+    "socialImpact": 25,
+    "culturalImpact": 18,
+    "economicImpact": 25,
+    "technologyImpact": 80,
+    "memoryValue": 30,
+    "archiveValue": 61,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-14T14:51:35+08:00",
+      "model": null,
+      "inputHash": "25ea40703cf02432"
+    }
   },
   {
     "id": "evt_20261114_065",
@@ -152542,7 +153423,27 @@
     ],
     "relatedEvents": [],
     "aiSummary": "当地时间11月13日，美国因影响所有航路交通管制中心的通信问题，由联邦航空局对全国机场发布暂停航班起飞指令，这是“9·11”后美国第二次全国范围停飞令。截至美东时间17时40分，超1100架次航班取消、近1万架次延误，傍晚部分空管通信开始恢复。",
-    "summaryFull": true
+    "summaryFull": true,
+    "globalImpact": 55,
+    "socialImpact": 50,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 15,
+    "memoryValue": 45,
+    "archiveValue": 48,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-14T14:51:35+08:00",
+      "model": null,
+      "inputHash": "7589c6a6c1f28752"
+    }
   },
   {
     "id": "evt_20261114_066",
@@ -152582,6 +153483,26 @@
     ],
     "relatedEvents": [],
     "aiSummary": "开罗——位于埃及吉萨金字塔附近的大埃及博物馆自开馆以来已吸引数百万游客",
-    "summaryFull": false
+    "summaryFull": false,
+    "globalImpact": 45,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 39,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-14T14:51:35+08:00",
+      "model": null,
+      "inputHash": "0d5250b38a3003af"
+    }
   }
 ]
