@@ -91,6 +91,14 @@ class TestScope(unittest.TestCase):
     def test_topics_exclude_music_and_television(self):
         self.assertEqual(BE.WIKI_TOPICS, ("science", "sports"))
 
+    def test_wiki_page_names_include_in(self):
+        """回归：曾把 1997_in_science 拼成 1997_science，导致 10 页全空。"""
+        pages = [p for _, p in BE.wiki_pages()]
+        self.assertEqual(len(pages), 10)
+        self.assertIn("1997_in_science", pages)
+        self.assertIn("2001_in_sports", pages)
+        self.assertTrue(all("_in_" in p for p in pages))
+
     def test_categories_are_the_ten_standard_ones(self):
         self.assertEqual(set(BE.CATEGORIES), {
             "自然灾害", "政治", "经济", "体育", "环境", "社会",

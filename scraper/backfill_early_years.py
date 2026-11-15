@@ -52,11 +52,16 @@ WIKI_API = ("https://en.wikipedia.org/w/api.php?action=parse&page={page}"
 CATEGORIES = ["自然灾害", "政治", "经济", "体育", "环境", "社会", "军事", "科技", "文化", "其他"]
 MIN_OUTPUT_RATIO = 0.5
 
+def wiki_pages():
+    """维基领域年表页名。`_in_` 不可省：曾误拼成 1997_science，10 页全空。"""
+    return [(y, f"{y}_in_{t}") for y in EARLY_YEARS for t in WIKI_TOPICS]
+
+
 BBC_ITEM = re.compile(r"\b(199[7-9]|200[01])\s*[:：]\s*([^<\n]{5,180})")
 HREF = re.compile(r'href\s*=\s*["\']([^"\']+)["\']', re.I)
 WIKI_LINE = re.compile(
     r"^\*\s*\[{0,2}(?P<mon>" + MONTH_WORDS + r")\s+(?P<day>\d{1,2})\]{0,2}"
-    r"\s*(?:&ndash;|&mdash;|[–—\-])\s*(?P<text>.+)$", re.I)
+    r"\s*(?:&ndash;|&mdash;|[–—\-:：]\s*)?(?P<text>.+)$", re.I)
 
 
 # ---------------------------------------------------------------- 只读抓取
@@ -151,11 +156,14 @@ def parse_wiki_wikitext(wikitext, year, page):
     return out
 
 
-def collect_candidates(max_bbc_pages=366):
+def collect_candidates(max_bbc_pages=366, skip_bbc=False):
     """抓两类源并去重。BBC 全量日期页 + 维基 science/sports 年表。"""
     bbc, wiki = [], []
     seen = set()
     pages_ok = pages_fail = 0
+    if skip_bbc:
+        print("  （调试模式：跳过 BBC 抓取，只验证维基年表解析）", flush=True)
+        max_bbc_pages = 0
 
     for month in range(1, 13):
         for day in range(1, calendar.monthrange(2000, month)[1] + 1):
@@ -179,21 +187,25 @@ def collect_candidates(max_bbc_pages=366):
             break
     print(f"  BBC: {pages_ok} 页成功 / {pages_fail} 页失败 → {len(bbc)} 条候选", flush=True)
 
-    for year in EARLY_YEARS:
-        for topic in WIKI_TOPICS:
-            page = f"{year}_{topic}"
-            try:
-                data = json.loads(_fetch(WIKI_API.format(page=page), timeout=30))
-                text = (data.get("parse") or {}).get("wikitext") or ""
-                got = parse_wiki_wikitext(text, year, page)
-                for c in got:
-                    if c["key"] not in seen:
-                        seen.add(c["key"])
-                        wiki.append(c)
+    for year, page in wiki_pages():
+        try:
+            data = json.loads(_fetch(WIKI_API.format(page=page), timeout=30))
+            text = (data.get("parse") or {}).get("wikitext") or ""
+            got = parse_wiki_wikitext(text, year, page)
+            for c in got:
+                if c["key"] not in seen:
+                    seen.add(c["key"])
+                    wiki.append(c)
+            if got:
                 print(f"  维基 {page}: {len(got)} 条", flush=True)
-            except Exception as e:
-                print(f"  维基 {page} 失败: {type(e).__name__} {str(e)[:70]}", flush=True)
-            time.sleep(0.8)
+            else:
+                star = [l.strip()[:150] for l in text.splitlines()
+                        if l.strip().startswith("*")][:3]
+                print(f"  维基 {page}: 0 条 | response keys={list(data.keys())} | "
+                      f"wikitext {len(text)} 字符 | 星号行样例 {star}", flush=True)
+        except Exception as e:
+            print(f"  维基 {page} 失败: {type(e).__name__} {str(e)[:70]}", flush=True)
+        time.sleep(0.8)
     print(f"  维基合计: {len(wiki)} 条候选", flush=True)
     return bbc, wiki
 
@@ -337,11 +349,12 @@ def main():
     ap.add_argument("--limit", type=int, default=200, help="本次最多入库条数")
     ap.add_argument("--max-bbc-pages", type=int, default=366, help="BBC 日期页抓取上限")
     ap.add_argument("--dry-run", action="store_true", help="只抓候选，不调 LLM、不写库")
+    ap.add_argument("--skip-bbc", action="store_true", help="调试用：只验证维基年表解析")
     args = ap.parse_args()
     os.chdir(ROOT)
 
     print("=== 早年回填 1997-2001（BBC + 维基 science/sports）===", flush=True)
-    bbc, wiki = collect_candidates(args.max_bbc_pages)
+    bbc, wiki = collect_candidates(args.max_bbc_pages, skip_bbc=args.skip_bbc)
     total_candidates = len(bbc) + len(wiki)
     print(f"候选合计 {total_candidates} 条（BBC {len(bbc)} / 维基 {len(wiki)}）", flush=True)
     if total_candidates == 0:

@@ -19,6 +19,10 @@ on:
         description: '只抓候选不入库（true / false）'
         required: false
         default: 'false'
+      skip_bbc:
+        description: '调试用：只验证维基年表解析（true / false）'
+        required: false
+        default: 'false'
 
 permissions:
   contents: write
@@ -53,10 +57,14 @@ jobs:
           # 避免「模型换了网关没换」的 400（历史事故）。
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
         run: |
+          EXTRA=""
+          if [ "${{ github.event.inputs.skip_bbc }}" = "true" ]; then
+            EXTRA="--skip-bbc"
+          fi
           if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
-            python scraper/backfill_early_years.py --limit "${{ github.event.inputs.limit }}" --dry-run
+            python scraper/backfill_early_years.py --limit "${{ github.event.inputs.limit }}" --dry-run $EXTRA
           else
-            python scraper/backfill_early_years.py --limit "${{ github.event.inputs.limit }}"
+            python scraper/backfill_early_years.py --limit "${{ github.event.inputs.limit }}" $EXTRA
           fi
 
       - name: 档案价值评分补跑（新增事件必须补分）
