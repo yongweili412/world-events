@@ -273,11 +273,31 @@ def translate(items, batch_size=10):
             print(f"  批次异常 {type(e).__name__}", flush=True)
             resp = None
         got = _parse_llm(resp, payload)
+        returned = {j for j, *_ in got}
         for j, title, summary, cat, country in got:
             c = dict(chunk[j])
             c.update({"title": title, "summary": summary,
                       "category": cat, "country": country})
             out.append(c)
+        # 单条重试：模型返回 JSON 常缺个别 idx，静默丢掉会永久少条目。
+        # 首轮实测 200 条只翻出 140 条，这个补漏能把翻译率拉回来。
+        for j, c in enumerate(chunk):
+            if j in returned:
+                continue
+            one = [{"idx": 0, "date": c["date"], "text": c["text_en"][:400]}]
+            try:
+                rr = chat_raw(build_prompt(one), key=key, timeout=120,
+                              temperature=0.2, max_tokens=800)
+            except Exception:
+                rr = None
+            one_got = _parse_llm(rr, one)
+            if one_got:
+                _, title, summary, cat, country = one_got[0]
+                nc = dict(c)
+                nc.update({"title": title, "summary": summary,
+                           "category": cat, "country": country})
+                out.append(nc)
+            time.sleep(0.8)
         n = i // batch_size + 1
         if n % 5 == 0 or n == total:
             print(f"  翻译进度 {n}/{total} 批，成功 {len(out)} 条", flush=True)
@@ -306,6 +326,15 @@ def value_gate(translated):
 
 
 # ---------------------------------------------------------------- 进度 / 落库
+
+def keys_to_record(translated):
+    """只把「成功翻译」的候选记账。
+
+    首轮曾把整个 pick（200 个 key）都写进 processed_keys，但只有 140 条翻译成功，
+    剩下 60 条被永久跳过、再也不会重试。记账必须以 translated 为准。
+    """
+    return [c["key"] for c in translated]
+
 
 def load_progress():
     try:
@@ -350,6 +379,8 @@ def main():
     ap.add_argument("--max-bbc-pages", type=int, default=366, help="BBC 日期页抓取上限")
     ap.add_argument("--dry-run", action="store_true", help="只抓候选，不调 LLM、不写库")
     ap.add_argument("--skip-bbc", action="store_true", help="调试用：只验证维基年表解析")
+    ap.add_argument("--ignore-processed", action="store_true",
+                    help="忽略 processed_keys 重扫候选（补回首轮翻译失败条目，靠库内去重防重复）")
     args = ap.parse_args()
     os.chdir(ROOT)
 
@@ -370,7 +401,9 @@ def main():
     bbc_quota = max(1, int(args.limit * 0.7))
     wiki_quota = args.limit - bbc_quota
     prog = load_progress()
-    processed = set(prog.get("processed_keys", []))
+    processed = set() if args.ignore_processed else set(prog.get("processed_keys", []))
+    if args.ignore_processed:
+        print("  （重扫模式：忽略 processed_keys，靠库内去重防重复入库）", flush=True)
     pick = [c for c in bbc if c["key"] not in processed][:bbc_quota]
     pick += [c for c in wiki if c["key"] not in processed][:wiki_quota]
     print(f"本批选取 {len(pick)} 条（BBC {min(bbc_quota, len(bbc))} / "
@@ -431,7 +464,7 @@ def main():
     stats = {"limit": args.limit, "candidates": total_candidates,
              "picked": len(pick), "translated": len(translated),
              "gate_kept": len(kept), "attempted": len(items)}
-    ok = save_and_record(ev, created, [c["key"] for c in pick], prog, stats)
+    ok = save_and_record(ev, created, keys_to_record(translated), prog, stats)
     return 0 if ok else 1
 
 

@@ -109,6 +109,12 @@ class TestScope(unittest.TestCase):
             BE._clean_wikitext("A [[Delta II|rocket]] and {{cite web|x}} '''bold'''"),
             "A rocket and bold")
 
+    def test_only_translated_keys_are_recorded(self):
+        """回归：首轮把整个 pick 记账，导致翻译失败的 60 条被永久跳过。"""
+        translated = [{"key": "a"}, {"key": "b"}]
+        self.assertEqual(BE.keys_to_record(translated), ["a", "b"])
+        self.assertEqual(BE.keys_to_record([]), [])
+
 
 if __name__ == "__main__":
     unittest.main()

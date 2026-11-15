@@ -214,5 +214,6 @@
    "created": 108
   }
  ],
- "_note": "1997-2001 早年回填进度。processed_keys 记录已进入过翻译的候选 key；只有 shard_events.py split 成功、真实新建数达标后才记账，避免账货不一致。"
+ "_note": "1997-2001 早年回填进度。processed_keys 记录已进入过翻译的候选 key；只有 shard_events.py split 成功、真实新建数达标后才记账，避免账货不一致。",
+ "first_run_note": "首轮（2026-11-15 14:08）记账口径有误：200 个候选 key 全部写入 processed_keys，但当轮只有 140 条翻译成功、108 条入库，另 60 条翻译失败被一并标记已处理。脚本已修（keys_to_record 只记成功翻译的 key + 翻译缺 idx 时单条重试）。补回方式：下一轮加 --ignore-processed 重扫候选，库内按日期+中文标题去重会挡住已入库条目。"
 }
