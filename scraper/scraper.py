@@ -1204,6 +1204,29 @@ def _find_event(events: list, item: dict):
     return None
 
 
+# 非事件标题硬拦（2026-11-15 体检收口）：
+# 价值闸门在 off/shadow 模式、以及模型限流 PASS_ON_FAIL 时都不会拦，
+# 于是「韩联社新闻摘要」「韩国主要报纸头条新闻」「阿富汗战争持续进行」
+# 这类『一天新闻的目录』和『无具体事实的持续占位』被当成独立事件入库
+# （audit 检出 97 组重复标题 / 217 条）。这里在入库必经路径做窄规则拦截。
+# 只拦整串就是目录名、或纯占位式「持续」结尾；不拦含这些词但描述具体事件的标题
+# （如「联合国发布气候摘要报告」「俄乌冲突持续升级，欧盟追加制裁」都不命中）。
+# 只防新增，存量不动：删除已入库事件属破坏性操作，需用户确认后另行处理。
+NON_EVENT_TITLE_RE = (
+    re.compile(r"^.{0,14}(新闻摘要|报纸头条新闻|头条新闻|新闻头条|每日简报|新闻简报|"
+               r"时事简报|今日要闻|要闻汇总|新闻早知道|新闻速览|历史上的今天|早报|晚报|晨报)$"),
+    re.compile(r"^.{2,32}(持续进行|持续发酵|持续推进|仍在持续|持续)$"),
+)
+
+
+def is_non_event_title(title: str) -> bool:
+    """标题是否属于『新闻目录页 / 无事实的持续占位』——这类不是事件。"""
+    t = re.sub(r"\s+", "", str(title or ""))
+    if not t:
+        return False
+    return any(p.match(t) for p in NON_EVENT_TITLE_RE)
+
+
 def merge_into_events(events: list, new_items: list, dedupe_url: bool = True, use_fp: bool = True) -> list:
     """v2 事件模型：新报道合并进已有事件（追加 source/timeline），否则新建事件。
 
@@ -1222,7 +1245,11 @@ def merge_into_events(events: list, new_items: list, dedupe_url: bool = True, us
     ev_order = [e["id"] for e in events]
     by_id = {e["id"]: e for e in events}
     touched = []
+    blocked_titles = 0
     for item in new_items:
+        if is_non_event_title(item.get("title")):
+            blocked_titles += 1
+            continue
         url = item.get("sourceUrl") or ""
         nu = _url_norm(url)
         if dedupe_url:
@@ -1315,6 +1342,8 @@ def merge_into_events(events: list, new_items: list, dedupe_url: bool = True, us
             ev["status"] = "ongoing" if len(dates) > 1 else ev.get("status", "closed")
         if ev not in touched:
             touched.append(ev)
+    if blocked_titles:
+        print(f"  [入库闸门] 拦下 {blocked_titles} 条非事件标题（目录页/持续占位），只防新增、存量不动", flush=True)
     return touched
 
 

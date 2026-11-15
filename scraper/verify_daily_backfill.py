@@ -81,6 +81,15 @@ def threshold_for(ym: str) -> int:
     return EARLY_MIN if int(ym[:4]) < EARLY_UNTIL else MIN_PER_MONTH
 
 
+def account_conflicts(done, empty):
+    """账目冲突：无源月份（empty）不该同时被标记完成（done）。
+
+    2026-11-15 体检发现 2001-01 同时出现在两个列表里。empty 语义优先：
+    该月维基本来就没有逐日页，记 done 只会让验收与守护把它当成已补完。
+    """
+    return sorted(set(done or []) & set(empty or []))
+
+
 def main():
     global MIN_PER_MONTH
     MIN_PER_MONTH = _parse_min_per_month(sys.argv)
@@ -100,7 +109,13 @@ def main():
         prog = {"done_months": [], "empty_months": [], "source_counts": {}}
         done, empty, src = set(), set(), {}
 
+    conflict = account_conflicts(done, empty)
+    target_months = [f"{y}-{m:02d}" for y in years for m in range(1, 13)]
+    no_src = [ym for ym in target_months if ym in done and not isinstance(src.get(ym), int)]
     print(f"验收范围: {years} | 已完成月份: {len(done)} | 无源数据: {len(empty)} | 库中事件总数: {total_events}")
+    print(f"验收覆盖: {len(target_months)} 个目标月 | done 但无源条目记录 {len(no_src)} 个（按年份阈值兜底）")
+    if conflict:
+        print(f"  [账目冲突] {len(conflict)} 个月同时标记 done 与 empty（无源月不该记完成）: {conflict[:8]}")
     print(f"阈值: {EARLY_UNTIL} 年前 ≥{EARLY_MIN} 条/月，{EARLY_UNTIL} 年起 ≥{MIN_PER_MONTH} 条/月")
     problems = []
     for y in years:

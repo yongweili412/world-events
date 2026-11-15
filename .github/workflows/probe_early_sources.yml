@@ -1,0 +1,32 @@
+name: 早年数据源探测（只读）
+
+# 背景（2026-11-15）：1997-2001 五年只有 422 条，因为维基逐日页 2002 年起才有。
+# 本机代理把 BBC / 维基一律挡成 502，只能借 GitHub Actions 云端网络做只读探测。
+# 本工作流不写库、不需要密钥、不设 cron，只在手动触发时跑一次（约 2-5 分钟）。
+# 输出 PROBE_RESULT_JSON 供判断值不值得写正式回填脚本。
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: world-events-probe
+  cancel-in-progress: false
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: 检出仓库
+        uses: actions/checkout@v4
+
+      - name: 安装 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 只读探测 BBC On This Day 与维基领域年表
+        run: python scraper/probe_early_sources.py
