@@ -60,6 +60,7 @@ jobs:
       - name: 逐日存档回填（抓取维基逐日页 → flash 模型翻译 → 入库）
         env:
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          LLM_API_KEY_ZHIPU: ${{ secrets.LLM_API_KEY_ZHIPU }}
           LLM_BASE_URL: ${{ secrets.LLM_BASE_URL }}
           LLM_MODEL: ${{ secrets.LLM_MODEL }}
         run: |

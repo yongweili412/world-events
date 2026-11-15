@@ -43,6 +43,7 @@ jobs:
           # 观察几轮确认误杀率可接受后，再把这里改成 enforce 正式启用。
           INGEST_MODE: 'shadow'
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          LLM_API_KEY_ZHIPU: ${{ secrets.LLM_API_KEY_ZHIPU }}
           LLM_BASE_URL: ${{ secrets.LLM_BASE_URL }}
           LLM_MODEL: ${{ secrets.LLM_MODEL }}
         run: python scraper/scraper.py
@@ -50,6 +51,7 @@ jobs:
       - name: LLM 翻译库中英文事件（flash 模型，配置见 scraper/llm_config.json）
         env:
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          LLM_API_KEY_ZHIPU: ${{ secrets.LLM_API_KEY_ZHIPU }}
           LLM_BASE_URL: ${{ secrets.LLM_BASE_URL }}
           LLM_MODEL: ${{ secrets.LLM_MODEL }}
         run: python scraper/translate_cloud.py
@@ -57,6 +59,7 @@ jobs:
       - name: 字段级中文化（sources 标题/导语、时间线、description 的英文残留）
         env:
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          LLM_API_KEY_ZHIPU: ${{ secrets.LLM_API_KEY_ZHIPU }}
           LLM_BASE_URL: ${{ secrets.LLM_BASE_URL }}
           LLM_MODEL: ${{ secrets.LLM_MODEL }}
         run: python scraper/field_translate.py
@@ -64,6 +67,7 @@ jobs:
       - name: 历史回填缺漏补翻（backfill_gaps 自动检测缺失并收敛清零）
         env:
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          LLM_API_KEY_ZHIPU: ${{ secrets.LLM_API_KEY_ZHIPU }}
           LLM_BASE_URL: ${{ secrets.LLM_BASE_URL }}
           LLM_MODEL: ${{ secrets.LLM_MODEL }}
         run: python scraper/backfill_gaps.py
@@ -71,6 +75,7 @@ jobs:
       - name: 全文速览推进 30 条（云端抓外文源 + flash 模型生成）
         env:
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          LLM_API_KEY_ZHIPU: ${{ secrets.LLM_API_KEY_ZHIPU }}
           LLM_BASE_URL: ${{ secrets.LLM_BASE_URL }}
           LLM_MODEL: ${{ secrets.LLM_MODEL }}
           ALL_SOURCES: '1'

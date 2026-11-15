@@ -101,8 +101,10 @@ class TestTierStructure(unittest.TestCase):
 
     @staticmethod
     def _expected_chain():
-        """期望候选链：两档都可用时 free_promo 在前；free_promo 到期后只剩 deepseek。
-        （测试依赖 _expire_reason 判断，2026-11-30 免费档到期后本断言自动收窄，不会误报。）
+        """期望候选链（未配置智谱密钥时）：free_promo 在前，到期后只剩 deepseek。
+
+        glm_4_6v 缺 LLM_API_KEY_ZHIPU 时由守卫自动跳过，因此本组测试在无该密钥的
+        环境下仍应得到原两档链；有密钥时的三档链由 TestGLM46VTier 单独覆盖。
         """
         tiers = LG._tier_table(LG._load_config())
         free_expired = bool(LG._expire_reason(tiers["free_promo"])[0]) \
@@ -112,24 +114,29 @@ class TestTierStructure(unittest.TestCase):
         return ["qiniu/conatus-free", "deepseek/deepseek-v4.1-flash"]
 
     def test_chain_order_performance(self):
-        # 两档的 key_env 都是 LLM_API_KEY（qnaigc 网关共用密钥），
-        # 测试用假密钥即可——本组测试不联网、不发真实请求。
-        with patch.dict(os.environ, {"LLM_API_KEY": "sk-test-dummy"}):
+        # 显式排除智谱密钥，保证本机/CI 无论是否配了该 Secret 结果都稳定。
+        env = {k: v for k, v in os.environ.items()
+               if k not in ("LLM_API_KEY", "LLM_API_KEY_ZHIPU")}
+        with patch.dict(os.environ, {**env, "LLM_API_KEY": "sk-test-dummy"}, clear=True):
             chain = LG.resolve_model_chain(scenario="performance")
             self.assertEqual(chain, self._expected_chain())
 
     def test_chain_order_free_first(self):
-        with patch.dict(os.environ, {"LLM_API_KEY": "sk-test-dummy"}):
+        env = {k: v for k, v in os.environ.items()
+               if k not in ("LLM_API_KEY", "LLM_API_KEY_ZHIPU")}
+        with patch.dict(os.environ, {**env, "LLM_API_KEY": "sk-test-dummy"}, clear=True):
             chain = LG.resolve_model_chain(scenario="free_first")
             self.assertEqual(chain, self._expected_chain())
 
     def test_missing_key_tier_skipped(self):
         """缺密钥的档位不得进入候选链（否则会发出注定失败的请求）。"""
-        env = {k: v for k, v in os.environ.items() if k != "LLM_API_KEY"}
+        env = {k: v for k, v in os.environ.items()
+               if k not in ("LLM_API_KEY", "LLM_API_KEY_ZHIPU")}
         with patch.dict(os.environ, env, clear=True):
             chain = LG.resolve_model_chain(scenario="performance")
             self.assertNotIn("qiniu/conatus-free", chain, "缺密钥的 conatus 档不该入选")
             self.assertNotIn("deepseek/deepseek-v4.1-flash", chain, "缺密钥的 deepseek 档不该入选")
+            self.assertNotIn("glm-4.6v", chain, "缺智谱密钥的 GLM-4.6V 档不该入选")
 
     def test_route_uses_tier_own_base_url(self):
         """conatus-free 必须路由到 qnaigc 网关（与 kimi/deepseek 共用同一网关与密钥）。"""
@@ -267,6 +274,93 @@ class TestRetiredModels(unittest.TestCase):
         for name, t in LG._tier_table(cfg).items():
             self.assertNotIn(LG._norm(t.get("model") or ""), retired,
                              f"档位 {name} 仍指向已退役模型: {t.get('model')}")
+
+
+class TestGLM46VTier(unittest.TestCase):
+    """用户 2026-11-15 指定：付费翻译优先 GLM-4.6V，权益 2026-12-10 到期。
+
+    关键约束：它走智谱官方网关与独立密钥，不能误配到 qnaigc；
+    缺密钥时自动跳过、链路顺延，不能阻断既有任务。
+    """
+
+    def _tier(self):
+        return LG._tier_table(LG._load_config())["glm_4_6v"]
+
+    def test_tier_defined_with_full_fields(self):
+        t = self._tier()
+        self.assertEqual(t["model"], "glm-4.6v")
+        self.assertEqual(t["base_url"], "https://open.bigmodel.cn/api/paas/v4")
+        self.assertEqual(t["key_env"], "LLM_API_KEY_ZHIPU")
+        self.assertEqual(t.get("expires"), "2026-12-10")
+        self.assertTrue((t.get("label") or "").strip())
+
+    def test_not_confused_with_disabled_or_retired_ids(self):
+        """2026-11-15 实测：qnaigc 里这几个标识全都不可用，绝不能拿来配档。"""
+        t = self._tier()
+        self.assertNotIn(t["model"], ("z-ai/glm-4.6v", "z-ai/glm-4.6", "GLM-4.6V",
+                                      "glm-4.6v-flash"))
+        self.assertNotEqual(t["base_url"], "https://api.qnaigc.com/v1")
+
+    def test_not_in_exhausted_or_retired_or_forbidden_lists(self):
+        cfg = LG._load_config()
+        da = cfg["daily_automation"]
+        m = LG._norm("glm-4.6v")
+        self.assertNotIn(m, _norm_set(da["exhausted_models"]))
+        self.assertNotIn(m, _norm_set(da["retired_models"]))
+        self.assertFalse(LG._is_forbidden("glm-4.6v", da["forbidden_models"]))
+
+    def test_chain_places_glm_before_deepseek_when_key_present(self):
+        env = {k: v for k, v in os.environ.items()
+               if k not in ("LLM_API_KEY", "LLM_API_KEY_ZHIPU")}
+        with patch.dict(os.environ, {**env, "LLM_API_KEY": "sk-qnaigc",
+                                     "LLM_API_KEY_ZHIPU": "sk-zhipu"}, clear=True):
+            for sc in SCENARIOS:
+                chain = LG.resolve_model_chain(scenario=sc)
+                self.assertIn("glm-4.6v", chain, f"{sc} 场景未把 GLM-4.6V 排进链")
+                self.assertLess(chain.index("glm-4.6v"),
+                                chain.index("deepseek/deepseek-v4.1-flash"),
+                                f"{sc} 场景付费档未优先于 deepseek")
+
+    def test_missing_zhipu_key_skips_tier(self):
+        env = {k: v for k, v in os.environ.items()
+               if k not in ("LLM_API_KEY", "LLM_API_KEY_ZHIPU")}
+        with patch.dict(os.environ, {**env, "LLM_API_KEY": "sk-qnaigc"}, clear=True):
+            self.assertFalse(LG._tier_available(self._tier(), LG._load_config()),
+                             "缺智谱密钥的档位不该判为可用")
+            for sc in SCENARIOS:
+                self.assertNotIn("glm-4.6v", LG.resolve_model_chain(scenario=sc),
+                                 f"{sc} 场景在缺密钥时混入了 GLM-4.6V")
+
+    def test_route_uses_zhipu_gateway_and_key(self):
+        """换档必须 model + base_url + key 三者同切。"""
+        env = {k: v for k, v in os.environ.items() if k != "LLM_API_KEY_ZHIPU"}
+        with patch.dict(os.environ, {**env, "LLM_API_KEY_ZHIPU": "sk-zhipu"}, clear=True):
+            route, reason = LG._route_for("glm-4.6v", cfg=LG._load_config())
+            self.assertIsNotNone(route, f"路由失败: {reason}")
+            base, key = route
+            self.assertEqual(base, "https://open.bigmodel.cn/api/paas/v4")
+            self.assertEqual(key, "sk-zhipu")
+
+    def test_expiry_is_valid_and_mechanism_kicks_in_next_day(self):
+        """12-10 当天仍可用，12-11 自动从候选链消失。"""
+        t = dict(self._tier())
+        self.assertEqual(t["expires"], "2026-12-10")
+        import datetime as dt
+
+        class FakeDate(dt.date):
+            @classmethod
+            def today(cls):
+                return dt.date(2026, 12, 11)
+
+        with patch.object(LG.datetime, "date", FakeDate):
+            self.assertTrue(LG._expire_reason(t)[0], "12-11 应判为已到期")
+            self.assertFalse(LG._tier_available(t, LG._load_config()),
+                             "到期后该档不该再可用")
+
+    def test_past_expiry_skips_tier(self):
+        t = dict(self._tier())
+        t["expires"] = "2026-10-24"
+        self.assertFalse(LG._tier_available(t, LG._load_config()))
 
 
 if __name__ == "__main__":

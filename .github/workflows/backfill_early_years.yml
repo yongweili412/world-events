@@ -56,6 +56,7 @@ jobs:
           # 只给密钥，不覆盖 base/model：由 llm_config.json 单一事实源决定候选链，
           # 避免「模型换了网关没换」的 400（历史事故）。
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          LLM_API_KEY_ZHIPU: ${{ secrets.LLM_API_KEY_ZHIPU }}
         run: |
           EXTRA=""
           if [ "${{ github.event.inputs.skip_bbc }}" = "true" ]; then

@@ -43,6 +43,7 @@ jobs:
       - name: 回填历史大事（抓取维基年表 → LLM 翻译 → 入库）
         env:
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          LLM_API_KEY_ZHIPU: ${{ secrets.LLM_API_KEY_ZHIPU }}
           LLM_BASE_URL: ${{ secrets.LLM_BASE_URL }}
           LLM_MODEL: ${{ secrets.LLM_MODEL }}
         run: python scraper/backfill_history.py ${{ github.event.inputs.years || 'auto' }}
