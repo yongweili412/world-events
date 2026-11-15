@@ -74,3 +74,26 @@
 - **网关实测**：`conatus-free` 429 限流、`nemotron-free` 502、两个 `-free` 僵尸条目已退役、
   `deepseek-v4.1-flash` 可用。`expires` 自动下线机制不改，11-30 前复测一次。
 
+## 2026-11-15 早年正式回填：首批已启动并落地
+
+用户已确认「启动早年正式回填」，按推荐方案执行（小批 200 条，只收 BBC + science/sports，
+过价值闸门再入库，英文条目走 LLM 翻译）。
+
+- 新增 `scraper/backfill_early_years.py` + `.github/workflows/backfill_early_years.yml`
+  （仅手动触发、不设 cron、并发组 `world-events-update` 与其它写库任务串行）+
+  `data/backfill_early_progress.json` + `tests/test_backfill_early_parse.py`。
+- **首批结果（run `43683219764` success）**：候选 737 条（BBC 471 / 维基 266）→
+  本批选 200（BBC 140 / 维基 60）→ 翻译 140 条 → 价值闸门 140 全放行 →
+  库内去重后尝试 140 → **实际新建 108 条（77%）** → 落库记账 → PUSH_OK。
+  限免档 429 后自动切 `deepseek/deepseek-v4.1-flash`（付费兜底档）。
+- **账货已核对**：分片里 1997-2001 从 422 → **530（+108）**，全库 129,599 → 129,707；
+  新增条目来源 BBC 73 / 维基领域年表 40（含多来源重叠）；远端进度 `created_total=108`；
+  提交 `f5f6c991`。部署由 push 触发，run head_sha `b0eacfb`。
+- **过程中修掉两个 bug**：① 年表页名误拼成 `1997_science`（少 `_in_`），10 页全空，
+  已抽 `wiki_pages()` 并加回归用例；② 首轮把整个 pick（200 key）写进 `processed_keys`，
+  但只有 140 条翻译成功，60 条失败条目被永久跳过——已改为 `keys_to_record()` 只记成功翻译的 key，
+  并加「缺 idx 单条重试」与 `--ignore-processed` 重扫参数；进度文件留 `first_run_note` 说明补回方式。
+- **仍 OPEN**：是否继续跑剩余 537 条候选（预估再入库 300-400 条）。每轮 200 条约消耗
+  20 次付费档 LLM 调用；免费档当前 429、11-30 到期，继续跑等于持续走付费兜底档。
+  需用户确认「继续 / 暂停」与费用接受度。
+
