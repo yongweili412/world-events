@@ -1,0 +1,103 @@
+name: 早年事件回填（1997-2001，手动小批）
+
+# 背景（2026-11-15）：维基逐日页 2002 年起才有，1997-2001 全库仅 422 条。
+# 云端只读探测确认：BBC On This Day（按 366 个月日页覆盖全年份）约 534 条，
+# 维基 YYYY_in_science / YYYY_in_sports 领域年表另有数百条带日期事件。
+# 用户确认：先小批 200 条试跑，只收 BBC + science/sports，过价值闸门再入库。
+#
+# 不设 cron：跑完看结果再决定是否扩大范围。本机代理把 BBC/维基挡成 502，必须云端跑。
+# 只存来源 URL，不下载图片。LLM 走 llm_config.json 候选链（限免档 429 自动切付费兜底）。
+
+on:
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: '本次最多入库条数（默认 200）'
+        required: false
+        default: '200'
+      dry_run:
+        description: '只抓候选不入库（true / false）'
+        required: false
+        default: 'false'
+
+permissions:
+  contents: write
+
+concurrency:
+  # 与其它写库任务串行，绝不并发写 data/events/*.json 分片
+  group: world-events-update
+  cancel-in-progress: false
+
+jobs:
+  early-backfill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: 检出仓库
+        uses: actions/checkout@v4
+
+      - name: 从分片重建工作副本（真源是 data/events/*.json）
+        run: python scraper/shard_events.py ensure
+
+      - name: 安装 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: 安装依赖
+        run: pip install --quiet feedparser requests
+
+      - name: 早年回填（抓 BBC + 维基年表 → 翻译 → 价值闸门 → 入库）
+        env:
+          # 只给密钥，不覆盖 base/model：由 llm_config.json 单一事实源决定候选链，
+          # 避免「模型换了网关没换」的 400（历史事故）。
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+        run: |
+          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+            python scraper/backfill_early_years.py --limit "${{ github.event.inputs.limit }}" --dry-run
+          else
+            python scraper/backfill_early_years.py --limit "${{ github.event.inputs.limit }}"
+          fi
+
+      - name: 档案价值评分补跑（新增事件必须补分）
+        if: github.event.inputs.dry_run != 'true'
+        continue-on-error: true
+        run: python scraper/rescore.py
+
+      - name: 分片写回（入库真源）
+        if: github.event.inputs.dry_run != 'true'
+        run: python scraper/shard_events.py split
+
+      - name: 提交并推送（被拒按事件 id 并集合并，不丢远端成果）
+        if: github.event.inputs.dry_run != 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "本次无新内容，跳过提交"
+            exit 0
+          fi
+          git commit -m "早年事件回填: 1997-2001 $(TZ=Asia/Shanghai date '+%Y-%m-%d %H:%M') 北京时间"
+          for i in 1 2 3 4; do
+            if git push; then
+              echo "PUSH_OK（第 ${i} 次尝试）"
+              exit 0
+            fi
+            echo "push 被拒（第 ${i} 次），合并远程变更后重推…"
+            git fetch origin main || true
+            git merge --no-commit --no-ff origin/main 2>/dev/null || true
+            python scraper/merge_shards.py
+            python scraper/shard_events.py split
+            for f in $(git diff --name-only --diff-filter=U); do
+              case "$f" in
+                data/events/*.json) : ;;
+                *) git checkout --ours "$f" 2>/dev/null || true; git add "$f" 2>/dev/null || true ;;
+              esac
+            done
+            git add -A
+            git commit -m "merge: 按事件id并集合并分片（不丢远端成果）" 2>/dev/null || true
+            sleep 5
+          done
+          echo "PUSH_FAILED"
+          exit 1
