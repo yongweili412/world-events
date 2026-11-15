@@ -393,6 +393,16 @@ def main():
         return 1
     if args.dry_run:
         print("DRY-RUN：只抓候选，未调用 LLM、未写库", flush=True)
+        # 顺带打印模型档位状态：用一次零成本的 dry-run 核对云端 Secrets 是否注入成功，
+        # 不必真的跑翻译任务就能发现「配置写好了但密钥没进环境变量」这类问题。
+        try:
+            sys.path.insert(0, os.path.join(ROOT, "scraper"))
+            import llm_guard as LG
+            for row in LG.tier_status():
+                print(f"  [档位] {row['tier']:<12} {row['model']:<32} "
+                      f"{'可用' if row['available'] else '跳过'} — {row['reason']}", flush=True)
+        except Exception as e:
+            print(f"  [档位] 状态读取失败: {type(e).__name__}", flush=True)
         print("样例:", json.dumps((bbc + wiki)[:3], ensure_ascii=False)[:600], flush=True)
         return 0
 

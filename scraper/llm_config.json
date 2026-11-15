@@ -23,7 +23,7 @@
         "key_env": "LLM_API_KEY_ZHIPU",
         "scenario": "用户 2026-11-15 指定：付费翻译优先使用 GLM-4.6V，权益/额度 2026-12-10 到期，到期前优先消耗。GLM-4.6V 是智谱官方视觉推理模型（官方 ID glm-4.6v），输入模态含纯文本、输出文本，可用于新闻翻译；本项目只发文本，不用其视觉能力。",
         "switch_condition": "限免档 qiniu/conatus-free 不可用（429 / 到期 / 缺密钥）后，付费链路优先走本档；本档缺密钥、到期或调用失败才降级到 deepseek/deepseek-v4.1-flash。缺 LLM_API_KEY_ZHIPU 时 llm_guard 自动跳过本档，绝不发出注定 401 的请求，现有任务不受影响。",
-        "model_note": "官方标识 glm-4.6v（docs.bigmodel.cn/cn/guide/models/vlm/glm-4.6v），端点 https://open.bigmodel.cn/api/paas/v4，密钥环境变量 LLM_API_KEY_ZHIPU。2026-11-15 实测：qnaigc 网关里 z-ai/glm-4.6v 返回 Model is disabled、glm-4.6v 无可用通道、z-ai/glm-4.6 已于 2026-06-30 退役 —— 切勿把本档配到 qnaigc 网关。首次拿到密钥后需实测一次 chat/completions（含 chat_raw 带的 thinking:disabled 字段是否被接受）。",
+        "model_note": "官方标识 glm-4.6v（docs.bigmodel.cn/cn/guide/models/vlm/glm-4.6v），端点 https://open.bigmodel.cn/api/paas/v4，密钥环境变量 LLM_API_KEY_ZHIPU。2026-11-15 实测：qnaigc 网关里 z-ai/glm-4.6v 返回 Model is disabled、glm-4.6v 无可用通道、z-ai/glm-4.6 已于 2026-06-30 退役 —— 切勿把本档配到 qnaigc 网关。2026-11-15 已用用户提供的密钥实测：官方 chat/completions 返回 200，chat_raw 带的 thinking:disabled 被正常接受（0.8s 返回正确中文 JSON），端到端换档到智谱网关亦返回 200。切勿把本档配到 qnaigc 网关。",
         "enabled": true,
         "expires": "2026-12-10"
       },
