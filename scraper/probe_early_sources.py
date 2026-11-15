@@ -21,6 +21,7 @@ import calendar
 import collections
 import json
 import re
+import time
 import urllib.error
 import urllib.request
 
@@ -39,10 +40,23 @@ WIKI_PAGES = [
 ]
 
 
-def fetch(url, timeout=20):
-    req = urllib.request.Request(url, headers=UA)
-    with urllib.request.urlopen(req, timeout=timeout) as f:
-        return f.read().decode("utf-8", "replace")
+def fetch(url, timeout=20, retries=3):
+    """带退避重试的只读抓取。
+
+    2026-11-15 首次探测：维基 API 连续请求到第 11 页起全部 HTTPError（限流），
+    20 页只成功 10 页，条目量被低估。这里加指数退避 + 页间间隔。
+    """
+    last = None
+    for attempt in range(retries):
+        try:
+            req = urllib.request.Request(url, headers=UA)
+            with urllib.request.urlopen(req, timeout=timeout) as f:
+                return f.read().decode("utf-8", "replace")
+        except Exception as e:
+            last = e
+            if attempt < retries - 1:
+                time.sleep(2 * (attempt + 1))
+    raise last
 
 
 def probe_bbc():
@@ -60,6 +74,7 @@ def probe_bbc():
                 fail += 1
                 print(f"  BBC {month}/{day} 失败: {type(e).__name__} {str(e)[:70]}", flush=True)
                 continue
+            time.sleep(0.3)
             # 形如 "1999: Super-cyclone wreaks havoc in India"
             for m in re.finditer(r"\b(199[7-9]|200[01])\s*[:：]\s*([^<\n]{5,140})", html):
                 yr = m.group(1)
@@ -97,6 +112,7 @@ def probe_wikipedia():
         except Exception as e:
             fail += 1
             per_page[page] = f"ERR:{type(e).__name__}"
+        time.sleep(0.8)
     return {"pages_ok": ok, "pages_failed": fail,
             "dated_events_total": sum(v for v in per_page.values() if isinstance(v, int)),
             "per_page": per_page, "samples": samples,
