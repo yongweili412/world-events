@@ -306,6 +306,7 @@ RETRY_BACKOFF = 15         # 退避基数（秒），第 n 次重试等待 RETRY
 # 20 批就是 15 分钟纯等待，批量回填因此跑到 36 分钟仍未完成、差点被 90 分钟上限杀掉。
 # 冷却只作用于 chat_raw 的实际尝试链，不改 resolve_model_chain 的「配置上可用」语义。
 _TIER_COOLDOWN = {}          # 模型名(norm) -> 冷却截止时间戳
+_COOLDOWN_NOTICE = set()     # 已提示过的冷却组合，避免每批重复刷同一行日志
 TIER_COOLDOWN_SECONDS = 600  # 10 分钟：限流通常持续数分钟，冷却后自动恢复尝试
 
 
@@ -327,6 +328,7 @@ def _apply_cooldown(chain):
 def _clear_cooldown():
     """清空冷却记录（测试与长驻进程手动重置用）。"""
     _TIER_COOLDOWN.clear()
+    _COOLDOWN_NOTICE.clear()
 
 
 def _route_for(model, cfg=None, fallback_base=None, fallback_key=None):
@@ -391,14 +393,17 @@ def chat_raw(prompt, key: str = None, base: str = None, timeout: int = 300, temp
         print("[llm] 候选链为空：所有档位均不可用（缺密钥或额度耗尽），本次不调用模型", flush=True)
         return None
     # 本轮已确认限流的档直接摘掉：否则每批都要在 429 档上白等 15+30 秒
-    before = len(chain)
+    original = list(chain)
     chain = _apply_cooldown(chain)
     if not chain:
         print("[llm] 所有档本轮均处于限流冷却，跳过本次调用（冷却到期后自动恢复）", flush=True)
         return None
-    if len(chain) < before:
-        print(f"[llm] 本轮跳过已限流的档 {before - len(chain)} 个，"
-              f"实际尝试链：{' → '.join(chain)}", flush=True)
+    if len(chain) < len(original):
+        skipped = [m for m in original if _in_cooldown(m)]
+        sig = tuple(sorted(skipped))
+        if sig not in _COOLDOWN_NOTICE:
+            _COOLDOWN_NOTICE.add(sig)
+            print(f"[llm] 本轮跳过已限流的档：{', '.join(skipped)}（后续批次不再重复提示）", flush=True)
     last = None
     for idx, m in enumerate(chain):
         route, reason = _route_for(m, cfg, base, key)
