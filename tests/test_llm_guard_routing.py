@@ -363,5 +363,54 @@ class TestGLM46VTier(unittest.TestCase):
         self.assertFalse(LG._tier_available(t, LG._load_config()))
 
 
+class TestRateLimitCooldown(unittest.TestCase):
+    """2026-11-16：429 档本轮短路。
+
+    背景：限免档整天 429 时，每批调用都要先在它身上白等 15+30 秒才换档，
+    200 条 × 20 批就是 15 分钟纯等待，回填跑到 36 分钟仍未完成、差点被上限杀掉。
+    """
+
+    def setUp(self):
+        LG._clear_cooldown()
+
+    def tearDown(self):
+        LG._clear_cooldown()
+
+    def test_mark_and_detect(self):
+        LG._mark_cooldown("qiniu/conatus-free", 600)
+        self.assertTrue(LG._in_cooldown("qiniu/conatus-free"))
+        self.assertFalse(LG._in_cooldown("glm-4.6v"))
+
+    def test_apply_cooldown_removes_only_blocked(self):
+        LG._mark_cooldown("qiniu/conatus-free", 600)
+        chain = ["qiniu/conatus-free", "glm-4.6v", "deepseek/deepseek-v4.1-flash"]
+        self.assertEqual(LG._apply_cooldown(chain),
+                         ["glm-4.6v", "deepseek/deepseek-v4.1-flash"])
+
+    def test_expired_cooldown_restores_tier(self):
+        LG._mark_cooldown("qiniu/conatus-free", -1)   # 截止时间已过
+        self.assertFalse(LG._in_cooldown("qiniu/conatus-free"))
+        self.assertIn("qiniu/conatus-free",
+                      LG._apply_cooldown(["qiniu/conatus-free", "glm-4.6v"]))
+
+    def test_clear_resets_all(self):
+        LG._mark_cooldown("qiniu/conatus-free", 600)
+        LG._mark_cooldown("glm-4.6v", 600)
+        LG._clear_cooldown()
+        self.assertFalse(LG._in_cooldown("qiniu/conatus-free"))
+        self.assertFalse(LG._in_cooldown("glm-4.6v"))
+
+    def test_cooldown_does_not_change_config_chain_semantics(self):
+        """冷却只影响实际尝试链，不改 resolve_model_chain 的「配置上可用」结论。"""
+        LG._mark_cooldown("qiniu/conatus-free", 600)
+        env = {k: v for k, v in os.environ.items()
+               if k not in ("LLM_API_KEY", "LLM_API_KEY_ZHIPU")}
+        with patch.dict(os.environ, {**env, "LLM_API_KEY": "sk-qnaigc",
+                                     "LLM_API_KEY_ZHIPU": "sk-zhipu"}, clear=True):
+            chain = LG.resolve_model_chain(scenario="free_first")
+            self.assertIn("qiniu/conatus-free", chain,
+                          "配置层候选链不应被运行期冷却改写")
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)
