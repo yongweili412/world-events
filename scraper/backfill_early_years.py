@@ -33,6 +33,7 @@ import sys
 import time
 import urllib.parse
 import urllib.request
+from concurrent.futures import ThreadPoolExecutor
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROGRESS_FILE = os.path.join(ROOT, "data", "backfill_early_progress.json")
@@ -51,6 +52,7 @@ WIKI_API = ("https://en.wikipedia.org/w/api.php?action=parse&page={page}"
 
 CATEGORIES = ["自然灾害", "政治", "经济", "体育", "环境", "社会", "军事", "科技", "文化", "其他"]
 MIN_OUTPUT_RATIO = 0.5
+BBC_WORKERS = 8   # BBC 日期页并发数：串行 366 页实测十几分钟（含超时重试），并发后约 1 分钟
 
 def wiki_pages():
     """维基领域年表页名。`_in_` 不可省：曾误拼成 1997_science，10 页全空。"""
@@ -156,6 +158,16 @@ def parse_wiki_wikitext(wikitext, year, page):
     return out
 
 
+def _bbc_one(spec):
+    """抓单个 BBC 日期页（供线程池并发调用）。异常在内部吞掉并回传，不中断整批。"""
+    month, day = spec
+    url = BBC_URL.format(m=MONTH_NAMES[month - 1], d=day)
+    try:
+        return url, month, day, _fetch(url, timeout=12, retries=2), None
+    except Exception as e:
+        return url, month, day, None, e
+
+
 def collect_candidates(max_bbc_pages=366, skip_bbc=False):
     """抓两类源并去重。BBC 全量日期页 + 维基 science/sports 年表。"""
     bbc, wiki = [], []
@@ -165,26 +177,22 @@ def collect_candidates(max_bbc_pages=366, skip_bbc=False):
         print("  （调试模式：跳过 BBC 抓取，只验证维基年表解析）", flush=True)
         max_bbc_pages = 0
 
-    for month in range(1, 13):
-        for day in range(1, calendar.monthrange(2000, month)[1] + 1):
-            if pages_ok + pages_fail >= max_bbc_pages:
-                break
-            url = BBC_URL.format(m=MONTH_NAMES[month - 1], d=day)
-            try:
-                raw = _fetch(url)
+    spec = [(m, d) for m in range(1, 13)
+            for d in range(1, calendar.monthrange(2000, m)[1] + 1)][:max_bbc_pages]
+    if spec:
+        print(f"  BBC 并发抓取 {len(spec)} 页（{BBC_WORKERS} 路）...", flush=True)
+        with ThreadPoolExecutor(max_workers=BBC_WORKERS) as ex:
+            for url, month, day, raw, err in ex.map(_bbc_one, spec):
+                if err is not None:
+                    pages_fail += 1
+                    if pages_fail <= 3:
+                        print(f"  BBC {month:02d}-{day:02d} 抓取失败: {type(err).__name__}", flush=True)
+                    continue
                 pages_ok += 1
-            except Exception as e:
-                pages_fail += 1
-                if pages_fail <= 3:
-                    print(f"  BBC {month:02d}-{day:02d} 抓取失败: {type(e).__name__}", flush=True)
-                continue
-            for c in parse_bbc_html(raw, url, month, day):
-                if c["key"] not in seen:
-                    seen.add(c["key"])
-                    bbc.append(c)
-            time.sleep(0.2)
-        if pages_ok + pages_fail >= max_bbc_pages:
-            break
+                for c in parse_bbc_html(raw, url, month, day):
+                    if c["key"] not in seen:
+                        seen.add(c["key"])
+                        bbc.append(c)
     print(f"  BBC: {pages_ok} 页成功 / {pages_fail} 页失败 → {len(bbc)} 条候选", flush=True)
 
     for year, page in wiki_pages():
