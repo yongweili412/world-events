@@ -23,6 +23,7 @@
 """
 import argparse
 import json
+import os
 import sys
 from collections import Counter
 from datetime import datetime, timezone
@@ -99,6 +100,17 @@ def load_events():
         return json.load(f)
 
 
+def should_block_split(event_count, index_count, allow_shrink=False):
+    """工作副本明显少于分片索引时拒绝入库，防止旧副本覆盖新分片。
+
+    2026-11-17 事故：本机任务读未同步的旧 events.json（530 条）后 split，
+    把分片里已入库的 862 条覆盖回 530。合法删数据场景可设 WE_ALLOW_SHRINK=1。
+    """
+    if allow_shrink or not isinstance(index_count, int):
+        return False
+    return event_count < index_count - 50
+
+
 def split(events=None):
     """events.json → 按年份分片。保持原数组相对顺序，保证幂等。
 
@@ -111,6 +123,20 @@ def split(events=None):
     if events is None:
         print("❌ 找不到 data/events.json，无法 split")
         return 1
+
+    # 入库前硬闸门：工作副本条数明显少于分片索引，说明它很可能是旧副本。
+    # 与其覆盖分片，不如直接拒绝，让调用方先 merge。
+    if INDEX_FILE.exists():
+        try:
+            idx = json.loads(INDEX_FILE.read_text(encoding="utf-8"))
+            if should_block_split(len(events), idx.get("totalEvents"),
+                                  os.environ.get("WE_ALLOW_SHRINK") == "1"):
+                print(f"❌ 拒绝 split：工作副本 {len(events)} 条 < 分片索引 "
+                      f"{idx.get('totalEvents')} 条，疑似旧副本。请先运行 "
+                      f"shard_events.py merge；确需删数据设 WE_ALLOW_SHRINK=1", flush=True)
+                return 1
+        except Exception:
+            pass
 
     # 入库前的最后一道自愈（幂等）：类目归一、标签去来源名/类目名、日期格式。
     # 放在这里而不是各个抓取脚本里——split 是所有写分片的唯一出口，
@@ -244,11 +270,25 @@ def status():
 
 
 def ensure():
-    """仅在 events.json 缺失时从分片重建——供其他脚本开头调用，绝不覆盖已有数据。"""
-    if EVENTS_FILE.exists():
-        return 0
-    print("ℹ️ data/events.json 缺失，从分片重建…")
-    return merge()
+    """工作副本缺失或与分片索引不一致时从分片重建——绝不拿旧副本覆盖新分片。
+
+    2026-11-17 前只判断「缺失」，导致本机任务拿着落后 332 条的 events.json 直接 split，
+    把分片覆盖回旧状态。现在把「条数不一致」也视为需要重建。
+    """
+    ev = load_events()
+    if ev is None:
+        print("ℹ️ data/events.json 缺失，从分片重建…")
+        return merge()
+    if INDEX_FILE.exists():
+        try:
+            idx = json.loads(INDEX_FILE.read_text(encoding="utf-8"))
+            expected = idx.get("totalEvents")
+            if isinstance(expected, int) and expected != len(ev):
+                print(f"ℹ️ 工作副本 {len(ev)} 条与分片索引 {expected} 条不一致，从分片重建…")
+                return merge()
+        except Exception:
+            pass
+    return 0
 
 
 def main():
