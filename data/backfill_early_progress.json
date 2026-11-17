@@ -791,5 +791,6 @@
   }
  ],
  "_note": "1997-2001 早年回填进度。processed_keys 记录已进入过翻译的候选 key；只有 shard_events.py split 成功、真实新建数达标后才记账，避免账货不一致。",
- "first_run_note": "首轮（2026-11-15 14:08）记账口径有误：200 个候选 key 全部写入 processed_keys，但当轮只有 140 条翻译成功、108 条入库，另 60 条翻译失败被一并标记已处理。脚本已修（keys_to_record 只记成功翻译的 key + 翻译缺 idx 时单条重试）。补回方式：下一轮加 --ignore-processed 重扫候选，库内按日期+中文标题去重会挡住已入库条目。"
+ "first_run_note": "首轮（2026-11-15 14:08）记账口径有误：200 个候选 key 全部写入 processed_keys，但当轮只有 140 条翻译成功、108 条入库，另 60 条翻译失败被一并标记已处理。脚本已修（keys_to_record 只记成功翻译的 key + 翻译缺 idx 时单条重试）。补回方式：下一轮加 --ignore-processed 重扫候选，库内按日期+中文标题去重会挡住已入库条目。",
+ "recovery_note": "2026-11-17 数据恢复：本机自动任务 efa3439d 读取了未同步的旧 events.json（530 条）并 split，把分片里已入库的早年数据覆盖回 530。已从 00128a16 按事件 id 并集恢复 332 条，并保留后续新增，早年分片恢复为 915 条。后续务必在 pull/push 后执行 shard_events.py merge 同步工作副本。"
 }
