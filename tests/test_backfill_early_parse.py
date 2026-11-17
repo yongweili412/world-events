@@ -116,5 +116,46 @@ class TestScope(unittest.TestCase):
         self.assertEqual(BE.keys_to_record([]), [])
 
 
+class TestSimpleFallback(unittest.TestCase):
+    """单条兜底：极简 prompt 只取一行标题，不再要求长 JSON。"""
+
+    class _Resp:
+        def __init__(self, content, status=200):
+            self.status_code = status
+            self._content = content
+
+        def json(self):
+            return {"choices": [{"message": {"content": self._content}}]}
+
+    def test_prompt_is_short_without_json_structure(self):
+        p = BE.build_simple_prompt("Some English news " * 40)
+        self.assertIn("只输出标题本身", p)
+        self.assertNotIn("idx", p)
+        self.assertNotIn("summary", p)
+        self.assertNotIn('"title"', p)
+
+    def test_parse_plain_title(self):
+        self.assertEqual(BE._parse_simple(self._Resp("戴安娜王妃引发地雷争议")),
+                         "戴安娜王妃引发地雷争议")
+
+    def test_parse_strips_quotes_and_numbering(self):
+        self.assertEqual(BE._parse_simple(self._Resp('"戴安娜王妃引发地雷争议"')),
+                         "戴安娜王妃引发地雷争议")
+        self.assertEqual(BE._parse_simple(self._Resp("1. 刚果总统卡比拉遇刺")),
+                         "刚果总统卡比拉遇刺")
+
+    def test_parse_takes_first_line_only(self):
+        self.assertEqual(BE._parse_simple(self._Resp("英国首次最低工资\n解释：这是 1999 年的事件")),
+                         "英国首次最低工资")
+
+    def test_parse_rejects_bad_responses(self):
+        self.assertIsNone(BE._parse_simple(None))
+        self.assertIsNone(BE._parse_simple(self._Resp("标题", status=429)))
+        self.assertIsNone(BE._parse_simple(self._Resp("   \n  ")))
+
+    def test_parse_caps_length(self):
+        self.assertLessEqual(len(BE._parse_simple(self._Resp("标" * 200))), 60)
+
+
 if __name__ == "__main__":
     unittest.main()

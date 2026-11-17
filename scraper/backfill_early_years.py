@@ -263,10 +263,34 @@ def _parse_llm(resp, batch):
     return out
 
 
-def translate(items, batch_size=10):
-    """串行分批翻译。chat_raw 自动处理限免档 429 → 付费兜底档切换。"""
+def build_simple_prompt(text_en):
+    """单条兜底 prompt：只要一句标题，不要求 JSON，避免长输出被截断/格式跑偏。"""
+    return ("把下面这段英文史料改写成一句中文新闻标题（30 字以内）。"
+            "只输出标题本身，不要引号、不要编号、不要 JSON、不要解释。\n\n"
+            f"英文史料：{text_en[:350]}")
+
+
+def _parse_simple(resp):
+    """解析极简 prompt 的纯文本返回，取第一行当标题。"""
+    if resp is None or getattr(resp, "status_code", None) != 200:
+        return None
+    try:
+        content = (resp.json()["choices"][0]["message"].get("content") or "").strip()
+    except Exception:
+        return None
+    if not content:
+        return None
+    line = content.splitlines()[0].strip()
+    line = re.sub(r"^[\s\"'「『`\*\d\.、\-]+", "", line)
+    line = re.sub(r"[\s\"'」』`]+$", "", line).strip()[:60]
+    return line or None
+
+
+def translate(items, batch_size=5):
+    """串行分批翻译。batch_size 从 10 降到 5：JSON 越短越不容易被截断。"""
     sys.path.insert(0, os.path.join(ROOT, "scraper"))
     from llm_guard import chat_raw
+    import scraper as sp
     key = os.environ.get("LLM_API_KEY", "").strip()
     out = []
     total = (len(items) + batch_size - 1) // batch_size
@@ -287,25 +311,26 @@ def translate(items, batch_size=10):
             c.update({"title": title, "summary": summary,
                       "category": cat, "country": country})
             out.append(c)
-        # 单条重试：模型返回 JSON 常缺个别 idx，静默丢掉会永久少条目。
-        # 首轮实测 200 条只翻出 140 条，这个补漏能把翻译率拉回来。
+        # 单条兜底：批量 JSON 缺 idx 的条目，改用极简 prompt 只要一句标题。
+        # 前四批实测这批「反复失败」的候选就是卡在长 JSON 输出上，
+        # 用同一套长 JSON 重试仍然失败；只要标题后由本地规则补 category/country 即可入库。
         for j, c in enumerate(chunk):
             if j in returned:
                 continue
-            one = [{"idx": 0, "date": c["date"], "text": c["text_en"][:400]}]
+            title = None
             try:
-                rr = chat_raw(build_prompt(one), key=key, timeout=120,
-                              temperature=0.2, max_tokens=800)
+                rr = chat_raw(build_simple_prompt(c["text_en"]), key=key, timeout=120,
+                              temperature=0.2, max_tokens=150)
+                title = _parse_simple(rr)
             except Exception:
-                rr = None
-            one_got = _parse_llm(rr, one)
-            if one_got:
-                _, title, summary, cat, country = one_got[0]
+                pass
+            if title:
                 nc = dict(c)
-                nc.update({"title": title, "summary": summary,
-                           "category": cat, "country": country})
+                nc.update({"title": title, "summary": title,
+                           "category": sp.guess_category(title, ""),
+                           "country": sp.guess_country(title, "")})
                 out.append(nc)
-            time.sleep(0.8)
+            time.sleep(0.5)
         n = i // batch_size + 1
         if n % 5 == 0 or n == total:
             print(f"  翻译进度 {n}/{total} 批，成功 {len(out)} 条", flush=True)
@@ -389,6 +414,8 @@ def main():
     ap.add_argument("--skip-bbc", action="store_true", help="调试用：只验证维基年表解析")
     ap.add_argument("--ignore-processed", action="store_true",
                     help="忽略 processed_keys 重扫候选（补回首轮翻译失败条目，靠库内去重防重复）")
+    ap.add_argument("--show-remaining", type=int, default=0,
+                    help="诊断：打印 N 条未处理候选的原文（不调 LLM、不写库）")
     args = ap.parse_args()
     os.chdir(ROOT)
 
@@ -399,8 +426,22 @@ def main():
     if total_candidates == 0:
         print("❌ 候选为 0，疑似解析或网络故障；不入库、不记账", flush=True)
         return 1
+    if args.show_remaining:
+        prog = load_progress()
+        done = set(prog.get("processed_keys", []))
+        rem = [c for c in bbc + wiki if c["key"] not in done]
+        print(f"=== 剩余未处理 {len(rem)} 条候选（原文样本）===", flush=True)
+        for c in rem[:args.show_remaining]:
+            print(f"  {c['date']} [{c['kind']}] {c['text_en'][:180]}", flush=True)
+        return 0
     if args.dry_run:
         print("DRY-RUN：只抓候选，未调用 LLM、未写库", flush=True)
+        prog = load_progress()
+        done = set(prog.get("processed_keys", []))
+        rem = [c for c in bbc + wiki if c["key"] not in done]
+        print(f"未处理候选 {len(rem)} 条；原文样本（诊断翻译失败原因）:", flush=True)
+        for c in rem[:10]:
+            print(f"  {c['date']} [{c['kind']}] {c['text_en'][:180]}", flush=True)
         # 顺带打印模型档位状态：用一次零成本的 dry-run 核对云端 Secrets 是否注入成功，
         # 不必真的跑翻译任务就能发现「配置写好了但密钥没进环境变量」这类问题。
         try:
