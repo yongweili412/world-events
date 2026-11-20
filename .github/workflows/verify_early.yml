@@ -1,0 +1,43 @@
+name: 早年数据权威核对（一次性）
+
+# 抓维基五年年表原文，与本地 916 条早年事件做证据归集，
+# 输出「数字在权威原文中出现/未出现」清单，供逐条人工核对。
+# 只生成报告，不改任何数据 —— 所有修正必须人工确认权威原文后执行。
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: world-events-verify
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: 检出仓库
+        uses: actions/checkout@v4
+
+      - name: 安装 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: 核对（只生成报告，不改数据）
+        run: python scraper/verify_early_years.py
+
+      - name: 保存报告
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "报告无变化"
+            exit 0
+          fi
+          git commit -m "data: 早年数据权威核对报告（1997-2001）"
+          git push
