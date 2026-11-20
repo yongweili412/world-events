@@ -240,6 +240,58 @@ const SEARCH_RENDER_LIMIT = 200;
 let __searchState = { results: [], kw: '', shown: 0 };
 
 // ===== 首页：日期中心视图（"今天世界发生了什么"） =====
+// 2026-11-20 修复「只能往前跳 3 天」：
+// 首页首屏只内嵌最近 INDEX_EMBED_COUNT 条（约 3 天），原实现把 min/max 与前后按钮
+// 直接绑在这批内嵌数据上，导致更早的日期既选不到也点不到。
+// 现在：① 用 data/dates.json（全库有事件的日期，约 80KB）驱动前后跳转与可选范围；
+//       ② 选中非内嵌日期时按需加载 data/m/YYYY-MM.json，只取当月；
+//       ③ 首屏仍用内嵌数据，索引在后台预热，不增加首屏阻塞。
+
+let __dateIndex = null;        // 全库日期升序数组
+let __dateIndexPromise = null;
+let __monthCache = {};         // { 'YYYY-MM': [events] }
+let __dateRenderSeq = 0;       // 竞态保护：快速切换日期时只渲染最后一次
+
+async function getDateIndex() {
+  if (__dateIndex) return __dateIndex;
+  if (__dateIndexPromise) return __dateIndexPromise;
+  __dateIndexPromise = (async () => {
+    try {
+      const r = await fetch('./data/dates.json');
+      if (r.ok) {
+        const d = await r.json();
+        if (Array.isArray(d) && d.length) __dateIndex = d;
+      }
+    } catch (e) {
+      console.warn('日期索引加载失败，回退到内嵌日期范围:', e.message);
+    }
+    return __dateIndex || [];
+  })();
+  try {
+    return await __dateIndexPromise;
+  } finally {
+    __dateIndexPromise = null;
+  }
+}
+
+async function loadMonthEvents(ym) {
+  if (__monthCache[ym]) return __monthCache[ym];
+  try {
+    const r = await fetch(MONTH_SHARD_URL(ym));
+    if (!r.ok) return [];
+    const d = await r.json();
+    __monthCache[ym] = Array.isArray(d) ? d : [];
+  } catch (e) {
+    __monthCache[ym] = [];
+  }
+  return __monthCache[ym];
+}
+
+function isValidYmd(s) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(s)) return false;
+  return !Number.isNaN(Date.parse(s + 'T00:00:00'));
+}
+
 async function initDateView() {
   const list = document.getElementById('timeline-list');
   if (!list) return;
@@ -252,26 +304,48 @@ async function initDateView() {
   }
   const allDates = [...new Set(events.map(e => e.date))].sort();
 
-  // 当前日期：URL ?date= > 全库最新日期
+  // 当前日期：URL ?date= > 全库最新日期。URL 指定但不在内嵌数据里也保留，
+  // 由 renderDay 去加载对应月份分片（此前会被强制改到最近日期，等于跳不过去）。
   const params = new URLSearchParams(location.search);
-  let current = params.get('date') || window.__LATEST_DATE__ || allDates[allDates.length - 1];
-  if (!allDates.includes(current)) {
-    current = allDates.find(d => d >= current) || allDates[allDates.length - 1];
-  }
+  let current = params.get('date') || '';
+  if (!isValidYmd(current)) current = window.__LATEST_DATE__ || allDates[allDates.length - 1];
 
-  function renderDay(date) {
+  const earliest = window.__EARLIEST_DATE__ || allDates[0];
+  const latest = window.__LATEST_DATE__ || allDates[allDates.length - 1];
+
+  async function renderDay(date) {
+    const seq = ++__dateRenderSeq;
     current = date;
-    const dayEvents = events.filter(e => e.date === date).sort((a, b) => (a.id > b.id ? 1 : -1));
-    const idx = allDates.indexOf(date);
-    const prev = idx > 0 ? allDates[idx - 1] : null;
-    const next = idx < allDates.length - 1 ? allDates[idx + 1] : null;
+
+    // 先在内嵌数据里找；找不到再按需加载该月分片（不下载全库索引）
+    let dayEvents = events.filter(e => e.date === date);
+    if (!dayEvents.length && isValidYmd(date)) {
+      const month = await loadMonthEvents(date.slice(0, 7));
+      if (seq !== __dateRenderSeq) return;   // 已被更新的跳转取代
+      dayEvents = month.filter(e => e.date === date);
+    }
+    dayEvents.sort((a, b) => (a.id > b.id ? 1 : -1));
+
+    // 前后跳转：优先用全库日期索引；索引未就绪时退回内嵌日期，保证首屏可用
+    const dateList = (__dateIndex && __dateIndex.length) ? __dateIndex : allDates;
+    let prev = null, next = null;
+    const i = dateList.indexOf(date);
+    if (i > 0) prev = dateList[i - 1];
+    if (i >= 0 && i < dateList.length - 1) next = dateList[i + 1];
+    if (i === -1) {   // 当前日期本身没有事件：取最近的前后有效日期
+      prev = dateList.filter(d => d < date).pop() || null;
+      next = dateList.find(d => d > date) || null;
+    }
+    const lo = (__dateIndex && __dateIndex.length) ? __dateIndex[0] : earliest;
+    const hi = (__dateIndex && __dateIndex.length) ? __dateIndex[__dateIndex.length - 1] : latest;
+
     const nav = document.getElementById('date-nav');
     if (nav) {
       nav.innerHTML = `
         <button class="date-btn" ${prev ? `onclick="gotoDate('${prev}')"` : 'disabled'}>← ${prev || '—'}</button>
-        <input type="date" id="date-picker" value="${date}" min="${allDates[0]}" max="${allDates[allDates.length-1]}" style="padding:6px 10px;border:1px solid var(--border);border-radius:8px;font-size:14px">
+        <input type="date" id="date-picker" value="${date}" min="${lo}" max="${hi}" style="padding:6px 10px;border:1px solid var(--border);border-radius:8px;font-size:14px">
         <button class="date-btn" ${next ? `onclick="gotoDate('${next}')"` : 'disabled'}>${next || '—'} →</button>
-        <button class="date-btn" onclick="gotoDate('${allDates[allDates.length-1]}')">最新</button>`;
+        <button class="date-btn" onclick="gotoDate('${hi}')">最新</button>`;
       const picker = document.getElementById('date-picker');
       if (picker) picker.addEventListener('change', e => { if (e.target.value) gotoDate(e.target.value); });
     }
@@ -281,14 +355,22 @@ async function initDateView() {
     if (cnt) cnt.textContent = `当日 ${dayEvents.length} 个事件`;
     if (!dayEvents.length) {
       list.innerHTML = '<div class="empty-state"><p>该日期暂无事件记录</p></div>';
-      return;
+    } else {
+      list.innerHTML = dayEvents.map(ev => renderEventCard(ev, '')).join('');
     }
-    list.innerHTML = dayEvents.map(ev => renderEventCard(ev, '')).join('');
     const u = new URL(location.href);
     u.searchParams.set('date', date);
     history.replaceState(null, '', u);
   }
   window.gotoDate = function (d) {
+    if (!isValidYmd(d)) return;                       // 非法日期直接忽略
+    // 边界优先用全库日期索引：只靠 __EARLIEST_DATE__ 会在索引未就绪时把历史日期夹回去
+    const lo = (__dateIndex && __dateIndex.length) ? __dateIndex[0]
+             : (window.__EARLIEST_DATE__ || earliest);
+    const hi = (__dateIndex && __dateIndex.length) ? __dateIndex[__dateIndex.length - 1]
+             : (window.__LATEST_DATE__ || latest);
+    if (d < lo) d = lo;                               // 超范围夹到边界，避免空白页
+    if (d > hi) d = hi;
     const si = document.getElementById('search-input');
     if (si) si.value = '';
     const df = document.getElementById('date-from'); if (df) df.value = '';
@@ -296,7 +378,18 @@ async function initDateView() {
     renderDay(d);
     window.scrollTo(0, 0);
   };
-  renderDay(current);
+  // URL 直跳一个不在内嵌范围内的历史日期时，先等索引就绪再渲染，
+  // 否则首次渲染的 min/max 还是内嵌范围，日期框会显示异常。
+  if (isValidYmd(current) && !allDates.includes(current)) {
+    await getDateIndex();
+  }
+  await renderDay(current);
+
+  // 后台预热全库日期索引（约 80KB）：加载完成后刷新一次导航，
+  // 让「前一天/后一天」能跨出内嵌的最近几天；索引失败不影响首屏。
+  getDateIndex().then(ds => {
+    if (ds.length) renderDay(current);
+  });
 }
 
 // ===== 首页：搜索（关键词 + 日期范围，命中高亮，一键清空） =====

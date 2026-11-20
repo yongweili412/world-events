@@ -29,6 +29,7 @@ TEMPLATE_FILE = ROOT / "archive_template.html"
 DATA_DIR = ROOT / "data"
 INDEX_LITE_FILE = DATA_DIR / "index-lite.json"   # 轻量索引：全库搜索/地图/存档列表用
 MONTH_SHARD_DIR = DATA_DIR / "m"                 # 单月全量分片：详情页按需加载
+DATES_FILE = DATA_DIR / "dates.json"             # 全库有事件的日期（升序），首页日期选择器用
 INDEX_STATIC_COUNT = 50   # 首页静态渲染条数
 INDEX_EMBED_COUNT = 300   # 首页内嵌 JSON 条数（供搜索/筛选）
 ARCHIVE_PAGE_SIZE = 900    # 归档页单页事件上限：大于此值按月内分块（P1-A）
@@ -368,6 +369,21 @@ def build_month_shards(events_sorted):
     print(f"  ✅ data/m/ 已生成 {written} 个月度分片（平均 {avg_kb:.0f}KB/月，"
           f"合计 {total_bytes/1048576:.0f}MB，字段白名单裁剪）")
     return by_month
+
+
+def build_date_index(events_sorted):
+    """生成 data/dates.json —— 全库「有事件的日期」升序数组（约 80KB）。
+
+    2026-11-20 修复：首页原先把日期选择器的 min/max 与前后按钮绑在内嵌的最近 300 条
+    （约 3 天）上，导致「最多只能往前跳 3 天」。给前端一份轻量日期索引，
+    前后跳转与可选范围才能覆盖全库。
+    """
+    dates = sorted({(e.get("date") or "")[:10] for e in events_sorted if e.get("date")})
+    DATES_FILE.write_text(json.dumps(dates, ensure_ascii=False, separators=(",", ":")),
+                          encoding="utf-8")
+    print(f"  ✅ data/dates.json 已生成（{len(dates)} 个日期，"
+          f"{DATES_FILE.stat().st_size / 1024:.0f}KB）")
+    return dates
 
 
 def render_data_stats(events, months):
@@ -835,6 +851,7 @@ def main():
     idx = ROOT / "index.html"
     h = idx.read_text(encoding="utf-8")
     latest_date = events_sorted[0].get("date", "") if events_sorted else ""
+    earliest_date = min((e.get("date", "") for e in events if e.get("date")), default="")
     today_events = [e for e in events if e.get("date") == latest_date]
     h, _ = replace_between(h, S_START, S_END, render_stats(events), "index 统计")
     h, _ = replace_between(h, T_START, T_END,
@@ -850,6 +867,7 @@ def main():
     regions_all = _sorted_regions({region_of(e) for e in events})
     embed_snippet = (f"<script>window.__TOTAL_EVENTS__ = {len(events)}; "
                      f"window.__LATEST_DATE__ = '{latest_date}'; "
+                     f"window.__EARLIEST_DATE__ = '{earliest_date}'; "
                      f"window.__CATS__ = {json.dumps(cats_all, ensure_ascii=False)}; "
                      f"window.__REGIONS__ = {json.dumps(regions_all, ensure_ascii=False)}; "
                      f"window.__EMBEDDED_EVENTS__ = {payload};</script>")
@@ -870,6 +888,7 @@ def main():
     #    详情页只加载一个月（约 200KB-3MB），全库搜索用 index-lite（约 2-3MB gzip）
     lite = build_index_lite(events)
     build_month_shards(events_sorted)
+    build_date_index(events_sorted)
 
     # 4) 各页面清空数据引用块：数据改为运行时按需 fetch（不再整包脚本注入）
     for name in ("event.html", "country.html", "map.html"):
