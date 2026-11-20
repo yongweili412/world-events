@@ -128,6 +128,8 @@ def main():
                                "numbers": nums})
 
     REPORT.parent.mkdir(parents=True, exist_ok=True)
+    (REPORT.parent / "wiki_raw_1997_2001.json").write_text(
+        json.dumps(authority, ensure_ascii=False), encoding="utf-8")
     REPORT.write_text(json.dumps({
         "generatedAt": datetime.datetime.now().isoformat(timespec="seconds"),
         "authorityPages": sorted(authority),
