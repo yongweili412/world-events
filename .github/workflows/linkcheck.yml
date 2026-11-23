@@ -17,6 +17,7 @@ on:
 
 permissions:
   contents: read
+  issues: write
 
 concurrency:
   group: world-events-linkcheck
@@ -62,6 +63,21 @@ jobs:
                   print(f"- `{d}`：{n}")
           PY
 
+      - name: 失效率超阈值则判失败
+        run: |
+          python - <<'PY'
+          import json, pathlib, sys
+          p = pathlib.Path("data/links-report.json")
+          if not p.exists():
+              print("没有链接报告，判定为失败"); sys.exit(1)
+          d = json.loads(p.read_text(encoding="utf-8"))["summary"]["thisRun"]
+          ratio = d.get("deadRatio", 0)
+          print(f"失效率 {ratio:.1%}，阈值 15%")
+          if ratio > 0.15:
+              print("::error::来源链接失效率超过 15%，请关注归档引用腐烂")
+              sys.exit(1)
+          PY
+
       - name: 上传报告
         if: always()
         uses: actions/upload-artifact@v4
@@ -69,3 +85,25 @@ jobs:
           name: links-report
           path: data/links-report.json
           retention-days: 90
+      - name: 失败时创建 Issue 通知
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          EXISTING=$(gh issue list --repo ${{ github.repository }} --state open --search "自动化失败 in:title" --limit 1 --json number --jq 'length')
+          if [ "${EXISTING}" = "0" ]; then
+            gh issue create --repo ${{ github.repository }} \
+              --title "自动化失败: ${{ github.workflow }} $(TZ=Asia/Shanghai date '+%m-%d %H:%M') 北京时间" \
+              --body "云端自动任务失败了，请检查日志：${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" || echo "issue create failed"
+          else
+            echo "已有未关闭的失败 Issue，跳过重复创建"
+          fi
+
+      - name: 成功时关闭旧的失败 Issue
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue list --repo ${{ github.repository }} --state open --search "自动化失败 in:title" --json number --jq '.[].number' | while read n; do
+            gh issue close "$n" --repo ${{ github.repository }} --comment "本次运行已成功，自动关闭。" || true
+          done
