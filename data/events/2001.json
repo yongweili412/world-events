@@ -5346,7 +5346,7 @@
     "title": "刚果（金）总统卡比拉中枪",
     "summary": "2001年1月13日，刚果民主共和国总统卡比拉中枪。事件震动该国政局，后续情况持续受到关注。",
     "description": "2001年1月13日，刚果民主共和国总统卡比拉中枪。事件震动该国政局，后续情况持续受到关注。",
-    "date": "2001-01-13",
+    "date": "2001-01-16",
     "time": "",
     "location": {
       "country": "刚果民主共和国",
@@ -5413,80 +5413,15 @@
     "summaryFull": false
   },
   {
-    "id": "evt_20010125_001",
-    "legacyIds": [],
-    "title": "印度古吉拉特邦地震致数千人死亡",
-    "summary": "2001年1月25日，印度古吉拉特邦发生强烈地震，造成数千人遇难。救援行动迅速展开，伤亡数字持续上升。",
-    "description": "2001年1月25日，印度古吉拉特邦发生强烈地震，造成数千人遇难。救援行动迅速展开，伤亡数字持续上升。",
-    "date": "2001-01-25",
-    "time": "",
-    "location": {
-      "country": "印度",
-      "countryCode": "",
-      "region": "印度",
-      "city": ""
-    },
-    "category": [
-      "自然灾害"
-    ],
-    "tags": [
-      "印度"
-    ],
-    "status": "ongoing",
-    "sources": [
-      {
-        "name": "BBC On This Day",
-        "url": "http://news.bbc.co.uk/onthisday/hi/dates/stories/january/26/newsid_4666000/4666568.stm",
-        "date": "2001-01-25",
-        "title": "印度古吉拉特邦地震致数千人死亡",
-        "snippet": "2001年1月25日，印度古吉拉特邦发生强烈地震，造成数千人遇难。救援行动迅速展开，伤亡数字持续上升。"
-      }
-    ],
-    "timeline": [
-      {
-        "date": "2001-01-25",
-        "text": "BBC On This Day｜2001年1月25日，印度古吉拉特邦发生强烈地震，造成数千人遇难。救援行动迅速展开，伤亡数字持续上升。"
-      },
-      {
-        "date": "2001-01-26",
-        "text": "BBC On This Day｜2001年1月26日，印度古吉拉特邦强烈地震持续造成重大人员伤亡，数千人遇难。救援与赈灾工作在全国范围内展开。"
-      },
-      {
-        "date": "2001-01-27",
-        "text": "BBC On This Day｜2001年1月27日，印度古吉拉特邦地震遇难人数继续上升，数千人确认死亡。国际社会向灾区提供援助，救援工作仍在推进。"
-      }
-    ],
-    "relatedEvents": [],
-    "globalImpact": 65,
-    "socialImpact": 73,
-    "culturalImpact": 18,
-    "economicImpact": 25,
-    "technologyImpact": 10,
-    "memoryValue": 40,
-    "archiveValue": 60,
-    "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
-    "assessment": {
-      "version": "archive-value-v1",
-      "method": "rules",
-      "confidence": 45,
-      "evidenceStatus": "medium",
-      "needsEvidence": false,
-      "assessedAt": "2026-11-15T06:08:40+00:00",
-      "model": null,
-      "inputHash": "ad8b3543ae52fb60"
-    },
-    "aiSummary": "2001年1月25日，印度古吉拉特邦发生强烈地震，造成数千人遇难。救援行动迅速展开，伤亡数字持续上升。",
-    "summaryFull": false
-  },
-  {
     "id": "evt_20010128_001",
-    "legacyIds": [],
+    "legacyIds": [
+      "evt_20010129_001",
+      "evt_20010125_001"
+    ],
     "title": "印度古吉拉特邦地震伤亡持续增加",
     "summary": "2001年1月28日，印度古吉拉特邦强震造成的死亡人数进一步上升，数千人遇难。灾后重建与救援工作仍在持续进行。",
     "description": "2001年1月28日，印度古吉拉特邦强震造成的死亡人数进一步上升，数千人遇难。灾后重建与救援工作仍在持续进行。",
-    "date": "2001-01-28",
+    "date": "2001-01-26",
     "time": "",
     "location": {
       "country": "印度",
@@ -5512,8 +5447,24 @@
     ],
     "timeline": [
       {
+        "date": "2001-01-25",
+        "text": "BBC On This Day｜2001年1月25日，印度古吉拉特邦发生强烈地震，造成数千人遇难。救援行动迅速展开，伤亡数字持续上升。"
+      },
+      {
+        "date": "2001-01-26",
+        "text": "BBC On This Day｜2001年1月26日，印度古吉拉特邦强烈地震持续造成重大人员伤亡，数千人遇难。救援与赈灾工作在全国范围内展开。"
+      },
+      {
+        "date": "2001-01-27",
+        "text": "BBC On This Day｜2001年1月27日，印度古吉拉特邦地震遇难人数继续上升，数千人确认死亡。国际社会向灾区提供援助，救援工作仍在推进。"
+      },
+      {
         "date": "2001-01-28",
         "text": "BBC On This Day｜2001年1月28日，印度古吉拉特邦强震造成的死亡人数进一步上升，数千人遇难。灾后重建与救援工作仍在持续进行。"
+      },
+      {
+        "date": "2001-01-29",
+        "text": "BBC On This Day｜2001年1月29日，印度古吉拉特邦地震造成的死亡人数继续增加，数千人遇难。救援与安置工作仍在灾区紧张进行。"
       }
     ],
     "relatedEvents": [],
@@ -5538,66 +5489,6 @@
       "inputHash": "8913aee6da512f5d"
     },
     "aiSummary": "2001年1月28日，印度古吉拉特邦强震造成的死亡人数进一步上升，数千人遇难。灾后重建与救援工作仍在持续进行。",
-    "summaryFull": false
-  },
-  {
-    "id": "evt_20010129_001",
-    "legacyIds": [],
-    "title": "印度古吉拉特邦地震遇难人数上升",
-    "summary": "2001年1月29日，印度古吉拉特邦地震造成的死亡人数继续增加，数千人遇难。救援与安置工作仍在灾区紧张进行。",
-    "description": "2001年1月29日，印度古吉拉特邦地震造成的死亡人数继续增加，数千人遇难。救援与安置工作仍在灾区紧张进行。",
-    "date": "2001-01-29",
-    "time": "",
-    "location": {
-      "country": "印度",
-      "countryCode": "",
-      "region": "印度",
-      "city": ""
-    },
-    "category": [
-      "自然灾害"
-    ],
-    "tags": [
-      "印度"
-    ],
-    "status": "closed",
-    "sources": [
-      {
-        "name": "BBC On This Day",
-        "url": "http://news.bbc.co.uk/onthisday/hi/dates/stories/january/26/newsid_4666000/4666568.stm",
-        "date": "2001-01-29",
-        "title": "印度古吉拉特邦地震遇难人数上升",
-        "snippet": "2001年1月29日，印度古吉拉特邦地震造成的死亡人数继续增加，数千人遇难。救援与安置工作仍在灾区紧张进行。"
-      }
-    ],
-    "timeline": [
-      {
-        "date": "2001-01-29",
-        "text": "BBC On This Day｜2001年1月29日，印度古吉拉特邦地震造成的死亡人数继续增加，数千人遇难。救援与安置工作仍在灾区紧张进行。"
-      }
-    ],
-    "relatedEvents": [],
-    "globalImpact": 55,
-    "socialImpact": 73,
-    "culturalImpact": 18,
-    "economicImpact": 25,
-    "technologyImpact": 10,
-    "memoryValue": 40,
-    "archiveValue": 60,
-    "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
-    "assessment": {
-      "version": "archive-value-v1",
-      "method": "rules",
-      "confidence": 45,
-      "evidenceStatus": "medium",
-      "needsEvidence": false,
-      "assessedAt": "2026-11-15T06:08:40+00:00",
-      "model": null,
-      "inputHash": "42598597b544ad57"
-    },
-    "aiSummary": "2001年1月29日，印度古吉拉特邦地震造成的死亡人数继续增加，数千人遇难。救援与安置工作仍在灾区紧张进行。",
     "summaryFull": false
   },
   {
@@ -5782,11 +5673,13 @@
   },
   {
     "id": "evt_20010216_003",
-    "legacyIds": [],
+    "legacyIds": [
+      "evt_20010221_002"
+    ],
     "title": "英国屠宰场口蹄疫恐慌",
     "summary": "英国一处屠宰场出现口蹄疫疫情担忧，有关方面随即加强监测与防控，政府采取措施以防疫情进一步扩散至全国。",
     "description": "英国一处屠宰场出现口蹄疫疫情担忧，有关方面随即加强监测与防控，政府采取措施以防疫情进一步扩散至全国。",
-    "date": "2001-02-16",
+    "date": "2001-02-19",
     "time": "",
     "location": {
       "country": "英国",
@@ -5830,6 +5723,14 @@
       {
         "date": "2001-02-20",
         "text": "BBC On This Day｜英国一处屠宰场再现口蹄疫疫情担忧，有关方面加强监测与防控，当局采取措施以防疫情进一步扩散。"
+      },
+      {
+        "date": "2001-02-21",
+        "text": "BBC On This Day｜2001年2月21日，英国一处屠宰场出现口蹄疫疑似病例，引发疫情担忧。"
+      },
+      {
+        "date": "2001-02-22",
+        "text": "BBC On This Day｜2001年2月22日，英国一处屠宰场再次出现口蹄疫疑似病例，当局加强防控。"
       }
     ],
     "relatedEvents": [],
@@ -5914,70 +5815,6 @@
       "inputHash": "890fde647ff68ee9"
     },
     "aiSummary": "2001年2月21日，英国暴发口蹄疫后颁布相关禁令，以控制疫情扩散。",
-    "summaryFull": false
-  },
-  {
-    "id": "evt_20010221_002",
-    "legacyIds": [],
-    "title": "英国一屠宰场出现口蹄疫疑情",
-    "summary": "2001年2月21日，英国一处屠宰场出现口蹄疫疑似病例，引发疫情担忧。",
-    "description": "2001年2月21日，英国一处屠宰场出现口蹄疫疑似病例，引发疫情担忧。",
-    "date": "2001-02-21",
-    "time": "",
-    "location": {
-      "country": "英国",
-      "countryCode": "",
-      "region": "欧洲",
-      "city": ""
-    },
-    "category": [
-      "社会"
-    ],
-    "tags": [
-      "英国"
-    ],
-    "status": "ongoing",
-    "sources": [
-      {
-        "name": "BBC On This Day",
-        "url": "http://news.bbc.co.uk/onthisday/hi/dates/stories/february/19/newsid_4145000/4145501.stm",
-        "date": "2001-02-21",
-        "title": "英国一屠宰场出现口蹄疫疑情",
-        "snippet": "2001年2月21日，英国一处屠宰场出现口蹄疫疑似病例，引发疫情担忧。"
-      }
-    ],
-    "timeline": [
-      {
-        "date": "2001-02-21",
-        "text": "BBC On This Day｜2001年2月21日，英国一处屠宰场出现口蹄疫疑似病例，引发疫情担忧。"
-      },
-      {
-        "date": "2001-02-22",
-        "text": "BBC On This Day｜2001年2月22日，英国一处屠宰场再次出现口蹄疫疑似病例，当局加强防控。"
-      }
-    ],
-    "relatedEvents": [],
-    "globalImpact": 15,
-    "socialImpact": 65,
-    "culturalImpact": 20,
-    "economicImpact": 15,
-    "technologyImpact": 10,
-    "memoryValue": 25,
-    "archiveValue": 50,
-    "eventType": "society_culture",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
-    "assessment": {
-      "version": "archive-value-v1",
-      "method": "rules",
-      "confidence": 45,
-      "evidenceStatus": "medium",
-      "needsEvidence": false,
-      "assessedAt": "2026-11-15T06:08:40+00:00",
-      "model": null,
-      "inputHash": "797911af992192e3"
-    },
-    "aiSummary": "2001年2月21日，英国一处屠宰场出现口蹄疫疑似病例，引发疫情担忧。",
     "summaryFull": false
   },
   {
@@ -6701,88 +6538,16 @@
     "summaryFull": false
   },
   {
-    "id": "evt_20010521_002",
-    "legacyIds": [],
-    "title": "以色列婚礼派对发生悲剧",
-    "summary": "2001年5月21日，以色列一场犹太教婚礼派对发生爆炸袭击，造成至少21人死亡、数十人受伤。事件发生在耶路撒冷附近的一个露天场地，当时宾客正在庆祝婚礼。",
-    "description": "2001年5月21日，以色列一场犹太教婚礼派对发生爆炸袭击，造成至少21人死亡、数十人受伤。事件发生在耶路撒冷附近的一个露天场地，当时宾客正在庆祝婚礼。",
-    "date": "2001-05-21",
-    "time": "",
-    "location": {
-      "country": "以色列",
-      "countryCode": "",
-      "region": "中东",
-      "city": ""
-    },
-    "category": [
-      "社会"
-    ],
-    "tags": [
-      "以色列"
-    ],
-    "status": "ongoing",
-    "sources": [
-      {
-        "name": "BBC On This Day",
-        "url": "http://news.bbc.co.uk/onthisday/hi/dates/stories/may/24/newsid_4530000/4530071.stm",
-        "date": "2001-05-21",
-        "title": "以色列婚礼派对发生悲剧",
-        "snippet": "2001年5月21日，以色列一场犹太教婚礼派对发生爆炸袭击，造成至少21人死亡、数十人受伤。事件发生在耶路撒冷附近的一个露天场地，当时宾客正在庆祝婚礼。"
-      }
-    ],
-    "timeline": [
-      {
-        "date": "2001-05-21",
-        "text": "BBC On This Day｜2001年5月21日，以色列一场犹太教婚礼派对发生爆炸袭击，造成至少21人死亡、数十人受伤。事件发生在耶路撒冷附近的一个露天场地，当时宾客正在庆祝婚礼。"
-      },
-      {
-        "date": "2001-05-22",
-        "text": "BBC On This Day｜以色列一场犹太教婚礼派对上发生爆炸袭击，造成至少21人死亡、数十人受伤。事件发生在耶路撒冷附近的一个露天场地，当时宾客正在庆祝婚礼。"
-      },
-      {
-        "date": "2001-05-24",
-        "text": "BBC On This Day｜2001年5月24日，以色列一场婚礼派对发生悲剧，造成多人遇难。事件具体细节未在史料中明确说明，但属于公开记录的严重事件。"
-      },
-      {
-        "date": "2001-05-26",
-        "text": "BBC On This Day｜2001年5月26日，以色列一场婚礼派对发生悲剧，造成多人遇难。"
-      },
-      {
-        "date": "2001-05-27",
-        "text": "BBC On This Day｜2001年5月27日，以色列一场犹太婚礼派对上发生爆炸袭击，造成至少20人死亡、数十人受伤。袭击发生在耶路撒冷附近的一个露天场地，当时宾客正在庆祝活动。"
-      }
-    ],
-    "relatedEvents": [],
-    "globalImpact": 45,
-    "socialImpact": 45,
-    "culturalImpact": 20,
-    "economicImpact": 15,
-    "technologyImpact": 10,
-    "memoryValue": 25,
-    "archiveValue": 38,
-    "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
-    "assessment": {
-      "version": "archive-value-v1",
-      "method": "rules",
-      "confidence": 45,
-      "evidenceStatus": "medium",
-      "needsEvidence": false,
-      "assessedAt": "2026-11-16T07:51:35+00:00",
-      "model": null,
-      "inputHash": "e274c6ad7a1f272d"
-    },
-    "aiSummary": "2001年5月21日，以色列一场犹太教婚礼派对发生爆炸袭击，造成至少21人死亡、数十人受伤。事件发生在耶路撒冷附近的一个露天场地，当时宾客正在庆祝婚礼。",
-    "summaryFull": false
-  },
-  {
     "id": "evt_20010529_001",
-    "legacyIds": [],
+    "legacyIds": [
+      "evt_20010602_001",
+      "evt_20010604_002",
+      "evt_20010601_001"
+    ],
     "title": "尼泊尔王室遭屠杀",
     "summary": "尼泊尔王室成员在宫殿内遭枪击身亡，包括国王比兰德拉、王后艾什瓦尔雅及子女等10人遇难，王储迪潘德拉受伤后自杀。",
     "description": "尼泊尔王室成员在宫殿内遭枪击身亡，包括国王比兰德拉、王后艾什瓦尔雅及子女等10人遇难，王储迪潘德拉受伤后自杀。",
-    "date": "2001-05-29",
+    "date": "2001-06-01",
     "time": "",
     "location": {
       "country": "尼泊尔",
@@ -6814,6 +6579,22 @@
       {
         "date": "2001-05-30",
         "text": "BBC On This Day｜尼泊尔王室成员在宫殿内遭枪击身亡，包括国王比兰德拉、王后艾什瓦尔雅及子女等10人遇难，王储迪潘德拉受伤后自杀。"
+      },
+      {
+        "date": "2001-05-31",
+        "text": "BBC On This Day｜2001年5月31日，尼泊尔王室发生枪击事件，多名王室成员身亡。事件震动全国，具体经过与责任随后引发调查与争议。"
+      },
+      {
+        "date": "2001-06-01",
+        "text": "BBC On This Day｜2001年6月1日，尼泊尔王室发生血案，多名王室成员在事件中身亡，王室惨案震动尼泊尔全国。"
+      },
+      {
+        "date": "2001-06-02",
+        "text": "BBC On This Day｜尼泊尔王室成员在宫殿内遭枪击身亡，包括国王比兰德拉、王后艾什瓦尔雅及子女等，事件引发全国震惊。"
+      },
+      {
+        "date": "2001-06-04",
+        "text": "BBC On This Day｜尼泊尔王室成员在宫殿内遭枪击身亡，包括国王比兰德拉、王后艾什瓦尔雅及子女等，事件引发国内政治动荡。"
       }
     ],
     "relatedEvents": [],
@@ -6838,126 +6619,6 @@
       "inputHash": "766ac5e0dcb44f46"
     },
     "aiSummary": "尼泊尔王室成员在宫殿内遭枪击身亡，包括国王比兰德拉、王后艾什瓦尔雅及子女等10人遇难，王储迪潘德拉受伤后自杀。",
-    "summaryFull": false
-  },
-  {
-    "id": "evt_20010602_001",
-    "legacyIds": [],
-    "title": "尼泊尔王室发生屠杀事件",
-    "summary": "尼泊尔王室成员在宫殿内遭枪击身亡，包括国王比兰德拉、王后艾什瓦尔雅及子女等，事件引发全国震惊。",
-    "description": "尼泊尔王室成员在宫殿内遭枪击身亡，包括国王比兰德拉、王后艾什瓦尔雅及子女等，事件引发全国震惊。",
-    "date": "2001-06-02",
-    "time": "",
-    "location": {
-      "country": "尼泊尔",
-      "countryCode": "",
-      "region": "亚洲",
-      "city": ""
-    },
-    "category": [
-      "政治"
-    ],
-    "tags": [
-      "尼泊尔"
-    ],
-    "status": "closed",
-    "sources": [
-      {
-        "name": "BBC On This Day",
-        "url": "http://news.bbc.co.uk/onthisday/hi/dates/stories/june/1/newsid_3987000/3987183.stm",
-        "date": "2001-06-02",
-        "title": "尼泊尔王室发生屠杀事件",
-        "snippet": "尼泊尔王室成员在宫殿内遭枪击身亡，包括国王比兰德拉、王后艾什瓦尔雅及子女等，事件引发全国震惊。"
-      }
-    ],
-    "timeline": [
-      {
-        "date": "2001-06-02",
-        "text": "BBC On This Day｜尼泊尔王室成员在宫殿内遭枪击身亡，包括国王比兰德拉、王后艾什瓦尔雅及子女等，事件引发全国震惊。"
-      }
-    ],
-    "relatedEvents": [],
-    "globalImpact": 65,
-    "socialImpact": 45,
-    "culturalImpact": 18,
-    "economicImpact": 20,
-    "technologyImpact": 10,
-    "memoryValue": 52,
-    "archiveValue": 54,
-    "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
-    "assessment": {
-      "version": "archive-value-v1",
-      "method": "rules",
-      "confidence": 45,
-      "evidenceStatus": "medium",
-      "needsEvidence": false,
-      "assessedAt": "2026-11-16T07:51:35+00:00",
-      "model": null,
-      "inputHash": "c6cbf2a7363b7dd3"
-    },
-    "aiSummary": "尼泊尔王室成员在宫殿内遭枪击身亡，包括国王比兰德拉、王后艾什瓦尔雅及子女等，事件引发全国震惊。",
-    "summaryFull": false
-  },
-  {
-    "id": "evt_20010604_002",
-    "legacyIds": [],
-    "title": "尼泊尔王室成员遭屠杀",
-    "summary": "尼泊尔王室成员在宫殿内遭枪击身亡，包括国王比兰德拉、王后艾什瓦尔雅及子女等，事件引发国内政治动荡。",
-    "description": "尼泊尔王室成员在宫殿内遭枪击身亡，包括国王比兰德拉、王后艾什瓦尔雅及子女等，事件引发国内政治动荡。",
-    "date": "2001-06-04",
-    "time": "",
-    "location": {
-      "country": "尼泊尔",
-      "countryCode": "",
-      "region": "亚洲",
-      "city": ""
-    },
-    "category": [
-      "政治"
-    ],
-    "tags": [
-      "尼泊尔"
-    ],
-    "status": "closed",
-    "sources": [
-      {
-        "name": "BBC On This Day",
-        "url": "http://news.bbc.co.uk/onthisday/hi/dates/stories/june/1/newsid_3987000/3987183.stm",
-        "date": "2001-06-04",
-        "title": "尼泊尔王室成员遭屠杀",
-        "snippet": "尼泊尔王室成员在宫殿内遭枪击身亡，包括国王比兰德拉、王后艾什瓦尔雅及子女等，事件引发国内政治动荡。"
-      }
-    ],
-    "timeline": [
-      {
-        "date": "2001-06-04",
-        "text": "BBC On This Day｜尼泊尔王室成员在宫殿内遭枪击身亡，包括国王比兰德拉、王后艾什瓦尔雅及子女等，事件引发国内政治动荡。"
-      }
-    ],
-    "relatedEvents": [],
-    "globalImpact": 65,
-    "socialImpact": 45,
-    "culturalImpact": 18,
-    "economicImpact": 20,
-    "technologyImpact": 10,
-    "memoryValue": 30,
-    "archiveValue": 53,
-    "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
-    "assessment": {
-      "version": "archive-value-v1",
-      "method": "rules",
-      "confidence": 45,
-      "evidenceStatus": "medium",
-      "needsEvidence": false,
-      "assessedAt": "2026-11-16T07:51:35+00:00",
-      "model": null,
-      "inputHash": "6f4b67d508b178af"
-    },
-    "aiSummary": "尼泊尔王室成员在宫殿内遭枪击身亡，包括国王比兰德拉、王后艾什瓦尔雅及子女等，事件引发国内政治动荡。",
     "summaryFull": false
   },
   {
@@ -7320,11 +6981,14 @@
   },
   {
     "id": "evt_20010731_001",
-    "legacyIds": [],
+    "legacyIds": [
+      "evt_20010804_001",
+      "evt_20010805_001"
+    ],
     "title": "伦敦西部发生汽车炸弹袭击致七人受伤",
     "summary": "2001年7月31日，伦敦西部发生汽车炸弹袭击，造成七人受伤。事件发生在伦敦西部，具体地点和袭击者身份未在原文中提及。",
     "description": "2001年7月31日，伦敦西部发生汽车炸弹袭击，造成七人受伤。事件发生在伦敦西部，具体地点和袭击者身份未在原文中提及。",
-    "date": "2001-07-31",
+    "date": "2001-08-03",
     "time": "",
     "location": {
       "country": "英国",
@@ -7364,6 +7028,18 @@
       {
         "date": "2001-08-03",
         "text": "BBC On This Day｜2001年8月3日，伦敦西部发生汽车炸弹袭击，造成七人受伤。事件发生在伦敦西部，具体地点和袭击者身份未在原文中提及。"
+      },
+      {
+        "date": "2001-08-04",
+        "text": "BBC On This Day｜2001年8月4日，伦敦西部汽车炸弹爆炸事件后续，袭击共造成七人受伤，安全部门加强警戒。"
+      },
+      {
+        "date": "2001-08-05",
+        "text": "BBC On This Day｜2001年8月5日，伦敦西部汽车炸弹爆炸事件持续引发关注，共七人在袭击中受伤。"
+      },
+      {
+        "date": "2001-08-06",
+        "text": "BBC On This Day｜2001年8月6日，英国伦敦西部发生一起汽车炸弹爆炸事件，造成七人受伤。事件被视为与爱尔兰共和军相关的袭击。"
       }
     ],
     "relatedEvents": [],
@@ -7392,11 +7068,13 @@
   },
   {
     "id": "evt_20010808_001",
-    "legacyIds": [],
+    "legacyIds": [
+      "evt_20010811_001"
+    ],
     "title": "汉密尔顿夫妇谴责“性侵”逮捕",
     "summary": "汉密尔顿夫妇谴责“性侵”逮捕",
     "description": "汉密尔顿夫妇谴责“性侵”逮捕",
-    "date": "2001-08-08",
+    "date": "2001-08-10",
     "time": "",
     "location": {
       "country": "",
@@ -7407,7 +7085,9 @@
     "category": [
       "政治"
     ],
-    "tags": [],
+    "tags": [
+      "英国"
+    ],
     "status": "ongoing",
     "sources": [
       {
@@ -7430,6 +7110,14 @@
       {
         "date": "2001-08-10",
         "text": "BBC On This Day｜汉密尔顿夫妇谴责“性侵”逮捕"
+      },
+      {
+        "date": "2001-08-11",
+        "text": "BBC On This Day｜2001年8月11日，汉密尔顿家族就一起性侵指控相关的逮捕事件公开表态予以谴责，事件具体细节与涉案人员未在报道中详述。"
+      },
+      {
+        "date": "2001-08-12",
+        "text": "BBC On This Day｜2001年8月，英国汉密尔顿夫妇就一名男子因涉嫌性侵被捕一事公开表态予以谴责，该事件引发媒体关注。"
       }
     ],
     "relatedEvents": [],
@@ -7517,72 +7205,15 @@
     "summaryFull": false
   },
   {
-    "id": "evt_20010523_001",
-    "legacyIds": [],
-    "title": "以色列婚礼车队遭遇爆炸袭击",
-    "summary": "2001年5月23日，以色列北部一载有婚礼宾客的车队遭遇爆炸袭击，造成多人遇难，事件令地区安全局势趋于紧张。",
-    "description": "2001年5月23日，以色列北部一载有婚礼宾客的车队遭遇爆炸袭击，造成多人遇难，事件令地区安全局势趋于紧张。",
-    "date": "2001-05-23",
-    "time": "",
-    "location": {
-      "country": "以色列",
-      "countryCode": "",
-      "region": "中东",
-      "city": ""
-    },
-    "category": [
-      "军事"
-    ],
-    "tags": [
-      "以色列"
-    ],
-    "status": "closed",
-    "sources": [
-      {
-        "name": "BBC On This Day",
-        "url": "http://news.bbc.co.uk/onthisday/hi/dates/stories/may/24/newsid_4530000/4530071.stm",
-        "date": "2001-05-23",
-        "title": "以色列婚礼车队遭遇爆炸袭击",
-        "snippet": "2001年5月23日，以色列北部一载有婚礼宾客的车队遭遇爆炸袭击，造成多人遇难，事件令地区安全局势趋于紧张。"
-      }
-    ],
-    "timeline": [
-      {
-        "date": "2001-05-23",
-        "text": "BBC On This Day｜2001年5月23日，以色列北部一载有婚礼宾客的车队遭遇爆炸袭击，造成多人遇难，事件令地区安全局势趋于紧张。"
-      }
-    ],
-    "relatedEvents": [],
-    "globalImpact": 85,
-    "socialImpact": 50,
-    "culturalImpact": 18,
-    "economicImpact": 20,
-    "technologyImpact": 15,
-    "memoryValue": 45,
-    "archiveValue": 68,
-    "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
-    "assessment": {
-      "version": "archive-value-v1",
-      "method": "rules",
-      "confidence": 45,
-      "evidenceStatus": "medium",
-      "needsEvidence": false,
-      "assessedAt": "2026-11-16T08:33:00+00:00",
-      "model": null,
-      "inputHash": "c8a4e52611389477"
-    },
-    "aiSummary": "2001年5月23日，以色列北部一载有婚礼宾客的车队遭遇爆炸袭击，造成多人遇难，事件令地区安全局势趋于紧张。",
-    "summaryFull": false
-  },
-  {
     "id": "evt_20010525_001",
-    "legacyIds": [],
+    "legacyIds": [
+      "evt_20010523_001",
+      "evt_20010521_002"
+    ],
     "title": "以色列婚礼现场发生爆炸袭击 造成重大人员伤亡",
     "summary": "2001年5月25日，以色列一场婚礼派对现场发生爆炸袭击，造成重大人员伤亡。事件引发国际社会强烈谴责。",
     "description": "2001年5月25日，以色列一场婚礼派对现场发生爆炸袭击，造成重大人员伤亡。事件引发国际社会强烈谴责。",
-    "date": "2001-05-25",
+    "date": "2001-05-24",
     "time": "",
     "location": {
       "country": "以色列",
@@ -7608,8 +7239,32 @@
     ],
     "timeline": [
       {
+        "date": "2001-05-21",
+        "text": "BBC On This Day｜2001年5月21日，以色列一场犹太教婚礼派对发生爆炸袭击，造成至少21人死亡、数十人受伤。事件发生在耶路撒冷附近的一个露天场地，当时宾客正在庆祝婚礼。"
+      },
+      {
+        "date": "2001-05-22",
+        "text": "BBC On This Day｜以色列一场犹太教婚礼派对上发生爆炸袭击，造成至少21人死亡、数十人受伤。事件发生在耶路撒冷附近的一个露天场地，当时宾客正在庆祝婚礼。"
+      },
+      {
+        "date": "2001-05-23",
+        "text": "BBC On This Day｜2001年5月23日，以色列北部一载有婚礼宾客的车队遭遇爆炸袭击，造成多人遇难，事件令地区安全局势趋于紧张。"
+      },
+      {
+        "date": "2001-05-24",
+        "text": "BBC On This Day｜2001年5月24日，以色列一场婚礼派对发生悲剧，造成多人遇难。事件具体细节未在史料中明确说明，但属于公开记录的严重事件。"
+      },
+      {
         "date": "2001-05-25",
         "text": "BBC On This Day｜2001年5月25日，以色列一场婚礼派对现场发生爆炸袭击，造成重大人员伤亡。事件引发国际社会强烈谴责。"
+      },
+      {
+        "date": "2001-05-26",
+        "text": "BBC On This Day｜2001年5月26日，以色列一场婚礼派对发生悲剧，造成多人遇难。"
+      },
+      {
+        "date": "2001-05-27",
+        "text": "BBC On This Day｜2001年5月27日，以色列一场犹太婚礼派对上发生爆炸袭击，造成至少20人死亡、数十人受伤。袭击发生在耶路撒冷附近的一个露天场地，当时宾客正在庆祝活动。"
       }
     ],
     "relatedEvents": [],
@@ -7694,70 +7349,6 @@
       "inputHash": "0652e0eee73ef380"
     },
     "aiSummary": "法国一名前部长因涉及腐败丑闻被法院判处监禁。案件引发法国政坛对政治廉洁与权力监督问题的广泛讨论。",
-    "summaryFull": false
-  },
-  {
-    "id": "evt_20010601_001",
-    "legacyIds": [],
-    "title": "尼泊尔王室发生血案 多名王室成员身亡",
-    "summary": "2001年6月1日，尼泊尔王室发生血案，多名王室成员在事件中身亡，王室惨案震动尼泊尔全国。",
-    "description": "2001年6月1日，尼泊尔王室发生血案，多名王室成员在事件中身亡，王室惨案震动尼泊尔全国。",
-    "date": "2001-05-31",
-    "time": "",
-    "location": {
-      "country": "尼泊尔",
-      "countryCode": "",
-      "region": "亚洲",
-      "city": ""
-    },
-    "category": [
-      "政治"
-    ],
-    "tags": [
-      "尼泊尔"
-    ],
-    "status": "ongoing",
-    "sources": [
-      {
-        "name": "BBC On This Day",
-        "url": "http://news.bbc.co.uk/onthisday/hi/dates/stories/june/1/newsid_3987000/3987183.stm",
-        "date": "2001-06-01",
-        "title": "尼泊尔王室发生血案 多名王室成员身亡",
-        "snippet": "2001年6月1日，尼泊尔王室发生血案，多名王室成员在事件中身亡，王室惨案震动尼泊尔全国。"
-      }
-    ],
-    "timeline": [
-      {
-        "date": "2001-05-31",
-        "text": "BBC On This Day｜2001年5月31日，尼泊尔王室发生枪击事件，多名王室成员身亡。事件震动全国，具体经过与责任随后引发调查与争议。"
-      },
-      {
-        "date": "2001-06-01",
-        "text": "BBC On This Day｜2001年6月1日，尼泊尔王室发生血案，多名王室成员在事件中身亡，王室惨案震动尼泊尔全国。"
-      }
-    ],
-    "relatedEvents": [],
-    "globalImpact": 45,
-    "socialImpact": 45,
-    "culturalImpact": 18,
-    "economicImpact": 20,
-    "technologyImpact": 10,
-    "memoryValue": 52,
-    "archiveValue": 45,
-    "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
-    "assessment": {
-      "version": "archive-value-v1",
-      "method": "rules",
-      "confidence": 45,
-      "evidenceStatus": "medium",
-      "needsEvidence": false,
-      "assessedAt": "2026-11-16T08:33:00+00:00",
-      "model": null,
-      "inputHash": "77f9a158ba8b71c5"
-    },
-    "aiSummary": "2001年6月1日，尼泊尔王室发生血案，多名王室成员在事件中身亡，王室惨案震动尼泊尔全国。",
     "summaryFull": false
   },
   {
@@ -8119,88 +7710,14 @@
     "summaryFull": false
   },
   {
-    "id": "evt_20010908_001",
-    "legacyIds": [],
-    "title": "美国遭遇恐怖袭击",
-    "summary": "美国遭遇恐怖袭击，多架飞机被劫持并撞击纽约世贸中心双子塔及华盛顿五角大楼，造成重大人员伤亡和财产损失。",
-    "description": "美国遭遇恐怖袭击，多架飞机被劫持并撞击纽约世贸中心双子塔及华盛顿五角大楼，造成重大人员伤亡和财产损失。",
-    "date": "2001-09-08",
-    "time": "",
-    "location": {
-      "country": "美国",
-      "countryCode": "",
-      "region": "美国",
-      "city": ""
-    },
-    "category": [
-      "政治"
-    ],
-    "tags": [
-      "美国"
-    ],
-    "status": "ongoing",
-    "sources": [
-      {
-        "name": "BBC On This Day",
-        "url": "http://news.bbc.co.uk/onthisday/hi/dates/stories/september/11/newsid_2514000/2514627.stm",
-        "date": "2001-09-08",
-        "title": "美国遭遇恐怖袭击",
-        "snippet": "美国遭遇恐怖袭击，多架飞机被劫持并撞击纽约世贸中心双子塔及华盛顿五角大楼，造成重大人员伤亡和财产损失。"
-      }
-    ],
-    "timeline": [
-      {
-        "date": "2001-09-08",
-        "text": "BBC On This Day｜美国遭遇恐怖袭击，多架飞机被劫持并撞击纽约世贸中心双子塔及华盛顿五角大楼，造成重大人员伤亡和财产损失。"
-      },
-      {
-        "date": "2001-09-09",
-        "text": "BBC On This Day｜2001年9月9日，美国发生一日之内的连环恐怖袭击事件，造成重大伤亡和破坏，震动国际社会。"
-      },
-      {
-        "date": "2001-09-10",
-        "text": "BBC On This Day｜2001年9月10日，美国遭受一系列恐怖袭击，造成重大伤亡和破坏，全美上下受到震动，事件引发国际社会高度关注。"
-      },
-      {
-        "date": "2001-09-11",
-        "text": "BBC On This Day｜2001年9月11日，美国遭受系列恐怖袭击，造成重大人员伤亡和财产损失，全国陷入震惊，事件成为国际反恐形势的转折点。"
-      },
-      {
-        "date": "2001-09-12",
-        "text": "BBC On This Day｜美国遭遇恐怖袭击，多架飞机被劫持并撞击纽约世贸中心双子塔及华盛顿五角大楼，造成重大人员伤亡和财产损失。"
-      }
-    ],
-    "relatedEvents": [],
-    "globalImpact": 75,
-    "socialImpact": 45,
-    "culturalImpact": 18,
-    "economicImpact": 20,
-    "technologyImpact": 10,
-    "memoryValue": 30,
-    "archiveValue": 59,
-    "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
-    "assessment": {
-      "version": "archive-value-v1",
-      "method": "rules",
-      "confidence": 45,
-      "evidenceStatus": "medium",
-      "needsEvidence": false,
-      "assessedAt": "2026-11-16T08:33:00+00:00",
-      "model": null,
-      "inputHash": "7f4ca5d56dddc8e6"
-    },
-    "aiSummary": "美国遭遇“9·11”恐怖袭击，世贸中心双塔被劫持客机撞毁，五角大楼遭袭，数千人遇难。美国宣布进入紧急状态，关闭领空和边境，总统布什从佛罗里达返回华盛顿，纽约市长称死亡人数可能“超出承受范围”。",
-    "summaryFull": true
-  },
-  {
     "id": "evt_20010911_001",
-    "legacyIds": [],
+    "legacyIds": [
+      "evt_20010910_001"
+    ],
     "title": "美国宣布反恐战争",
     "summary": "美国宣布对恐怖主义发动战争，标志着全球反恐行动的开始。",
     "description": "美国宣布对恐怖主义发动战争，标志着全球反恐行动的开始。",
-    "date": "2001-09-09",
+    "date": "2001-09-12",
     "time": "",
     "location": {
       "country": "美国",
@@ -8230,12 +7747,20 @@
         "text": "BBC On This Day｜2001年9月9日，美国宣布对恐怖主义展开战争，相关军事与安全政策随后受到国际社会广泛关注。"
       },
       {
+        "date": "2001-09-10",
+        "text": "BBC On This Day｜2001年9月10日，美国宣布对恐怖主义开战，誓言打击恐怖组织及其庇护者，此举标志着美国反恐政策的重大转变。"
+      },
+      {
         "date": "2001-09-11",
         "text": "BBC On This Day｜美国宣布对恐怖主义发动战争，标志着全球反恐行动的开始。"
       },
       {
         "date": "2001-09-12",
         "text": "BBC On This Day｜美国在9·11恐怖袭击后宣布对恐怖主义发动战争，标志着全球反恐行动的开始。"
+      },
+      {
+        "date": "2001-09-13",
+        "text": "BBC On This Day｜2001年9月13日，美国宣布对恐怖主义开战，誓言追查袭击者并打击恐怖网络，反恐成为美国国家安全的核心议题。"
       },
       {
         "date": "2001-09-14",
@@ -8332,11 +7857,13 @@
   },
   {
     "id": "evt_20011006_001",
-    "legacyIds": [],
+    "legacyIds": [
+      "evt_20011004_001"
+    ],
     "title": "美国对塔利班发动空袭",
     "summary": "美国发动空袭打击阿富汗塔利班政权，这是美国对9·11恐怖袭击事件的军事回应。",
     "description": "美国发动空袭打击阿富汗塔利班政权，这是美国对9·11恐怖袭击事件的军事回应。",
-    "date": "2001-10-06",
+    "date": "2001-10-07",
     "time": "",
     "location": {
       "country": "美国",
@@ -8362,6 +7889,14 @@
     ],
     "timeline": [
       {
+        "date": "2001-10-04",
+        "text": "BBC On This Day｜美军空袭塔利班"
+      },
+      {
+        "date": "2001-10-05",
+        "text": "BBC On This Day｜美军空袭塔利班"
+      },
+      {
         "date": "2001-10-06",
         "text": "BBC On This Day｜美国发动空袭打击阿富汗塔利班政权，这是美国对9·11恐怖袭击事件的军事回应。"
       },
@@ -8372,6 +7907,14 @@
       {
         "date": "2001-10-08",
         "text": "BBC On This Day｜美国对阿富汗塔利班政权发动空袭，以回应9·11恐怖袭击事件。空袭是国际反恐行动的一部分，旨在打击基地组织及其庇护者塔利班。"
+      },
+      {
+        "date": "2001-10-09",
+        "text": "BBC On This Day｜美军空袭塔利班"
+      },
+      {
+        "date": "2001-10-10",
+        "text": "BBC On This Day｜美军空袭塔利班"
       }
     ],
     "relatedEvents": [],
@@ -9115,258 +8658,6 @@
     "summaryFull": false
   },
   {
-    "id": "evt_20010804_001",
-    "legacyIds": [],
-    "title": "伦敦西区汽车炸弹袭击七人受伤",
-    "summary": "2001年8月4日，伦敦西部汽车炸弹爆炸事件后续，袭击共造成七人受伤，安全部门加强警戒。",
-    "description": "2001年8月4日，伦敦西部汽车炸弹爆炸事件后续，袭击共造成七人受伤，安全部门加强警戒。",
-    "date": "2001-08-04",
-    "time": "",
-    "location": {
-      "country": "英国",
-      "countryCode": "",
-      "region": "欧洲",
-      "city": ""
-    },
-    "category": [
-      "社会"
-    ],
-    "tags": [
-      "英国"
-    ],
-    "status": "ongoing",
-    "sources": [
-      {
-        "name": "BBC On This Day",
-        "url": "http://news.bbc.co.uk/onthisday/hi/dates/stories/august/3/newsid_2527000/2527065.stm",
-        "date": "2001-08-04",
-        "title": "伦敦西区汽车炸弹袭击七人受伤",
-        "snippet": "2001年8月4日，伦敦西部汽车炸弹爆炸事件后续，袭击共造成七人受伤，安全部门加强警戒。"
-      }
-    ],
-    "timeline": [
-      {
-        "date": "2001-08-04",
-        "text": "BBC On This Day｜2001年8月4日，伦敦西部汽车炸弹爆炸事件后续，袭击共造成七人受伤，安全部门加强警戒。"
-      },
-      {
-        "date": "2001-08-06",
-        "text": "BBC On This Day｜2001年8月6日，英国伦敦西部发生一起汽车炸弹爆炸事件，造成七人受伤。事件被视为与爱尔兰共和军相关的袭击。"
-      }
-    ],
-    "relatedEvents": [],
-    "globalImpact": 45,
-    "socialImpact": 45,
-    "culturalImpact": 20,
-    "economicImpact": 15,
-    "technologyImpact": 10,
-    "memoryValue": 25,
-    "archiveValue": 38,
-    "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
-    "assessment": {
-      "version": "archive-value-v1",
-      "method": "rules",
-      "confidence": 45,
-      "evidenceStatus": "medium",
-      "needsEvidence": false,
-      "assessedAt": "2026-11-16T08:52:43+00:00",
-      "model": null,
-      "inputHash": "7300f85b6eced9b8"
-    },
-    "aiSummary": "2001年8月4日，伦敦西部汽车炸弹爆炸事件后续，袭击共造成七人受伤，安全部门加强警戒。",
-    "summaryFull": false
-  },
-  {
-    "id": "evt_20010805_001",
-    "legacyIds": [],
-    "title": "伦敦汽车炸弹事件伤者增至七人",
-    "summary": "2001年8月5日，伦敦西部汽车炸弹爆炸事件持续引发关注，共七人在袭击中受伤。",
-    "description": "2001年8月5日，伦敦西部汽车炸弹爆炸事件持续引发关注，共七人在袭击中受伤。",
-    "date": "2001-08-05",
-    "time": "",
-    "location": {
-      "country": "英国",
-      "countryCode": "",
-      "region": "欧洲",
-      "city": ""
-    },
-    "category": [
-      "社会"
-    ],
-    "tags": [
-      "英国"
-    ],
-    "status": "closed",
-    "sources": [
-      {
-        "name": "BBC On This Day",
-        "url": "http://news.bbc.co.uk/onthisday/hi/dates/stories/august/3/newsid_2527000/2527065.stm",
-        "date": "2001-08-05",
-        "title": "伦敦汽车炸弹事件伤者增至七人",
-        "snippet": "2001年8月5日，伦敦西部汽车炸弹爆炸事件持续引发关注，共七人在袭击中受伤。"
-      }
-    ],
-    "timeline": [
-      {
-        "date": "2001-08-05",
-        "text": "BBC On This Day｜2001年8月5日，伦敦西部汽车炸弹爆炸事件持续引发关注，共七人在袭击中受伤。"
-      }
-    ],
-    "relatedEvents": [],
-    "globalImpact": 45,
-    "socialImpact": 45,
-    "culturalImpact": 20,
-    "economicImpact": 15,
-    "technologyImpact": 10,
-    "memoryValue": 25,
-    "archiveValue": 38,
-    "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
-    "assessment": {
-      "version": "archive-value-v1",
-      "method": "rules",
-      "confidence": 45,
-      "evidenceStatus": "medium",
-      "needsEvidence": false,
-      "assessedAt": "2026-11-16T08:52:43+00:00",
-      "model": null,
-      "inputHash": "0a23ece5ccc96d82"
-    },
-    "aiSummary": "2001年8月5日，伦敦西部汽车炸弹爆炸事件持续引发关注，共七人在袭击中受伤。",
-    "summaryFull": false
-  },
-  {
-    "id": "evt_20010811_001",
-    "legacyIds": [],
-    "title": "汉密尔顿家族谴责性侵逮捕事件",
-    "summary": "2001年8月11日，汉密尔顿家族就一起性侵指控相关的逮捕事件公开表态予以谴责，事件具体细节与涉案人员未在报道中详述。",
-    "description": "2001年8月11日，汉密尔顿家族就一起性侵指控相关的逮捕事件公开表态予以谴责，事件具体细节与涉案人员未在报道中详述。",
-    "date": "2001-08-11",
-    "time": "",
-    "location": {
-      "country": "",
-      "countryCode": "",
-      "region": "全球",
-      "city": ""
-    },
-    "category": [
-      "社会"
-    ],
-    "tags": [
-      "英国"
-    ],
-    "status": "ongoing",
-    "sources": [
-      {
-        "name": "BBC On This Day",
-        "url": "http://news.bbc.co.uk/onthisday/hi/dates/stories/august/10/newsid_2493000/2493289.stm",
-        "date": "2001-08-11",
-        "title": "汉密尔顿家族谴责性侵逮捕事件",
-        "snippet": "2001年8月11日，汉密尔顿家族就一起性侵指控相关的逮捕事件公开表态予以谴责，事件具体细节与涉案人员未在报道中详述。"
-      }
-    ],
-    "timeline": [
-      {
-        "date": "2001-08-11",
-        "text": "BBC On This Day｜2001年8月11日，汉密尔顿家族就一起性侵指控相关的逮捕事件公开表态予以谴责，事件具体细节与涉案人员未在报道中详述。"
-      },
-      {
-        "date": "2001-08-12",
-        "text": "BBC On This Day｜2001年8月，英国汉密尔顿夫妇就一名男子因涉嫌性侵被捕一事公开表态予以谴责，该事件引发媒体关注。"
-      }
-    ],
-    "relatedEvents": [],
-    "globalImpact": 15,
-    "socialImpact": 45,
-    "culturalImpact": 20,
-    "economicImpact": 15,
-    "technologyImpact": 10,
-    "memoryValue": 25,
-    "archiveValue": 36,
-    "eventType": "society_culture",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
-    "assessment": {
-      "version": "archive-value-v1",
-      "method": "rules",
-      "confidence": 45,
-      "evidenceStatus": "medium",
-      "needsEvidence": false,
-      "assessedAt": "2026-11-16T08:52:43+00:00",
-      "model": null,
-      "inputHash": "0b510c15c07d9c24"
-    },
-    "aiSummary": "2001年8月11日，汉密尔顿家族就一起性侵指控相关的逮捕事件公开表态予以谴责，事件具体细节与涉案人员未在报道中详述。",
-    "summaryFull": false
-  },
-  {
-    "id": "evt_20010910_001",
-    "legacyIds": [],
-    "title": "美国宣布对恐怖主义开战",
-    "summary": "2001年9月10日，美国宣布对恐怖主义开战，誓言打击恐怖组织及其庇护者，此举标志着美国反恐政策的重大转变。",
-    "description": "2001年9月10日，美国宣布对恐怖主义开战，誓言打击恐怖组织及其庇护者，此举标志着美国反恐政策的重大转变。",
-    "date": "2001-09-10",
-    "time": "",
-    "location": {
-      "country": "美国",
-      "countryCode": "",
-      "region": "美国",
-      "city": ""
-    },
-    "category": [
-      "政治"
-    ],
-    "tags": [
-      "美国"
-    ],
-    "status": "ongoing",
-    "sources": [
-      {
-        "name": "BBC On This Day",
-        "url": "http://news.bbc.co.uk/onthisday/hi/dates/stories/september/12/newsid_2515000/2515239.stm",
-        "date": "2001-09-10",
-        "title": "美国宣布对恐怖主义开战",
-        "snippet": "2001年9月10日，美国宣布对恐怖主义开战，誓言打击恐怖组织及其庇护者，此举标志着美国反恐政策的重大转变。"
-      }
-    ],
-    "timeline": [
-      {
-        "date": "2001-09-10",
-        "text": "BBC On This Day｜2001年9月10日，美国宣布对恐怖主义开战，誓言打击恐怖组织及其庇护者，此举标志着美国反恐政策的重大转变。"
-      },
-      {
-        "date": "2001-09-13",
-        "text": "BBC On This Day｜2001年9月13日，美国宣布对恐怖主义开战，誓言追查袭击者并打击恐怖网络，反恐成为美国国家安全的核心议题。"
-      }
-    ],
-    "relatedEvents": [],
-    "globalImpact": 65,
-    "socialImpact": 45,
-    "culturalImpact": 18,
-    "economicImpact": 20,
-    "technologyImpact": 10,
-    "memoryValue": 30,
-    "archiveValue": 53,
-    "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
-    "assessment": {
-      "version": "archive-value-v1",
-      "method": "rules",
-      "confidence": 45,
-      "evidenceStatus": "medium",
-      "needsEvidence": false,
-      "assessedAt": "2026-11-16T08:52:43+00:00",
-      "model": null,
-      "inputHash": "98843fde0d984de8"
-    },
-    "aiSummary": "2001年9月10日，美国宣布对恐怖主义开战，誓言打击恐怖组织及其庇护者，此举标志着美国反恐政策的重大转变。",
-    "summaryFull": false
-  },
-  {
     "id": "evt_20010913_001",
     "legacyIds": [],
     "title": "邓肯·史密斯出任保守党领袖",
@@ -9428,11 +8719,13 @@
   },
   {
     "id": "evt_20010913_002",
-    "legacyIds": [],
-    "title": "美国遭遇一日恐怖袭击",
-    "summary": "2001年9月13日，美国持续遭受恐怖袭击影响，全国处于震惊与哀悼之中，救援和调查工作全面展开，国际社会纷纷声援。",
-    "description": "2001年9月13日，美国持续遭受恐怖袭击影响，全国处于震惊与哀悼之中，救援和调查工作全面展开，国际社会纷纷声援。",
-    "date": "2001-09-13",
+    "legacyIds": [
+      "evt_20010908_001"
+    ],
+    "title": "美国遭9·11恐怖袭击 世贸双子塔倒塌",
+    "summary": "2001年9月11日，基地组织劫持4架民航客机，其中两架撞击纽约世界贸易中心双子塔，一架撞击华盛顿五角大楼，一架在宾夕法尼亚州坠毁。袭击造成约2977人死亡（不含19名劫机者），世贸双子塔倒塌，美国随后发动全球反恐战争。",
+    "description": "2001年9月11日，基地组织劫持4架民航客机，其中两架撞击纽约世界贸易中心双子塔，一架撞击华盛顿五角大楼，一架在宾夕法尼亚州坠毁。袭击造成约2977人死亡（不含19名劫机者），世贸双子塔倒塌，美国随后发动全球反恐战争。",
+    "date": "2001-09-11",
     "time": "",
     "location": {
       "country": "美国",
@@ -9444,26 +8737,35 @@
       "政治"
     ],
     "tags": [
-      "美国"
+      "美国",
+      "恐怖袭击",
+      "基地组织"
     ],
     "status": "ongoing",
     "sources": [
       {
+        "name": "中文维基百科 九一一袭击事件",
+        "url": "https://zh.wikipedia.org/wiki/%E4%B9%9D%E4%B8%80%E4%B8%80%E8%A2%AD%E5%87%BB%E4%BA%8B%E4%BB%B6",
+        "date": "2001-09-11",
+        "title": "九一一袭击事件",
+        "snippet": "2001年9月11日，基地组织劫持4架客机袭击美国，造成约2977人死亡。"
+      },
+      {
         "name": "BBC On This Day",
-        "url": "http://news.bbc.co.uk/onthisday/hi/dates/stories/september/11/newsid_2514000/2514627.stm",
-        "date": "2001-09-13",
-        "title": "美国遭遇一日恐怖袭击",
-        "snippet": "2001年9月13日，美国持续遭受恐怖袭击影响，全国处于震惊与哀悼之中，救援和调查工作全面展开，国际社会纷纷声援。"
+        "url": "http://news.bbc.co.uk/onthisday/hi/dates/stories/september/11/newsid_2510000/2510771.stm",
+        "date": "2001-09-11",
+        "title": "2001: US rocked by day of terror",
+        "snippet": "四架被劫持客机撞击世贸中心与五角大楼，美国进入全国紧急状态。"
       }
     ],
     "timeline": [
       {
-        "date": "2001-09-13",
-        "text": "BBC On This Day｜2001年9月13日，美国持续遭受恐怖袭击影响，全国处于震惊与哀悼之中，救援和调查工作全面展开，国际社会纷纷声援。"
+        "date": "2001-09-11",
+        "text": "中文维基百科 九一一袭击事件｜基地组织劫持4架客机撞击世贸双子塔与五角大楼，约2977人死亡。"
       },
       {
-        "date": "2001-09-14",
-        "text": "BBC On This Day｜2001年9月14日，美国恐怖袭击事件持续发酵，全国降半旗哀悼遇难者，救援人员在废墟中搜救，政府加紧调查和应对。"
+        "date": "2001-09-12",
+        "text": "BBC On This Day｜美国宣布对恐怖主义发动战争，全球反恐行动开始。"
       }
     ],
     "relatedEvents": [],
@@ -9487,7 +8789,7 @@
       "model": null,
       "inputHash": "6083161f69b7768c"
     },
-    "aiSummary": "美国遭遇恐怖袭击，纽约世贸中心双塔被劫持客机撞毁，五角大楼也遭撞击，数千人死亡。总统布什宣布全球反恐战争，美国与英国随后袭击阿富汗，塔利班政权迅速垮台。",
+    "aiSummary": "2001年9月11日，基地组织劫持4架民航客机，其中两架撞击纽约世界贸易中心双子塔，一架撞击华盛顿五角大楼，一架在宾夕法尼亚州坠毁。袭击造成约2977人死亡（不含19名劫机者），世贸双子塔倒塌，美国随后发动全球反恐战争。",
     "summaryFull": true
   },
   {
@@ -10982,78 +10284,6 @@
       "inputHash": "7b0f4b043f3758ba"
     },
     "aiSummary": "乌克兰计算机科学家、学者卡捷琳娜·尤先科（1919-2001）去世，她在计算机科学领域有重要贡献。",
-    "summaryFull": false
-  },
-  {
-    "id": "evt_20011004_001",
-    "legacyIds": [],
-    "title": "美军空袭塔利班",
-    "summary": "美军空袭塔利班",
-    "description": "美军空袭塔利班",
-    "date": "2001-10-04",
-    "time": "",
-    "location": {
-      "country": "美国",
-      "countryCode": "",
-      "region": "美国",
-      "city": ""
-    },
-    "category": [
-      "军事"
-    ],
-    "tags": [
-      "美国"
-    ],
-    "status": "ongoing",
-    "sources": [
-      {
-        "name": "BBC On This Day",
-        "url": "http://news.bbc.co.uk/onthisday/hi/dates/stories/october/7/newsid_2519000/2519353.stm",
-        "date": "2001-10-04",
-        "title": "美军空袭塔利班",
-        "snippet": "美军空袭塔利班"
-      }
-    ],
-    "timeline": [
-      {
-        "date": "2001-10-04",
-        "text": "BBC On This Day｜美军空袭塔利班"
-      },
-      {
-        "date": "2001-10-05",
-        "text": "BBC On This Day｜美军空袭塔利班"
-      },
-      {
-        "date": "2001-10-09",
-        "text": "BBC On This Day｜美军空袭塔利班"
-      },
-      {
-        "date": "2001-10-10",
-        "text": "BBC On This Day｜美军空袭塔利班"
-      }
-    ],
-    "relatedEvents": [],
-    "globalImpact": 80,
-    "socialImpact": 50,
-    "culturalImpact": 18,
-    "economicImpact": 20,
-    "technologyImpact": 15,
-    "memoryValue": 45,
-    "archiveValue": 65,
-    "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
-    "assessment": {
-      "version": "archive-value-v1",
-      "method": "rules",
-      "confidence": 45,
-      "evidenceStatus": "medium",
-      "needsEvidence": false,
-      "assessedAt": "2026-11-17T03:38:14+00:00",
-      "model": null,
-      "inputHash": "610da1054918c2d8"
-    },
-    "aiSummary": "美军空袭塔利班",
     "summaryFull": false
   },
   {
@@ -12589,5 +11819,377 @@
     },
     "aiSummary": "2001年1月28日，马克·福斯特在法国巴黎举行的游泳比赛中，以21.13秒的成绩重新夺得男子50米自由泳短池世界纪录。",
     "summaryFull": false
+  },
+  {
+    "id": "evt_20010107_001",
+    "legacyIds": [],
+    "title": "加纳实现1979年以来首次和平权力交接",
+    "summary": "加纳反对党领袖约翰·库福尔宣誓就任总统，这是该国自1979年以来首次和平政权交接，被视为西非民主化的标志性事件。",
+    "description": "加纳反对党领袖约翰·库福尔宣誓就任总统，这是该国自1979年以来首次和平政权交接，被视为西非民主化的标志性事件。",
+    "date": "2001-01-07",
+    "time": "",
+    "location": {
+      "country": "加纳",
+      "countryCode": "",
+      "region": "非洲",
+      "city": ""
+    },
+    "category": [
+      "政治"
+    ],
+    "tags": [
+      "政权交接",
+      "民主化",
+      "加纳"
+    ],
+    "status": "closed",
+    "sources": [
+      {
+        "name": "Wikipedia 2001年年表",
+        "url": "https://en.wikipedia.org/wiki/2001",
+        "date": "2001-01-07",
+        "title": "加纳实现1979年以来首次和平权力交接",
+        "snippet": "John Kufuor is sworn in as President of Ghana, the first peaceful transfer of power since 1979."
+      }
+    ],
+    "timeline": [
+      {
+        "date": "2001-01-07",
+        "text": "Wikipedia 2001年年表｜加纳反对党领袖约翰·库福尔宣誓就任总统，这是该国自1979年以来首次和平政权交接，被视为西非民主化的标志性事件。"
+      }
+    ],
+    "relatedEvents": [],
+    "aiSummary": "加纳反对党领袖约翰·库福尔宣誓就任总统，这是该国自1979年以来首次和平政权交接，被视为西非民主化的标志性事件。",
+    "summaryFull": false,
+    "globalImpact": 45,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 67,
+    "archiveValue": 55,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；证据等级 weak",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "weak",
+      "needsEvidence": true,
+      "assessedAt": "2026-11-24T21:45:21+08:00",
+      "model": null,
+      "inputHash": "4486091af8468888"
+    }
+  },
+  {
+    "id": "evt_20010122_001",
+    "legacyIds": [],
+    "title": "马其顿爆发武装叛乱",
+    "summary": "马其顿阿族全国解放军袭击警察局，马其顿冲突爆发，随后演变为持续数月的武装冲突，北约介入调停。",
+    "description": "马其顿阿族全国解放军袭击警察局，马其顿冲突爆发，随后演变为持续数月的武装冲突，北约介入调停。",
+    "date": "2001-01-22",
+    "time": "",
+    "location": {
+      "country": "北马其顿",
+      "countryCode": "",
+      "region": "欧洲",
+      "city": ""
+    },
+    "category": [
+      "军事"
+    ],
+    "tags": [
+      "冲突",
+      "巴尔干",
+      "北马其顿"
+    ],
+    "status": "closed",
+    "sources": [
+      {
+        "name": "Wikipedia 2001年年表",
+        "url": "https://en.wikipedia.org/wiki/2001",
+        "date": "2001-01-22",
+        "title": "马其顿爆发武装叛乱",
+        "snippet": "The 2001 insurgency in Macedonia begins when a police station is shelled."
+      }
+    ],
+    "timeline": [
+      {
+        "date": "2001-01-22",
+        "text": "Wikipedia 2001年年表｜马其顿阿族全国解放军袭击警察局，马其顿冲突爆发，随后演变为持续数月的武装冲突，北约介入调停。"
+      }
+    ],
+    "relatedEvents": [],
+    "aiSummary": "马其顿阿族全国解放军袭击警察局，马其顿冲突爆发，随后演变为持续数月的武装冲突，北约介入调停。",
+    "summaryFull": false,
+    "globalImpact": 100,
+    "socialImpact": 50,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 15,
+    "memoryValue": 67,
+    "archiveValue": 80,
+    "eventType": "world",
+    "decision": "KEEP",
+    "decisionReason": "边界候选，需模型结合语境判断；证据等级 weak",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "weak",
+      "needsEvidence": true,
+      "assessedAt": "2026-11-24T21:45:21+08:00",
+      "model": null,
+      "inputHash": "6583b52ce004295a"
+    }
+  },
+  {
+    "id": "evt_20010131_001",
+    "legacyIds": [],
+    "title": "日本航空两客机空中接近险相撞",
+    "summary": "日本航空907号与958号班机在静冈县上空异常接近，907号紧急俯冲规避，造成多人受伤，日本随后调查空管处置。",
+    "description": "日本航空907号与958号班机在静冈县上空异常接近，907号紧急俯冲规避，造成多人受伤，日本随后调查空管处置。",
+    "date": "2001-01-31",
+    "time": "",
+    "location": {
+      "country": "日本",
+      "countryCode": "",
+      "region": "亚洲",
+      "city": ""
+    },
+    "category": [
+      "社会"
+    ],
+    "tags": [
+      "航空安全",
+      "事故",
+      "日本"
+    ],
+    "status": "closed",
+    "sources": [
+      {
+        "name": "Wikipedia 2001年年表",
+        "url": "https://en.wikipedia.org/wiki/2001",
+        "date": "2001-01-31",
+        "title": "日本航空两客机空中接近险相撞",
+        "snippet": "2001 Japan Airlines mid-air incident: Flight 907 and Flight 958 almost collided."
+      }
+    ],
+    "timeline": [
+      {
+        "date": "2001-01-31",
+        "text": "Wikipedia 2001年年表｜日本航空907号与958号班机在静冈县上空异常接近，907号紧急俯冲规避，造成多人受伤，日本随后调查空管处置。"
+      }
+    ],
+    "relatedEvents": [],
+    "aiSummary": "日本航空907号与958号班机在静冈县上空异常接近，907号紧急俯冲规避，造成多人受伤，日本随后调查空管处置。",
+    "summaryFull": false,
+    "globalImpact": 15,
+    "socialImpact": 63,
+    "culturalImpact": 20,
+    "economicImpact": 15,
+    "technologyImpact": 10,
+    "memoryValue": 25,
+    "archiveValue": 48,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "来源仅维基月度存档页，缺独立佐证，待补证；证据等级 weak",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 50,
+      "evidenceStatus": "weak",
+      "needsEvidence": true,
+      "assessedAt": "2026-11-24T21:45:21+08:00",
+      "model": null,
+      "inputHash": "f97fd842a5c88ab8"
+    }
+  },
+  {
+    "id": "evt_20010821_001",
+    "legacyIds": [],
+    "title": "北约向马其顿派遣部队收缴武器",
+    "summary": "北约启动\"essential harvest\"行动，向马其顿派遣约3500名士兵，收缴阿族武装武器，协助落实奥赫里德和平协议。",
+    "description": "北约启动\"essential harvest\"行动，向马其顿派遣约3500名士兵，收缴阿族武装武器，协助落实奥赫里德和平协议。",
+    "date": "2001-08-21",
+    "time": "",
+    "location": {
+      "country": "北马其顿",
+      "countryCode": "",
+      "region": "欧洲",
+      "city": ""
+    },
+    "category": [
+      "军事"
+    ],
+    "tags": [
+      "北约",
+      "维和",
+      "北马其顿"
+    ],
+    "status": "closed",
+    "sources": [
+      {
+        "name": "Wikipedia 2001年年表",
+        "url": "https://en.wikipedia.org/wiki/2001",
+        "date": "2001-08-21",
+        "title": "北约向马其顿派遣部队收缴武器",
+        "snippet": "Operation Essential Harvest: NATO sends military forces to the Republic of Macedonia."
+      }
+    ],
+    "timeline": [
+      {
+        "date": "2001-08-21",
+        "text": "Wikipedia 2001年年表｜北约启动\"essential harvest\"行动，向马其顿派遣约3500名士兵，收缴阿族武装武器，协助落实奥赫里德和平协议。"
+      }
+    ],
+    "relatedEvents": [],
+    "aiSummary": "北约启动\"essential harvest\"行动，向马其顿派遣约3500名士兵，收缴阿族武装武器，协助落实奥赫里德和平协议。",
+    "summaryFull": false,
+    "globalImpact": 80,
+    "socialImpact": 50,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 15,
+    "memoryValue": 45,
+    "archiveValue": 65,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "来源仅维基月度存档页，缺独立佐证，待补证；证据等级 weak",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 50,
+      "evidenceStatus": "weak",
+      "needsEvidence": true,
+      "assessedAt": "2026-11-24T21:45:21+08:00",
+      "model": null,
+      "inputHash": "8ef337db5c266534"
+    }
+  },
+  {
+    "id": "evt_20010825_001",
+    "legacyIds": [],
+    "title": "歌手阿莉雅在巴哈马坠机罹难",
+    "summary": "美国歌手兼演员阿莉雅（Aaliyah）乘坐的塞斯纳402型小型飞机在巴哈马马什港起飞后坠毁，机上9人全部遇难。",
+    "description": "美国歌手兼演员阿莉雅（Aaliyah）乘坐的塞斯纳402型小型飞机在巴哈马马什港起飞后坠毁，机上9人全部遇难。",
+    "date": "2001-08-25",
+    "time": "",
+    "location": {
+      "country": "巴哈马",
+      "countryCode": "",
+      "region": "北美洲",
+      "city": ""
+    },
+    "category": [
+      "文化"
+    ],
+    "tags": [
+      "空难",
+      "音乐",
+      "巴哈马"
+    ],
+    "status": "closed",
+    "sources": [
+      {
+        "name": "Wikipedia 2001年年表",
+        "url": "https://en.wikipedia.org/wiki/2001",
+        "date": "2001-08-25",
+        "title": "歌手阿莉雅在巴哈马坠机罹难",
+        "snippet": "2001 Marsh Harbour Cessna 402 crash: Eight people including singer Aaliyah are killed."
+      }
+    ],
+    "timeline": [
+      {
+        "date": "2001-08-25",
+        "text": "Wikipedia 2001年年表｜美国歌手兼演员阿莉雅（Aaliyah）乘坐的塞斯纳402型小型飞机在巴哈马马什港起飞后坠毁，机上9人全部遇难。"
+      }
+    ],
+    "relatedEvents": [],
+    "aiSummary": "美国歌手兼演员阿莉雅（Aaliyah）乘坐的塞斯纳402型小型飞机在巴哈马马什港起飞后坠毁，机上9人全部遇难。",
+    "summaryFull": false,
+    "globalImpact": 35,
+    "socialImpact": 52,
+    "culturalImpact": 82,
+    "economicImpact": 15,
+    "technologyImpact": 10,
+    "memoryValue": 50,
+    "archiveValue": 67,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；证据等级 weak",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "weak",
+      "needsEvidence": true,
+      "assessedAt": "2026-11-24T21:45:21+08:00",
+      "model": null,
+      "inputHash": "bc52f41c11e96aa9"
+    }
+  },
+  {
+    "id": "evt_20010918_001",
+    "legacyIds": [],
+    "title": "美国发生炭疽邮件攻击",
+    "summary": "9·11事件后一周，美国多地出现含炭疽杆菌的邮件，造成5人死亡、17人感染，引发全国性生物安全恐慌。",
+    "description": "9·11事件后一周，美国多地出现含炭疽杆菌的邮件，造成5人死亡、17人感染，引发全国性生物安全恐慌。",
+    "date": "2001-09-18",
+    "time": "",
+    "location": {
+      "country": "美国",
+      "countryCode": "",
+      "region": "北美洲",
+      "city": ""
+    },
+    "category": [
+      "社会"
+    ],
+    "tags": [
+      "生物安全",
+      "恐怖袭击",
+      "美国"
+    ],
+    "status": "closed",
+    "sources": [
+      {
+        "name": "Wikipedia 2001年年表",
+        "url": "https://en.wikipedia.org/wiki/2001",
+        "date": "2001-09-18",
+        "title": "美国发生炭疽邮件攻击",
+        "snippet": "The 2001 anthrax attacks begin in the United States, causing five fatalities and 17 infections."
+      }
+    ],
+    "timeline": [
+      {
+        "date": "2001-09-18",
+        "text": "Wikipedia 2001年年表｜9·11事件后一周，美国多地出现含炭疽杆菌的邮件，造成5人死亡、17人感染，引发全国性生物安全恐慌。"
+      }
+    ],
+    "relatedEvents": [],
+    "aiSummary": "9·11事件后一周，美国多地出现含炭疽杆菌的邮件，造成5人死亡、17人感染，引发全国性生物安全恐慌。",
+    "summaryFull": false,
+    "globalImpact": 45,
+    "socialImpact": 45,
+    "culturalImpact": 20,
+    "economicImpact": 15,
+    "technologyImpact": 10,
+    "memoryValue": 47,
+    "archiveValue": 41,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "来源仅维基月度存档页，缺独立佐证，待补证；证据等级 weak",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 50,
+      "evidenceStatus": "weak",
+      "needsEvidence": true,
+      "assessedAt": "2026-11-24T21:45:21+08:00",
+      "model": null,
+      "inputHash": "e74adfb9fcdaf81d"
+    }
   }
 ]

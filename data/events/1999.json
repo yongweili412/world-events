@@ -858,7 +858,9 @@
   },
   {
     "id": "evt_19991029_001",
-    "legacyIds": [],
+    "legacyIds": [
+      "evt_19991026_001"
+    ],
     "title": "印度奥里萨邦遭遇超级气旋袭击",
     "summary": "印度奥里萨邦遭超强气旋袭击，约1万人死亡，是20世纪最致命的热带气旋之一。灾害暴露了印度防灾体系薄弱，推动了灾害管理改革。",
     "description": "印度奥里萨邦遭超强气旋袭击，约1万人死亡，是20世纪最致命的热带气旋之一。灾害暴露了印度防灾体系薄弱，推动了灾害管理改革。",
@@ -897,8 +899,20 @@
     ],
     "timeline": [
       {
+        "date": "1999-10-26",
+        "text": "BBC On This Day｜超级气旋袭击印度造成严重破坏"
+      },
+      {
+        "date": "1999-10-27",
+        "text": "BBC On This Day｜超级气旋袭击印度造成严重破坏"
+      },
+      {
         "date": "1999-10-29",
         "text": "Wikipedia 1999年年表｜印度奥里萨邦遭超强气旋袭击，约1万人死亡，是20世纪最致命的热带气旋之一。灾害暴露了印度防灾体系薄弱，推动了灾害管理改革。"
+      },
+      {
+        "date": "1999-10-29",
+        "text": "BBC On This Day｜超级气旋袭击印度造成严重破坏"
       },
       {
         "date": "1999-10-30",
@@ -5995,11 +6009,13 @@
   },
   {
     "id": "evt_19990417_002",
-    "legacyIds": [],
+    "legacyIds": [
+      "evt_19990423_001"
+    ],
     "title": "丹佛校园枪击案致多人死亡",
     "summary": "1999年4月17日，美国丹佛附近校园发生枪击事件，报道称多名学生身亡。警方封锁现场并展开调查，事件引发对校园安全的关注。",
     "description": "1999年4月17日，美国丹佛附近校园发生枪击事件，报道称多名学生身亡。警方封锁现场并展开调查，事件引发对校园安全的关注。",
-    "date": "1999-04-17",
+    "date": "1999-04-20",
     "time": "",
     "location": {
       "country": "美国",
@@ -6031,6 +6047,10 @@
       {
         "date": "1999-04-18",
         "text": "BBC On This Day｜1999年4月18日，美国丹佛校园枪击事件后续报道显示死亡人数进一步上升。执法部门继续调查作案经过，社会舆论聚焦枪支与校园安全问题。"
+      },
+      {
+        "date": "1999-04-23",
+        "text": "BBC On This Day｜1999年4月23日，美国科罗拉多州丹佛附近一所学校发生枪击事件，两名学生枪手造成多人死亡后自杀。"
       }
     ],
     "relatedEvents": [],
@@ -6055,66 +6075,6 @@
       "inputHash": "29617f7e031ae58b"
     },
     "aiSummary": "1999年4月17日，美国丹佛附近校园发生枪击事件，报道称多名学生身亡。警方封锁现场并展开调查，事件引发对校园安全的关注。",
-    "summaryFull": false
-  },
-  {
-    "id": "evt_19990423_001",
-    "legacyIds": [],
-    "title": "丹佛校园枪击致多人死亡",
-    "summary": "1999年4月23日，美国科罗拉多州丹佛附近一所学校发生枪击事件，两名学生枪手造成多人死亡后自杀。",
-    "description": "1999年4月23日，美国科罗拉多州丹佛附近一所学校发生枪击事件，两名学生枪手造成多人死亡后自杀。",
-    "date": "1999-04-23",
-    "time": "",
-    "location": {
-      "country": "美国",
-      "countryCode": "",
-      "region": "美国",
-      "city": ""
-    },
-    "category": [
-      "社会"
-    ],
-    "tags": [
-      "美国"
-    ],
-    "status": "closed",
-    "sources": [
-      {
-        "name": "BBC On This Day",
-        "url": "http://news.bbc.co.uk/onthisday/hi/dates/stories/april/20/newsid_2489000/2489639.stm",
-        "date": "1999-04-23",
-        "title": "丹佛校园枪击致多人死亡",
-        "snippet": "1999年4月23日，美国科罗拉多州丹佛附近一所学校发生枪击事件，两名学生枪手造成多人死亡后自杀。"
-      }
-    ],
-    "timeline": [
-      {
-        "date": "1999-04-23",
-        "text": "BBC On This Day｜1999年4月23日，美国科罗拉多州丹佛附近一所学校发生枪击事件，两名学生枪手造成多人死亡后自杀。"
-      }
-    ],
-    "relatedEvents": [],
-    "globalImpact": 35,
-    "socialImpact": 45,
-    "culturalImpact": 20,
-    "economicImpact": 15,
-    "technologyImpact": 10,
-    "memoryValue": 25,
-    "archiveValue": 38,
-    "eventType": "society_culture",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
-    "assessment": {
-      "version": "archive-value-v1",
-      "method": "rules",
-      "confidence": 45,
-      "evidenceStatus": "medium",
-      "needsEvidence": false,
-      "assessedAt": "2026-11-15T06:08:40+00:00",
-      "model": null,
-      "inputHash": "9c4e301ea87d8bd9"
-    },
-    "aiSummary": "1999年4月23日，美国科罗拉多州丹佛附近一所学校发生枪击事件，两名学生枪手造成多人死亡后自杀。",
     "summaryFull": false
   },
   {
@@ -9697,74 +9657,6 @@
       "inputHash": "61be7115edd433a3"
     },
     "aiSummary": "警方向西尔科特支付赔偿金",
-    "summaryFull": false
-  },
-  {
-    "id": "evt_19991026_001",
-    "legacyIds": [],
-    "title": "超级气旋袭击印度造成严重破坏",
-    "summary": "超级气旋袭击印度造成严重破坏",
-    "description": "超级气旋袭击印度造成严重破坏",
-    "date": "1999-10-26",
-    "time": "",
-    "location": {
-      "country": "印度",
-      "countryCode": "",
-      "region": "印度",
-      "city": ""
-    },
-    "category": [
-      "军事"
-    ],
-    "tags": [
-      "印度"
-    ],
-    "status": "ongoing",
-    "sources": [
-      {
-        "name": "BBC On This Day",
-        "url": "http://news.bbc.co.uk/onthisday/hi/dates/stories/october/29/newsid_3691000/3691573.stm",
-        "date": "1999-10-26",
-        "title": "超级气旋袭击印度造成严重破坏",
-        "snippet": "超级气旋袭击印度造成严重破坏"
-      }
-    ],
-    "timeline": [
-      {
-        "date": "1999-10-26",
-        "text": "BBC On This Day｜超级气旋袭击印度造成严重破坏"
-      },
-      {
-        "date": "1999-10-27",
-        "text": "BBC On This Day｜超级气旋袭击印度造成严重破坏"
-      },
-      {
-        "date": "1999-10-29",
-        "text": "BBC On This Day｜超级气旋袭击印度造成严重破坏"
-      }
-    ],
-    "relatedEvents": [],
-    "globalImpact": 75,
-    "socialImpact": 50,
-    "culturalImpact": 18,
-    "economicImpact": 20,
-    "technologyImpact": 15,
-    "memoryValue": 45,
-    "archiveValue": 61,
-    "eventType": "world",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
-    "assessment": {
-      "version": "archive-value-v1",
-      "method": "rules",
-      "confidence": 45,
-      "evidenceStatus": "medium",
-      "needsEvidence": false,
-      "assessedAt": "2026-11-17T03:38:14+00:00",
-      "model": null,
-      "inputHash": "2b76a67f5c27709c"
-    },
-    "aiSummary": "超级气旋袭击印度造成严重破坏",
     "summaryFull": false
   },
   {
