@@ -63,14 +63,26 @@ def clean_wiki(text):
 
 
 def build_authority():
-    """返回 {页面名: 干净文本}，供后续比对。"""
+    """返回 {页面名: 干净文本}，供后续比对；同时把原始 wikitext 落盘。
+
+    2026-11-24：额外保存 raw 版（wiki_raw_*.json）。清洗版把换行压成一行，
+    条目边界丢失，无法按「* Month Day –」逐行提取；raw 版可完整还原日期化条目。
+    """
     out = {}
+    raw_out = {}
     for p in PAGES:
         raw = fetch_wiki(p)
         if raw:
+            raw_out[p] = raw
             out[p] = clean_wiki(raw)
         print(f"  [权威] {p:<18} {len(raw):>6} 字符", flush=True)
         time.sleep(0.3)
+    try:
+        (ROOT / "data" / "verify" / "wiki_wikitext_1997_2001.json").write_text(
+            json.dumps(raw_out, ensure_ascii=False), encoding="utf-8")
+        print(f"  [原文] 已保存 raw wikitext {len(raw_out)} 页", flush=True)
+    except Exception as e:
+        print(f"  [原文] 保存失败 {type(e).__name__}", flush=True)
     return out
 
 
