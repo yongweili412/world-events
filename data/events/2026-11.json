@@ -214910,10 +214910,10 @@
       "model": null,
       "inputHash": "be70f6b649896c6f"
     },
-    "aiSummary": "委内瑞拉政府公布一份近200页的宏观经济框架报告，披露全国债务总额高达2375亿美元，相当于国内生产总值（GDP）的242%。这是委内瑞拉多年来首次较全面公开财政状况，也为可能成为全球规模最大的主权债务重组之一铺路。 路透社报道，委内瑞拉政",
+    "aiSummary": "委内瑞拉政府公布其债务总额为2375亿美元，这一数据为该国即将进行的大规模债务重组提供了基础。公布债务总额是债务重组流程中的关键步骤，有助于明确重组范围和制定具体方案。目前，委内瑞拉正寻求通过重组来缓解其沉重的债务负担。",
     "summaryFull": false,
     "summaryBasedOn": "https://www.zaobao.com.sg/news/world/story20261125-10053088",
-    "summaryAt": "2026-11-25"
+    "summaryAt": "2026-11-27"
   },
   {
     "id": "evt_20261125_005",
@@ -217692,11 +217692,20 @@
   },
   {
     "id": "evt_20261126_003",
-    "legacyIds": [],
-    "title": "美国完成产能过剩调查 拟对中欧等14经济体加征关税 新加坡不超过20% | 联合早报网",
+    "legacyIds": [
+      "evt_20261125_049",
+      "evt_20261125_052",
+      "evt_20261126_017",
+      "evt_20261125_077",
+      "evt_20261126_019",
+      "evt_20261125_079",
+      "evt_20261126_044",
+      "evt_20261126_076"
+    ],
+    "title": "美国完成产能过剩调查 拟对中欧等14经济体加征关税",
     "summary": "（华盛顿综合电）美国特朗普政府将对中国、欧盟、新加坡等14个主要贸易伙伴加征关税，指称这些经济体在制造业领域造成或助长结构性产能过剩，给美国商业造成负担或限制。对新加坡的拟议关税不超过20%，但若能达成协议或谈判成功，税率可降至10%。 美",
     "description": "（华盛顿综合电）美国特朗普政府将对中国、欧盟、新加坡等14个主要贸易伙伴加征关税，指称这些经济体在制造业领域造成或助长结构性产能过剩，给美国商业造成负担或限制。对新加坡的拟议关税不超过20%，但若能达成协议或谈判成功，税率可降至10%。 美",
-    "date": "2026-11-26",
+    "date": "2026-11-25",
     "time": "",
     "location": {
       "country": "中国",
@@ -217709,9 +217718,11 @@
     ],
     "tags": [
       "关税贸易",
-      "中国"
+      "中国",
+      "日本",
+      "美国"
     ],
-    "status": "closed",
+    "status": "ongoing",
     "sources": [
       {
         "name": "联合早报国际",
@@ -217719,16 +217730,82 @@
         "date": "2026-11-26",
         "title": "美国完成产能过剩调查 拟对中欧等14经济体加征关税 新加坡不超过20% | 联合早报网",
         "snippet": "（华盛顿综合电）美国特朗普政府将对中国、欧盟、新加坡等14个主要贸易伙伴加征关税，指称这些经济体在制造业领域造成或助长结构性产能过剩，给美国商业造成负担或限制。对新加坡的拟议关税不超过20%，但若能达成协议或谈判成功，税率可降至10%。 美"
+      },
+      {
+        "name": "联合早报国际",
+        "url": "https://www.zaobao.com.sg/news/world/story20261125-10058581",
+        "date": "2026-11-25",
+        "title": "美国拟征15%新关税 欧盟：望美遵守去年达成的协议 | 联合早报网",
+        "snippet": "欧盟拒绝接受美国提议加征的新关税，并希望华盛顿能够遵守去年与布鲁塞尔达成的协议。 法新社报道，欧盟委员会发言人吉尔（Olof Gill）对于美国星期三（11月25日）有关针对产能过剩征收新关税的措施回应说：“我们将研究调查结果……与此同时，"
+      },
+      {
+        "name": "联合早报国际",
+        "url": "https://www.zaobao.com.sg/news/world/story20261125-10058173",
+        "date": "2026-11-25",
+        "title": "美拟对14个贸易伙伴征产能过剩关税 新加坡或面临20%关税 | 联合早报网",
+        "snippet": "美国政府提议对14个主要贸易伙伴加征新关税，以应对美国所称的产能过剩问题，包括拟对新加坡征收20%的关税。 美国贸易代表办公室在网站发布声明称，拟对新加坡所有商品征收最高20%的关税，部分豁免商品除外，旨在“促使对方消除相关行为、政策和做法"
+      },
+      {
+        "name": "France24",
+        "url": "https://www.france24.com/en/eu-says-strongly-rejects-premise-of-new-us-tariffs",
+        "date": "2026-11-25",
+        "title": "欧盟表示强烈拒绝美国新关税的前提",
+        "snippet": "欧盟周三表示，拒绝美国提出的对其出口商品加征新关税的前提，并预计"
+      },
+      {
+        "name": "NHK 日本",
+        "url": "https://news.web.nhk/newsweb/na/nd-20261126de81560",
+        "date": "2026-11-25",
+        "title": "美国以产能过为由对日本等追加关税，含现行税率日本最高达15%",
+        "snippet": "美国贸易代表办公室表示，针对过度生产并出口产品、对美国产业造成冲击的行为，将依据《贸易法》第301条对包括日本在内的14个国家和地区加征新关税。"
+      },
+      {
+        "name": "联合早报国际",
+        "url": "https://www.zaobao.com.sg/news/world/story20261126-10064485",
+        "date": "2026-11-26",
+        "title": "美国拟提高对瑞士商品关税 经济学家：冲击有限 | 联合早报网",
+        "snippet": "美国拟将瑞士对美出口商品的关税税率从12.5%提高至15%。一名瑞士经济学家认为，新关税将对瑞士经济造成一定冲击，但影响仍在可承受范围内。 瑞士苏黎世联邦理工学院旗下的瑞士经济研究所（KOF）星期四（11月26日）指出，若新关税于明年1月生"
+      },
+      {
+        "name": "联合早报国际",
+        "url": "https://www.zaobao.com.sg/news/world/story20261126-10064185",
+        "date": "2026-11-26",
+        "title": "美国拟征新关税 多数受影响方表遗憾但盼谈判解决 | 联合早报网",
+        "snippet": "（华盛顿综合电）美国总统特朗普政府将对14个主要贸易伙伴加征新一轮关税，多数受影响经济体对此表示遗憾或提出抗议，但也表示愿意通过谈判寻求解决方案。&nbsp; 美国政府星期三（11月25日）以产能过剩为由，宣布将对中国大陆、欧盟、印度、日本"
       }
     ],
     "timeline": [
       {
+        "date": "2026-11-25",
+        "text": "联合早报国际｜美国拟征15%新关税 欧盟：望美遵守去年达成的协议 | 联合早报网：欧盟拒绝接受美国提议加征的新关税，并希望华盛顿能够遵守去年与布鲁塞尔达成的协议。"
+      },
+      {
+        "date": "2026-11-25",
+        "text": "联合早报国际｜美拟对14个贸易伙伴征产能过剩关税 新加坡或面临20%关税 | 联合早报网：美国政府提议对14个主要贸易伙伴加征新关税，以应对美国所称的产能过剩问题，包括拟对新加坡征收20%的关税。"
+      },
+      {
+        "date": "2026-11-25",
+        "text": "France24｜欧盟表示强烈拒绝美国新关税的前提：欧盟周三表示，拒绝美国提出的对其出口商品加征新关税的前提，并预计"
+      },
+      {
+        "date": "2026-11-25",
+        "text": "NHK 日本｜美国以产能过为由对日本等追加关税，含现行税率日本最高达15%：美国贸易代表办公室表示，针对过度生产并出口产品、对美国产业造成冲击的行为，将依据《贸易法》第301条对包括日本在内的14个国家和地区加征新关税。"
+      },
+      {
         "date": "2026-11-26",
-        "text": "联合早报国际｜（华盛顿综合电）美国特朗普政府将对中国、欧盟、新加坡等14个主要贸易伙伴加征关税，指称这些经济体在制造业领域造成或助长结构性产能过剩，给美国商业造成负担或限制。"
+        "text": "联合早报国际｜美国完成产能过剩调查 拟对中欧等14经济体加征关税 新加坡不超过20% | 联合早报网：（华盛顿综合电）美国特朗普政府将对中国、欧盟、新加坡等14个主要贸易伙伴加征关税，指称这些经济体在制造业领域造成或助长结构性产能过剩，给美国商业造成负担或限制。"
+      },
+      {
+        "date": "2026-11-26",
+        "text": "联合早报国际｜美国拟提高对瑞士商品关税 经济学家：冲击有限 | 联合早报网：美国拟将瑞士对美出口商品的关税税率从12.5%提高至15%。"
+      },
+      {
+        "date": "2026-11-26",
+        "text": "联合早报国际｜美国拟征新关税 多数受影响方表遗憾但盼谈判解决 | 联合早报网：（华盛顿综合电）美国总统特朗普政府将对14个主要贸易伙伴加征新一轮关税，多数受影响经济体对此表示遗憾或提出抗议，但也表示愿意通过谈判寻求解决方案。"
       }
     ],
     "relatedEvents": [],
-    "aiSummary": "美国贸易代表办公室11月25日宣布，拟对14个贸易伙伴加征“产能过剩”关税：中国大陆税率最高20%并将叠加原有25%关税，欧盟、日本、韩国等为15%，新加坡不超过20%、达成协议可降至10%。新关税最快明年1月生效，中方反对以此进行政治操弄。",
+    "aiSummary": "美国贸易代表办公室25日结束301条款调查，拟对16个经济体中的14个加征“产能过剩”关税，最快明年1月生效。中国大陆税率最高20%并与既有25%关税叠加，欧盟、日本、韩国等为15%，新加坡不超过20%。中方称“产能过剩”是伪命题，欧盟拒绝接受并酝酿反制。",
     "summaryFull": true,
     "globalImpact": 45,
     "socialImpact": 30,
@@ -217809,67 +217886,6 @@
       "assessedAt": "2026-11-26T00:48:14+08:00",
       "model": null,
       "inputHash": "366d64d61fa75225"
-    }
-  },
-  {
-    "id": "evt_20261125_049",
-    "legacyIds": [],
-    "title": "美国拟征15%新关税 欧盟：望美遵守去年达成的协议 | 联合早报网",
-    "summary": "欧盟拒绝接受美国提议加征的新关税，并希望华盛顿能够遵守去年与布鲁塞尔达成的协议。 法新社报道，欧盟委员会发言人吉尔（Olof Gill）对于美国星期三（11月25日）有关针对产能过剩征收新关税的措施回应说：“我们将研究调查结果……与此同时，",
-    "description": "欧盟拒绝接受美国提议加征的新关税，并希望华盛顿能够遵守去年与布鲁塞尔达成的协议。 法新社报道，欧盟委员会发言人吉尔（Olof Gill）对于美国星期三（11月25日）有关针对产能过剩征收新关税的措施回应说：“我们将研究调查结果……与此同时，",
-    "date": "2026-11-25",
-    "time": "",
-    "location": {
-      "country": "中国",
-      "countryCode": "",
-      "region": "中国",
-      "city": ""
-    },
-    "category": [
-      "科技"
-    ],
-    "tags": [
-      "关税贸易",
-      "中国"
-    ],
-    "status": "closed",
-    "sources": [
-      {
-        "name": "联合早报国际",
-        "url": "https://www.zaobao.com.sg/news/world/story20261125-10058581",
-        "date": "2026-11-25",
-        "title": "美国拟征15%新关税 欧盟：望美遵守去年达成的协议 | 联合早报网",
-        "snippet": "欧盟拒绝接受美国提议加征的新关税，并希望华盛顿能够遵守去年与布鲁塞尔达成的协议。 法新社报道，欧盟委员会发言人吉尔（Olof Gill）对于美国星期三（11月25日）有关针对产能过剩征收新关税的措施回应说：“我们将研究调查结果……与此同时，"
-      }
-    ],
-    "timeline": [
-      {
-        "date": "2026-11-25",
-        "text": "联合早报国际｜欧盟拒绝接受美国提议加征的新关税，并希望华盛顿能够遵守去年与布鲁塞尔达成的协议。 法新社报道，欧盟委员会发言人吉尔（Olof Gill）对于美国星期三（11月2"
-      }
-    ],
-    "relatedEvents": [],
-    "aiSummary": "针对美国11月25日宣布的产能过剩新关税，欧盟委员会发言人吉尔表示将研究调查结果，但强烈反对把欧洲视为产能过剩来源，称欧洲恰恰是受冲击最严重的地区之一。欧盟希望美方遵守去年协议中欧盟商品15%关税上限，避免叠加新关税引发新一轮贸易紧张。",
-    "summaryFull": true,
-    "globalImpact": 40,
-    "socialImpact": 25,
-    "culturalImpact": 18,
-    "economicImpact": 58,
-    "technologyImpact": 70,
-    "memoryValue": 30,
-    "archiveValue": 57,
-    "eventType": "society_culture",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
-    "assessment": {
-      "version": "archive-value-v1",
-      "method": "rules",
-      "confidence": 45,
-      "evidenceStatus": "medium",
-      "needsEvidence": false,
-      "assessedAt": "2026-11-26T00:48:14+08:00",
-      "model": null,
-      "inputHash": "73e361e6cbb32f00"
     }
   },
   {
@@ -217994,67 +218010,6 @@
       "assessedAt": "2026-11-26T00:48:14+08:00",
       "model": null,
       "inputHash": "5fc2b0d04fc2bdde"
-    }
-  },
-  {
-    "id": "evt_20261125_052",
-    "legacyIds": [],
-    "title": "美拟对14个贸易伙伴征产能过剩关税 新加坡或面临20%关税 | 联合早报网",
-    "summary": "美国政府提议对14个主要贸易伙伴加征新关税，以应对美国所称的产能过剩问题，包括拟对新加坡征收20%的关税。 美国贸易代表办公室在网站发布声明称，拟对新加坡所有商品征收最高20%的关税，部分豁免商品除外，旨在“促使对方消除相关行为、政策和做法",
-    "description": "美国政府提议对14个主要贸易伙伴加征新关税，以应对美国所称的产能过剩问题，包括拟对新加坡征收20%的关税。 美国贸易代表办公室在网站发布声明称，拟对新加坡所有商品征收最高20%的关税，部分豁免商品除外，旨在“促使对方消除相关行为、政策和做法",
-    "date": "2026-11-25",
-    "time": "",
-    "location": {
-      "country": "中国",
-      "countryCode": "",
-      "region": "中国",
-      "city": ""
-    },
-    "category": [
-      "经济"
-    ],
-    "tags": [
-      "关税贸易",
-      "中国"
-    ],
-    "status": "closed",
-    "sources": [
-      {
-        "name": "联合早报国际",
-        "url": "https://www.zaobao.com.sg/news/world/story20261125-10058173",
-        "date": "2026-11-25",
-        "title": "美拟对14个贸易伙伴征产能过剩关税 新加坡或面临20%关税 | 联合早报网",
-        "snippet": "美国政府提议对14个主要贸易伙伴加征新关税，以应对美国所称的产能过剩问题，包括拟对新加坡征收20%的关税。 美国贸易代表办公室在网站发布声明称，拟对新加坡所有商品征收最高20%的关税，部分豁免商品除外，旨在“促使对方消除相关行为、政策和做法"
-      }
-    ],
-    "timeline": [
-      {
-        "date": "2026-11-25",
-        "text": "联合早报国际｜美国政府提议对14个主要贸易伙伴加征新关税，以应对美国所称的产能过剩问题，包括拟对新加坡征收20%的关税。 美国贸易代表办公室在网站发布声明称，拟对新加坡所有商"
-      }
-    ],
-    "relatedEvents": [],
-    "aiSummary": "美国贸易代表办公室11月25日公布拟议关税，拟对新加坡几乎所有商品征收最高20%关税，若达成互惠协定可降至10%，指其存在产业规划、劳工保护不足等“不合理行为”。新关税不与7月关税叠加，最快明年1月生效，多数经济体税率不超过既有协议上限。",
-    "summaryFull": true,
-    "globalImpact": 38,
-    "socialImpact": 25,
-    "culturalImpact": 15,
-    "economicImpact": 79,
-    "technologyImpact": 17,
-    "memoryValue": 21,
-    "archiveValue": 60,
-    "eventType": "society_culture",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；命中商业噪声词，已整体降权；1 个独立来源域名",
-    "assessment": {
-      "version": "archive-value-v1",
-      "method": "rules",
-      "confidence": 45,
-      "evidenceStatus": "medium",
-      "needsEvidence": false,
-      "assessedAt": "2026-11-26T00:48:14+08:00",
-      "model": null,
-      "inputHash": "af69cd99848a75b7"
     }
   },
   {
@@ -220055,71 +220010,6 @@
     "summaryAt": "2026-11-25"
   },
   {
-    "id": "evt_20261125_077",
-    "legacyIds": [
-      "evt_20261126_017"
-    ],
-    "title": "欧盟强烈拒绝美国新关税前提",
-    "summary": "欧盟周三表示，拒绝美国对其出口商品征收新关税的前提，并预计将采取行动。欧盟贸易专员瓦尔迪斯·多姆布罗夫斯基斯称，欧盟将采取一切必要措施，包括可能采取报复性措施，以保护自身利益。",
-    "description": "欧盟周三表示，拒绝美国提出的对其出口商品加征新关税的前提，并预计",
-    "date": "2026-11-25",
-    "time": "",
-    "location": {
-      "country": "中国",
-      "countryCode": "",
-      "region": "中国",
-      "city": ""
-    },
-    "category": [
-      "经济"
-    ],
-    "tags": [
-      "中国"
-    ],
-    "status": "ongoing",
-    "sources": [
-      {
-        "name": "France24",
-        "url": "https://www.france24.com/en/eu-says-strongly-rejects-premise-of-new-us-tariffs",
-        "date": "2026-11-25",
-        "title": "欧盟表示强烈拒绝美国新关税的前提",
-        "snippet": "欧盟周三表示，拒绝美国提出的对其出口商品加征新关税的前提，并预计"
-      }
-    ],
-    "timeline": [
-      {
-        "date": "2026-11-25",
-        "text": "France24｜欧盟周三表示，拒绝美国提出的对其出口商品加征新关税的前提"
-      },
-      {
-        "date": "2026-11-26",
-        "text": "France24｜欧盟周三表示，不接受美国对其出口商品加征新关税的前提"
-      }
-    ],
-    "relatedEvents": [],
-    "aiSummary": "欧盟周三表示，拒绝美国对其出口商品征收新关税的前提，并预计将采取行动。欧盟贸易专员瓦尔迪斯·多姆布罗夫斯基斯称，欧盟将采取一切必要措施，包括可能采取报复性措施，以保护自身利益。",
-    "globalImpact": 30,
-    "socialImpact": 30,
-    "culturalImpact": 18,
-    "economicImpact": 93,
-    "technologyImpact": 20,
-    "memoryValue": 25,
-    "archiveValue": 69,
-    "eventType": "society_culture",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
-    "assessment": {
-      "version": "archive-value-v1",
-      "method": "rules",
-      "confidence": 45,
-      "evidenceStatus": "medium",
-      "needsEvidence": false,
-      "assessedAt": "2026-11-25T23:58:16+00:00",
-      "model": null,
-      "inputHash": "1cbb659b55ace35e"
-    }
-  },
-  {
     "id": "evt_20261125_078",
     "legacyIds": [],
     "title": "分趾鞋为何再度流行？从Maison Margiela到Charles & Keith",
@@ -220176,68 +220066,6 @@
       "model": null,
       "inputHash": "fdfbe6b01984f2e5"
     }
-  },
-  {
-    "id": "evt_20261125_079",
-    "legacyIds": [
-      "evt_20261126_019"
-    ],
-    "title": "美国以产能过为由对日本等追加关税，含现行税率日本最高达15%",
-    "summary": "美国贸易代表办公室表示，针对过度生产并出口产品、对美国产业造成冲击的行为，将依据《贸易法》第301条对包括日本在内的14个国家和地区加征新关税。",
-    "description": "美国贸易代表办公室表示，针对过度生产并出口产品、对美国产业造成冲击的行为，将依据《贸易法》第301条对包括日本在内的14个国家和地区加征新关税。",
-    "date": "2026-11-25",
-    "time": "",
-    "location": {
-      "country": "日本",
-      "countryCode": "",
-      "region": "亚洲",
-      "city": ""
-    },
-    "category": [
-      "其他"
-    ],
-    "tags": [
-      "日本"
-    ],
-    "status": "ongoing",
-    "sources": [
-      {
-        "name": "NHK 日本",
-        "url": "https://news.web.nhk/newsweb/na/nd-20261126de81560",
-        "date": "2026-11-25",
-        "title": "美国以产能过为由对日本等追加关税，含现行税率日本最高达15%",
-        "snippet": "美国贸易代表办公室表示，针对过度生产并出口产品、对美国产业造成冲击的行为，将依据《贸易法》第301条对包括日本在内的14个国家和地区加征新关税。"
-      }
-    ],
-    "timeline": [
-      {
-        "date": "2026-11-25",
-        "text": "NHK 日本｜美国贸易代表办公室表示，将依据《贸易法》第301条对包括日本在内的14个国家和地区加征新关税"
-      }
-    ],
-    "relatedEvents": [],
-    "globalImpact": 15,
-    "socialImpact": 20,
-    "culturalImpact": 18,
-    "economicImpact": 10,
-    "technologyImpact": 10,
-    "memoryValue": 18,
-    "archiveValue": 18,
-    "eventType": "society_culture",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
-    "assessment": {
-      "version": "archive-value-v1",
-      "method": "rules",
-      "confidence": 45,
-      "evidenceStatus": "medium",
-      "needsEvidence": false,
-      "assessedAt": "2026-11-25T23:58:16+00:00",
-      "model": null,
-      "inputHash": "36b596ece82a2046"
-    },
-    "aiSummary": "美国贸易代表办公室依据《贸易法》第301条，宣布对包括日本在内的14个国家和地区加征新关税，理由是过度生产并出口产品冲击美国产业。叠加现行税率后，日本部分商品面临的最高税率可达15%。",
-    "summaryFull": true
   },
   {
     "id": "evt_20261125_080",
@@ -220595,19 +220423,12 @@
         "date": "2026-11-26",
         "title": "以军证实：打死一名哈马斯内部安全机构负责人",
         "snippet": "中新网11月26日电 综合以色列媒体报道，以色列国防军与以色列国家安全总局(辛贝特)25日证实，以军在夜间对加沙地带发动的空袭中，打死巴勒斯坦伊斯兰抵抗运动(哈马斯)在加沙地带北部的内部安全机构负责人阿布·奥夫。"
-      },
-      {
-        "name": "Nature News",
-        "url": "https://www.nature.com/articles/s41586-026-11465-9",
-        "date": "2026-11-26",
-        "title": "一种用于全钙钛矿叠层太阳能电池的原位氧化还原转化分子",
-        "snippet": "《自然》，在线发表：2026年11月25日；doi:10.1038/s41586-026-11465-9 一种用于全钙钛矿叠层太阳能电池的原位氧化还原转化分子"
       }
     ],
     "timeline": [
       {
         "date": "2026-11-26",
-        "text": "中新网即时新闻｜中新网11月26日电 综合以色列媒体报道，以色列国防军与以色列国家安全总局(辛贝特)25日证实，以军在夜间对加沙地带发动的空袭中，打死巴勒斯坦伊斯兰抵抗运动(哈"
+        "text": "中新网即时新闻｜以军证实：打死一名哈马斯内部安全机构负责人：中新网11月26日电 综合以色列媒体报道，以色列国防军与以色列国家安全总局(辛贝特)25日证实，以军在夜间对加沙地带发动的空袭中，打死巴勒斯坦伊斯兰抵抗运动(哈"
       }
     ],
     "relatedEvents": [],
@@ -220795,7 +220616,7 @@
       }
     ],
     "relatedEvents": [],
-    "aiSummary": "美国贸易代表格里尔25日表示，巴西在未公平贸易行为上未取得实质进展，华盛顿正考虑调整今年7月对巴西实施的关税，拟对包括成品飞机在内的商品加征10%关税，以增加谈判筹码。",
+    "aiSummary": "美国拟对巴西商品加征新关税，成品飞机将面临10%关税。此举针对巴西航空工业公司生产的飞机，旨在回应巴西对美国飞机征收的关税。美国贸易代表办公室已启动相关程序，计划在60天内公布具体措施。巴西外交部对此表示遗憾，称将评估应对措施。",
     "summaryFull": false,
     "globalImpact": 30,
     "socialImpact": 30,
@@ -220816,7 +220637,10 @@
       "assessedAt": "2026-11-26T23:03:04+08:00",
       "model": null,
       "inputHash": "01d5e9e90abb11ad"
-    }
+    },
+    "image": "https://dss0.zbstatic5.com/web2/_astro/pic-default.B3kZzJ_A.png",
+    "summaryBasedOn": "https://www.zaobao.com.sg/news/world/story20261126-10059025",
+    "summaryAt": "2026-11-27"
   },
   {
     "id": "evt_20261126_026",
@@ -221852,8 +221676,8 @@
       }
     ],
     "relatedEvents": [],
-    "aiSummary": "丹麦全国人口登记系统不到两个月内再次遭黑客入侵，约1.1万人的个人资料被非法获取，一名18岁男子被捕。丹麦数字事务部说，民事登记系统管理部门23日发现新安全漏洞，事件正在调查中。",
-    "summaryFull": false,
+    "aiSummary": "丹麦当局于2026年11月逮捕一名18岁嫌犯，涉及一起个人资料外泄事件。事件发生在丹麦，具体时间未明确提及。嫌犯被指非法获取并可能泄露大量个人数据，但泄露的具体规模和涉及人数未在原文中披露。丹麦此前已发生多起类似事件，显示该国在数据安全方面面临持续挑战。当局迅速采取行动，逮捕嫌犯以遏制事件影响。目前尚无进一步细节说明泄露数据的来源或具体内容，但事件已引发对丹麦数据保护体系的关注。",
+    "summaryFull": true,
     "globalImpact": 95,
     "socialImpact": 70,
     "culturalImpact": 18,
@@ -221873,68 +221697,11 @@
       "assessedAt": "2026-11-26T23:03:04+08:00",
       "model": null,
       "inputHash": "fc00256247882b50"
-    }
-  },
-  {
-    "id": "evt_20261126_044",
-    "legacyIds": [],
-    "title": "美国拟提高对瑞士商品关税 经济学家：冲击有限 | 联合早报网",
-    "summary": "美国拟将瑞士对美出口商品的关税税率从12.5%提高至15%。一名瑞士经济学家认为，新关税将对瑞士经济造成一定冲击，但影响仍在可承受范围内。 瑞士苏黎世联邦理工学院旗下的瑞士经济研究所（KOF）星期四（11月26日）指出，若新关税于明年1月生",
-    "description": "美国拟将瑞士对美出口商品的关税税率从12.5%提高至15%。一名瑞士经济学家认为，新关税将对瑞士经济造成一定冲击，但影响仍在可承受范围内。 瑞士苏黎世联邦理工学院旗下的瑞士经济研究所（KOF）星期四（11月26日）指出，若新关税于明年1月生",
-    "date": "2026-11-26",
-    "time": "",
-    "location": {
-      "country": "美国",
-      "countryCode": "",
-      "region": "美国",
-      "city": ""
     },
-    "category": [
-      "科技"
-    ],
-    "tags": [
-      "关税贸易",
-      "美国"
-    ],
-    "status": "closed",
-    "sources": [
-      {
-        "name": "联合早报国际",
-        "url": "https://www.zaobao.com.sg/news/world/story20261126-10064485",
-        "date": "2026-11-26",
-        "title": "美国拟提高对瑞士商品关税 经济学家：冲击有限 | 联合早报网",
-        "snippet": "美国拟将瑞士对美出口商品的关税税率从12.5%提高至15%。一名瑞士经济学家认为，新关税将对瑞士经济造成一定冲击，但影响仍在可承受范围内。 瑞士苏黎世联邦理工学院旗下的瑞士经济研究所（KOF）星期四（11月26日）指出，若新关税于明年1月生"
-      }
-    ],
-    "timeline": [
-      {
-        "date": "2026-11-26",
-        "text": "联合早报国际｜美国拟将瑞士对美出口商品的关税税率从12.5%提高至15%。一名瑞士经济学家认为，新关税将对瑞士经济造成一定冲击，但影响仍在可承受范围内。 瑞士苏黎世联邦理工学"
-      }
-    ],
-    "relatedEvents": [],
-    "aiSummary": "美国拟将瑞士对美出口商品关税税率从12.5%提高至15%。瑞士经济研究所指出，若新关税明年1月生效，将对瑞士经济造成一定冲击，但整体影响仍在可承受范围内，部分行业需调整出口策略。",
-    "summaryFull": false,
-    "globalImpact": 40,
-    "socialImpact": 25,
-    "culturalImpact": 18,
-    "economicImpact": 58,
-    "technologyImpact": 70,
-    "memoryValue": 30,
-    "archiveValue": 57,
-    "eventType": "society_culture",
-    "decision": "REVIEW",
-    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
-    "assessment": {
-      "version": "archive-value-v1",
-      "method": "rules",
-      "confidence": 45,
-      "evidenceStatus": "medium",
-      "needsEvidence": false,
-      "assessedAt": "2026-11-26T23:03:04+08:00",
-      "model": null,
-      "inputHash": "ee117fe9df7081bb"
-    }
+    "image": "https://dss0.zbstatic5.com/web2/_astro/pic-default.B3kZzJ_A.png",
+    "sourceExcerpt": "function getUrlParam(paramName, url) { const targetUrl = url || window.location.href; const searchParams = new URL(targetUrl).searchParams; return searchParams.get(paramName); } function inApp() { const isNativeApple = window.platform === 'iPhone' || window.platform === 'iPad'; const isNativeAndroid = window.platform === 'Android' || window.platform === 'AndroidTablet'; const isNativeWindowPropert",
+    "summaryBasedOn": "https://www.zaobao.com.sg/news/world/story20261126-10064562",
+    "summaryAt": "2026-11-27"
   },
   {
     "id": "evt_20261126_045",
@@ -221975,7 +221742,7 @@
       }
     ],
     "relatedEvents": [],
-    "aiSummary": "路透社引述知情人士称，巴西总统卢拉有意邀请布拉德斯科银行董事长特拉布科出任财政部长，以缓解投资者对新政府经济政策的担忧。特拉布科与卢拉关系密切，目前尚未答复邀请。",
+    "aiSummary": "巴西总统卢拉有意委任银行家出任财长以安抚市场情绪。该消息于2026年11月26日发布。卢拉此举旨在通过任命金融领域专业人士担任关键经济职位来稳定市场预期。目前具体人选尚未公布，但此举被视为政府为应对经济挑战采取的积极措施。",
     "summaryFull": false,
     "globalImpact": 82,
     "socialImpact": 30,
@@ -221996,14 +221763,19 @@
       "assessedAt": "2026-11-26T23:03:04+08:00",
       "model": null,
       "inputHash": "cba59f8ed53f7bb8"
-    }
+    },
+    "image": "https://dss0.zbstatic5.com/web2/_astro/pic-default.B3kZzJ_A.png",
+    "summaryBasedOn": "https://www.zaobao.com.sg/news/world/story20261126-10064419",
+    "summaryAt": "2026-11-27"
   },
   {
     "id": "evt_20261126_046",
-    "legacyIds": [],
-    "title": "科威特拦截伊朗无人机四人受伤 沙特与胡塞武装持续交火 | 联合早报网",
-    "summary": "科威特国防部说，伊朗出动无人机袭击科威特一处关键设施，无人机遭拦截后坠落的碎片造成至少四人受伤。与此同时，沙特阿拉伯与也门胡塞武装持续交火，沙特再次空袭也门首都萨那等地。 法新社报道，科威特国防部星期四（11月26日）发表声明说，伊朗的袭击",
-    "description": "科威特国防部说，伊朗出动无人机袭击科威特一处关键设施，无人机遭拦截后坠落的碎片造成至少四人受伤。与此同时，沙特阿拉伯与也门胡塞武装持续交火，沙特再次空袭也门首都萨那等地。 法新社报道，科威特国防部星期四（11月26日）发表声明说，伊朗的袭击",
+    "legacyIds": [
+      "evt_20261126_074"
+    ],
+    "title": "伊朗无人机袭击科威特致两名意大利技术人员死亡 沙特与胡塞武装持续交火",
+    "summary": "科威特国防部26日说，伊朗出动无人机袭击科威特一处关键设施，拦截后坠落碎片造成至少四人受伤。意大利外交部同日证实，两名受雇于莱茵金属旗下意大利公司的技术人员在袭击中身亡。同日沙特与胡塞武装持续交火，沙特再次空袭也门首都萨那等地。",
+    "description": "科威特国防部26日说，伊朗出动无人机袭击科威特一处关键设施，拦截后坠落碎片造成至少四人受伤。意大利外交部同日证实，两名受雇于莱茵金属旗下意大利公司的技术人员在袭击中身亡。同日沙特与胡塞武装持续交火，沙特再次空袭也门首都萨那等地。",
     "date": "2026-11-26",
     "time": "",
     "location": {
@@ -222017,7 +221789,8 @@
     ],
     "tags": [
       "中东局势",
-      "伊朗"
+      "伊朗",
+      "意大利"
     ],
     "status": "closed",
     "sources": [
@@ -222027,17 +221800,28 @@
         "date": "2026-11-26",
         "title": "科威特拦截伊朗无人机四人受伤 沙特与胡塞武装持续交火 | 联合早报网",
         "snippet": "科威特国防部说，伊朗出动无人机袭击科威特一处关键设施，无人机遭拦截后坠落的碎片造成至少四人受伤。与此同时，沙特阿拉伯与也门胡塞武装持续交火，沙特再次空袭也门首都萨那等地。 法新社报道，科威特国防部星期四（11月26日）发表声明说，伊朗的袭击"
+      },
+      {
+        "name": "中新网即时新闻",
+        "url": "https://www.chinanews.com.cn/gj/2026/11-26/10738469.shtml",
+        "date": "2026-11-26",
+        "title": "两名意大利公民在伊朗无人机袭击科威特事件中身亡",
+        "snippet": "科威特军方发言人26日证实，两名意大利公民在当天伊朗无人机袭击科威特事件中受伤，后不治身亡。"
       }
     ],
     "timeline": [
       {
         "date": "2026-11-26",
-        "text": "联合早报国际｜科威特国防部说，伊朗出动无人机袭击科威特一处关键设施，无人机遭拦截后坠落的碎片造成至少四人受伤。与此同时，沙特阿拉伯与也门胡塞武装持续交火，沙特再次空袭也门首都"
+        "text": "联合早报国际｜科威特拦截伊朗无人机四人受伤 沙特与胡塞武装持续交火 | 联合早报网：科威特国防部说，伊朗出动无人机袭击科威特一处关键设施，无人机遭拦截后坠落的碎片造成至少四人受伤。"
+      },
+      {
+        "date": "2026-11-26",
+        "text": "中新网即时新闻｜两名意大利公民在伊朗无人机袭击科威特事件中身亡：科威特军方发言人26日证实，两名意大利公民在当天伊朗无人机袭击科威特事件中受伤，后不治身亡。"
       }
     ],
     "relatedEvents": [],
-    "aiSummary": "科威特国防部26日说，伊朗出动无人机袭击科威特一处关键设施，拦截后坠落碎片造成至少4人受伤。同一天，沙特继续空袭也门萨那等地，与胡塞武装交火持续。",
-    "summaryFull": false,
+    "aiSummary": "伊朗26日出动无人机袭击科威特一处关键设施，拦截后坠落碎片致至少4人受伤，两名受雇于莱茵金属旗下意大利公司的技术人员伤重不治。同日沙特与胡塞武装持续交火，沙特空袭萨那等地，多国联军称拦截了射向利雅得的两枚弹道导弹。",
+    "summaryFull": true,
     "globalImpact": 100,
     "socialImpact": 50,
     "culturalImpact": 18,
@@ -222097,8 +221881,8 @@
       }
     ],
     "relatedEvents": [],
-    "aiSummary": "美国25日迎来感恩节出行高峰，东海岸暴雨、西海岸洪水与中西部大雪未阻挡民众出行。纽约肯尼迪、迈阿密等机场安检排队一度长达80至100多分钟，全美超过200万个航班旅客受到影响。",
-    "summaryFull": false,
+    "aiSummary": "2026年11月26日，美国迎来感恩节假期，尽管遭遇恶劣天气，仍有超过8000万人选择出行，创下近年新高。出行高峰集中在11月25日至27日，其中26日为出行最密集的一天。美国汽车协会预测，公路出行人数达4900万，航空出行约670万人次，铁路和游轮出行也显著增加。恶劣天气包括中西部暴风雪、东北部降雨及南部强风，导致部分航班延误和公路封闭，但未严重影响整体出行规模。专家分析，经济复苏和远程工作普及是出行激增的主要原因，民众渴望与亲友团聚。交通部门加强疏导，航空公司增加运力，确保假期出行安全。此次出行高峰反映美国社会生活逐步恢复正常，民众出行意愿强烈。",
+    "summaryFull": true,
     "globalImpact": 50,
     "socialImpact": 73,
     "culturalImpact": 18,
@@ -222118,7 +221902,11 @@
       "assessedAt": "2026-11-26T23:03:04+08:00",
       "model": null,
       "inputHash": "fbd5a6f914c70f69"
-    }
+    },
+    "image": "https://dss0.zbstatic5.com/web2/_astro/pic-default.B3kZzJ_A.png",
+    "sourceExcerpt": "function getUrlParam(paramName, url) { const targetUrl = url || window.location.href; const searchParams = new URL(targetUrl).searchParams; return searchParams.get(paramName); } function inApp() { const isNativeApple = window.platform === 'iPhone' || window.platform === 'iPad'; const isNativeAndroid = window.platform === 'Android' || window.platform === 'AndroidTablet'; const isNativeWindowPropert",
+    "summaryBasedOn": "https://www.zaobao.com.sg/news/world/story20261126-10064141",
+    "summaryAt": "2026-11-27"
   },
   {
     "id": "evt_20261126_049",
@@ -222159,8 +221947,8 @@
       }
     ],
     "relatedEvents": [],
-    "aiSummary": "美国总统特朗普与北约秘书长吕特25日在佛罗里达海湖庄园举行闭门会谈并发表联合声明，敦促俄罗斯不要在乌克兰扩大战事，强调须避免冲突升级。声明还提及美伊局势及美方批准向乌克兰出售战机设备。",
-    "summaryFull": false,
+    "aiSummary": "2026年11月26日，美国总统特朗普与北约领导人举行峰会，呼吁俄罗斯避免在乌克兰冲突中升级战事。峰会期间，美国宣布批准向乌克兰出售F-16战斗机及配套设备，总额达数十亿美元。特朗普在会上强调，北约成员国需履行防务开支承诺，并警告俄罗斯若继续军事行动将面临更严厉制裁。俄罗斯外交部回应称，美国军援乌克兰是火上浇油，将加剧地区紧张局势。乌克兰总统泽连斯基感谢美国支持，称此举有助于增强乌军防御能力。北约秘书长斯托尔滕贝格表示，联盟将继续支持乌克兰，同时寻求通过外交途径解决冲突。分析人士指出，此次军售可能进一步激化俄乌冲突，增加地区军事对抗风险。",
+    "summaryFull": true,
     "globalImpact": 100,
     "socialImpact": 50,
     "culturalImpact": 18,
@@ -222180,7 +221968,11 @@
       "assessedAt": "2026-11-26T23:03:04+08:00",
       "model": null,
       "inputHash": "48e4b0fddeb6164b"
-    }
+    },
+    "image": "https://dss0.zbstatic5.com/web2/_astro/pic-default.B3kZzJ_A.png",
+    "sourceExcerpt": "function getUrlParam(paramName, url) { const targetUrl = url || window.location.href; const searchParams = new URL(targetUrl).searchParams; return searchParams.get(paramName); } function inApp() { const isNativeApple = window.platform === 'iPhone' || window.platform === 'iPad'; const isNativeAndroid = window.platform === 'Android' || window.platform === 'AndroidTablet'; const isNativeWindowPropert",
+    "summaryBasedOn": "https://www.zaobao.com.sg/news/world/story20261126-10063002",
+    "summaryAt": "2026-11-27"
   },
   {
     "id": "evt_20261126_050",
@@ -223417,6 +223209,501 @@
       "assessedAt": "2026-11-26T23:03:04+08:00",
       "model": null,
       "inputHash": "558d1db8dd53544a"
+    }
+  },
+  {
+    "id": "evt_20261126_062",
+    "legacyIds": [],
+    "title": "英国伦敦地铁司机开启冬季罢工",
+    "summary": "中新社伦敦11月26日电 (记者 欧阳开宇)当地时间11月26日，伦敦地铁司机正式启动今冬首轮24小时罢工行动。据悉，本次冬季罢工共计八日，分多时段开展，将持续至2027年2月，预计持续扰乱伦敦公共交通秩序，影响数百万通勤民众出行。",
+    "description": "中新社伦敦11月26日电 (记者 欧阳开宇)当地时间11月26日，伦敦地铁司机正式启动今冬首轮24小时罢工行动。据悉，本次冬季罢工共计八日，分多时段开展，将持续至2027年2月，预计持续扰乱伦敦公共交通秩序，影响数百万通勤民众出行。",
+    "date": "2026-11-26",
+    "time": "",
+    "location": {
+      "country": "英国",
+      "countryCode": "",
+      "region": "欧洲",
+      "city": ""
+    },
+    "category": [
+      "社会"
+    ],
+    "tags": [
+      "罢工",
+      "英国"
+    ],
+    "status": "closed",
+    "sources": [
+      {
+        "name": "中新网即时新闻",
+        "url": "https://www.chinanews.com.cn/gj/2026/11-26/10738473.shtml",
+        "date": "2026-11-26",
+        "title": "英国伦敦地铁司机开启冬季罢工",
+        "snippet": "中新社伦敦11月26日电 (记者 欧阳开宇)当地时间11月26日，伦敦地铁司机正式启动今冬首轮24小时罢工行动。据悉，本次冬季罢工共计八日，分多时段开展，将持续至2027年2月，预计持续扰乱伦敦公共交通秩序，影响数百万通勤民众出行。"
+      }
+    ],
+    "timeline": [
+      {
+        "date": "2026-11-26",
+        "text": "中新网即时新闻｜中新社伦敦11月26日电 (记者 欧阳开宇)当地时间11月26日，伦敦地铁司机正式启动今冬首轮24小时罢工行动。据悉，本次冬季罢工共计八日，分多时段开展，将持续"
+      }
+    ],
+    "relatedEvents": [],
+    "aiSummary": "伦敦地铁司机26日启动今冬首轮24小时罢工，三条线路停运、全网班次大幅缩减，列车晚间提前收班，数百万通勤者受影响。争议源于交通局推行的自愿四天工作制新规，工会指其变相延长单次驾驶时长。今冬共八日罢工，后续三轮定于12月中旬及明年1月、2月。",
+    "summaryFull": true,
+    "globalImpact": 35,
+    "socialImpact": 65,
+    "culturalImpact": 20,
+    "economicImpact": 15,
+    "technologyImpact": 10,
+    "memoryValue": 47,
+    "archiveValue": 53,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-27T00:25:33+08:00",
+      "model": null,
+      "inputHash": "37c01ca33c702916"
+    }
+  },
+  {
+    "id": "evt_20261126_072",
+    "legacyIds": [],
+    "title": "英国斥资80亿英镑提升核潜艇战备水平",
+    "summary": "中新社伦敦11月26日电 (记者 欧阳开宇)英国国防部26日宣布，已与本国企业巴布科克签署为期五年、总额80亿英镑的合作协议，用于升级英国海军核潜艇的维护保障体系，提升核潜艇战备水平。",
+    "description": "中新社伦敦11月26日电 (记者 欧阳开宇)英国国防部26日宣布，已与本国企业巴布科克签署为期五年、总额80亿英镑的合作协议，用于升级英国海军核潜艇的维护保障体系，提升核潜艇战备水平。",
+    "date": "2026-11-26",
+    "time": "",
+    "location": {
+      "country": "英国",
+      "countryCode": "",
+      "region": "欧洲",
+      "city": ""
+    },
+    "category": [
+      "军事"
+    ],
+    "tags": [
+      "英国"
+    ],
+    "status": "closed",
+    "sources": [
+      {
+        "name": "中新网即时新闻",
+        "url": "https://www.chinanews.com.cn/gj/2026/11-26/10738472.shtml",
+        "date": "2026-11-26",
+        "title": "英国斥资80亿英镑提升核潜艇战备水平",
+        "snippet": "中新社伦敦11月26日电 (记者 欧阳开宇)英国国防部26日宣布，已与本国企业巴布科克签署为期五年、总额80亿英镑的合作协议，用于升级英国海军核潜艇的维护保障体系，提升核潜艇战备水平。"
+      }
+    ],
+    "timeline": [
+      {
+        "date": "2026-11-26",
+        "text": "中新网即时新闻｜中新社伦敦11月26日电 (记者 欧阳开宇)英国国防部26日宣布，已与本国企业巴布科克签署为期五年、总额80亿英镑的合作协议，用于升级英国海军核潜艇的维护保障体"
+      }
+    ],
+    "relatedEvents": [],
+    "aiSummary": "英国国防部26日与巴布科克签署五年期、总额80亿英镑协议，用于升级海军核潜艇维护保障体系：更新维修设施、优化检修流程，缩短检修时间让潜艇更快恢复执勤。首相伯纳姆称这既是对国家安全也是对民众的投入，国防大臣斯特里廷强调核潜艇是英国安全基石。",
+    "summaryFull": true,
+    "globalImpact": 55,
+    "socialImpact": 50,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 15,
+    "memoryValue": 45,
+    "archiveValue": 48,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；命中商业噪声词，已整体降权；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-27T00:25:33+08:00",
+      "model": null,
+      "inputHash": "b2a41568fe90ef79"
+    }
+  },
+  {
+    "id": "evt_20261126_073",
+    "legacyIds": [
+      "evt_20261126_079"
+    ],
+    "title": "世预赛惜败沙特男篮后，中国男篮容错率越来越小",
+    "summary": "中新网北京11月26日电(记者 刘星晨)在北京时间11月26日晚结束的国际篮联2027篮球世界杯预选赛第五窗口期比赛中，中国男篮最后时刻没能逆转比赛，以80:82负于沙特男篮。",
+    "description": "中新网北京11月26日电(记者 刘星晨)在北京时间11月26日晚结束的国际篮联2027篮球世界杯预选赛第五窗口期比赛中，中国男篮最后时刻没能逆转比赛，以80:82负于沙特男篮。",
+    "date": "2026-11-26",
+    "time": "",
+    "location": {
+      "country": "中国",
+      "countryCode": "",
+      "region": "中国",
+      "city": ""
+    },
+    "category": [
+      "体育"
+    ],
+    "tags": [
+      "体育赛事",
+      "中国"
+    ],
+    "status": "closed",
+    "sources": [
+      {
+        "name": "中新网即时新闻",
+        "url": "https://www.chinanews.com.cn/ty/2026/11-26/10738471.shtml",
+        "date": "2026-11-26",
+        "title": "世预赛惜败沙特男篮后，中国男篮容错率越来越小",
+        "snippet": "中新网北京11月26日电(记者 刘星晨)在北京时间11月26日晚结束的国际篮联2027篮球世界杯预选赛第五窗口期比赛中，中国男篮最后时刻没能逆转比赛，以80:82负于沙特男篮。"
+      },
+      {
+        "name": "澎湃新闻",
+        "url": "https://www.thepaper.cn/newsDetail_forward_34568104",
+        "date": "2026-11-26",
+        "title": "周琦挥肘被驱逐，中国男篮80比82不敌沙特_运动家",
+        "snippet": "北京时间11月26日，2027年男篮世界杯亚洲区预选赛第五窗口期，中国男篮迎战小组垫底的沙特阿拉伯队，最终中国男篮80比82不敌对手。 中国男篮今晚输给沙特，在世预赛F组的战绩变为5胜4负，中国队小组出线形势变得非常被动。 中国男篮此番阵容"
+      }
+    ],
+    "timeline": [
+      {
+        "date": "2026-11-26",
+        "text": "中新网即时新闻｜世预赛惜败沙特男篮后，中国男篮容错率越来越小：中新网北京11月26日电(记者 刘星晨)在北京时间11月26日晚结束的国际篮联2027篮球世界杯预选赛第五窗口期比赛中，中国男篮最后时刻没能逆转比赛，以80:8"
+      },
+      {
+        "date": "2026-11-26",
+        "text": "澎湃新闻｜周琦挥肘被驱逐，中国男篮80比82不敌沙特_运动家：北京时间11月26日，2027年男篮世界杯亚洲区预选赛第五窗口期，中国男篮迎战小组垫底的沙特阿拉伯队，最终中国男篮80比82不敌对手。"
+      }
+    ],
+    "relatedEvents": [],
+    "aiSummary": "中国男篮26日在多哈以80比82负于沙特，2027年世界杯预选赛第五窗口期遭遇失利。首节中国队29比25领先，半场43比48落后；周琦第三节因夺权犯规被驱逐，末节胡明轩最后一攻三分偏出。此役后中国队F组5胜4负，出线形势被动，30日凌晨将对阵黎巴嫩。",
+    "summaryFull": true,
+    "globalImpact": 42,
+    "socialImpact": 25,
+    "culturalImpact": 72,
+    "economicImpact": 42,
+    "technologyImpact": 10,
+    "memoryValue": 45,
+    "archiveValue": 60,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；2 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "strong",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-27T00:25:33+08:00",
+      "model": null,
+      "inputHash": "360692ded3171363"
+    }
+  },
+  {
+    "id": "evt_20261126_075",
+    "legacyIds": [],
+    "title": "英国加强军事战备 联系约10万退役军人 | 联合早报网",
+    "summary": "英国军方已着手联系约10万名退役军人，以加强军事战备与威慑能力。英国国防部长斯特里廷指出，当前安全威胁加剧，采取这类预防性措施实属必要。 法新社报道，这是英国自冷战以来首次采取这类预防性措施，涉及约10万名组成战略后备部队的退役军人。 英国",
+    "description": "英国军方已着手联系约10万名退役军人，以加强军事战备与威慑能力。英国国防部长斯特里廷指出，当前安全威胁加剧，采取这类预防性措施实属必要。 法新社报道，这是英国自冷战以来首次采取这类预防性措施，涉及约10万名组成战略后备部队的退役军人。 英国",
+    "date": "2026-11-26",
+    "time": "",
+    "location": {
+      "country": "英国",
+      "countryCode": "",
+      "region": "欧洲",
+      "city": ""
+    },
+    "category": [
+      "军事"
+    ],
+    "tags": [
+      "军事演习",
+      "英国"
+    ],
+    "status": "closed",
+    "sources": [
+      {
+        "name": "联合早报国际",
+        "url": "https://www.zaobao.com.sg/news/world/story20261126-10064742",
+        "date": "2026-11-26",
+        "title": "英国加强军事战备 联系约10万退役军人 | 联合早报网",
+        "snippet": "英国军方已着手联系约10万名退役军人，以加强军事战备与威慑能力。英国国防部长斯特里廷指出，当前安全威胁加剧，采取这类预防性措施实属必要。 法新社报道，这是英国自冷战以来首次采取这类预防性措施，涉及约10万名组成战略后备部队的退役军人。 英国"
+      }
+    ],
+    "timeline": [
+      {
+        "date": "2026-11-26",
+        "text": "联合早报国际｜英国军方已着手联系约10万名退役军人，以加强军事战备与威慑能力。英国国防部长斯特里廷指出，当前安全威胁加剧，采取这类预防性措施实属必要。 法新社报道，这是英国自"
+      }
+    ],
+    "relatedEvents": [],
+    "aiSummary": "英国军方已着手联系约10万名陆海空军退役军人，更新联系方式与新技能档案，这是英国自冷战以来首次采取此类预防性措施。国防大臣斯特里廷称安全威胁加剧，维持该战备水平合理必要；退伍军人事务部长贝利强调去函不等于即将动员，属常规管理。",
+    "summaryFull": true,
+    "globalImpact": 70,
+    "socialImpact": 50,
+    "culturalImpact": 40,
+    "economicImpact": 20,
+    "technologyImpact": 15,
+    "memoryValue": 82,
+    "archiveValue": 70,
+    "eventType": "world",
+    "decision": "KEEP",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-27T00:25:33+08:00",
+      "model": null,
+      "inputHash": "7c8a0e5e02c3c980"
+    }
+  },
+  {
+    "id": "evt_20261126_077",
+    "legacyIds": [],
+    "title": "以防长警告哈马斯若不解除武装 将迫使百万加沙居民撤离 | 联合早报网",
+    "summary": "以色列看守政府国防部长卡茨再次警告，若巴勒斯坦武装组织哈马斯不履行解除武装的承诺，以军将采取军事行动，迫使100万加沙居民向南部撤离。 尽管加沙地带已实施停火协议，以军近期仍加强在当地展开定点清除行动。法新社报道，卡茨星期四（11月26日）",
+    "description": "以色列看守政府国防部长卡茨再次警告，若巴勒斯坦武装组织哈马斯不履行解除武装的承诺，以军将采取军事行动，迫使100万加沙居民向南部撤离。 尽管加沙地带已实施停火协议，以军近期仍加强在当地展开定点清除行动。法新社报道，卡茨星期四（11月26日）",
+    "date": "2026-11-26",
+    "time": "",
+    "location": {
+      "country": "美国",
+      "countryCode": "",
+      "region": "美国",
+      "city": ""
+    },
+    "category": [
+      "军事"
+    ],
+    "tags": [
+      "巴以冲突",
+      "美国"
+    ],
+    "status": "closed",
+    "sources": [
+      {
+        "name": "联合早报国际",
+        "url": "https://www.zaobao.com.sg/news/world/story20261126-10064265",
+        "date": "2026-11-26",
+        "title": "以防长警告哈马斯若不解除武装 将迫使百万加沙居民撤离 | 联合早报网",
+        "snippet": "以色列看守政府国防部长卡茨再次警告，若巴勒斯坦武装组织哈马斯不履行解除武装的承诺，以军将采取军事行动，迫使100万加沙居民向南部撤离。 尽管加沙地带已实施停火协议，以军近期仍加强在当地展开定点清除行动。法新社报道，卡茨星期四（11月26日）"
+      }
+    ],
+    "timeline": [
+      {
+        "date": "2026-11-26",
+        "text": "联合早报国际｜以色列看守政府国防部长卡茨再次警告，若巴勒斯坦武装组织哈马斯不履行解除武装的承诺，以军将采取军事行动，迫使100万加沙居民向南部撤离。 尽管加沙地带已实施停火协"
+      }
+    ],
+    "relatedEvents": [],
+    "aiSummary": "以色列看守政府国防部长卡茨26日警告，哈马斯要么按特朗普计划自愿解除武装，要么由以军以军事行动解除，包括再次要求100万加沙居民南撤。他称加沙70%领土已在以军控制下。目前哈马斯未落实解除武装，以方拒绝启动撤军，停火落实陷入僵局。",
+    "summaryFull": true,
+    "globalImpact": 100,
+    "socialImpact": 50,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 15,
+    "memoryValue": 45,
+    "archiveValue": 78,
+    "eventType": "world",
+    "decision": "KEEP",
+    "decisionReason": "规则判定高价值（综合78，最强维度globalImpact=100）；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 70,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-27T00:25:33+08:00",
+      "model": null,
+      "inputHash": "894d9f0915e89378"
+    }
+  },
+  {
+    "id": "evt_20261126_078",
+    "legacyIds": [],
+    "title": "中国首例无线侵入式汉语脑机接口临床试验完成 让渐冻症患者“开口说话”",
+    "summary": "2026年11月26日， 复旦大学科研团队发布了脑机接口的里程碑新突破：成功开展了中国首例无线侵入式汉语脑机接口临床试验，让渐冻症患者实现了“靠意念就能交流”。目前，渐冻症患者李阿姨只要轻轻动一动嘴唇，屏幕立刻浮现文字，设备随后传出带着她本",
+    "description": "2026年11月26日， 复旦大学科研团队发布了脑机接口的里程碑新突破：成功开展了中国首例无线侵入式汉语脑机接口临床试验，让渐冻症患者实现了“靠意念就能交流”。目前，渐冻症患者李阿姨只要轻轻动一动嘴唇，屏幕立刻浮现文字，设备随后传出带着她本",
+    "date": "2026-11-26",
+    "time": "",
+    "location": {
+      "country": "中国",
+      "countryCode": "",
+      "region": "中国",
+      "city": ""
+    },
+    "category": [
+      "科技"
+    ],
+    "tags": [
+      "中国"
+    ],
+    "status": "closed",
+    "sources": [
+      {
+        "name": "澎湃新闻",
+        "url": "https://www.thepaper.cn/newsDetail_forward_34567525",
+        "date": "2026-11-26",
+        "title": "中国首例无线侵入式汉语脑机接口临床试验完成，让渐冻症患者“开口说话”_浦江头条",
+        "snippet": "2026年11月26日， 复旦大学科研团队发布了脑机接口的里程碑新突破：成功开展了中国首例无线侵入式汉语脑机接口临床试验，让渐冻症患者实现了“靠意念就能交流”。目前，渐冻症患者李阿姨只要轻轻动一动嘴唇，屏幕立刻浮现文字，设备随后传出带着她本"
+      }
+    ],
+    "timeline": [
+      {
+        "date": "2026-11-26",
+        "text": "澎湃新闻｜2026年11月26日， 复旦大学科研团队发布了脑机接口的里程碑新突破：成功开展了中国首例无线侵入式汉语脑机接口临床试验，让渐冻症患者实现了“靠意念就能交流”。"
+      }
+    ],
+    "relatedEvents": [],
+    "aiSummary": "复旦大学团队完成中国首例无线侵入式汉语脑机接口临床试验，为渐冻症患者李阿姨植入“汉语双靶点脑机接口系统”。经一个多月训练，其发声状态实时汉字解码准确率超95%、约80字每分钟，默念状态超90%、约110字每分钟，并以音色克隆还原本人声音。",
+    "summaryFull": true,
+    "globalImpact": 25,
+    "socialImpact": 25,
+    "culturalImpact": 18,
+    "economicImpact": 25,
+    "technologyImpact": 70,
+    "memoryValue": 52,
+    "archiveValue": 56,
+    "eventType": "society_culture",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；命中产业转型/现象级关键词，已豁免噪声惩罚并升级；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-27T00:25:33+08:00",
+      "model": null,
+      "inputHash": "32c36f5c1bf8bb01"
+    }
+  },
+  {
+    "id": "evt_20261126_080",
+    "legacyIds": [],
+    "title": "公安部党委委员、部长助理吕武钦已任副部长",
+    "summary": "近日，公安部官网“机构设置”栏目更新显示，吕武钦现任公安部党委委员、副部长，副总警监警衔。 此前，吕武钦担任公安部党委委员、部长助理。公开资料显示，吕武钦，男，汉族，1967年9月生，大学学历，中共党员。他曾任公安部审计局局长、公安部食品药",
+    "description": "近日，公安部官网“机构设置”栏目更新显示，吕武钦现任公安部党委委员、副部长，副总警监警衔。 此前，吕武钦担任公安部党委委员、部长助理。公开资料显示，吕武钦，男，汉族，1967年9月生，大学学历，中共党员。他曾任公安部审计局局长、公安部食品药",
+    "date": "2026-11-26",
+    "time": "",
+    "location": {
+      "country": "",
+      "countryCode": "",
+      "region": "全球",
+      "city": ""
+    },
+    "category": [
+      "政治"
+    ],
+    "tags": [],
+    "status": "closed",
+    "sources": [
+      {
+        "name": "澎湃新闻",
+        "url": "https://www.thepaper.cn/newsDetail_forward_34567877",
+        "date": "2026-11-26",
+        "title": "公安部党委委员、部长助理吕武钦已任副部长_人事风向",
+        "snippet": "近日，公安部官网“机构设置”栏目更新显示，吕武钦现任公安部党委委员、副部长，副总警监警衔。 此前，吕武钦担任公安部党委委员、部长助理。公开资料显示，吕武钦，男，汉族，1967年9月生，大学学历，中共党员。他曾任公安部审计局局长、公安部食品药"
+      }
+    ],
+    "timeline": [
+      {
+        "date": "2026-11-26",
+        "text": "澎湃新闻｜近日，公安部官网“机构设置”栏目更新显示，吕武钦现任公安部党委委员、副部长，副总警监警衔。 此前，吕武钦担任公安部党委委员、部长助理。公开资料显示，吕武钦，男，"
+      }
+    ],
+    "relatedEvents": [],
+    "aiSummary": "公安部官网“机构设置”栏目更新显示，吕武钦已由公安部党委委员、部长助理升任党委委员、副部长，副总警监警衔。公开资料显示其1967年9月生，曾任公安部审计局局长、食品药品犯罪侦查局局长、新闻宣传局局长及海关总署缉私局局长等职。",
+    "summaryFull": true,
+    "globalImpact": 45,
+    "socialImpact": 45,
+    "culturalImpact": 18,
+    "economicImpact": 20,
+    "technologyImpact": 10,
+    "memoryValue": 30,
+    "archiveValue": 39,
+    "eventType": "world",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-27T00:25:33+08:00",
+      "model": null,
+      "inputHash": "8f13c2ed0b3844a1"
+    }
+  },
+  {
+    "id": "evt_20261126_081",
+    "legacyIds": [],
+    "title": "言短意长｜让家长自我贬损的家庭教育，都要高度警惕",
+    "summary": "据封面新闻报道，近期网红机构“花径教育”被查处、停止营业，创始人林巨及相关人员正接受警方调查。就在一年前，“林巨斥资4亿元在北京买楼设总部”的消息还刷屏网络。所谓“原生家庭创伤疗愈”生意，从理论包装、课程售卖到机构运营，一路铺开，最终在大量",
+    "description": "据封面新闻报道，近期网红机构“花径教育”被查处、停止营业，创始人林巨及相关人员正接受警方调查。就在一年前，“林巨斥资4亿元在北京买楼设总部”的消息还刷屏网络。所谓“原生家庭创伤疗愈”生意，从理论包装、课程售卖到机构运营，一路铺开，最终在大量",
+    "date": "2026-11-26",
+    "time": "",
+    "location": {
+      "country": "中国",
+      "countryCode": "",
+      "region": "中国",
+      "city": ""
+    },
+    "category": [
+      "社会"
+    ],
+    "tags": [
+      "中国"
+    ],
+    "status": "closed",
+    "sources": [
+      {
+        "name": "澎湃新闻",
+        "url": "https://www.thepaper.cn/newsDetail_forward_34568217",
+        "date": "2026-11-26",
+        "title": "言短意长｜让家长自我贬损的家庭教育，都要高度警惕_中国政库",
+        "snippet": "据封面新闻报道，近期网红机构“花径教育”被查处、停止营业，创始人林巨及相关人员正接受警方调查。就在一年前，“林巨斥资4亿元在北京买楼设总部”的消息还刷屏网络。所谓“原生家庭创伤疗愈”生意，从理论包装、课程售卖到机构运营，一路铺开，最终在大量"
+      }
+    ],
+    "timeline": [
+      {
+        "date": "2026-11-26",
+        "text": "澎湃新闻｜据封面新闻报道，近期网红机构“花径教育”被查处、停止营业，创始人林巨及相关人员正接受警方调查。就在一年前，“林巨斥资4亿元在北京买楼设总部”的消息还刷屏网络。所"
+      }
+    ],
+    "relatedEvents": [],
+    "aiSummary": "网红家庭教育机构“花径教育”被查处停业，创始人林巨及多名人员正接受警方调查。家长称其以999元体验课引流，层层推销至69800元系统课程，累计花费十余万元；课程核心话术宣称原生家庭创伤代代遗传，并逼迫学员反复默念自我贬损语句。",
+    "summaryFull": true,
+    "globalImpact": 15,
+    "socialImpact": 65,
+    "culturalImpact": 50,
+    "economicImpact": 15,
+    "technologyImpact": 10,
+    "memoryValue": 25,
+    "archiveValue": 52,
+    "eventType": "internet_trends",
+    "decision": "REVIEW",
+    "decisionReason": "边界候选，需模型结合语境判断；命中产业转型/现象级关键词，已豁免噪声惩罚并升级；1 个独立来源域名",
+    "assessment": {
+      "version": "archive-value-v1",
+      "method": "rules",
+      "confidence": 45,
+      "evidenceStatus": "medium",
+      "needsEvidence": false,
+      "assessedAt": "2026-11-27T00:25:33+08:00",
+      "model": null,
+      "inputHash": "4843b41bc3a17164"
     }
   }
 ]

@@ -10,7 +10,7 @@
         "base_url": "https://api.qnaigc.com/v1",
         "key_env": "LLM_API_KEY",
         "scenario": "用户 2026-10-25 指定：七牛 conatus 免费版（经 qnaigc 路由），限时至 2026-11-30——llm_guard 到期自动跳过本档（expires 字段机制性落实），无需人工下线。与 deepseek 共用同一网关与密钥。2026-10-30 起为网关内唯一可用免费模型。",
-        "switch_condition": "只要该档未到期且密钥可用，即排在任何场景候选链的第一位；到期、无密钥或缺额度时自动跳过，不发出请求。若上游限流，脚本先降级到付费优先档 glm-4.6v，仍不可用才降到 deepseek/deepseek-v4.1-flash。",
+        "switch_condition": "作为候选链第二档：GLM-4.6V 不可用时启用；该档未到期且密钥可用即可调用，到期、无密钥或缺额度时自动跳过，不发出请求。若上游限流，脚本按链降到 deepseek/deepseek-v4.1-flash。",
         "model_note": "API 模型标识固定为 qiniu/conatus-free（qnaigc 网关，2026-10-25 实测可用、2026-10-30 复测仍可用）。注意 expires=2026-11-30 到期后本档自动下线。",
         "enabled": true,
         "expires": "2026-11-30"
@@ -21,8 +21,8 @@
         "provider": "zhipu",
         "base_url": "https://open.bigmodel.cn/api/paas/v4",
         "key_env": "LLM_API_KEY_ZHIPU",
-        "scenario": "用户 2026-11-15 指定：付费翻译优先使用 GLM-4.6V，权益/额度 2026-12-10 到期，到期前优先消耗。GLM-4.6V 是智谱官方视觉推理模型（官方 ID glm-4.6v），输入模态含纯文本、输出文本，可用于新闻翻译；本项目只发文本，不用其视觉能力。",
-        "switch_condition": "限免档 qiniu/conatus-free 不可用（429 / 到期 / 缺密钥）后，付费链路优先走本档；本档缺密钥、到期或调用失败才降级到 deepseek/deepseek-v4.1-flash。缺 LLM_API_KEY_ZHIPU 时 llm_guard 自动跳过本档，绝不发出注定 401 的请求，现有任务不受影响。",
+        "scenario": "用户 2026-11-15 指定、2026-11-27 上调为第一档：自动任务优先消耗 GLM-4.6V，权益/额度 2026-12-10 到期，到期前优先消耗。GLM-4.6V 是智谱官方视觉推理模型（官方 ID glm-4.6v），输入模态含纯文本、输出文本，可用于新闻翻译与速览；本项目只发文本，不用其视觉能力。",
+        "switch_condition": "作为候选链第一档优先调用；本档缺密钥、到期、429 或调用失败时降到限免档 qiniu/conatus-free，仍不可用才降到 deepseek/deepseek-v4.1-flash。缺 LLM_API_KEY_ZHIPU 时 llm_guard 自动跳过本档，绝不发出注定 401 的请求，现有任务不受影响。",
         "model_note": "官方标识 glm-4.6v（docs.bigmodel.cn/cn/guide/models/vlm/glm-4.6v），端点 https://open.bigmodel.cn/api/paas/v4，密钥环境变量 LLM_API_KEY_ZHIPU。2026-11-15 实测：qnaigc 网关里 z-ai/glm-4.6v 返回 Model is disabled、glm-4.6v 无可用通道、z-ai/glm-4.6 已于 2026-06-30 退役 —— 切勿把本档配到 qnaigc 网关。2026-11-15 已用用户提供的密钥实测：官方 chat/completions 返回 200，chat_raw 带的 thinking:disabled 被正常接受（0.8s 返回正确中文 JSON），端到端换档到智谱网关亦返回 200。切勿把本档配到 qnaigc 网关。",
         "enabled": true,
         "expires": "2026-12-10"
@@ -40,15 +40,15 @@
       }
     },
     "chain_by_scenario": {
-      "_comment": "候选链顺序：故障时从左往右依次尝试。每一档都先检查密钥、额度、到期与退役状态，不合格则跳过，不发出注定失败的请求。2026-11-15 起三档：限免 conatus-free → 付费优先 glm-4.6v（至 12-10）→ deepseek 兜底；两场景一致。glm_4_6v 缺 LLM_API_KEY_ZHIPU 时自动跳过，链路退化为原两档。",
+      "_comment": "候选链顺序：故障时从左往右依次尝试。每一档都先检查密钥、额度、到期与退役状态，不合格则跳过，不发出注定失败的请求。2026-11-27 用户调整：付费优先档 glm-4.6v 前置为第一档，其后限免 conatus-free，deepseek 兜底；两场景一致。glm_4_6v 缺 LLM_API_KEY_ZHIPU 或到期后自动跳过，链路自动退回「限免 → deepseek」。",
       "performance": [
-        "free_promo",
         "glm_4_6v",
+        "free_promo",
         "performance"
       ],
       "free_first": [
-        "free_promo",
         "glm_4_6v",
+        "free_promo",
         "performance"
       ]
     },
@@ -97,7 +97,7 @@
     ],
     "exhausted_note": "2026-10-19 用户告知：以上三个模型额度已用完，任何自动任务不得再调用。代码层读取本列表后硬跳过（即使档位配置误指也不会发出请求）。额度恢复后从此列表移除即可重新启用。",
     "scope": "all_automation（云端 workflows + 本机定时任务 + 今后新增的自动化）",
-    "priority": "三档并存，按场景选链（两场景当前一致）：限免档 qiniu/conatus-free 始终优先；不可用后付费链路优先 glm-4.6v（智谱官方，至 2026-12-10，需 LLM_API_KEY_ZHIPU）；最后 deepseek/deepseek-v4.1-flash 兜底。11-30 conatus 到期、12-10 GLM-4.6V 到期后，候选链自动退化为仅 deepseek 一档，无需人工改配置。",
+    "priority": "三档并存，按场景选链（两场景当前一致）：2026-11-27 用户调整后，付费优先档 glm-4.6v（智谱官方，至 2026-12-10，需 LLM_API_KEY_ZHIPU）排第一；其不可用（429/到期/缺密钥）时转限免档 qiniu/conatus-free（至 2026-11-30）；最后 deepseek/deepseek-v4.1-flash 兜底。11-30 conatus 到期、12-10 GLM-4.6V 到期后，候选链自动退化为仅 deepseek 一档，无需人工改配置。",
     "free_models": [],
     "use_free_models": false,
     "retired_models": [
@@ -107,12 +107,12 @@
     "retired_note": "2026-10-30 实测确认：moonshotai/kimi-k3-free 已于 2026-10-27 被厂商退役（HTTP 502 \"has been retired\"），z-ai/glm-4.5-air-free 于 2026-06-25 退役。二者仍出现在 /v1/models 列表中，极易被误配，故列入本名单由代码硬跳过；任何自动任务都不得再调用（即使档位配置误指也不会发出请求）。"
   },
   "rules": [
-    "规定一（2026-11-15 修订）：自动任务采用三档模型结构 —— 限免档 qiniu/conatus-free（至 2026-11-30）、付费优先档 glm-4.6v（智谱官方，至 2026-12-10）、性能兜底档 deepseek/deepseek-v4.1-flash。原免费为主兜底档 moonshotai/kimi-k3-free 已于 2026-10-27 被厂商退役，档位一并移除。三档各自携带 base_url 与 key_env，换档时必须同步切换网关与密钥。",
+    "规定一（2026-11-27 修订）：自动任务采用三档模型结构 —— 付费优先档 glm-4.6v（智谱官方，至 2026-12-10）、限免档 qiniu/conatus-free（至 2026-11-30）、性能兜底档 deepseek/deepseek-v4.1-flash，候选链顺序为 glm-4.6v → conatus-free → deepseek。原免费为主兜底档 moonshotai/kimi-k3-free 已于 2026-10-27 被厂商退役，档位一并移除。三档各自携带 base_url 与 key_env，换档时必须同步切换网关与密钥。",
     "规定二（2026-09-15 用户指定）：一切自动任务（含云端与本机定时任务）禁止使用 GLM-5.3 和 KIMI K3 模型——仅在用户明确指定时才可使用，其他任何情况一概不使用（含自动降级/重试/临时改动）。2026-10-30 补充：kimi-k3-free 已退役并列入 retired_models；此前为其开设的「-free 变体放行」口子已收回，禁用匹配恢复为严格子串判定。",
-    "规定三（2026-11-15 用户修订，付费链路优先 GLM-4.6V）：限免档仍最优先；付费链路按用户 2026-11-15 指定优先 glm-4.6v（至 2026-12-10），其后才用 flash 档 deepseek/deepseek-v4.1-flash 兜底。原『一切自动任务优先使用 flash 档』在无其它指定时仍适用于最终兜底。",
+    "规定三（2026-11-27 用户修订，GLM-4.6V 前置）：候选链第一档为 glm-4.6v（至 2026-12-10），其不可用后转限免档 qiniu/conatus-free（至 2026-11-30），最后用 flash 档 deepseek/deepseek-v4.1-flash 兜底。原『一切自动任务优先使用 flash 档』仅作为最终兜底。",
     "规定四：今后新增的自动化任务默认沿用 daily_automation.default_scenario，无需重复设置；如需更换档位只改本文件的 model_tiers 与 chain_by_scenario 两处。",
     "规定五：此配置仅约束自动任务；手动执行、临时对话任务不受约束，可按需选用模型。",
-    "规定六（2026-11-15 修订）：限时免费优先原则保持不变，当前登记为 qiniu/conatus-free（限至 2026-11-30）。该档无密钥、到期或下游停止免费时自动跳过，链路顺延到 glm-4.6v 付费优先档，不会阻断任务。",
+    "规定六（2026-11-27 修订）：限时免费优先原则调整为「付费优先档优先消耗」——GLM-4.6V 作为第一档先跑，其不可用（429/到期/缺密钥）时自动转 qiniu/conatus-free（限至 2026-11-30），再不可用才落到 deepseek，不会阻断任务。",
     "规定七：exhausted_models 与 retired_models 优先级高于一切选择逻辑；同一模型不得同时出现在 model_tiers 与上述任一列表中。",
     "规定八（2026-10-19 修订）：模型调用失败的处理顺序为——先同档退避重试（429/5xx/超时，间隔 15s、30s），仍失败再按链换下一档。每档换档时同时切换 model / base_url / key，缺密钥、已耗尽或已退役的档直接跳过，绝不发出注定失败的请求。",
     "规定九（2026-10-19 用户指定）：glm-4.7 / glm-4.7-flash / glm-4.5-flash 额度已用完，任何自动任务不得再调用。",

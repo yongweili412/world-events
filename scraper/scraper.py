@@ -1132,11 +1132,20 @@ def _url_words(u: str) -> set:
 
 
 def _event_fp_words(ev: dict) -> set:
-    """事件的语言无关特征词：标题拉丁词 ∪ 全部来源 URL 的 slug 词"""
+    """事件的语言无关特征词：标题拉丁词 ∪ 最早 3 条来源 URL 的 slug 词。
+
+    2026-11-26 修复（数据完整性 P0）：原实现并集「全部来源」的 slug 词，
+    事件每吞一条来源指纹就扩张一分，最终退化成万能匹配器 ——
+    evt_20260906_084 因关键词误配起家，随后把 ESPN 体育、WIRED 科技等
+    完全不相关的报道一并吞下，来源数涨到 4441 条（近 3 天就吞了 749 条）。
+    现改为只取日期最早的 3 条来源（建库文章最贴题），并给词集 80 词硬上限。
+    """
     w = _latin_words(ev.get("title", ""))
-    for s in (ev.get("sources") or []):
+    srcs = sorted((s for s in (ev.get("sources") or []) if s.get("url")),
+                  key=lambda s: (s.get("date") or ""))[:3]
+    for s in srcs:
         w |= _url_words(s.get("url") or "")
-    return w
+    return set(sorted(w)[:80])
 
 
 def _item_fp_words(item: dict) -> set:
@@ -1317,8 +1326,10 @@ def merge_into_events(events: list, new_items: list, dedupe_url: bool = True, us
         else:
             if src_entry not in (ev.get("sources") or []):
                 ev.setdefault("sources", []).append(src_entry)
-                # 新来源 slug 词并入事件指纹
-                ev_fp[ev["id"]] = ev_fp.get(ev["id"], set()) | _url_words(url)
+                # 新来源 slug 词并入事件指纹：仅在前 3 条来源阶段参与，
+                # 之后不再扩张（否则多来源事件的指纹会泛化到匹配一切）
+                if len(ev.get("sources") or []) <= 3:
+                    ev_fp[ev["id"]] = (ev_fp.get(ev["id"]) or set()) | _url_words(url)
             # 标签合并（保留原有 + 新报道的主题标签 + 国家），去重限量
             merged_tags = list(dict.fromkeys(
                 (ev.get("tags") or []) + (item.get("tags") or []) + ([ev["location"].get("country")] if (ev.get("location") or {}).get("country") else [])
