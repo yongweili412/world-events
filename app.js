@@ -420,9 +420,16 @@ function initFilters() {
     });
   }
 
-  // 预热：用户聚焦搜索框或改动筛选条件时提前拉索引，输入第一个字时不必干等
-  const warmIndex = () => { getFullEvents(); };
-  searchInput.addEventListener('focus', warmIndex, { once: true });
+  // 预热时机（2026-11-28 调整）：原来 focus 就预加载，用户只是点一下搜索框
+  // 就会下载 42.6MB（gzip 10.9MB）全库索引。改为「真正开始输入」后才拉取；
+  // 筛选下拉与日期仍保留 change 预热（那是明确的筛选意图）。
+  let warmed = false;
+  const warmIndex = () => {
+    if (warmed) return;
+    warmed = true;
+    getFullEvents();
+  };
+  searchInput.addEventListener('input', warmIndex);
   [catSelect, regionSelect, dateFrom, dateTo].forEach(el => {
     if (el) el.addEventListener('change', warmIndex, { once: true });
   });
@@ -435,6 +442,16 @@ function initFilters() {
     const regionVal = regionSelect ? regionSelect.value : '';
     const dFrom = dateFrom ? dateFrom.value : '';
     const dTo = dateTo ? dateTo.value : '';
+    // 首次搜索要下载全库索引（gzip 约 10.9MB），给出明确进度反馈，
+    // 否则用户会以为「点了没反应」。
+    if (!__fullEvents) {
+      const listEl = document.getElementById('timeline-list');
+      if (listEl) {
+        listEl.innerHTML = '<div class="load-more-tip">'
+          + (ICONS.search || '') +
+          ' 正在加载全库索引（首次约 10MB，之后走浏览器缓存）…</div>';
+      }
+    }
     const events = await getFullEvents();
 
     // 什么条件都没填 → 恢复日期视图
@@ -620,78 +637,29 @@ async function renderEventDetail() {
   // （12 万条，gzip 10.8MB）——手机打开任何一篇文章都要等 10MB 流量。
   // 改为懒加载：滚到接近页底时才取索引并计算，首屏只依赖当月分片。
   const loadRelatedEvents = async () => {
-    const myTags = new Set((ev.tags || []).map(t => String(t).toLowerCase()));
-    const myDate = ev.date || '';
-    const myCat = catOf(ev);
-    const myRegion = regionOf(ev);
-    const idx = await getFullEvents();
-    const scored = [];
-    for (const r of idx) {
-      if (r.id === ev.id) continue;
-      const rTags = (r.tags || []).map(t => String(t).toLowerCase());
-      let inter = 0;
-      for (const t of rTags) if (myTags.has(t)) inter++;
-      const uni = myTags.size + rTags.size - inter;
-      const jac = uni > 0 ? inter / uni : 0;
-      let near = 0;
-      if (myDate && r.date) {
-        const diff = Math.abs(Date.parse(myDate) - Date.parse(r.date)) / 86400000;
-        if (!isNaN(diff) && diff <= 90) near = 1 - diff / 90;
-      }
-      const score = 0.5 * jac + 0.3 * (catOf(r) === myCat ? 1 : 0)
-                  + 0.15 * near + 0.05 * (regionOf(r) === myRegion ? 1 : 0);
-      if (score > 0.12) scored.push({ r, score });
+    // 2026-11-28：改为读预计算的 relatedEvents 字段（同日期+同分类/同国家，最多 3 条）。
+    // 原实现滚到页底会 await getFullEvents()——每篇文章都要下载 42.6MB 全库索引，
+    // 移动端等于滚一下就吃掉 10.9MB 流量。现在只按 id 拉 1-3 个月分片（有月缓存）。
+    const ids = (ev.relatedEvents || []).filter(id => id && id !== ev.id).slice(0, 3);
+    if (!ids.length) return '';
+    const related = [];
+    for (const rid of ids) {
+      try {
+        const r = await getEventById(rid);
+        if (r && r.id !== ev.id) related.push(r);
+      } catch (e) { /* 单条取不到就跳过，不影响其它 */ }
     }
-    scored.sort((a, b) => b.score - a.score);
-    const related = scored.slice(0, 4).map(x => x.r);
     if (!related.length) return '';
     return `
-      <h2 style="font-size:18px;font-weight:700;margin:24px 0 12px;border-left:4px solid ${getCategoryColor(cat)};padding-left:10px">相关事件</h2>
+      <h2 style="font-size:18px;font-weight:700;margin:24px 0 12px;border-left:4px solid ${getCategoryColor(cat)};padding-left:10px">同日相关事件</h2>
       ${related.map(r => `
-        <a href="./event.html?id=${escapeHtml(r.id)}" style="display:block;padding:10px 0;border-bottom:1px solid var(--border);text-decoration:none;color:inherit">
-          <span style="font-size:12px;color:var(--text-secondary)">${escapeHtml(r.date)} · ${escapeHtml(catOf(r))} · ${escapeHtml(regionOf(r))}</span>
-          <div style="font-size:14px;font-weight:600;margin-top:2px">${escapeHtml(r.title)}</div>
+        <a href="./event.html?id=${encodeURIComponent(r.id)}" class="timeline-item" style="margin-bottom:10px">
+          <div class="timeline-dot" style="background:${getCategoryColor(catOf(r))};box-shadow:0 0 0 2px ${getCategoryColor(catOf(r))}"></div>
+          <div class="timeline-date">${escapeHtml(r.date || '')} · ${escapeHtml(regionOf(r))}</div>
+          <div class="timeline-title" style="font-size:16px">${escapeHtml(r.title || '')}</div>
+          ${r.summary ? `<div class="timeline-summary">${escapeHtml(String(r.summary).slice(0, 100))}</div>` : ''}
         </a>`).join('')}`;
   };
-
-  // 事件主图（来源原文配图，外链展示，版权归原媒体）
-  let imgBox = '';
-  if (ev.image && /^https?:\/\//.test(ev.image)) {
-    const srcName = (ev.sources && ev.sources[0] && ev.sources[0].name) || '';
-    imgBox = `
-      <figure style="margin:0 0 18px">
-        <img src="${escapeHtml(ev.image)}" alt="${escapeHtml(ev.title)}" loading="lazy" referrerpolicy="no-referrer"
-             style="width:100%;max-height:430px;object-fit:cover;border-radius:10px;border:1px solid var(--border);background:#F1F5F9"
-             onerror="this.closest('figure').style.display='none'">
-        <figcaption style="font-size:12px;color:var(--text-secondary);margin-top:6px">图片来自：${escapeHtml(srcName || '原文报道')}（版权归原媒体所有）</figcaption>
-      </figure>`;
-  }
-
-  container.innerHTML = `
-    <div class="event-meta" style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:14px">
-      <span class="timeline-category" style="background:${getCategoryBg(cat)};color:${getCategoryColor(cat)}">${escapeHtml(cat)}</span>
-      ${statusBadge}
-      <span class="event-meta-item">${ICONS.calendar} ${formatDate(ev.date)}</span>
-      ${(country || region) ? `<span class="event-meta-item">${ICONS.pin} ${escapeHtml(country ? (country + '（' + region + '）') : region)}</span>` : ''}
-      ${nSrc > 1 ? `<span class="event-meta-item">${ICONS.sources} ${nSrc} 个来源</span>` : ''}
-    </div>
-    <h1 style="font-size:24px;font-weight:700;margin-bottom:12px;line-height:1.5">${escapeHtml(ev.title)}</h1>
-    ${imgBox}
-    ${aiBox}
-    <div class="event-content" style="margin-bottom:8px">
-      <p style="font-size:15px;line-height:1.9">${escapeHtml(ev.summary || '')}</p>
-      ${ev.description && ev.description !== ev.summary ? `<p style="font-size:14px;line-height:1.9;color:var(--text-secondary)">${escapeHtml(ev.description)}</p>` : ''}
-    </div>
-    ${timelineHtml}
-    ${sourcesHtml}
-    <div id="related-slot"></div>
-    <div style="margin-top:20px">
-      ${(ev.tags || []).map(t => `<span class="timeline-tag" style="margin-bottom:4px;display:inline-block">#${escapeHtml(t)}</span>`).join('')}
-    </div>
-    <div style="margin-top:24px;padding-top:20px;border-top:1px solid var(--border)">
-      <a href="./index.html" style="color:var(--primary);text-decoration:none">← 返回今日世界</a>
-    </div>
-  `;
 
   // 懒加载相关事件：接近视口（提前 300px）时才取索引，避免详情页首屏拖 10MB。
   // IntersectionObserver 不可用时退回"立即加载"，功能不丢。

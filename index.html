@@ -48,7 +48,7 @@
     }
   }
   </script>
-  <link rel="stylesheet" href="./style.css?v=11">
+  <link rel="stylesheet" href="./style.css?v=12">
   <style>
     .month-nav{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
     .month-nav a{padding:6px 14px;border:1px solid var(--border);border-radius:20px;text-decoration:none;color:var(--text-primary);font-size:14px;transition:all .15s}
@@ -72,6 +72,18 @@
     .year-fold summary:hover{color:var(--primary)}
     .year-fold .year-count{font-size:12px;color:var(--text-secondary)}
     .year-fold .month-nav{margin:4px 12px 12px}
+    /* 2026-11-28 移动端：日期导航/筛选栏按行分配，避免最右控件被切出屏幕 */
+    @media (max-width:600px){
+      .date-nav{gap:6px;justify-content:stretch}
+      .date-nav .date-btn{flex:1 1 calc(50% - 3px);min-width:0;padding:8px 6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+      .date-nav input[type="date"]{flex:1 1 100%;width:100%;min-width:0;box-sizing:border-box}
+      .filter-bar{gap:8px}
+      .filter-bar .search-box{flex:1 1 100%;min-width:0}
+      .filter-bar .filter-select{flex:1 1 calc(50% - 4px);min-width:0;box-sizing:border-box}
+      .filter-bar > a.date-btn{flex:1 1 100%}
+      .stats-line{font-size:12px;gap:2px 8px;margin-bottom:12px}
+      .stats-line strong{font-size:13px}
+    }
   </style>
 </head>
 <body>
@@ -104,9 +116,9 @@
   <p style="text-align:center;color:var(--text-secondary);font-size:13px;margin:0" id="day-count"></p>
 
   <!-- 统计卡片 -->
-  <div class="stats-row" id="stats-row">
+  <div class="stats-line" id="stats-row">
 <!-- STATS_START -->
-<div class="stat-card"><div class="stat-num">131367</div><div class="stat-label">事件总数</div></div><div class="stat-card"><div class="stat-num">9</div><div class="stat-label">事件分类</div></div><div class="stat-card"><div class="stat-num">86</div><div class="stat-label">涉及地区</div></div><div class="stat-card"><div class="stat-num">17869</div><div class="stat-label">多来源事件</div></div><div class="stat-card"><div class="stat-num">6351</div><div class="stat-label">全文速览</div></div>
+<span><strong>131,367</strong> 条事件</span><i class="dot">·</i><span><strong>9</strong> 个分类</span><i class="dot">·</i><span><strong>86</strong> 个国家/地区</span><i class="dot">·</i><span><strong>17,869</strong> 条多来源</span><i class="dot">·</i><span><strong>6,351</strong> 条全文速览</span>
 <!-- STATS_END -->
   </div>
 

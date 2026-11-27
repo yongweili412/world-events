@@ -148,17 +148,14 @@ def render_stats(events):
     regions = {region_of(e) for e in events}
     n_multi = sum(1 for e in events if len(e.get("sources") or []) > 1)
     n_full = sum(1 for e in events if e.get("summaryFull") is True)
+    # 2026-11-28：由 5 张大卡片改为一行小字。
+    # 原布局把统计卡放在事件列表之前，桌面首屏被数字占满、移动端整屏无事件。
     return (
-        f'<div class="stat-card"><div class="stat-num">{len(events)}</div>'
-        f'<div class="stat-label">事件总数</div></div>'
-        f'<div class="stat-card"><div class="stat-num">{len(cats)}</div>'
-        f'<div class="stat-label">事件分类</div></div>'
-        f'<div class="stat-card"><div class="stat-num">{len(regions)}</div>'
-        f'<div class="stat-label">涉及地区</div></div>'
-        f'<div class="stat-card"><div class="stat-num">{n_multi}</div>'
-        f'<div class="stat-label">多来源事件</div></div>'
-        f'<div class="stat-card"><div class="stat-num">{n_full}</div>'
-        f'<div class="stat-label">全文速览</div></div>'
+        f'<span><strong>{len(events):,}</strong> 条事件</span><i class="dot">·</i>'
+        f'<span><strong>{len(cats)}</strong> 个分类</span><i class="dot">·</i>'
+        f'<span><strong>{len(regions)}</strong> 个国家/地区</span><i class="dot">·</i>'
+        f'<span><strong>{n_multi:,}</strong> 条多来源</span><i class="dot">·</i>'
+        f'<span><strong>{n_full:,}</strong> 条全文速览</span>'
     )
 
 

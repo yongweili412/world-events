@@ -611,3 +611,73 @@ body {
   }
 }
 
+/* ===== 统计条：一行小字（2026-11-28） ===== */
+/* 原 5 张大卡片占据首屏、移动端整屏无事件；改为标题下方一行小字，让列表回到首屏。 */
+.stats-line {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 4px 10px;
+  margin: 2px 0 14px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+.stats-line strong {
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+}
+.stats-line .dot {
+  font-style: normal;
+  color: var(--border);
+  user-select: none;
+}
+
+/* ===== 移动端：日期导航与筛选栏自适应（2026-11-28） ===== */
+/* 窄屏下原本 4 个日期控件挤一行，最右侧「最新」被切出屏幕。 */
+@media (max-width: 600px) {
+  .date-nav {
+    gap: 6px;
+    justify-content: stretch;
+  }
+  .date-nav .date-btn {
+    flex: 1 1 calc(50% - 3px);
+    min-width: 0;
+    padding: 8px 6px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .date-nav input[type="date"] {
+    flex: 1 1 100%;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+  .filter-bar {
+    gap: 8px;
+  }
+  .filter-bar .search-box {
+    flex: 1 1 100%;
+    min-width: 0;
+  }
+  .filter-bar .filter-select {
+    flex: 1 1 calc(50% - 4px);
+    min-width: 0;
+    box-sizing: border-box;
+  }
+  .filter-bar > a.date-btn {
+    flex: 1 1 100%;
+  }
+  .stats-line {
+    font-size: 12px;
+    gap: 2px 8px;
+    margin-bottom: 12px;
+  }
+  .stats-line strong {
+    font-size: 13px;
+  }
+}
