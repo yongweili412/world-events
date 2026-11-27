@@ -139,10 +139,22 @@ async function getEventById(id) {
     const m = /^evt_(\d{4})(\d{2})\d{2}_/.exec(String(s || ''));
     return m ? m[1] + '-' + m[2] : '';
   };
-  // 候选月份：主 id 的月份优先，legacyIds 的月份依次兜底（去重）
-  const months = [];
+  // 2026-11-28 修复：原实现一进来就 await getFullEvents()——每打开一篇文章
+  // 都要先下载 42.6MB（gzip 10.9MB）全库索引，详情页因此常卡在「加载中」。
+  // 现改为：先用 id 自带的月份直接取月分片（数百 KB，绝大多数命中），
+  // 只有月分片未命中（legacyIds 跨月等少数情况）才退到索引兜底。
   const ym0 = monthFromId(id);
-  if (ym0) months.push(ym0);
+  if (ym0) {
+    try {
+      const resp = await fetch(MONTH_SHARD_URL(ym0));
+      if (resp.ok) {
+        const full = findEvent(await resp.json(), id);
+        if (full) return full;                    // 命中：完整字段，零索引开销
+      }
+    } catch (e) { /* 落到索引兜底 */ }
+  }
+  // 兜底：仅当月分片取不到时才加载索引（含 legacyIds 跨月查找）
+  const months = [];
   try {
     const idx = await getFullEvents();
     const hit = idx.find(e => e.id === id) || idx.find(e => (e.legacyIds || []).includes(id));
@@ -154,14 +166,15 @@ async function getEventById(id) {
         if (ym2 && !months.includes(ym2)) months.push(ym2);
       }
     }
-  } catch (e) { /* 索引不可用时不阻塞：直接尝试按 id 月份取分片 */ }
+  } catch (e) { /* 索引不可用：继续按候选月份尝试 */ }
   for (const ym of months) {
+    if (ym === ym0) continue;
     try {
       const resp = await fetch(MONTH_SHARD_URL(ym));
       if (!resp.ok) continue;
       const monthEvents = await resp.json();
       const full = findEvent(monthEvents, id);
-      if (full) return full;                      // 命中：完整字段（正文/时间线/来源）
+      if (full) return full;
     } catch (e) { /* 下一个候选月份 */ }
   }
   // 分片全部未命中：回退索引字段（缺正文但至少能展示）
@@ -660,6 +673,45 @@ async function renderEventDetail() {
           ${r.summary ? `<div class="timeline-summary">${escapeHtml(String(r.summary).slice(0, 100))}</div>` : ''}
         </a>`).join('')}`;
   };
+
+  // 事件主图（来源原文配图，外链展示，版权归原媒体）
+  let imgBox = '';
+  if (ev.image && /^https?:\/\//.test(ev.image)) {
+    const srcName = (ev.sources && ev.sources[0] && ev.sources[0].name) || '';
+    imgBox = `
+      <figure style="margin:0 0 18px">
+        <img src="${escapeHtml(ev.image)}" alt="${escapeHtml(ev.title)}" loading="lazy" referrerpolicy="no-referrer"
+             style="width:100%;max-height:430px;object-fit:cover;border-radius:10px;border:1px solid var(--border);background:#F1F5F9"
+             onerror="this.closest('figure').style.display='none'">
+        <figcaption style="font-size:12px;color:var(--text-secondary);margin-top:6px">图片来自：${escapeHtml(srcName || '原文报道')}（版权归原媒体所有）</figcaption>
+      </figure>`;
+  }
+
+  container.innerHTML = `
+    <div class="event-meta" style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:14px">
+      <span class="timeline-category" style="background:${getCategoryBg(cat)};color:${getCategoryColor(cat)}">${escapeHtml(cat)}</span>
+      ${statusBadge}
+      <span class="event-meta-item">${ICONS.calendar} ${formatDate(ev.date)}</span>
+      ${(country || region) ? `<span class="event-meta-item">${ICONS.pin} ${escapeHtml(country ? (country + '（' + region + '）') : region)}</span>` : ''}
+      ${nSrc > 1 ? `<span class="event-meta-item">${ICONS.sources} ${nSrc} 个来源</span>` : ''}
+    </div>
+    <h1 style="font-size:24px;font-weight:700;margin-bottom:12px;line-height:1.5">${escapeHtml(ev.title)}</h1>
+    ${imgBox}
+    ${aiBox}
+    <div class="event-content" style="margin-bottom:8px">
+      <p style="font-size:15px;line-height:1.9">${escapeHtml(ev.summary || '')}</p>
+      ${ev.description && ev.description !== ev.summary ? `<p style="font-size:14px;line-height:1.9;color:var(--text-secondary)">${escapeHtml(ev.description)}</p>` : ''}
+    </div>
+    ${timelineHtml}
+    ${sourcesHtml}
+    <div id="related-slot"></div>
+    <div style="margin-top:20px">
+      ${(ev.tags || []).map(t => `<span class="timeline-tag" style="margin-bottom:4px;display:inline-block">#${escapeHtml(t)}</span>`).join('')}
+    </div>
+    <div style="margin-top:24px;padding-top:20px;border-top:1px solid var(--border)">
+      <a href="./index.html" style="color:var(--primary);text-decoration:none">← 返回今日世界</a>
+    </div>
+  `;
 
   // 懒加载相关事件：接近视口（提前 300px）时才取索引，避免详情页首屏拖 10MB。
   // IntersectionObserver 不可用时退回"立即加载"，功能不丢。
