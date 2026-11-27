@@ -15,6 +15,7 @@
   python scraper/fetch_images.py --auto 60
   python scraper/fetch_images.py --auto 60 --dry-run
 """
+import datetime
 import json
 import os
 import re
@@ -87,6 +88,16 @@ def main():
         i = args.index("--auto")
         if i + 1 < len(args) and args[i + 1].isdigit():
             limit = int(args[i + 1])
+    # 2026-11-28：新增 --recent-months N，只补最近 N 个月（0 = 不限，保持原行为）。
+    # 首页与列表优先展示近期内容，近期条目缺图对观感影响最大；默认不启用，避免改变每日任务语义。
+    recent_months = 0
+    if "--recent-months" in args:
+        i = args.index("--recent-months")
+        if i + 1 < len(args) and args[i + 1].isdigit():
+            recent_months = int(args[i + 1])
+    date_cut = ""
+    if recent_months > 0:
+        date_cut = (datetime.date.today() - datetime.timedelta(days=recent_months * 30)).isoformat()
 
     import scraper as sp
     events = sp.load_events()
@@ -102,13 +113,15 @@ def main():
             continue
         if (ev.get("archiveValue") or 0) < MIN_VALUE:
             continue
+        if date_cut and str(ev.get("date") or "") < date_cut:
+            continue
         srcs = ev.get("sources") or []
         url = next((s.get("url") for s in srcs if str(s.get("url") or "").startswith("http")), None)
         if url:
             cand.append((ev, url))
     cand.sort(key=lambda x: -(x[0].get("archiveValue") or 0))
     batch = cand[:limit]
-    print(f"待抓 {len(cand):,} 条，本次处理 {len(batch)} 条 dry-run={dry}", flush=True)
+    print(f"待抓 {len(cand):,} 条（时间窗={date_cut or '不限'}），本次处理 {len(batch)} 条 dry-run={dry}", flush=True)
 
     ok = fail = 0
     for ev, url in batch:

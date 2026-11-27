@@ -14,6 +14,10 @@ on:
         description: '本次处理条数'
         required: false
         default: '60'
+      recent_months:
+        description: '只补最近 N 个月（0 = 不限）'
+        required: false
+        default: '0'
 
 permissions:
   contents: write
@@ -49,7 +53,7 @@ jobs:
         run: pip install --quiet feedparser requests
 
       - name: 抓取 og:image
-        run: python scraper/fetch_images.py --auto ${{ github.event.inputs.limit || '60' }}
+        run: python scraper/fetch_images.py --auto ${{ github.event.inputs.limit || '60' }} --recent-months ${{ github.event.inputs.recent_months || '0' }}
 
       - name: 档案价值评分补跑（新增封面图不影响评分，但保持覆盖一致）
         continue-on-error: true
