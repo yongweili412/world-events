@@ -19,6 +19,9 @@
 import json, re, time, sys, os, requests
 from llm_guard import resolve_model, chat_raw  # 模型守卫：限时免费优先，其次 flash；禁用 GLM-5.3/KIMI K3
 from llm_cache import cache_get, cache_set, cache_save, stats as cache_stats
+# 项目级公共实现（2026-11-28 提炼）：诊断/清洗/原子写回全项目共用一套，避免各脚本口径不一
+from llm_utils import (MIN_SUMMARY_LEN, SUMMARY_TRIM, atomic_dump_events,
+                       diagnose_response, resp_model, tidy_summary)
 
 KEY = (os.environ.get("LLM_API_KEY") or "").strip()   # 安全：不内置兜底密钥（公开仓库会泄露）
 ALL_SOURCES = os.environ.get("ALL_SOURCES") == "1"  # 云端网络畅通可抓外文源，本机默认仅国内源
@@ -30,8 +33,7 @@ MAX_TOKENS = 600           # 速览输出上限
 LONG_SUMMARY_MIN = 150     # 已有速览 ≥ 此长度视为"合格"，跳过（第 5 条）
 IMPORTANT_INPUT = 3000     # A 级输入字数（全文）
 NORMAL_INPUT = 1500        # B 级输入字数（减半省 token）
-MIN_SUMMARY_LEN = 50       # 2026-11-28：与 60-120 字规则对齐。原门槛 100 字会把合格短速览误判为失败
-SUMMARY_TRIM = 120         # 超过此长度按句截断，严格对齐 60-120 字规则
+# MIN_SUMMARY_LEN / SUMMARY_TRIM 统一由 llm_utils 提供（60-120 字口径的单一事实源）
 FLUSH_EVERY = 10           # 每 N 条落盘一次，进程中断不丢已完成结果
 
 # 最近一次生成失败的诊断信息（不改变 gen_full_summary 的返回类型）
@@ -126,21 +128,13 @@ def fetch_fulltext(url, limit=None):
 
 
 def _resp_model(r):
-    """取实际应答的模型名（网关回包里的 model 字段），取不到返回空串。"""
-    try:
-        return str((r.json() or {}).get("model") or "")
-    except Exception:
-        return ""
+    """兼容旧调用名：取实际应答的模型名（实现在 llm_utils）。"""
+    return resp_model(r)
 
 
 def _tidy_summary(s):
-    """去代码块标记/压缩空白，并把超长文本按句截断到 120 字左右。"""
-    s = re.sub(r"^```[a-z]*\n?|```$", "", (s or "").strip(), flags=re.M).strip()
-    s = re.sub(r"\s+", " ", s)
-    if len(s) > SUMMARY_TRIM:
-        cut = max(s.rfind("。", 0, SUMMARY_TRIM + 1), s.rfind("；", 0, SUMMARY_TRIM + 1))
-        s = s[:cut + 1] if cut >= MIN_SUMMARY_LEN else s[:118].rstrip("，、；：") + "。"
-    return s
+    """兼容旧调用名：去代码块/压缩空白/按 120 字截断（实现在 llm_utils）。"""
+    return tidy_summary(s)
 
 
 def gen_full_summary(title, text, date, important=True):
@@ -172,34 +166,18 @@ def gen_full_summary(title, text, date, important=True):
     reason = "未获得响应"
     try:
         for attempt in range(len(RETRY_DELAYS) + 1):
-            r = None
-            retryable = True
             try:
                 r = chat_raw(prompt, key=KEY, timeout=120, max_tokens=MAX_TOKENS)
+                d = diagnose_response(r, min_len=MIN_SUMMARY_LEN, max_len=SUMMARY_TRIM)
             except Exception as ex:
-                reason = f"请求异常 {type(ex).__name__}"
-            if r is not None:
-                model = _resp_model(r) or LAST_MODEL or "未知模型"
-                LAST_MODEL = model
-                if r.status_code == 200:
-                    try:
-                        raw = (r.json()["choices"][0]["message"].get("content") or "").strip()
-                    except Exception:
-                        raw = ""
-                    content = _tidy_summary(raw)
-                    if content and len(content) >= MIN_SUMMARY_LEN:
-                        return content
-                    # 200 但空/过短：多为上游软性降载或思考链占满，绝非 429
-                    reason = f"空/过短返回（{model}，{len(content)}字）"
-                elif r.status_code == 429:
-                    reason = f"限流 429（{model}）"
-                elif r.status_code >= 500:
-                    reason = f"服务不可用 {r.status_code}（{model}）"
-                else:
-                    # 401/403/404 等非限流类 4xx：重试无意义，直接放弃本事件
-                    reason = f"HTTP {r.status_code}（{model}）"
-                    retryable = False
-            if not retryable:
+                d = diagnose_response(None, exc=ex)
+            if d["model"]:
+                LAST_MODEL = d["model"]
+            if d["ok"]:
+                return d["content"]
+            reason = d["reason"]
+            # 401/403/404 等非限流类 4xx：重试无意义，直接放弃本事件
+            if not d["retryable"]:
                 break
             if attempt < len(RETRY_DELAYS):
                 print(f"  ↻ {reason}，{RETRY_DELAYS[attempt]}s 后重试", flush=True)
@@ -212,17 +190,11 @@ def gen_full_summary(title, text, date, important=True):
 
 
 def _write_events(ev):
-    """原子写回 events.json（临时文件 + os.replace），供中途落盘与收尾共用。"""
-    tmp = "data/events.json.tmp"
-    with open(tmp, "w", encoding="utf-8") as f:
-        # 与 shard_events.py merge 的紧凑格式保持一致（indent=None），避免工作副本反复膨胀
-        json.dump(ev, f, ensure_ascii=False, indent=None)
-        f.flush()
-        try:
-            os.fsync(f.fileno())
-        except Exception:
-            pass
-    os.replace(tmp, "data/events.json")
+    """原子写回 events.json（临时文件 + os.replace），供中途落盘与收尾共用。
+
+    实现在 llm_utils.atomic_dump（与 shard_events.py merge 一样用紧凑格式）。
+    """
+    atomic_dump_events(ev)
 
 
 def main():

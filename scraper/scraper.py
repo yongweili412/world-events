@@ -998,10 +998,17 @@ def load_events() -> list:
 
 
 def save_events(events: list):
-    """保存事件到 JSON 文件"""
+    """保存事件到 JSON 文件（原子写：临时文件 + os.replace）。
+
+    2026-11-28 全项目统一：与 shard_events.py merge 一样用紧凑格式（工作副本不入库，
+    紧凑可省约四成体积）；写一半被超时/断电打断也不会留下半截 JSON。
+    """
     EVENTS_FILE.parent.mkdir(parents=True, exist_ok=True)
-    with open(EVENTS_FILE, "w", encoding="utf-8") as f:
-        json.dump(events, f, ensure_ascii=False, indent=2)
+    tmp = EVENTS_FILE.with_suffix(EVENTS_FILE.suffix + ".tmp")
+    with open(tmp, "w", encoding="utf-8") as f:
+        json.dump(events, f, ensure_ascii=False)
+        f.flush()
+    os.replace(tmp, EVENTS_FILE)
     print(f"✅ 已保存 {len(events)} 条事件到 {EVENTS_FILE}")
 
 

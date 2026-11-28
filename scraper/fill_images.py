@@ -2,6 +2,7 @@
 """图片回填：对无 image 的事件抓取来源页 og:image 并写入。
 本机默认只抓国内可达源；云端 ALL_SOURCES=1 可抓全部源。"""
 import json, sys, time, os, requests
+from llm_utils import atomic_dump_events  # 项目级原子写回
 
 ALL_SOURCES = os.environ.get("ALL_SOURCES") == "1"
 LIMIT = int(sys.argv[1]) if len(sys.argv) > 1 else 60
@@ -45,7 +46,7 @@ def main():
             pass
         time.sleep(0.8)
 
-    json.dump(ev, open("data/events.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    atomic_dump_events(ev)
     total = len([e for e in ev if e.get("image")])
     print(f"DONE: 补图 {ok}，全库有图事件 {total}/{len(ev)}")
 
@@ -64,7 +65,7 @@ def clean_duplicate_images():
         if e.get("image") in dups:
             e["image"] = ""
             n += 1
-    json.dump(ev, open("data/events.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    atomic_dump_events(ev)
     print(f"默认图清理: 移除 {n} 条（{len(dups)} 个重复 URL）")
 
 

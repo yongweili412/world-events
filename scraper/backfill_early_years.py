@@ -52,6 +52,8 @@ WIKI_API = ("https://en.wikipedia.org/w/api.php?action=parse&page={page}"
 
 CATEGORIES = ["自然灾害", "政治", "经济", "体育", "环境", "社会", "军事", "科技", "文化", "其他"]
 MIN_OUTPUT_RATIO = 0.5
+# 最近一次翻译失败的真实原因（带模型名），供 main 汇总时打印，替代笼统的"模型限流或格式异常"
+LAST_TRANSLATE_ERR = ""
 BBC_WORKERS = 8   # BBC 日期页并发数：串行 366 页实测十几分钟（含超时重试），并发后约 1 分钟
 
 def wiki_pages():
@@ -290,7 +292,9 @@ def translate(items, batch_size=5):
     """串行分批翻译。batch_size 从 10 降到 5：JSON 越短越不容易被截断。"""
     sys.path.insert(0, os.path.join(ROOT, "scraper"))
     from llm_guard import chat_raw
+    from llm_utils import diagnose_response
     import scraper as sp
+    global LAST_TRANSLATE_ERR
     key = os.environ.get("LLM_API_KEY", "").strip()
     out = []
     total = (len(items) + batch_size - 1) // batch_size
@@ -298,13 +302,19 @@ def translate(items, batch_size=5):
         chunk = items[i:i + batch_size]
         payload = [{"idx": j, "date": c["date"], "text": c["text_en"][:400]}
                    for j, c in enumerate(chunk)]
+        resp = None
+        exc = None
         try:
             resp = chat_raw(build_prompt(payload), key=key, timeout=180,
                             temperature=0.2, max_tokens=4000)
         except Exception as e:
+            exc = e
             print(f"  批次异常 {type(e).__name__}", flush=True)
-            resp = None
         got = _parse_llm(resp, payload)
+        if not got:
+            # 失败原因带模型名：区分限流/额度/空返回/解析失败，不再笼统写"模型限流或格式异常"
+            d = diagnose_response(resp, min_len=10, exc=exc)
+            LAST_TRANSLATE_ERR = d["reason"] if not d["ok"] else f"返回无法解析（{d['model'] or '未知模型'}）"
         returned = {j for j, *_ in got}
         for j, title, summary, cat, country in got:
             c = dict(chunk[j])
@@ -474,7 +484,7 @@ def main():
     translated = translate(pick)
     print(f"翻译完成 {len(translated)}/{len(pick)} 条", flush=True)
     if not translated:
-        print("❌ 翻译 0 条（模型限流或返回格式异常）；不入库、不记账，本批留待重跑", flush=True)
+        print(f"❌ 翻译 0 条（{LAST_TRANSLATE_ERR or '原因未记录，见上方告警'}）；不入库、不记账，本批留待重跑", flush=True)
         return 1
 
     kept = value_gate(translated)

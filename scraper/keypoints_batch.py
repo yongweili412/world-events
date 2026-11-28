@@ -31,6 +31,7 @@ from difflib import SequenceMatcher
 import requests
 
 from llm_cache import cache_get, cache_set, cache_save, stats as cache_stats
+from llm_utils import atomic_dump_events  # 项目级原子写回，与速览/翻译脚本同一套实现
 
 KEY = (os.environ.get("LLM_API_KEY") or "").strip()
 LIMIT = int(sys.argv[1]) if len(sys.argv) > 1 else 100
@@ -52,6 +53,9 @@ MAX_CALL_RETRIES = len(RETRY_BACKOFFS)
 # 统计（证明零 spillover 到付费档）
 STATS = {"conatus_calls": 0, "deepseek_calls": 0, "skipped": 0}
 
+# 最近一次调用的失败原因（供跳过日志打印真实原因，而不是笼统的"生成失败/限流耗尽"）
+LAST_REASON = ""
+
 
 def _norm(s):
     return re.sub(r"\s+", "", s or "")
@@ -69,7 +73,9 @@ def call_conatus_direct(prompt, timeout=120):
     """直连 conatus-free，绕过换档链。返回 (content_or_None, hit_429_bool)。
 
     遇 429/5xx 只在 conatus 上指数退避重试；重试耗尽返回 None。绝不调用 deepseek。
+    失败时把真实原因写入全局 LAST_REASON（不再笼统标成"生成失败/限流耗尽"）。
     """
+    global LAST_REASON
     body = {"model": CONATUS_MODEL,
             "messages": [{"role": "user", "content": prompt}],
             "temperature": 0.3, "max_tokens": MAX_TOKENS}
@@ -82,7 +88,8 @@ def call_conatus_direct(prompt, timeout=120):
                                       "Content-Type": "application/json"},
                              json=body, timeout=timeout)
         except Exception as ex:
-            print(f"    ⚠ 请求异常({type(ex).__name__})，{RETRY_BACKOFFS[min(attempt,4)]}s后重试", flush=True)
+            LAST_REASON = f"请求异常 {type(ex).__name__}（conatus-free）"
+            print(f"    ⚠ {LAST_REASON}，{RETRY_BACKOFFS[min(attempt,4)]}s后重试", flush=True)
             if attempt < MAX_CALL_RETRIES:
                 time.sleep(RETRY_BACKOFFS[min(attempt, 4)])
                 continue
@@ -96,16 +103,19 @@ def call_conatus_direct(prompt, timeout=120):
             lines = [ln.strip() for ln in content.splitlines()
                      if re.match(r"^[123][.、)]\s*\S", ln.strip())]
             if len(lines) >= 3:
+                LAST_REASON = ""
                 return "\n".join(lines[:3]), False
             # 返回 200 但格式不对：当作失败重试一次（不计入 429，但退避）
+            LAST_REASON = f"格式不符（conatus-free，200 但正文 {len(content)} 字、不足三条要点）"
             if attempt < MAX_CALL_RETRIES:
                 time.sleep(RETRY_BACKOFFS[min(attempt, 4)])
                 continue
             return None, False
         last_429 = (r.status_code == 429)
+        LAST_REASON = (f"限流 429（conatus-free）" if last_429
+                       else f"服务不可用 {r.status_code}（conatus-free）")
         if attempt < MAX_CALL_RETRIES:
-            why = "限流429" if last_429 else f"{r.status_code}"
-            print(f"    ↻ {why}，{RETRY_BACKOFFS[attempt]}s 后重试(conatus)", flush=True)
+            print(f"    ↻ {LAST_REASON}，{RETRY_BACKOFFS[attempt]}s 后重试(conatus)", flush=True)
             time.sleep(RETRY_BACKOFFS[attempt])
             continue
         return None, last_429
@@ -181,13 +191,7 @@ def main():
 
     def flush_events():
         """增量原子写回：每 10 条落一次盘，长批中断也只丢 <10 条（其余由缓存恢复）。"""
-        tmp = "data/events.json.tmp"
-        with open(tmp, "w", encoding="utf-8") as f:
-            json.dump(ev, f, ensure_ascii=False)
-            f.flush()
-        os.replace(tmp, "data/events.json")
-        with open("data/events.json", encoding="utf-8") as f:
-            assert len(json.load(f)) == len(ev), "复读断言失败"
+        atomic_dump_events(ev)
 
     for i, e in enumerate(targets):
         body = body_of(e)
@@ -212,7 +216,7 @@ def main():
         else:
             skip += 1
             STATS["skipped"] += 1
-            print(f"  [{i+1}/{len(targets)}] ⏭ 生成失败/限流耗尽，跳过(下轮补做) {e.get('title','')[:36]}", flush=True)
+            print(f"  [{i+1}/{len(targets)}] ⏭ 失败跳过(下轮补做) {e.get('title','')[:36]} ← {LAST_REASON or '未知原因'}", flush=True)
         # 自适应间隔：连续成功≈12s，饱和时自动放大到 60s
         time.sleep(pacer.gap)
         if (i + 1) % 10 == 0:

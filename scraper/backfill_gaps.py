@@ -4,6 +4,7 @@ import json, re, time, sys, os, requests
 sys.path.insert(0, "scraper")
 import scraper as sp
 from llm_guard import resolve_model, chat_raw  # 模型守卫：限时免费优先，其次 flash；禁用 GLM-5.3/KIMI K3
+from llm_utils import atomic_dump_events  # 项目级原子写回
 
 # 密钥优先读环境变量（GitHub Secrets / 本机 shell），兜底用内置默认值
 KEY = (os.environ.get("LLM_API_KEY") or "").strip()   # 安全：不内置兜底密钥（公开仓库会泄露）
@@ -162,7 +163,7 @@ def main():
                     e["aiSummary"] = s
         print(f"{year}: 新建 {after - before} 条，库总量 {after}")
 
-    json.dump(ev, open("data/events.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    atomic_dump_events(ev)
     print("events.json 已保存")
 
 if __name__ == "__main__":

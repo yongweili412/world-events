@@ -139,6 +139,10 @@ def chat_cached(task: str, prompt: str, *, key: str = None, base: str = None, ti
     r = chat_raw(prompt, key=key, base=base, timeout=timeout,
                  temperature=temperature, max_tokens=max_tokens)
     if r is None or r.status_code != 200:
+        # 失败日志带实际应答模型名：避免只看到"HTTP ?"却不知道哪一档在出错
+        from llm_utils import diagnose_response
+        d = diagnose_response(r, min_len=1)
+        print(f"  ⚠ chat_cached 未命中且调用失败：{d['reason']}（本条不入缓存）", flush=True)
         return None, False
     content = (r.json()["choices"][0]["message"].get("content") or "").strip()
     content = re.sub(r"^```[a-z]*\n?|```$", "", content, flags=re.M).strip()

@@ -8,6 +8,7 @@
 import json, re, time, requests
 from llm_guard import resolve_model, chat_raw  # 模型守卫：限时免费优先，其次 flash；禁用 GLM-5.3/KIMI K3
 from llm_cache import cache_get, cache_set, cache_save, stats as cache_stats
+from llm_utils import atomic_dump_events, resp_model  # 项目级原子写回 + 失败日志带模型名
 
 TASK = "cloud_translate"   # 缓存任务名
 MAX_TOKENS = 3000          # 批量翻译输出上限（10 条 × ~250 tokens）
@@ -98,6 +99,23 @@ def translate_all(cfg, batch_size=10):
 
     BATCH = batch_size
     n_batches = (len(todo) + BATCH - 1) // BATCH
+    by_id = {e["id"]: e for e in ev}
+
+    def apply_all():
+        """把已拿到的译文写入 ev（幂等），返回写入条数；供阶段落盘与收尾共用。"""
+        n = 0
+        for e, t, s in results:
+            tgt = by_id.get(e["id"])
+            if not tgt:
+                continue
+            tgt["title"] = t
+            if s:
+                tgt["summary"] = s
+                if not tgt.get("aiSummary"):
+                    tgt["aiSummary"] = s
+            n += 1
+        return n
+
     for i in range(0, len(todo), BATCH):
         batch = todo[i:i + BATCH]
         prompt = _build_prompt(json.dumps([_payload(e) for e in batch], ensure_ascii=False))
@@ -111,7 +129,7 @@ def translate_all(cfg, batch_size=10):
             if resp is not None and resp.status_code == 200:
                 break
             if resp is not None:
-                print(f"  WARN HTTP {resp.status_code}（第 {attempt} 次）: {resp.text[:150]}", flush=True)
+                print(f"  WARN HTTP {resp.status_code}（{resp_model(resp) or '未知模型'}，第 {attempt} 次）: {resp.text[:150]}", flush=True)
             time.sleep(5)
         got = []
         if resp is not None and resp.status_code == 200:
@@ -127,7 +145,7 @@ def translate_all(cfg, batch_size=10):
                     except Exception:
                         return []
                     if r.status_code != 200:
-                        print(f"      WARN HTTP {r.status_code}", flush=True)
+                        print(f"      WARN HTTP {r.status_code}（{resp_model(r) or '未知模型'}）", flush=True)
                         return []
                     g = _parse_batch(r.json(), b, f"拆半{depth}")
                     if g:
@@ -173,24 +191,18 @@ def translate_all(cfg, batch_size=10):
         for _e, _t, _s in got:
             cache_set(TASK, _cache_key(_e), json.dumps({"title": _t, "summary": _s}, ensure_ascii=False))
         print(f"  批次 {i//BATCH+1}/{n_batches}: 累计 {len(results)}", flush=True)
+        # 每 5 批阶段落盘：缓存 + 已译事件，长批被超时杀掉也不丢
+        if (i // BATCH + 1) % 5 == 0:
+            cache_save()
+            apply_all()
+            atomic_dump_events(ev)
         time.sleep(2)
 
     cache_save()
 
     # 统一写库
-    by_id = {e["id"]: e for e in ev}
-    n = 0
-    for e, t, s in results:
-        tgt = by_id.get(e["id"])
-        if not tgt:
-            continue
-        tgt["title"] = t
-        if s:
-            tgt["summary"] = s
-            if not tgt.get("aiSummary"):
-                tgt["aiSummary"] = s
-        n += 1
-    json.dump(ev, open("data/events.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    n = apply_all()
+    atomic_dump_events(ev)
     left = len(_pending(ev))
     print(f"DONE: 翻译成功 {len(results)}（缓存复用 {n_cache}），写入 {n}，剩余英文 {left}")
     print(f"缓存: {cache_stats()}")

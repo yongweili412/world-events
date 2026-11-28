@@ -82,3 +82,26 @@ python scraper/shard_events.py split
 
 先跑 `python scraper/validate.py --json` 看数据现状，再读 `docs/` 最近一份完成记录。
 不要假设 README 与代码一致——先验证，再改。
+
+## 10. 公共工具：写库 / 诊断 / 速览口径（2026-11-28）
+
+`scraper/llm_utils.py` 是这三个约定的单一实现，新增脚本请直接引用，不要各写一套：
+
+| 能力 | 用法 | 约定 |
+|---|---|---|
+| 原子写回 | `atomic_dump_events(ev)` / `atomic_dump(obj, path)` | 临时文件 + `os.replace` + 复读断言；`events.json` 用紧凑格式（与 `shard_events.py merge` 一致） |
+| 应答诊断 | `diagnose_response(r, exc=...)` | 分 `ok / rate_limit / server_error / short / http / none / exception`，`reason` 必带网关回包的 `model` |
+| 速览清洗 | `tidy_summary(s)` | 去代码块、压空白、按句截断到 120 字；`MIN_SUMMARY_LEN=50` 为合格下限 |
+
+两条硬规则：
+
+- **禁止** `json.dump(ev, open("data/events.json","w"))` 这种非原子写法——中途被杀会留下半截
+  JSON，且 `indent=1/2` 会让 70MB 工作副本反复膨胀。写库统一走上面的工具。
+- LLM 失败日志**禁止**再写"限流/失败"这种笼统标签：200 但空/过短是上游软性降载，
+  不是 429；两者处置完全不同（前者退避重试，后者才需要换档/冷却）。
+
+已接入：`scraper.py`、`full_summary_batch.py`、`keypoints_batch.py`、`field_translate.py`、
+`translate_cloud.py`、`fill_images.py`、`backfill_gaps.py`、`backfill_early_years.py`、
+`value_judge.py`、`llm_cache.py`。`normalize_data.py` / `kp_cycle.py` 本就自带等价的
+`tmp + os.replace`，无需改动。
+

@@ -11,6 +11,7 @@
 import json, re, time, os, sys, requests
 from llm_guard import resolve_model, chat_raw  # 模型守卫：限时免费优先，其次 flash；禁用 GLM-5.3/KIMI K3
 from llm_cache import cache_get, cache_set, cache_save, stats as cache_stats
+from llm_utils import atomic_dump_events  # 项目级原子写回，长批中断不丢已完成译文
 
 KEY = (os.environ.get("LLM_API_KEY") or "").strip()   # 安全：不内置兜底密钥（公开仓库会泄露）
 BATCH = 12
@@ -102,6 +103,30 @@ def main():
 
     n_ok = n_cache
     n_batches = (len(pending) + BATCH - 1) // BATCH
+
+    def apply_all():
+        """把已拿到的译文写回 ev 的所有引用位置（幂等），供中途落盘与收尾共用。"""
+        nonlocal n_ok
+        for k, ent in uniq.items():
+            zh = ent.get("zh")
+            if not zh:
+                continue
+            for (ei, kind, idx) in ent["refs"]:
+                e = ev[ei]
+                try:
+                    if kind == "desc":
+                        e["description"] = zh
+                    elif kind == "src_title":
+                        e["sources"][idx]["title"] = zh
+                    elif kind == "src_snip":
+                        e["sources"][idx]["snippet"] = zh
+                    elif kind == "tl":
+                        e["timeline"][idx]["text"] = zh
+                    if not ent.get("_counted"):
+                        n_ok += 1
+                        ent["_counted"] = True
+                except Exception:
+                    pass
     for i in range(0, len(pending), BATCH):
         batch = pending[i:i + BATCH]
         payload = [{"i": j, "en": (ent["orig"][:280])} for j, (k, ent) in enumerate(batch)]
@@ -179,32 +204,17 @@ def main():
                 cache_set(TASK, k, zh)
         if i % (BATCH * 5) == 0:
             print(f"  进度 {i//BATCH+1}/{n_batches}: 累计 {n_ok}", flush=True)
+            # 每 5 批阶段落盘：缓存 + 已完成译文，长批被超时杀掉也不丢
+            cache_save()
+            apply_all()
+            atomic_dump_events(ev)
         time.sleep(2)
 
     # ── 回填：一份译文写入所有引用位置（desc / src_snip / tl 通用） ──
-    for k, ent in uniq.items():
-        zh = ent.get("zh")
-        if not zh:
-            continue
-        for (ei, kind, idx) in ent["refs"]:
-            e = ev[ei]
-            try:
-                if kind == "desc":
-                    e["description"] = zh
-                elif kind == "src_title":
-                    e["sources"][idx]["title"] = zh
-                elif kind == "src_snip":
-                    e["sources"][idx]["snippet"] = zh
-                elif kind == "tl":
-                    e["timeline"][idx]["text"] = zh
-                if not ent.get("_counted"):
-                    n_ok += 1
-                    ent["_counted"] = True
-            except Exception:
-                pass
+    apply_all()
 
     cache_save()
-    json.dump(ev, open("data/events.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    atomic_dump_events(ev)
     left = 0
     for e in ev:
         if has_en(e.get("description") or ""):

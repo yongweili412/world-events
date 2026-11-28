@@ -21,6 +21,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 
 from llm_guard import chat_raw  # 模型守卫：免费优先→flash；禁用 GLM-5.3/KIMI K3
+from llm_utils import resp_model  # 失败日志带实际应答模型名，避免"HTTP ?"式糊涂账
 import event_schema as ES
 
 PROMPT_FILE = Path(__file__).parent / "prompts" / "archive_value_v1.txt"
@@ -126,13 +127,19 @@ def judge_one(item, timeout=120):
         print(f"  ⚠️ 价值判断调用异常 {type(ex).__name__}，转 REVIEW", flush=True)
         return None
     if r is None or getattr(r, "status_code", 0) != 200:
-        print(f"  ⚠️ 价值判断 HTTP {getattr(r, 'status_code', '?')}，转 REVIEW", flush=True)
+        code = getattr(r, "status_code", "?")
+        model = resp_model(r) if r is not None else ""
+        print(f"  ⚠️ 价值判断 HTTP {code}（{model or '未知模型'}），转 REVIEW", flush=True)
         return None
     try:
         content = (r.json()["choices"][0]["message"].get("content") or "").strip()
     except Exception:
         return None
-    return _normalize(_extract_json(content))
+    res = _normalize(_extract_json(content))
+    if res is None:
+        # 200 但内容不可解析（空返回/截断/裸引号）——与 HTTP 失败分开记，便于定位
+        print(f"  ⚠️ 价值判断返回不可解析（{resp_model(r) or '未知模型'}，{len(content)}字），转 REVIEW", flush=True)
+    return res
 
 
 def judge_items(items, batch=None, sleep=2.0):
