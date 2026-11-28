@@ -4,11 +4,18 @@
 省 token 优化（2026-09-19，第 5/8/9 条）：
   第 5 条 智能跳过：已有合格长速览（aiSummary ≥150 字）的事件不再重做。
   第 8 条 智能降级：按事件重要性分三级——
-      A 重要（命中 IMPORTANT_KEYWORDS）→ 抓全文 3000 字 → 200-300 字 → summaryFull=true（"全文版"徽标）
-      B 普通 → 抓前 1500 字 → ≤200 字 → summaryFull=false（不冒领"全文版"徽标，输入减半省 token）
+      A 重要（命中 IMPORTANT_KEYWORDS）→ 抓全文 3000 字 → 60-120 字 → summaryFull=true（"全文版"徽标）
+      B 普通 → 抓前 1500 字 → 60-90 字 → summaryFull=false（不冒领"全文版"徽标，输入减半省 token）
       C 已有长速览 → 直接跳过
   第 9 条 结果复用：同一 URL+日期 的速览结果缓存，重复处理零 token；输出 max_tokens=600 封顶。
+
+2026-11-28 修正（夜轮排障）：
+  1. 失败诊断分四类——429 限流 / 5xx / 空或过短返回 / 请求异常，并打印实际应答模型名；
+     原实现把"HTTP 200 但正文 <100 字"也标成"限流/失败"，日志里看不到任何 [llm] 换档记录，容易误判。
+  2. 成功门槛 MIN_SUMMARY_LEN=50，与 60-120 字速览规则对齐（原 100 字门槛会误杀合格短速览）。
+  3. 每 10 条把 events.json 原子落盘（临时文件 + os.replace），进程超时/中断不再丢已完成结果。
 """
+
 import json, re, time, sys, os, requests
 from llm_guard import resolve_model, chat_raw  # 模型守卫：限时免费优先，其次 flash；禁用 GLM-5.3/KIMI K3
 from llm_cache import cache_get, cache_set, cache_save, stats as cache_stats
@@ -23,6 +30,13 @@ MAX_TOKENS = 600           # 速览输出上限
 LONG_SUMMARY_MIN = 150     # 已有速览 ≥ 此长度视为"合格"，跳过（第 5 条）
 IMPORTANT_INPUT = 3000     # A 级输入字数（全文）
 NORMAL_INPUT = 1500        # B 级输入字数（减半省 token）
+MIN_SUMMARY_LEN = 50       # 2026-11-28：与 60-120 字规则对齐。原门槛 100 字会把合格短速览误判为失败
+SUMMARY_TRIM = 120         # 超过此长度按句截断，严格对齐 60-120 字规则
+FLUSH_EVERY = 10           # 每 N 条落盘一次，进程中断不丢已完成结果
+
+# 最近一次生成失败的诊断信息（不改变 gen_full_summary 的返回类型）
+LAST_FAIL = {"reason": "", "model": ""}
+LAST_MODEL = ""
 
 # 第 8 条：重要性关键词——命中即按 A 级（全文）处理。
 # 注意：只用"显著事件"词，避免"发布/上市/会议"这类日常高频词把普通事件误升为 A 级；
@@ -111,12 +125,35 @@ def fetch_fulltext(url, limit=None):
     return (text[:cap] if len(text) > 200 else None), (image or None)
 
 
+def _resp_model(r):
+    """取实际应答的模型名（网关回包里的 model 字段），取不到返回空串。"""
+    try:
+        return str((r.json() or {}).get("model") or "")
+    except Exception:
+        return ""
+
+
+def _tidy_summary(s):
+    """去代码块标记/压缩空白，并把超长文本按句截断到 120 字左右。"""
+    s = re.sub(r"^```[a-z]*\n?|```$", "", (s or "").strip(), flags=re.M).strip()
+    s = re.sub(r"\s+", " ", s)
+    if len(s) > SUMMARY_TRIM:
+        cut = max(s.rfind("。", 0, SUMMARY_TRIM + 1), s.rfind("；", 0, SUMMARY_TRIM + 1))
+        s = s[:cut + 1] if cut >= MIN_SUMMARY_LEN else s[:118].rstrip("，、；：") + "。"
+    return s
+
+
 def gen_full_summary(title, text, date, important=True):
-    """生成速览。important=True 走 A 级（200-300 字），False 走 B 级（≤200 字）。"""
+    """生成 60-120 字速览。
+
+    失败原因区分四类并记录实际模型名：429 限流 / 5xx 服务不可用 / 空或过短返回 / 请求异常。
+    2026-11-28 起不再把"200 但内容短"笼统标成"限流"，诊断信息写入 LAST_FAIL 供 main 汇总。
+    """
+    global LAST_MODEL, LAST_FAIL
     if important:
-        spec = "200-300字，覆盖事件全貌：发生时间地点、核心事实与数字、背景、各方反应或影响"
+        spec = "60-120字，覆盖事件全貌：发生时间地点、核心事实与数字、背景、各方反应或影响"
     else:
-        spec = "120-200字，抓住事件核心事实（时间地点、发生了什么、结果），不必展开背景"
+        spec = "60-90字，抓住事件核心事实（时间地点、发生了什么、结果），不必展开背景"
     prompt = f"""你是新闻编辑，为"世界事件档案"网站的这条事件写一份速览。
 要求：基于提供的原文（不是仅凭标题），{spec}。平实新闻体，不用夸张词；字符串内禁止双引号。输出纯文本，不要 JSON、不要标题、不要"以下是"之类开场白。
 
@@ -126,34 +163,66 @@ def gen_full_summary(title, text, date, important=True):
     if not KEY:
         # 与代码库既有约定一致（translate_cloud / backfill_history）：缺 Key 时跳过而非中断夜跑
         print("⚠️ 未配置 LLM_API_KEY，跳过（已移除内置兜底密钥，请在 GitHub Secrets / 本机环境变量配置）")
+        LAST_FAIL = {"reason": "缺少 LLM_API_KEY", "model": ""}
         return None
+    # 2026-10-11：加入同模型指数退避重试——网关 429 时先退避重试同档。
+    # 2026-10-19 更新：备选档已改为三档结构（见 llm_guard），原 glm-4.5-flash
+    # 因额度耗尽列入 exhausted_models，不再作为切换目标。
+    RETRY_DELAYS = (4, 12, 30, 60)
+    reason = "未获得响应"
     try:
-        # 2026-10-11：加入同模型指数退避重试——网关 429 时先退避重试同档。
-        # 2026-10-19 更新：备选档已改为三档结构（见 llm_guard），原 glm-4.5-flash
-        # 因额度耗尽列入 exhausted_models，不再作为切换目标。
-        RETRY_DELAYS = (4, 12, 30, 60)
-        content = None
         for attempt in range(len(RETRY_DELAYS) + 1):
             r = None
+            retryable = True
             try:
                 r = chat_raw(prompt, key=KEY, timeout=120, max_tokens=MAX_TOKENS)
-            except Exception:
-                r = None
-            if r is not None and r.status_code == 200:
-                try:
-                    content = (r.json()["choices"][0]["message"].get("content") or "").strip()
-                except Exception:
-                    content = ""
-                content = re.sub(r"^```[a-z]*\n?|```$", "", content.strip(), flags=re.M).strip()
-                if content and len(content) >= 100:
-                    return content if len(content) <= 600 else content[:600]
-                content = None
+            except Exception as ex:
+                reason = f"请求异常 {type(ex).__name__}"
+            if r is not None:
+                model = _resp_model(r) or LAST_MODEL or "未知模型"
+                LAST_MODEL = model
+                if r.status_code == 200:
+                    try:
+                        raw = (r.json()["choices"][0]["message"].get("content") or "").strip()
+                    except Exception:
+                        raw = ""
+                    content = _tidy_summary(raw)
+                    if content and len(content) >= MIN_SUMMARY_LEN:
+                        return content
+                    # 200 但空/过短：多为上游软性降载或思考链占满，绝非 429
+                    reason = f"空/过短返回（{model}，{len(content)}字）"
+                elif r.status_code == 429:
+                    reason = f"限流 429（{model}）"
+                elif r.status_code >= 500:
+                    reason = f"服务不可用 {r.status_code}（{model}）"
+                else:
+                    # 401/403/404 等非限流类 4xx：重试无意义，直接放弃本事件
+                    reason = f"HTTP {r.status_code}（{model}）"
+                    retryable = False
+            if not retryable:
+                break
             if attempt < len(RETRY_DELAYS):
-                print(f"  ↻ 限流/失败，{RETRY_DELAYS[attempt]}s 后重试", flush=True)
+                print(f"  ↻ {reason}，{RETRY_DELAYS[attempt]}s 后重试", flush=True)
                 time.sleep(RETRY_DELAYS[attempt])
+        LAST_FAIL = {"reason": reason, "model": LAST_MODEL}
         return None
-    except Exception:
+    except Exception as ex:
+        LAST_FAIL = {"reason": f"未预期异常 {type(ex).__name__}", "model": LAST_MODEL}
         return None
+
+
+def _write_events(ev):
+    """原子写回 events.json（临时文件 + os.replace），供中途落盘与收尾共用。"""
+    tmp = "data/events.json.tmp"
+    with open(tmp, "w", encoding="utf-8") as f:
+        # 与 shard_events.py merge 的紧凑格式保持一致（indent=None），避免工作副本反复膨胀
+        json.dump(ev, f, ensure_ascii=False, indent=None)
+        f.flush()
+        try:
+            os.fsync(f.fileno())
+        except Exception:
+            pass
+    os.replace(tmp, "data/events.json")
 
 
 def main():
@@ -181,13 +250,23 @@ def main():
           + f"；跳过已有长速览 {n_skip_long} 条（第5条）", flush=True)
 
     ok, skip, n_cache, n_imp = 0, 0, 0, 0
+    n_fail_fetch, n_fail_gen = 0, 0
+    fails = []
+
+    def flush(done_tag):
+        """缓存 + 事件数据一起落盘（原子写），供每 N 条及收尾调用。"""
+        cache_save()
+        _write_events(ev)
+        print(f"  💾 已落盘 {done_tag}/{len(targets)}（中断不丢已完成结果）", flush=True)
+
     for i, e in enumerate(targets):
         url = e["sources"][0]["url"]
         important = is_important(e)   # 第 8 条：重要性分级
         # 第 9 条：结果缓存——同 URL+日期 直接复用
         ck = f"{url}|{e.get('date','')}|{'A' if important else 'B'}"
-        hit = cache_get(TASK, ck)
-        if hit:
+        # 缓存命中也做一次清洗/截断（历史缓存可能超长），过短的旧缓存视为无效重新生成
+        hit = _tidy_summary(cache_get(TASK, ck) or "")
+        if hit and len(hit) >= MIN_SUMMARY_LEN:
             e["aiSummary"] = hit
             e["summaryFull"] = True if important else False
             e["summaryBasedOn"] = url
@@ -195,6 +274,8 @@ def main():
             n_cache += 1
             ok += 1
             print(f"  [{i+1}/{len(targets)}] ↺ 缓存复用({'A' if important else 'B'}) {e['title'][:36]}", flush=True)
+            if (i + 1) % FLUSH_EVERY == 0:
+                flush(i + 1)
             continue
 
         text, img = fetch_fulltext(url, IMPORTANT_INPUT if important else NORMAL_INPUT)
@@ -202,7 +283,12 @@ def main():
             e["image"] = img  # 顺带补齐主图（即便正文抓取失败也已写入）
         if not text:
             skip += 1
+            n_fail_fetch += 1
+            fails.append({"id": e.get("id"), "url": url, "stage": "fetch",
+                          "reason": "正文抓取失败或过短(≤200字)", "model": ""})
             print(f"  [{i+1}/{len(targets)}] 抓全文失败，跳过: {e['title'][:40]}", flush=True)
+            if (i + 1) % FLUSH_EVERY == 0:
+                flush(i + 1)
             continue
         s = gen_full_summary(e["title"], text, e["date"], important=important)
         if s:
@@ -220,21 +306,30 @@ def main():
             print(f"  [{i+1}/{len(targets)}] ✓ {'A' if important else 'B'} {e['title'][:40]}", flush=True)
         else:
             skip += 1
-            print(f"  [{i+1}/{len(targets)}] 生成失败: {e['title'][:40]}", flush=True)
+            n_fail_gen += 1
+            fails.append({"id": e.get("id"), "url": url, "stage": "summary",
+                          "reason": LAST_FAIL.get("reason", ""), "model": LAST_FAIL.get("model", "")})
+            print(f"  [{i+1}/{len(targets)}] 生成失败（{LAST_FAIL.get('reason', '')}）: {e['title'][:40]}", flush=True)
         time.sleep(1.5)
-        if (i + 1) % 10 == 0:
-            cache_save()   # 阶段性落盘，防中途被杀丢缓存
+        if (i + 1) % FLUSH_EVERY == 0:
+            flush(i + 1)
 
-    cache_save()
-    with open("data/events.json", "w", encoding="utf-8") as f:
-        json.dump(ev, f, ensure_ascii=False, indent=1)
-        f.flush()
+    flush(len(targets))
     with open("data/events.json", encoding="utf-8") as f:
         _chk = json.load(f)
     assert len(_chk) == len(ev), f"复读断言失败 {len(_chk)} != {len(ev)}"
     total = len([e for e in ev if e.get("summaryFull")])
-    print(f"DONE: 成功 {ok}（其中缓存复用 {n_cache}、A级全文版 {n_imp}），跳过 {skip}，"
+    print(f"DONE: 成功 {ok}（其中缓存复用 {n_cache}、A级全文版 {n_imp}），跳过 {skip}"
+          f"（抓全文失败 {n_fail_fetch}、生成失败 {n_fail_gen}），"
           f"库内 summaryFull 总数 {total}/{len(ev)}")
+    if fails:
+        by_reason = {}
+        for f in fails:
+            k = f["reason"] or "未知"
+            by_reason[k] = by_reason.get(k, 0) + 1
+        print("失败原因分布: " + json.dumps(by_reason, ensure_ascii=False))
+        for f in fails:
+            print("FAIL_ITEM " + json.dumps(f, ensure_ascii=False), flush=True)
     print(f"缓存: {cache_stats()}")
 
 
