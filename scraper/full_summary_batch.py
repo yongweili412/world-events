@@ -31,6 +31,7 @@ UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.3
 TASK = "ft_summary"        # 缓存任务名
 MAX_TOKENS = 600           # 速览输出上限
 LONG_SUMMARY_MIN = 150     # 已有速览 ≥ 此长度视为"合格"，跳过（第 5 条）
+TARGET_MAX_LEN = 60        # 存量轮只补真实缺口：速览缺失或不足 60 字才列入目标
 IMPORTANT_INPUT = 3000     # A 级输入字数（全文）
 NORMAL_INPUT = 1500        # B 级输入字数（减半省 token）
 # MIN_SUMMARY_LEN / SUMMARY_TRIM 统一由 llm_utils 提供（60-120 字口径的单一事实源）
@@ -61,9 +62,20 @@ def fetch_fulltext(url, limit=None):
         r = requests.get(url, headers=UA, timeout=15)
         if r.status_code != 200:
             return None, None
-        if not r.encoding or r.encoding.lower() in ("iso-8859-1", "ascii"):
-            r.encoding = r.apparent_encoding
-        html = r.text
+        # 2026-11-29：强制按 UTF-8→GB18030 解码。实测 zaobao 等站点被 apparent_encoding
+        # 判成 latin-1，取到的正文是乱码；而 r.text 也会踩这个坑。
+        raw = r.content
+        html = None
+        for enc in ("utf-8", "gb18030"):
+            try:
+                cand = raw.decode(enc)
+                if cand and cand.count("\ufffd") < 5:
+                    html = cand
+                    break
+            except UnicodeDecodeError:
+                continue
+        if html is None:
+            html = raw.decode(r.apparent_encoding or "utf-8", errors="ignore")
     except Exception:
         return None, None
     # 顺带提取主图（复用 scraper 的提取器）
@@ -82,9 +94,15 @@ def fetch_fulltext(url, limit=None):
     # 702 字），只取"第一个匹配"会命中空壳容器导致抓取失败（2026-09-19 修复，此前 CCTV 源 100% 失败）。
     # 2026-10-14 增补：cri.cn（news.cri.cn）正文容器为 div id="abody"（class="list-abody abody"），
     # 不在旧列表内导致该源 100% 抓取失败；加入 abody 后恢复正常（实测提取 700+ 字）。
+    # 2026-11-29：先整体剥离 script/style 再定位容器。否则容器起点落在 <script> 内部时，
+    # 截出来的片段没有 <script> 开标签，去标签正则不生效，整段 JS 会被当成正文
+    # （zaobao 实测：抓到 1500 字 function getUrlParam…，模型只能凭标题臆写）。
+    html_wo = re.sub(r"<script[\s\S]*?</script>|<style[\s\S]*?</style>|<noscript[\s\S]*?</noscript>",
+                     " ", html, flags=re.I)
+
     cands = [mm.start() for mm in re.finditer(
         r'<div[^>]*(?:id|class)="(?:left_zw|content_area|text_area|article[_-]?content|TRS_Editor|zoom|content|article|abody)"[^>]*>',
-        html, re.I)]
+        html_wo, re.I)]
     if not cands:
         cands = [0]
 
@@ -93,10 +111,37 @@ def fetch_fulltext(url, limit=None):
         seg = re.sub(r"<[^>]+>", " ", seg)
         return re.sub(r"\s+", " ", seg).strip()
 
+    def _zh_ratio(t):
+        return len(re.findall(r"[\u4e00-\u9fff]", t)) / max(1, len(t))
+
+    def _looks_code(t):
+        """代码特征：JS 关键字密集或括号/分号占比过高。"""
+        kw = len(re.findall(r"\b(?:function|var|let|const|return|window|document|undefined|null|true|false)\b", t))
+        punct = t.count("{") + t.count("}") + t.count(";")
+        return kw >= 3 or punct > max(20, len(t) * 0.03)
+
+    def _usable(t):
+        if not t or len(t) < 200 or _looks_code(t):
+            return False
+        latin = len(re.findall(r"[A-Za-z]", t)) / max(1, len(t))
+        return _zh_ratio(t) > 0.25 or latin > 0.45
+
     best = ""
+    # 2026-11-29：zaobao 正文在 JSON-LD 的 articleBody 里，优先直接取，成功率 100%。
+    m_ab = re.search(r'"articleBody"\s*:\s*"((?:[^"\\]|\\.){80,})"', html)
+    if m_ab:
+        try:
+            import json as _json
+            body = _json.loads('"' + m_ab.group(1) + '"')
+        except Exception:
+            body = m_ab.group(1)
+        body = _clean(body)
+        if _usable(body):
+            best = body
+
     for st in cands[:6]:          # 最多评估前 6 个候选，避免大页面重复处理
-        t = _clean(html[st:st + 9000])
-        if len(t) > len(best):
+        t = _clean(html_wo[st:st + 9000])
+        if _usable(t) and len(t) > len(best):
             best = t
     # 2026-10-21 增补：Next.js 站点（澎湃 thepaper.cn 等）正文由 JS 渲染，
     # HTML 里只剩 __NEXT_DATA__ 的 JSON，容器正则取不到正文（实测 64 条全部失败）。
@@ -118,13 +163,14 @@ def fetch_fulltext(url, limit=None):
                         longest = cur
                 if longest:
                     cand = _clean(longest)
-                    if len(cand) > len(best):
+                    if _usable(cand) and len(cand) > len(best):
                         best = cand
         except Exception:
             pass
-    text = best
+    if not _usable(best):
+        return None, (image or None)
     cap = limit or IMPORTANT_INPUT
-    return (text[:cap] if len(text) > 200 else None), (image or None)
+    return best[:cap], (image or None)
 
 
 def _resp_model(r):
@@ -137,6 +183,60 @@ def _tidy_summary(s):
     return tidy_summary(s)
 
 
+def fetch_lead(url):
+    """抓「正文开头/导语」作兜底（全文抓不到时用），返回文本或 None。
+
+    适用：zaobao（JSON-LD 只有 articleBody 导语）、France24（chapo）、
+    以及多数站点的 meta description。只接受 ≥80 字，避免把导航当导语。
+    调用方须保持 summaryFull=False，并在失败清单里注明"仅导语"。
+    """
+    try:
+        r = requests.get(url, headers=UA, timeout=15)
+        if r.status_code != 200:
+            return None
+        raw = r.content
+        html = None
+        for enc in ("utf-8", "gb18030"):
+            try:
+                cand = raw.decode(enc)
+                if cand and cand.count("\ufffd") < 5:
+                    html = cand
+                    break
+            except UnicodeDecodeError:
+                continue
+        if html is None:
+            html = raw.decode(r.apparent_encoding or "utf-8", errors="ignore")
+    except Exception:
+        return None
+
+    def _clean(seg):
+        seg = re.sub(r"<script[\s\S]*?</script>|<style[\s\S]*?</style>", " ", seg, flags=re.I)
+        seg = re.sub(r"<[^>]+>", " ", seg)
+        for a, b in (("&nbsp;", " "), ("&amp;", "&"), ("&quot;", '"'),
+                     ("&#39;", "'"), ("&ldquo;", "“"), ("&rdquo;", "”")):
+            seg = seg.replace(a, b)
+        return re.sub(r"\s+", " ", seg).strip()
+
+    cands = []
+    m = re.search(r'"articleBody"\s*:\s*"((?:[^"\\]|\\.){40,})"', html)
+    if m:
+        try:
+            import json as _json
+            cands.append(_clean(_json.loads('"' + m.group(1) + '"')))
+        except Exception:
+            cands.append(_clean(m.group(1)))
+    m2 = re.search(r'<p class="t-content__chapo"[^>]*>([\s\S]*?)</p>', html)
+    if m2:
+        cands.append(_clean(m2.group(1)))
+    m3 = re.search(r'<meta[^>]+name="description"[^>]+content="([^"]{40,})"', html, re.I)
+    if m3:
+        cands.append(_clean(m3.group(1)))
+    for t in cands:
+        if len(t) >= 50 and not re.search(r"\b(?:function|var|let|const|window)\b", t):
+            return t[:800]
+    return None
+
+
 def gen_full_summary(title, text, date, important=True):
     """生成 60-120 字速览。
 
@@ -145,11 +245,15 @@ def gen_full_summary(title, text, date, important=True):
     """
     global LAST_MODEL, LAST_FAIL
     if important:
-        spec = "60-120字，覆盖事件全貌：发生时间地点、核心事实与数字、背景、各方反应或影响"
+        spec = ("2-3 句话，总长 60-120 字；第一句写清时间地点与核心事实，"
+                "后文补充关键数字、各方反应或影响")
     else:
-        spec = "60-90字，抓住事件核心事实（时间地点、发生了什么、结果），不必展开背景"
-    prompt = f"""你是新闻编辑，为"世界事件档案"网站的这条事件写一份速览。
-要求：基于提供的原文（不是仅凭标题），{spec}。平实新闻体，不用夸张词；字符串内禁止双引号。输出纯文本，不要 JSON、不要标题、不要"以下是"之类开场白。
+        spec = "2-3 句话，总长 60-100 字；写清时间地点、发生了什么、结果"
+    prompt = f"""你是新闻编辑，为“世界事件档案”写一条中文速览。必须同时满足：
+①{spec}；
+②只使用原文中出现的事实，不得编造原文没有的细节；
+③平实新闻体，不用夸张词，不使用英文（专名除外），不使用双引号；
+④只输出速览正文，不要标题、不要开场白。
 
 事件：{title}（{date}）
 原文：
@@ -164,6 +268,7 @@ def gen_full_summary(title, text, date, important=True):
     # 因额度耗尽列入 exhausted_models，不再作为切换目标。
     RETRY_DELAYS = (4, 12, 30, 60)
     reason = "未获得响应"
+    expanded = False
     try:
         for attempt in range(len(RETRY_DELAYS) + 1):
             try:
@@ -176,6 +281,27 @@ def gen_full_summary(title, text, date, important=True):
             if d["ok"]:
                 return d["content"]
             reason = d["reason"]
+            # 2026-11-29：短返回是模型的稳定行为（同一 prompt 重试会得到逐字相同的结果，
+            # 实测 39 字两次完全一致），按 429 退避纯属浪费。改为一次明确的“扩写”调用。
+            if d["kind"] == "short":
+                short = d.get("content") or ""
+                if not expanded and len(short) >= 15:
+                    expanded = True
+                    ep = f"""下面这条速览只有 {len(short)} 字，太短。请依据原文扩写到 60-110 字，分 2-3 句，
+补充原文中已有的数字、地点或各方反应，不得编造原文没有的事实；只输出扩写后的速览。
+
+原文：
+{text}
+现有速览：{short}"""
+                    try:
+                        r2 = chat_raw(ep, key=KEY, timeout=120, max_tokens=MAX_TOKENS)
+                        d2 = diagnose_response(r2, min_len=MIN_SUMMARY_LEN, max_len=SUMMARY_TRIM)
+                    except Exception as ex:
+                        d2 = diagnose_response(None, exc=ex)
+                    if d2["ok"]:
+                        return d2["content"]
+                    reason = f"{d['reason']}；扩写后仍不足（{len(d2.get('content') or '')}字）"
+                break
             # 401/403/404 等非限流类 4xx：重试无意义，直接放弃本事件
             if not d["retryable"]:
                 break
@@ -207,19 +333,20 @@ def main():
         u = (e.get("sources") or [{}])[0].get("url") or ""
         return any(h in u for h in CN_HOSTS)
 
-    # 第 5 条：智能跳过——已有合格长速览的事件不再重做
-    def skip_long(e):
-        return (not e.get("summaryFull")) and len(e.get("aiSummary") or "") >= LONG_SUMMARY_MIN
+    # 第 5 条：智能跳过——已有合格速览的事件不再重做
+    # 2026-11-29：存量轮改为只挑「速览缺失或不足 60 字」。此前按日期倒序取前 100，
+    # 命中的全是"有缓存但非全文版"的近期条目，每轮重复占用配额却不产生新内容。
+    def needs_work(e):
+        return len(e.get("aiSummary") or "") < TARGET_MAX_LEN
 
     candidates = [e for e in ev
                   if not e.get("summaryFull")
+                  and needs_work(e)
                   and (e.get("sources") or [{}])[0].get("url")
                   and (ALL_SOURCES or is_cn(e))]
-    n_skip_long = sum(1 for e in candidates if skip_long(e))
-    targets = sorted([e for e in candidates if not skip_long(e)],
-                     key=lambda e: e["date"], reverse=True)[:LIMIT]
+    targets = sorted(candidates, key=lambda e: e["date"], reverse=True)[:LIMIT]
     print(f"本轮推进全文速览: {len(targets)} 条" + ("" if ALL_SOURCES else "（仅国内可达源）")
-          + f"；跳过已有长速览 {n_skip_long} 条（第5条）", flush=True)
+          + f"；候选缺口共 {len(candidates)} 条（速览<{TARGET_MAX_LEN}字）", flush=True)
 
     ok, skip, n_cache, n_imp = 0, 0, 0, 0
     n_fail_fetch, n_fail_gen = 0, 0
@@ -236,9 +363,9 @@ def main():
         important = is_important(e)   # 第 8 条：重要性分级
         # 第 9 条：结果缓存——同 URL+日期 直接复用
         ck = f"{url}|{e.get('date','')}|{'A' if important else 'B'}"
-        # 缓存命中也做一次清洗/截断（历史缓存可能超长），过短的旧缓存视为无效重新生成
+        # 缓存命中也做一次清洗/截断（历史缓存可能超长）；短于目标口径的旧缓存视为无效，重新生成
         hit = _tidy_summary(cache_get(TASK, ck) or "")
-        if hit and len(hit) >= MIN_SUMMARY_LEN:
+        if hit and len(hit) >= TARGET_MAX_LEN:
             e["aiSummary"] = hit
             e["summaryFull"] = True if important else False
             e["summaryBasedOn"] = url
@@ -251,13 +378,19 @@ def main():
             continue
 
         text, img = fetch_fulltext(url, IMPORTANT_INPUT if important else NORMAL_INPUT)
+        partial = False
         if img and not e.get("image"):
             e["image"] = img  # 顺带补齐主图（即便正文抓取失败也已写入）
+        if not text:
+            # 全文抓不到时退一步取导语：只写"基于正文开头"的速览，绝不冒领全文版
+            lead = fetch_lead(url)
+            if lead:
+                text, partial = lead, True
         if not text:
             skip += 1
             n_fail_fetch += 1
             fails.append({"id": e.get("id"), "url": url, "stage": "fetch",
-                          "reason": "正文抓取失败或过短(≤200字)", "model": ""})
+                          "reason": "正文与导语均抓取失败", "model": ""})
             print(f"  [{i+1}/{len(targets)}] 抓全文失败，跳过: {e['title'][:40]}", flush=True)
             if (i + 1) % FLUSH_EVERY == 0:
                 flush(i + 1)
@@ -266,16 +399,17 @@ def main():
         if s:
             # 速览文本写入 aiSummary；summaryFull 只作"基于全文"的布尔标记
             e["aiSummary"] = s
-            e["summaryFull"] = True if important else False   # B 级不冒领"全文版"徽标
-            # 留档：A 级（全文版）留 sourceExcerpt 供事后核验数字/事实
-            if important:
+            # 仅导语 → 一律 False；B 级（1500 字正文开头）同样不冒领"全文版"徽标
+            e["summaryFull"] = bool(important and not partial)
+            # 留档：全文版留 sourceExcerpt 供事后核验数字/事实
+            if important and not partial:
                 e["sourceExcerpt"] = re.sub(r"\s+", " ", text)[:400]
                 n_imp += 1
             e["summaryBasedOn"] = url
             e["summaryAt"] = time.strftime("%Y-%m-%d")
             cache_set(TASK, ck, s)
             ok += 1
-            print(f"  [{i+1}/{len(targets)}] ✓ {'A' if important else 'B'} {e['title'][:40]}", flush=True)
+            print(f"  [{i+1}/{len(targets)}] ✓ {'A' if important else 'B'}{'·导语' if partial else ''} {e['title'][:40]}", flush=True)
         else:
             skip += 1
             n_fail_gen += 1
